@@ -1,0 +1,62 @@
+#accordion-container {
+	font-size: 13px;
+
+	padding: 5px 10px 10px 10px;
+	border: 0px solid #cccccc;
+
+}
+
+.accordion-header {
+	font-size: 16px;
+	background: #ebebeb;
+	margin: 2px 0 0 0;
+	padding: 5px 10px;
+	border: 1px solid #E3F3FB;
+	cursor: pointer;
+	color: #666666;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+}
+
+.active-header {
+	-moz-border-radius: 5px 5px 0 0;
+	-webkit-border-radius: 5px 5px 0 0;
+	border-radius: 5px 5px 0 0;
+	background-image: url(images/active-header.gif);
+	background-position: right 50%;
+	color: #fff;
+}
+
+.active-header:hover {
+	background-image: url(images/active-header.gif);
+	background-position: right 50%;
+}
+
+.inactive-header {
+	background-image: url(images/inactive-header.png);
+	background-position: right 50%;
+	color: #fde052;
+}
+
+.inactive-header:hover {
+	background-image: url(images/inactive-header.png);
+	background-position: right 50%;
+}
+
+.accordion-content {
+	
+	display: none;
+	padding: 20px;
+	background-image: url(images/menu-bg.png);
+	border: 1px solid #cccccc;
+	margin-left:10px;
+	border-top: 1px;
+	-moz-border-radius: 0 0 5px 5px;
+	-webkit-border-radius: 0 0 5px 5px;
+	border-radius: 0 0 5px 5px;
+		-moz-box-shadow: 0 5px 15px #cccccc;
+	-webkit-box-shadow: 0 5px 15px #cccccc;
+	box-shadow: 0 5px 15px #cccccc;
+	
+}

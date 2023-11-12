@@ -1,0 +1,20 @@
+<div style="overflow-x:auto;">
+<table width="50%" border="1"  class="table table-bordered">
+<tr>
+<th>BRAND</th>
+<th>STOCK AS ON (DATE) BILL VALUE</th>
+<th>MARKET OS</th>
+<th>CO DUE</th>
+<th>INVEST</th>
+</tr>
+
+
+<tr>
+<td><b>HAIER</b></td>
+<td align="right" title="0 @ 9449.2172"><b>-13642.49</b></td>
+<td><b>24203091.67</b></td>
+<td><b>13705148.6</b></td>
+<td><b>10484300.58</b></td>
+</tr>
+</table>
+</div>

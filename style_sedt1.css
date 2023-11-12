@@ -1,0 +1,163 @@
+body a{
+	cursor:pointer;
+	}
+#wrapperl{
+	color:#000000;
+	font-family:tahoma;
+	font-size:14px;
+	margin:0 auto;
+	width:900px;
+	margin-top:50px;
+}
+
+#wrapperl a{
+	cursor:pointer;
+	font-size:15px;
+	font-weight:bold;
+	text-decoration:underline;
+}
+
+.boxl {
+	font-family: Georgia, serif; 
+	background: #3c8dbc;
+	color: #3a3a3a;
+    height: 600px;
+    left: 100%;
+    padding: 0px;
+    position: fixed;
+    right: 30%;
+    top: 10%;
+    width: 1400px;
+    z-index: 101;
+	border:0px solid #04091c;
+	border-radius:5px;
+	-moz-box-shadow: 0 5px 15px 0px #cccccc;
+	-webkit-box-shadow: 0 5px 15px 0px #cccccc;
+	box-shadow: 0 5px 15px 0px #cccccc;
+}
+.topb {
+	background: #3c8dbc;
+	padding: 0px;
+	height: 30px;
+	width: 1400px;
+	margin-top: 0px;
+	margin-right: auto;
+	margin-bottom: 0px;
+	margin-left: auto;
+	text-align:center;
+    border:0px solid #04091c;
+	border-radius:5px;
+}
+.top_leftb {
+	margin-top:0;
+	margin: 0px;
+	padding: 0px;
+	float: left;
+	height: 40px;
+	width: 1400px;
+	position: relative;
+    top: -55px;
+}
+.bnm{
+    margin-top:0;
+	margin: 0px;
+	padding: 0px;
+	float: left;
+	height: 50px;
+	width: 1360px;
+	position: relative;
+    top: -15px;
+}
+.boxl .topb .top_leftb h3 {
+	font-family: 'Libre Baskerville', serif;
+	font-size: 18px;
+	line-height: 50px;
+	font-weight: bold;
+	color: #FFF;
+	margin: 0px;
+	text-align: left;
+	font-variant: small-caps;
+	left:0px;
+	padding-left: 10px;
+}
+
+.boxl hr {
+	color: #0000ff;
+	width: 1400px;
+	padding: 0px;
+	margin-top: 2px;
+	margin-right: auto;
+	margin-bottom: 0px;
+	margin-left: auto;
+	height: 1px;
+	border-top-width: 1px;
+	border-right-width: 0px;
+	border-bottom-width: 0px;
+	border-left-width: 0px;
+	border-top-style: dashed;
+	position:absolute;
+	float:center;
+}
+.overlay {
+    background: #000000;
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 100;
+	opacity:0.6;
+}
+#contentl {
+	background: #f4f4f4;
+	height: 530px;
+	overflow:auto;
+	width: 1360px;
+	top: -53px;
+	left: 20px;
+	position:relative;
+	text-align:center;
+	
+	font-family: Verdana, Geneva, sans-serif;
+	color:#000;
+	}
+
+	
+a.boxclosel {
+  
+
+    cursor: pointer;
+    float: right;
+    height: 30px;
+    left: 0px;
+    top: 0px;
+    width: 30px;
+}
+
+.clear				{ clear: both; }
+
+#login-form				{ width: 406px; margin: 70px auto 0; }
+
+legend				{ display: none; }
+
+fieldset			{ border: 0; }
+
+.lbllgn				{
+	width: 115px;
+	text-align: right;
+	float: left;
+	margin: 0 10px 0 0;
+	padding: 9px 0 0 0;
+	font-size: 12px;
+	font-family: Verdana, Geneva, sans-serif;
+}
+#login				{ width: 220px; display: block; padding: 4px; margin: 0 0 10px 0; font-size: 18px;
+					  color: #3a3a3a; font-family: Georgia, serif;}
+#password				{ width: 220px; display: block; padding: 4px; margin: 0 0 10px 0; font-size: 18px;
+					  color: #3a3a3a; font-family: Georgia, serif;}
+#remember_me { width: 20px; margin: 0; display: inline-block; }
+					  
+.button				{ background: url(images/button-bg.png) repeat-x top center; border: 1px solid #999;
+					  -moz-border-radius: 5px; padding: 5px; color: black; font-weight: bold;
+					  -webkit-border-radius: 5px; font-size: 13px;  width: 70px; }
+.button:hover		{ background: white; color: black; }

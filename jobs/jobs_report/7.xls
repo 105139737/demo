@@ -1,0 +1,24 @@
+<div style="overflow-x:auto;">
+<table width="50%" border="1"  class="table table-bordered">
+<tr>
+<th>BRAND</th>
+<th>STOCK AS ON (DATE) BILL VALUE</th>
+<th>MARKET OS</th>
+<th>CO DUE</th>
+<th>INVEST</th>
+</tr>
+
+
+<br />
+<b>Notice</b>:  Undefined variable: brncd1 in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>105</b><br />
+<br />
+<b>Notice</b>:  Undefined variable: brncd1 in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>111</b><br />
+<tr>
+<td><b>LG</b></td>
+<td align="right" title="2 @ 35772.2995"><b>24210937.59</b></td>
+<td><b>14574057.08</b></td>
+<td><b>8725106.99</b></td>
+<td><b>30059887.68</b></td>
+</tr>
+</table>
+</div>

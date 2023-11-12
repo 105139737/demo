@@ -1,0 +1,50 @@
+<?
+$reqlevel = 1;
+include("membersonly.inc.php");
+$pcd=$_REQUEST['prnm'];
+$brncd=$_REQUEST['bcd'];
+$betno1=rawurldecode($_REQUEST['betnoo']);
+
+if($betno1=='undefined' ){$betno1='';}	
+if($pcd=="" or $brncd=="")
+{
+?>
+<input type="text" class="sc" autocomplete="off" id="betno" readonly name="betno" style="text-align:center"  onblur="spaces(this.value)" value="" tabindex="15" size="15"  >
+<?	
+}
+else
+{
+?>
+<input type="text"  list="bgss" id="betno" class="sc1" value="<?=$betno1;?>" autocomplete="off" name="betno" size="20"  onblur="spaces(this.value)" tabindex="15">
+<datalist id="bgss">
+<?
+$data1 = mysqli_query($conn,"SELECT * FROM main_stock WHERE pcd='$pcd' and bcd='$brncd' and betno!='' group by betno order by sl");
+while ($row1 = mysqli_fetch_array($data1))
+{
+$sl=$row1['sl'];
+$betnoo=$row1['betno'];
+$stck=0;
+/*
+$query4="Select sum(opst+stin-stout) as stck1 from ".$DBprefix."stock where pcd='$pcd' and bcd='$brncd' and betno='$betnoo'";
+$result4 = mysqli_query($conn,$query4);
+while ($R4 = mysqli_fetch_array ($result4))
+{
+$stck=$R4['stck1'];
+}
+*/
+
+?>
+<option><?=$betnoo?></option>
+<?
+
+}
+	
+?>
+</datalist>
+<?
+}
+?>
+<script>
+gtt_unt();
+get_prc();
+</script>

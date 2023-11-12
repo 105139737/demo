@@ -1,0 +1,1 @@
+<?php$reqlevel = 3;include("membersonly.inc.php");$query1 = "SELECT sum(ttl) as gttl ,sum(point) as pttl FROM ".$DBprefix."slt_oth where eby='$user_currently_loged'";$result1 = mysqli_query($conn,$query1);while ($R1 = mysqli_fetch_array ($result1)){$gttl=$R1['gttl'];$pttl=$R1['pttl'];}echo $gttl.'@'.$pttl;?>

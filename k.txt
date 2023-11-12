@@ -1,0 +1,232 @@
+import { Injectable } from '@angular/core';
+import { HttpService } from './http.service';
+import { Observable, BehaviorSubject, Subject } from 'rxjs';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class KanbanService {
+
+  token = 'd8d20d01-961c-41e9-a3b2-8618c9015ea9';
+  restUrl = 'https://cls91.bullhornstaffing.com/core/';
+
+  matche$: BehaviorSubject<any> = new BehaviorSubject<any>([]);
+
+  private boardSettingsSource = new Subject<any>();
+  private candidatePreviewSource = new Subject<any>();
+
+  boardSetting$ = this.boardSettingsSource.asObservable();
+  candidatePreview$ = this.candidatePreviewSource.asObservable();
+
+  constructor(
+    private httpService: HttpService
+  ) {}
+
+  getMatches(): Observable<any> {
+    return this.matche$.asObservable();
+  }
+
+  setMatches(matches: any): void {
+    this.matche$.next(matches);
+  }
+
+  setBoardSettings(settings: any) {
+    this.boardSettingsSource.next(settings);
+  }
+
+  setCandidatePreview(entityId: any) {
+    this.candidatePreviewSource.next(entityId);
+  }
+
+  getJobsAndSubmissions(searchByclientId=0,recruiterId?: string, count = 15, start = 0, sortBy = '-dateAdded') {
+    return new Promise<any[]>((resolve, reject) => {
+      let jobData = [];
+      let jobIds;
+      this.getJobsForRecruiter(searchByclientId,recruiterId, count, start, sortBy)
+        .then(res => {
+          console.log("test  check ",searchByclientId,recruiterId,res);
+           jobIds = res.data.map(job => job.id);
+            if(res.count==0){jobIds=[0];}
+          jobData = res.data;
+          
+          return this.getJobSumissions(recruiterId, jobIds);
+        })
+        .then(res => {
+          const jobSubmissions = res.data;
+          
+          if(jobSubmissions.length>0){
+          jobSubmissions.map(submission => {
+            const job = jobData.find(job => job.id === submission.jobOrder.id);
+            console.log("test jobSubmissions",job);
+            job.submissions.data.push(submission);
+          });
+        }
+          resolve(jobData);
+        })
+        .catch(error => reject(error));
+    });
+  }
+  getJobsAndSubmissions_one(recruiterId?: string, count = 15, start = 0, sortBy = '-dateAdded',cid?:any,jid?:any,uid?:any) {
+    return new Promise<any[]>((resolve, reject) => {
+      let jobData = [];
+      let jobIds;
+      this.getJobsForRecruiter_one(recruiterId, count, 0, sortBy,jid)
+        .then(res => {          
+           jobIds = res.data.map(job => job.id); 
+           jobIds.push(jid);
+          console.log("test res ",jobIds,recruiterId,res);
+          jobData = res.data;
+          
+          return this.getJobSumissions_one(recruiterId, jobIds,200,sortBy,jid);
+        })
+        .then(res => {
+          const jobSubmissions = res.data;
+         // console.log("test jobSubmissions",job.submissions);
+          jobSubmissions.map(submission => {
+            const job = jobData.find(job => job.id === submission.jobOrder.id);
+            console.log("test jobSubmissions",job);
+            job.submissions.data.push(submission);
+          });
+  
+          resolve(jobData);
+        })
+        .catch(error => reject(error));
+    });
+  }
+  getJobsForRecruiter_one(id?: string, count = 15, start = 0, sort = '-dateAdded',jid?:any) {
+    // query = query ? query : 'isDeleted:0 AND NOT status:Archive';
+    const localSavedBoardSettings = JSON.parse(localStorage.getItem('boardSettings'));
+    const selectedFields = localSavedBoardSettings && localSavedBoardSettings.jobSettings || [];
+    let mainFields = 'id,title,employmentType,isOpen,status,type,clientCorporation(id,name),payRate,clientBillRate,owner(id,firstName,lastName),dateAdded,submissions[0](id,jobOrder,candidate),numOpenings,startDate';
+    const allFields = this.processFields(selectedFields && selectedFields.map(item => item.value) || [], mainFields.split(','));
+    let query;    
+    query = `owner.id:(${id}) && isOpen:true`;
+    return this.httpService.search(
+      'JobOrder',
+      query,
+      allFields,
+      'full',
+      count,
+      sort,
+      start
+    );
+  }
+  getJobsForRecruiter(searchByclientId,id?: string, count = 15, start = 0, sort = '-dateAdded') {
+    // query = query ? query : 'isDeleted:0 AND NOT status:Archive';
+    const localSavedBoardSettings = JSON.parse(localStorage.getItem('boardSettings'));
+    const selectedFields = localSavedBoardSettings && localSavedBoardSettings.jobSettings || [];
+    let mainFields = 'id,title,employmentType,isOpen,status,type,clientCorporation(id,name),payRate,clientBillRate,owner(id,firstName,lastName),dateAdded,submissions[0](id,jobOrder,candidate),numOpenings,startDate';
+    const allFields = this.processFields(selectedFields && selectedFields.map(item => item.value) || [], mainFields.split(','));
+    let query;
+    if(searchByclientId==0){
+     query = `owner.id:(${id}) && isOpen:true`;
+    }
+    else
+    {
+      query = `owner.id:(${id}) && isOpen:true && clientCorporation.id:(${searchByclientId})`;
+    }
+    return this.httpService.search(
+      'JobOrder',
+      query,
+      allFields,
+      'full',
+      count,
+      sort,
+      start
+    );
+  }
+
+  getJobSumissions(id?: string, jobIds = [],  count = 500, sort = '-dateAdded') {
+    // query = query ? query : 'isDeleted:0 AND NOT status:Archive';
+    let query = `jobOrder.owner.id:(${id})`;
+    const localSavedBoardSettings = JSON.parse(localStorage.getItem('boardSettings'));
+    const selectedCandidateFields = localSavedBoardSettings && localSavedBoardSettings.candidateSettings || [];
+    const mainCandidateFields = 'id,firstName,lastName,email,source,address,isAnonymized,occupation';
+    const allCandidateFields = this.processFields(selectedCandidateFields && selectedCandidateFields.map(item => item.value) || [], mainCandidateFields.split(','));
+
+    if (jobIds.length) {
+      query += ` AND jobOrder.id:(${jobIds.join(' ')})`;
+    }
+
+    return this.httpService.search(
+      'JobSubmission',
+      query,
+      `id,dateAdded,dateLastModified,owners(name),candidate(${allCandidateFields}),status,sendingUser,source,jobOrder(id,title,owner,employmentType,startDate,dateEnd,clientContact(id,firstName,lastName,email,address),clientCorporation(id,name)),appointments(id,parentAppointment(id,subject,location)),latestAppointment(id,subject,location),payRate,billRate,salary,customText1,customText2,customText3,customText4,customText5,customText6,customText7,customText8,customText9,customText10,customText11,customText12,customText13,customText14,customText15,customText16,customText17,customText18,customText19,customText20,customText21,customText22,customText23,customText24,customText25,customDate1,customDate2,customDate3,customDate4,customDate5,customFloat1,customFloat2,customFloat3,customFloat4,customFloat5,customInt1,customInt2,customInt3,customInt4,customInt5,customTextBlock1,customTextBlock2,customTextBlock3,customTextBlock4,customTextBlock5,startDate,endDate`,
+      'full',
+      count,
+      sort
+      );
+  }
+  getJobSumissions_one(id?: string, jobIds = [],  count = 500, sort = '-dateAdded',jid?:any) {
+    // query = query ? query : 'isDeleted:0 AND NOT status:Archive';
+    let query = `jobOrder.owner.id:(${id})`;
+    const localSavedBoardSettings = JSON.parse(localStorage.getItem('boardSettings'));
+    const selectedCandidateFields = localSavedBoardSettings && localSavedBoardSettings.candidateSettings || [];
+    const mainCandidateFields = 'id,firstName,lastName,email,source,address,isAnonymized,occupation';
+    const allCandidateFields = this.processFields(selectedCandidateFields && selectedCandidateFields.map(item => item.value) || [], mainCandidateFields.split(','));
+console.log("test jid",jobIds);
+    if (jobIds.length) {
+      query += ` AND jobOrder.id:(${jobIds})`;
+    }
+    console.log("test query",query);
+
+    return this.httpService.search(
+      'JobSubmission',
+      query,
+      `id,dateAdded,dateLastModified,owners(name),candidate(${allCandidateFields}),status,sendingUser,source,jobOrder(id,title,owner,employmentType,startDate,dateEnd,clientContact(id,firstName,lastName,email,address),clientCorporation(id,name)),appointments(id,parentAppointment(id,subject,location)),latestAppointment(id,subject,location),payRate,billRate,salary,customText1,customText2,customText3,customText4,customText5,customText6,customText7,customText8,customText9,customText10,customText11,customText12,customText13,customText14,customText15,customText16,customText17,customText18,customText19,customText20,customText21,customText22,customText23,customText24,customText25,customDate1,customDate2,customDate3,customDate4,customDate5,customFloat1,customFloat2,customFloat3,customFloat4,customFloat5,customInt1,customInt2,customInt3,customInt4,customInt5,customTextBlock1,customTextBlock2,customTextBlock3,customTextBlock4,customTextBlock5,startDate,endDate`,
+      'full',
+      count,
+      sort
+      );
+  }
+
+  lookupClientCorporation(query = '', start = 0, count = 20) {
+    return this.httpService.lookup(query, 'ClientCorporation', start, count);
+  }
+
+  updateSubmissionStatus(body: any) {
+    return this.httpService.updateEntity('JobSubmission', body.id, body);
+  }
+
+  updateJobSubmissionStatus(body: any) {
+    return this.httpService.updateJobSubmissionSpecial(body);
+  }
+
+  updateCandidate = (canId, body) => {
+    return this.httpService.updateEntity('Candidate', canId, body);
+  };
+
+
+  lookupCorporateUser = (query = '', start = 0, count = 500) => {
+    start = start * count;
+    return this.httpService.lookup(query, 'CorporateUser', start, count);
+
+  };
+
+  getDistributionLists = (query?: string, start = 0, count = 500) => {
+    start = (start - 1) * count;
+    const queryEnd = query.replace(/.$/, String.fromCharCode(query.charCodeAt(query.length - 1) + 1));
+    query = 'type<>\'BH-Saved-Query\' AND name >= \'' + query + '\' AND name < \'' + queryEnd + '\'';
+    // query = query ? query : 'isDeleted:0 AND NOT status:Archive';
+    return this.httpService.search(
+      'DistributionList',
+      query,
+      'id,name,owner(name),dateAdded,description',
+      'off',
+      count,
+      null,
+      start
+    );
+  };
+
+  private processFields (selectedFields, mainFields) {
+
+
+    let fieldsToNeglect = mainFields.filter(value => selectedFields.includes(value));
+    let fieldsToAppend = selectedFields.filter(value => !fieldsToNeglect.includes(value))
+    return mainFields.concat(fieldsToAppend).join(',');
+
+
+  }
+
+}

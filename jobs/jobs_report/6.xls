@@ -1,0 +1,688 @@
+<div style="overflow-x:auto;">
+<table width="50%" border="1"  class="table table-bordered">
+<tr>
+<th>BRAND</th>
+<th>STOCK AS ON (DATE) BILL VALUE</th>
+<th>MARKET OS</th>
+<th>CO DUE</th>
+<th>INVEST</th>
+</tr>
+
+
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>68</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>79</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>87</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>93</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>100</b><br />
+<br />
+<b>Notice</b>:  Undefined variable: brncd1 in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>105</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>106</b><br />
+<br />
+<b>Notice</b>:  Undefined variable: brncd1 in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>111</b><br />
+<br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in <b>C:\MAMP\htdocs\demo\jobs\invests_xls.php</b> on line <b>112</b><br />
+<tr>
+<td><b>LG</b></td>
+<td align="right" title="0 @ 0"><b>9325473.32</b></td>
+<td><b>0</b></td>
+<td><b>0</b></td>
+<td><b>9325473.32</b></td>
+</tr>
+</table>
+</div>

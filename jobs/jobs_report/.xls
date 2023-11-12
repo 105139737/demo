@@ -1,0 +1,699 @@
+<br />
+<b>Warning</b>:  Use of undefined constant brncd - assumed 'brncd' (this will throw an Error in a future version of PHP) in <b>C:\MAMP\htdocs\demo\jobs\daily_reports_xls.php</b> on line <b>12</b><br />
+<br />
+<b>Warning</b>:  Use of undefined constant fdt - assumed 'fdt' (this will throw an Error in a future version of PHP) in <b>C:\MAMP\htdocs\demo\jobs\daily_reports_xls.php</b> on line <b>13</b><br />
+<br />
+<b>Warning</b>:  Use of undefined constant tdt - assumed 'tdt' (this will throw an Error in a future version of PHP) in <b>C:\MAMP\htdocs\demo\jobs\daily_reports_xls.php</b> on line <b>14</b><br />
+
+<table width="100%" border="1">
+
+<tr>
+<th colspan="5" align="left" >
+<font color="#000000" size="3">
+Report 1 <br />
+<b>Notice</b>:  Undefined variable: dt in <b>C:\MAMP\htdocs\demo\jobs\daily_reports_xls.php</b> on line <b>50</b><br />
+ As On  2023-06-01 to 2023-06-20</font>
+</th>
+</tr>
+<tr>
+  <td  >
+ <font color="#000000"><b>BRAND
+</b></font>
+  </td>
+    <td >
+  <font color="#000000"><b>DISTRIBUTION SALE</b></font>
+  </td> 
+   <td >
+  <font color="#000000"><b>DISTRIBUTION COLLECTION</b></font>
+  </td>
+ 
+  <td  >
+  <font color="#000000"><b>RETAIL SALE</b></font>
+  </td>  
+  <td  >
+  <font color="#000000"><b>TOTAL</b></font>
+  </td>
+</tr>  
+
+
+<tr>
+  <td >HAIER</td>
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>
+</tr>  
+<br />
+<b>Notice</b>:  Undefined variable: Mtotamnt1 in <b>C:\MAMP\htdocs\demo\jobs\daily_reports_xls.php</b> on line <b>153</b><br />
+<br />
+<b>Notice</b>:  Undefined variable: Mtotamnt2 in <b>C:\MAMP\htdocs\demo\jobs\daily_reports_xls.php</b> on line <b>154</b><br />
+<br />
+<b>Notice</b>:  Undefined variable: Mtotamnt3 in <b>C:\MAMP\htdocs\demo\jobs\daily_reports_xls.php</b> on line <b>155</b><br />
+<br />
+<b>Notice</b>:  Undefined variable: tdis_sale in <b>C:\MAMP\htdocs\demo\jobs\daily_reports_xls.php</b> on line <b>156</b><br />
+
+<tr>
+  <td >LG</td>
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>
+</tr>  
+
+<tr>
+  <td >PANASONIC</td>
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>
+</tr>  
+
+<tr>
+  <td >HITACHI</td>
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>
+</tr>  
+
+<tr>
+  <td >Bluebird</td>
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>
+</tr>  
+
+<tr>
+  <td >LOCAL LAPTOP</td>
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>
+</tr>  
+
+<tr>
+  <td >BOSCH</td>
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>
+</tr>  
+
+<tr>
+  <td >T-Series</td>
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>
+</tr>  
+
+<tr>
+  <td >AQUASURE</td>
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>
+</tr>  
+
+<tr>
+  <td >BAJAJ & MRF</td>
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>
+</tr>  
+
+<tr>
+  <td >BLUE STAR</td>
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>
+</tr>  
+
+<tr>
+  <td >NNAAA</td>
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>
+</tr>  
+
+<tr>
+  <td >CARRIER AC</td>
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>
+</tr>  
+
+<tr>
+  <td >Carrier Appliance</td>
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>
+</tr>  
+
+<tr>
+  <td >Crompton</td>
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>
+</tr>  
+
+<tr>
+  <td >GODREJ</td>
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>
+</tr>  
+
+<tr>
+  <td >GODREJ INTERIO</td>
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>
+</tr>  
+
+<tr>
+  <td >HAVELS</td>
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>
+</tr>  
+
+<tr>
+  <td >HAWKINS</td>
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>
+</tr>  
+
+<tr>
+  <td >IBALL MBO</td>
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>
+</tr>  
+
+<tr>
+  <td >IFB</td>
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>
+</tr>  
+
+<tr>
+  <td >INTEX</td>
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>
+</tr>  
+
+<tr>
+  <td >IT PRODUCT</td>
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>
+</tr>  
+
+<tr>
+  <td >KELVINATOR</td>
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>
+</tr>  
+
+<tr>
+  <td >KENT</td>
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>
+</tr>  
+
+<tr>
+  <td >KUTCHINA</td>
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>
+</tr>  
+
+<tr>
+  <td >MITSUBISHI</td>
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>
+</tr>  
+
+<tr>
+  <td >123</td>
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>
+</tr>  
+
+<tr>
+  <td >ONIDA</td>
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>
+</tr>  
+
+<tr>
+  <td >OPTO STABILIZER</td>
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>
+</tr>  
+
+<tr>
+  <td >PANASONIC SMALL</td>
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>
+</tr>  
+
+<tr>
+  <td >PE Electronics</td>
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>
+</tr>  
+
+<tr>
+  <td >PHILIPS</td>
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>
+</tr>  
+
+<tr>
+  <td >Prestige</td>
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>
+</tr>  
+
+<tr>
+  <td >PURIT</td>
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>
+</tr>  
+
+<tr>
+  <td >PURIT MBO</td>
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>
+</tr>  
+
+<tr>
+  <td >SAMSUNG</td>
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>
+</tr>  
+
+<tr>
+  <td >SENCO SWARNA</td>
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>
+</tr>  
+
+<tr>
+  <td >SHARP</td>
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>
+</tr>  
+
+<tr>
+  <td >SONY MBO</td>
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>
+</tr>  
+
+<tr>
+  <td >SYMPHONY</td>
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>
+</tr>  
+
+<tr>
+  <td >USHA</td>
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>
+</tr>  
+
+<tr>
+  <td >Ventair</td>
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>
+</tr>  
+
+<tr>
+  <td >VENUS</td>
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>
+</tr>  
+
+<tr>
+  <td >VOLTAS</td>
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>
+</tr>  
+
+<tr>
+  <td >999</td>
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>
+</tr>  
+
+<tr>
+  <td >Whirpool</td>
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>
+</tr>  
+
+<tr>
+  <td >KHAITAN</td>
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>
+</tr>  
+
+<tr>
+  <td >OGENERAL</td>
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>
+</tr>  
+
+<tr>
+  <td >FURNIQUIN</td>
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>
+</tr>  
+
+<tr>
+  <td >PANORAMA</td>
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>
+</tr>  
+
+<tr>
+  <td >SKY</td>
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>
+</tr>  
+
+<tr>
+  <td >MI LED</td>
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>
+</tr>  
+
+<tr>
+  <td >LLOYD </td>
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>
+</tr>  
+
+<tr>
+  <td >V-GUARD</td>
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>
+</tr>  
+
+<tr>
+  <td >FOXIN</td>
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>
+</tr>  
+
+<tr>
+  <td >UNITED</td>
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>
+</tr>  
+
+<tr>
+  <td >NIRLEP</td>
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>
+</tr>  
+
+<tr>
+  <td >ALTEC</td>
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>
+</tr>  
+
+<tr>
+  <td >zzz</td>
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>
+</tr>  
+
+<tr>
+  <td >DAIKIN</td>
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>
+</tr>  
+
+<tr>
+  <td >AKAI</td>
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>
+</tr>  
+
+<tr>
+  <td >PHILIPS SMALL & BEAUTY</td>
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>
+</tr>  
+
+<tr>
+  <td >TATA SKY</td>
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>
+</tr>  
+
+<tr>
+  <td >ONSITE GO</td>
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>
+</tr>  
+
+<tr>
+  <td >MITSUBISHI HEAVY</td>
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>  
+  <td align="right">0</td>
+</tr>  
+<tr>
+<td align="right">Total:</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+</tr>
+</table>
+<br/>
+<br/>
+<br/>
+
+
+
+<table width="50%" border="1">
+
+<tr>
+<th colspan="3" align="left" >
+<font color="#000000" size="3">
+Report 2 <br />
+<b>Notice</b>:  Undefined variable: dt in <b>C:\MAMP\htdocs\demo\jobs\daily_reports_xls.php</b> on line <b>178</b><br />
+ As On  2023-06-01 to 2023-06-20</font>
+</th>
+</tr>
+<tr>
+  <td  >
+ <font color="#000000"><b>SUPPLIER
+</b></font>
+  </td>
+  <td >
+  <font color="#000000"><b>DONE PAYMENT</b></font>
+  </td>  
+  <td >
+  <font color="#000000"><b>SUPPLIER OS</b></font>
+  </td>  
+
+</tr>  
+
+
+<tr>
+  <td >ABP PVT LTD</td>
+  <td align="right">0</td>  
+  
+  <td align="right">-48234</td>  
+
+</tr>  
+<br />
+<b>Notice</b>:  Undefined variable: Mtotamnt4 in <b>C:\MAMP\htdocs\demo\jobs\daily_reports_xls.php</b> on line <b>236</b><br />
+
+<tr>
+  <td >ACCE INTERNATIONAL</td>
+  <td align="right">0</td>  
+  
+  <td align="right">0</td>  
+
+</tr>  
+
+<tr>
+  <td >Alip Mitra MBO SC</td>
+  <td align="right">0</td>  
+  
+  <td align="right">0</td>  
+
+</tr>  
+
+<tr>
+  <td >ARUNIMA AGENCY</td>
+  <td align="right">0</td>  
+  
+  <td align="right">0</td>  
+
+</tr>  
+
+<tr>
+  <td >Asian Photo Pvt. Ltd. (Nikon Camera)</td>
+  <td align="right">0</td>  
+  
+  <td align="right">0</td>  
+
+</tr>  
+
+<tr>
+  <td >Bajaj Finance Ltd (Sc Gst)</td>
+  <td align="right">0</td>  
+  
+  <td align="right">843350.19</td>  
+
+</tr>  
+
+<tr>
+  <td >BHADURI SALES & SERVICE</td>
+  <td align="right">0</td>  
+  
+  <td align="right">3750</td>  
+
+</tr>  
+
+<tr>
+  <td >BIPINS (LG T SHIRRT PUR)</td>
+  <td align="right">0</td>  
+  
+  <td align="right">0</td>  
+
+</tr>  
+
+<tr>
+  <td >Blue Star Ltd</td>
+  <td align="right">0</td>  
+  
+  <td align="right">-119341.86</td>  
+
+</tr>  
+
+<tr>
+  <td >BLUEBIRD PURE PVT LTD</td>
+  <td align="right">0</td>  
+  
+  <td align="right">0</td>  
+
+</tr>  
+<tr>
+<td align="right">Total:</td>
+<td align="right">0</td>
+<td align="right">679524.33</td>
+</tr>
+</table>

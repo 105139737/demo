@@ -1,0 +1,65 @@
+
+
+#window
+{
+	border : 1px solid #525252;
+	background-image: url(image/back.gif);
+	width : 350px;
+	height : 60px;
+	display : none;
+	left : 350px;
+	top : 250px;
+	position : absolute;
+}
+#window input
+{
+	margin : 5px;
+	border : 1px solid #525252;
+}
+#window #title
+{
+  background : #535353;
+  font-weight : bold;
+  color : white;
+  font-family : verdana;
+  font-size : 12;
+  height : 25px;
+  padding-left:3px;
+  padding-top:5px;
+  width : 350px;
+}
+#window #close
+{
+  margin-left : 160;
+}
+#window #close a
+{
+  font-weight : bold;
+  color : white;
+  font-family : verdana;
+  font-size : 12;
+  text-align : right;
+  text-decoration : none;
+}
+#window #close a:hover
+{
+	color: red;
+}
+
+.InternalHeader {
+	FONT-WEIGHT: bold; FONT-SIZE: 8pt; COLOR: #ffffff; FONT-FAMILY: Arial; BACKGROUND-COLOR: #526ba5;
+}
+.otns {
+	COLOR: #ffffff;
+}
+.etns {
+	COLOR: #ffffff; BACKGROUND-COLOR: #8c62a3;
+}
+
+.linkStyle {
+	TEXT-DECORATION: none
+}
+A {
+	COLOR: #ffffff;
+	TEXT-DECORATION: none
+}

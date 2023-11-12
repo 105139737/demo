@@ -1,0 +1,263 @@
+<?php
+$reqlevel = 3;
+include("membersonly.inc.php");
+$pnog=rawurldecode($_REQUEST[pnog]);
+//echo $src;
+$ps=rawurldecode($_REQUEST[ps]);
+if($ps=="")
+{
+$ps=10;
+}
+if($pnog==""){$pnog=1;}
+$start=($pnog-1)*$ps;
+$brncd=$_REQUEST['brncd'];if($brncd==""){$brncd1="";}else{$brncd1=" and brncd='$brncd'";}
+$fdt1=$_REQUEST['fdt'];
+$tdt1=$_REQUEST['tdt'];
+
+$custid=$_REQUEST['custid'];
+if($custid==""){$custid1="";}else{$custid1=" and cid='$custid'";}
+if($fdt1=="" && $tdt1=="")
+{
+$todt="";
+}
+else
+{
+$fdt=date('Y-m-d',strtotime($fdt1));
+$tdt=date('Y-m-d',strtotime($tdt1));
+$todt=" and dt between '$fdt' and '$tdt'";
+}
+
+?>
+<div align="left">
+<input type="text" name="ps" id="ps" value="<?=$ps;?>" size="7" onblur="pagnt1(this.value)">
+</div>
+          <table width="100%" border="1" class="table table-hover table-striped table-bordered">
+  
+          <tr style="height: 30px;">
+          <th align="center" width="5%">
+          Sl.
+          </th>
+		  <th align="center" width="14%">
+          Date
+          </th>
+		  <th align="center" width="14%">
+          Branch
+          </th>
+		  <th align="center" width="14%">
+          Income Head 
+          </th>
+		   <th align="center" width="14%">
+          Customer
+          </th>
+		  <th align="center" width="18%">
+          Ref. No.
+          </th>		  
+		  <th align="center" width="14%">
+          Ammount 
+          </th>		  
+		  <th align="center" width="10%">
+          Narration  
+          </th>
+		  <th align="center" width="5%">
+          Edit
+          </th>
+		  </tr>
+     
+          <tbody>
+		<?
+		$f=0;
+	
+$sl=$start;
+$sln=0;
+$datatt= mysqli_query($conn,"SELECT * FROM main_drcr where typ='BC01' and stat='1' $brncd1 $custid1 $todt")or die(mysqli_error($conn));
+$rcntttl=mysqli_num_rows($datatt);
+$datar= mysqli_query($conn,"SELECT * FROM main_drcr where typ='BC01' and stat='1' $brncd1 $custid1 $todt")or die(mysqli_error($conn));
+$rcnt=mysqli_num_rows($datar);
+ $data= mysqli_query($conn,"SELECT * FROM main_drcr where typ='BC01' and stat='1' $brncd1 $custid1 $todt order by dt Desc limit $start,$ps")or die(mysqli_error($conn));
+ 
+	
+		while ($row = mysqli_fetch_array($data))
+		{
+		$sl1= $row['sl'];
+		$dt= $row['dt'];
+		$pno= $row['pno'];
+		$vno= $row['vno'];
+		$cldgr= $row['cldgr'];
+		$dldgr= $row['dldgr'];
+		$mtd= $row['mtd'];
+		$mtddtl= $row['mtddtl'];
+		$amm= $row['amm'];
+		$nrtn= $row['nrtn'];
+		$eby= $row['eby'];
+		$edt= $row['edt'];
+		$cid= $row['cid'];
+		$brncd= $row['brncd'];
+		$cbill= $row['cbill'];
+		$sman= $row['sman'];
+		
+		
+		if($mtddtl=='')
+		{$mtddtl='NA';
+		}
+		if($nrtn=='')
+		{$nrtn='NA';
+		}
+		
+		$data1= mysqli_query($conn,"SELECT * FROM main_ledg where sl='$cldgr'");
+		while ($row1 = mysqli_fetch_array($data1))
+		{
+			$cldgr= $row1['nm'];
+		}
+		
+		$data2= mysqli_query($conn,"SELECT * FROM main_ledg where sl='$dldgr'");
+		while ($row2 = mysqli_fetch_array($data2))
+		{
+			$dldgr= $row2['nm'];
+		}
+		
+		$data3= mysqli_query($conn,"SELECT * FROM ac_paymtd where sl='$mtd'");
+		while ($row3 = mysqli_fetch_array($data3))
+		{
+			$mtd= $row3['mtd'];
+		}
+		$bnm="";
+		$data21= mysqli_query($conn,"SELECT * FROM main_branch where sl='$brncd'");
+		while ($row21 = mysqli_fetch_array($data21))
+		{
+			$bnm= $row21['bnm'];
+		}
+	
+		$query6="select * from  main_cust where sl='$cid'";
+		$result5 = mysqli_query($conn,$query6);
+		while($row=mysqli_fetch_array($result5))
+		{
+		$nm=$row['nm'];
+		}
+								
+		$f++;
+		if($f%2==0)
+		{$cls="odd";
+		}
+		else
+		{$cls="even";
+		}
+		$dt=date('d-m-Y', strtotime($dt));
+		?>
+  <tr class="<?echo $cls;?>" style="height: 20px;">
+  <td align="left" valign="top"><b><?php echo $f;?></b></td>
+  <td align="left" valign="top"><b><?php echo $dt;?></b></td>
+  <td align="left" valign="top"><b><?php echo $bnm;?> (<?php echo $sman;?>)</b></td>
+  <td align="left" valign="top"><b><?php echo $cldgr;?></b></td>
+  <td align="left" valign="top"><b><?php echo $nm;?></b></td>
+  <td align="left" valign="top"><b><?php echo $cbill;?></b></td>
+  <td align="right" valign="top"><b><?php echo $amm;?></b></td>
+  <td align="left" valign="top"><?php echo $nrtn;?></td>	    
+<td align="center" valign="top">
+	<a href="#" onclick="sfdtlrecvrefund('<? echo $sl1; ?>')" title="Edit"><img src="images/edit.png" width="30"/></a>
+	
+	</td>
+	 </tr>
+  <?
+  }
+  ?>
+  </tbody>
+</table>
+
+
+
+
+
+
+
+<?
+$tp=$rcnt/$ps;
+if(($rcnt%$ps)>0)
+{
+    $tp=floor($tp)+1;
+}
+if($pnog==1)
+{
+    $prev=1;
+}
+else
+{
+$prev=$pnog-1;    
+}
+if($pnog==$tp)
+{
+ $next=$tp;   
+}
+else
+{
+$next=$pnog+1;
+}
+$flt="";
+if($rcnt!=$rcntttl)
+{
+    $flt="(filtered from ".$rcntttl." total entries)";
+}
+echo "<font color=\"#FFF\">Showing ".($start+1)." to ".($sl)." of ".$rcnt." entries".$flt."</font>";
+?>
+<div align="left"><input type="text" size="10" id="pgn" name="pgn" value="<? echo $pnog;?>"><input Type="button" value="Go" onclick="pagnt1('')"></div>
+<div class="pagination pagination-centered">
+                            <ul class="pagination pagination-sm inline">
+							<li <? if($pnog==1){ echo "class=\"disabled\"";}?>><a onclick="pagnt('1')"><i class="icon-circle-arrow-left"></i>First</a></li>
+                            <li <? if($pnog==1){ echo "class=\"disabled\"";}?>><a onclick="pagnt('<?echo $prev;?>')"><i class="icon-circle-arrow-left"></i>Previous</a></li>
+                            <?
+                            
+                            if($tp<=5)
+                            {
+                              $n=1;  
+                              while($n<=$tp)
+                              {
+                                ?>
+                             <li <? if($pnog==$n){ echo "class=\"active\"";}?>><a onclick="pagnt('<?echo $n;?>')"><?echo $n;?></a></li>   
+                                <?
+                                $n+=1;
+                              }  
+                            }
+                            else
+                            {
+                                if($pnog<4)
+                                {
+                                  $n=1;
+                                  while($n<=5)
+                              {
+                                ?>
+                             <li <? if($pnog==$n){ echo "class=\"active\"";}?>><a onclick="pagnt('<?echo $n;?>')"><?echo $n;?></a></li>   
+                                <?
+                                $n+=1;
+                              }     
+                                }
+                                elseif($pnog>$tp-3)
+                                {
+                                    $n=$tp-5;
+                                    while($n<=5)
+                              {
+                                ?>
+                             <li <? if($pnog==$n){ echo "class=\"active\"";}?>><a onclick="pagnt('<?echo $n;?>')"><?echo $n;?></a></li>   
+                                <?
+                                $n+=1;
+                              }   
+                                }
+                                else
+                                {
+                                $n=$pnog-2; 
+                                 while($n<=$pnog+2)
+                              {
+                                ?>
+                             <li <? if($pnog==$n){ echo "class=\"active\"";}?>><a onclick="pagnt('<?echo $n;?>')"><?echo $n;?></a></li>   
+                                <?
+                                $n+=1;
+                              }     
+                                }
+                               
+                                
+                                
+                            }
+                            ?>
+                            <li <? if($pnog==$tp){ echo "class=\"disabled\"";}?>><a onclick="pagnt('<?echo $next;?>')">Next<i class="icon-circle-arrow-right"></i></a></li>
+                            <li <? if($pnog==$tp){ echo "class=\"disabled\"";}?>><a onclick="pagnt('<?echo $tp;?>')">Last<i class="icon-circle-arrow-right"></i></a></li>
+                            </ul>
+                            </div>
+							
