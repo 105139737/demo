@@ -1,4 +1,5 @@
-<?
+<?php
+/* Git checking */
 $reqlevel = 3;
 include("membersonly.inc.php");
 $cust_typ=$_REQUEST['cust_typ'];
