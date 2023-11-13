@@ -26,4 +26,14 @@ $('#invto').chosen({
 no_results_text: "Oops, nothing found!",
 
 });
+$('#invto_chosen .chosen-drop').click(function(e) {
+  e.stopPropagation();
+});
+$("#invto").trigger("chosen:open");
+// addClass=(selector,classes)=>document.querySelector(selector).classList(...classes.split(' '));
+// addClass('#invto_chosen','chosen-container chosen-container-single chosen-with-drop chosen-container-active');
+//document.getElementById("invto_chosen").classList.add("chosen-container chosen-container-single chosen-with-drop chosen-container-active")
+document.getElementById('invto_chosen').className+=' chosen-with-drop chosen-container-active'
+document.getElementById("cs1").focus();
+//chosen-container chosen-container-single chosen-with-drop chosen-container-active
 </script>

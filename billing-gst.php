@@ -1230,7 +1230,7 @@ while ($row1 = mysqli_fetch_array($data1))
 {
 $sl=$row1['sl'];
 $cnm=$row1['cnm'];
-echo "<option value='".$sl."' selected>".$cnm."</option>";
+echo "<option value='".$sl."' >".$cnm."</option>";
 }
 ?>
 </select>
@@ -1714,7 +1714,7 @@ no_results_text: "Oops, nothing found!",
 $('#scat1').chosen({
 no_results_text: "Oops, nothing found!",
 });
-get_prod();
+//get_prod();
 get_scat(); 
 </script>
 <script>
