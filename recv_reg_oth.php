@@ -404,12 +404,13 @@ $bnm=$R['bnm'];
 <tr>
 <td>
 <input type="hidden" value="4" id="cldgr" name="cldgr"/> 
-
+<input type="text" id="cs" name="cs" style="width:95%" value="" onkeyup="cust_srch('<?php echo $tp;?>','<?php echo $brand;?>')"  placeholder="Enter 3 Digit Name / 10 Digit Mobile No.">
+<div id="cust_src">
 <select id="cid"  name="cid"   tabindex="1" class="form-control"  onchange="get_blno();get_app();">
 <option value="">---Select---</option>
 <?
-if($tp=='2'){$qury=" and find_in_set(brand,'$brand')>0 ";}
-$query="select * from main_cust  WHERE sl>0 and typ='$tp' $qury order by nm";
+/*if($tp=='2'){$qury=" and find_in_set(brand,'$brand')>0 ";}
+$query="select * from main_cust  WHERE sl=0 and typ='$tp' $qury order by nm";
 $result = mysqli_query($conn,$query);
 while ($R = mysqli_fetch_array ($result))
 {
@@ -420,9 +421,10 @@ $addr=$R['addr'];
 ?>
 <option value="<? echo $sid;?>" <?if($cid==$sid){?> selected <? } ?> ><? echo $spn;?>  - <? echo $cont;?></option>
 <?
-}
+}*/
 ?>
 </select>
+</div>
 </td>
 <td>
 <u><b><a href="javascript:get_app()">App Payment</a></b></u>
@@ -727,8 +729,16 @@ if($blno!='')
 get_app_val('<?=$blno;?>');
 <?
 }
+
 ?>
 //temp();
+function cust_srch(tp,brand)
+{
+var cs=encodeURIComponent(document.getElementById('cs').value);
+if((!isNaN(cs) && cs.length>9) || (isNaN(cs) && cs.length>2)){
+$("#cust_src").load("get_cust_src_recv.php?cs="+cs+"&tp="+tp+"&brand="+brand).fadeIn('fast');	
+}
+}
 </script>
 </body>
 </html>
