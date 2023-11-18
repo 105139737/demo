@@ -518,7 +518,7 @@ echo "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mob : ".$bmob;
                 </td>
                 <td align="right" title="<?=$dsl;?>">
                     <font ><span style="color:<? if($nbal<0){echo " #FF0000";}else{echo "#0034ff"
-                            ;}?>;font-family:Arial;font-size:15px;">
+                            ;}?>;font-family:Arial;font-size:8.2pt;">
                             <? echo $nbalf;?>
                         </span></font>
                 </td>
