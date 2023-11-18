@@ -5,6 +5,7 @@ include("membersonly.inc.php");
 	$sl = $_POST['sl'];
 	$vno = $_POST['vno'];
 	$dt = $_POST['dt'];
+	$dt_return = $_POST['dt'];
 	$brncd = $_POST['brncd'];
 	$cldgr = $_POST['cldgr'];
 	$dldgr = $_POST['dldgr'];
@@ -90,7 +91,7 @@ $vno="SV".$vnoc;
 	$query31 =mysqli_query($conn,"INSERT INTO main_drcr (vno,dt,nrtn,typ,dldgr,mtddtl,cldgr,amm,eby,edtm,sid,brncd,btyp,als,ssn,bill_typ,blnon) VALUES ('$vno','$dt','$nrtn','$typ','$dldgr','$refno','$cldgr','$amm','$user_currently_loged','$edt','$sid','$brncd','$btyp','$als','$ssn','$bsl','$blnon')") or die(mysqli_error($conn));
 		?><script language="javascript">
 		alert('Submitted Successfully. Thank You...');
-	 	document.location = "crdt_note.php?bsl=<?php echo $bsl;?>";
+	 	document.location = "crdt_note.php?bsl=<?php echo $bsl;?>&dt=<?php echo $dt_return;?>";
 
 		</script><?
 	}
@@ -100,7 +101,7 @@ $vno="SV".$vnoc;
 
 		?><script language="javascript">
 		alert('Updated Successfully. Thank You...');
-		document.location = "crdt_note.php?bsl=<?php echo $bsl;?>";
+		document.location = "crdt_note.php?bsl=<?php echo $bsl;?>&dt=<?php echo $dt_return;?>";
 		</script><?
 	}
 }

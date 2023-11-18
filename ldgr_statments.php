@@ -238,6 +238,9 @@ if($i==1)
                                 <font size="2">Date</font>
                             </td>
                             <td align="left">
+                                <font size="2">Voucher no.</font>
+                            </td>
+                            <td align="left">
                                 <font size="2">Ref</font>
                             </td>
                             <td align="left">
@@ -272,7 +275,7 @@ if($i==1)
 
   ?>
             <tr>
-                <td align="center" colspan="6">
+                <td align="center" colspan="7">
                     <font size="2">Opening Balance</font>
                 </td>
 
@@ -394,7 +397,7 @@ if($pag==35)
 	$pageno++;
 	?>
             <tr>
-                <td colspan="7" align="">
+                <td colspan="8" align="">
 
 
                     <div style="page-break-after: always;">
@@ -456,6 +459,9 @@ echo "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mob : ".$bmob;
                     <font size="2">Date</font>
                 </td>
                 <td align="left">
+                    <font size="2">Voucher no.</font>
+                </td>
+                <td align="left">
                     <font size="2">Ref</font>
                 </td>
                 <td align="left">
@@ -496,6 +502,9 @@ echo "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mob : ".$bmob;
                     <font size="2"><?=$dscrp;?></font>
                 </td>
                 <td align="left">
+                    <font size="2"><?=$ref;?></font>
+                </td>
+                <td align="left">
                     <font size="2"><?=$ladgr_name;?></font>
                 </td>
                 <td align="left">
@@ -526,7 +535,7 @@ echo "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mob : ".$bmob;
 		  
 		  ?>
             <tr style="border-top: 1px solid #000;">
-                <td colspan="4" align="right">
+                <td colspan="5" align="right">
                     <b>Total </b>
                 </td>
                 <td align="right">
@@ -539,7 +548,7 @@ echo "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mob : ".$bmob;
                 </td>
             </tr>
             <tr style="border-top: 1px solid #000;">
-                <td colspan="4" align="right">
+                <td colspan="5" align="right">
 
                 </td>
                 <td>

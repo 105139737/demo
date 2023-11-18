@@ -323,6 +323,15 @@ function set_dis()
 	window.open("discount_setup.php?custid="+cid,'_blank');
 	}
 }
+function recaldis()
+{
+	var dbal=parseFloat(document.getElementById('dbal').value);	
+	var amm=parseFloat(document.getElementById('amm').value);	
+	document.getElementById('damm').value=(dbal-amm).round(2);	
+}
+Number.prototype.round = function(places) {
+  return +(Math.round(this + "e+" + places)  + "e-" + places);
+}
 </script>
 <script type="text/javascript" src="jquery.ui.core.min.js"></script>
 <script type="text/javascript" src="jquery.ui.widget.min.js"></script>
@@ -547,7 +556,7 @@ if($tp==2){$nb=100000;}else{$nb=1000000;}
 
 <td align="center" width="12%" ><b>Amount</b></td>
 <td align="left"  width="20%"><b>Discount Ledger</b></td>
-<td align="left"  width="12%"><b>Discount Am.</b></td>
+<td align="left"  width="12%" onclick="recaldis()" style="cursor:pointer;color:blue"><b>Discount Am.</b></td>
 <td align="left" width="12%" ><b>Discount Remark</b></td>
 <?php
 

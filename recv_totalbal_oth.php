@@ -23,13 +23,13 @@ $T=$t1-$t2;
 if($tt==1)	
 {	
 ?>
-<input type="text" name="tdbal" id="tdbal"  value="<?php echo $T;?>" style="background :transparent;color :red;font-weight:bold;" readonly>
+<input type="text" name="tdbal" id="tdbal"  value="<?php echo round($T,2);?>" style="background :transparent;color :red;font-weight:bold;" readonly>
 <?
 }
 if($tt==2)
 {
 ?>
-<input type="text" name="dbal" id="dbal"  value="<?php echo $T;?>" style="background :transparent;color :red;font-weight:bold;font-size:20px;" readonly>
+<input type="text" name="dbal" id="dbal"  value="<?php echo round($T,2);?>" style="background :transparent;color :red;font-weight:bold;font-size:20px;" readonly>
 <?
 }
 ?>

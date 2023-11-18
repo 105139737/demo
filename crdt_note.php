@@ -3,6 +3,7 @@ $reqlevel = 0;
 include("membersonly.inc.php");
 include "header.php";
 $bill_typ=$_REQUEST['bsl'];
+$dt=$_REQUEST['dt'];
 $get=mysqli_query($conn,"select * from main_billtype where sl='$bill_typ'") or die(mysqli_error($conn));
 while($row=mysqli_fetch_array($get))
 {
@@ -188,7 +189,7 @@ function cancell(ssl)
   <tr >
     <td align="right" width="20%" style="padding-top:15px"><font color="red">*</font><b>Date :</b></td>
     <td align="left" width="30%" >
-	<input type="text" name="dt" id="dt" value="<?=date('d-M-Y'); ?>" class="form-control">
+	<input type="text" name="dt" id="dt" value="<?php echo !empty($dt)?$dt : date('d-M-Y'); ?>" class="form-control">
 	</td>
         <td align="right" style="padding-top:15px" ><font color="red">*</font><b>Branch :</b></td>
     <td align="left" >
