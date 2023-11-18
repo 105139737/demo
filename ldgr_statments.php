@@ -232,31 +232,31 @@ if($i==1)
         <table style="border-collapse:collapse;" width="800px" cellpadding="0" cellspacing="0">
             <tr style="height:530px" valign="top">
                 <td>
-                    <table width="100%" border="1" style="border-collapse:collapse;">
-                        <tr style="border-bottom: 1px solid #000;">
-                            <td align="center">
-                                <font size="2">Date</font>
+                    <table width="100%" border="1" style="border-collapse:collapse;font-size:8.2pt">
+                        <tr style="border-bottom: 1px solid #000;font-size:8.2pt">
+                            <td align="center" style="width:62px">
+                                <font >Date</font>
                             </td>
                             <td align="left">
-                                <font size="2">Voucher no.</font>
+                                <font >Voucher no.</font>
                             </td>
                             <td align="left">
-                                <font size="2">Ref</font>
+                                <font >Ref</font>
                             </td>
                             <td align="left">
-                                <font size="2">Ledger</font>
+                                <font >Ledger</font>
                             </td>
                             <td align="left">
-                                <font size="2">Perticulars</font>
+                                <font >Perticulars</font>
                             </td>
                             <td align="right">
-                                <font size="2">Debit</font>
+                                <font>Debit</font>
                             </td>
                             <td align="right">
-                                <font size="2">Credit</font>
+                                <font >Credit</font>
                             </td>
                             <td align="right">
-                                <font size="2">Balance</font>
+                                <font >Balance</font>
                             </td>
 
                 </td>
@@ -274,13 +274,13 @@ if($i==1)
   }
 
   ?>
-            <tr>
+            <tr style="font-size:8.2pt">
                 <td align="center" colspan="7">
-                    <font size="2">Opening Balance</font>
+                    <font>Opening Balance</font>
                 </td>
 
                 <td align="right">
-                    <font size="2">
+                    <font >
                         <? echo $opbl1.$lvl;?>
                     </font>
                 </td>
@@ -327,12 +327,12 @@ if($dldgr==$a){
     if($nbal<0)
    {
     $nbalf=round($nbal*-1,2);
-    $nbalf.=" Cr";
+    $nbalf.="Cr";
    } 
    else
    {
     $nbalf=round($nbal,2);
-    $nbalf.=" Dr";
+    $nbalf.="Dr";
    }
 
    
@@ -345,12 +345,12 @@ if($cldgr==$a){
     if($nbal<0)
    {
     $nbalf=Round($nbal*-1,2);
-    $nbalf.=" Cr";
+    $nbalf.="Cr";
    } 
    else
    {
     $nbalf=round($nbal,2);
-    $nbalf.=" Dr";
+    $nbalf.="Dr";
    }
 
    $ladgr_=$dldgr;
@@ -392,7 +392,7 @@ $ladgr_name=$nm;
 
 
 $pag++;
-if($pag==35)
+if($pag==30)
 {
 	$pageno++;
 	?>
@@ -454,30 +454,30 @@ echo "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mob : ".$bmob;
 
                         </tr>
                     </table>
-            <tr style="border-bottom: 1px solid #000;">
+            <tr style="border-bottom: 1px solid #000;font-size:8.2pt">
                 <td align="center">
-                    <font size="2">Date</font>
+                    <font >Date</font>
                 </td>
                 <td align="left">
-                    <font size="2">Voucher no.</font>
+                    <font >Voucher no.</font>
                 </td>
                 <td align="left">
-                    <font size="2">Ref</font>
+                    <font >Ref</font>
                 </td>
                 <td align="left">
-                    <font size="2">Ledger </font>
+                    <font >Ledger </font>
                 </td>
                 <td align="left">
-                    <font size="2">Perticulars</font>
+                    <font >Perticulars</font>
                 </td>
                 <td align="right">
-                    <font size="2">Debit</font>
+                    <font >Debit</font>
                 </td>
                 <td align="right">
-                    <font size="2">Credit</font>
+                    <font >Credit</font>
                 </td>
                 <td align="right">
-                    <font size="2">Balance</font>
+                    <font >Balance</font>
                 </td>
 
                 </td>
@@ -492,32 +492,32 @@ echo "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mob : ".$bmob;
 	
 }
 		  ?>
-            <tr bgcolor="<?=$colo;?>">
+            <tr bgcolor="<?=$colo;?>" style="font-size:8.2pt">
                 <td align="center">
-                    <font size="2">
+                    <font >
                         <? echo $rd;?>
                     </font>
                 </td>
                 <td align="left">
-                    <font size="2"><?=$dscrp;?></font>
+                    <font ><?=$dscrp;?></font>
                 </td>
                 <td align="left">
-                    <font size="2"><?=$ref;?></font>
+                    <font ><?=$ref;?></font>
                 </td>
                 <td align="left">
-                    <font size="2"><?=$ladgr_name;?></font>
+                    <font ><?=$ladgr_name;?></font>
                 </td>
                 <td align="left">
-                    <font size="2"><?=$nrtn;?></font>
+                    <font ><?=$nrtn;?></font>
                 </td>
                 <td align="right">
-                    <font size="2"><?=$camm;?></font>
+                    <font ><?=$camm;?></font>
                 </td>
                 <td align="right">
-                    <font size="2"><?=$damm;?></font>
+                    <font ><?=$damm;?></font>
                 </td>
                 <td align="right" title="<?=$dsl;?>">
-                    <font size="2"><span style="color:<? if($nbal<0){echo " #FF0000";}else{echo "#0034ff"
+                    <font ><span style="color:<? if($nbal<0){echo " #FF0000";}else{echo "#0034ff"
                             ;}?>;font-family:Arial;font-size:15px;">
                             <? echo $nbalf;?>
                         </span></font>
