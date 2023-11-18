@@ -326,8 +326,10 @@ function set_dis()
 function recaldis()
 {
 	var dbal=parseFloat(document.getElementById('dbal').value);	
-	var amm=parseFloat(document.getElementById('amm').value);	
+	var amm=parseFloat(document.getElementById('amm').value);
+	if(amm>0){
 	document.getElementById('damm').value=(dbal-amm).round(2);	
+	}
 }
 Number.prototype.round = function(places) {
   return +(Math.round(this + "e+" + places)  + "e-" + places);
