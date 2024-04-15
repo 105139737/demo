@@ -13,14 +13,17 @@ if($order_no!="")
 $get=mysqli_query($conn,"select * from main_order where blno='$order_no'") or die(mysqli_error($conn));
 while($row=mysqli_fetch_array($get))
 {
+	$order_cid=$row['cid'];
 	$cid=$row['cid'];
 	$sale_per=$row['sale_per'];
 }	
+$order_cont="";
 $datad1= mysqli_query($conn,"select * from main_cust where sl='$cid'")or die(mysqli_error($conn));
 while ($rowd = mysqli_fetch_array($datad1))
 {
 $cust_gstin=$rowd['gstin'];
 $tst=$rowd['fst'];
+$order_cont=$rowd['cont'];
 }
 $result2 = mysqli_query($conn,"DELETE FROM main_slt WHERE blno='$order_no'");
 
@@ -988,6 +991,9 @@ $('#bcd').trigger("chosen:updated");
 	if($order_no=="")
 	{
 	$qury2=" and nm like '%cash%'";
+	}
+	else{
+		$qury2=" and sl='$order_cid'";
 	}
 	
 	if($tp=='2'){$qury=" and find_in_set(brand,'$brand')>0 ";}

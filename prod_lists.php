@@ -11,7 +11,7 @@ if($scat!=""){$scat1=" and scat='$scat'";}else{$scat1="";}
 if($ean=="1"){$ean1=" and ean=''";}elseif($ean=="0"){$ean1=" and ean!=''";}
 
 $af="%".$pnm."%";
-if($pnm!=''){$a2=" and (pnm LIKE '$af')";}else{$a2='';}
+if($pnm!=''){$a2=" and (pnm LIKE '$af' or pcd LIKE '$af')";}else{$a2='';}
 
 $pno=rawurldecode($_REQUEST['pno']);
 $ps=rawurldecode($_REQUEST['ps']);

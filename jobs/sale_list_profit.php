@@ -69,18 +69,10 @@ $bqr.=")";
 $dis1=0;
 if($xls=='1')
 {
-	$jobLink=CreateNewJob('jobs/sale_list_profit.php',$user_currently_loged,'Profit on sale',$conn);
-    ?>
-    <script language="javascript">
-    alert('Your request has been accepted. You will get you dwonload link in your home page in a few moments. Thank you...');
-    window.history.go(-1);
-    </script>
-    <?php
-    die('<b><center><font color="green" size="5">Your request has been accepted. You will get you dwonload link in your home page in a few moments. Thank you...</font></center></b>');
-   
-	$file=date('Ymdhis').".xls";
+	ob_start();
+	/*$file=date('Ymdhis').".xls";
 	header("Content-type: application/vnd.ms-excel"); 
-	header("Content-Disposition: attachment; filename=$file");	
+	header("Content-Disposition: attachment; filename=$file");	*/
 }
 if($xls=='1')
 {
@@ -372,3 +364,11 @@ $tprofitp+=$profitp;
 </tr>
 </table>
 
+<?php
+if($xls=='1')
+{
+$imgbinary = ob_get_clean();
+$filename="jobs_report/".$_GET['file_name'].".xls";
+file_put_contents($filename, $imgbinary);
+}
+?>

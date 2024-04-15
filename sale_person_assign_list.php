@@ -50,7 +50,9 @@ if($rcntt>0)
 		<th width="10%">Action</font></th>
 		<th width="5%">Sl</font></th>
     <th width="30%">Main Sales Person</font></th>
+    <th width="">Brand</font></th>
     <th width="50%">Sales Person Assign</font></th>
+   
 		</tr>
 <?
 
@@ -59,8 +61,16 @@ while ($row = mysqli_fetch_array($data))
 $x=$row['sl'];
 $username=$row['username'];
 $assign_spid=$row['assign_spid'];
+$brand=$row['brand'];
 
 $arrayName=explode(",",$assign_spid);
+$brand_nm="";
+$sq="SELECT * FROM main_catg WHERE sl='$brand'";
+	$res = mysqli_query($conn,$sq) or die(mysqli_error($conn));
+	while($ro=mysqli_fetch_array($res))
+	{
+    $brand_nm=$ro['cnm'];
+  }
 
 $sln++;
 $sl++; 
@@ -74,7 +84,8 @@ $sl++;
 		<i class="fa fa-pencil-square-o"></i></a>
 		</td>
 		<td align="center"><? echo $sln;?></td>
-		<td align="left"><? echo $username;?></td>
+		<td align="left"><? echo $username;?></td>	
+    <td align="left"><? echo $brand_nm;?></td>
     <td align="left"><?php 
     $id=0;  
 foreach($arrayName as $spid2) { 
@@ -88,7 +99,7 @@ while($row=mysqli_fetch_array($get))
 }
 }
     ?></td>
-
+	
 		</tr>	 
 <?
 }

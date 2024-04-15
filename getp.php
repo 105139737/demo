@@ -42,7 +42,10 @@ else if($cust_typ=="2")
 	$read="";	
 	}
 }
-
+if($prc>0)
+{
+	$mrp=$prc;
+}
 
 
 ?>

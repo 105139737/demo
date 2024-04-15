@@ -93,8 +93,8 @@ $pnm=$row1['pnm'];
 			<td  align="center"><b><a href="billing_edit.php?blno=<?echo $sbill;?>" target="_blank"><?echo $sbill;?></a></b></td>
 			<td  align="center" ><b><?echo $rbill;?></b></td>
 			<td  align="center" ><b><?echo $prbill;?></b></td>
-			<td  align="center" ><b><?echo $tout;?></b></td>
-			<td  align="center" ><b><?echo $tin;?></b></td>
+			<td  align="center" ><b><a href="stock_recv_view.php?blno=<?echo $tout;?>" target="_blank"><?echo $tout;?></a></b></td>
+			<td  align="center" ><b><a href="stock_recv_view.php?blno=<?echo $tin;?>" target="_blank"><?echo $tin;?></a></b></td>
 			</tr>
 	<?
 	$pbill="";

@@ -4,6 +4,7 @@ include("membersonly.inc.php");
 $prnm=$_REQUEST['prnm'];
 ?>
 <select name="bcd" class="form-control" tabindex="10"  size="1" id="bcd" onchange="gtt_unt();getb();get_betno();">
+<option value="">---Select---</option>
 <?
 $geti=mysqli_query($conn,"select * from main_godown where stat=1 order by gnm") or die(mysqli_error($conn));
 while($rowi=mysqli_fetch_array($geti))

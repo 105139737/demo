@@ -208,7 +208,7 @@ window.open('lg_stock_xml.php?fdt='+fdt+'&tdt='+tdt, '_blank');
 
                 <!-- Main content -->
 <section class="content">			
-<form method="post" action="sale_list_profit.php" name="form1"  id="form1">
+<form method="GET" action="sale_list_profit.php" name="form1"  id="form1">
 <div class="box box-success" >
 <div id="vvno" >
 <input type="hidden" id="xls" name="xls" value="1">
@@ -412,7 +412,7 @@ else
 </tr>
 <tr>
 <td align="right" colspan="4">
-<input type="button" class="btn btn-info" value="Show" onclick="show1()">
+<!--<input type="button" class="btn btn-info" value="Show" onclick="show1()">-->
 <input type="submit" class="btn btn-warning" value="Excel Export" >
 
 </td>

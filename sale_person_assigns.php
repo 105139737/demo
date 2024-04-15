@@ -5,6 +5,7 @@ include("membersonly.inc.php");
 
 $spid=$_POST['spid'];
 $array=$_POST['assign_spid'];
+$brand=$_POST['brand'];
 
 $assign_spid = implode(',', $array);
 
@@ -25,7 +26,7 @@ else
 	if($cnt==1)
 	{
 	
-		$qr=mysqli_query($conn,"update main_signup set assign_spid='$assign_spid' where username='$spid'")or die(mysqli_error($conn));
+		$qr=mysqli_query($conn,"update main_signup set assign_spid='$assign_spid',brand='$brand' where username='$spid'")or die(mysqli_error($conn));
 		
 	?>
 	<script>

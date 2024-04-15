@@ -160,6 +160,9 @@ Godown Name & Address :-<br><br>
 <b>Sl</b>
 </td>
 <td align="left" >
+<b>From</b>
+</td>
+<td align="left" >
 <b>Product</b>
 </td>
 <td align="left" >
@@ -183,6 +186,7 @@ $prnm=$R100['prnm'];
 $qnty=$R100['qty'];
 $brmk=$R100['rmk'];
 $betno=$R100['betno'];
+$fbcd1=$R100['fbcd'];
 
 
 $sln++;
@@ -196,12 +200,21 @@ $bnm=$row['bnm'];
 $mnm=$row['mnm'];
 $pcd=$row['pcd'];
 }
+$fbnm="";
+$data= mysqli_query($conn,"select * from main_godown where  sl='$fbcd1'")or die(mysqli_error($conn)); 
+while ($row = mysqli_fetch_array($data))
+{
+$fbnm=$row['gnm'];
+}
 
 ?>
 <tr   style="line-height: 14px;" >	
 
 <td align="left" style="font-family: Arial, Helvetica, sans-serif;" >
 <font size="2"><?=$sln;?>.</font>
+</td>
+<td align="left" style="font-family: Arial, Helvetica, sans-serif;" >
+<font size="2"><?php echo $fbnm;?> </font>
 </td>
 <td align="left" style="font-family: Arial, Helvetica, sans-serif;" >
 <font size="2"><?=$pnm;?> - <?php echo $pcd;?> </font>

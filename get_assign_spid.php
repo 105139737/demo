@@ -9,6 +9,7 @@ $data1 = mysqli_query($conn,"Select * from main_signup where username='$spid'");
 while ($row1 = mysqli_fetch_array($data1))
 {
 $assign_spid=$row1['assign_spid'];
+$brand=$row1['brand'];
 }
 
 $user_array=explode(',',$assign_spid);
@@ -29,4 +30,5 @@ $spid2=$row13['spid'];
 
 <script>
 $('#assign_spid').chosen({no_results_text: "Oops, nothing found!",});	
+$('#brand').val('<?php echo $brand;?>');
 </script>

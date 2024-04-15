@@ -83,8 +83,8 @@ $('#custdv').load('get_assign_spid.php?spid='+spid).fadeIn('fast');
 <form method="post" action="sale_person_assigns.php" id="form1" onSubmit="return check1()" name="form1">                    
 <table border="0" class="table table-hover table-striped table-bordered" >
 <tr>
-<td align="right" width="10%"><b>Main Sales Person :</b></td>
-<td  align="left" width="40%">
+<td  align="left" width="50%">
+<b>Main Sales Person :</b><br>
 <select name="spid" class="form-control" id="spid" required onchange="get_assign_spid(),show()">
 <Option value="">---Select---</option>
 <?
@@ -98,8 +98,8 @@ $spid=$row1['spid'];
 <?}?>
 </select>
 </td>
-<td align="right" width="10%"><b>Sales Person Assign :</b></td>
-<td  align="left" width="40%">
+<td  align="left" width="50%">
+<b>Sales Person Assign :</b><br>
 <div id="custdv">
 <select name="assign_spid[]"  multiple class="form-control" id="assign_spid" required>
 <?
@@ -116,7 +116,31 @@ $spid2=$row13['spid'];
 </td>
 </tr>
 <tr>
-<td align="right" colspan="4">
+
+<td align="left">
+<b>Brand : </b><br>
+<select id="brand"  name="brand" class="form-control" required>
+<option value="" >---Select---</option>
+
+	<?
+	$sq="SELECT * FROM main_catg WHERE sl>0 ORDER BY sl";
+	$res = mysqli_query($conn,$sq) or die(mysqli_error($conn));
+	while($ro=mysqli_fetch_array($res))
+	{
+	?>
+    <option value="<?=$ro['sl'];?>"><?=$ro['cnm'];?></option>
+	<?}?>
+</select>
+
+    
+</td>
+
+<td>
+
+</td>
+</tr>
+<tr>
+<td align="right" colspan="2">
 <input type="submit" class="btn btn-primary" value="Submit" name="B1" >
 </td>
 </tr>

@@ -67,6 +67,10 @@ function edit(sl)
 {
 document.location='task_assign_edt.php?tm='+sl;
 }
+function xls(sl)
+{
+document.location='task_assign_list_xls.php';
+}
 /*function getday(sl)
 {
 var day=document.getElementById('day').value;
@@ -154,6 +158,7 @@ $cnm=$row13['nm'];
 <tr>
 <td align="right" colspan="4">
 <input type="submit" class="btn btn-success" value="Submit" name="B1" >
+<input type="button" class="btn btn-info" value="Export to Excel" onclick="xls()" name="B1" >
 </td>
 </tr>
 </table>
