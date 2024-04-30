@@ -1,7 +1,6 @@
 <?php
 $reqlevel = 1;
 include("membersonly.inc.php");
-
 include "header.php";
 date_default_timezone_set('Asia/Kolkata');
 $cdt=date('Y-m-d');
