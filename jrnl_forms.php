@@ -192,14 +192,14 @@ $size=filesize($_FILES['fileToUpload1']['tmp_name']);
 
 if($size>700000)
 {
- $err="Please Check Upload File Size ...";    
+// $err="Please Check Upload File Size ...";    
 }
 
 $size=filesize($_FILES['fileToUpload']['tmp_name']);
 
 if($size>700000)
 {
- $err="Please Check Upload File Size ...";    
+// $err="Please Check Upload File Size ...";    
 }
 	
 	
@@ -397,7 +397,15 @@ $result31 = mysqli_query($conn,$query31)or die (mysqli_error($conn));
 
 	}
 */
-
+$last_sl=0;
+if($typ==44)
+{
+	$datad= mysqli_query($conn,"select * from main_drcr order by sl desc limit 0,1")or die(mysqli_error($conn));
+	while ($rowd = mysqli_fetch_array($datad))
+	{
+	$last_sl=$rowd['sl'];
+	}
+}
 if($sms==2)
 {
 $datad= mysqli_query($conn,"select * from main_cust where sl='$cid'")or die(mysqli_error($conn));
@@ -412,6 +420,15 @@ $message="Dear ".$cust_nm.",\nYour A/c has been credited with Rs ".number_format
 $sms=send_sms($cust_cont,$message,'1');	
 }
 $dt=date('d-M-Y',strtotime($dt));
+if($typ==44)
+{
+
+?>
+<script>
+window.open("expense_cash_report_new.php?sl=<?php echo $last_sl;?>","_blank").focus();
+</script>
+<?php
+}
 ?>
 <script language="javascript">
 alert('Added Successfully. Thank You.');

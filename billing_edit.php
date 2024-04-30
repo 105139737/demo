@@ -507,6 +507,7 @@ $("#gbet").load("getbe.php?pcd="+prnm+"&brncd="+brncd+"&unit="+unit+"&betno="+be
 	}
 	function reset()
 	{
+	    document.getElementById('prc').value=0;
 		/*document.getElementById('unit').value='';
 		document.getElementById('pcs').value='';
 		document.getElementById('prc').value='';
@@ -639,6 +640,7 @@ $("#getp").load("getp.php?prnm="+prnm+'&unit='+unit+'&cust_typ='+cust_typ+'&prc=
 }
 function get_betno()
 {
+    
 prnm=document.getElementById('prnm').value;	
 bcd=document.getElementById('bcd').value;	
 betnoo=document.getElementById('betnoo').value;	
@@ -687,7 +689,20 @@ var disl=document.getElementById('disl').value;
 window.open('bill_new_gst_temp.php?blno='+encodeURIComponent(blno)+'&disl='+disl+'&damm='+damm, '_blank');
 window.focus();
 }
-
+function cust_srch(tp)
+{
+var cs=encodeURIComponent(document.getElementById('cs').value);
+var brncd=document.getElementById('brncd').value;
+var brand=document.getElementById('brnd1').value;
+$("#cust_src").load("get_cust_src.php?cs="+cs+"&brncd="+brncd+"&brand="+brand+"&tp="+tp).fadeIn('fast');	
+}
+function cust_srch1(tp)
+{
+var cs=encodeURIComponent(document.getElementById('cs1').value);
+if((!isNaN(cs) && cs.length>9) || (isNaN(cs) && cs.length>2)){
+$("#cust_src1").load("get_cust_src1_edit.php?cs="+cs+"&tp="+tp).fadeIn('fast');	
+}
+}
 </script>
 </head>
 <body onload="temp()" >
@@ -712,11 +727,13 @@ window.focus();
  <table border="0" width="860px" class="table table-hover table-striped table-bordered">
   <tr>
   <td align="left" style="padding-top:15px;" width="35%"><b>Ledger Name :</b>
+  <input type="text" id="cs" name="cs" value="cash" onblur="cust_srch('<?php echo $tp;?>')" placeholder="Contact No/Name">
+   <div id="cust_src">
 	<select id="custnm" name="custnm" tabindex="1"  class="form-control"  onchange="gtid()" >
 	
 	<?
 	if($tp=='2'){$qury=" and find_in_set(brand,'$brand')>0 ";}
-		$query="select * from main_cust  WHERE sl>0 and brncd='$brncd' $qury order by nm";
+		$query="select * from main_cust  WHERE sl>0 and brncd='$brncd' and sl='$cid' $qury order by nm";
 		$result=mysqli_query($conn,$query);
 		while($rw=mysqli_fetch_array($result))
 		{
@@ -728,7 +745,7 @@ window.focus();
 		}
 	?>
 	</select>
-
+</div>
   </td>
 	<td align="right" style="padding-top:15px;display:none;" ><b>Contact No. :</b></td>
 	<td style="display:none;">
@@ -736,10 +753,12 @@ window.focus();
 	</td>
 	
 	<td align="left" style="padding-top:15px;" width="35%" ><b>Customer Name : </b>
+		<input type="text" id="cs1" name="cs1" size="40" value="" onkeyup="cust_srch1('<?php echo $tp;?>')"  placeholder="Enter 3 Digit Name / 10 Digit Mobile No.">
+		<div id="cust_src1">
 	<select id="invto" name="invto" tabindex="1"  class="form-control"   >
 	<option value="">---Select---</option>
 	<?
-	$query="select * from main_cust  WHERE sl>0  and typ='1'  order by nm";
+	$query="select * from main_cust  WHERE sl>0  and typ='1' and sl='$invto' order by nm";
 	$result=mysqli_query($conn,$query);
 	while($rw=mysqli_fetch_array($result))
 	{
@@ -750,6 +769,7 @@ window.focus();
 	}
 	?>
 	</select>
+	</div>
 	<input type="hidden"  class="form-control" style="font-weight: bold;" id="addr" readonly="true" name="addr" value="" tabindex="3" placeholder="Customer Address">
 	</td>
 	

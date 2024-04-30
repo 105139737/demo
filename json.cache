@@ -1,1 +1,1 @@
-{"status":{"responseCode":0,"responseMessage":"SUCCESS"}}
+{ "statusCode": 403, "message": "Forbidden" }

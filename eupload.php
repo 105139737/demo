@@ -98,7 +98,7 @@ $ship=$row1['ship'];
                 </div><!-- /.col -->
                 <div class="col-md-3">
                 </div>
-                <div class="col-md-12">
+                <div class="col-md-12" style="display:none">
                         <div class="box box-myclass box-success">
                             <div class="box-header with-border">
                                 <h3 class="box-title">Customer Shipping Address</h3>

@@ -1,7 +1,12 @@
 <?php 
-$reqlevel = 3; 
-include("membersonly.inc.php");
-include("function.php");
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+ini_set("memory_limit", "-1");
+set_time_limit(0);
+include("../config.php");
+include("../function.php");
+date_default_timezone_set('Asia/Kolkata');
 $fdt=$_REQUEST['fdt'];
 $tdt=$_REQUEST['tdt'];
 $snm=rawurldecode($_REQUEST['snm']);
@@ -25,7 +30,7 @@ if($sale_per==""){$sale_per1="";}else{$sale_per1=" and sale_per='$sale_per'";}
 if($delv==""){$delv1="";}else{$delv1=" and dstat='$delv'";}
 if($scat==""){$scat1="";}else{$scat1=" and scat='$scat'";}
 if($cat==""){$cat1="";}else{$cat1=" and cat='$cat'";}
-
+$gst_no1="";
 if($brncd==""){$brncd1="";}else{$brncd1=" and bcd='$brncd'";}
 if($godown==""){$godown1="";}else{$godown1=" and bcd='$godown'";}
 if($gst_no=="1"){$gst_no1=" and gstin!=''";}if($gst_no=="2"){$gst_no1=" and gstin=''";}
@@ -123,6 +128,10 @@ $igst1=0;
 $cgst1=0;
 $sgst1=0;
 $ttpcs=0;
+$tnet_am=0;
+$ttotal=0;
+$tprofit=0;
+$tprofitp=0;
 
 $data1= mysqli_query($conn,"select * from  main_billing where sl>0".$todts.$snm1.$brncd1.$gst_no1.$tp11.$cstat1.$sale_per1.$delv1.$refsl1." order by dt,sl")or die(mysqli_error($conn));
 while ($row1 = mysqli_fetch_array($data1))
@@ -150,7 +159,7 @@ $tcs=$row1['tcsam'];
 $pay_dt=$row1['dt'];
 $last_edit_date = date('Y-m-d', strtotime($pay_dt. ' + '.$mdays.' days')); 
 
-$edit_count=get_permission($dt,$bill_edt);
+//$edit_count=get_permission($dt,$bill_edt);
 
 $cdt=date('Y-m-d');
 
@@ -187,6 +196,7 @@ $sgst=0;
 $total_am=0;
 $disa_am=0;
 $tpcs=0;
+
 $data= mysqli_query($conn,"select * from  main_billdtls where sl>0 and blno='$blno'".$bqr.$godown1)or die(mysqli_error($conn));
 while ($row = mysqli_fetch_array($data))
 {

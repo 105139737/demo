@@ -18,7 +18,7 @@ curl_setopt_array($curl, array(
     "Ocp-Apim-Subscription-Key: 3a4e5289e5a44c46ab3dd81ac735d313"
   ),
 ));
-
+curl_setopt($curl, CURLOPT_IPRESOLVE, CURL_IPRESOLVE_V4);
 $response = curl_exec($curl);
 //$af="ResponseMessage";
 //$response = json_decode($response);
@@ -37,7 +37,7 @@ $val="'$ResponseCode','$ResponseMessage','$edt','$edtm','$user_currently_loged'"
 
 foreach ($arr['DoDetails'] as $k=>$v){
    // echo $k; // etc..
-
+    $v=str_replace('\'',' ',$v);
     $fld.=",".$k;    
     $val.=",'$v'";
 }
@@ -50,12 +50,12 @@ $err="Data Already Exists...";
 }
 if($err=='')
 {
-$query2 = "INSERT INTO main_bfl ($fld) VALUES ($val)";
-$result2 = mysqli_query($conn,$query2)or die (mysqli_error());
+ $query2 = "INSERT INTO main_bfl ($fld) VALUES ($val)";
+$result2 = mysqli_query($conn,$query2)or die (mysqli_error($conn));
 }
 $nm=$arr['DoDetails']['CustomerName'];
 $mob=$arr['DoDetails']['CustomerPhoneNo'];
-$addr="CITY :".$arr['DoDetails']['CITY'].", ".$arr['DoDetails']['AddressLine1'].", ".$arr['DoDetails']['AddressLine1'].", ".$arr['DoDetails']['AddressLine2'].", ".$arr['DoDetails']['AddressLine3'].", Area : ".$arr['DoDetails']['Area'].", Landmark : ".$arr['DoDetails']['Landmark'];
+$addr="CITY :".$arr['DoDetails']['CITY'].", ".$arr['DoDetails']['AddressLine1'].", ".$arr['DoDetails']['AddressLine1'].", ".$arr['DoDetails']['AddressLine2'].", ".$arr['DoDetails']['AddressLine3'].", Area : ".$arr['DoDetails']['Area'].", Landmark : ".str_replace('\'',' ',$arr['DoDetails']['Landmark']);
 $email=$arr['DoDetails']['CustomerEmailID'];
 $gstin_no=$arr['DoDetails']['customerGSTIN'];
 $pan=$arr['DoDetails']['CustomerPAN'];

@@ -41,6 +41,11 @@ while($row1=mysqli_fetch_array($datao))
 $pdldgr=$row1['dldgr'];
 $ppaymtd=$row1['paymtd'];
 }
+$discountReadOnly="";
+if($tp==1 && strtoupper($user_currently_loged)!='ADMIN' && strtoupper($user_currently_loged)!='RIYA')
+{
+ $discountReadOnly="readonly";   
+}
 ?>
 
 <html>
@@ -325,11 +330,12 @@ function set_dis()
 }
 function recaldis()
 {
-	var dbal=parseFloat(document.getElementById('dbal').value);	
+	var dbal=parseFloat(document.getElementById('cal_dbal').value);	
 	var amm=parseFloat(document.getElementById('amm').value);
 	if(amm>0){
 	document.getElementById('damm').value=(dbal-amm).round(2);	
 	}
+	console.log(dbal,amm);
 }
 Number.prototype.round = function(places) {
   return +(Math.round(this + "e+" + places)  + "e-" + places);
@@ -608,7 +614,7 @@ while($row = mysqli_fetch_array($get))
 </select>
 </td>
 <td align="left">
-<input  type="text" name="damm" id="damm" class="sc" onkeypress="return isNumber1(event)">
+<input  type="text" name="damm" id="damm" <?php echo $discountReadOnly;?> class="sc" onkeypress="return isNumber1(event)">
 </td>
 <td align="left">
 <input  type="text" name="remk" id="remk" class="sc" >

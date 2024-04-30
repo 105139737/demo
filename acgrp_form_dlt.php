@@ -1,5 +1,4 @@
 <?php
-//test
 $reqlevel = 1;
 include("membersonly.inc.php");
 $edt=date('Y-m-d');

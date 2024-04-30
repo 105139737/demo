@@ -3,7 +3,7 @@ $reqlevel = 3;
 include("membersonly.inc.php");
 include("Numbers/Words.php");
 include('QR_BarCode.php');
-
+include 'phpqrcode/qrlib.php'; 
 $blno=rawurldecode($_REQUEST[blno]);
 $ddt=$_REQUEST[ddt];
 $typ=$_REQUEST[typ];
@@ -43,13 +43,16 @@ $Irn=$R111['Irn'];
 $AckNo=$R111['AckNo'];
 $AckDt=$R111['AckDt'];
 $ship=$R111['ship'];
+$ship_addr=$R111['ship_addr'];
+$ship_mob=$R111['ship_mob'];
 }
 if($AckNo!=''){
-$qr = new QR_BarCode();
+/*$qr = new QR_BarCode();
 //create text QR code
 $qr->text($SignedQRCode);
 //Save QR in image
-$qr->qrCode(120,'einvjson/'.$bill_sl.'.png');
+$qr->qrCode(120,'einvjson/'.$bill_sl.'.png');*/
+QRcode::png($SignedQRCode,'einvjson/'.$bill_sl.'.png');
 }
 
 $gbt=mysqli_query($conn,"select * from main_cust where sl='$cid'")or die (mysqli_error($conn));
@@ -252,12 +255,7 @@ if($sf_nmp!='')
 <?
 }
 }
-$ship_data= mysqli_query($conn,"select * from main_cust_shipping where  sl='$ship' ")or die(mysqli_error($conn)); 
-while ($row = mysqli_fetch_array($ship_data))
-{
-$ship_mob=$row['mob'];
-$ship_addr=$row['addr'];
-}
+
 $data11v= mysqli_query($conn,"select * from main_branch where sl='$brnc'")or die(mysqli_error($conn));
 while ($row1 = mysqli_fetch_array($data11v))
 {
@@ -592,7 +590,7 @@ $height=$height-20;
 <td style="text-align:left;" valign="top" ><font size="2"><?=$pnm2;?>
 <?=$betno1;?><br>
 <?php if($tp==1){?>
-Godown -  <?=get_branch_name_godown($bcd);?> <?php }?>
+<?=$scat_nm;?> <?php }?>
 </font></td>
 <td style="text-align:center; " valign="top"><font size="2"><?=$hsn;?></font></td>
 <td style="text-align:center; width:8%;" valign="top"><font size="2"><?=$stock_in;?></font></td>

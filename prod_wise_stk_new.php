@@ -173,7 +173,7 @@ $("#prod_div").load("get_product_stk.php?scat="+scat+"&cat="+cat).fadeIn('fast')
 
 <td  align="left" width="20%">
 <b>Brand :</b><br>
-<select name="cat" class="form-control" size="1" id="cat" tabindex="8" onchange="get_cat()">
+<select name="cat" class="form-control" size="1" id="cat" tabindex="8" onchange="get_cat();get_prod()">
 <Option value="">---All---</option>
 <?
 $data11 = mysqli_query($conn,"Select * from main_catg order by sl");
@@ -191,14 +191,14 @@ echo "<option value='".$bsl."'>".$brnm."</option>";
 <div id="gcat">
 <select name="scat" class="form-control" size="1" id="scat" tabindex="8" onchange="get_prod()">
 <Option value="">---All---</option>
-<?
+<?/*
 $data1 = mysqli_query($conn,"Select * from main_scat order by nm");
 while ($row1 = mysqli_fetch_array($data1))
 {
 $sl=$row1['sl'];
 $cnm=$row1['nm'];
 echo "<option value='".$sl."'>".$cnm."</option>";
-}
+}*/
 ?>
 </select>
 </div>
@@ -209,7 +209,7 @@ echo "<option value='".$sl."'>".$cnm."</option>";
 <div id="prod_div">
 <select name="prnm" class="form-control"  id="prnm">
 <option value="">---All---</option>
-<?
+<?/*
 $data1 = mysqli_query($conn,"Select * from main_product where typ='0' and stat='0' order by pnm");
 while ($row1 = mysqli_fetch_array($data1))
 {
@@ -218,7 +218,7 @@ $pnm=$row1['pnm'];
 ?>
 <Option value="<?=$msl;?>"><?=reformat($pnm);?></option>
 <?
-}
+}*/
 ?>
 </select>
 </div>

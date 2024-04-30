@@ -311,6 +311,7 @@ $mob=$rowd1['mob'];
 }
 $sms=send_sms($mob,$message,'1');	
 }
+
 ?>
 <script language="javascript">
 alert('Added Successfully. Thank You..!');

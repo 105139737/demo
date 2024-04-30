@@ -59,7 +59,9 @@ $res['responseMessage']="SUCCESS";
 $res1['status']=$res;
 $make_call1 = json_encode($res1);
 */
+//echo $make_call1;
 $make_call1 = json_decode($make_call1,true);
+
 $err=$make_call1['status']['responseMessage'];
 
 if($make_call1['status']['responseMessage']=='SUCCESS')

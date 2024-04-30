@@ -119,8 +119,6 @@ $(document).ready(function()
    $("#dt").datepicker(jQueryDatePicker1Opts);
    $("#fdt").datepicker(jQueryDatePicker1Opts);
    $("#tdt").datepicker(jQueryDatePicker1Opts);
-
-   
 });
 
 
@@ -232,7 +230,6 @@ function cancell(ssl)
 		$('#show').load("cancel_clctn_rprt.php?sl="+ssl).fadeIn('fast');
 		}
 }
-
 </script>
 
 <link href="style.css" rel="stylesheet" type="text/css" />

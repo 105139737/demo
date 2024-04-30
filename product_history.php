@@ -133,14 +133,14 @@ echo "<option value='".$bsl."'>".$brnm."</option>";
 <div id="gcat">
 <select name="scat" class="form-control" size="1" id="scat" tabindex="8" onchange="get_prod()">
 <Option value="">---All---</option>
-<?
+<?/*
 $data1 = mysqli_query($conn,"Select * from main_scat order by nm");
 while ($row1 = mysqli_fetch_array($data1))
 {
 $sl=$row1['sl'];
 $cnm=$row1['nm'];
 echo "<option value='".$sl."'>".$cnm."</option>";
-}
+}*/
 ?>
 </select>
 </div>
@@ -151,7 +151,7 @@ echo "<option value='".$sl."'>".$cnm."</option>";
 <div id="prod_div">
 <select name="prnm" class="form-control"  id="prnm"   >
 <option value="">---All---</option>
-<?
+<?/*
 $data1 = mysqli_query($conn,"Select * from main_product where typ='0' order by pnm");
 while ($row1 = mysqli_fetch_array($data1))
 {
@@ -161,7 +161,7 @@ $pcd=$row1['pcd'];
 ?>
 <Option value="<?=$msl;?>"><?=reformat($pcd." ".$pnm);?></option>
 <?
-}
+}*/
 ?>
 </select>
 </div>

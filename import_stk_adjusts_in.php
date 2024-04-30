@@ -28,7 +28,7 @@ set_time_limit(0);
 $logx=0;
 $dt = date('Y-m-d', strtotime($stk_dt));
 $stk_dt = date('Y-m-d', strtotime($stk_dt));
-//echo "select * from  main_openingdtl where sl>0 and cat='$cat' and scat='$scat' $todt  group by prsl ";
+echo "select * from  main_openingdtl where sl>0 and cat='$cat' and scat='$scat' and rqty='2' $todt ";
 $data = mysqli_query($conn, "select * from  main_openingdtl where sl>0 and cat='$cat' and scat='$scat' and rqty='2' $todt  ") or die(mysqli_error($conn));
 while ($row = mysqli_fetch_array($data)) {
 	$unit = 'sun';

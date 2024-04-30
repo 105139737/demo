@@ -4,6 +4,7 @@ include("membersonly.inc.php");
 include "header.php";
 
 $sl=base64_decode($_REQUEST[sl]);
+
 $data= mysqli_query($conn,"select * from main_cust where sl='$sl'")or die(mysqli_error($conn));
 while ($row = mysqli_fetch_array($data))
 {
@@ -38,6 +39,7 @@ else
 	$gstdt='';
 }
 if($fst==''){$fst=1;}
+
 ?>
 <html>
 <head>

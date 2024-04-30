@@ -121,8 +121,6 @@ $count6=mysqli_num_rows($result5);
 }
    
    
-
-
 $query51="select * from ".$DBprefix."drcr where vno!='' order by sl desc limit 0,1";
 $result51 = mysqli_query($conn,$query51) or die(mysqli_error($conn));
 while($rows=mysqli_fetch_array($result51))
@@ -133,7 +131,6 @@ $vid1=substr($vnos,2,7);
 	$vid1=$vid1+1;
 	$vnoc=str_pad($vid1, 7, '0', STR_PAD_LEFT);
 	$vcno="SV".$vnoc;
-
 
 
 $totamm=$pamm;

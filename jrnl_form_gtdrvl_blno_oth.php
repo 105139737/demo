@@ -44,7 +44,7 @@ $t2 = round($row1['t2'],2);
 $T=round($t1-$t2,2);
 $due_amm=$T;
 ?>
-<input type="text" name="dbal" id="dbal" value="<?echo $T;?>" class="sc" style="background :transparent; color : red;font-weight:bold;" readonly>
+<input type="text" name="cal_dbal" id="cal_dbal" value="<?echo $T;?>" class="sc" style="background :transparent; color : red;font-weight:bold;" readonly>
 <?
 
 

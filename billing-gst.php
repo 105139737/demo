@@ -706,15 +706,20 @@ $("#gbet").load("getbe.php?pcd="+prnm+"&brncd="+brncd+"&unit="+unit+"&betno="+be
 		var tsl=document.getElementById('tsl').value;
 		var bill_typ=document.getElementById('bill_typ').value;
 		var order_no=document.getElementById('order_no').value;	
-		
+		if(prnm=='')
+		{
+		    prnm=document.getElementById('tpcd').value;
+		}
 		if(prnm=='')
 		{
 		alert("Product Can't be blank");
+		reset();
 		}
 		
 		else if(bill_typ=='')
 		{
 		alert("Please Select Bill Type ...");
+		reset();
 		}
 		else
 		{
@@ -725,7 +730,24 @@ $("#gbet").load("getbe.php?pcd="+prnm+"&brncd="+brncd+"&unit="+unit+"&betno="+be
 	}
 	function reset()
 	{
+	    prnm=document.getElementById('prnm').value
+	    $("#prnm option[value='"+prnm+"']").remove(); 
+	    $('#prnm').trigger("chosen:updated"); 
+	    
+	    document.getElementById('tpcd').value="";
 		document.getElementById('pcs').value='1';
+		document.getElementById('prc').value=0;
+		document.getElementById('total').value=0;
+		document.getElementById('disp').value='';
+		document.getElementById('disa').value='';
+		document.getElementById('lttl').value='';
+		document.getElementById('cgst_rt').value='';
+		document.getElementById('sgst_rt').value='';
+		document.getElementById('igst_rt').value='';
+		document.getElementById('cgst_am').value='';
+		document.getElementById('sgst_am').value='';
+		document.getElementById('igst_am').value='';
+		document.getElementById('net_amm').value='';
 		/*
 		document.getElementById('unit').value='';
 		
@@ -792,7 +814,7 @@ document.getElementById("igst_am").readOnly = false;
 }
 get_gstval();
 } 
-function get_gstval()
+function get_gstval(autoadd="")
 {
 dt=document.getElementById('dt').value;	
 prnm=document.getElementById('prnm').value;	
@@ -820,7 +842,14 @@ sgst=0;
 	
     $('#igst_rt').val(igst);
      cal();
+     
+ if(autoadd=="autoadd")
+ {
+add1();
+ }
 }); 
+
+
 
 }
    Number.prototype.round = function(places) {
@@ -837,6 +866,7 @@ $("#getp").load("getp.php?prnm="+prnm+'&cust_typ='+cust_typ+'&prc='+prc1+'&spl='
 }
 function get_betno(betno)
 {
+document.getElementById('prc').value=0;
 if(betno=='undefined' || betno=='' ){betno='';}	
 prnm=document.getElementById('prnm').value;	
 bcd=document.getElementById('bcd').value;	
@@ -849,7 +879,7 @@ credit_limit=parseFloat(document.getElementById('credit_limit').value);if(docume
 due=parseFloat(document.getElementById('due').value);if(document.getElementById('due').value==''){due=0;}
 pay=parseFloat(document.getElementById('pay').value);if(document.getElementById('pay').value==''){pay=0;}	
 custnm=document.getElementById('custnm').value;	
-
+by=document.getElementById('by').value;	
 
 
 if(custnm=='')
@@ -857,7 +887,7 @@ if(custnm=='')
 alert('Please Select Ladger Name !!');
 return false;
 }
-else if(credit_limit>0 && (due+pay)>credit_limit)
+else if(credit_limit>0 && (due+pay)>credit_limit && (by!="ADMIN" && by!="RIYA"))
 {
 alert('Sorry, Credit Limit Exceeded !!');
 return false;
@@ -909,7 +939,17 @@ function get_prod(psl='')
 var scat=document.getElementById('scat1').value;
 var cat=document.getElementById('cat1').value;
 var brnd=document.getElementById('brnd').value;
-$("#prod_div").load("get_product_sale.php?cat="+cat+"&scat="+scat+"&psl="+psl+"&brnd="+brnd).fadeIn('fast');	
+//$("#prod_div").load("get_product_sale.php?cat="+cat+"&scat="+scat+"&psl="+psl+"&brnd="+brnd).fadeIn('fast');	
+}
+function get_prod_by_name(psl='')
+{
+var scat=document.getElementById('scat1').value;
+var cat=document.getElementById('cat1').value;
+var brnd=document.getElementById('brnd').value;
+var prnm3=encodeURIComponent(document.getElementById('prnm3').value);
+if(prnm3.length>2){
+$("#prod_div").load("get_product_sale.php?cat="+cat+"&scat="+scat+"&psl="+psl+"&brnd="+brnd+"&prnm3="+prnm3).fadeIn('fast');
+}
 }
 function cust_srch(tp)
 {
@@ -972,7 +1012,8 @@ $('#bcd').trigger("chosen:updated");
 <input type="hidden" class="form-control" value="<?=$brand;?>"  tabindex="1"  name="brnd" id="brnd" >  							
 <input type="hidden" class="form-control" value="<?=$order_no;?>"  tabindex="1"  name="order_no" id="order_no" >  							
 <input type="hidden" class="form-control" value=""  tabindex="1"  name="prc1" id="prc1" >  							
-<input type="hidden" class="form-control" value="<?php echo $price_lock;?>"  tabindex="1"  name="spl" id="spl" >  							
+<input type="hidden" class="form-control" value="<?php echo $price_lock;?>"  tabindex="1"  name="spl" id="spl" >
+<input type="hidden" class="form-control" value="<?php echo strtoupper($user_currently_loged);?>"  tabindex="1"  name="by" id="by" >  	
 
 <div class="box box-success" >
 <b>Invoice Details : </b>
@@ -1268,11 +1309,11 @@ echo "<option value='".$ssl."'>".$snm."</option>";
 	   <td  colspan="19">
 <table border="0" width="100%" class="advancedtable">
 <tr class="odd">
-<td align="left" width="11%"><b>Model</b></td>
-<td align="left" width="11%"><b>Godown</b></td>
-<td align="center" width="5%"><b>Serial No.</b></td>
-<td align="center" width="5%"><b>Unit</b></td>
-<td align="center" width="6%"><b>Stock In Hand</b></td>
+<td align="left" width="20%"><b>Model : &nbsp; <input type="box" id="prnm3" onkeyup="get_prod_by_name()" name="prnm3" placeholder="Min 3 Digit Model Name "></b></td>
+<td align="left" width="7%"><b>Godown</b></td>
+<td align="center" width="11%"><b>Serial No.</b></td>
+<td align="center" hidden width="5%"><b>Unit</b></td>
+<td align="center" hidden width="4%"><b>Stock In Hand</b></td>
 <td align="center" width="3%"><b>Quantity</b></td>
 <td align="center" width="4%"><b>Sale Rate</b></td>
 <td align="center" width="6%"><b>Total</b></td>
@@ -1300,8 +1341,9 @@ echo "<option value='".$ssl."'>".$snm."</option>";
 
 
 <td>
+    <input type="hidden" id="tpcd" class="sc" name="tpcd" value="">
 <div id="prod_div">
-<select id="prnm" name="prnm" class="form-control"  tabindex="1" onchange="get_betno('');gtt_unt();get_gstval();godown()">
+<select id="prnm" name="prnm" class="form-control"  tabindex="1" onchange="get_betno('');gtt_unt();get_gstval();godown();">
 <option value="">---Select---</option>
 
 </select>
@@ -1338,21 +1380,21 @@ if($count==0 and $count1>0){$disabled=" disabled";}
 </div>
 </td>
 
-<td>
+<td >
 <div id="g_betno">
 <input type="text" class="sc" autocomplete="off" id="betno" name="betno" style="text-align:center"  value="" tabindex="1" size="15"  onblur="spaces(this.value)" >
 </div>
 </td>
 
-<td>
+<td hidden>
 <div id="g_unt">
 <select id="unit" name="unit" class="sc1" style="width:100%"  tabindex="1" onchange="get_stock()">
 <option value="">---Select---</option>
 </select>
 </div>
 </td>
-<td>
-<div id="gbet">
+<td hidden>
+<div id="gbet" >
 <input type="text" class="sc" autocomplete="off" id="sih" readonly name="sih" style="text-align:center"  value="" tabindex="1">
 </div>
 </td>

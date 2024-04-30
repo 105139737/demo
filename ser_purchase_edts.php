@@ -62,7 +62,7 @@ $size=filesize($_FILES['fileToUpload1']['tmp_name']);
 
 if($size>700000)
 {
- $err="Please Check Upload File Size ...";    
+ //$err="Please Check Upload File Size ...";    
 }
 
 $query1 = "SELECT sum(ttl) as gttl,sum(cgst_am) as cgst,sum(sgst_am) as sgst,sum(igst_am) as igst,sum(net_am) as sttl FROM ".$DBprefix."ser_purchasedet_edt where blno='$blno'";

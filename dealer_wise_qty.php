@@ -337,7 +337,16 @@ function show1()
 		else
 		{cust=cust+","+x.options[i].value;} }}
 		
-	window.open('dealer_wise_qtys.php?fdt='+fdt+'&tdt='+tdt+'&xls=1'+'&brand='+brand+'&scat='+cn+'&cust='+cust, '_blank');	
+		var x=document.getElementById("prnm");
+		prnm="";
+		for (var i = 0; i < x.options.length; i++) {
+		if(x.options[i].selected ==true){
+		if(prnm=="")
+		{prnm=x.options[i].value; }
+		else
+		{prnm=prnm+","+x.options[i].value;} }}
+
+	window.open('dealer_wise_qtys.php?fdt='+fdt+'&tdt='+tdt+'&xls=1'+'&brand='+brand+'&scat='+cn+'&cust='+cust+'&prnm='+prnm, '_blank');	
 	}
 
 function getbrnd()
@@ -353,7 +362,30 @@ var x=document.getElementById("brand");
 $('#branddiv').load('get_cat_report.php?brand='+cn).fadeIn('fast');
 $('#cust_div').load('get_cust_report.php?brand='+cn).fadeIn('fast');
 }
+//
 
+function get_product()
+{
+var x=document.getElementById("brand");
+		cn="";
+		for (var i = 0; i < x.options.length; i++) {
+		if(x.options[i].selected ==true){
+		if(cn=="")
+		{cn=x.options[i].value; }
+		else
+		{cn=cn+","+x.options[i].value;} }}
+		
+var x=document.getElementById("scat");
+		scat="";
+		for (var i = 0; i < x.options.length; i++) {
+		if(x.options[i].selected ==true){
+		if(scat=="")
+		{scat=x.options[i].value; }
+		else
+		{scat=scat+","+x.options[i].value;} }}		
+		
+$('#proddiv').load('get_product_report.php?cat='+cn+'&scat='+scat).fadeIn('fast');
+}
 </script>
 
  
@@ -455,7 +487,15 @@ $('#cust_div').load('get_cust_report.php?brand='+cn).fadeIn('fast');
 	
 	  <tr>
 
-
+ <td align="right"  style="padding-top:15px;" >Model</td>
+            <td  align="left" width="">
+			<div id="proddiv">
+					<select name="prnm[]"  class="form-control" size="1" id="prnm" multiple tabindex="8"  >
+					
+			
+					</select>
+				</div>
+			</td>
 						
 		    <td align="right"  style="padding-top:15px;" ><b>Customer :</b></td>
             <td  align="left" width="">
@@ -467,15 +507,12 @@ $('#cust_div').load('get_cust_report.php?brand='+cn).fadeIn('fast');
 				</div>
 			</td>
 			
-			  <td align="right"  style="padding-top:15px;" ></td>
-            <td  align="left" width="">
-			
-			</td>
+			 
 	</tr>
 	<tr>
 <td align="right" colspan="4" >
 	<input type="hidden" name="pno" id="pno" value="">
- <!--<input type="button" value=" Show " onclick="show1()" class="btn btn-primary"/>-->
+  <!--<input type="button" value=" Show " onclick="show1()" class="btn btn-primary"/>-->
   <input type="button" value=" Export to Excel " onclick="xlss()" class="btn btn-info">
 
     </td>

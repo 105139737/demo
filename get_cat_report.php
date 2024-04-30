@@ -3,7 +3,7 @@ $reqlevel = 1;
 include("membersonly.inc.php");
 $brand=$_REQUEST['brand'];
 ?>
-<select name="scat[]"  class="form-control" size="1" id="scat" multiple>
+<select name="scat[]"  class="form-control" size="1" id="scat" multiple onchange="get_product()">
 <?
 $data1 = mysqli_query($conn,"Select * from main_scat where sl>0 and FIND_IN_SET(cat, '$brand')>0");
 

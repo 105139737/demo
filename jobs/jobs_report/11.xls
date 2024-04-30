@@ -1,20 +1,91 @@
-<div style="overflow-x:auto;">
-<table width="50%" border="1"  class="table table-bordered">
-<tr>
-<th>BRAND</th>
-<th>STOCK AS ON (DATE) BILL VALUE</th>
-<th>MARKET OS</th>
-<th>CO DUE</th>
-<th>INVEST</th>
-</tr>
+<style> .phone{ mso-number-format:\@; } </style>
+ <table  width="100%" class="advancedtable" border="1"  >
+<tr bgcolor="000">
+<td colspan="23"><font size="5" color="#fff">Sale Details</font></td>
+</tr>		
+			<tr bgcolor="#e8ecf6">
+			<td  align="center" ><b>Sl</b></td>		
+			<td  align="center"><b>Date</b></td>
+			<td  align="center"><b>Branch</b></td>
+			<td  align="center"><b>Sales Person</b></td>
+			<td  align="center" ><b>Invoice</b></td>
+			<td  align="center" ><b>Customer Name</b></td>
+			<td  align="center" ><b>Mobile</b></td>
+			<td  align="center" ><b>Type</b></td>
+			<td  align="center" ><b>GSTIN</b></td>
+			<td  align="center" ><b>GTM </b></td>
+			<td  align="center" ><b>EAN </b></td>
+			<td  align="center" ><b>Brand </b></td>
+			<td  align="center" ><b>Category </b></td>
+			<td  align="center" ><b>Product Name</b></td>
+			<td  align="center" ><b>HSN</b></td>
+			<td  align="center" ><b>Serial No.</b></td>
+			<td  align="center" ><b>Quantity</b></td>
+			<td  align="center" ><b>S.Rate</b></td>
+			<td  align="center" ><b>Total</b></td>
+			<td  align="center" ><b>Disc.%</b></td>
+			<td  align="center" ><b>Disc.Am</b></td>
+			<td  align="center" ><b>Taxable Amt.</b></td>
+			<td  align="center" ><b>CGST%</b></td>
+			<td  align="center" ><b>CGST </b></td>
+			<td  align="center" ><b>SGST%</b></td>
+			<td  align="center" ><b>SGST </b></td>
+			<td  align="center" ><b>IGST%</b></td>
+			<td  align="center" ><b>IGST </b></td>
+			<td  align="center" ><b>Rate(After GST)</b></td>
+			<td  align="center" ><b>Dis Am.</b></td>
+			<td  align="center" ><b>Net Payable</b></td>
+			</tr>
+			 		<tr title="<br />
+<b>Notice</b>:  Undefined variable: sl in <b>/home/hndbtrknjk/public_html/demo/jobs/sale_xls.php</b> on line <b>320</b><br />
+8425 S Sl">
+				<td  align="center"  >1		</td>
+		<td  align="center" >27-05-2023</td>
+		<td  align="center" >BETHUA</td>
+		<td  align="center" >SOUMALYA</td>
+		<td  align="center"  class="phone">HDBD279/23-24</td>
+		<td  align="left" >BETHUA CASH ALL <b>(NARESH CHANDRA SAHA)</b></td>
+		<td  align="left" >9153344895</td>
+		<td  align="center" >Retail</td>
+		<td  align="center" ></td>
+		<td  align="center" >DUR2960</td>
+					<td  align="left" title="8425" ></td>
+			<td  align="left" title="8425" >Prestige</td>
+			<td  align="left" title="8425" >Prestige Mixer Grinder</td>
+			<td  align="left" title="8425" ><a >PRESTIGE DELIGHT PLUS 4 JAR MIXER GRINDER (41380)</a></td>
+			<td  align="center" >85094090</td>
+			<td  align="center" class="phone">1</td>
+			<td  align="center" >1 PCS</td>
+			<td  align="right" >3,855.93</td>
+			<td  align="right" >3,855.93</td>
+			<td  align="center" >0</td>
+			<td  align="right" >0.00</td>
+			<td  align="right" >3,855.93</td>
+			<td  align="center" >9</td>
+			<td  align="center" >347.03</td>
+			<td  align="center" >9</td>
+			<td  align="center" >347.03</td>
+			<td  align="center" >0</td>
+			<td  align="center" >0.00</td>
+			<td  align="center" >4,550.00</td>
+			<td  align="right" >0.00</td>
+			<td  align="right" >4,550.00</td>
+			</tr>	 
 
-
-<tr>
-<td><b>HAIER</b></td>
-<td align="right" title="0 @ 9449.2172"><b>-13642.49</b></td>
-<td><b>24203091.67</b></td>
-<td><b>13705148.6</b></td>
-<td><b>10484300.58</b></td>
+			<tr>
+	<td colspan="16" align="right"><b>Total</b></td>
+	
+	<td align="center"><b></b></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td align="right"><b>3855.93</b></td>
+	<td align="right" colspan="2"><b>347.03</b></td>
+	<td align="right" colspan="2"><b>347.03</b></td>
+	<td align="right" colspan="2"><b>0.00</b></td>
+	<td  align="right" ><b></b></td>
+	<td  align="right" ><b>0.00</b></td>
+	<td align="right"><b>4,550.00</b></td>
 </tr>
 </table>
-</div>

@@ -97,6 +97,7 @@ while($row1=mysqli_fetch_array($get1))
                         <?php
 }
 }
+
 ?>
                     </section>
 
@@ -221,7 +222,7 @@ function check() {
     $('#compose-modal1').modal('show');
 }
 
-getJobData();
+//getJobData();
 
 function getJobData() {
     $("#loader").show();

@@ -1,4 +1,4 @@
-<?
+<?php
 $reqlevel = 1;
 include("membersonly.inc.php");
 $cs=rawurldecode($_REQUEST[cs]);
@@ -19,12 +19,14 @@ $tp=$_REQUEST[tp];
 	{
 	$typ1=$rw['typ'];				
 	?>
-	<option value="<?=$rw['sl'];?>" <?if($cid==$rw['sl']){?> selected <?}?>><?=$rw['nm'];?> <?if($rw['cont']!=""){?>( <?=$rw['cont'];?> )<?}?> </option>
-	<?
+	<option value="<?php echo $rw['sl'];?>" <?php if($cid==$rw['sl']){?> selected <?php }?>><?php echo $rw['nm'];?> <?php if($rw['cont']!=""){?>( <?php echo $rw['cont'];?> )<?php }?> </option>
+	<?php
 	}
 	?>
 	</select>
-
+<?php
+//echo $query="select * from main_cust  WHERE sl>0 and brncd='$brncd' and stat='0' $qury $qury2 order by nm";
+?>
 <script>
 $('#custnm').chosen({
 no_results_text: "Oops, nothing found!",

@@ -134,8 +134,8 @@ if($count==0){$color="red";}
 <td  align="left" ><?=get_branch_name($bcd);?></td>
 <td  align="left" ><?=$sale_per;?></td>
 <td  align="left" ><a href="bill_new_gst.php?blno=<?=$blno;?>" target="_blank"><?=$blno;?></td>
-<td  align="left" ><a href="#" onclick="edit('<?=$blno;?>')"><?=$nm;?> <b><?=$invnm;?></b></a></td>
-<td  align="left" ><?php echo $cust_typp;?></td>
+<td  align="left" ><a href="bill_new_gst.php?blno=<?=$blno;?>&typ=1" target="_blank"><?=$nm;?> <b><?=$invnm;?></b></a></td>
+<td  align="left" ><a href="#" onclick="edit('<?=$blno;?>')"<?php echo $cust_typp;?></a></td>
 <td  align="left" ><?=$gstin;?></td>
 <td  align="right" ><?=number_format($amm,2);?></td>
 <td  align="right" ><?=number_format($damm,2);?></td>

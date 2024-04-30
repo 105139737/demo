@@ -53,6 +53,8 @@ $reference=$_POST['reference'];
 $mr=$_POST['mr'];
 $tcs=$_POST['tcs'];
 $tcsam=$_POST['tcsam'];
+$ship_addr=$_POST['ship_addr'];
+$ship_mob=$_POST['ship_mob'];
 set_time_limit(0);                                                                                                                                        
 $dt=date('Y-m-d', strtotime($dt));
 $val=date_chk($dt);
@@ -93,7 +95,7 @@ $err="Please Select Discount Ledger...";
 }	
 }
 
-if(strtoupper($user_currently_loged)=='ADMIN'  OR strtoupper($user_currently_loged)=='CHANDAN' )
+if(strtoupper($user_currently_loged)=='ADMIN'  OR strtoupper($user_currently_loged)=='CHANDAN' OR strtoupper($user_currently_loged)=='RIYA')
 {
 }
 else if($cust_typ==2)
@@ -106,7 +108,7 @@ while ($R145o = mysqli_fetch_array ($resu45o))
 $cust_cont=$R145o['cont'];
 }
 $cust_over1="";
-$que45o = "SELECT * FROM main_cust where sl='$custnm'"; //cont='$cust_cont'
+$que45o = "SELECT * FROM main_cust where cont='$cust_cont' and (brand='1' or brand='2' or brand='4' or brand='15' or brand='13' or brand='5' or brand='18' or brand='61')"; //cont='$cust_cont' sl='$custnm' LG, PANA, HAIER, CARRIER, BS, HITACHI, GODREJ,LLOYD
 $resu45o = mysqli_query($conn,$que45o) or die(mysqli_error($conn));
 while ($R145o = mysqli_fetch_array ($resu45o))
 {
@@ -138,6 +140,7 @@ $data21= mysqli_query($conn,"select * from  main_drcr where cbill='$blno_over' a
 while ($row2 = mysqli_fetch_array($data21))
 {
 $bill_dt=$row2['dt'];
+$blno_over_dt=$row1['dt'];
 }
 }
 if($bill_dt=='')
@@ -148,7 +151,10 @@ while ($row2 = mysqli_fetch_array($data22))
 $bill_dt=$row2['dt'];
 }
 }
-
+if($bill_dt=="")
+{
+   $bill_dt= $blno_over_dt;
+}
 $T=0;
 $result416 = mysqli_query($conn,"SELECT  (SUM(IF(dldgr='4', amm, 0)) - SUM(IF(cldgr='4', amm, 0))) AS amm FROM main_drcr where  cbill='$blno_over' and  FIND_IN_SET(cid, '$cust_over1')>0 and  stat='1'")or die(mysqli_error($conn));
 while ($R16 = mysqli_fetch_array ($result416))
@@ -177,10 +183,10 @@ $cdt=$row2['dt'];
 $diff = (strtotime($bill_dt) - strtotime($cdt));
 $over_due = (abs(floor($diff / (60*60*24))));    
  
-if($over_due>50)   //120 old
+if($over_due>100)   //120 old
 {
- $err="Customer overdue 50 days exceeded";  
-die('<b><center><font color="red" size="5">Customer overdue 50('.$blno_over.') days exceeded. <a href="billing-gst.php?bsl='.$bill_typ.'&blno='.$order_no.'">Please Go Back Previous Page....</a></font></center></b>');
+ $err="Customer overdue 120 days exceeded";  
+die('<b><center><font color="red" size="5">Customer overdue 120('.$blno_over.') days exceeded. <a href="billing-gst.php?bsl='.$bill_typ.'&blno='.$order_no.'">Please Go Back Previous Page....</a></font></center></b>');
 }
 }
 
@@ -201,7 +207,7 @@ if(mysqli_num_rows($data112)>0)
 }
 
 if($cust_typ==2)
-{
+{	
 	$branch_ctag=0;
 	$querybrcd = "SELECT * FROM main_branch where sl='$brncd'";
 	   $resultbcd = mysqli_query($conn,$querybrcd);
@@ -384,8 +390,8 @@ $sl_count=mysqli_num_rows($data_recv);
 
 if($sl_count==0){$bfl=1;}else{$bfl=0;}
 
-$query211 = "INSERT INTO ".$DBprefix."billing (blno,refsl,cid,amm,paid,crdtp,cbnm,dt,edt,pdts,vat,vatamm,car,dis,bcd,eby,tpoint,fst,tst,gst,tmod,psup,vno,lpd,gstin,dur_mnth,no_servc,sfno,dpay,finam,emiam,emi_mnth,tamm,gstam,roff,payam,crfno,cust_typ,sale_per,bill_typ,als,tp,adrs,ssn,start_no,invto,dldgr,order_no,disl,remk,damm,rv,bill_no,bfl,mr,tcs,tcsam) 
-VALUES ('$blno','$refsl','$custnm','$bilamm','$pamm','$mdt','$cbnm','$dt','$cdt','$dttm','$vat','$vatamm','$car','$dis','$brncd','$user_currently_loged','$tpoint','$fst','$tst','1','$tmod','$psup','$vno','$lpd','$cugst','$dur_mnth','$no_servc','$sfno','$dpay','$finam','$emiam','$emi_mnth','$gttl','$gstam','$roff','$payam','$crfno','$cust_typ','$sale_per','$bill_typ','$als','$tp','$adrs','$ssn','$start_no','$invto','$dldgr','$order_no','$disl','$remk','$damm','$rv','$bill_no','$bfl','$mr','$tcs','$tcsam')";
+$query211 = "INSERT INTO ".$DBprefix."billing (blno,refsl,cid,amm,paid,crdtp,cbnm,dt,edt,pdts,vat,vatamm,car,dis,bcd,eby,tpoint,fst,tst,gst,tmod,psup,vno,lpd,gstin,dur_mnth,no_servc,sfno,dpay,finam,emiam,emi_mnth,tamm,gstam,roff,payam,crfno,cust_typ,sale_per,bill_typ,als,tp,adrs,ssn,start_no,invto,dldgr,order_no,disl,remk,damm,rv,bill_no,bfl,mr,tcs,tcsam,ship_addr,ship_mob) 
+VALUES ('$blno','$refsl','$custnm','$bilamm','$pamm','$mdt','$cbnm','$dt','$cdt','$dttm','$vat','$vatamm','$car','$dis','$brncd','$user_currently_loged','$tpoint','$fst','$tst','1','$tmod','$psup','$vno','$lpd','$cugst','$dur_mnth','$no_servc','$sfno','$dpay','$finam','$emiam','$emi_mnth','$gttl','$gstam','$roff','$payam','$crfno','$cust_typ','$sale_per','$bill_typ','$als','$tp','$adrs','$ssn','$start_no','$invto','$dldgr','$order_no','$disl','$remk','$damm','$rv','$bill_no','$bfl','$mr','$tcs','$tcsam','$ship_addr','$ship_mob')";
 $result211 = mysqli_query($conn,$query211)or die(mysqli_error($conn)); 
 	
 $gttl=$gttl+$roff;	

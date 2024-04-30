@@ -28,7 +28,6 @@ $dis1=0;
 			<td  align="center" ><b>From Godown</b></td>
 			<td  align="center" ><b>To Godown</b></td>
 			<td  align="center" ><b>Bill No.</b></td>
-			<td  align="center" ><b>Date</b></td>
 			<td  align="center" ><b>Brand</b></td>
 			<td  align="center" ><b>Category</b></td>
 			<td  align="center" ><b>Product</b></td>
@@ -55,7 +54,6 @@ $fbcd=$R100['fbcd'];
 $tbcd=$R100['tbcd'];
 $cat=$R100['cat'];
 $scat=$R100['scat'];
-$dt=$R100['dt'];
 $pnm="";
 $query6="select * from  ".$DBprefix."product where sl='$prsl'";
 $result5 = mysqli_query($conn,$query6);
@@ -98,7 +96,6 @@ $scat_nm=$row1['nm'];
 <td  align="left" ><?=$fgnm;?></td>
 <td  align="left" ><?=$tgnm;?></td>
 <td  align="left" ><?=$blno;?></td>	
-<td  align="left" ><?=date('d-m-Y', strtotime($dt));?></td>	
 <td  align="left" ><?=$cnm;?></td>
 <td  align="left" ><?=$scat_nm;?></td>
 <td  align="left" ><?=$pcd." - ".$pnm;?></td>		

@@ -6,7 +6,7 @@
  */
 class QR_BarCode{    
     // Google Chart API URL
-    private $googleChartAPI = 'http://chart.apis.google.com/chart';
+    private $googleChartAPI = 'https://chart.apis.google.com/chart';
     // Code data
     private $codeData;    
     /**
@@ -92,7 +92,7 @@ class QR_BarCode{
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $this->googleChartAPI);
         curl_setopt($ch, CURLOPT_POST, true);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, "chs={$size}x{$size}&cht=qr&chl=" . urlencode($this->codeData));
+        curl_setopt($ch, CURLOPT_POSTFIELDS, "chs={$size}x{$size}&cht=qr&chl=" . urlencode($this->codeData))."&choe=UTF-8";
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_HEADER, false);
         curl_setopt($ch, CURLOPT_TIMEOUT, 30);

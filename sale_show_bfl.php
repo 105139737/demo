@@ -303,7 +303,7 @@ $bnm=$R['bnm'];
 	<td  align="left" style="padding-top:17px" ><font color="red">*</font><b>Brand :</b>
 <select name="cat" class="form-control" size="1" id="cat" tabindex="8" onchange="get_cat()">
 <Option value="">---All---</option>
-<?
+<?php
 $data11 = mysqli_query($conn,"Select * from main_catg order by sl");
 while ($row11 = mysqli_fetch_array($data11))
 {
@@ -319,14 +319,14 @@ echo "<option value='".$bsl."'>".$brnm."</option>";
 <div id="gcat">
 <select name="scat" class="form-control" size="1" id="scat" tabindex="8" onchange="get_prod()">
 <Option value="">---All---</option>
-<?
+<?php /*
 $data1 = mysqli_query($conn,"Select * from main_scat order by nm");
 while ($row1 = mysqli_fetch_array($data1))
 {
 $sl=$row1['sl'];
 $cnm=$row1['nm'];
 echo "<option value='".$sl."'>".$cnm."</option>";
-}
+}*/
 ?>
 </select>
 </div>
@@ -384,10 +384,10 @@ $gnm=$R['gnm'];
 <Option value="1">Canceled</option>
 </select>
 </td>
-<td align="left"><b>Sales Person :</b>
+<td align="left" hidden><b>Sales Person :</b>
 <select id="sale_per" name="sale_per" tabindex="1"  class="form-control">
 <option value="">---Select---</option>
-<?
+<?php /*
 $queryss="select * from main_sale_per  WHERE sl>0 order by spid";
 $resultss=mysqli_query($conn,$queryss);
 while($rwss=mysqli_fetch_array($resultss))
@@ -397,7 +397,7 @@ $spnm=$rwss['nm'];
 ?>
 <option value="<?=$spid;?>" ><?=$spid?></option>
 <?
-}
+}*/
 ?>
 </select>
 

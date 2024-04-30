@@ -1,1517 +1,2112 @@
-<style> .phone{ mso-number-format:\@; } </style>
- <table  width="100%" class="advancedtable" border="1"  >
-<tr bgcolor="000">
-<td colspan="23"><font size="5" color="#fff">Sale Details</font></td>
-</tr>		
-			<tr bgcolor="#e8ecf6">
-			<td  align="center" ><b>Sl</b></td>		
-			<td  align="center"><b>Date</b></td>
-			<td  align="center"><b>Branch</b></td>
-			<td  align="center"><b>Sales Person</b></td>
-			<td  align="center" ><b>Invoice</b></td>
-			<td  align="center" ><b>Customer Name</b></td>
-			<td  align="center" ><b>Mobile</b></td>
-			<td  align="center" ><b>Type</b></td>
-			<td  align="center" ><b>GSTIN</b></td>
-			<td  align="center" ><b>GTM </b></td>
-			<td  align="center" ><b>EAN </b></td>
-			<td  align="center" ><b>Brand </b></td>
-			<td  align="center" ><b>Category </b></td>
-			<td  align="center" ><b>Product Name</b></td>
-			<td  align="center" ><b>HSN</b></td>
-			<td  align="center" ><b>Serial No.</b></td>
-			<td  align="center" ><b>Quantity</b></td>
-			<td  align="center" ><b>S.Rate</b></td>
-			<td  align="center" ><b>Total</b></td>
-			<td  align="center" ><b>Disc.%</b></td>
-			<td  align="center" ><b>Disc.Am</b></td>
-			<td  align="center" ><b>Taxable Amt.</b></td>
-			<td  align="center" ><b>CGST%</b></td>
-			<td  align="center" ><b>CGST </b></td>
-			<td  align="center" ><b>SGST%</b></td>
-			<td  align="center" ><b>SGST </b></td>
-			<td  align="center" ><b>IGST%</b></td>
-			<td  align="center" ><b>IGST </b></td>
-			<td  align="center" ><b>Rate(After GST)</b></td>
-			<td  align="center" ><b>Dis Am.</b></td>
-			<td  align="center" ><b>Net Payable</b></td>
-			</tr>
-			 		<tr title="807 S Sl">
-				<td  align="center"  >1		</td>
-		<td  align="center" >22-05-2022</td>
-		<td  align="center" >BURDWAN</td>
-		<td  align="center" >KUNTALBURDWAN</td>
-		<td  align="center"  class="phone">HDBUR556/22-23</td>
-		<td  align="left" >BFL BURDWAN ALL <b>(LIPI DUTTA)</b></td>
-		<td  align="left" >8927546614</td>
-		<td  align="center" >Retail</td>
-		<td  align="center" ></td>
-		<td  align="center" >DUR2910</td>
-					<td  align="left" title="807" ></td>
-			<td  align="left" title="807" >HITACHI</td>
-			<td  align="left" title="807" >HITACHI AC BRACKET</td>
-			<td  align="left" title="807" ><a >AC BRACKET</a></td>
-			<td  align="center" >730120</td>
-			<td  align="center" class="phone">00</td>
-			<td  align="center" >1 PCS</td>
-			<td  align="right" >0.85</td>
-			<td  align="right" >0.85</td>
-			<td  align="center" >0</td>
-			<td  align="right" >0.00</td>
-			<td  align="right" >0.85</td>
-			<td  align="center" >9</td>
-			<td  align="center" >0.08</td>
-			<td  align="center" >9</td>
-			<td  align="center" >0.08</td>
-			<td  align="center" >0</td>
-			<td  align="center" >0.00</td>
-			<td  align="center" >1.00</td>
-			<td  align="right" >0.01</td>
-			<td  align="right" >0.99</td>
-			</tr>	 
 
-			<tr title="7162 S Sl">
-				<td  align="center"  >2</td>		
-		<td  align="center" >22-05-2022</td>
-		<td  align="center" >BURDWAN</td>
-		<td  align="center" >KUNTALBURDWAN</td>
-		<td  align="center" >HDBUR556/22-23</td>
-		<td  align="left" >BFL BURDWAN ALL <b>(LIPI DUTTA)</b></b></td>
-		<td  align="left" >8927546614</td>
-		<td  align="center" >Retail</td>
-		<td  align="center" ></td>
-		<td  align="center" >DUR2910</td>
-			<td  align="left" title="7162" ></td>
-			<td  align="left" title="7162" >DAIKIN</td>
-			<td  align="left" title="7162" >DAIKIN Air Conditioner</td>
-			<td  align="left" title="7162" ><a >RKG60TV16U (DAIKIN 1.8T 5 STAR INV OD)</a></td>
-			<td  align="center" >841510</td>
-			<td  align="center" class="phone">73287700060838</td>
-			<td  align="center" >1 PCS</td>
-			<td  align="right" >0.78</td>
-			<td  align="right" >0.78</td>
-			<td  align="center" >0</td>
-			<td  align="right" >0.00</td>
-			<td  align="right" >0.78</td>
-			<td  align="center" >14</td>
-			<td  align="center" >0.11</td>
-			<td  align="center" >14</td>
-			<td  align="center" >0.11</td>
-			<td  align="center" >0</td>
-			<td  align="center" >0.00</td>
-			<td  align="center" >1.00</td>
-			<td  align="right" >0.01</td>
-			<td  align="right" >0.99</td>
-			</tr>	 
-
-			<tr title="7161 S Sl">
-				<td  align="center"  >3</td>		
-		<td  align="center" >22-05-2022</td>
-		<td  align="center" >BURDWAN</td>
-		<td  align="center" >KUNTALBURDWAN</td>
-		<td  align="center" >HDBUR556/22-23</td>
-		<td  align="left" >BFL BURDWAN ALL <b>(LIPI DUTTA)</b></b></td>
-		<td  align="left" >8927546614</td>
-		<td  align="center" >Retail</td>
-		<td  align="center" ></td>
-		<td  align="center" >DUR2910</td>
-			<td  align="left" title="7161" ></td>
-			<td  align="left" title="7161" >DAIKIN</td>
-			<td  align="left" title="7161" >DAIKIN Air Conditioner</td>
-			<td  align="left" title="7161" ><a >FTKG60TV16U (DAIKIN 1.8T 5 STAR INV ID)</a></td>
-			<td  align="center" >841510</td>
-			<td  align="center" class="phone">64485900131525</td>
-			<td  align="center" >1 PCS</td>
-			<td  align="right" >43,748.44</td>
-			<td  align="right" >43,748.44</td>
-			<td  align="center" >0</td>
-			<td  align="right" >0.00</td>
-			<td  align="right" >43,748.44</td>
-			<td  align="center" >14</td>
-			<td  align="center" >6,124.78</td>
-			<td  align="center" >14</td>
-			<td  align="center" >6,124.78</td>
-			<td  align="center" >0</td>
-			<td  align="center" >0.00</td>
-			<td  align="center" >55,998.00</td>
-			<td  align="right" >566.98</td>
-			<td  align="right" >55,431.02</td>
-			</tr>	 
-
-			<tr title="1836 S Sl">
-				<td  align="center"  >4		</td>
-		<td  align="center" >22-05-2022</td>
-		<td  align="center" >BURDWAN</td>
-		<td  align="center" >JAYBURDWAN</td>
-		<td  align="center"  class="phone">HDBUR557/22-23</td>
-		<td  align="left" >CASH BURDWAN ALL <b>(TONIMA ADITYA)</b></td>
-		<td  align="left" >7980913127</td>
-		<td  align="center" >Retail</td>
-		<td  align="center" ></td>
-		<td  align="center" >DUR2910</td>
-					<td  align="left" title="1836" ></td>
-			<td  align="left" title="1836" >IFB</td>
-			<td  align="left" title="1836" >IFB Micro Wave Oven</td>
-			<td  align="left" title="1836" ><a >IFB MICRO WAVE OVEN 23BC4</a></td>
-			<td  align="center" >851650</td>
-			<td  align="center" class="phone">005312210515070963</td>
-			<td  align="center" >1 PCS</td>
-			<td  align="right" >10,169.49</td>
-			<td  align="right" >10,169.49</td>
-			<td  align="center" >0</td>
-			<td  align="right" >0.00</td>
-			<td  align="right" >10,169.49</td>
-			<td  align="center" >9</td>
-			<td  align="center" >915.25</td>
-			<td  align="center" >9</td>
-			<td  align="center" >915.25</td>
-			<td  align="center" >0</td>
-			<td  align="center" >0.00</td>
-			<td  align="center" >12,000.00</td>
-			<td  align="right" >0.00</td>
-			<td  align="right" >12,000.00</td>
-			</tr>	 
-
-			<tr title="855 S Sl">
-				<td  align="center"  >5		</td>
-		<td  align="center" >22-05-2022</td>
-		<td  align="center" >RANAGHAT</td>
-		<td  align="center" >SOMNATHRANA</td>
-		<td  align="center"  class="phone">HD/RA/729/22-23</td>
-		<td  align="left" >RANA CASH ALL <b>(TUMPA CHANDA)</b></td>
-		<td  align="left" >9474337955</td>
-		<td  align="center" >Retail</td>
-		<td  align="center" ></td>
-		<td  align="center" >DUR1796</td>
-					<td  align="left" title="855" ></td>
-			<td  align="left" title="855" >BAJAJ & MRF</td>
-			<td  align="left" title="855" >BAJAJ & MRF GYSER</td>
-			<td  align="left" title="855" ><a >Bajaj Caldia 10L (150754)</a></td>
-			<td  align="center" >851610</td>
-			<td  align="center" class="phone">0</td>
-			<td  align="center" >1 PCS</td>
-			<td  align="right" >5,932.20</td>
-			<td  align="right" >5,932.20</td>
-			<td  align="center" >0</td>
-			<td  align="right" >0.00</td>
-			<td  align="right" >5,932.20</td>
-			<td  align="center" >9</td>
-			<td  align="center" >533.90</td>
-			<td  align="center" >9</td>
-			<td  align="center" >533.90</td>
-			<td  align="center" >0</td>
-			<td  align="center" >0.00</td>
-			<td  align="center" >7,000.00</td>
-			<td  align="right" >0.00</td>
-			<td  align="right" >7,000.00</td>
-			</tr>	 
-
-			<tr title="807 S Sl">
-				<td  align="center"  >6		</td>
-		<td  align="center" >22-05-2022</td>
-		<td  align="center" >KARIMPUR</td>
-		<td  align="center" >DIBAKARKARIMPUR</td>
-		<td  align="center"  class="phone">HD/KAR/378/22-23</td>
-		<td  align="left" >IDFC KARIMPUR ALL <b>(SANDIP GHOSH )</b></td>
-		<td  align="left" >9733614066</td>
-		<td  align="center" >Retail</td>
-		<td  align="center" ></td>
-		<td  align="center" >DUR2987</td>
-					<td  align="left" title="807" ></td>
-			<td  align="left" title="807" >HITACHI</td>
-			<td  align="left" title="807" >HITACHI AC BRACKET</td>
-			<td  align="left" title="807" ><a >AC BRACKET</a></td>
-			<td  align="center" >730120</td>
-			<td  align="center" class="phone">0</td>
-			<td  align="center" >1 PCS</td>
-			<td  align="right" >0.85</td>
-			<td  align="right" >0.85</td>
-			<td  align="center" >0</td>
-			<td  align="right" >0.00</td>
-			<td  align="right" >0.85</td>
-			<td  align="center" >9</td>
-			<td  align="center" >0.08</td>
-			<td  align="center" >9</td>
-			<td  align="center" >0.08</td>
-			<td  align="center" >0</td>
-			<td  align="center" >0.00</td>
-			<td  align="center" >1.00</td>
-			<td  align="right" >0.00</td>
-			<td  align="right" >1.00</td>
-			</tr>	 
-
-			<tr title="9100 S Sl">
-				<td  align="center"  >7</td>		
-		<td  align="center" >22-05-2022</td>
-		<td  align="center" >KARIMPUR</td>
-		<td  align="center" >DIBAKARKARIMPUR</td>
-		<td  align="center" >HD/KAR/378/22-23</td>
-		<td  align="left" >IDFC KARIMPUR ALL <b>(SANDIP GHOSH )</b></b></td>
-		<td  align="left" >9733614066</td>
-		<td  align="center" >Retail</td>
-		<td  align="center" ></td>
-		<td  align="center" >DUR2987</td>
-			<td  align="left" title="9100" ></td>
-			<td  align="left" title="9100" >PANASONIC</td>
-			<td  align="left" title="9100" >PANASONIC AC</td>
-			<td  align="left" title="9100" ><a >CS-KU24YKY-1 (PANA 2T 3 STAR INV ID)</a></td>
-			<td  align="center" >841510</td>
-			<td  align="center" class="phone">21CPAJDNZU03235</td>
-			<td  align="center" >1 PCS</td>
-			<td  align="right" >41,404.69</td>
-			<td  align="right" >41,404.69</td>
-			<td  align="center" >0</td>
-			<td  align="right" >0.00</td>
-			<td  align="right" >41,404.69</td>
-			<td  align="center" >14</td>
-			<td  align="center" >5,796.66</td>
-			<td  align="center" >14</td>
-			<td  align="center" >5,796.66</td>
-			<td  align="center" >0</td>
-			<td  align="center" >0.00</td>
-			<td  align="center" >52,998.00</td>
-			<td  align="right" >10.00</td>
-			<td  align="right" >52,988.00</td>
-			</tr>	 
-
-			<tr title="9101 S Sl">
-				<td  align="center"  >8</td>		
-		<td  align="center" >22-05-2022</td>
-		<td  align="center" >KARIMPUR</td>
-		<td  align="center" >DIBAKARKARIMPUR</td>
-		<td  align="center" >HD/KAR/378/22-23</td>
-		<td  align="left" >IDFC KARIMPUR ALL <b>(SANDIP GHOSH )</b></b></td>
-		<td  align="left" >9733614066</td>
-		<td  align="center" >Retail</td>
-		<td  align="center" ></td>
-		<td  align="center" >DUR2987</td>
-			<td  align="left" title="9101" ></td>
-			<td  align="left" title="9101" >PANASONIC</td>
-			<td  align="left" title="9101" >PANASONIC AC</td>
-			<td  align="left" title="9101" ><a >CU-KU24YKY-1 (PANA 2T 3 STAR INV OD)</a></td>
-			<td  align="center" >841510</td>
-			<td  align="center" class="phone">221PAJDQSU00458</td>
-			<td  align="center" >1 PCS</td>
-			<td  align="right" >0.78</td>
-			<td  align="right" >0.78</td>
-			<td  align="center" >0</td>
-			<td  align="right" >0.00</td>
-			<td  align="right" >0.78</td>
-			<td  align="center" >14</td>
-			<td  align="center" >0.11</td>
-			<td  align="center" >14</td>
-			<td  align="center" >0.11</td>
-			<td  align="center" >0</td>
-			<td  align="center" >0.00</td>
-			<td  align="center" >1.00</td>
-			<td  align="right" >0.00</td>
-			<td  align="right" >1.00</td>
-			</tr>	 
-
-			<tr title="5839 S Sl">
-				<td  align="center"  >9		</td>
-		<td  align="center" >22-05-2022</td>
-		<td  align="center" >KARIMPUR</td>
-		<td  align="center" >SANTUKARIMPUR</td>
-		<td  align="center"  class="phone">HD/KAR/379/22-23</td>
-		<td  align="left" >CASH KARIMPUR ALL <b>(MD ABDUR RAHAMAN BISWAS)</b></td>
-		<td  align="left" >8001344794</td>
-		<td  align="center" >Retail</td>
-		<td  align="center" ></td>
-		<td  align="center" >DUR2987</td>
-					<td  align="left" title="5839" ></td>
-			<td  align="left" title="5839" >HAIER</td>
-			<td  align="left" title="5839" >HAIER REF DC</td>
-			<td  align="left" title="5839" ><a >HRD-2423CIS-E (HAIER DC 242L)</a></td>
-			<td  align="center" >841821</td>
-			<td  align="center" class="phone">BS0332E9101T1MAP0030</td>
-			<td  align="center" >1 PCS</td>
-			<td  align="right" >16,779.66</td>
-			<td  align="right" >16,779.66</td>
-			<td  align="center" >0</td>
-			<td  align="right" >0.00</td>
-			<td  align="right" >16,779.66</td>
-			<td  align="center" >9</td>
-			<td  align="center" >1,510.17</td>
-			<td  align="center" >9</td>
-			<td  align="center" >1,510.17</td>
-			<td  align="center" >0</td>
-			<td  align="center" >0.00</td>
-			<td  align="center" >19,800.00</td>
-			<td  align="right" >0.00</td>
-			<td  align="right" >19,800.00</td>
-			</tr>	 
-
-			<tr title="8595 S Sl">
-				<td  align="center"  >10		</td>
-		<td  align="center" >22-05-2022</td>
-		<td  align="center" >RANAGHAT</td>
-		<td  align="center" >BITTU</td>
-		<td  align="center"  class="phone">HD/RA/730/22-23</td>
-		<td  align="left" >BAJAJ FINANCE RANAGHAT <b>(KAJAL ROY)</b></td>
-		<td  align="left" >7044137478</td>
-		<td  align="center" >Retail</td>
-		<td  align="center" ></td>
-		<td  align="center" >DUR1796</td>
-					<td  align="left" title="8595" ></td>
-			<td  align="left" title="8595" >IT PRODUCT</td>
-			<td  align="left" title="8595" >VIVO MOBILE</td>
-			<td  align="left" title="8595" ><a >VIVO Y33T 8/128</a></td>
-			<td  align="center" >851712</td>
-			<td  align="center" class="phone">865594065857415</td>
-			<td  align="center" >1 PCS</td>
-			<td  align="right" >15,245.76</td>
-			<td  align="right" >15,245.76</td>
-			<td  align="center" >0</td>
-			<td  align="right" >0.00</td>
-			<td  align="right" >15,245.76</td>
-			<td  align="center" >9</td>
-			<td  align="center" >1,372.12</td>
-			<td  align="center" >9</td>
-			<td  align="center" >1,372.12</td>
-			<td  align="center" >0</td>
-			<td  align="center" >0.00</td>
-			<td  align="center" >17,990.00</td>
-			<td  align="right" >515.00</td>
-			<td  align="right" >17,475.00</td>
-			</tr>	 
-
-			<tr title="8699 S Sl">
-				<td  align="center"  >11		</td>
-		<td  align="center" >22-05-2022</td>
-		<td  align="center" >RANAGHAT</td>
-		<td  align="center" >VIKILG</td>
-		<td  align="center"  class="phone">HD/RA/731/22-23</td>
-		<td  align="left" >RANA CASH ALL <b>(SUBHA BISWAS)</b></td>
-		<td  align="left" >8918026192</td>
-		<td  align="center" >Retail</td>
-		<td  align="center" ></td>
-		<td  align="center" >DUR1796</td>
-					<td  align="left" title="8699" >8806091608277</td>
-			<td  align="left" title="8699" >LG</td>
-			<td  align="left" title="8699" >Air Conditioner LG</td>
-			<td  align="left" title="8699" ><a >PSNQ19ENZE.ANLG</a></td>
-			<td  align="center" >841510</td>
-			<td  align="center" class="phone">G7K-204NAXU096706II</td>
-			<td  align="center" >1 PCS</td>
-			<td  align="right" >38,670.31</td>
-			<td  align="right" >38,670.31</td>
-			<td  align="center" >0</td>
-			<td  align="right" >0.00</td>
-			<td  align="right" >38,670.31</td>
-			<td  align="center" >14</td>
-			<td  align="center" >5,413.84</td>
-			<td  align="center" >14</td>
-			<td  align="center" >5,413.84</td>
-			<td  align="center" >0</td>
-			<td  align="center" >0.00</td>
-			<td  align="center" >49,498.00</td>
-			<td  align="right" >0.00</td>
-			<td  align="right" >49,498.00</td>
-			</tr>	 
-
-			<tr title="8700 S Sl">
-				<td  align="center"  >12</td>		
-		<td  align="center" >22-05-2022</td>
-		<td  align="center" >RANAGHAT</td>
-		<td  align="center" >VIKILG</td>
-		<td  align="center" >HD/RA/731/22-23</td>
-		<td  align="left" >RANA CASH ALL <b>(SUBHA BISWAS)</b></b></td>
-		<td  align="left" >8918026192</td>
-		<td  align="center" >Retail</td>
-		<td  align="center" ></td>
-		<td  align="center" >DUR1796</td>
-			<td  align="left" title="8700" >8806091608291</td>
-			<td  align="left" title="8700" >LG</td>
-			<td  align="left" title="8700" >Air Conditioner LG</td>
-			<td  align="left" title="8700" ><a >PSUQ19ENZE.ANLG</a></td>
-			<td  align="center" >841510</td>
-			<td  align="center" class="phone">G7K-204NAGA131951IU</td>
-			<td  align="center" >1 PCS</td>
-			<td  align="right" >1.00</td>
-			<td  align="right" >1.00</td>
-			<td  align="center" >0</td>
-			<td  align="right" >0.00</td>
-			<td  align="right" >1.00</td>
-			<td  align="center" >14</td>
-			<td  align="center" >0.14</td>
-			<td  align="center" >14</td>
-			<td  align="center" >0.14</td>
-			<td  align="center" >0</td>
-			<td  align="center" >0.00</td>
-			<td  align="center" >1.28</td>
-			<td  align="right" >0.00</td>
-			<td  align="right" >1.28</td>
-			</tr>	 
-
-			<tr title="807 S Sl">
-				<td  align="center"  >13</td>		
-		<td  align="center" >22-05-2022</td>
-		<td  align="center" >RANAGHAT</td>
-		<td  align="center" >VIKILG</td>
-		<td  align="center" >HD/RA/731/22-23</td>
-		<td  align="left" >RANA CASH ALL <b>(SUBHA BISWAS)</b></b></td>
-		<td  align="left" >8918026192</td>
-		<td  align="center" >Retail</td>
-		<td  align="center" ></td>
-		<td  align="center" >DUR1796</td>
-			<td  align="left" title="807" ></td>
-			<td  align="left" title="807" >HITACHI</td>
-			<td  align="left" title="807" >HITACHI AC BRACKET</td>
-			<td  align="left" title="807" ><a >AC BRACKET</a></td>
-			<td  align="center" >730120</td>
-			<td  align="center" class="phone">0</td>
-			<td  align="center" >1 PCS</td>
-			<td  align="right" >0.85</td>
-			<td  align="right" >0.85</td>
-			<td  align="center" >0</td>
-			<td  align="right" >0.00</td>
-			<td  align="right" >0.85</td>
-			<td  align="center" >9</td>
-			<td  align="center" >0.08</td>
-			<td  align="center" >9</td>
-			<td  align="center" >0.08</td>
-			<td  align="center" >0</td>
-			<td  align="center" >0.00</td>
-			<td  align="center" >1.00</td>
-			<td  align="right" >0.00</td>
-			<td  align="right" >1.00</td>
-			</tr>	 
-
-			<tr title="2039 S Sl">
-				<td  align="center"  >14		</td>
-		<td  align="center" >22-05-2022</td>
-		<td  align="center" >MBO KGR</td>
-		<td  align="center" >JHUMUR</td>
-		<td  align="center"  class="phone">HDKG/1604/22-23</td>
-		<td  align="left" >CASH MBO ALL <b>(DILIP KUNDU)</b></td>
-		<td  align="left" >9474337722</td>
-		<td  align="center" >Retail</td>
-		<td  align="center" ></td>
-		<td  align="center" >DUR1598</td>
-					<td  align="left" title="2039" ></td>
-			<td  align="left" title="2039" >AQUASURE</td>
-			<td  align="left" title="2039" >AQUASURE VACCUM CLEANER</td>
-			<td  align="left" title="2039" ><a >Forbes Trendy Nano</a></td>
-			<td  align="center" >850811</td>
-			<td  align="center" class="phone">0</td>
-			<td  align="center" >1 PCS</td>
-			<td  align="right" >3,050.85</td>
-			<td  align="right" >3,050.85</td>
-			<td  align="center" >0</td>
-			<td  align="right" >0.00</td>
-			<td  align="right" >3,050.85</td>
-			<td  align="center" >9</td>
-			<td  align="center" >274.58</td>
-			<td  align="center" >9</td>
-			<td  align="center" >274.58</td>
-			<td  align="center" >0</td>
-			<td  align="center" >0.00</td>
-			<td  align="center" >3,600.00</td>
-			<td  align="right" >0.00</td>
-			<td  align="right" >3,600.00</td>
-			</tr>	 
-
-			<tr title="3964 S Sl">
-				<td  align="center"  >15		</td>
-		<td  align="center" >22-05-2022</td>
-		<td  align="center" >MBO KGR</td>
-		<td  align="center" >MANASPAUL</td>
-		<td  align="center"  class="phone">HDKG/1605/22-23</td>
-		<td  align="left" >CASH MBO ALL <b>(SUBIR MONDAL)</b></td>
-		<td  align="left" >6295221439</td>
-		<td  align="center" >Retail</td>
-		<td  align="center" ></td>
-		<td  align="center" >DUR1598</td>
-					<td  align="left" title="3964" ></td>
-			<td  align="left" title="3964" >PHILIPS</td>
-			<td  align="left" title="3964" >PHILIPS SPEAKER & HTR</td>
-			<td  align="left" title="3964" ><a >IN-MMS8085B/94 (PHILIPS 2.1 CONV MULTIMEDIA SPKR)</a></td>
-			<td  align="center" >851822</td>
-			<td  align="center" class="phone">0000</td>
-			<td  align="center" >1 PCS</td>
-			<td  align="right" >5,508.47</td>
-			<td  align="right" >5,508.47</td>
-			<td  align="center" >0</td>
-			<td  align="right" >0.00</td>
-			<td  align="right" >5,508.47</td>
-			<td  align="center" >9</td>
-			<td  align="center" >495.76</td>
-			<td  align="center" >9</td>
-			<td  align="center" >495.76</td>
-			<td  align="center" >0</td>
-			<td  align="center" >0.00</td>
-			<td  align="center" >6,500.00</td>
-			<td  align="right" >0.00</td>
-			<td  align="right" >6,500.00</td>
-			</tr>	 
-
-			<tr title="9288 S Sl">
-				<td  align="center"  >16		</td>
-		<td  align="center" >22-05-2022</td>
-		<td  align="center" >RANAGHAT</td>
-		<td  align="center" >RAMRANA</td>
-		<td  align="center"  class="phone">HD/RA/732/22-23</td>
-		<td  align="left" >RANA CASH ALL <b>(DIPAYAN KAR)</b></td>
-		<td  align="left" >9641977123</td>
-		<td  align="center" >Retail</td>
-		<td  align="center" ></td>
-		<td  align="center" >DUR1796</td>
-					<td  align="left" title="9288" ></td>
-			<td  align="left" title="9288" >Whirpool</td>
-			<td  align="left" title="9288" >Whirlpool REF DC</td>
-			<td  align="left" title="9288" ><a >WHIRLPOOL REF 205 IMPC ROY 4S INV 72297 (WH)</a></td>
-			<td  align="center" >841821</td>
-			<td  align="center" class="phone">7229757221635654</td>
-			<td  align="center" >1 PCS</td>
-			<td  align="right" >14,406.78</td>
-			<td  align="right" >14,406.78</td>
-			<td  align="center" >0</td>
-			<td  align="right" >0.00</td>
-			<td  align="right" >14,406.78</td>
-			<td  align="center" >9</td>
-			<td  align="center" >1,296.61</td>
-			<td  align="center" >9</td>
-			<td  align="center" >1,296.61</td>
-			<td  align="center" >0</td>
-			<td  align="center" >0.00</td>
-			<td  align="center" >17,000.00</td>
-			<td  align="right" >0.00</td>
-			<td  align="right" >17,000.00</td>
-			</tr>	 
-
-			<tr title="7774 S Sl">
-				<td  align="center"  >17		</td>
-		<td  align="center" >22-05-2022</td>
-		<td  align="center" >RANAGHAT</td>
-		<td  align="center" >SANTURANA</td>
-		<td  align="center"  class="phone">HD/RA/733/22-23</td>
-		<td  align="left" >RANA CASH ALL <b>(BAPPA DEBNATH)</b></td>
-		<td  align="left" >9800519353</td>
-		<td  align="center" >Retail</td>
-		<td  align="center" ></td>
-		<td  align="center" >DUR1796</td>
-					<td  align="left" title="7774" ></td>
-			<td  align="left" title="7774" >IT PRODUCT</td>
-			<td  align="left" title="7774" >CANON CAMERA</td>
-			<td  align="left" title="7774" ><a >CANON DSLR EOS 1500D 18-55 ISII</a></td>
-			<td  align="center" >852580</td>
-			<td  align="center" class="phone">912729C00892AA21518276027929</td>
-			<td  align="center" >1 PCS</td>
-			<td  align="right" >30,762.71</td>
-			<td  align="right" >30,762.71</td>
-			<td  align="center" >0</td>
-			<td  align="right" >0.00</td>
-			<td  align="right" >30,762.71</td>
-			<td  align="center" >9</td>
-			<td  align="center" >2,768.64</td>
-			<td  align="center" >9</td>
-			<td  align="center" >2,768.64</td>
-			<td  align="center" >0</td>
-			<td  align="center" >0.00</td>
-			<td  align="center" >36,300.00</td>
-			<td  align="right" >0.00</td>
-			<td  align="right" >36,300.00</td>
-			</tr>	 
-
-			<tr title="9116 S Sl">
-				<td  align="center"  >18		</td>
-		<td  align="center" >22-05-2022</td>
-		<td  align="center" >RANAGHAT</td>
-		<td  align="center" >MANTARANA</td>
-		<td  align="center"  class="phone">HD/RA/734/22-23</td>
-		<td  align="left" >CFL MBO RANAGHAT <b>(INDRAJIT GHOSH)</b></td>
-		<td  align="left" >6294659497</td>
-		<td  align="center" >Retail</td>
-		<td  align="center" ></td>
-		<td  align="center" >DUR1796</td>
-					<td  align="left" title="9116" ></td>
-			<td  align="left" title="9116" >HAIER</td>
-			<td  align="left" title="9116" >Haier Deep Freezer</td>
-			<td  align="left" title="9116" ><a >HFC-588DM5</a></td>
-			<td  align="center" >841830</td>
-			<td  align="center" class="phone">B30JU106A0104N5B4332</td>
-			<td  align="center" >1 PCS</td>
-			<td  align="right" >30,932.20</td>
-			<td  align="right" >30,932.20</td>
-			<td  align="center" >0</td>
-			<td  align="right" >0.00</td>
-			<td  align="right" >30,932.20</td>
-			<td  align="center" >9</td>
-			<td  align="center" >2,783.90</td>
-			<td  align="center" >9</td>
-			<td  align="center" >2,783.90</td>
-			<td  align="center" >0</td>
-			<td  align="center" >0.00</td>
-			<td  align="center" >36,500.00</td>
-			<td  align="right" >0.00</td>
-			<td  align="right" >36,500.00</td>
-			</tr>	 
-
-			<tr title="9102 S Sl">
-				<td  align="center"  >19		</td>
-		<td  align="center" >22-05-2022</td>
-		<td  align="center" >BETHUA</td>
-		<td  align="center" >ANGSHUMANMBO</td>
-		<td  align="center"  class="phone">HDBD245/22-23</td>
-		<td  align="left" >BETHUA CASH ALL <b>(SANDIPAN BISWAS)</b></td>
-		<td  align="left" >9903038651</td>
-		<td  align="center" >Retail</td>
-		<td  align="center" ></td>
-		<td  align="center" >DUR2960</td>
-					<td  align="left" title="9102" ></td>
-			<td  align="left" title="9102" >PANASONIC</td>
-			<td  align="left" title="9102" >PANASONIC AC</td>
-			<td  align="left" title="9102" ><a >CS-KU12YKY-1 (PANA 1T 3 STAR INV ID)</a></td>
-			<td  align="center" >841510</td>
-			<td  align="center" class="phone">21CPAJDNXU02251</td>
-			<td  align="center" >1 PCS</td>
-			<td  align="right" >27,732.81</td>
-			<td  align="right" >27,732.81</td>
-			<td  align="center" >0</td>
-			<td  align="right" >0.00</td>
-			<td  align="right" >27,732.81</td>
-			<td  align="center" >14</td>
-			<td  align="center" >3,882.59</td>
-			<td  align="center" >14</td>
-			<td  align="center" >3,882.59</td>
-			<td  align="center" >0</td>
-			<td  align="center" >0.00</td>
-			<td  align="center" >35,498.00</td>
-			<td  align="right" >0.00</td>
-			<td  align="right" >35,498.00</td>
-			</tr>	 
-
-			<tr title="9103 S Sl">
-				<td  align="center"  >20</td>		
-		<td  align="center" >22-05-2022</td>
-		<td  align="center" >BETHUA</td>
-		<td  align="center" >ANGSHUMANMBO</td>
-		<td  align="center" >HDBD245/22-23</td>
-		<td  align="left" >BETHUA CASH ALL <b>(SANDIPAN BISWAS)</b></b></td>
-		<td  align="left" >9903038651</td>
-		<td  align="center" >Retail</td>
-		<td  align="center" ></td>
-		<td  align="center" >DUR2960</td>
-			<td  align="left" title="9103" ></td>
-			<td  align="left" title="9103" >PANASONIC</td>
-			<td  align="left" title="9103" >PANASONIC AC</td>
-			<td  align="left" title="9103" ><a >CU-KU12YKY-1 (PANA 1T 3 STAR INV OD)</a></td>
-			<td  align="center" >841510</td>
-			<td  align="center" class="phone">223PAJDQQU00596</td>
-			<td  align="center" >1 PCS</td>
-			<td  align="right" >0.78</td>
-			<td  align="right" >0.78</td>
-			<td  align="center" >0</td>
-			<td  align="right" >0.00</td>
-			<td  align="right" >0.78</td>
-			<td  align="center" >14</td>
-			<td  align="center" >0.11</td>
-			<td  align="center" >14</td>
-			<td  align="center" >0.11</td>
-			<td  align="center" >0</td>
-			<td  align="center" >0.00</td>
-			<td  align="center" >1.00</td>
-			<td  align="right" >0.00</td>
-			<td  align="right" >1.00</td>
-			</tr>	 
-
-			<tr title="807 S Sl">
-				<td  align="center"  >21</td>		
-		<td  align="center" >22-05-2022</td>
-		<td  align="center" >BETHUA</td>
-		<td  align="center" >ANGSHUMANMBO</td>
-		<td  align="center" >HDBD245/22-23</td>
-		<td  align="left" >BETHUA CASH ALL <b>(SANDIPAN BISWAS)</b></b></td>
-		<td  align="left" >9903038651</td>
-		<td  align="center" >Retail</td>
-		<td  align="center" ></td>
-		<td  align="center" >DUR2960</td>
-			<td  align="left" title="807" ></td>
-			<td  align="left" title="807" >HITACHI</td>
-			<td  align="left" title="807" >HITACHI AC BRACKET</td>
-			<td  align="left" title="807" ><a >AC BRACKET</a></td>
-			<td  align="center" >730120</td>
-			<td  align="center" class="phone">1</td>
-			<td  align="center" >1 PCS</td>
-			<td  align="right" >0.85</td>
-			<td  align="right" >0.85</td>
-			<td  align="center" >0</td>
-			<td  align="right" >0.00</td>
-			<td  align="right" >0.85</td>
-			<td  align="center" >9</td>
-			<td  align="center" >0.08</td>
-			<td  align="center" >9</td>
-			<td  align="center" >0.08</td>
-			<td  align="center" >0</td>
-			<td  align="center" >0.00</td>
-			<td  align="center" >1.00</td>
-			<td  align="right" >0.00</td>
-			<td  align="right" >1.00</td>
-			</tr>	 
-
-			<tr title="8287 S Sl">
-				<td  align="center"  >22		</td>
-		<td  align="center" >22-05-2022</td>
-		<td  align="center" >KARIMPUR</td>
-		<td  align="center" >PUSHPENDUKARIMPUR</td>
-		<td  align="center"  class="phone">HD/KAR/380/22-23</td>
-		<td  align="left" >CASH KARIMPUR ALL <b>(NIKHIL MONDAL)</b></td>
-		<td  align="left" >7063815879</td>
-		<td  align="center" >Retail</td>
-		<td  align="center" ></td>
-		<td  align="center" >DUR2987</td>
-					<td  align="left" title="8287" ></td>
-			<td  align="left" title="8287" >IT PRODUCT</td>
-			<td  align="left" title="8287" >MI MOBILE</td>
-			<td  align="left" title="8287" ><a >REDMI NOTE 10T (5G) 6/128</a></td>
-			<td  align="center" >851712</td>
-			<td  align="center" class="phone">864581057362372</td>
-			<td  align="center" >1 PCS</td>
-			<td  align="right" >11,864.41</td>
-			<td  align="right" >11,864.41</td>
-			<td  align="center" >0</td>
-			<td  align="right" >0.00</td>
-			<td  align="right" >11,864.41</td>
-			<td  align="center" >9</td>
-			<td  align="center" >1,067.80</td>
-			<td  align="center" >9</td>
-			<td  align="center" >1,067.80</td>
-			<td  align="center" >0</td>
-			<td  align="center" >0.00</td>
-			<td  align="center" >14,000.00</td>
-			<td  align="right" >0.00</td>
-			<td  align="right" >14,000.00</td>
-			</tr>	 
-
-			<tr title="9312 S Sl">
-				<td  align="center"  >23		</td>
-		<td  align="center" >22-05-2022</td>
-		<td  align="center" >MBO KGR</td>
-		<td  align="center" >LOVELY</td>
-		<td  align="center"  class="phone">HDKG/1606/22-23</td>
-		<td  align="left" >CASH MBO ALL <b>(PROJA DAS)</b></td>
-		<td  align="left" >7980262826</td>
-		<td  align="center" >Retail</td>
-		<td  align="center" ></td>
-		<td  align="center" >DUR1598</td>
-					<td  align="left" title="9312" ></td>
-			<td  align="left" title="9312" >HAIER</td>
-			<td  align="left" title="9312" >HAIER REF DC</td>
-			<td  align="left" title="9312" ><a >HRD-2204PPG-E</a></td>
-			<td  align="center" >841821</td>
-			<td  align="center" class="phone">BS00UA0A001T1N4L0192</td>
-			<td  align="center" >1 PCS</td>
-			<td  align="right" >18,813.56</td>
-			<td  align="right" >18,813.56</td>
-			<td  align="center" >0</td>
-			<td  align="right" >0.00</td>
-			<td  align="right" >18,813.56</td>
-			<td  align="center" >9</td>
-			<td  align="center" >1,693.22</td>
-			<td  align="center" >9</td>
-			<td  align="center" >1,693.22</td>
-			<td  align="center" >0</td>
-			<td  align="center" >0.00</td>
-			<td  align="center" >22,200.00</td>
-			<td  align="right" >0.00</td>
-			<td  align="right" >22,200.00</td>
-			</tr>	 
-
-			<tr title="8153 S Sl">
-				<td  align="center"  >24		</td>
-		<td  align="center" >22-05-2022</td>
-		<td  align="center" >BURDWAN</td>
-		<td  align="center" >INDRANIBURDWAN</td>
-		<td  align="center"  class="phone">HDBUR558/22-23</td>
-		<td  align="left" >CASH BURDWAN ALL <b>(ARDHENDU BAG)</b></td>
-		<td  align="left" >7980097677</td>
-		<td  align="center" >Retail</td>
-		<td  align="center" ></td>
-		<td  align="center" >DUR2910</td>
-					<td  align="left" title="8153" >8806091271501</td>
-			<td  align="left" title="8153" >LG</td>
-			<td  align="left" title="8153" >REF FF LG</td>
-			<td  align="left" title="8153" ><a >GL-S292RSCY.DSCZEBN</a></td>
-			<td  align="center" >841810</td>
-			<td  align="center" class="phone">JVVD110NRBZ183893IN</td>
-			<td  align="center" >1 PCS</td>
-			<td  align="right" >22,881.36</td>
-			<td  align="right" >22,881.36</td>
-			<td  align="center" >0</td>
-			<td  align="right" >0.00</td>
-			<td  align="right" >22,881.36</td>
-			<td  align="center" >9</td>
-			<td  align="center" >2,059.32</td>
-			<td  align="center" >9</td>
-			<td  align="center" >2,059.32</td>
-			<td  align="center" >0</td>
-			<td  align="center" >0.00</td>
-			<td  align="center" >27,000.00</td>
-			<td  align="right" >0.00</td>
-			<td  align="right" >27,000.00</td>
-			</tr>	 
-
-			<tr title="8958 S Sl">
-				<td  align="center"  >25		</td>
-		<td  align="center" >22-05-2022</td>
-		<td  align="center" >RANAGHAT</td>
-		<td  align="center" >MANTARANA</td>
-		<td  align="center"  class="phone">HD/RA/735/22-23</td>
-		<td  align="left" >BAJAJ FINANCE RANAGHAT <b>(KALPANA BISWAS)</b></td>
-		<td  align="left" >7029077356</td>
-		<td  align="center" >Retail</td>
-		<td  align="center" ></td>
-		<td  align="center" >DUR1796</td>
-					<td  align="left" title="8958" ></td>
-			<td  align="left" title="8958" >HAIER</td>
-			<td  align="left" title="8958" >HAIER FF & BMR</td>
-			<td  align="left" title="8958" ><a >HRF-2784PXG-E (HAIER 258L FF)</a></td>
-			<td  align="center" >841810</td>
-			<td  align="center" class="phone">BL062J0AE01T3N480006</td>
-			<td  align="center" >1 PCS</td>
-			<td  align="right" >26,271.19</td>
-			<td  align="right" >26,271.19</td>
-			<td  align="center" >0</td>
-			<td  align="right" >0.00</td>
-			<td  align="right" >26,271.19</td>
-			<td  align="center" >9</td>
-			<td  align="center" >2,364.41</td>
-			<td  align="center" >9</td>
-			<td  align="center" >2,364.41</td>
-			<td  align="center" >0</td>
-			<td  align="center" >0.00</td>
-			<td  align="center" >31,000.00</td>
-			<td  align="right" >354.00</td>
-			<td  align="right" >30,646.00</td>
-			</tr>	 
-
-			<tr title="9176 S Sl">
-				<td  align="center"  >26		</td>
-		<td  align="center" >22-05-2022</td>
-		<td  align="center" >MBO KGR</td>
-		<td  align="center" >SANTANU</td>
-		<td  align="center"  class="phone">HDKG/1607/22-23</td>
-		<td  align="left" >BFL MBO ALL <b>(NEWTON SAHA)</b></td>
-		<td  align="left" >9046260514</td>
-		<td  align="center" >Retail</td>
-		<td  align="center" ></td>
-		<td  align="center" >DUR1598</td>
-					<td  align="left" title="9176" ></td>
-			<td  align="left" title="9176" >GODREJ</td>
-			<td  align="left" title="9176" >AIR CONDITIONER GODREJ</td>
-			<td  align="left" title="9176" ><a >AC 1.5T GIC 18TGC3-WUA SPLIT (SD00877)</a></td>
-			<td  align="center" >841510</td>
-			<td  align="center" class="phone">210900877SA00367</td>
-			<td  align="center" >1 PCS</td>
-			<td  align="right" >25,624.22</td>
-			<td  align="right" >25,624.22</td>
-			<td  align="center" >0</td>
-			<td  align="right" >0.00</td>
-			<td  align="right" >25,624.22</td>
-			<td  align="center" >14</td>
-			<td  align="center" >3,587.39</td>
-			<td  align="center" >14</td>
-			<td  align="center" >3,587.39</td>
-			<td  align="center" >0</td>
-			<td  align="center" >0.00</td>
-			<td  align="center" >32,799.00</td>
-			<td  align="right" >400.99</td>
-			<td  align="right" >32,398.01</td>
-			</tr>	 
-
-			<tr title="807 S Sl">
-				<td  align="center"  >27</td>		
-		<td  align="center" >22-05-2022</td>
-		<td  align="center" >MBO KGR</td>
-		<td  align="center" >SANTANU</td>
-		<td  align="center" >HDKG/1607/22-23</td>
-		<td  align="left" >BFL MBO ALL <b>(NEWTON SAHA)</b></b></td>
-		<td  align="left" >9046260514</td>
-		<td  align="center" >Retail</td>
-		<td  align="center" ></td>
-		<td  align="center" >DUR1598</td>
-			<td  align="left" title="807" ></td>
-			<td  align="left" title="807" >HITACHI</td>
-			<td  align="left" title="807" >HITACHI AC BRACKET</td>
-			<td  align="left" title="807" ><a >AC BRACKET</a></td>
-			<td  align="center" >730120</td>
-			<td  align="center" class="phone">0</td>
-			<td  align="center" >1 PCS</td>
-			<td  align="right" >0.85</td>
-			<td  align="right" >0.85</td>
-			<td  align="center" >0</td>
-			<td  align="right" >0.00</td>
-			<td  align="right" >0.85</td>
-			<td  align="center" >9</td>
-			<td  align="center" >0.08</td>
-			<td  align="center" >9</td>
-			<td  align="center" >0.08</td>
-			<td  align="center" >0</td>
-			<td  align="center" >0.00</td>
-			<td  align="center" >1.00</td>
-			<td  align="right" >0.01</td>
-			<td  align="right" >0.99</td>
-			</tr>	 
-
-			<tr title="5131 S Sl">
-				<td  align="center"  >28		</td>
-		<td  align="center" >22-05-2022</td>
-		<td  align="center" >RANAGHAT</td>
-		<td  align="center" >SANTURANA</td>
-		<td  align="center"  class="phone">HD/RA/736/22-23</td>
-		<td  align="left" >RANA CASH ALL <b>(KRISHNA MONDAL)</b></td>
-		<td  align="left" >8617585509</td>
-		<td  align="center" >Retail</td>
-		<td  align="center" ></td>
-		<td  align="center" >DUR1796</td>
-					<td  align="left" title="5131" ></td>
-			<td  align="left" title="5131" >IT PRODUCT</td>
-			<td  align="left" title="5131" >CANON CAMERA</td>
-			<td  align="left" title="5131" ><a >CANON DSLR EOS 200D II 18-55 STM</a></td>
-			<td  align="center" >852580</td>
-			<td  align="center" class="phone">913455C00492AA21398275002443</td>
-			<td  align="center" >1 PCS</td>
-			<td  align="right" >45,762.71</td>
-			<td  align="right" >45,762.71</td>
-			<td  align="center" >0</td>
-			<td  align="right" >0.00</td>
-			<td  align="right" >45,762.71</td>
-			<td  align="center" >9</td>
-			<td  align="center" >4,118.64</td>
-			<td  align="center" >9</td>
-			<td  align="center" >4,118.64</td>
-			<td  align="center" >0</td>
-			<td  align="center" >0.00</td>
-			<td  align="center" >54,000.00</td>
-			<td  align="right" >0.00</td>
-			<td  align="right" >54,000.00</td>
-			</tr>	 
-
-			<tr title="9318 S Sl">
-				<td  align="center"  >29		</td>
-		<td  align="center" >22-05-2022</td>
-		<td  align="center" >BETHUA</td>
-		<td  align="center" >TANMOYMI</td>
-		<td  align="center"  class="phone">HDBD246/22-23</td>
-		<td  align="left" >BFL BETHUA <b>(SANTANU DAS)</b></td>
-		<td  align="left" >9614639276</td>
-		<td  align="center" >Retail</td>
-		<td  align="center" ></td>
-		<td  align="center" >DUR2960</td>
-					<td  align="left" title="9318" ></td>
-			<td  align="left" title="9318" >HAIER</td>
-			<td  align="left" title="9318" >Haier AC</td>
-			<td  align="left" title="9318" ><a >HS12T-TMB3B(FS) (HAIER 1T 3 STAR FS ID)</a></td>
-			<td  align="center" >841510</td>
-			<td  align="center" class="phone">AL00M600X015UN3T0077</td>
-			<td  align="center" >1 PCS</td>
-			<td  align="right" >21,717.19</td>
-			<td  align="right" >21,717.19</td>
-			<td  align="center" >0</td>
-			<td  align="right" >0.00</td>
-			<td  align="right" >21,717.19</td>
-			<td  align="center" >14</td>
-			<td  align="center" >3,040.41</td>
-			<td  align="center" >14</td>
-			<td  align="center" >3,040.41</td>
-			<td  align="center" >0</td>
-			<td  align="center" >0.00</td>
-			<td  align="center" >27,798.00</td>
-			<td  align="right" >285.98</td>
-			<td  align="right" >27,512.02</td>
-			</tr>	 
-
-			<tr title="9150 S Sl">
-				<td  align="center"  >30</td>		
-		<td  align="center" >22-05-2022</td>
-		<td  align="center" >BETHUA</td>
-		<td  align="center" >TANMOYMI</td>
-		<td  align="center" >HDBD246/22-23</td>
-		<td  align="left" >BFL BETHUA <b>(SANTANU DAS)</b></b></td>
-		<td  align="left" >9614639276</td>
-		<td  align="center" >Retail</td>
-		<td  align="center" ></td>
-		<td  align="center" >DUR2960</td>
-			<td  align="left" title="9150" ></td>
-			<td  align="left" title="9150" >HAIER</td>
-			<td  align="left" title="9150" >Haier AC</td>
-			<td  align="left" title="9150" ><a >HU12-3B(FS) (HAIER 1T 3STAR FS OD)</a></td>
-			<td  align="center" >841510</td>
-			<td  align="center" class="phone">AL00M100X035UN4W0110</td>
-			<td  align="center" >1 PCS</td>
-			<td  align="right" >0.78</td>
-			<td  align="right" >0.78</td>
-			<td  align="center" >0</td>
-			<td  align="right" >0.00</td>
-			<td  align="right" >0.78</td>
-			<td  align="center" >14</td>
-			<td  align="center" >0.11</td>
-			<td  align="center" >14</td>
-			<td  align="center" >0.11</td>
-			<td  align="center" >0</td>
-			<td  align="center" >0.00</td>
-			<td  align="center" >1.00</td>
-			<td  align="right" >0.01</td>
-			<td  align="right" >0.99</td>
-			</tr>	 
-
-			<tr title="807 S Sl">
-				<td  align="center"  >31</td>		
-		<td  align="center" >22-05-2022</td>
-		<td  align="center" >BETHUA</td>
-		<td  align="center" >TANMOYMI</td>
-		<td  align="center" >HDBD246/22-23</td>
-		<td  align="left" >BFL BETHUA <b>(SANTANU DAS)</b></b></td>
-		<td  align="left" >9614639276</td>
-		<td  align="center" >Retail</td>
-		<td  align="center" ></td>
-		<td  align="center" >DUR2960</td>
-			<td  align="left" title="807" ></td>
-			<td  align="left" title="807" >HITACHI</td>
-			<td  align="left" title="807" >HITACHI AC BRACKET</td>
-			<td  align="left" title="807" ><a >AC BRACKET</a></td>
-			<td  align="center" >730120</td>
-			<td  align="center" class="phone">1</td>
-			<td  align="center" >1 PCS</td>
-			<td  align="right" >0.85</td>
-			<td  align="right" >0.85</td>
-			<td  align="center" >0</td>
-			<td  align="right" >0.00</td>
-			<td  align="right" >0.85</td>
-			<td  align="center" >9</td>
-			<td  align="center" >0.08</td>
-			<td  align="center" >9</td>
-			<td  align="center" >0.08</td>
-			<td  align="center" >0</td>
-			<td  align="center" >0.00</td>
-			<td  align="center" >1.00</td>
-			<td  align="right" >0.01</td>
-			<td  align="right" >0.99</td>
-			</tr>	 
-
-			<tr title="6665 S Sl">
-				<td  align="center"  >32		</td>
-		<td  align="center" >22-05-2022</td>
-		<td  align="center" >BURDWAN</td>
-		<td  align="center" >JAYBURDWAN</td>
-		<td  align="center"  class="phone">HDBUR559/22-23</td>
-		<td  align="left" >CASH BURDWAN ALL <b>(SHAKILA SIDDIQUE)</b></td>
-		<td  align="left" >9593986812</td>
-		<td  align="center" >Retail</td>
-		<td  align="center" ></td>
-		<td  align="center" >DUR2910</td>
-					<td  align="left" title="6665" >8801031572106</td>
-			<td  align="left" title="6665" >LG</td>
-			<td  align="left" title="6665" >WM LG FL & TL</td>
-			<td  align="left" title="6665" ><a >T80SJMB1Z.ABMQEIL</a></td>
-			<td  align="center" >845011</td>
-			<td  align="center" class="phone">0009NWCM006523</td>
-			<td  align="center" >1 PCS</td>
-			<td  align="right" >22,457.63</td>
-			<td  align="right" >22,457.63</td>
-			<td  align="center" >0</td>
-			<td  align="right" >0.00</td>
-			<td  align="right" >22,457.63</td>
-			<td  align="center" >9</td>
-			<td  align="center" >2,021.19</td>
-			<td  align="center" >9</td>
-			<td  align="center" >2,021.19</td>
-			<td  align="center" >0</td>
-			<td  align="center" >0.00</td>
-			<td  align="center" >26,500.00</td>
-			<td  align="right" >0.00</td>
-			<td  align="right" >26,500.00</td>
-			</tr>	 
-
-			<tr title="7311 S Sl">
-				<td  align="center"  >33		</td>
-		<td  align="center" >22-05-2022</td>
-		<td  align="center" >KARIMPUR</td>
-		<td  align="center" >SANTUKARIMPUR</td>
-		<td  align="center"  class="phone">HD/KAR/381/22-23</td>
-		<td  align="left" >CASH KARIMPUR ALL <b>(RAJESH BISWAS)</b></td>
-		<td  align="left" >9874227048</td>
-		<td  align="center" >Retail</td>
-		<td  align="center" ></td>
-		<td  align="center" >DUR2987</td>
-					<td  align="left" title="7311" ></td>
-			<td  align="left" title="7311" >HAIER</td>
-			<td  align="left" title="7311" >HAIER REF DC</td>
-			<td  align="left" title="7311" ><a >HRD-1955POG-E (HAIER 195L DC)</a></td>
-			<td  align="center" >841821</td>
-			<td  align="center" class="phone">BS033E0CA02T3N4M0029</td>
-			<td  align="center" >1 PCS</td>
-			<td  align="right" >17,711.86</td>
-			<td  align="right" >17,711.86</td>
-			<td  align="center" >0</td>
-			<td  align="right" >0.00</td>
-			<td  align="right" >17,711.86</td>
-			<td  align="center" >9</td>
-			<td  align="center" >1,594.07</td>
-			<td  align="center" >9</td>
-			<td  align="center" >1,594.07</td>
-			<td  align="center" >0</td>
-			<td  align="center" >0.00</td>
-			<td  align="center" >20,900.00</td>
-			<td  align="right" >0.00</td>
-			<td  align="right" >20,900.00</td>
-			</tr>	 
-
-			<tr title="9303 S Sl">
-				<td  align="center"  >34		</td>
-		<td  align="center" >22-05-2022</td>
-		<td  align="center" >RANAGHAT</td>
-		<td  align="center" >AKASHRANA</td>
-		<td  align="center"  class="phone">HD/RA/737/22-23</td>
-		<td  align="left" >RANA CASH ALL <b>(DEBASHIS MONDAL)</b></td>
-		<td  align="left" >7001141959</td>
-		<td  align="center" >Retail</td>
-		<td  align="center" ></td>
-		<td  align="center" >DUR1796</td>
-					<td  align="left" title="9303" ></td>
-			<td  align="left" title="9303" >IT PRODUCT</td>
-			<td  align="left" title="9303" >OPPO MOBILE</td>
-			<td  align="left" title="9303" ><a >OPPO HEADPHONE ENCO M32</a></td>
-			<td  align="center" >851712</td>
-			<td  align="center" class="phone">C6672051C2J141387</td>
-			<td  align="center" >1 PCS</td>
-			<td  align="right" >1,516.95</td>
-			<td  align="right" >1,516.95</td>
-			<td  align="center" >0</td>
-			<td  align="right" >0.00</td>
-			<td  align="right" >1,516.95</td>
-			<td  align="center" >9</td>
-			<td  align="center" >136.53</td>
-			<td  align="center" >9</td>
-			<td  align="center" >136.53</td>
-			<td  align="center" >0</td>
-			<td  align="center" >0.00</td>
-			<td  align="center" >1,790.00</td>
-			<td  align="right" >0.00</td>
-			<td  align="right" >1,790.00</td>
-			</tr>	 
-
-			<tr title="2210 S Sl">
-				<td  align="center"  >35		</td>
-		<td  align="center" >22-05-2022</td>
-		<td  align="center" >MBO KGR</td>
-		<td  align="center" >SANJOYDAS</td>
-		<td  align="center"  class="phone">HDKG/1608/22-23</td>
-		<td  align="left" >CASH MBO ALL <b>(JAFAR IKBAL.)</b></td>
-		<td  align="left" >8101236848</td>
-		<td  align="center" >Retail</td>
-		<td  align="center" ></td>
-		<td  align="center" >DUR1598</td>
-					<td  align="left" title="2210" ></td>
-			<td  align="left" title="2210" >IT PRODUCT</td>
-			<td  align="left" title="2210" >IT ACCESSORIES ALL</td>
-			<td  align="left" title="2210" ><a >HP COMBO POWERPACK USB KB MOUSE</a></td>
-			<td  align="center" >847160</td>
-			<td  align="center" class="phone">1</td>
-			<td  align="center" >1 PCS</td>
-			<td  align="right" >1,059.32</td>
-			<td  align="right" >1,059.32</td>
-			<td  align="center" >0</td>
-			<td  align="right" >0.00</td>
-			<td  align="right" >1,059.32</td>
-			<td  align="center" >9</td>
-			<td  align="center" >95.34</td>
-			<td  align="center" >9</td>
-			<td  align="center" >95.34</td>
-			<td  align="center" >0</td>
-			<td  align="center" >0.00</td>
-			<td  align="center" >1,250.00</td>
-			<td  align="right" >0.00</td>
-			<td  align="right" >1,250.00</td>
-			</tr>	 
-
-			<tr title="2038 S Sl">
-				<td  align="center"  >36		</td>
-		<td  align="center" >22-05-2022</td>
-		<td  align="center" >MBO KGR</td>
-		<td  align="center" >LOVELY</td>
-		<td  align="center"  class="phone">HDKG/1609/22-23</td>
-		<td  align="left" >CASH MBO ALL <b>(MOUSUMI GANGULI)</b></td>
-		<td  align="left" >8582992559</td>
-		<td  align="center" >Retail</td>
-		<td  align="center" ></td>
-		<td  align="center" >DUR1598</td>
-					<td  align="left" title="2038" ></td>
-			<td  align="left" title="2038" >AQUASURE</td>
-			<td  align="left" title="2038" >AQUASURE VACCUM CLEANER</td>
-			<td  align="left" title="2038" ><a >Forbes Jazz</a></td>
-			<td  align="center" >850811</td>
-			<td  align="center" class="phone">0</td>
-			<td  align="center" >1 PCS</td>
-			<td  align="right" >4,152.54</td>
-			<td  align="right" >4,152.54</td>
-			<td  align="center" >0</td>
-			<td  align="right" >0.00</td>
-			<td  align="right" >4,152.54</td>
-			<td  align="center" >9</td>
-			<td  align="center" >373.73</td>
-			<td  align="center" >9</td>
-			<td  align="center" >373.73</td>
-			<td  align="center" >0</td>
-			<td  align="center" >0.00</td>
-			<td  align="center" >4,900.00</td>
-			<td  align="right" >0.00</td>
-			<td  align="right" >4,900.00</td>
-			</tr>	 
-
-			<tr title="8597 S Sl">
-				<td  align="center"  >37		</td>
-		<td  align="center" >22-05-2022</td>
-		<td  align="center" >RANAGHAT</td>
-		<td  align="center" >SOMNATHRANA</td>
-		<td  align="center"  class="phone">HD/RA/738/22-23</td>
-		<td  align="left" >BAJAJ FINANCE RANAGHAT <b>(BENU KARMAKAR)</b></td>
-		<td  align="left" >9474477723</td>
-		<td  align="center" >Retail</td>
-		<td  align="center" ></td>
-		<td  align="center" >DUR1796</td>
-					<td  align="left" title="8597" ></td>
-			<td  align="left" title="8597" >Crompton</td>
-			<td  align="left" title="8597" >Crompton fan</td>
-			<td  align="left" title="8597" ><a >CROMPTON C/F 48inch AURA PREMIUM ANTI DUST</a></td>
-			<td  align="center" >841451</td>
-			<td  align="center" class="phone">0</td>
-			<td  align="center" >1 PCS</td>
-			<td  align="right" >2,415.25</td>
-			<td  align="right" >2,415.25</td>
-			<td  align="center" >0</td>
-			<td  align="right" >0.00</td>
-			<td  align="right" >2,415.25</td>
-			<td  align="center" >9</td>
-			<td  align="center" >217.37</td>
-			<td  align="center" >9</td>
-			<td  align="center" >217.37</td>
-			<td  align="center" >0</td>
-			<td  align="center" >0.00</td>
-			<td  align="center" >2,850.00</td>
-			<td  align="right" >0.00</td>
-			<td  align="right" >2,850.00</td>
-			</tr>	 
-
-			<tr title="1768 S Sl">
-				<td  align="center"  >38</td>		
-		<td  align="center" >22-05-2022</td>
-		<td  align="center" >RANAGHAT</td>
-		<td  align="center" >SOMNATHRANA</td>
-		<td  align="center" >HD/RA/738/22-23</td>
-		<td  align="left" >BAJAJ FINANCE RANAGHAT <b>(BENU KARMAKAR)</b></b></td>
-		<td  align="left" >9474477723</td>
-		<td  align="center" >Retail</td>
-		<td  align="center" ></td>
-		<td  align="center" >DUR1796</td>
-			<td  align="left" title="1768" ></td>
-			<td  align="left" title="1768" >BAJAJ & MRF</td>
-			<td  align="left" title="1768" >Bajaj & MRF Kattles</td>
-			<td  align="left" title="1768" ><a >KTX-09 (670001)</a></td>
-			<td  align="center" >851671</td>
-			<td  align="center" class="phone">0</td>
-			<td  align="center" >1 PCS</td>
-			<td  align="right" >2,033.90</td>
-			<td  align="right" >2,033.90</td>
-			<td  align="center" >0</td>
-			<td  align="right" >0.00</td>
-			<td  align="right" >2,033.90</td>
-			<td  align="center" >9</td>
-			<td  align="center" >183.05</td>
-			<td  align="center" >9</td>
-			<td  align="center" >183.05</td>
-			<td  align="center" >0</td>
-			<td  align="center" >0.00</td>
-			<td  align="center" >2,400.00</td>
-			<td  align="right" >0.00</td>
-			<td  align="right" >2,400.00</td>
-			</tr>	 
-
-			<tr title="9267 S Sl">
-				<td  align="center"  >39		</td>
-		<td  align="center" >22-05-2022</td>
-		<td  align="center" >RANAGHAT</td>
-		<td  align="center" >MANTARANA</td>
-		<td  align="center"  class="phone">HD/RA/739/22-23</td>
-		<td  align="left" >CFL MBO RANAGHAT <b>(JHUMA RANI PODDER)</b></td>
-		<td  align="left" >8927291144</td>
-		<td  align="center" >Retail</td>
-		<td  align="center" ></td>
-		<td  align="center" >DUR1796</td>
-					<td  align="left" title="9267" ></td>
-			<td  align="left" title="9267" >CARRIER AC</td>
-			<td  align="left" title="9267" >CARRIER AC</td>
-			<td  align="left" title="9267" ><a >18K 4 STAR DURAFRESH CXi INVERTER R32 SPLIT AC (224050078500) ID 224050078480</a></td>
-			<td  align="center" >841510</td>
-			<td  align="center" class="phone">500784815223013338</td>
-			<td  align="center" >1 PCS</td>
-			<td  align="right" >30,858.59</td>
-			<td  align="right" >30,858.59</td>
-			<td  align="center" >0</td>
-			<td  align="right" >0.00</td>
-			<td  align="right" >30,858.59</td>
-			<td  align="center" >14</td>
-			<td  align="center" >4,320.20</td>
-			<td  align="center" >14</td>
-			<td  align="center" >4,320.20</td>
-			<td  align="center" >0</td>
-			<td  align="center" >0.00</td>
-			<td  align="center" >39,499.00</td>
-			<td  align="right" >90.00</td>
-			<td  align="right" >39,409.00</td>
-			</tr>	 
-
-			<tr title="807 S Sl">
-				<td  align="center"  >40</td>		
-		<td  align="center" >22-05-2022</td>
-		<td  align="center" >RANAGHAT</td>
-		<td  align="center" >MANTARANA</td>
-		<td  align="center" >HD/RA/739/22-23</td>
-		<td  align="left" >CFL MBO RANAGHAT <b>(JHUMA RANI PODDER)</b></b></td>
-		<td  align="left" >8927291144</td>
-		<td  align="center" >Retail</td>
-		<td  align="center" ></td>
-		<td  align="center" >DUR1796</td>
-			<td  align="left" title="807" ></td>
-			<td  align="left" title="807" >HITACHI</td>
-			<td  align="left" title="807" >HITACHI AC BRACKET</td>
-			<td  align="left" title="807" ><a >AC BRACKET</a></td>
-			<td  align="center" >730120</td>
-			<td  align="center" class="phone">0</td>
-			<td  align="center" >1 PCS</td>
-			<td  align="right" >0.85</td>
-			<td  align="right" >0.85</td>
-			<td  align="center" >0</td>
-			<td  align="right" >0.00</td>
-			<td  align="right" >0.85</td>
-			<td  align="center" >9</td>
-			<td  align="center" >0.08</td>
-			<td  align="center" >9</td>
-			<td  align="center" >0.08</td>
-			<td  align="center" >0</td>
-			<td  align="center" >0.00</td>
-			<td  align="center" >1.00</td>
-			<td  align="right" >0.00</td>
-			<td  align="right" >1.00</td>
-			</tr>	 
-
-			<tr title="5641 S Sl">
-				<td  align="center"  >41		</td>
-		<td  align="center" >22-05-2022</td>
-		<td  align="center" >KARIMPUR</td>
-		<td  align="center" >DIBAKARKARIMPUR</td>
-		<td  align="center"  class="phone">HD/KAR/382/22-23</td>
-		<td  align="left" >CASH KARIMPUR ALL <b>(RAJEN SK)</b></td>
-		<td  align="left" >9564911022</td>
-		<td  align="center" >Retail</td>
-		<td  align="center" ></td>
-		<td  align="center" >DUR2987</td>
-					<td  align="left" title="5641" ></td>
-			<td  align="left" title="5641" >SAMSUNG</td>
-			<td  align="left" title="5641" >SAMSUNG REF DC</td>
-			<td  align="left" title="5641" ><a >RR21T2H2W9U/HL</a></td>
-			<td  align="center" >841821</td>
-			<td  align="center" class="phone">04AY4PAT205859</td>
-			<td  align="center" >1 PCS</td>
-			<td  align="right" >15,677.97</td>
-			<td  align="right" >15,677.97</td>
-			<td  align="center" >0</td>
-			<td  align="right" >0.00</td>
-			<td  align="right" >15,677.97</td>
-			<td  align="center" >9</td>
-			<td  align="center" >1,411.02</td>
-			<td  align="center" >9</td>
-			<td  align="center" >1,411.02</td>
-			<td  align="center" >0</td>
-			<td  align="center" >0.00</td>
-			<td  align="center" >18,500.00</td>
-			<td  align="right" >0.00</td>
-			<td  align="right" >18,500.00</td>
-			</tr>	 
-
-			<tr title="8656 S Sl">
-				<td  align="center"  >42		</td>
-		<td  align="center" >22-05-2022</td>
-		<td  align="center" >KARIMPUR</td>
-		<td  align="center" >PUSHPENDUKARIMPUR</td>
-		<td  align="center"  class="phone">HD/KAR/383/22-23</td>
-		<td  align="left" >CASH KARIMPUR ALL <b>(RIPAN SWARNAKAR )</b></td>
-		<td  align="left" >9883199834</td>
-		<td  align="center" >Retail</td>
-		<td  align="center" ></td>
-		<td  align="center" >DUR2987</td>
-					<td  align="left" title="8656" ></td>
-			<td  align="left" title="8656" >HAIER</td>
-			<td  align="left" title="8656" >HAIER REF DC</td>
-			<td  align="left" title="8656" ><a >HRD-1955PUG-E (HAIER 195L DC)</a></td>
-			<td  align="center" >841821</td>
-			<td  align="center" class="phone">BS033L0CC01T3N4M0509</td>
-			<td  align="center" >1 PCS</td>
-			<td  align="right" >17,796.61</td>
-			<td  align="right" >17,796.61</td>
-			<td  align="center" >0</td>
-			<td  align="right" >0.00</td>
-			<td  align="right" >17,796.61</td>
-			<td  align="center" >9</td>
-			<td  align="center" >1,601.69</td>
-			<td  align="center" >9</td>
-			<td  align="center" >1,601.69</td>
-			<td  align="center" >0</td>
-			<td  align="center" >0.00</td>
-			<td  align="center" >21,000.00</td>
-			<td  align="right" >0.00</td>
-			<td  align="right" >21,000.00</td>
-			</tr>	 
-
-			<tr title="8111 S Sl">
-				<td  align="center"  >43		</td>
-		<td  align="center" >22-05-2022</td>
-		<td  align="center" >RANAGHAT</td>
-		<td  align="center" >AKASHRANA</td>
-		<td  align="center"  class="phone">HD/RA/740/22-23</td>
-		<td  align="left" >BAJAJ FINANCE RANAGHAT <b>(BHASKAR BISWAS)</b></td>
-		<td  align="left" >8106689520</td>
-		<td  align="center" >Retail</td>
-		<td  align="center" ></td>
-		<td  align="center" >DUR1796</td>
-					<td  align="left" title="8111" ></td>
-			<td  align="left" title="8111" >IT PRODUCT</td>
-			<td  align="left" title="8111" >OPPO MOBILE</td>
-			<td  align="left" title="8111" ><a >OPPO MOBILE A16 (4/64)GB</a></td>
-			<td  align="center" >851712</td>
-			<td  align="center" class="phone">8618310592212874</td>
-			<td  align="center" >1 PCS</td>
-			<td  align="right" >11,008.47</td>
-			<td  align="right" >11,008.47</td>
-			<td  align="center" >0</td>
-			<td  align="right" >0.00</td>
-			<td  align="right" >11,008.47</td>
-			<td  align="center" >9</td>
-			<td  align="center" >990.76</td>
-			<td  align="center" >9</td>
-			<td  align="center" >990.76</td>
-			<td  align="center" >0</td>
-			<td  align="center" >0.00</td>
-			<td  align="center" >12,990.00</td>
-			<td  align="right" >91.00</td>
-			<td  align="right" >12,899.00</td>
-			</tr>	 
-
-			<tr>
-	<td colspan="16" align="right"><b>Total</b></td>
+ <table  class="advancedtable" width="900px" border="1" >
+				     <tr bgcolor="#06dbfb">
+		 <td  align="center" colspan="3" >
+			<b>NADIA CLOSING STOCK 14-10-2016</b>
+			</td>
+			<td  align="center" colspan="7">
+			<b>NADIA</b>
+			</td>
+			
+		     </tr>
+		     <tr >
+		 <td  align="center" >
+			<b>PRODUCT DESCRIPTION</b>
+			</td>
+			<td  align="center" >
+			<b>Pack</b>
+			</td>
+			
+			<td  align="center" >
+			<b>Landed Price</b>
+			</td>
+			<td  align="center" bgcolor="#ffefd8" >
+			<b>CHAKADAHA 1</b>
+			</td>
+		  <td  align="center" bgcolor="#ffefd8" >
+			<b>Kg/Ltr</b>
+			</td>
+			<td  align="center" bgcolor="#99cc00" >
+			<b>KRISHNAGAR 1</b>
+			</td>
+	  <td  align="center"  bgcolor="#99cc00">
+			<b>Kg/Ltr</b>
+			</td>
+		<td  align="center" bgcolor="#ffcc99" >
+			<b>TEHATTA 1</b>
+			</td>
+	  <td  align="center" bgcolor="#ffcc99" >
+			<b>Kg/Ltr</b>
+			</td>
+			<td  align="center" bgcolor="#99ccff" >
+			<b>Nadia Total Kg/Ltr</b>
+			</td>
+		     </tr>
+		   <tr class="even" >
+		   
+		    <td  align="left" >
+			ACTARA 5 GR			</td>
+			 <td  align="right" style="cursor:pointer" >
+			0.005			</td>
+			
+			 <td  align="right" >
+			<b>20.00</b>
+			</td>
+            <td  align="center" bgcolor="#ff9900" >
+			1340			</td>
+		  <td  align="right" bgcolor="#ff9900" >
+			<b>6.7</b>
+			</td>
+			<td  align="center" bgcolor="#cc99ff" >
+		25429			</td>
+			  <td  align="right" bgcolor="#cc99ff"  >
+			<b>127.145</b>
+			</td>
+			<td  align="center" bgcolor="#ff99cc"  >
+		2050			</td>
+		  <td  align="right" bgcolor="#ff99cc"  >
+			<b>10.25</b>
+			</td>
+				<td  align="right" bgcolor="#ffcc99"  >
+			144.095			</td>
 	
-	<td align="center"><b></b></td>
-	<td></td>
-	<td></td>
-	<td></td>
-	<td></td>
-	<td align="right"><b>583978.17</b></td>
-	<td align="right" colspan="2"><b>64,046.06</b></td>
-	<td align="right" colspan="2"><b>64,046.06</b></td>
-	<td align="right" colspan="2"><b>0.00</b></td>
-	<td  align="right" ><b></b></td>
-	<td  align="right" ><b>2,314.00</b></td>
-	<td align="right"><b>709,756.28</b></td>
+		
+		     </tr>	 
+		   <tr class="odd" >
+		   
+		    <td  align="left" >
+			ALIKA 200 ML			</td>
+			 <td  align="right" style="cursor:pointer" >
+			0.2			</td>
+			
+			 <td  align="right" >
+			<b>521.00</b>
+			</td>
+            <td  align="center" bgcolor="#ff9900" >
+			12			</td>
+		  <td  align="right" bgcolor="#ff9900" >
+			<b>2.4</b>
+			</td>
+			<td  align="center" bgcolor="#cc99ff" >
+		150			</td>
+			  <td  align="right" bgcolor="#cc99ff"  >
+			<b>30</b>
+			</td>
+			<td  align="center" bgcolor="#ff99cc"  >
+		0			</td>
+		  <td  align="right" bgcolor="#ff99cc"  >
+			<b>0</b>
+			</td>
+				<td  align="right" bgcolor="#ffcc99"  >
+			32.4			</td>
+	
+		
+		     </tr>	 
+		   <tr class="even" >
+		   
+		    <td  align="left" >
+			ALIKA 80 ML			</td>
+			 <td  align="right" style="cursor:pointer" >
+			0.08			</td>
+			
+			 <td  align="right" >
+			<b>210.00</b>
+			</td>
+            <td  align="center" bgcolor="#ff9900" >
+			189			</td>
+		  <td  align="right" bgcolor="#ff9900" >
+			<b>15.12</b>
+			</td>
+			<td  align="center" bgcolor="#cc99ff" >
+		557			</td>
+			  <td  align="right" bgcolor="#cc99ff"  >
+			<b>44.56</b>
+			</td>
+			<td  align="center" bgcolor="#ff99cc"  >
+		55			</td>
+		  <td  align="right" bgcolor="#ff99cc"  >
+			<b>4.4</b>
+			</td>
+				<td  align="right" bgcolor="#ffcc99"  >
+			64.08			</td>
+	
+		
+		     </tr>	 
+		   <tr class="odd" >
+		   
+		    <td  align="left" >
+			AMISTAR 15 ML			</td>
+			 <td  align="right" style="cursor:pointer" >
+			0.015			</td>
+			
+			 <td  align="right" >
+			<b>86.00</b>
+			</td>
+            <td  align="center" bgcolor="#ff9900" >
+			2954			</td>
+		  <td  align="right" bgcolor="#ff9900" >
+			<b>44.31</b>
+			</td>
+			<td  align="center" bgcolor="#cc99ff" >
+		3899			</td>
+			  <td  align="right" bgcolor="#cc99ff"  >
+			<b>58.485</b>
+			</td>
+			<td  align="center" bgcolor="#ff99cc"  >
+		1434			</td>
+		  <td  align="right" bgcolor="#ff99cc"  >
+			<b>21.51</b>
+			</td>
+				<td  align="right" bgcolor="#ffcc99"  >
+			124.305			</td>
+	
+		
+		     </tr>	 
+		   <tr class="even" >
+		   
+		    <td  align="left" >
+			AMISTAR 200 ML			</td>
+			 <td  align="right" style="cursor:pointer" >
+			0.2			</td>
+			
+			 <td  align="right" >
+			<b>1,100.00</b>
+			</td>
+            <td  align="center" bgcolor="#ff9900" >
+			34			</td>
+		  <td  align="right" bgcolor="#ff9900" >
+			<b>6.8</b>
+			</td>
+			<td  align="center" bgcolor="#cc99ff" >
+		214			</td>
+			  <td  align="right" bgcolor="#cc99ff"  >
+			<b>42.8</b>
+			</td>
+			<td  align="center" bgcolor="#ff99cc"  >
+		10			</td>
+		  <td  align="right" bgcolor="#ff99cc"  >
+			<b>2</b>
+			</td>
+				<td  align="right" bgcolor="#ffcc99"  >
+			51.6			</td>
+	
+		
+		     </tr>	 
+		   <tr class="odd" >
+		   
+		    <td  align="left" >
+			AMISTAR 50 ML			</td>
+			 <td  align="right" style="cursor:pointer" >
+			0.05			</td>
+			
+			 <td  align="right" >
+			<b>286.00</b>
+			</td>
+            <td  align="center" bgcolor="#ff9900" >
+			830			</td>
+		  <td  align="right" bgcolor="#ff9900" >
+			<b>41.5</b>
+			</td>
+			<td  align="center" bgcolor="#cc99ff" >
+		3206			</td>
+			  <td  align="right" bgcolor="#cc99ff"  >
+			<b>160.3</b>
+			</td>
+			<td  align="center" bgcolor="#ff99cc"  >
+		361			</td>
+		  <td  align="right" bgcolor="#ff99cc"  >
+			<b>18.05</b>
+			</td>
+				<td  align="right" bgcolor="#ffcc99"  >
+			219.85			</td>
+	
+		
+		     </tr>	 
+		   <tr class="even" >
+		   
+		    <td  align="left" >
+			AMISTAR TOP 1 L			</td>
+			 <td  align="right" style="cursor:pointer" >
+			1			</td>
+			
+			 <td  align="right" >
+			<b>3,550.00</b>
+			</td>
+            <td  align="center" bgcolor="#ff9900" >
+			1			</td>
+		  <td  align="right" bgcolor="#ff9900" >
+			<b>1</b>
+			</td>
+			<td  align="center" bgcolor="#cc99ff" >
+		14			</td>
+			  <td  align="right" bgcolor="#cc99ff"  >
+			<b>14</b>
+			</td>
+			<td  align="center" bgcolor="#ff99cc"  >
+		34			</td>
+		  <td  align="right" bgcolor="#ff99cc"  >
+			<b>34</b>
+			</td>
+				<td  align="right" bgcolor="#ffcc99"  >
+			49			</td>
+	
+		
+		     </tr>	 
+		   <tr class="odd" >
+		   
+		    <td  align="left" >
+			AMISTAR TOP 200 ML			</td>
+			 <td  align="right" style="cursor:pointer" >
+			0.2			</td>
+			
+			 <td  align="right" >
+			<b>755.00</b>
+			</td>
+            <td  align="center" bgcolor="#ff9900" >
+			99			</td>
+		  <td  align="right" bgcolor="#ff9900" >
+			<b>19.8</b>
+			</td>
+			<td  align="center" bgcolor="#cc99ff" >
+		1905			</td>
+			  <td  align="right" bgcolor="#cc99ff"  >
+			<b>381</b>
+			</td>
+			<td  align="center" bgcolor="#ff99cc"  >
+		206			</td>
+		  <td  align="right" bgcolor="#ff99cc"  >
+			<b>41.2</b>
+			</td>
+				<td  align="right" bgcolor="#ffcc99"  >
+			442			</td>
+	
+		
+		     </tr>	 
+		   <tr class="even" >
+		   
+		    <td  align="left" >
+			AMISTAR TOP 500 ML			</td>
+			 <td  align="right" style="cursor:pointer" >
+			0.5			</td>
+			
+			 <td  align="right" >
+			<b>1,835.00</b>
+			</td>
+            <td  align="center" bgcolor="#ff9900" >
+			0			</td>
+		  <td  align="right" bgcolor="#ff9900" >
+			<b>0</b>
+			</td>
+			<td  align="center" bgcolor="#cc99ff" >
+		0			</td>
+			  <td  align="right" bgcolor="#cc99ff"  >
+			<b>0</b>
+			</td>
+			<td  align="center" bgcolor="#ff99cc"  >
+		0			</td>
+		  <td  align="right" bgcolor="#ff99cc"  >
+			<b>0</b>
+			</td>
+				<td  align="right" bgcolor="#ffcc99"  >
+			0			</td>
+	
+		
+		     </tr>	 
+		   <tr class="odd" >
+		   
+		    <td  align="left" >
+			AMPLIGO 200 ML			</td>
+			 <td  align="right" style="cursor:pointer" >
+			0.2			</td>
+			
+			 <td  align="right" >
+			<b>1,850.00</b>
+			</td>
+            <td  align="center" bgcolor="#ff9900" >
+			0			</td>
+		  <td  align="right" bgcolor="#ff9900" >
+			<b>0</b>
+			</td>
+			<td  align="center" bgcolor="#cc99ff" >
+		39			</td>
+			  <td  align="right" bgcolor="#cc99ff"  >
+			<b>7.8</b>
+			</td>
+			<td  align="center" bgcolor="#ff99cc"  >
+		0			</td>
+		  <td  align="right" bgcolor="#ff99cc"  >
+			<b>0</b>
+			</td>
+				<td  align="right" bgcolor="#ffcc99"  >
+			7.8			</td>
+	
+		
+		     </tr>	 
+		   <tr class="even" >
+		   
+		    <td  align="left" >
+			AMPLIGO 80 ML			</td>
+			 <td  align="right" style="cursor:pointer" >
+			0.08			</td>
+			
+			 <td  align="right" >
+			<b>770.00</b>
+			</td>
+            <td  align="center" bgcolor="#ff9900" >
+			76			</td>
+		  <td  align="right" bgcolor="#ff9900" >
+			<b>6.08</b>
+			</td>
+			<td  align="center" bgcolor="#cc99ff" >
+		198			</td>
+			  <td  align="right" bgcolor="#cc99ff"  >
+			<b>15.84</b>
+			</td>
+			<td  align="center" bgcolor="#ff99cc"  >
+		67			</td>
+		  <td  align="right" bgcolor="#ff99cc"  >
+			<b>5.36</b>
+			</td>
+				<td  align="right" bgcolor="#ffcc99"  >
+			27.28			</td>
+	
+		
+		     </tr>	 
+		   <tr class="odd" >
+		   
+		    <td  align="left" >
+			BLUE COPPER 500GR			</td>
+			 <td  align="right" style="cursor:pointer" >
+			0.5			</td>
+			
+			 <td  align="right" >
+			<b>296.00</b>
+			</td>
+            <td  align="center" bgcolor="#ff9900" >
+			104			</td>
+		  <td  align="right" bgcolor="#ff9900" >
+			<b>52</b>
+			</td>
+			<td  align="center" bgcolor="#cc99ff" >
+		219			</td>
+			  <td  align="right" bgcolor="#cc99ff"  >
+			<b>109.5</b>
+			</td>
+			<td  align="center" bgcolor="#ff99cc"  >
+		33			</td>
+		  <td  align="right" bgcolor="#ff99cc"  >
+			<b>16.5</b>
+			</td>
+				<td  align="right" bgcolor="#ffcc99"  >
+			178			</td>
+	
+		
+		     </tr>	 
+		   <tr class="even" >
+		   
+		    <td  align="left" >
+			CULTAR 1L			</td>
+			 <td  align="right" style="cursor:pointer" >
+			1			</td>
+			
+			 <td  align="right" >
+			<b>6,306.00</b>
+			</td>
+            <td  align="center" bgcolor="#ff9900" >
+			0			</td>
+		  <td  align="right" bgcolor="#ff9900" >
+			<b>0</b>
+			</td>
+			<td  align="center" bgcolor="#cc99ff" >
+		16			</td>
+			  <td  align="right" bgcolor="#cc99ff"  >
+			<b>16</b>
+			</td>
+			<td  align="center" bgcolor="#ff99cc"  >
+		0			</td>
+		  <td  align="right" bgcolor="#ff99cc"  >
+			<b>0</b>
+			</td>
+				<td  align="right" bgcolor="#ffcc99"  >
+			16			</td>
+	
+		
+		     </tr>	 
+		   <tr class="odd" >
+		   
+		    <td  align="left" >
+			CUMAN 1 LT			</td>
+			 <td  align="right" style="cursor:pointer" >
+			1			</td>
+			
+			 <td  align="right" >
+			<b>363.00</b>
+			</td>
+            <td  align="center" bgcolor="#ff9900" >
+			21			</td>
+		  <td  align="right" bgcolor="#ff9900" >
+			<b>21</b>
+			</td>
+			<td  align="center" bgcolor="#cc99ff" >
+		23			</td>
+			  <td  align="right" bgcolor="#cc99ff"  >
+			<b>23</b>
+			</td>
+			<td  align="center" bgcolor="#ff99cc"  >
+		28			</td>
+		  <td  align="right" bgcolor="#ff99cc"  >
+			<b>28</b>
+			</td>
+				<td  align="right" bgcolor="#ffcc99"  >
+			72			</td>
+	
+		
+		     </tr>	 
+		   <tr class="even" >
+		   
+		    <td  align="left" >
+			CUMAN 500 ML			</td>
+			 <td  align="right" style="cursor:pointer" >
+			0.5			</td>
+			
+			 <td  align="right" >
+			<b>190.00</b>
+			</td>
+            <td  align="center" bgcolor="#ff9900" >
+			24			</td>
+		  <td  align="right" bgcolor="#ff9900" >
+			<b>12</b>
+			</td>
+			<td  align="center" bgcolor="#cc99ff" >
+		227			</td>
+			  <td  align="right" bgcolor="#cc99ff"  >
+			<b>113.5</b>
+			</td>
+			<td  align="center" bgcolor="#ff99cc"  >
+		15			</td>
+		  <td  align="right" bgcolor="#ff99cc"  >
+			<b>7.5</b>
+			</td>
+				<td  align="right" bgcolor="#ffcc99"  >
+			133			</td>
+	
+		
+		     </tr>	 
+		   <tr class="odd" >
+		   
+		    <td  align="left" >
+			CURACRON 100 ML			</td>
+			 <td  align="right" style="cursor:pointer" >
+			0.1			</td>
+			
+			 <td  align="right" >
+			<b>85.00</b>
+			</td>
+            <td  align="center" bgcolor="#ff9900" >
+			148			</td>
+		  <td  align="right" bgcolor="#ff9900" >
+			<b>14.8</b>
+			</td>
+			<td  align="center" bgcolor="#cc99ff" >
+		614			</td>
+			  <td  align="right" bgcolor="#cc99ff"  >
+			<b>61.4</b>
+			</td>
+			<td  align="center" bgcolor="#ff99cc"  >
+		240			</td>
+		  <td  align="right" bgcolor="#ff99cc"  >
+			<b>24</b>
+			</td>
+				<td  align="right" bgcolor="#ffcc99"  >
+			100.2			</td>
+	
+		
+		     </tr>	 
+		   <tr class="even" >
+		   
+		    <td  align="left" >
+			CURACRON 1L			</td>
+			 <td  align="right" style="cursor:pointer" >
+			0			</td>
+			
+			 <td  align="right" >
+			<b>720.00</b>
+			</td>
+            <td  align="center" bgcolor="#ff9900" >
+			0			</td>
+		  <td  align="right" bgcolor="#ff9900" >
+			<b>0</b>
+			</td>
+			<td  align="center" bgcolor="#cc99ff" >
+		15			</td>
+			  <td  align="right" bgcolor="#cc99ff"  >
+			<b>0</b>
+			</td>
+			<td  align="center" bgcolor="#ff99cc"  >
+		0			</td>
+		  <td  align="right" bgcolor="#ff99cc"  >
+			<b>0</b>
+			</td>
+				<td  align="right" bgcolor="#ffcc99"  >
+			0			</td>
+	
+		
+		     </tr>	 
+		   <tr class="odd" >
+		   
+		    <td  align="left" >
+			CURACRON 250ML			</td>
+			 <td  align="right" style="cursor:pointer" >
+			0.25			</td>
+			
+			 <td  align="right" >
+			<b>198.00</b>
+			</td>
+            <td  align="center" bgcolor="#ff9900" >
+			97			</td>
+		  <td  align="right" bgcolor="#ff9900" >
+			<b>24.25</b>
+			</td>
+			<td  align="center" bgcolor="#cc99ff" >
+		100			</td>
+			  <td  align="right" bgcolor="#cc99ff"  >
+			<b>25</b>
+			</td>
+			<td  align="center" bgcolor="#ff99cc"  >
+		63			</td>
+		  <td  align="right" bgcolor="#ff99cc"  >
+			<b>15.75</b>
+			</td>
+				<td  align="right" bgcolor="#ffcc99"  >
+			65			</td>
+	
+		
+		     </tr>	 
+		   <tr class="even" >
+		   
+		    <td  align="left" >
+			CYMBUSH 1 L			</td>
+			 <td  align="right" style="cursor:pointer" >
+			1			</td>
+			
+			 <td  align="right" >
+			<b>712.00</b>
+			</td>
+            <td  align="center" bgcolor="#ff9900" >
+			0			</td>
+		  <td  align="right" bgcolor="#ff9900" >
+			<b>0</b>
+			</td>
+			<td  align="center" bgcolor="#cc99ff" >
+		11			</td>
+			  <td  align="right" bgcolor="#cc99ff"  >
+			<b>11</b>
+			</td>
+			<td  align="center" bgcolor="#ff99cc"  >
+		0			</td>
+		  <td  align="right" bgcolor="#ff99cc"  >
+			<b>0</b>
+			</td>
+				<td  align="right" bgcolor="#ffcc99"  >
+			11			</td>
+	
+		
+		     </tr>	 
+		   <tr class="odd" >
+		   
+		    <td  align="left" >
+			CYMBUSH 100 ML			</td>
+			 <td  align="right" style="cursor:pointer" >
+			0.1			</td>
+			
+			 <td  align="right" >
+			<b>85.00</b>
+			</td>
+            <td  align="center" bgcolor="#ff9900" >
+			70			</td>
+		  <td  align="right" bgcolor="#ff9900" >
+			<b>7</b>
+			</td>
+			<td  align="center" bgcolor="#cc99ff" >
+		2256			</td>
+			  <td  align="right" bgcolor="#cc99ff"  >
+			<b>225.6</b>
+			</td>
+			<td  align="center" bgcolor="#ff99cc"  >
+		88			</td>
+		  <td  align="right" bgcolor="#ff99cc"  >
+			<b>8.8</b>
+			</td>
+				<td  align="right" bgcolor="#ffcc99"  >
+			241.4			</td>
+	
+		
+		     </tr>	 
+		   <tr class="even" >
+		   
+		    <td  align="left" >
+			CYMBUSH 250 ML			</td>
+			 <td  align="right" style="cursor:pointer" >
+			0.25			</td>
+			
+			 <td  align="right" >
+			<b>199.00</b>
+			</td>
+            <td  align="center" bgcolor="#ff9900" >
+			0			</td>
+		  <td  align="right" bgcolor="#ff9900" >
+			<b>0</b>
+			</td>
+			<td  align="center" bgcolor="#cc99ff" >
+		339			</td>
+			  <td  align="right" bgcolor="#cc99ff"  >
+			<b>84.75</b>
+			</td>
+			<td  align="center" bgcolor="#ff99cc"  >
+		0			</td>
+		  <td  align="right" bgcolor="#ff99cc"  >
+			<b>0</b>
+			</td>
+				<td  align="right" bgcolor="#ffcc99"  >
+			84.75			</td>
+	
+		
+		     </tr>	 
+		   <tr class="odd" >
+		   
+		    <td  align="left" >
+			CYMBUSH 500 ML			</td>
+			 <td  align="right" style="cursor:pointer" >
+			0.5			</td>
+			
+			 <td  align="right" >
+			<b>377.00</b>
+			</td>
+            <td  align="center" bgcolor="#ff9900" >
+			0			</td>
+		  <td  align="right" bgcolor="#ff9900" >
+			<b>0</b>
+			</td>
+			<td  align="center" bgcolor="#cc99ff" >
+		98			</td>
+			  <td  align="right" bgcolor="#cc99ff"  >
+			<b>49</b>
+			</td>
+			<td  align="center" bgcolor="#ff99cc"  >
+		0			</td>
+		  <td  align="right" bgcolor="#ff99cc"  >
+			<b>0</b>
+			</td>
+				<td  align="right" bgcolor="#ffcc99"  >
+			49			</td>
+	
+		
+		     </tr>	 
+		   <tr class="even" >
+		   
+		    <td  align="left" >
+			EKALUX 1 L			</td>
+			 <td  align="right" style="cursor:pointer" >
+			1			</td>
+			
+			 <td  align="right" >
+			<b>551.00</b>
+			</td>
+            <td  align="center" bgcolor="#ff9900" >
+			39			</td>
+		  <td  align="right" bgcolor="#ff9900" >
+			<b>39</b>
+			</td>
+			<td  align="center" bgcolor="#cc99ff" >
+		170			</td>
+			  <td  align="right" bgcolor="#cc99ff"  >
+			<b>170</b>
+			</td>
+			<td  align="center" bgcolor="#ff99cc"  >
+		47			</td>
+		  <td  align="right" bgcolor="#ff99cc"  >
+			<b>47</b>
+			</td>
+				<td  align="right" bgcolor="#ffcc99"  >
+			256			</td>
+	
+		
+		     </tr>	 
+		   <tr class="odd" >
+		   
+		    <td  align="left" >
+			EKALUX 100 ML			</td>
+			 <td  align="right" style="cursor:pointer" >
+			0.1			</td>
+			
+			 <td  align="right" >
+			<b>72.00</b>
+			</td>
+            <td  align="center" bgcolor="#ff9900" >
+			437			</td>
+		  <td  align="right" bgcolor="#ff9900" >
+			<b>43.7</b>
+			</td>
+			<td  align="center" bgcolor="#cc99ff" >
+		7292			</td>
+			  <td  align="right" bgcolor="#cc99ff"  >
+			<b>729.2</b>
+			</td>
+			<td  align="center" bgcolor="#ff99cc"  >
+		508			</td>
+		  <td  align="right" bgcolor="#ff99cc"  >
+			<b>50.8</b>
+			</td>
+				<td  align="right" bgcolor="#ffcc99"  >
+			823.7			</td>
+	
+		
+		     </tr>	 
+		   <tr class="even" >
+		   
+		    <td  align="left" >
+			EKALUX 250 ML			</td>
+			 <td  align="right" style="cursor:pointer" >
+			0.25			</td>
+			
+			 <td  align="right" >
+			<b>155.00</b>
+			</td>
+            <td  align="center" bgcolor="#ff9900" >
+			56			</td>
+		  <td  align="right" bgcolor="#ff9900" >
+			<b>14</b>
+			</td>
+			<td  align="center" bgcolor="#cc99ff" >
+		384			</td>
+			  <td  align="right" bgcolor="#cc99ff"  >
+			<b>96</b>
+			</td>
+			<td  align="center" bgcolor="#ff99cc"  >
+		362			</td>
+		  <td  align="right" bgcolor="#ff99cc"  >
+			<b>90.5</b>
+			</td>
+				<td  align="right" bgcolor="#ffcc99"  >
+			200.5			</td>
+	
+		
+		     </tr>	 
+		   <tr class="odd" >
+		   
+		    <td  align="left" >
+			EKALUX 500 ML			</td>
+			 <td  align="right" style="cursor:pointer" >
+			0.5			</td>
+			
+			 <td  align="right" >
+			<b>288.00</b>
+			</td>
+            <td  align="center" bgcolor="#ff9900" >
+			25			</td>
+		  <td  align="right" bgcolor="#ff9900" >
+			<b>12.5</b>
+			</td>
+			<td  align="center" bgcolor="#cc99ff" >
+		989			</td>
+			  <td  align="right" bgcolor="#cc99ff"  >
+			<b>494.5</b>
+			</td>
+			<td  align="center" bgcolor="#ff99cc"  >
+		21			</td>
+		  <td  align="right" bgcolor="#ff99cc"  >
+			<b>10.5</b>
+			</td>
+				<td  align="right" bgcolor="#ffcc99"  >
+			517.5			</td>
+	
+		
+		     </tr>	 
+		   <tr class="even" >
+		   
+		    <td  align="left" >
+			FOLIO GOLD 1 LT			</td>
+			 <td  align="right" style="cursor:pointer" >
+			1			</td>
+			
+			 <td  align="right" >
+			<b>1,163.00</b>
+			</td>
+            <td  align="center" bgcolor="#ff9900" >
+			10			</td>
+		  <td  align="right" bgcolor="#ff9900" >
+			<b>10</b>
+			</td>
+			<td  align="center" bgcolor="#cc99ff" >
+		150			</td>
+			  <td  align="right" bgcolor="#cc99ff"  >
+			<b>150</b>
+			</td>
+			<td  align="center" bgcolor="#ff99cc"  >
+		9			</td>
+		  <td  align="right" bgcolor="#ff99cc"  >
+			<b>9</b>
+			</td>
+				<td  align="right" bgcolor="#ffcc99"  >
+			169			</td>
+	
+		
+		     </tr>	 
+		   <tr class="odd" >
+		   
+		    <td  align="left" >
+			FOLIO GOLD 250 ML			</td>
+			 <td  align="right" style="cursor:pointer" >
+			0.25			</td>
+			
+			 <td  align="right" >
+			<b>323.00</b>
+			</td>
+            <td  align="center" bgcolor="#ff9900" >
+			253			</td>
+		  <td  align="right" bgcolor="#ff9900" >
+			<b>63.25</b>
+			</td>
+			<td  align="center" bgcolor="#cc99ff" >
+		0			</td>
+			  <td  align="right" bgcolor="#cc99ff"  >
+			<b>0</b>
+			</td>
+			<td  align="center" bgcolor="#ff99cc"  >
+		277			</td>
+		  <td  align="right" bgcolor="#ff99cc"  >
+			<b>69.25</b>
+			</td>
+				<td  align="right" bgcolor="#ffcc99"  >
+			132.5			</td>
+	
+		
+		     </tr>	 
+		   <tr class="even" >
+		   
+		    <td  align="left" >
+			GRAMOXONE 1 LI			</td>
+			 <td  align="right" style="cursor:pointer" >
+			1			</td>
+			
+			 <td  align="right" >
+			<b>360.00</b>
+			</td>
+            <td  align="center" bgcolor="#ff9900" >
+			328			</td>
+		  <td  align="right" bgcolor="#ff9900" >
+			<b>328</b>
+			</td>
+			<td  align="center" bgcolor="#cc99ff" >
+		1775			</td>
+			  <td  align="right" bgcolor="#cc99ff"  >
+			<b>1775</b>
+			</td>
+			<td  align="center" bgcolor="#ff99cc"  >
+		386			</td>
+		  <td  align="right" bgcolor="#ff99cc"  >
+			<b>386</b>
+			</td>
+				<td  align="right" bgcolor="#ffcc99"  >
+			2489			</td>
+	
+		
+		     </tr>	 
+		   <tr class="odd" >
+		   
+		    <td  align="left" >
+			GRAMOXONE 20 LITTER			</td>
+			 <td  align="right" style="cursor:pointer" >
+			20			</td>
+			
+			 <td  align="right" >
+			<b>6,300.00</b>
+			</td>
+            <td  align="center" bgcolor="#ff9900" >
+			7			</td>
+		  <td  align="right" bgcolor="#ff9900" >
+			<b>140</b>
+			</td>
+			<td  align="center" bgcolor="#cc99ff" >
+		24			</td>
+			  <td  align="right" bgcolor="#cc99ff"  >
+			<b>480</b>
+			</td>
+			<td  align="center" bgcolor="#ff99cc"  >
+		2			</td>
+		  <td  align="right" bgcolor="#ff99cc"  >
+			<b>40</b>
+			</td>
+				<td  align="right" bgcolor="#ffcc99"  >
+			660			</td>
+	
+		
+		     </tr>	 
+		   <tr class="even" >
+		   
+		    <td  align="left" >
+			GRAMOXONE 250ML			</td>
+			 <td  align="right" style="cursor:pointer" >
+			0.25			</td>
+			
+			 <td  align="right" >
+			<b>100.00</b>
+			</td>
+            <td  align="center" bgcolor="#ff9900" >
+			1067			</td>
+		  <td  align="right" bgcolor="#ff9900" >
+			<b>266.75</b>
+			</td>
+			<td  align="center" bgcolor="#cc99ff" >
+		6909			</td>
+			  <td  align="right" bgcolor="#cc99ff"  >
+			<b>1727.25</b>
+			</td>
+			<td  align="center" bgcolor="#ff99cc"  >
+		416			</td>
+		  <td  align="right" bgcolor="#ff99cc"  >
+			<b>104</b>
+			</td>
+				<td  align="right" bgcolor="#ffcc99"  >
+			2098			</td>
+	
+		
+		     </tr>	 
+		   <tr class="odd" >
+		   
+		    <td  align="left" >
+			GRAMOXONE 5 LITER			</td>
+			 <td  align="right" style="cursor:pointer" >
+			5			</td>
+			
+			 <td  align="right" >
+			<b>1,700.00</b>
+			</td>
+            <td  align="center" bgcolor="#ff9900" >
+			6			</td>
+		  <td  align="right" bgcolor="#ff9900" >
+			<b>30</b>
+			</td>
+			<td  align="center" bgcolor="#cc99ff" >
+		182			</td>
+			  <td  align="right" bgcolor="#cc99ff"  >
+			<b>910</b>
+			</td>
+			<td  align="center" bgcolor="#ff99cc"  >
+		10			</td>
+		  <td  align="right" bgcolor="#ff99cc"  >
+			<b>50</b>
+			</td>
+				<td  align="right" bgcolor="#ffcc99"  >
+			990			</td>
+	
+		
+		     </tr>	 
+		   <tr class="even" >
+		   
+		    <td  align="left" >
+			GRAMOXONE 500ML			</td>
+			 <td  align="right" style="cursor:pointer" >
+			0.5			</td>
+			
+			 <td  align="right" >
+			<b>190.00</b>
+			</td>
+            <td  align="center" bgcolor="#ff9900" >
+			463			</td>
+		  <td  align="right" bgcolor="#ff9900" >
+			<b>231.5</b>
+			</td>
+			<td  align="center" bgcolor="#cc99ff" >
+		1819			</td>
+			  <td  align="right" bgcolor="#cc99ff"  >
+			<b>909.5</b>
+			</td>
+			<td  align="center" bgcolor="#ff99cc"  >
+		168			</td>
+		  <td  align="right" bgcolor="#ff99cc"  >
+			<b>84</b>
+			</td>
+				<td  align="right" bgcolor="#ffcc99"  >
+			1225			</td>
+	
+		
+		     </tr>	 
+		   <tr class="odd" >
+		   
+		    <td  align="left" >
+			ISABION  1 LT			</td>
+			 <td  align="right" style="cursor:pointer" >
+			1			</td>
+			
+			 <td  align="right" >
+			<b>999.00</b>
+			</td>
+            <td  align="center" bgcolor="#ff9900" >
+			15			</td>
+		  <td  align="right" bgcolor="#ff9900" >
+			<b>15</b>
+			</td>
+			<td  align="center" bgcolor="#cc99ff" >
+		9			</td>
+			  <td  align="right" bgcolor="#cc99ff"  >
+			<b>9</b>
+			</td>
+			<td  align="center" bgcolor="#ff99cc"  >
+		0			</td>
+		  <td  align="right" bgcolor="#ff99cc"  >
+			<b>0</b>
+			</td>
+				<td  align="right" bgcolor="#ffcc99"  >
+			24			</td>
+	
+		
+		     </tr>	 
+		   <tr class="even" >
+		   
+		    <td  align="left" >
+			ISABION 100 ML			</td>
+			 <td  align="right" style="cursor:pointer" >
+			0.1			</td>
+			
+			 <td  align="right" >
+			<b>119.00</b>
+			</td>
+            <td  align="center" bgcolor="#ff9900" >
+			11			</td>
+		  <td  align="right" bgcolor="#ff9900" >
+			<b>1.1</b>
+			</td>
+			<td  align="center" bgcolor="#cc99ff" >
+		1732			</td>
+			  <td  align="right" bgcolor="#cc99ff"  >
+			<b>173.2</b>
+			</td>
+			<td  align="center" bgcolor="#ff99cc"  >
+		84			</td>
+		  <td  align="right" bgcolor="#ff99cc"  >
+			<b>8.4</b>
+			</td>
+				<td  align="right" bgcolor="#ffcc99"  >
+			182.7			</td>
+	
+		
+		     </tr>	 
+		   <tr class="odd" >
+		   
+		    <td  align="left" >
+			ISABION 250 ML			</td>
+			 <td  align="right" style="cursor:pointer" >
+			0.25			</td>
+			
+			 <td  align="right" >
+			<b>270.00</b>
+			</td>
+            <td  align="center" bgcolor="#ff9900" >
+			0			</td>
+		  <td  align="right" bgcolor="#ff9900" >
+			<b>0</b>
+			</td>
+			<td  align="center" bgcolor="#cc99ff" >
+		30			</td>
+			  <td  align="right" bgcolor="#cc99ff"  >
+			<b>7.5</b>
+			</td>
+			<td  align="center" bgcolor="#ff99cc"  >
+		0			</td>
+		  <td  align="right" bgcolor="#ff99cc"  >
+			<b>0</b>
+			</td>
+				<td  align="right" bgcolor="#ffcc99"  >
+			7.5			</td>
+	
+		
+		     </tr>	 
+		   <tr class="even" >
+		   
+		    <td  align="left" >
+			KAVACH 1 KG			</td>
+			 <td  align="right" style="cursor:pointer" >
+			1			</td>
+			
+			 <td  align="right" >
+			<b>1,052.00</b>
+			</td>
+            <td  align="center" bgcolor="#ff9900" >
+			6			</td>
+		  <td  align="right" bgcolor="#ff9900" >
+			<b>6</b>
+			</td>
+			<td  align="center" bgcolor="#cc99ff" >
+		27			</td>
+			  <td  align="right" bgcolor="#cc99ff"  >
+			<b>27</b>
+			</td>
+			<td  align="center" bgcolor="#ff99cc"  >
+		21			</td>
+		  <td  align="right" bgcolor="#ff99cc"  >
+			<b>21</b>
+			</td>
+				<td  align="right" bgcolor="#ffcc99"  >
+			54			</td>
+	
+		
+		     </tr>	 
+		   <tr class="odd" >
+		   
+		    <td  align="left" >
+			KAVACH 100 GR			</td>
+			 <td  align="right" style="cursor:pointer" >
+			0.1			</td>
+			
+			 <td  align="right" >
+			<b>119.00</b>
+			</td>
+            <td  align="center" bgcolor="#ff9900" >
+			151			</td>
+		  <td  align="right" bgcolor="#ff9900" >
+			<b>15.1</b>
+			</td>
+			<td  align="center" bgcolor="#cc99ff" >
+		256			</td>
+			  <td  align="right" bgcolor="#cc99ff"  >
+			<b>25.6</b>
+			</td>
+			<td  align="center" bgcolor="#ff99cc"  >
+		320			</td>
+		  <td  align="right" bgcolor="#ff99cc"  >
+			<b>32</b>
+			</td>
+				<td  align="right" bgcolor="#ffcc99"  >
+			72.7			</td>
+	
+		
+		     </tr>	 
+		   <tr class="even" >
+		   
+		    <td  align="left" >
+			KAVACH 250 GR			</td>
+			 <td  align="right" style="cursor:pointer" >
+			0.25			</td>
+			
+			 <td  align="right" >
+			<b>281.00</b>
+			</td>
+            <td  align="center" bgcolor="#ff9900" >
+			51			</td>
+		  <td  align="right" bgcolor="#ff9900" >
+			<b>12.75</b>
+			</td>
+			<td  align="center" bgcolor="#cc99ff" >
+		7			</td>
+			  <td  align="right" bgcolor="#cc99ff"  >
+			<b>1.75</b>
+			</td>
+			<td  align="center" bgcolor="#ff99cc"  >
+		53			</td>
+		  <td  align="right" bgcolor="#ff99cc"  >
+			<b>13.25</b>
+			</td>
+				<td  align="right" bgcolor="#ffcc99"  >
+			27.75			</td>
+	
+		
+		     </tr>	 
+		   <tr class="odd" >
+		   
+		    <td  align="left" >
+			KUNALIN 500GRM			</td>
+			 <td  align="right" style="cursor:pointer" >
+			0.5			</td>
+			
+			 <td  align="right" >
+			<b>0.00</b>
+			</td>
+            <td  align="center" bgcolor="#ff9900" >
+			0			</td>
+		  <td  align="right" bgcolor="#ff9900" >
+			<b>0</b>
+			</td>
+			<td  align="center" bgcolor="#cc99ff" >
+		0			</td>
+			  <td  align="right" bgcolor="#cc99ff"  >
+			<b>0</b>
+			</td>
+			<td  align="center" bgcolor="#ff99cc"  >
+		53			</td>
+		  <td  align="right" bgcolor="#ff99cc"  >
+			<b>26.5</b>
+			</td>
+				<td  align="right" bgcolor="#ffcc99"  >
+			26.5			</td>
+	
+		
+		     </tr>	 
+		   <tr class="even" >
+		   
+		    <td  align="left" >
+			MATADOR 100 ML			</td>
+			 <td  align="right" style="cursor:pointer" >
+			0.1			</td>
+			
+			 <td  align="right" >
+			<b>114.00</b>
+			</td>
+            <td  align="center" bgcolor="#ff9900" >
+			3			</td>
+		  <td  align="right" bgcolor="#ff9900" >
+			<b>0.3</b>
+			</td>
+			<td  align="center" bgcolor="#cc99ff" >
+		0			</td>
+			  <td  align="right" bgcolor="#cc99ff"  >
+			<b>0</b>
+			</td>
+			<td  align="center" bgcolor="#ff99cc"  >
+		9			</td>
+		  <td  align="right" bgcolor="#ff99cc"  >
+			<b>0.9</b>
+			</td>
+				<td  align="right" bgcolor="#ffcc99"  >
+			1.2			</td>
+	
+		
+		     </tr>	 
+		   <tr class="odd" >
+		   
+		    <td  align="left" >
+			MATADOR 1L			</td>
+			 <td  align="right" style="cursor:pointer" >
+			1			</td>
+			
+			 <td  align="right" >
+			<b>915.00</b>
+			</td>
+            <td  align="center" bgcolor="#ff9900" >
+			0			</td>
+		  <td  align="right" bgcolor="#ff9900" >
+			<b>0</b>
+			</td>
+			<td  align="center" bgcolor="#cc99ff" >
+		0			</td>
+			  <td  align="right" bgcolor="#cc99ff"  >
+			<b>0</b>
+			</td>
+			<td  align="center" bgcolor="#ff99cc"  >
+		29			</td>
+		  <td  align="right" bgcolor="#ff99cc"  >
+			<b>29</b>
+			</td>
+				<td  align="right" bgcolor="#ffcc99"  >
+			29			</td>
+	
+		
+		     </tr>	 
+		   <tr class="even" >
+		   
+		    <td  align="left" >
+			MATADOR 250 ML			</td>
+			 <td  align="right" style="cursor:pointer" >
+			0.25			</td>
+			
+			 <td  align="right" >
+			<b>274.00</b>
+			</td>
+            <td  align="center" bgcolor="#ff9900" >
+			0			</td>
+		  <td  align="right" bgcolor="#ff9900" >
+			<b>0</b>
+			</td>
+			<td  align="center" bgcolor="#cc99ff" >
+		32			</td>
+			  <td  align="right" bgcolor="#cc99ff"  >
+			<b>8</b>
+			</td>
+			<td  align="center" bgcolor="#ff99cc"  >
+		32			</td>
+		  <td  align="right" bgcolor="#ff99cc"  >
+			<b>8</b>
+			</td>
+				<td  align="right" bgcolor="#ffcc99"  >
+			16			</td>
+	
+		
+		     </tr>	 
+		   <tr class="odd" >
+		   
+		    <td  align="left" >
+			PEGASUS 25 GR			</td>
+			 <td  align="right" style="cursor:pointer" >
+			0.025			</td>
+			
+			 <td  align="right" >
+			<b>95.00</b>
+			</td>
+            <td  align="center" bgcolor="#ff9900" >
+			460			</td>
+		  <td  align="right" bgcolor="#ff9900" >
+			<b>11.5</b>
+			</td>
+			<td  align="center" bgcolor="#cc99ff" >
+		5711			</td>
+			  <td  align="right" bgcolor="#cc99ff"  >
+			<b>142.775</b>
+			</td>
+			<td  align="center" bgcolor="#ff99cc"  >
+		1843			</td>
+		  <td  align="right" bgcolor="#ff99cc"  >
+			<b>46.075</b>
+			</td>
+				<td  align="right" bgcolor="#ffcc99"  >
+			200.35			</td>
+	
+		
+		     </tr>	 
+		   <tr class="even" >
+		   
+		    <td  align="left" >
+			PROCLAIM 10 GM			</td>
+			 <td  align="right" style="cursor:pointer" >
+			0.01			</td>
+			
+			 <td  align="right" >
+			<b>93.00</b>
+			</td>
+            <td  align="center" bgcolor="#ff9900" >
+			0			</td>
+		  <td  align="right" bgcolor="#ff9900" >
+			<b>0</b>
+			</td>
+			<td  align="center" bgcolor="#cc99ff" >
+		0			</td>
+			  <td  align="right" bgcolor="#cc99ff"  >
+			<b>0</b>
+			</td>
+			<td  align="center" bgcolor="#ff99cc"  >
+		0			</td>
+		  <td  align="right" bgcolor="#ff99cc"  >
+			<b>0</b>
+			</td>
+				<td  align="right" bgcolor="#ffcc99"  >
+			0			</td>
+	
+		
+		     </tr>	 
+		   <tr class="odd" >
+		   
+		    <td  align="left" >
+			REVUS 160 ML			</td>
+			 <td  align="right" style="cursor:pointer" >
+			0.16			</td>
+			
+			 <td  align="right" >
+			<b>804.00</b>
+			</td>
+            <td  align="center" bgcolor="#ff9900" >
+			10			</td>
+		  <td  align="right" bgcolor="#ff9900" >
+			<b>1.6</b>
+			</td>
+			<td  align="center" bgcolor="#cc99ff" >
+		76			</td>
+			  <td  align="right" bgcolor="#cc99ff"  >
+			<b>12.16</b>
+			</td>
+			<td  align="center" bgcolor="#ff99cc"  >
+		0			</td>
+		  <td  align="right" bgcolor="#ff99cc"  >
+			<b>0</b>
+			</td>
+				<td  align="right" bgcolor="#ffcc99"  >
+			13.76			</td>
+	
+		
+		     </tr>	 
+		   <tr class="even" >
+		   
+		    <td  align="left" >
+			RIDOMIL GOLD 1 KG			</td>
+			 <td  align="right" style="cursor:pointer" >
+			1			</td>
+			
+			 <td  align="right" >
+			<b>1,430.00</b>
+			</td>
+            <td  align="center" bgcolor="#ff9900" >
+			112			</td>
+		  <td  align="right" bgcolor="#ff9900" >
+			<b>112</b>
+			</td>
+			<td  align="center" bgcolor="#cc99ff" >
+		235			</td>
+			  <td  align="right" bgcolor="#cc99ff"  >
+			<b>235</b>
+			</td>
+			<td  align="center" bgcolor="#ff99cc"  >
+		47			</td>
+		  <td  align="right" bgcolor="#ff99cc"  >
+			<b>47</b>
+			</td>
+				<td  align="right" bgcolor="#ffcc99"  >
+			394			</td>
+	
+		
+		     </tr>	 
+		   <tr class="odd" >
+		   
+		    <td  align="left" >
+			RIFIT 1 LT			</td>
+			 <td  align="right" style="cursor:pointer" >
+			1			</td>
+			
+			 <td  align="right" >
+			<b>579.00</b>
+			</td>
+            <td  align="center" bgcolor="#ff9900" >
+			6			</td>
+		  <td  align="right" bgcolor="#ff9900" >
+			<b>6</b>
+			</td>
+			<td  align="center" bgcolor="#cc99ff" >
+		7			</td>
+			  <td  align="right" bgcolor="#cc99ff"  >
+			<b>7</b>
+			</td>
+			<td  align="center" bgcolor="#ff99cc"  >
+		3			</td>
+		  <td  align="right" bgcolor="#ff99cc"  >
+			<b>3</b>
+			</td>
+				<td  align="right" bgcolor="#ffcc99"  >
+			16			</td>
+	
+		
+		     </tr>	 
+		   <tr class="even" >
+		   
+		    <td  align="left" >
+			RIFIT 250 ML			</td>
+			 <td  align="right" style="cursor:pointer" >
+			0.25			</td>
+			
+			 <td  align="right" >
+			<b>160.00</b>
+			</td>
+            <td  align="center" bgcolor="#ff9900" >
+			35			</td>
+		  <td  align="right" bgcolor="#ff9900" >
+			<b>8.75</b>
+			</td>
+			<td  align="center" bgcolor="#cc99ff" >
+		27			</td>
+			  <td  align="right" bgcolor="#cc99ff"  >
+			<b>6.75</b>
+			</td>
+			<td  align="center" bgcolor="#ff99cc"  >
+		0			</td>
+		  <td  align="right" bgcolor="#ff99cc"  >
+			<b>0</b>
+			</td>
+				<td  align="right" bgcolor="#ffcc99"  >
+			15.5			</td>
+	
+		
+		     </tr>	 
+		   <tr class="odd" >
+		   
+		    <td  align="left" >
+			RIFIT 500 ML			</td>
+			 <td  align="right" style="cursor:pointer" >
+			0.5			</td>
+			
+			 <td  align="right" >
+			<b>300.00</b>
+			</td>
+            <td  align="center" bgcolor="#ff9900" >
+			1			</td>
+		  <td  align="right" bgcolor="#ff9900" >
+			<b>0.5</b>
+			</td>
+			<td  align="center" bgcolor="#cc99ff" >
+		0			</td>
+			  <td  align="right" bgcolor="#cc99ff"  >
+			<b>0</b>
+			</td>
+			<td  align="center" bgcolor="#ff99cc"  >
+		0			</td>
+		  <td  align="right" bgcolor="#ff99cc"  >
+			<b>0</b>
+			</td>
+				<td  align="right" bgcolor="#ffcc99"  >
+			0.5			</td>
+	
+		
+		     </tr>	 
+		   <tr class="even" >
+		   
+		    <td  align="left" >
+			RIFIT PLUS 600 ML			</td>
+			 <td  align="right" style="cursor:pointer" >
+			0.6			</td>
+			
+			 <td  align="right" >
+			<b>640.00</b>
+			</td>
+            <td  align="center" bgcolor="#ff9900" >
+			20			</td>
+		  <td  align="right" bgcolor="#ff9900" >
+			<b>12</b>
+			</td>
+			<td  align="center" bgcolor="#cc99ff" >
+		20			</td>
+			  <td  align="right" bgcolor="#cc99ff"  >
+			<b>12</b>
+			</td>
+			<td  align="center" bgcolor="#ff99cc"  >
+		0			</td>
+		  <td  align="right" bgcolor="#ff99cc"  >
+			<b>0</b>
+			</td>
+				<td  align="right" bgcolor="#ffcc99"  >
+			24			</td>
+	
+		
+		     </tr>	 
+		   <tr class="odd" >
+		   
+		    <td  align="left" >
+			SANDOVIT 1 KG			</td>
+			 <td  align="right" style="cursor:pointer" >
+			1			</td>
+			
+			 <td  align="right" >
+			<b>213.00</b>
+			</td>
+            <td  align="center" bgcolor="#ff9900" >
+			19			</td>
+		  <td  align="right" bgcolor="#ff9900" >
+			<b>19</b>
+			</td>
+			<td  align="center" bgcolor="#cc99ff" >
+		166			</td>
+			  <td  align="right" bgcolor="#cc99ff"  >
+			<b>166</b>
+			</td>
+			<td  align="center" bgcolor="#ff99cc"  >
+		21			</td>
+		  <td  align="right" bgcolor="#ff99cc"  >
+			<b>21</b>
+			</td>
+				<td  align="right" bgcolor="#ffcc99"  >
+			206			</td>
+	
+		
+		     </tr>	 
+		   <tr class="even" >
+		   
+		    <td  align="left" >
+			SCORE 100 ML			</td>
+			 <td  align="right" style="cursor:pointer" >
+			0.1			</td>
+			
+			 <td  align="right" >
+			<b>364.00</b>
+			</td>
+            <td  align="center" bgcolor="#ff9900" >
+			41			</td>
+		  <td  align="right" bgcolor="#ff9900" >
+			<b>4.1</b>
+			</td>
+			<td  align="center" bgcolor="#cc99ff" >
+		43			</td>
+			  <td  align="right" bgcolor="#cc99ff"  >
+			<b>4.3</b>
+			</td>
+			<td  align="center" bgcolor="#ff99cc"  >
+		72			</td>
+		  <td  align="right" bgcolor="#ff99cc"  >
+			<b>7.2</b>
+			</td>
+				<td  align="right" bgcolor="#ffcc99"  >
+			15.6			</td>
+	
+		
+		     </tr>	 
+		   <tr class="odd" >
+		   
+		    <td  align="left" >
+			SCORE 250 ML			</td>
+			 <td  align="right" style="cursor:pointer" >
+			0.25			</td>
+			
+			 <td  align="right" >
+			<b>874.00</b>
+			</td>
+            <td  align="center" bgcolor="#ff9900" >
+			56			</td>
+		  <td  align="right" bgcolor="#ff9900" >
+			<b>14</b>
+			</td>
+			<td  align="center" bgcolor="#cc99ff" >
+		176			</td>
+			  <td  align="right" bgcolor="#cc99ff"  >
+			<b>44</b>
+			</td>
+			<td  align="center" bgcolor="#ff99cc"  >
+		12			</td>
+		  <td  align="right" bgcolor="#ff99cc"  >
+			<b>3</b>
+			</td>
+				<td  align="right" bgcolor="#ffcc99"  >
+			61			</td>
+	
+		
+		     </tr>	 
+		   <tr class="even" >
+		   
+		    <td  align="left" >
+			SCORE 50 ML			</td>
+			 <td  align="right" style="cursor:pointer" >
+			0.05			</td>
+			
+			 <td  align="right" >
+			<b>188.00</b>
+			</td>
+            <td  align="center" bgcolor="#ff9900" >
+			660			</td>
+		  <td  align="right" bgcolor="#ff9900" >
+			<b>33</b>
+			</td>
+			<td  align="center" bgcolor="#cc99ff" >
+		1673			</td>
+			  <td  align="right" bgcolor="#cc99ff"  >
+			<b>83.65</b>
+			</td>
+			<td  align="center" bgcolor="#ff99cc"  >
+		165			</td>
+		  <td  align="right" bgcolor="#ff99cc"  >
+			<b>8.25</b>
+			</td>
+				<td  align="right" bgcolor="#ffcc99"  >
+			124.9			</td>
+	
+		
+		     </tr>	 
+		   <tr class="odd" >
+		   
+		    <td  align="left" >
+			TASPA  1 LT			</td>
+			 <td  align="right" style="cursor:pointer" >
+			1			</td>
+			
+			 <td  align="right" >
+			<b>2,270.00</b>
+			</td>
+            <td  align="center" bgcolor="#ff9900" >
+			3			</td>
+		  <td  align="right" bgcolor="#ff9900" >
+			<b>3</b>
+			</td>
+			<td  align="center" bgcolor="#cc99ff" >
+		53			</td>
+			  <td  align="right" bgcolor="#cc99ff"  >
+			<b>53</b>
+			</td>
+			<td  align="center" bgcolor="#ff99cc"  >
+		0			</td>
+		  <td  align="right" bgcolor="#ff99cc"  >
+			<b>0</b>
+			</td>
+				<td  align="right" bgcolor="#ffcc99"  >
+			56			</td>
+	
+		
+		     </tr>	 
+		   <tr class="even" >
+		   
+		    <td  align="left" >
+			TASPA 100 ML			</td>
+			 <td  align="right" style="cursor:pointer" >
+			0.1			</td>
+			
+			 <td  align="right" >
+			<b>290.00</b>
+			</td>
+            <td  align="center" bgcolor="#ff9900" >
+			5			</td>
+		  <td  align="right" bgcolor="#ff9900" >
+			<b>0.5</b>
+			</td>
+			<td  align="center" bgcolor="#cc99ff" >
+		443			</td>
+			  <td  align="right" bgcolor="#cc99ff"  >
+			<b>44.3</b>
+			</td>
+			<td  align="center" bgcolor="#ff99cc"  >
+		0			</td>
+		  <td  align="right" bgcolor="#ff99cc"  >
+			<b>0</b>
+			</td>
+				<td  align="right" bgcolor="#ffcc99"  >
+			44.8			</td>
+	
+		
+		     </tr>	 
+		   <tr class="odd" >
+		   
+		    <td  align="left" >
+			TASPA 250 ML			</td>
+			 <td  align="right" style="cursor:pointer" >
+			0.25			</td>
+			
+			 <td  align="right" >
+			<b>628.00</b>
+			</td>
+            <td  align="center" bgcolor="#ff9900" >
+			2			</td>
+		  <td  align="right" bgcolor="#ff9900" >
+			<b>0.5</b>
+			</td>
+			<td  align="center" bgcolor="#cc99ff" >
+		51			</td>
+			  <td  align="right" bgcolor="#cc99ff"  >
+			<b>12.75</b>
+			</td>
+			<td  align="center" bgcolor="#ff99cc"  >
+		0			</td>
+		  <td  align="right" bgcolor="#ff99cc"  >
+			<b>0</b>
+			</td>
+				<td  align="right" bgcolor="#ffcc99"  >
+			13.25			</td>
+	
+		
+		     </tr>	 
+		   <tr class="even" >
+		   
+		    <td  align="left" >
+			TASPA 500 ML			</td>
+			 <td  align="right" style="cursor:pointer" >
+			0.5			</td>
+			
+			 <td  align="right" >
+			<b>1,135.00</b>
+			</td>
+            <td  align="center" bgcolor="#ff9900" >
+			0			</td>
+		  <td  align="right" bgcolor="#ff9900" >
+			<b>0</b>
+			</td>
+			<td  align="center" bgcolor="#cc99ff" >
+		0			</td>
+			  <td  align="right" bgcolor="#cc99ff"  >
+			<b>0</b>
+			</td>
+			<td  align="center" bgcolor="#ff99cc"  >
+		0			</td>
+		  <td  align="right" bgcolor="#ff99cc"  >
+			<b>0</b>
+			</td>
+				<td  align="right" bgcolor="#ffcc99"  >
+			0			</td>
+	
+		
+		     </tr>	 
+		   <tr class="odd" >
+		   
+		    <td  align="left" >
+			THIONUTRI 5 KG			</td>
+			 <td  align="right" style="cursor:pointer" >
+			5			</td>
+			
+			 <td  align="right" >
+			<b>935.00</b>
+			</td>
+            <td  align="center" bgcolor="#ff9900" >
+			9			</td>
+		  <td  align="right" bgcolor="#ff9900" >
+			<b>45</b>
+			</td>
+			<td  align="center" bgcolor="#cc99ff" >
+		24			</td>
+			  <td  align="right" bgcolor="#cc99ff"  >
+			<b>120</b>
+			</td>
+			<td  align="center" bgcolor="#ff99cc"  >
+		6			</td>
+		  <td  align="right" bgcolor="#ff99cc"  >
+			<b>30</b>
+			</td>
+				<td  align="right" bgcolor="#ffcc99"  >
+			195			</td>
+	
+		
+		     </tr>	 
+		   <tr class="even" >
+		   
+		    <td  align="left" >
+			THIONUTRI 500 GR			</td>
+			 <td  align="right" style="cursor:pointer" >
+			0.5			</td>
+			
+			 <td  align="right" >
+			<b>104.00</b>
+			</td>
+            <td  align="center" bgcolor="#ff9900" >
+			134			</td>
+		  <td  align="right" bgcolor="#ff9900" >
+			<b>67</b>
+			</td>
+			<td  align="center" bgcolor="#cc99ff" >
+		1535			</td>
+			  <td  align="right" bgcolor="#cc99ff"  >
+			<b>767.5</b>
+			</td>
+			<td  align="center" bgcolor="#ff99cc"  >
+		754			</td>
+		  <td  align="right" bgcolor="#ff99cc"  >
+			<b>377</b>
+			</td>
+				<td  align="right" bgcolor="#ffcc99"  >
+			1211.5			</td>
+	
+		
+		     </tr>	 
+		   <tr class="odd" >
+		   
+		    <td  align="left" >
+			TILT 1 LT			</td>
+			 <td  align="right" style="cursor:pointer" >
+			1			</td>
+			
+			 <td  align="right" >
+			<b>1,248.00</b>
+			</td>
+            <td  align="center" bgcolor="#ff9900" >
+			9			</td>
+		  <td  align="right" bgcolor="#ff9900" >
+			<b>9</b>
+			</td>
+			<td  align="center" bgcolor="#cc99ff" >
+		74			</td>
+			  <td  align="right" bgcolor="#cc99ff"  >
+			<b>74</b>
+			</td>
+			<td  align="center" bgcolor="#ff99cc"  >
+		27			</td>
+		  <td  align="right" bgcolor="#ff99cc"  >
+			<b>27</b>
+			</td>
+				<td  align="right" bgcolor="#ffcc99"  >
+			110			</td>
+	
+		
+		     </tr>	 
+		   <tr class="even" >
+		   
+		    <td  align="left" >
+			TILT 100 ML			</td>
+			 <td  align="right" style="cursor:pointer" >
+			0.1			</td>
+			
+			 <td  align="right" >
+			<b>140.00</b>
+			</td>
+            <td  align="center" bgcolor="#ff9900" >
+			32			</td>
+		  <td  align="right" bgcolor="#ff9900" >
+			<b>3.2</b>
+			</td>
+			<td  align="center" bgcolor="#cc99ff" >
+		969			</td>
+			  <td  align="right" bgcolor="#cc99ff"  >
+			<b>96.9</b>
+			</td>
+			<td  align="center" bgcolor="#ff99cc"  >
+		286			</td>
+		  <td  align="right" bgcolor="#ff99cc"  >
+			<b>28.6</b>
+			</td>
+				<td  align="right" bgcolor="#ffcc99"  >
+			128.7			</td>
+	
+		
+		     </tr>	 
+		   <tr class="odd" >
+		   
+		    <td  align="left" >
+			TILT 250 ML			</td>
+			 <td  align="right" style="cursor:pointer" >
+			0.25			</td>
+			
+			 <td  align="right" >
+			<b>336.00</b>
+			</td>
+            <td  align="center" bgcolor="#ff9900" >
+			174			</td>
+		  <td  align="right" bgcolor="#ff9900" >
+			<b>43.5</b>
+			</td>
+			<td  align="center" bgcolor="#cc99ff" >
+		75			</td>
+			  <td  align="right" bgcolor="#cc99ff"  >
+			<b>18.75</b>
+			</td>
+			<td  align="center" bgcolor="#ff99cc"  >
+		71			</td>
+		  <td  align="right" bgcolor="#ff99cc"  >
+			<b>17.75</b>
+			</td>
+				<td  align="right" bgcolor="#ffcc99"  >
+			80			</td>
+	
+		
+		     </tr>	 
+		   <tr class="even" >
+		   
+		    <td  align="left" >
+			TILT 500 ML			</td>
+			 <td  align="right" style="cursor:pointer" >
+			0.5			</td>
+			
+			 <td  align="right" >
+			<b>657.00</b>
+			</td>
+            <td  align="center" bgcolor="#ff9900" >
+			0			</td>
+		  <td  align="right" bgcolor="#ff9900" >
+			<b>0</b>
+			</td>
+			<td  align="center" bgcolor="#cc99ff" >
+		84			</td>
+			  <td  align="right" bgcolor="#cc99ff"  >
+			<b>42</b>
+			</td>
+			<td  align="center" bgcolor="#ff99cc"  >
+		0			</td>
+		  <td  align="right" bgcolor="#ff99cc"  >
+			<b>0</b>
+			</td>
+				<td  align="right" bgcolor="#ffcc99"  >
+			42			</td>
+	
+		
+		     </tr>	 
+		   <tr class="odd" >
+		   
+		    <td  align="left" >
+			VIRTAKO 1 KG 			</td>
+			 <td  align="right" style="cursor:pointer" >
+			1			</td>
+			
+			 <td  align="right" >
+			<b>325.00</b>
+			</td>
+            <td  align="center" bgcolor="#ff9900" >
+			18			</td>
+		  <td  align="right" bgcolor="#ff9900" >
+			<b>18</b>
+			</td>
+			<td  align="center" bgcolor="#cc99ff" >
+		90			</td>
+			  <td  align="right" bgcolor="#cc99ff"  >
+			<b>90</b>
+			</td>
+			<td  align="center" bgcolor="#ff99cc"  >
+		130			</td>
+		  <td  align="right" bgcolor="#ff99cc"  >
+			<b>130</b>
+			</td>
+				<td  align="right" bgcolor="#ffcc99"  >
+			238			</td>
+	
+		
+		     </tr>	 
+		   <tr class="even" >
+		   
+		    <td  align="left" >
+			VIRTAKO 5 KG 			</td>
+			 <td  align="right" style="cursor:pointer" >
+			5			</td>
+			
+			 <td  align="right" >
+			<b>1,550.00</b>
+			</td>
+            <td  align="center" bgcolor="#ff9900" >
+			0			</td>
+		  <td  align="right" bgcolor="#ff9900" >
+			<b>0</b>
+			</td>
+			<td  align="center" bgcolor="#cc99ff" >
+		4			</td>
+			  <td  align="right" bgcolor="#cc99ff"  >
+			<b>20</b>
+			</td>
+			<td  align="center" bgcolor="#ff99cc"  >
+		4			</td>
+		  <td  align="right" bgcolor="#ff99cc"  >
+			<b>20</b>
+			</td>
+				<td  align="right" bgcolor="#ffcc99"  >
+			40			</td>
+	
+		
+		     </tr>	 
+		   <tr class="odd" >
+		   
+		    <td  align="left" >
+			VOLIAM FLEXI 100 ML			</td>
+			 <td  align="right" style="cursor:pointer" >
+			0.1			</td>
+			
+			 <td  align="right" >
+			<b>490.00</b>
+			</td>
+            <td  align="center" bgcolor="#ff9900" >
+			18			</td>
+		  <td  align="right" bgcolor="#ff9900" >
+			<b>1.8</b>
+			</td>
+			<td  align="center" bgcolor="#cc99ff" >
+		226			</td>
+			  <td  align="right" bgcolor="#cc99ff"  >
+			<b>22.6</b>
+			</td>
+			<td  align="center" bgcolor="#ff99cc"  >
+		60			</td>
+		  <td  align="right" bgcolor="#ff99cc"  >
+			<b>6</b>
+			</td>
+				<td  align="right" bgcolor="#ffcc99"  >
+			30.4			</td>
+	
+		
+		     </tr>	 
+<tr bgcolor="#69c238">
+<td colspan="3" align="right">
+<b>Total Value :</b>
+</td>
+
+<td align="center" >
+<b>1950346</b>
+</td>
+<td>
+</td>
+<td align="center" >
+<b>10472019</b>
+</td>
+<td>
+</td>
+<td align="center" >
+<b>1844804</b>
+</td>
+<td>
+</td>
+<td align="right" >
+<b>14267169</b>
+</td>
+
+
 </tr>
-</table>
+
+	  </table>

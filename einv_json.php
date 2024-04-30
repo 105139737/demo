@@ -111,7 +111,7 @@ $select_q34=mysqli_query($conn,"select * from main_product where sl='$prsl'");
 while($row34=mysqli_fetch_array($select_q34))
 {
 $hsn=$row34['hsn'];
-$hsn=substr($hsn, 0, 4);
+/*$hsn=substr($hsn, 0, 4);*/
 
 }
 
@@ -262,7 +262,7 @@ while($row34=mysqli_fetch_array($select_q34))
 {
 $hsn=$row34['hsn'];
 $pnm=$row34['pnm'];
-$hsn=substr($hsn, 0, 4);
+/*$hsn=substr($hsn, 0, 4);*/
 }
 $pgst=$cgst_am+$sgst_am+$igst_am;
 if($disp==0)

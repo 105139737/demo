@@ -15,7 +15,7 @@ $tdt=date('Y-m-d');
 }
 $edt=date('Y-m-d');
 $edtm=date('Y-m-d H:i:s A');
-$crnjob= mysqli_query($conn,"insert into main_cornjob(fnm,fdt,tdt,dt,dttm) values('lg_sale_xml','$fdt','$tdt','$edt','$edtm')")or die(mysqli_error($conn));
+
 $dt=date('Ymd', strtotime($tdt));
 $file_name="Sale-".$dt;
 //header('Content-disposition: attachment; filename='.$file_name.'.xml');
@@ -117,42 +117,49 @@ while ($rowd = mysqli_fetch_array($datad))
 $nm=$rowd['nm'];
 $gtm=$rowd['gtm'];
 }
+$stcode="HIND";
 if($bcd=='2')//MBO KGR
 {
 $nm='HINDUSTAN DISTRIBUTORS-MBO';
 $gtm='DUR1598';   
+$stcode="HIND";
 }
 if($bcd=='3')//RANAGHAT
 {
 $nm='HINDUSTAN DISTRIBUTORS-MBO';
 $gtm='DUR1796';   
+$stcode="HIND";
 }
 if($bcd=='4')//SHOPPE
 {
 $nm='HINDUSTAN DISTRIBUTOR';
 $gtm='DUR0986';   
+$stcode="HIN";
 }
 
 if($bcd=='5')//BURDWAN
 {
 $nm='HINDUSTAN DISTRIBUTORS-MBO';
 $gtm='DUR2910';   
+$stcode="HIND";
 }
 if($bcd=='6')//BETHUA
 {
 $nm='HINDUSTAN DISTRIBUTORS-MBO';
-$gtm='DUR2960';   
+$gtm='DUR2960';  
+$stcode="HIND"; 
 }
 if($bcd=='7')//KARIMPUR
 {
 $nm='HINDUSTAN DISTRIBUTORS-MBO';
 $gtm='DUR2987';   
+$stcode="HIND";
 }
 echo '<entry>';
 echo '<SELLOUT></SELLOUT>';
 echo '<BATCHNO>'.parseToXML($dt).'</BATCHNO>';
 echo '<SELLOUTDATE>'.parseToXML($dt).'</SELLOUTDATE>';
-echo '<SITECODE>HIN</SITECODE>';
+echo '<SITECODE>'.parseToXML($stcode).'</SITECODE>';
 echo '<MTCUST>HDLG</MTCUST>';
 echo '<SITECODETYPE>'.$SITECODETYPE.'</SITECODETYPE>';
 echo '<SITECODEINFO>16 L.K. MOITRA ROAD, Krishnanagar, WB, 741101</SITECODEINFO>';
@@ -200,6 +207,8 @@ if(curl_errno($curl))
 	echo 'curl error : '. curl_error($curl);
 
 curl_close($curl);
+
+$crnjob= mysqli_query($conn,"insert into main_cornjob(fnm,fdt,tdt,dt,dttm,response) values('lg_sale_xml','$fdt','$tdt','$edt','$edtm','$response')")or die(mysqli_error($conn));
 
 echo $response;
 

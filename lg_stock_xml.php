@@ -25,7 +25,6 @@ $dt=date('Ymd', strtotime($tdt));
 
 $edt=date('Y-m-d');
 $edtm=date('Y-m-d H:i:s A');
-$crnjob= mysqli_query($conn,"insert into main_cornjob(fnm,fdt,tdt,dt,dttm) values('lg_sale_xml','$fdt','$tdt','$edt','$edtm')")or die(mysqli_error($conn));
 $tstck=0;
 $ftstck=0;
 
@@ -55,7 +54,7 @@ $scat_nm=$row1['nm'];
 }
 $stck=0;
 $stock_close="";
-$query4="Select sum(opst+stin-stout) as stck1 from ".$DBprefix."stock where pcd='$pcd' and dt<='$tdt'";
+$query4="Select sum(opst+stin-stout) as stck1 from ".$DBprefix."stock where pcd='$pcd' and dt<='$tdt'  and bcd!='7'";
 $result4 = mysqli_query($conn,$query4);
 while ($R4 = mysqli_fetch_array ($result4))
 {
@@ -69,7 +68,7 @@ echo '<entry>';
 echo '<STOCK>'.parseToXML($stck).'</STOCK>';
 echo '<BATCHNO>'.parseToXML($dt).'</BATCHNO>';
 echo '<STOCKDATE>'.parseToXML($dt).'</STOCKDATE>';
-echo '<SITECODE>HIN</SITECODE>';
+echo '<SITECODE>HIND</SITECODE>';
 echo '<MTCUST>HDLG</MTCUST>';
 echo '<SITECODETYPE>WH</SITECODETYPE>';
 echo '<SITECODEINFO>16 L.K. MOITRA ROAD, Krishnanagar, WB, 741101</SITECODEINFO>';
@@ -117,5 +116,5 @@ if(curl_errno($curl))
 curl_close($curl);
 echo $response;
 
-
+$crnjob= mysqli_query($conn,"insert into main_cornjob(fnm,fdt,tdt,dt,dttm,response) values('lg_stock_xml','$fdt','$tdt','$edt','$edtm','$response')")or die(mysqli_error($conn));
 ?>

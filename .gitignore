@@ -1,0 +1,27 @@
+.idea/
+/temp/*.png
+ajax/*.*
+backup/*.*
+chosen/*.*
+css/*.*
+cupertino/*.*
+dark-hive/*.*
+/einvjson
+files/*.*
+font/*.*
+html2pdf/*.*
+images/*.*
+img/*
+jobs/jobs_report/*.*
+js/*.*
+less/*.*
+New folder/*.*
+Number/*.*
+PHPExcel/*.*
+phpqrcode
+phpqrcode-master/*.*
+Product Price List_files/*.*
+product_price_pdf/*.*
+sing/*.*
+skins/*.*
+stmp/*.*

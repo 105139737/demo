@@ -111,7 +111,7 @@ $datatt= mysqli_query($conn,"select * from main_signup where sl>0 ")or die(mysql
 $rcntttl=mysqli_num_rows($datatt);
 $datar= mysqli_query($conn,"select * from main_signup where  sl>0".$all1.$actnum1.$userlevel1.$lastlogin1.$brncd1.$logstat1)or die(mysqli_error($conn));
 $rcnt=mysqli_num_rows($datar);
- $data= mysqli_query($conn,"select * from main_signup where  sl>0 $all1 $actnum1 $userlevel1 $lastlogin1 $brncd1 $logstat1 order by username limit $start,$ps ")or die(mysqli_error($conn));
+ $data= mysqli_query($conn,"select * from main_signup where  sl>0 $all1 $actnum1 $userlevel1 $lastlogin1 $brncd1 $logstat1 order by lastactivetime desc limit $start,$ps  ")or die(mysqli_error($conn));
  
 while ($row = mysqli_fetch_array($data))
 {

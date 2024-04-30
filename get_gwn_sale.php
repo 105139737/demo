@@ -46,7 +46,7 @@ if($count==0 and $count1>0){$disabled=" disabled";}
 </select>
 
 <script>
-get_betno('');
+//get_betno('');
 $('#bcd').chosen({
 no_results_text: "Oops, nothing found!",
 });	

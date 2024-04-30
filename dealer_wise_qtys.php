@@ -8,7 +8,7 @@ $tdt=$_REQUEST['tdt'];
 $sper=$_REQUEST['sper'];
 $xls=$_REQUEST['xls'];
 $cust=$_REQUEST['cust'];
-
+$prnm=$_REQUEST['prnm'];
 if($fdt=="" or $tdt=="")
 { 
 echo 'Please Enter Valid Date Range.';
@@ -46,6 +46,7 @@ if($cust!=""){$cust1=" and  FIND_IN_SET(cont, '$cust')>0";}
 <th>Mobile No.</th>
 
 <?php 
+
 $data13= mysqli_query($conn,"SELECT * FROM main_scat where sl>0 and FIND_IN_SET(sl, '$scat')>0  order by nm ") or die(mysqli_error($conn));
 while ($row13 = mysqli_fetch_array($data13))
 {
@@ -100,6 +101,8 @@ $pcs=$row18['pcs'];
 $netamm=$row18['netamm'];
 $tamm=$row18['tamm'];
 }
+	
+	
 ?>
 <td><?php echo $pcs;?></td>
 <?php 

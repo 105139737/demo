@@ -92,10 +92,7 @@ echo "<li > <a href=\"$fnm_left\" target=\"$ntb_left\"><i class=\"fa fa-star\"><
     echo "<li > <a href=\"mroll.php\" target=\"\"><i class=\"fa fa-users\"></i>Roll Asign</a></li>";
 	echo "<li><a href=\"menu_setup.php\" target=\"\"><i class=\"fa fa-circle\"></i>App Menu</a></li>";
 echo "<li><a href=\"menu_assign.php\" target=\"\"><i class=\"fa fa-circle\"></i>App Roll Assign</a></li>";
-echo "<li><a href=\"priceUpload.php\" target=\"_blank\"><i class=\"fa fa-circle\"></i>Price Upload</a></li>";
-echo "<li><a href=\"priceUpload_show.php\" target=\"_blank\"><i class=\"fa fa-circle\"></i>Price Upload Report</a></li>";
-echo "<li><a href=\"linkGen.php\" target=\"_blank\"><i class=\"fa fa-circle\"></i>Link Generation</a></li>";
-echo "<li><a href=\"defective.php\" target=\"_blank\"><i class=\"fa fa-circle\"></i>Defective</a></li>";
+
 
 	?>
 		

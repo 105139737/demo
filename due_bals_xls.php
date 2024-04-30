@@ -149,9 +149,17 @@ $cdt=$dt;
 $dis1=0;
 if($val=='1')
 {
-$file="Due_List_".$fn."_To_".$tn.".xls";
+/*$file="Due_List_".$fn."_To_".$tn.".xls";
 header("Content-type: application/vnd.ms-excel"); 
-header("Content-Disposition: attachment; filename=$file"); 	
+header("Content-Disposition: attachment; filename=$file");*/
+$jobLink=CreateNewJob('jobs/due_bals_xls.php',$user_currently_loged,'Due List',$conn);
+?>
+<script language="javascript">
+alert('Your request has been accepted. You will get you dwonload link in your home page in a few moments. Thank you...');
+window.history.go(-1);
+</script>
+<?php
+die('<b><center><font color="green" size="5">Your request has been accepted. You will get you dwonload link in your home page in a few moments. Thank you...</font></center></b>');
 $broder="border='1'";
 }
 

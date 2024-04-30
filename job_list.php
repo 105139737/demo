@@ -38,6 +38,8 @@ $data=mysqli_query($conn,$q)or die(mysqli_error($conn));
       $req_date=$row['req_date'];
       $comp_date=$row['comp_date'];
       $eby=$row['eby'];
+      $file_exists=file_exists($file);
+      if($file_exists!=1){$status="Processing";}
     ?>
     <tr>      
       <td data-label="Brand"><? echo $id;?></td>

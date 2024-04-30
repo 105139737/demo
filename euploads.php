@@ -6,7 +6,7 @@ include('QR_BarCode.php');
 $dttm = date('d-m-Y H:i:s');
 $dt = date('Y-m-d');
 $blno = $_POST['blno'];
-
+include 'phpqrcode/qrlib.php'; 
 
 $result5 = mysqli_query($conn,"select * from main_billing where  blno='$blno' ");
 while ($row1 = mysqli_fetch_array($result5))
@@ -54,13 +54,16 @@ $Remarks=$data['Remarks'];
 
 $qrupdt =mysqli_query($conn, "UPDATE main_billing set colorStatus=0,einv_path='$path',einv_stat='1',AckNo='$AckNo',AckDt='$AckDt',Irn='$Irn'
 ,SignedInvoice='$SignedInvoice',SignedQRCode='$SignedQRCode',Status='$Status',EwbNo='$EwbNo',EwbDt='$EwbDt',EwbValidTill='$EwbValidTill',Remarks='$Remarks' where sl='$bill_sl'")or die (mysqli_error($conn));
-$qr = new QR_BarCode();
+/*$qr = new QR_BarCode();
 //create text QR code
 $qr->text($SignedQRCode);
 //Save QR in image
-$qr->qrCode(120,'einvjson/'.$bill_sl.'.png');
+$qr->qrCode(120,'einvjson/'.$bill_sl.'.png');*/
+//$text = "GEEKS FOR GEEKS"; 
+QRcode::png($SignedQRCode,'einvjson/'.$bill_sl.'.png'); 
 }
 }
+//echo $bill_sl;
 ?>
 <script>
 alert("Upload Successfully.....");

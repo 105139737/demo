@@ -206,7 +206,8 @@ if($blno1==$blno)
 $doc1=glob("img/service_bill/".$blsl.".*");
 if(count($doc1)>0)
 {
-$doc=explode("img/service_bill/".$blsl,$doc1[0]);
+$doc1=getLastFile($doc1);
+$doc=explode("img/service_bill/".$blsl,$doc1);
 $doc="img/service_bill/".$blsl.$doc[1];
 }
 else
@@ -340,7 +341,21 @@ $Ttamm2+=$with_adl_tamm2;
 $ADls+=$adl.$adlv;
 
 }
-}?>
+}
+function getLastFile($files)
+{
+    foreach($files as $file)
+{
+        if (is_file($file) && filectime($file) > $latest_ctime)
+        {
+                $latest_ctime = filectime($file);
+                $latest_filename = $file;
+        }
+}
+return $latest_filename;
+}
+
+?>
 <tr>
 <td colspan="10" align="right"><b>Grand Total :</b></td>
 

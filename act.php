@@ -1,5 +1,4 @@
 <?php
-//testing 123 12233
 $reqlevel = 1;
 include("membersonly.inc.php");
 

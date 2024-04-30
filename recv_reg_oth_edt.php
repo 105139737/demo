@@ -28,7 +28,10 @@ $cstat=$row1['stat'];
 $bcd=$row1['bcd'];
 $bill_typ=$row1['bill_type'];
 }
-
+$edit_count=get_permission($dt,$recv_edt);
+if($edit_count==0){
+    die('<b><center><font color="red" size="5">You are not allowed to edit .Please Contact your Administrator </a></font></center></b>');
+}
 $get=mysqli_query($conn,"select * from main_billtype where sl='$bill_typ'") or die(mysqli_error($conn));
 while($row=mysqli_fetch_array($get))
 {
@@ -47,6 +50,11 @@ $dt=date('d-m-Y');
 $dt=date('d-m-Y',strtotime($dt));
 
 $edit_count=1;
+$discountReadOnly="";
+if($tp==1 && strtoupper($user_currently_loged)!='ADMIN' && strtoupper($user_currently_loged)!='RIYA')
+{
+ $discountReadOnly="readonly";   
+}
 ?>
 
 <html>
@@ -531,7 +539,7 @@ while($row = mysqli_fetch_array($get))
 </select>
 </td>
 <td align="left">
-<input  type="text" name="damm" id="damm" class="sc" onkeypress="return isNumber1(event)">
+<input  type="text" name="damm" id="damm" <?php echo $discountReadOnly;?> class="sc" onkeypress="return isNumber1(event)">
 </td>
 <td align="left">
 <input  type="text" name="remk" id="remk" class="sc" >

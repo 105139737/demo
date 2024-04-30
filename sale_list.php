@@ -337,8 +337,8 @@ $hsn=$row['hsn'];
 			<?php if($cstat!=1){ ?>
 		<a href="bill_typ_return.php?blno=<?=$blno;?>" target="_blank" title="Click Here To Return"><b><font color="red" size="3">Return</b></font></a>
 		<? }?><br>
-		<?php if($AckNo!=''){?><a onclick="window.open('eupload.php?blno=<?=$blno;?>&cid=<?=$cid_ship?>&ship=<?=$ship?>','_blank');document.getElementById('trid<?php echo $blno_sl;?>').style.backgroundColor='#FFFFFF';"><font color="#8000ff">(EUploaded<br>Shipping)</font></a><?php }else{?>
-		<a onclick="window.open('eupload.php?blno=<?=$blno;?>&cid=<?=$cid_ship?>&ship=<?=$ship?>','_blank');document.getElementById('trid<?php echo $blno_sl;?>').style.backgroundColor='#FFFFFF';">(EUpload<br>Shipping)</a><?php }?>
+		<?php if($AckNo!=''){?><a onclick="window.open('eupload.php?blno=<?=$blno;?>&cid=<?=$cid_ship?>&ship=<?=$ship?>','_blank');document.getElementById('trid<?php echo $blno_sl;?>').style.backgroundColor='#FFFFFF';"><font color="#8000ff">EUploaded</font></a><?php }else{?>
+		<a onclick="window.open('eupload.php?blno=<?=$blno;?>&cid=<?=$cid_ship?>&ship=<?=$ship?>','_blank');document.getElementById('trid<?php echo $blno_sl;?>').style.backgroundColor='#FFFFFF';">EUpload</a><?php }?>
 		</td>
 		<td>
 		<?php if($dstat==0){ ?>

@@ -317,7 +317,7 @@ echo $opbl." ".$obtp;
  $tcredt=0;
  
  $pag=0;
-$query1="select *,sum(amm) as amm  from ".$DBprefix."drcr where (dldgr='4' or cldgr='4' or cldgr='7') and dldgr!='7'  and cid='$a' and dt between '$fdt' and '$tdt' $brncd1  group by dldgr,edtm,vno,blno order by dt,sl,cldgr";
+$query1="select *,sum(amm) as amm  from ".$DBprefix."drcr where (dldgr='4' or cldgr='4' or cldgr='7') and dldgr!='7'  and cid='$a' and dt between '$fdt' and '$tdt' $brncd1  group by dldgr,edtm,vno,blno,blnon order by dt,sl,cldgr";
 $result1 = mysqli_query($conn,$query1);
 while ($R1 = mysqli_fetch_array ($result1))
 {

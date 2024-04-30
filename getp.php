@@ -44,7 +44,7 @@ else if($cust_typ=="2")
 }
 if($prc>0)
 {
-	$mrp=$prc;
+//	$mrp=$prc;
 }
 
 

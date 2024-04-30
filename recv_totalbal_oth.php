@@ -29,7 +29,7 @@ if($tt==1)
 if($tt==2)
 {
 ?>
-<input type="text" name="dbal" id="dbal"  value="<?php echo round($T,2);?>" style="background :transparent;color :red;font-weight:bold;font-size:20px;" readonly>
+<input type="text" name="tdbal" id="tdbal"  value="<?php echo round($T,2);?>" style="background :transparent;color :red;font-weight:bold;font-size:20px;" readonly>
 <?
 }
 ?>
