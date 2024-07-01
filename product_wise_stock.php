@@ -33,7 +33,21 @@ function gpro()
 {
 	var cat= document.getElementById('cat').value;
 	var scat= document.getElementById('scat').value;
-	$('#gpro').load('get_product_stk.php?cat='+cat+'&scat='+scat).fadeIn('fast');
+	//$('#gpro').load('get_product_stk.php?cat='+cat+'&scat='+scat).fadeIn('fast');
+}
+function get_prod_by_name(psl='')
+{
+var scat=document.getElementById('scat').value;
+var cat=document.getElementById('cat').value;
+var prnm3=encodeURIComponent(document.getElementById('prnm3').value);
+if(cat=='')
+{
+	alert("Please Select Brand first ! ");
+	return;
+}
+if(prnm3.length>2){
+$("#gpro").load("get_product_stk.php?cat="+cat+"&scat="+scat+"&psl="+psl+"&prnm3="+prnm3).fadeIn('fast');
+}
 }
 function show1()
 {
@@ -125,7 +139,7 @@ $("#tdt").datepicker(jQueryDatePicker2Opts);
 <td align="left" width="16%"><b>To:</b><br>
 <input type="text" id="tdt" name="tdt" size="13" value="<?echo $sa;?>" class="form-control" placeholder="Please Enter To Date">
 </td>
-<td align="left" width="16%"><b>Godown:</b>
+<td align="left" width="16%"><b>Godown:</b></br>
 <select name="godown" class="form-control" size="1" id="godown" >
 <Option value="">---Select---</option>
 
@@ -146,7 +160,7 @@ $gnm=$R['gnm'];
 </td>
 </tr>
 <tr>
-<td  align="left" width="16%"><font color="red">*</font><b>Brand :</b>
+<td  align="left" width="16%"><font color="red">*</font><b>Brand :</b><br>
 <select name="cat" class="form-control" size="1" id="cat" tabindex="8" onchange="get_scat();gpro()"  >
 <Option value="">---Select---</option>
 <?
@@ -179,11 +193,11 @@ echo "<option value='".$sl."'>".$cnm."</option>";
 	</select>
 	</div>
 	</td>
-<td align="left" width="16%"><b>Model:</b><br>
+<td align="left" width="16%"><b>Model: &nbsp; <input type="box" id="prnm3" onkeyup="get_prod_by_name()" name="prnm3" placeholder="Min 3 Digit Model Name "></b><br>
 <div id="gpro">
 <select id="prnm" name="prnm" style="width:100%" class="form-control">
 <option value="">---Select---</option>
-<?
+<?php/*
 $data1 = mysqli_query($conn,"Select * from main_product where typ='0' order by pnm");
 while ($row1 = mysqli_fetch_array($data1))
 	{
@@ -192,7 +206,7 @@ while ($row1 = mysqli_fetch_array($data1))
 	$pcd=$row1['pcd'];
 ?>
 <Option value="<?=$sl;?>"><?=reformat($pcd." ".$pnm);?></option>
-<?}?>
+<?}*/ ?>
 </select>
 </div>
 </td>

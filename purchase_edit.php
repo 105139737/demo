@@ -648,9 +648,22 @@ function get_prod(psl='')
 {
 var scat=document.getElementById('scat1').value;
 var cat=document.getElementById('cat1').value;
-$("#prod_div").load("get_product_pur.php?cat="+cat+"&scat="+scat+"&psl="+psl).fadeIn('fast');	
+//$("#prod_div").load("get_product_pur.php?cat="+cat+"&scat="+scat+"&psl="+psl).fadeIn('fast');	
 }
-
+function get_prod_by_name(psl='')
+{
+var scat=document.getElementById('scat1').value;
+var cat=document.getElementById('cat1').value;
+var prnm3=encodeURIComponent(document.getElementById('prnm3').value);
+if(cat=='')
+{
+	alert("Please Select Brand first ! ");
+	return;
+}
+if(prnm3.length>2){
+$("#prod_div").load("get_product_pur.php?cat="+cat+"&scat="+scat+"&psl="+psl+"&prnm3="+prnm3).fadeIn('fast');
+}
+}
 function update_rate(psl,tsl)
 	{
 	if(confirm('Are you Sure Update Rate All Same Model?'))
@@ -873,7 +886,7 @@ echo "<option value='".$ssl."'>".$snm."</option>";
 <table border="0" width="100%" class="advancedtable">
 <tr class="odd">
 
-<td align="center" width="10%" ><b>Model</b></td>
+<td align="center" width="10%" ><b>Model &nbsp; <input type="box" id="prnm3" onkeyup="get_prod_by_name()" name="prnm3" placeholder="Min 3 Digit Model Name "></b></td>
 <td align="center" width="10%" ><b>Godown</b></td>
 <td align="center" width="5%" ><b>Unit</b></td>
 <td align="center" width="7%" ><b>Serial No.</b></td>

@@ -70,7 +70,7 @@ cursor:pointer;
 }
 </style> 
 <script>
-function get_blno()
+async function get_blno()
 {
 var brncd= document.getElementById('brncd').value;
 var proj = document.getElementById('proj').value;
@@ -79,8 +79,10 @@ var dldgr = document.getElementById('dldgr').value;
 var cid = document.getElementById('cid').value;
 var spid = document.getElementById('spid').value;
 var nb = document.getElementById('nb').value;
-$('#blno_div').load('get_blno_oth.php?sl='+sl+'&cid='+cid+'&brncd='+brncd+'&dldgr='+dldgr+'&nb='+nb).fadeIn('fast');
-$.get('cname.php?cid='+cid, function(data) {
+var tp = document.getElementById('tp').value;
+if(cid=="")return;
+$('#blno_div').load('get_blno_oth.php?sl='+sl+'&cid='+cid+'&brncd='+brncd+'&dldgr='+dldgr+'&nb='+nb+'&tp='+tp).fadeIn('fast');
+/*$.get('cname.php?cid='+cid, function(data) {
         
                 var str= data;
 				var stra = str.split("@@") 
@@ -99,8 +101,8 @@ $.get('cname.php?cid='+cid, function(data) {
     $('#sman').val(sale_per);
 	$('#spid').trigger('chosen:updated');
 
-}); 
-
+}); */
+return 0;
 }
 </script>
    <link rel="stylesheet" href="cupertino/jquery.ui.all.css" type="text/css">
@@ -154,9 +156,11 @@ var	cid=document.getElementById('cid').value;
 var	blno=encodeURIComponent(document.getElementById('blno').value);
 var	ramm=document.getElementById('ramm').value;
 var dt=document.getElementById('dt').value;	
+if(cid=="")return;
+if(blno=="")return;
 $('#drbl').load('jrnl_form_gtdrvl_blno_oth.php?sl='+sl+'&cid='+cid+'&brncd='+brncd+'&blno='+blno+'&ramm='+ramm+'&dt='+dt).fadeIn('fast');
-$('#totbal').load('recv_totalbal_oth.php?pno='+proj+'&brncd='+brncd+'&cid='+cid+'&tt=1').fadeIn('fast');
-$('#totbal1').load('recv_totalbal_oth.php?pno='+proj+'&brncd='+brncd+'&cid='+cid+'&tt=2').fadeIn('fast');
+//$('#totbal').load('recv_totalbal_oth.php?pno='+proj+'&brncd='+brncd+'&cid='+cid+'&tt=1').fadeIn('fast');
+//$('#totbal1').load('recv_totalbal_oth.php?pno='+proj+'&brncd='+brncd+'&cid='+cid+'&tt=2').fadeIn('fast');
 
 }
 
@@ -166,6 +170,7 @@ proj = document.getElementById('proj').value;
 sl = document.getElementById('dldgr').value;
 var brncd= document.getElementById('brncd').value;
 var	cid=document.getElementById('cid').value;
+if(cid=="")return;
 $('#crbl').load('jrnl_form_gtdrvl_oth.php?sl='+sl+'&pno='+proj+'&brncd='+brncd+'&cid='+cid).fadeIn('fast');
 }
 function add()
@@ -208,8 +213,9 @@ function add()
 }
 function reset()
 {
-$('#blno').trigger('chosen:open');
+//$('#blno').trigger('chosen:open');
 document.getElementById('amm').value='';
+document.getElementById('cal_dbal').value=0;
 //document.getElementById('disl').value='';
 //$('#disl').trigger('chosen:update');
 document.getElementById('damm').value='';
@@ -218,14 +224,20 @@ document.getElementById('damm').value='';
 }
 </script> 
 <script>
-function temp()
+async function temp()
 {
     
    // alert("ooops");
 var cid=document.getElementById('cid').value;	
 var brncd=document.getElementById('brncd').value;	
 var tamm=document.getElementById('tamm').value;	
-$('#wb_Text').load("recv_reg_tempsh.php?cid="+cid+"&brncd="+brncd+"&tamm="+tamm).fadeIn('fast');	
+if(cid=="")return;
+$('#wb_Text').load("recv_reg_tempsh.php?cid="+cid+"&brncd="+brncd+"&tamm="+tamm,
+function() {
+	get_refam();
+}
+).fadeIn('fast');
+return 0;
 }
 
 </script>
@@ -242,7 +254,10 @@ function get_refam()
 		{
 			$('#wb_Text_cal').load("recbper.php?cid="+cid+'&blno='+blno+'&dt='+dt).fadeIn('fast');
 		}
-	}	
+	}
+	else{
+		gtcrvl1();
+	}
 }
 
 function deltpr(sl)
@@ -308,7 +323,23 @@ else
 {
 $('#compose-modal1').modal('hide');		
 }
-}); 
+});
+$.get('cname_cust_credit.php?cid='+cid, function(data) {
+
+	$('#spid').val(data);
+    $('#sman').val(data);
+	$('#spid').trigger('chosen:updated');
+
+});
+get_blno().then(
+  function(value) {
+	$('#totbal1').load('recv_totalbal_oth.php?pno=NA'+'&brncd='+brncd+'&cid='+cid+'&tt=2',
+	function() {
+		recallRamm();
+}).fadeIn('fast');
+	
+}
+);
 
 }
 function get_app_val(blno)
@@ -340,6 +371,14 @@ function recaldis()
 Number.prototype.round = function(places) {
   return +(Math.round(this + "e+" + places)  + "e-" + places);
 }
+function recallRamm()
+{
+	temp().then(
+  function(value) {}
+);
+	//await temp();
+	
+}
 </script>
 <script type="text/javascript" src="jquery.ui.core.min.js"></script>
 <script type="text/javascript" src="jquery.ui.widget.min.js"></script>
@@ -367,6 +406,7 @@ Number.prototype.round = function(places) {
 <form method="post" action="recv_reg_oths.php" name="form1"  id="form1">
 <input type="hidden" name="proj" id="proj" value="NA" readonly>
 <input type="hidden" name="it" id="it" value="NA" readonly >
+<input type="hidden" name="tp" id="tp" value="<?php echo $tp;?>" readonly >
 <input type="hidden" name="btyp" id="btyp" value="<? echo $typ; ?>" >
 <input type="hidden" class="form-control"  value="<?php echo $bill_typ;?>" tabindex="1"  name="bsl" id="bsl" >              
 
@@ -423,7 +463,7 @@ $bnm=$R['bnm'];
 <input type="hidden" value="4" id="cldgr" name="cldgr"/> 
 <input type="text" id="cs" name="cs" style="width:95%" value="" onkeyup="cust_srch('<?php echo $tp;?>','<?php echo $brand;?>')"  placeholder="Enter 3 Digit Name / 10 Digit Mobile No.">
 <div id="cust_src">
-<select id="cid"  name="cid"   tabindex="1" class="form-control"  onchange="get_blno();get_app();">
+<select id="cid"  name="cid"   tabindex="1" class="form-control"  onchange="get_app();">
 <option value="">---Select---</option>
 <?
 /*if($tp=='2'){$qury=" and find_in_set(brand,'$brand')>0 ";}
@@ -491,7 +531,7 @@ while($row = mysqli_fetch_array($get))
 <tr>
 <td align="right"><font color="red" size="3"><b>Total Received Amount :</font></b></td>
 <td>
-<input  type="text" name="tamm" id="tamm" class="form-control" onblur="temp()"  onkeypress="return isNumber1(event)">
+<input  type="text" name="tamm" id="tamm" class="form-control" onblur="recallRamm()"  onkeypress="return isNumber1(event)">
 </td> 
 <td align="right"><font color="red" size="3"><b> Ref. No. :</font></b></td>
 <td align="left" >
@@ -533,8 +573,8 @@ $spnm=$rwss['nm'];
 <td align="right"><font color="red" size="3"><b>SMS :</font></b></td>
 <td align="left"  >
 <select id="sms" name="sms" tabindex="1" class="form-control" >
-<option value="2">Yes</option>
 <option value="1">No</option>
+<option value="2">Yes</option>
 
 </select>
 </td>
@@ -556,16 +596,19 @@ $spnm=$rwss['nm'];
 <?
 if($tp==2){$nb=100000;}else{$nb=1000000;}
 ?>
+<table width="800px" class="table table-hover table-striped table-bordered">
+	   <tr>
+	   <td  colspan="19">
 <table border="0" width="100%" class="advancedtable">
 <tr class="odd">
 <td align="left" width="3%"><b>Sl. </b></td>
-<td align="left" width="20%"><b>Bill No.<input type="hidden" value="10" id="nb" onblur="get_blno()"></b></td>
-<td align="left"  width="12%"><b>Due</b></td>
+<td align="left" width="19%"><b>Bill No.<input type="hidden" value="10" id="nb" onblur="get_blno()"></b></td>
+<td align="left"  width="7%"><b>Due</b></td>
 
-<td align="center" width="12%" ><b>Amount</b></td>
+<td align="center" width="10%" ><b>Amount</b></td>
 <td align="left"  width="20%"><b>Discount Ledger</b></td>
-<td align="left"  width="12%" onclick="recaldis()" style="cursor:pointer;color:blue"><b>Discount Am.</b></td>
-<td align="left" width="12%" ><b>Discount Remark</b></td>
+<td align="left"  width="6%" onclick="recaldis()" style="cursor:pointer;color:blue"><b>Discount Am.</b></td>
+<td align="left" width="8%" ><b>Discount Remark</b></td>
 <?php
 
 if($brncds=='1')
@@ -656,14 +699,15 @@ if($brncds=='1')
 <input type="button" class="btn btn-info" id="Button1" name="" value="Add"  onclick="add()" tabindex="1" style="width:100%;padding:2px" >
 </td>
 </tr>
+</table>
+</td>
+</tr>
 <tr height="180px">
-<td colspan="12" valign="top">
-<div id="wb_Text" >
-
+<td  colspan="19">
+<div id="wb_Text"   >
 </div>
 </td>
 </tr>
-
 </table>
 <table class="table table-hover table-striped table-bordered">
 <tr>

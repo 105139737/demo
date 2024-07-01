@@ -105,6 +105,9 @@ function add()
 	}
 	function reset()
 	{
+	prnm=document.getElementById('prnm').value
+	$("#prnm option[value='"+prnm+"']").remove(); 
+	$('#prnm').trigger("chosen:updated"); 	
 	document.getElementById('qnty').value="";
 	document.getElementById('sih').value="";
 	document.getElementById('remk').value="";
@@ -177,7 +180,21 @@ function get_prod(psl='')
 {
 var scat=document.getElementById('scat1').value;
 var cat=document.getElementById('cat1').value;
-$("#prod_div").load("get_product_trn.php?cat="+cat+"&scat="+scat+"&psl="+psl).fadeIn('fast');	
+//$("#prod_div").load("get_product_trn.php?cat="+cat+"&scat="+scat+"&psl="+psl).fadeIn('fast');	
+}
+function get_prod_by_name(psl='')
+{
+var scat=document.getElementById('scat1').value;
+var cat=document.getElementById('cat1').value;
+var prnm3=encodeURIComponent(document.getElementById('prnm3').value);
+if(cat=='')
+{
+	alert("Please Select Brand first ! ");
+	return;
+}
+if(prnm3.length>2){
+$("#prod_div").load("get_product_trn.php?cat="+cat+"&scat="+scat+"&psl="+psl+"&prnm3="+prnm3).fadeIn('fast');
+}
 }
 </script>
 </head>
@@ -307,7 +324,7 @@ echo "<option value='".$ssl."'>".$snm."</option>";
 <td>
 <table border="0" width="100%" class="advancedtable">
 <tr class="odd">
-<td  align="left" width="25%"><b>Particulars</b></td>
+<td  align="left" width="25%">Model: &nbsp; <input type="box" id="prnm3" onkeyup="get_prod_by_name()" name="prnm3" placeholder="Min 3 Digit Model Name "></b></td>
 <td  align="left" width="18%"><b>Godown</b></td>
 <td  align="left" width="8%"><b>Unit</b></td>
 <td hidden align="center" width="15%"><b>Stock In Hand</b></td>

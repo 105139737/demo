@@ -121,6 +121,7 @@ $("#tdt").datepicker(jQueryDatePicker2Opts);
 
 <td align="left" width="25%" ><b>Branch:</b><br>
 <select name="brncd" class="form-control czn" size="1" id="brncd" onchange="get_brnc()">
+<option value="">---Select---</option>
 <?
 if($user_current_level<0)
 {
@@ -150,8 +151,8 @@ $bnm=$R['bnm'];
 <td align="left"  width="20%"><b>Customer:</b><br>
 <div id="main_cust"> 
 <select name="snm" class="form-control"  id="snm"> 
-<option value="">---All---</option>
-<!-- <?
+<option value="">---Select---</option>
+<!-- <?php /*
 $query="Select * from  main_cust group by cont";
    $result = mysqli_query($conn,$query);
 while ($R = mysqli_fetch_array ($result))
@@ -162,7 +163,7 @@ $cont=$R['cont'];
 ?>
 <option value="<? echo $cont;?>"><? echo $nm;?> - <? echo $cont;?></option>
 <?
-}
+}*/
 ?> -->
 </select>
 </div>

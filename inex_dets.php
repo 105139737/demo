@@ -29,8 +29,16 @@ $qry1=" and (dt between '$fdt' and '$tdt')";
 }
 $prevdt = strtotime ( "- 1 day" , strtotime ( $fdt) ) ;
 $prevdt = date ( 'Y-m-d' , $prevdt );
+$diff=dates_diff_month($fdt,$tdt);
+if($diff>0){
+?>
+<script language="javascript">
+alert("You have to excel export if you want to see data of more than "+30+" day");
+</script>
+<?php
+die('<b><center><font color="green" size="5">You have to excel export if you want to see data of more than 30 day </font></center></b>');
 
-
+}
 
 ?>
 <table width="100%" border="1"  >

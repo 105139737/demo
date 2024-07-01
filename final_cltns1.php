@@ -14,6 +14,14 @@ $als=rawurldecode($_REQUEST['als']);
 $ledg=$_REQUEST['ledg'];
 $mdt=$_REQUEST['mdt'];
 $blno=$_REQUEST['blno'];
+$jobLink=CreateNewJob('jobs/final_cltns1.php',$user_currently_loged,'Final Collection',$conn);
+?>
+<script language="javascript">
+alert('Your request has been accepted. You will get you dwonload link in your home page in a few moments. Thank you...');
+window.history.go(-1);
+</script>
+<?php
+die('<b><center><font color="green" size="5">Your request has been accepted. You will get you dwonload link in your home page in a few moments. Thank you...</font></center></b>');
 
 /* dldgr	paymtd */
 if($blno!=""){$blno11=" and blno='$blno'";}else{$blno11="";}

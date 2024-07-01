@@ -142,7 +142,7 @@ $bnm=$R['bnm'];
 <select id="cid"  name="cid"  tabindex="2" class="sc">	
 	<option value="">---Select---</option>		
 	<?		
-	$query6="select * from  main_ledg order by nm";		
+	$query6="select * from  main_ledg where sl!='170' order by nm";		
 	$result5 = mysqli_query($conn,$query6);		
 	while($row=mysqli_fetch_array($result5))		
 		{			

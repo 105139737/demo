@@ -492,6 +492,10 @@ $query21 = "INSERT INTO main_recv_dtl_app(ref,blno,amm,sman,cid,eby,brncd,disl,d
 VALUES ('$blno1','$blno','$pamm','$sale_per','$custnm','$user_currently_loged','$brncd','$disl','$damm','$remk')";
 $result21 = mysqli_query($conn,$query21)or die(mysqli_error($conn));	
 mysqli_query($conn,"UPDATE main_billing SET blno1='$blno1',blnon='$blnon' WHERE blno='$blno'");
+
+if(round($pamm+$damm)==round($bilamm)){
+	$qr=mysqli_query($conn,"update main_drcr set paid='1' where cbill='$blno'") or die(mysqli_error($conn));
+}
 }
 
 

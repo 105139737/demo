@@ -17,6 +17,9 @@ $query2 = "DELETE FROM main_recv_reg_temp WHERE sl='$a'";
 $result2 = mysqli_query($conn,$query2) or die(mysqli_error($conn));
 ?>
 <script>
-temp();
-get_blno();
+get_blno().then(
+  function(value) {
+    recallRamm();
+}
+);
 </script>

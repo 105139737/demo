@@ -201,7 +201,7 @@ $('#blno_div_edt').load('get_blno_ref_edt.php?sl='+sl+'&cid='+cid+'&brncd='+brnc
 <link href="style.css" rel="stylesheet" type="text/css" />
 <link rel="shortcut icon" href="favicon.ico"/>
 </head>
-<body onload="sh()">
+<body >
  <aside class="right-side">
   <section class="content-header">
                     <h1 align="center">
@@ -219,12 +219,14 @@ $('#blno_div_edt').load('get_blno_ref_edt.php?sl='+sl+'&cid='+cid+'&brncd='+brnc
  <div class="box box-success" >
           <table width="860px" class="table table-hover table-striped table-bordered">
   <tr >
-    <td align="right" width="10%" ><font color="red">*</font>Date :</td>
-    <td align="left" width="40%" >
+
+    <td align="left" width="50%" >
+    <font color="red">*</font>Date :
 	<input type="text" name="dt" class="form-control" id="dt" value="<? echo date('d-M-Y'); ?>" onchange="chk_dt('<?=date('d-M-Y')?>')"> 
 	</td>
-        <td align="right"  width="10%"><font color="red">*</font>Branch  :</td>
-<td align="left" width="40%" >						
+  
+<td align="left" width="50%" >	
+<font color="red">*</font>Branch  :					
 <select name="brncd" class="form-control" size="1" id="brncd"  onchange="gtcrvl1();get_blno();" >
 <?
 if($user_current_level<0)
@@ -257,8 +259,8 @@ $bnm=$R['bnm'];
   </tr>
   
    <tr >
-   	<td align="right" ><font color="red">*</font>Income Head :</td>
     <td align="left" >
+    <font color="red">*</font>Income Head :
 		<select  name="cldgr" id="cldgr" class="form-control" onchange="gtcrvl1()"  >
 		<option value="">-- Select --</option>
 		<?php 
@@ -273,15 +275,17 @@ $bnm=$R['bnm'];
 		</select>
 	</td>  
 
-    <td align="right" ><font color="red">*</font>Customer :</td>
     <td align="left" >
+    <font color="red">*</font>Customer :
 	<input type="hidden" value="4" id="dldgr" name="dldgr"/> 
 <table width="100%">	
 <tr>
 <td width="50%">
+<input type="text" id="cs" name="cs" size="40" value="" onkeyup="get_cust_by_cs('cust_src',this.value,'cid','','cs','','')"  placeholder="Enter 3 Digit Name / 10 Digit Mobile No.">
+<div id="cust_src">
 <select id="cid"  name="cid"   tabindex="2" class="form-control" ><!--onchange="get_blno()"-->
 <option value="">---Select---</option>
-<?
+<?php /*
 $query="select * from main_cust  WHERE sl>0 order by nm";
 $result = mysqli_query($conn,$query);
 while ($R = mysqli_fetch_array ($result))
@@ -293,9 +297,10 @@ $addr=$R['addr'];
 ?>
 <option value="<? echo $sid;?>" <?if($cid==$sid){?> selected <? } ?> ><? echo $spn;?>  - <? echo $cont;?></option>
 <?
-}
+}*/
 ?>
 </select>
+</div>
 </td>
 </tr>
 </table>
@@ -303,14 +308,14 @@ $addr=$R['addr'];
   </tr>
   
   <tr >
-	<td align="right" > Balance :</td>
     <td align="left" >
+    Balance :
      <div id="drbl">
 	 <img src="images\rp.png" height="15px"><input type="text" name="dbal" id="dbal" size="35" value="0.00" style="background :transparent; color : red;" readonly>
 	</div>
 	</td>
-<td align="right" > Balance :</td>
     <td align="left" >
+    Balance :
 	<div id="crbl">
 	 <img src="images\rp.png" height="15px"><input type="text" name="cbal" id="cbal" size="35" value="0.00" style="background :transparent; color : red;" readonly>
 	</div>
@@ -318,26 +323,27 @@ $addr=$R['addr'];
   </tr>
   
   <tr >
-	<td align="right" >Ref. No. :</td>
     <td align="left" >
+    Ref. No. :
        <input type="text" name="cbill" class="form-control" id="cbill" size="40">
 	</td>  
-    <td align="right" ><font color="red">*</font>Ammount :</td>
     <td align="left" >
+    <font color="red">*</font>Ammount :
 	 <input type="text" name="amm" id="amm" class="form-control" >
 	</td>	
   </tr>
   
   <tr >
-    <td align="right" ><font color="red">*</font>Narration :</td>
     <td align="left"   >
+    <font color="red">*</font>Narration :
 	<input type="text" name="nrtn" class="form-control" id="nrtn" size="100">
 	</td>
-<td align="right"><font color="red" size="3"><b>SMS :</font></b></td>
 <td align="left"  >
+<font color="red" size="3"><b>SMS :</font></b>
 <select id="sms" name="sms" tabindex="1" class="form-control" >
-<option value="2">Yes</option>
 <option value="1">No</option>
+<option value="2">Yes</option>
+
 
 </select>
 </td>	
@@ -386,10 +392,12 @@ $bnm1=$R1['bnm'];
 
 
 <td align="left" width="25%">
-<font size="3"><b>Customer :</b></font><br>
+<font size="3"><b>Customer :</b></font>
+<input type="text" id="cs1" name="cs1" size="40" value="" onkeyup="get_cust_by_cs('cust_src1',this.value,'custid','','cs1','','')"  placeholder="Enter 3 Digit Name / 10 Digit Mobile No.">
+<div id="cust_src1">
 <select id="custid" name="custid" tabindex="1"  class="form-control" >
 	<option value="">---ALL---</option>
-	<?
+	<?php /*
 		$query2="select * from main_cust WHERE sl>0 and typ='2' order by nm";
 		$result2=mysqli_query($conn,$query2);
 		while($rw2=mysqli_fetch_array($result2))
@@ -397,9 +405,10 @@ $bnm1=$R1['bnm'];
 			?>
 			<option value="<?=$rw2['sl'];?>"><?=$rw2['nm'];?> --  <?=$rw2['cont'];?></option>
 			<?
-		}
+		}*/
 	?>
 </select>
+  </div>
 </td>
 <td align="left" width="15%">
 <font size="3"><b>From Date : </b></font>
@@ -475,6 +484,10 @@ $bnm1=$R1['bnm'];
   
   });
   $('#custid').chosen({
+  no_results_text: "Oops, nothing found!",
+  
+  });
+  $('#cldgr').chosen({
   no_results_text: "Oops, nothing found!",
   
   });

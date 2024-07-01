@@ -21,7 +21,9 @@ $einv_stat=$_REQUEST['einv_stat'];
 $custType=$_REQUEST['custType'];
 $blno=$_REQUEST['blno'];
 $diff=dates_diff($fdt,$tdt);
-if($salereport-1<$diff && $snm=='' && $blno==''){
+$cust_array=[0,831,833,841,18774,33243,33818,37578,828,835,842,844,847,898,26442,33244,33245,33246,33817,33819,33820,37039,37192,37579,37729,40287,41358,43605,44750];
+
+if($salereport-1<$diff && $blno=='' && ($snm=='' or array_search($snm,$cust_array))){
 ?>
 <script language="javascript">
 alert("You have to excel export if you want to see data of more than "+<?php echo $salereport; ?>+" day");
@@ -163,6 +165,8 @@ $pay_dt=$row1['dt'];
 $AckNo=$row1['AckNo'];
 $ship=$row1['ship'];
 $colorStatus=$row1['colorStatus'];
+$ship_addr=$row1['ship_addr'];
+$ship_mob=$row1['ship_mob'];
 $backg="";
 if($colorStatus==1){$backg="#ffff00";}
 $last_edit_date = date('Y-m-d', strtotime($pay_dt. ' + '.$mdays.' days')); 
@@ -188,6 +192,7 @@ while ($rowd = mysqli_fetch_array($datad))
 {
 $nm=$rowd['nm'];
 $mob1=$rowd['cont'];
+$billing_addr=$rowd['addr'];
 }
 $invnm="";
 $datad1= mysqli_query($conn,"select * from main_cust where sl='$invto'")or die(mysqli_error($conn));
@@ -195,6 +200,7 @@ while ($rowd = mysqli_fetch_array($datad1))
 {
 $invnm="(".$rowd['nm'].")";
 $mob1=$rowd['cont'];
+$billing_addr=$rowd['addr'];
 }
 $cid_ship=$sid;
 if($invto!="")
@@ -311,7 +317,7 @@ $hsn=$row['hsn'];
 		$backg="";
 	}
 		 ?>
-		<tr title="<?=$pcd." S Sl".$sl;?>"  id="trid<?php echo $blno_sl;?>" style="background-color:<?php echo $backg;?>">
+		<tr   id="trid<?php echo $blno_sl;?>" style="background-color:<?php echo $backg;?>">
 		<?if($asd==1){?>
 		<td  align="center"  ><?=$sln;?></td>
 
@@ -369,7 +375,9 @@ $hsn=$row['hsn'];
 		<? }?>
 		
 		<td  align="center" ><a href="eway_bill_json.php?blno=<?php echo $blno;?>" target="_blank"><?=$dt;?></a></td>
-		<td  align="center" ><a href="#" onclick="view('<?=$blno;?>')" title="Print"><?=$blno;?></a></td>
+		<td  align="center" data-toggle="tooltip" data-placement="top" title="<?php echo $billing_addr ? $billing_addr : "" ;?>">
+			<a href="#" onclick="view('<?=$blno;?>')"  >
+			<?=$blno;?></a></td>
 		<td  align="left" ><a href="#" onclick="view1('<?=$blno;?>')" title="Print"><?=$nm;?> <b><?=$invnm;?></b></a><br>
 		<input type="text" id="vno" name="vno" value="<?php echo $vno;?>" placeholder="Vehicle Number" onblur="update_vno(this.value,'<?php echo $blno_sl;?>')">
 		</td>

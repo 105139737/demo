@@ -1,4 +1,4 @@
-<?
+<?php
 $reqlevel=3; 
 include("membersonly.inc.php");
 include("function.php");
@@ -15,6 +15,19 @@ $ledg=$_REQUEST['ledg'];
 $mdt=$_REQUEST['mdt'];
 $blno=$_REQUEST['blno'];
 
+$cust_array=[0,831,833,841,18774,33243,33818,37578,828,835,842,844,847,898,26442,33244,33245,33246,33817,33819,33820,37039,37192,37579,37729,40287,41358,43605,44750];
+$fdt=date('Y-m-d', strtotime($fdt));
+$tdt=date('Y-m-d', strtotime($tdt));
+$diff=dates_diff($fdt,$tdt);
+if($salereport-1<$diff and ($cid=='' or array_search($cid,$cust_array))){
+	?>
+	<script language="javascript">
+	alert("You have to excel export if you want to see data of more than "+<?php echo $salereport; ?>+" day");
+	</script>
+	<?php
+	die('<b><center><font color="green" size="5">You have to excel export if you want to see data of more than '.$salereport.' day </font></center></b>');
+	
+	}
 /* dldgr	paymtd */
 
 if($mdt!=""){$mdt1=" and paymtd='$mdt'";}else{$mdt1="";}

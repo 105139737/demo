@@ -8,17 +8,27 @@ $tdt=$_REQUEST['tdt'];
 $snm=$_REQUEST['snm'];
 $btyp=$_REQUEST['btyp'];
 $brncd=$_REQUEST['brncd'];
-
-if($snm!=""){ $snm1=" and cont='$snm'";}else{$snm1="";}
-if($brncd!=""){ $brncd1=" and bcd='$brncd'";}else{$brncd1="";}
-if($brncd!=""){ $brcd1=" and brncd='$brncd'";}else{$brcd1="";}
-
 if($fdt!="" and $tdt!="")
 {
 $fdt=date('Y-m-d', strtotime($fdt));
 $tdt=date('Y-m-d', strtotime($tdt));
 $todts=" and dt between '$fdt' and '$tdt'";
 }else{$todts="";}
+$diff=dates_diff($fdt,$tdt);
+if($salereport-1<$diff && $snm==''){
+?>
+<script language="javascript">
+alert("You have to excel export if you want to see data of more than "+<?php echo $salereport; ?>+" day");
+</script>
+<?php
+die('<b><center><font color="green" size="5">You have to excel export if you want to see data of more than '.$salereport.' day </font></center></b>');
+
+}
+if($snm!=""){ $snm1=" and cont='$snm'";}else{$snm1="";}
+if($brncd!=""){ $brncd1=" and bcd='$brncd'";}else{$brncd1="";}
+if($brncd!=""){ $brcd1=" and brncd='$brncd'";}else{$brcd1="";}
+
+
 
 if($btyp!=""){ $btyp1=" and bill_typ='$btyp'";}
 ?>

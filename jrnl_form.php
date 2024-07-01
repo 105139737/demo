@@ -136,7 +136,7 @@ function gtcrvl1()
 		sid = document.getElementById('sup1').value;
 		
 		$('#drbl').load('jrnl_form_gtdrvl_new.php?sl='+sl+'&pno='+proj+'&brncd='+brncd+'&cid='+cid+'&sid='+sid).fadeIn('fast');
-		sh();
+		
 	}
 
 function sh()

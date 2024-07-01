@@ -163,6 +163,7 @@ $("#ddt").inputmask("dd-mm-yyyy", {"placeholder": "dd-mm-yyyy"});
 $("#fdt").datepicker(jQueryDatePicker2Opts);
 $("#tdt").datepicker(jQueryDatePicker2Opts);
 $("#ddt").datepicker(jQueryDatePicker2Opts);
+$('[data-toggle="tooltip"]').tooltip();
 });
 function update_vno(val,sl)
 {
@@ -189,6 +190,13 @@ function stk_xml_shoppe()
 var fdt= document.getElementById('fdt').value;
 var tdt= document.getElementById('tdt').value;
 window.open('lg_stock_xml_shoppe.php?fdt='+fdt+'&tdt='+tdt, '_blank');    
+}
+function igstTOgst()
+{    
+    var blno= document.getElementById('blno').value;
+    if(blno!=""){
+    window.open('igstToSgst.php?blno='+blno, '_blank'); 
+    }
 }
 </script>
 <script type="text/javascript" src="jquery.ui.core.min.js"></script>
@@ -441,11 +449,12 @@ else
 <td align="right" colspan="3">
 <input type="button" class="btn btn-info" value="Show" onclick="show1()">
 <input type="submit" class="btn btn-warning" value="Excel Export" >
-<?php if($user_current_level<0)
+<?php if(strtoupper($user_currently_loged)=='ADMIN' OR strtoupper($user_currently_loged)=='HDADMIN')
 {?>
 <input type="button" class="btn btn-success" value="LG Sale XML" onclick="show_xml()">
 <input type="button" class="btn btn-danger" value="LG Stock XML" onclick="stk_xml()">
 <input type="button" class="btn btn-info" value="LG Shoppe Stock XML" onclick="stk_xml_shoppe()">
+<input type="button" class="btn btn-success" value="IGST TO CGST/SGST " onclick="igstTOgst()">
 <?php }?>
 </td>
     </tr>
@@ -499,9 +508,9 @@ var options = {
     getValue: "name",
 
     template: {
-        type: "description",
+       // type: "description",
         fields: {
-            description: "manufacturer"
+          //  description: "manufacturer"
         }
     },
 
@@ -540,6 +549,7 @@ var cat= document.getElementById('cat').value;
 var bnm= document.getElementById('bnm').value;
 $('#vv').load('get_v.php?cat='+cat+'&bnm='+bnm).fadeIn('fast');
 }
+
 </script>
     </body>
 </html>

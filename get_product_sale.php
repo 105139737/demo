@@ -45,6 +45,12 @@ while ($row1 = mysqli_fetch_array($data1))
 
   $('#prnm').chosen({
   no_results_text: "Oops, nothing found!",
-
   });
+
+$('#prnm_chosen .chosen-drop').click(function(e) {
+  e.stopPropagation();
+});
+$("#prnm").trigger("chosen:open");
+document.getElementById('prnm_chosen').className+=' chosen-with-drop chosen-container-active'
+document.getElementById("prnm3").focus();
 </script>

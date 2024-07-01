@@ -545,7 +545,7 @@ $("#gbet").load("getbe.php?pcd="+prnm+"&brncd="+brncd+"&unit="+unit+"&betno="+be
 		document.getElementById('igst_am').value='';
 		document.getElementById('net_amm').value='';
 
-
+		document.getElementById('prnm3').disabled=false;
 	}
 	
 function temp()
@@ -679,9 +679,23 @@ function get_prod(psl='')
 var scat=document.getElementById('scat1').value;
 var cat=document.getElementById('cat1').value;
 var brnd=document.getElementById('brnd1').value;
-$("#prod_div").load("get_product_sale.php?cat="+cat+"&scat="+scat+"&psl="+psl+"&brnd="+brnd).fadeIn('fast');	
+//$("#prod_div").load("get_product_sale.php?cat="+cat+"&scat="+scat+"&psl="+psl+"&brnd="+brnd).fadeIn('fast');	
 }
-
+function get_prod_by_name(psl='')
+{
+var scat=document.getElementById('scat1').value;
+var cat=document.getElementById('cat1').value;
+var brnd=document.getElementById('brnd1').value;
+var prnm3=encodeURIComponent(document.getElementById('prnm3').value);
+if(cat=='')
+{
+	alert("Please Select Brand first ! ");
+	return;
+}
+if(prnm3.length>2){
+$("#prod_div").load("get_product_sale.php?cat="+cat+"&scat="+scat+"&psl="+psl+"&brnd="+brnd+"&prnm3="+prnm3).fadeIn('fast');
+}
+}
 function view(blno)
 {
 var damm=document.getElementById('damm').value;
@@ -727,7 +741,7 @@ $("#cust_src1").load("get_cust_src1_edit.php?cs="+cs+"&tp="+tp).fadeIn('fast');
  <table border="0" width="860px" class="table table-hover table-striped table-bordered">
   <tr>
   <td align="left" style="padding-top:15px;" width="35%"><b>Ledger Name :</b>
-  <input type="text" id="cs" name="cs" value="cash" onblur="cust_srch('<?php echo $tp;?>')" placeholder="Contact No/Name">
+  <input type="text" id="cs" name="cs" value="cash" onkeyup="cust_srch('<?php echo $tp;?>')" placeholder="Contact No/Name">
    <div id="cust_src">
 	<select id="custnm" name="custnm" tabindex="1"  class="form-control"  onchange="gtid()" >
 	
@@ -987,11 +1001,11 @@ echo "<option value='".$ssl."'>".$snm."</option>";
 	   <td  colspan="21">
 <table border="0" width="100%" class="advancedtable">
 <tr class="odd">
-<td  align="left" width="11%"><b>Model</b></td>
-<td  align="left" width="6%"><b>Godown</b></td>
+<td  align="left" width="15%"><b>Model : &nbsp; <input type="box" id="prnm3" onkeyup="get_prod_by_name()" name="prnm3" placeholder="Min 3 Digit Model Name "></b></td>
+<td  align="left" width="11%"><b>Godown</b></td>
 <td align="center" width="10%"><b>Serial No.</b></td>
-<td  align="center" width="5%"><b>Unit</b></td>
-<td align="center" width="6%"><b>Stock In Hand</b></td>
+<td  align="center" hidden width="5%"><b>Unit</b></td>
+<td align="center" hidden width="6%"><b>Stock In Hand</b></td>
 <td align="center" width="3%" ><b>Quantity</b></td>
 <td align="center" width="4%" ><b>Sale Rate</b></td>
 <td align="center" width="6%"><b>Total</b></td>
@@ -1067,14 +1081,14 @@ if($count==0 and $count1>0){$disabled=" disabled";}
 </div>
 </td>
 
-<td>
+<td hidden>
 <div id="g_unt">
 <select id="unit" name="unit" class="sc1" style="width:100%"  tabindex="1" onchange="get_stock()">
 <option value="">---Select---</option>
 </select>
 </div>
 </td>
-<td>
+<td hidden>
 <div id="gbet">
 <input type="text" class="sc" autocomplete="off" id="sih" readonly name="sih" style="text-align:center"  value="" tabindex="1" size="15"  >
 </div>
@@ -1426,10 +1440,11 @@ $('#cat1').trigger("chosen:updated");
 get_scat(scat);
 
 		document.getElementById('prnm').value=prsl;
+		document.getElementById('prnm3').disabled=true;
 		//$('#prnm').trigger("chosen:updated");
 		$("#prnm").attr("disabled","disabled").trigger('chosen:updated');
 		document.getElementById('bcd').value=bcd;		
-		//$('#bcd').trigger("chosen:updated");
+		$('#bcd').trigger("chosen:updated");
 	//	$("#bcd").attr("disabled","disabled").trigger('chosen:updated');		
 		document.getElementById('betnoo').value=betno;
 		document.getElementById('unit_nm').value=unit;
@@ -1471,6 +1486,10 @@ gtt_unt();
 
 get_stock();
 get_betno();
+if(igst_rt==0 && cgst_am==0)
+{
+	get_gstval();
+}
 }
 </script>
     </body>

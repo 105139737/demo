@@ -29,6 +29,15 @@ $qry1=" and (dt between '$fdt' and '$tdt')";
 }
 $prevdt = strtotime ( "- 1 day" , strtotime ( $fdt) ) ;
 $prevdt = date ( 'Y-m-d' , $prevdt );
+$jobLink=CreateNewJob('jobs/inex_bankxls.php',$user_currently_loged,'Bank Account',$conn);
+?>
+<script language="javascript">
+alert('Your request has been accepted. You will get you dwonload link in your home page in a few moments. Thank you...');
+window.history.go(-1);
+</script>
+<?php
+die('<b><center><font color="green" size="5">Your request has been accepted. You will get you dwonload link in your home page in a few moments. Thank you...</font></center></b>');
+
 
 $file="Bank A/c (".$fdt." To ".$tdt.".xls";
 header("Content-type: application/vnd.ms-excel"); 

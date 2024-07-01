@@ -130,7 +130,7 @@ function gtcrvl1()
 		proj = document.getElementById('proj').value;
 		sl = document.getElementById('dldgr').value;
 		$('#drbl').load('jrnl_form_gtdrvl.php?sl='+sl+'&pno='+proj+'&brncd='+brncd).fadeIn('fast');
-		sh();
+		
 	}
 	
 function sh()
@@ -466,6 +466,12 @@ while($row = mysqli_fetch_array($get))
 <script src="chosen.jquery.js" type="text/javascript"></script>
 <script type="text/javascript">
   $('#ledg').chosen({
+  no_results_text: "Oops, nothing found!",
+  }); 
+   $('#cldgr').chosen({
+  no_results_text: "Oops, nothing found!",
+  });
+  $('#dldgr').chosen({
   no_results_text: "Oops, nothing found!",
   });
 </script>

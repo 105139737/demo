@@ -105,8 +105,12 @@ while($row1=mysqli_fetch_array($get1))
                         <br>
                         <br>
                         <br>
+                        <?php 
+                        if(strtoupper($user_currently_loged)=='ADMIN'  OR strtoupper($user_currently_loged)=='HDADMIN')
+                        {
+                        ?>
                         <input type="button" value="Check Bill Status " class="btn btn-warning " onclick="check()">
-
+                    <?php } ?>
                         <div id="check"></div>
 
                         <?php/*

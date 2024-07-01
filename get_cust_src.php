@@ -32,4 +32,10 @@ $('#custnm').chosen({
 no_results_text: "Oops, nothing found!",
 
 });
+$('#custnm_chosen .chosen-drop').click(function(e) {
+  e.stopPropagation();
+});
+$("#custnm").trigger("chosen:open");
+document.getElementById('custnm_chosen').className+=' chosen-with-drop chosen-container-active'
+document.getElementById("cs").focus();
 </script>

@@ -36,9 +36,12 @@ VALUES ('$blno','$amm','$sman','$cid','$user_currently_loged','$brncd','$disl','
 $result21 = mysqli_query($conn,$query21)or die(mysqli_error($conn));	
 ?>
 <script>
-temp();
+$("#blno option[value='<?php echo $blno;?>']").remove(); 
+$('#blno').trigger("chosen:updated"); 
 reset();
+recallRamm()
 </script>
+
 <?
 }
 if($err!='')

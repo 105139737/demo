@@ -22,7 +22,7 @@ $cld=" and cldgr='$sl'";
 $T=0;
 $t1=0;
 $t2=0;
-
+/*
 $data= mysqli_query($conn,"SELECT sum(amm) as t1 FROM main_drcr where stat='1' and cbill='$blno'".$cid1.$brncd1.$dld);
 while ($row = mysqli_fetch_array($data))
 {
@@ -32,7 +32,12 @@ $data1= mysqli_query($conn,"SELECT sum(amm) as t2 FROM main_drcr where  stat='1'
 while ($row1 = mysqli_fetch_array($data1))
 {
 $t2 = $row1['t2'];
+}*/
+$result416 = mysqli_query($conn,"SELECT  (SUM(IF(dldgr='$sl', amm, 0)) - SUM(IF(cldgr='$sl', amm, 0))) AS amm FROM main_drcr where stat='1' and cbill='$blno'".$cid1.$brncd1)or die(mysqli_error($conn));
+while ($R16 = mysqli_fetch_array ($result416))
+{
+$T=round($R16['amm'],2);
 }
-$T=$t1-$t2;
+//$T=$t1-$t2;
 ?>
-<img src="images\rp.png" height="15px"><input type="text" name="dbal" id="dbal"  size="35" value="<?echo $T;?>" style="background :transparent; color : red;width:120px;font-weight:bold;" readonly>
+<input type="text" name="dbal" id="dbal"  size="35" value="<?echo $T;?>" style="background :transparent; color : red;width:120px;font-weight:bold;" readonly>

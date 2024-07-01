@@ -8,6 +8,14 @@ $tdt=$_REQUEST['tdt'];
 $snm=$_REQUEST['snm'];
 $btyp=$_REQUEST['btyp'];
 $brncd=$_REQUEST['brncd'];
+$jobLink=CreateNewJob('jobs/c_sales_exl.php',$user_currently_loged,'Customer Wise Sale Statement',$conn);
+?>
+<script language="javascript">
+alert('Your request has been accepted. You will get you dwonload link in your home page in a few moments. Thank you...');
+window.history.go(-1);
+</script>
+<?php
+die('<b><center><font color="green" size="5">Your request has been accepted. You will get you dwonload link in your home page in a few moments. Thank you...</font></center></b>');
 
 if($snm!=""){ $snm1=" and cont='$snm'";}else{$snm1="";}
 if($brncd!=""){ $brncd1=" and bcd='$brncd'";}else{$brncd1="";}

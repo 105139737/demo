@@ -4,7 +4,6 @@ include("membersonly.inc.php");
 $cid=$_REQUEST['cid'];
 $brncd=$_REQUEST['brncd'];
 $tamm=$_REQUEST['tamm'];
-
 ?>
 <table border="0" width="100%" class="advancedtable">
 <?
@@ -50,12 +49,18 @@ $total_am+=$amm;
 
 <tr class="even">
 <td  align="left" width="3%" ><b><?=$sln;?>.</b></td>
-<td  align="left" width="20%" ><b><?=$blno;?></b></td>
-<td  align="left" width="12%" ><b></b></td>
-<td align="left" width="12%"><b><?=round($amm,2);?></b></td>
+<td  align="left" width="19%" ><b><?=$blno;?></b></td>
+<td  align="left" width="7%" ><b></b></td>
+<td align="left" width="10%"><b><?=round($amm,2);?></b></td>
 <td align="left" width="20%"><b><?=$dislam;?></b></td>
-<td align="left" width="12%"><b><?=round($damm,2);?></b></td>
-<td align="left" width="12%"><b><?=$remk;?></b></td>
+<td align="left" width="6%"><b><?=round($damm,2);?></b></td>
+<td align="left" width="8%"><b><?=$remk;?></b></td>
+<?php if($brncd=='1')
+{?>
+<td align="left" width="5%"></td>
+<td align="left" width="5%"></td>
+<td align="left" width="5%"></td>
+<?php }?>
 <td align="center" width="5%"><b><a onclick="if(confirm('Are you Sure?')){deltpr('<?=$tsl;?>')}"><font color="red">Delete</font></a> </b></td>
 </tr>
 <?}
@@ -77,7 +82,7 @@ document.getElementById('ramm').value='<?=$ramm;?>';
 //document.getElementById('amm').value='<?=$ramm;?>';
 
 //document.getElementById('blno_ref').value="<?=$blno_ref;?>";
-get_blno();
+//get_blno();
 
 </script>
 

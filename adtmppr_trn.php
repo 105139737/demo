@@ -72,7 +72,13 @@ if($tpcd=='')
 <script>
 temp();
 reset();
-$('#prnm').trigger('chosen:open');
+$('#prnm_chosen .chosen-drop').click(function(e) {
+  e.stopPropagation();
+});
+$("#prnm").trigger("chosen:open");
+document.getElementById('prnm_chosen').className+=' chosen-with-drop chosen-container-active'
+document.getElementById("prnm3").focus();
+$('#prnm3').focus();
 </script>
 <?
 }
@@ -80,6 +86,7 @@ else
 {
 ?>
 <script>
+$('#prnm').append("<option value='"+<?php echo $tpcd;?>+"'>Auto Adding</option>");
 document.getElementById('prnm').value="<?php echo $tpcd;?>";
 $('#prnm').trigger("chosen:updated");
 godown();

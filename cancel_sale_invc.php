@@ -63,7 +63,7 @@ mysqli_query($conn,"UPDATE main_billing SET cstat='1' WHERE blno='$billno'");
 mysqli_query($conn,"UPDATE main_recv_dtl SET disl='',damm='',remk='' WHERE ref='$blno' and blno='$billno'");
 mysqli_query($conn,"UPDATE main_recv_dtl_app SET disl='',damm='',remk='' WHERE ref='$blno' and blno='$billno'");
 
-
+$qr=mysqli_query($conn,"update main_drcr set paid='0' where cbill='$billno'") or die(mysqli_error($conn));
 }
 
 ?>

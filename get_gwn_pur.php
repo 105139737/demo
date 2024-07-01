@@ -25,8 +25,10 @@ $tsl=$row11['bcd'];
 
 ?>
 <select name="bcd" class="form-control" tabindex="10"  size="1" id="bcd" onchange="gtt_unt();">
+<?php if($tsl==""){?>
+<option value="">---Select---</option>
 <?
-
+}
 $brncd1="";
 if ($user_current_level > 0)
 {

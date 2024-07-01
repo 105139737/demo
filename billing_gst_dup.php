@@ -806,9 +806,39 @@ function get_prod(psl='')
 var scat=document.getElementById('scat1').value;
 var cat=document.getElementById('cat1').value;
 var brnd=document.getElementById('brnd').value;
-$("#prod_div").load("get_product_sale.php?cat="+cat+"&scat="+scat+"&psl="+psl+"&brnd="+brnd).fadeIn('fast');	
+//$("#prod_div").load("get_product_sale.php?cat="+cat+"&scat="+scat+"&psl="+psl+"&brnd="+brnd).fadeIn('fast');	
 }
-
+function get_prod_by_name(psl='')
+{
+var scat=document.getElementById('scat1').value;
+var cat=document.getElementById('cat1').value;
+var brnd=document.getElementById('brnd').value;
+var prnm3=encodeURIComponent(document.getElementById('prnm3').value);
+if(cat=='')
+{
+	alert("Please Select Brand first ! ");
+	return;
+}
+if(prnm3.length>2){
+$("#prod_div").load("get_product_sale.php?cat="+cat+"&scat="+scat+"&psl="+psl+"&brnd="+brnd+"&prnm3="+prnm3).fadeIn('fast');
+}
+}
+function cust_srch(tp)
+{
+var cs=encodeURIComponent(document.getElementById('cs').value);
+var brncd=document.getElementById('brncd').value;
+var brand=document.getElementById('brnd').value;
+if((!isNaN(cs) && cs.length>9) || (isNaN(cs) && cs.length>2)){
+$("#cust_src").load("get_cust_src.php?cs="+cs+"&brncd="+brncd+"&brand="+brand+"&tp="+tp).fadeIn('fast');
+}	
+}
+function cust_srch1(tp)
+{
+var cs=encodeURIComponent(document.getElementById('cs1').value);
+if((!isNaN(cs) && cs.length>9) || (isNaN(cs) && cs.length>2)){
+$("#cust_src1").load("get_cust_src1.php?cs="+cs+"&tp="+tp).fadeIn('fast');	
+}
+}
 </script>
 </head>
 <body onload="temp()">
@@ -850,10 +880,12 @@ $("#prod_div").load("get_product_sale.php?cat="+cat+"&scat="+scat+"&psl="+psl+"&
  <table border="0" width="860px" class="table table-hover table-striped table-bordered">
   <tr>
   <td align="left" style="padding-top:15px;" width="35%"><b>Ledger Name : </b>
+  <input type="text" id="cs" name="cs" value="cash" onkeyup="cust_srch('<?php echo $tp;?>')" placeholder=" Enter 3 Digit Name / 10 Digit Mobile No.">
+  <div id="cust_src">
 <select id="custnm" name="custnm" tabindex="1" class="form-control" onchange="gtid()">
 <option value="">---Select---</option>
 	<?php
-	if($tp=='2'){$qury=" and find_in_set(brand,'$brand')>0 ";}
+	/*if($tp=='2'){$qury=" and find_in_set(brand,'$brand')>0 ";}
 	//$query="select * from main_cust  WHERE sl>0 and typ='$tp' $qury $qury1 order by nm";
 	$query="select * from main_cust  WHERE sl>0 and brncd='$brncd' $qury order by nm";
 	$result=mysqli_query($conn,$query);
@@ -863,20 +895,23 @@ $("#prod_div").load("get_product_sale.php?cat="+cat+"&scat="+scat+"&psl="+psl+"&
 		?>
 		<option value="<?=$rw['sl'];?>" <?if($cid==$rw['sl']){?> selected <?}?>><?=$rw['nm'];?> <?if($rw['cont']!=""){?>( <?=$rw['cont'];?> )<?}?> </option>
 		<?
-	}
+	}*/
 	?>
 	</select>
+</div>
 	</td>
 	<td align="right" style="padding-top:15px;display:none;" ><b>Contact No. :</b></td>
 	<td style="display:none;">
 	<input type="text" id="mob" class="form-control" style="font-weight: bold;" readonly="true" name="mob" value=""  tabindex="1" size="35" placeholder="Customer Contact No.">
 	</td>
 	<td align="left" style="padding-top:15px;" width="35%" ><b>Customer Name: </b>
+	<input type="text" id="cs1" name="cs1" size="40" value="" onkeyup="cust_srch1('<?php echo $tp;?>')"  placeholder="Enter 3 Digit Name / 10 Digit Mobile No.">
+	<div id="cust_src1">
 	<select id="invto" name="invto" tabindex="1"  class="form-control"  onchange="adnew()" >
 	<option value="">---Select---</option>
 	<option value="Add">---Add New Customer---</option>
 	<?
-		$query="select * from main_cust WHERE sl>0 and typ='$tp'  order by nm";
+		/*$query="select * from main_cust WHERE sl>0 and typ='$tp'  order by nm";
 		$result=mysqli_query($conn,$query);
 		while($rw=mysqli_fetch_array($result))
 		{
@@ -884,9 +919,10 @@ $("#prod_div").load("get_product_sale.php?cat="+cat+"&scat="+scat+"&psl="+psl+"&
 			?>
 			<option value="<?=$rw['sl'];?>"><?=$rw['nm'];?> <?if($rw['cont']!=""){?>( <?=$rw['cont'];?> )<?}?> </option>
 			<?
-		}
+		}*/
 	?>
 	</select>
+	</div>
 	<input type="hidden"  class="form-control" style="font-weight: bold;" id="addr" readonly="true" name="addr" value="" tabindex="3" placeholder="Customer Address">
 	</td>
 	
@@ -1097,7 +1133,7 @@ echo "<option value='".$ssl."'>".$snm."</option>";
 <td  colspan="19">
 <table border="0" width="100%" class="advancedtable">
 <tr class="odd">
-<td align="left" width="11%"><b>Model</b></td>
+<td align="left" width="11%"><b>Model  &nbsp; <input type="box" id="prnm3" onkeyup="get_prod_by_name()" name="prnm3" placeholder="Min 3 Digit Model Name "></b></td>
 <td align="left" width="11%"><b>Godown</b></td>
 <td align="center" width="5%"><b>Serial No.</b></td>
 <td align="center" width="5%"><b>Unit</b></td>

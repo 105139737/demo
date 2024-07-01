@@ -31,7 +31,12 @@ if($err=="")
 	$qr=mysqli_query($conn,"insert into main_credit(cid,blno,amm,nrtn,eby) values('$cid','$blno','$amm','$nrtn','$eby')");
 ?>
 <script>
-ctmppr();
+document.getElementById('blno').value='';
+document.getElementById('cal_dbal').value=0;
+document.getElementById('amm').value=0;
+$("#blno option[value='<?php echo $blno;?>']").remove(); 
+$('#blno').trigger("chosen:updated");
+recallRamm();
 </script>
 <?
 }

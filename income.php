@@ -130,7 +130,7 @@ proj = document.getElementById('proj').value;
 sl = document.getElementById('cldgr').value;
 var brncd= document.getElementById('brncd').value;
 $('#crbl').load('incm_form_gtcrvlfi.php?sl='+sl+'&pno='+proj+'&brncd='+brncd).fadeIn('fast');
-sh();
+
 }
 	
 function sh()
@@ -245,7 +245,7 @@ $count6=mysqli_num_rows($result5);
 
 }*/
 ?>
-<body onload="sh();">
+<body >
  <aside class="right-side">
   <section class="content-header">
                     <h1 align="center">

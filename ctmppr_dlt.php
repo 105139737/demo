@@ -7,5 +7,9 @@ $sl=$_REQUEST['sl'];
 $qrr=mysqli_query($conn,"delete from main_credit where sl='$sl'")or die(mysqli_error($conn));
 ?>
 <script>
-ctmppr();
+get_blno().then(
+  function(value) {
+    recallRamm();
+}
+);
 </script>

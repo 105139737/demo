@@ -132,7 +132,7 @@ function gtcrvl1()
 		proj = document.getElementById('proj').value;
 		sl = document.getElementById('cldgr').value;
 		$('#crbl').load('jrnl_form_gtdrvl.php?sl='+sl+'&pno='+proj+'&brncd='+brncd).fadeIn('fast');
-		sh();
+		
 	}
 	
 function sh()

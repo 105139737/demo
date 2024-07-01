@@ -147,7 +147,7 @@ echo "<option value='".$sl."'>".$cnm."</option>";
 </td>
  
 <td align="left" width="20%">
-<b>Model:</b>
+<b>Model:  &nbsp; <input type="box" id="prnm3" onkeyup="get_prod_by_name()" name="prnm3" placeholder="Min 3 Digit Model Name "></b>
 <div id="prod_div">
 <select name="prnm" class="form-control"  id="prnm"   >
 <option value="">---All---</option>
@@ -231,7 +231,21 @@ function get_prod()
 {
 var scat=document.getElementById('scat').value;
 var cat=document.getElementById('cat').value;
-$("#prod_div").load("get_product_stk.php?scat="+scat+"&cat="+cat).fadeIn('fast');	
+//$("#prod_div").load("get_product_stk.php?scat="+scat+"&cat="+cat).fadeIn('fast');	
+}
+function get_prod_by_name(psl='')
+{
+var scat=document.getElementById('scat').value;
+var cat=document.getElementById('cat').value;
+var prnm3=encodeURIComponent(document.getElementById('prnm3').value);
+if(cat=='')
+{
+	alert("Please Select Brand first ! ");
+	return;
+}
+if(prnm3.length>2){
+$("#prod_div").load("get_product_stk.php?cat="+cat+"&scat="+scat+"&psl="+psl+"&prnm3="+prnm3).fadeIn('fast');
+}
 }
 
 function show()

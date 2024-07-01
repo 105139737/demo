@@ -26,7 +26,7 @@ $total_am+=$amm;
 <td align="left" width="14%"></td>
 <td align="left" width="13%" ><?php echo $amm;?></td>
 <td align="left" width="22%" ><?php echo $nrtn;?></td>
-<td align="center" width="5%"><a href="#" onclick="if(confirm('Are You Sure to Delete ...')){dlt('<?php echo $sl;?>')}">Delete</td>
+<td align="center" width="5%"><a style="cusor:pointer" onclick="if(confirm('Are You Sure to Delete ...')){dlt('<?php echo $sl;?>')}">Delete</td>
 </tr>
 	
 <?
@@ -42,5 +42,6 @@ $ramm=$tamm-$total_am;
 <script>
 document.getElementById('ramm').value='<?=$ramm;?>';
 //document.getElementById('blno_ref').value="<?=$blno_ref;?>";
-get_blno();
+console.log("temp load 111111111111");
+//get_blno();
 </script>

@@ -44,6 +44,7 @@ $AckNo=$R111['AckNo'];
 $AckDt=$R111['AckDt'];
 $ship=$R111['ship'];
 $ship_addr=$R111['ship_addr'];
+$is_ship_addr=$R111['ship_addr'];
 $ship_mob=$R111['ship_mob'];
 }
 if($AckNo!=''){
@@ -295,9 +296,11 @@ if($ship_mob==""){$ship_mob=$bmob;}
 </td>
 <td style="text-align:left; border: 1px solid black; width:50%;">
 <table style="width:100%;">
+<?php if(!empty($is_ship_addr)){?>
 <tr>
 <td style="width:45%;"><font size="2">Shipping Address </font><span style="float:right"><font size="2">:</font></span></td><td><font size="2"><?echo $ship_addr;?></font></td>
 </tr>
+<?php }?>
 <tr>
 <td><font size="2">Mobile </font><span style="float:right"><font size="2">:</font></span></td><td><font size="2"><?echo $ship_mob;?></font></td>
 </tr>

@@ -5,7 +5,7 @@ $cs=rawurldecode($_REQUEST[cs]);
 $tp=rawurldecode($_REQUEST[tp]);
 $brand=rawurldecode($_REQUEST[brand]);
 ?>
-	<select id="cid" name="cid" tabindex="1"  class="form-control" onchange="get_blno();get_app();"  >
+	<select id="cid" name="cid" tabindex="1"  class="form-control" onchange="get_app();"  >
 	<option value="">---Select---</option>
 	<option value="Add">---Add New Customer---</option>
 	<?

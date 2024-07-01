@@ -64,11 +64,11 @@ $bcdnm=$rowii['gnm'];
 }
 ?>
 <tr class="even">
-<td align="left" width="10%" onclick="get_data('<?=$tsl;?>','<?=$prsl;?>','<?=$unit;?>','<?=$qty;?>','<?=$mrp;?>','<?=$total;?>','<?=$disp;?>','<?=$disa;?>','<?=$ttl;?>','<?=$cgst_rt;?>','<?=$cgst_am;?>','<?=$sgst_rt;?>','<?=$sgst_am;?>','<?=$igst_rt;?>','<?=$igst_am;?>','<?=$rate;?>','<?=$net_am;?>','<?=$unit;?>','<?=$betno;?>','<?=$bcd;?>','<?=$cat;?>','<?=$scat;?>','<?=$pnm;?>')" style="cursor:pointer;">
+<td align="left" width="15%" onclick="get_data('<?=$tsl;?>','<?=$prsl;?>','<?=$unit;?>','<?=$qty;?>','<?=$mrp;?>','<?=$total;?>','<?=$disp;?>','<?=$disa;?>','<?=$ttl;?>','<?=$cgst_rt;?>','<?=$cgst_am;?>','<?=$sgst_rt;?>','<?=$sgst_am;?>','<?=$igst_rt;?>','<?=$igst_am;?>','<?=$rate;?>','<?=$net_am;?>','<?=$unit;?>','<?=$betno;?>','<?=$bcd;?>','<?=$cat;?>','<?=$scat;?>','<?=$pnm;?>')" style="cursor:pointer;">
 <b><?=$pnm;?></b>
 </td>
 <td align="left" width="10%" ><b><?=$bcdnm;?></b></td>
-<td align="center" width="5%" ><b><?=$unit_nm;?></b></td>
+<td align="center" width="5%" hidden ><b><?=$unit_nm;?></b></td>
 <td align="center" width="7%" ><b><?=$betno;?></b></td>
 <td align="center" width="5%" ><b><?=$qty;?></b></td>
 <td align="right" width="5%" ><b><?=round($mrp,2);?></b></td>			

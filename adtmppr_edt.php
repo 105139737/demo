@@ -152,7 +152,7 @@ $('.upd').html('<input type="button" value="Add" onclick="add1()" style="padding
 ?>
 <script>
 temp();
-$('#prnm').trigger('chosen:open');
+//$('#prnm').trigger('chosen:open');
 reset();
 </script>
 <?

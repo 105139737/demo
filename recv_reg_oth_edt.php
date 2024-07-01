@@ -79,7 +79,7 @@ cursor:pointer;
 }
 </style> 
 <script>
-function get_blno()
+async function get_blno()
 {	
 var brncd= document.getElementById('brncd').value;
 var proj = document.getElementById('proj').value;
@@ -89,29 +89,6 @@ var cid = document.getElementById('cid').value;
 var spid = document.getElementById('spid').value;
 var	blno_ref=document.getElementById('blno_ref').value;
 $('#blno_div').load('get_blno_oth_edt.php?sl='+sl+'&cid='+cid+'&brncd='+brncd+'&dldgr='+dldgr+'&blno_ref='+blno_ref).fadeIn('fast');	
-$.get('cname.php?cid='+cid, function(data) {
-        
-                var str= data;
-				var stra = str.split("@@") 
-                var typ = stra.shift() 
-				var fstr1 = stra.shift()
-				var addr = stra.shift()  
-                var mob = stra.shift() 
-                var mail = stra.shift()
-                var pp = stra.shift()
-                var bal = stra.shift()
-                var aa = stra.shift()
-                var fst = stra.shift()
-                var sale_per = stra.shift()
-  
-    $('#sman').val(sale_per);
-	if(spid=="")
-	{
-    $('#spid').val(sale_per);
-	
-	$('#spid').trigger('chosen:updated');	
-    }
-}); 
 
 }
 </script>
@@ -166,10 +143,11 @@ var	cid=document.getElementById('cid').value;
 var	blno=encodeURIComponent(document.getElementById('blno').value);
 var	ramm=document.getElementById('ramm').value;
 var	blno_ref=document.getElementById('blno_ref').value;
-
+if(cid=="")return;
+if(blno=="")return;
 $('#drbl').load('jrnl_form_gtdrvl_blno_oth.php?sl='+sl+'&cid='+cid+'&brncd='+brncd+'&blno='+blno+'&ramm='+ramm+'&blno_ref='+blno_ref).fadeIn('fast');
-$('#totbal').load('recv_totalbal_oth.php?pno='+proj+'&brncd='+brncd+'&cid='+cid+'&tt=1').fadeIn('fast');
-$('#totbal1').load('recv_totalbal_oth.php?pno='+proj+'&brncd='+brncd+'&cid='+cid+'&tt=2').fadeIn('fast');
+//$('#totbal').load('recv_totalbal_oth.php?pno='+proj+'&brncd='+brncd+'&cid='+cid+'&tt=1').fadeIn('fast');
+//$('#totbal1').load('recv_totalbal_oth.php?pno='+proj+'&brncd='+brncd+'&cid='+cid+'&tt=2').fadeIn('fast');
 
 }
 
@@ -229,13 +207,18 @@ document.getElementById('damm').value='';
 document.getElementById('remk').value='';
 }
 
-function temp()
+async function temp()
 {
 var cid=document.getElementById('cid').value;	
 var brncd=document.getElementById('brncd').value;	
 var tamm=document.getElementById('tamm').value;	
 var blno_ref=document.getElementById('blno_ref').value;	
-$('#wb_Text').load("recv_reg_tempsh_edt.php?cid="+cid+"&brncd="+brncd+"&tamm="+tamm+'&blno_ref='+blno_ref).fadeIn('fast');	
+$('#wb_Text').load("recv_reg_tempsh_edt.php?cid="+cid+"&brncd="+brncd+"&tamm="+tamm+'&blno_ref='+blno_ref,
+function() {
+    get_blno();
+}).fadeIn('fast');	
+
+
 }
 function deltpr(sl)
 {
@@ -296,12 +279,43 @@ if(data>0)
 $('#cnt11').load("recv_app.php?cid="+cid+"&brncd="+brncd).fadeIn('fast');	
 $('#compose-modal1').modal('show');	
 }
-}); 
+});
+
+$.get('cname_cust_credit.php?cid='+cid, function(data) {
+
+$('#spid').val(data);
+$('#sman').val(data);
+$('#spid').trigger('chosen:updated');
+});
+get_blno().then(
+  function(value) {
+	$('#totbal1').load('recv_totalbal_oth.php?pno=NA'+'&brncd='+brncd+'&cid='+cid+'&tt=2',
+	function() {
+		gtcrvl1();
+}).fadeIn('fast');
+	
+}
+);
 
 }
 function get_app_val(blno)
 {
 $('#wb_Text').load("recv_add_edt.php?blno="+blno).fadeIn('fast');		
+}
+function cust_srch(tp,brand)
+{
+var cs=encodeURIComponent(document.getElementById('cs').value);
+if((!isNaN(cs) && cs.length>9) || (isNaN(cs) && cs.length>2)){
+$("#cust_src").load("get_cust_src_recv_edit.php?cs="+cs+"&tp="+tp+"&brand="+brand).fadeIn('fast');	
+}
+}
+function recallRamm()
+{
+	temp().then(
+  function(value) {}
+);
+	//await temp();
+	
 }
 </script>
 <script type="text/javascript" src="jquery.ui.core.min.js"></script>
@@ -340,7 +354,7 @@ $('#wb_Text').load("recv_add_edt.php?blno="+blno).fadeIn('fast');
 <tr>
 <td align="right" width="15%"><font color="red">*</font><b>Branch :</b></td>
 <td align="left" width="35%">
-<select name="brncd" class="form-control" size="1" id="brncd"  onchange="get_blno();gtcrvlfi();temp()" >
+<select name="brncd" class="form-control" size="1" id="brncd"  onchange="get_blno();gtcrvlfi();" >
 <?
 if($user_current_level<0)
 {
@@ -373,12 +387,13 @@ $bnm=$R['bnm'];
 <td align="left" >
 
 <input type="hidden" value="4" id="cldgr" name="cldgr"/> 
-
+<input type="text" id="cs" name="cs" style="width:95%" value="" onkeyup="cust_srch('<?php echo $tp;?>','<?php echo $brand;?>')"  placeholder="Enter 3 Digit Name / 10 Digit Mobile No.">
+<div id="cust_src">
 <select id="cid"  name="cid"   tabindex="1" class="form-control"  onchange="get_blno();temp();">
 <option value="">---Select---</option>
 <?
 if($tp=='2'){$qury=" and find_in_set(brand,'$brand')>0 ";}
-$query="select * from main_cust  WHERE sl>0 and typ='$tp' $qury order by nm";
+$query="select * from main_cust  WHERE sl>0 and typ='$tp' and sl='$cid' $qury order by nm";
 $result = mysqli_query($conn,$query);
 while ($R = mysqli_fetch_array ($result))
 {
@@ -392,6 +407,7 @@ $addr=$R['addr'];
 }
 ?>
 </select>
+</div>
 </td>
 <td align="right" ><font color="red">*</font><b>Narration :</b></td>
 <td align="left"  >

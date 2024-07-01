@@ -31,6 +31,7 @@ $blno_ref1=" and blno!='$blno_ref'";
 $T=0;
 $t1=0;
 $t2=0;
+/*
 $data= mysqli_query($conn,"SELECT sum(amm) as t1 FROM main_drcr where stat='1' and cbill='$blno'".$cid1.$brncd1.$dld.$blno_ref1);
 while ($row = mysqli_fetch_array($data))
 {
@@ -41,8 +42,13 @@ while ($row1 = mysqli_fetch_array($data1))
 {
 $t2 = round($row1['t2'],2);
 }
-$T=round($t1-$t2,2);
-$due_amm=$T;
+$T=round($t1-$t2,2);*/
+$result416 = mysqli_query($conn,"SELECT  (SUM(IF(dldgr='$sl', amm, 0)) - SUM(IF(cldgr='$sl', amm, 0))) AS amm FROM main_drcr where stat='1' and cbill='$blno'".$cid1.$brncd1.$blno_ref1)or die(mysqli_error($conn));
+while ($R16 = mysqli_fetch_array ($result416))
+{
+$T=round($R16['amm'],2);
+}
+$due_amm=round($T,2);
 ?>
 <input type="text" name="cal_dbal" id="cal_dbal" value="<?echo $T;?>" class="sc" style="background :transparent; color : red;font-weight:bold;" readonly>
 <?
@@ -74,12 +80,12 @@ else
 }
 if($prefnd==0)
 {
-if($T<0){$T=$T*(-1);}
+//if($T<0){$T=$T*(-1);}
 if($T>$ramm){$T=$ramm;}
 }
 else
 {
-    if($T<0){$T=$T*(-1);}
+   // if($T<0){$T=$T*(-1);}
 if($T>$ramm){$T=$ramm;}
 
 $damm=round($T*($prefnd/100),0);
@@ -90,10 +96,17 @@ if($due_amm<$trcv)
 {
     $T=round(($due_amm/(100+$prefnd))*100,0,0);
     $damm=round($T*($prefnd/100),0,2);
+	if($ramm>=$due_amm)
+	{
+		$T=$due_amm-$damm;
+	}
 }
 
 }
-
+if($T<0)
+{
+	$T=0;
+}
 
 
 ?>

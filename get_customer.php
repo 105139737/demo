@@ -26,10 +26,13 @@ include("membersonly.inc.php");
 </div>
 <div class="col-12">
 <br>
-<input type="button" value="Check Bill Status Clik Here And Please Wait......" class="btn btn-warning " onclick="checks('0')"><br><br>
-<input type="button" value="Restore Bill Status Clik Here And Please Wait......" class="btn btn-success" onclick="checks('1')">
+<input type="button" value="Unpaid To paid " class="btn btn-warning " onclick="checks('0')"><br><br>
+
+<input type="button" value="Paid To Unpaid" class="btn btn-warning" onclick="checks('2')">
 <br><br>
-<input type="button" value="Restore Edit Bill Status Clik Here And Please Wait......" class="btn btn-warning" onclick="checks('2')">
+<input type="button" value="All Type" class="btn btn-success" onclick="checks('1')">
+
+
 </div>
 </div>
 

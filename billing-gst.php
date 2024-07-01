@@ -444,7 +444,7 @@ function gtt_unt()
  {
 	prnm=document.getElementById('prnm').value;
 	unit_nm=document.getElementById('unit_nm').value;
-	 $("#g_unt").load("get_unt_sale.php?prnm="+prnm+"&unit_nm="+unit_nm).fadeIn('fast');
+	// $("#g_unt").load("get_unt_sale.php?prnm="+prnm+"&unit_nm="+unit_nm).fadeIn('fast');
  }
 function addspnm()
 {
@@ -675,7 +675,7 @@ var unit=document.getElementById('unit').value;
 var reffno=document.getElementById('reffno').value;
 if(document.getElementById('betno').value=='undefined' ){betno='';}	
 var betno=encodeURIComponent(document.getElementById('betno').value);
-$("#gbet").load("getbe.php?pcd="+prnm+"&brncd="+brncd+"&unit="+unit+"&betno="+betno+"&reffno="+reffno).fadeIn('fast');
+//$("#gbet").load("getbe.php?pcd="+prnm+"&brncd="+brncd+"&unit="+unit+"&betno="+betno+"&reffno="+reffno).fadeIn('fast');
 }
 
 
@@ -947,6 +947,11 @@ var scat=document.getElementById('scat1').value;
 var cat=document.getElementById('cat1').value;
 var brnd=document.getElementById('brnd').value;
 var prnm3=encodeURIComponent(document.getElementById('prnm3').value);
+if(cat=='')
+{
+	alert("Please Select Brand first ! ");
+	return;
+}
 if(prnm3.length>2){
 $("#prod_div").load("get_product_sale.php?cat="+cat+"&scat="+scat+"&psl="+psl+"&brnd="+brnd+"&prnm3="+prnm3).fadeIn('fast');
 }
@@ -956,7 +961,9 @@ function cust_srch(tp)
 var cs=encodeURIComponent(document.getElementById('cs').value);
 var brncd=document.getElementById('brncd').value;
 var brand=document.getElementById('brnd').value;
-$("#cust_src").load("get_cust_src.php?cs="+cs+"&brncd="+brncd+"&brand="+brand+"&tp="+tp).fadeIn('fast');	
+if((!isNaN(cs) && cs.length>9) || (isNaN(cs) && cs.length>2)){
+$("#cust_src").load("get_cust_src.php?cs="+cs+"&brncd="+brncd+"&brand="+brand+"&tp="+tp).fadeIn('fast');
+}	
 }
 function cust_srch1(tp)
 {
@@ -1023,7 +1030,7 @@ $('#bcd').trigger("chosen:updated");
 
   <b>Ledger Name : </b>
 
-    <input type="text" id="cs" name="cs" value="cash" onblur="cust_srch('<?php echo $tp;?>')" placeholder="Contact No/Name">
+    <input type="text" id="cs" name="cs" value="cash" onkeyup="cust_srch('<?php echo $tp;?>')" placeholder=" Enter 3 Digit Name / 10 Digit Mobile No.">
 
   <div id="cust_src">
 <select id="custnm" name="custnm" tabindex="1" class="form-control" onchange="gtid()">
@@ -1309,8 +1316,8 @@ echo "<option value='".$ssl."'>".$snm."</option>";
 	   <td  colspan="19">
 <table border="0" width="100%" class="advancedtable">
 <tr class="odd">
-<td align="left" width="20%"><b>Model : &nbsp; <input type="box" id="prnm3" onkeyup="get_prod_by_name()" name="prnm3" placeholder="Min 3 Digit Model Name "></b></td>
-<td align="left" width="7%"><b>Godown</b></td>
+<td align="left" width="15%"><b>Model : &nbsp; <input type="box" id="prnm3" onkeyup="get_prod_by_name()" name="prnm3" placeholder="Min 3 Digit Model Name "></b></td>
+<td align="left" width="12%"><b>Godown</b></td>
 <td align="center" width="11%"><b>Serial No.</b></td>
 <td align="center" hidden width="5%"><b>Unit</b></td>
 <td align="center" hidden width="4%"><b>Stock In Hand</b></td>
@@ -1387,14 +1394,21 @@ if($count==0 and $count1>0){$disabled=" disabled";}
 </td>
 
 <td hidden>
+<input type="hidden" value="12" name="usl" id="usl">
+<select id="unit" name="unit" class="sc" tabindex="14" style="padding:3px;width:100%">
+<option value="sun">PCS</option></select>
+<!--
 <div id="g_unt">
 <select id="unit" name="unit" class="sc1" style="width:100%"  tabindex="1" onchange="get_stock()">
 <option value="">---Select---</option>
-</select>
+</select>-->
 </div>
 </td>
 <td hidden>
+<select name="refno"  id="refno" class="sc1" style="width:100%" tabindex="15" tabindex="10" >
+</select>
 <div id="gbet" >
+
 <input type="text" class="sc" autocomplete="off" id="sih" readonly name="sih" style="text-align:center"  value="" tabindex="1">
 </div>
 </td>

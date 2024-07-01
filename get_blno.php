@@ -4,6 +4,7 @@ include("membersonly.inc.php");
 $sl=$_REQUEST[sl];
 $pno=$_REQUEST[pno];
 $cid=$_REQUEST[cid];
+$tp=$_REQUEST[tp];
 $brncd=$_REQUEST[brncd];if($brncd==""){$brncd1="";}else{$brncd1=" and brncd='$brncd'";}
 if($cid!="")
 {
@@ -29,16 +30,23 @@ $blano2.=" and  cbill!='$blno'";
 }
 $blano2.=")";
 ?>
-<select id="blno"  name="blno"   tabindex="2" class="form-control"  onchange="gtcrvl1()" >
+<select id="blno"  name="blno"   tabindex="2" class="form-control"  onchange="recallRamm()" >
 <!--<option value="Opening">Opening</option>-->
-<?
-$data11= mysqli_query($conn,"select * from  main_drcr where brncd='$brncd' and cid='$cid' and cbill!='' and paid='0' $blano2 group by  cbill order by dt")or die(mysqli_error($conn));
+<?php 
+if($tp==1)
+{
+?>
+<option value="">----Select----</option>
+<?php
+}
+$data11= mysqli_query($conn,"select * from  main_drcr where brncd='$brncd' and cid='$cid' and cbill!='' and paid='0' $blano2 group by  cbill order by dt,sl")or die(mysqli_error($conn));
 while ($row1 = mysqli_fetch_array($data11))
 {
 $blno=$row1['cbill'];
 $dt=$row1['dt'];
 $dt=date('d-m-Y', strtotime($dt));
 $invto="";
+$bill_no="";
 $data2= mysqli_query($conn,"select * from  main_billing where blno='$blno'")or die(mysqli_error($conn));
 while ($row2 = mysqli_fetch_array($data2))
 {
@@ -65,7 +73,7 @@ if($typ==2)
 {
 $T=0;
 $t1=0;
-$t2=0;
+$t2=0;/*
 $data= mysqli_query($conn,"SELECT sum(amm) as t1 FROM main_drcr where stat='1' and cbill='$blno'".$cid1.$brncd1.$dld);
 while ($row = mysqli_fetch_array($data))
 {
@@ -75,8 +83,14 @@ $data1= mysqli_query($conn,"SELECT sum(amm) as t2 FROM main_drcr where  stat='1'
 while ($row1 = mysqli_fetch_array($data1))
 {
 $t2 = $row1['t2'];
+}*/
+$T=0;
+$result416 = mysqli_query($conn,"SELECT  (SUM(IF(dldgr='$sl', amm, 0)) - SUM(IF(cldgr='$sl', amm, 0))) AS amm FROM main_drcr where stat='1' and cbill='$blno'".$cid1.$brncd1)or die(mysqli_error($conn));
+while ($R16 = mysqli_fetch_array ($result416))
+{
+  $T=round($R16['amm'],2);
 }
-$T=$t1-$t2;
+//$T=$t1-$t2;
 $log=1;
 }
 if($T>0)
@@ -87,7 +101,7 @@ if($T>0)
 }
 else
 {
-$qr=mysqli_query($conn,"update main_drcr set paid='1' where cbill='$blno'") or die(mysqli_error($conn));	
+//$qr=mysqli_query($conn,"update main_drcr set paid='1' where cbill='$blno'") or die(mysqli_error($conn));	
 }
 ?>
 
@@ -106,6 +120,7 @@ if($typ==2)
 $T=0;
 $t1=0;
 $t2=0;
+/*
 $data= mysqli_query($conn,"SELECT sum(amm) as t1 FROM main_drcr where stat='1' and cbill='$blno'".$cid1.$brncd1.$dld);
 while ($row = mysqli_fetch_array($data))
 {
@@ -115,8 +130,13 @@ $data1= mysqli_query($conn,"SELECT sum(amm) as t2 FROM main_drcr where  stat='1'
 while ($row1 = mysqli_fetch_array($data1))
 {
 $t2 = $row1['t2'];
+}*/
+$result416 = mysqli_query($conn,"SELECT  (SUM(IF(dldgr='$sl', amm, 0)) - SUM(IF(cldgr='$sl', amm, 0))) AS amm FROM main_drcr where stat='1' and cbill='$blno'".$cid1.$brncd1)or die(mysqli_error($conn));
+while ($R16 = mysqli_fetch_array ($result416))
+{
+  $T=round($R16['amm'],2);
 }
-$T=$t1-$t2;
+//$T=$t1-$t2;
 }
 if($T>0)
 {
@@ -126,7 +146,7 @@ if($T>0)
 }
 else
 {
-$qr=mysqli_query($conn,"update main_drcr set paid='1' where cbill='$blno'") or die(mysqli_error($conn));	
+//$qr=mysqli_query($conn,"update main_drcr set paid='1' where cbill='$blno'") or die(mysqli_error($conn));	
 }
 ?>
 

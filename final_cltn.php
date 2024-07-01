@@ -135,10 +135,13 @@ $("#tdt").datepicker(jQueryDatePicker2Opts);
 <table class="table table-hover table-striped table-bordered">
 <thead>
 <tr>
-<td width="25%;"><b>Customer:</b><br>
+<td width="25%;"><b>Customer:</b><input type="text" id="cs" name="cs" size="30" value="" onkeyup="get_cust_by_cs('cust_src',this.value,'cid','','cs')"  placeholder="Enter 3 Digit Name / 10 Digit Mobile No.">
+
+<br>
+<div id="cust_src">
 	<select id="cid" name="cid" class="form-control">
 	<option value="">--- All ---</option>
-	<?
+	<?/*
 	$get=mysqli_query($conn,"SELECT * FROM main_cust ORDER BY nm");
 	while($R=mysqli_fetch_array($get))
 	{
@@ -148,9 +151,10 @@ $("#tdt").datepicker(jQueryDatePicker2Opts);
 		?>
 		<option value="<? echo $sid;?>"><? echo $nm;?> - <? echo $cont;?></option>
 		<?
-	}
+	}*/
 	?>
 	</select>
+</div>
 </td>
 <td width="25%;"><b>Sales Person:</b><br>
 	<select name="salper" id="salper" class="form-control">

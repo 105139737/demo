@@ -365,6 +365,7 @@ lttl=(total-(disa1+ldisa1)).round(3);
 	if(document.getElementById('ain').value=='1')
 	{
 		add();
+		document.getElementById('ain').value=0;
 	}
 }
 
@@ -467,21 +468,24 @@ function add()
 	}
 	function reset()
 	{
-		document.getElementById('prnm').value='';
-		$('#prnm').trigger('chosen:updated');	
+
+		prnm=document.getElementById('prnm').value
+	   /* $("#prnm option[value='"+prnm+"']").remove(); 
+		document.getElementById('prnm').value='';*/
+		//$('#prnm').trigger('chosen:updated');	
 		//document.getElementById('unit').value='';
 		//document.getElementById('usl').value='';
-		document.getElementById('qnty').value='';
-		document.getElementById('mrp').value='';
+		document.getElementById('qnty').value=1;
+		//document.getElementById('mrp').value='';
 		document.getElementById('total').value='';
 		document.getElementById('disp').value='';
 		document.getElementById('disa').value='';
 		document.getElementById('ldis').value='';
 		document.getElementById('ldisa').value='';
 		document.getElementById('lttl').value='';
-		document.getElementById('cgst_rt').value='';
-		document.getElementById('sgst_rt').value='';
-		document.getElementById('igst_rt').value='';
+		//document.getElementById('cgst_rt').value='';
+		//document.getElementById('sgst_rt').value='';
+		//document.getElementById('igst_rt').value='';
 		document.getElementById('cgst_am').value='';
 		document.getElementById('sgst_am').value='';
 		document.getElementById('igst_am').value='';
@@ -493,6 +497,7 @@ function add()
 	document.getElementById('ain').value=0;		
 	$('#hsn_update').val('');
 	$('#hsn_upsdates').html('');
+	cal();
 	}
 	function tmppr1()
 	{
@@ -671,7 +676,21 @@ function get_prod(psl='')
 {
 var scat=document.getElementById('scat1').value;
 var cat=document.getElementById('cat1').value;
-$("#prod_div").load("get_product_pur.php?cat="+cat+"&scat="+scat+"&psl="+psl).fadeIn('fast');	
+//$("#prod_div").load("get_product_pur.php?cat="+cat+"&scat="+scat+"&psl="+psl).fadeIn('fast');	
+}
+function get_prod_by_name(psl='')
+{
+var scat=document.getElementById('scat1').value;
+var cat=document.getElementById('cat1').value;
+var prnm3=encodeURIComponent(document.getElementById('prnm3').value);
+if(cat=='')
+{
+	alert("Please Select Brand first ! ");
+	return;
+}
+if(prnm3.length>2){
+$("#prod_div").load("get_product_pur.php?cat="+cat+"&scat="+scat+"&psl="+psl+"&prnm3="+prnm3).fadeIn('fast');
+}
 }
 function hsn_upsdates()
 {
@@ -711,7 +730,7 @@ $("#hsn_upsdates").load("hsn_upsdates.php?prnm="+prnm+"&hsn_update="+hsn_update)
                 <!-- Main content -->
                 <section class="content">
                    <form method="post" name="form1" id="form1" action="purchases_gst.php">
-				   <input type="text" id="ain"  name="ain" value="0">
+				   <input type="hidden" id="ain"  name="ain" value="0">
 
          <div class="box box-success" >
   
@@ -859,14 +878,14 @@ echo "<option value='".$sl."'>".$cnm."</option>";
 <div id="scatdiv">
 <select name="scat1" class="form-control" size="1" id="scat1" tabindex="1" onchange="get_prod()">
 <Option value="">---Category---</option>
-<?
+<?/*
 $data2 = mysqli_query($conn,"Select * from main_scat where stat='0' order by nm");
 while ($row2 = mysqli_fetch_array($data2))
 {
 $ssl=$row2['sl'];
 $snm=$row2['nm'];
 echo "<option value='".$ssl."'>".$snm."</option>";
-}
+}*/
 ?>
 </select>
 </div>
@@ -884,9 +903,9 @@ echo "<option value='".$ssl."'>".$snm."</option>";
 <table border="0" width="100%" class="advancedtable">
 <tr class="odd">
 
-<td align="center" width="10%" ><b>Model</b></td>
+<td align="center" width="15%" ><b>Model: &nbsp; <input type="box" id="prnm3" onkeyup="get_prod_by_name()" name="prnm3" placeholder="Min 3 Digit Model Name "></b></td>
 <td align="center" width="10%" ><b>Godown</b></td>
-<td align="center" width="5%" ><b>Unit</b></td>
+<td align="center" width="5%" hidden ><b>Unit</b></td>
 <td align="center" width="7%" ><b>Serial No.</b></td>
 <td align="center" width="5%" ><b>Quantity</b></td>
 <td align="center" width="5%" ><b>Basic Rate</b></td>
@@ -921,6 +940,7 @@ echo "<option value='".$ssl."'>".$snm."</option>";
 <td align="left" >
 <div id="g_gwn">
 <select name="bcd" class="form-control" tabindex="10"  size="1" id="bcd" >
+<option value="">---Select---</option>
 <?
 $brncd1="";
 if ($user_current_level > 0)
@@ -942,6 +962,10 @@ $count=mysqli_num_rows($datag);
 $disabled="";
 if($count1>0){$disabled=" selected";}
 if($count==0 and $count1>0){$disabled=" disabled";}
+if ($user_current_level < 0)
+{
+	$disabled="";
+}
 ?>
 <option value="<? echo $sl;?>"<?php  echo $disabled;?>><? echo $gnm;?></option>
 <?
@@ -951,7 +975,7 @@ if($count==0 and $count1>0){$disabled=" disabled";}
 </div>
 </td>
 
-<td> 
+<td hidden> 
 <div id="g_unt">
 <select id="unit" name="unit" class="sc" tabindex="11" style="padding:3px;width:100%">
 <option value="">---Select---</option>

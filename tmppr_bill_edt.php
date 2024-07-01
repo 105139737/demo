@@ -66,14 +66,14 @@ $bnm=$rowi['bnm'];
 ?>
 
 <tr class="even">
-<td  align="left" width="11%" onclick="get_data('<?=$tsl;?>','<?=$bcd;?>','<?=$prsl;?>','<?=$betno;?>','<?=$unit;?>','<?=$refno;?>','<?=$pcs;?>','<?=$prc;?>','<?=$total;?>','<?=$disp;?>','<?=$disa;?>','<?=$ttl;?>','<?=$cgst_rt;?>','<?=$cgst_am;?>','<?=$sgst_rt;?>','<?=$sgst_am;?>','<?=$igst_rt;?>','<?=$igst_am;?>','<?=$net_am;?>','<?=$cat;?>','<?=$scat;?>','<?=$pnm;?>')" style="cursor:pointer;" title="Click Here To Edit" >
+<td  align="left" width="15%" onclick="get_data('<?=$tsl;?>','<?=$bcd;?>','<?=$prsl;?>','<?=$betno;?>','<?=$unit;?>','<?=$refno;?>','<?=$pcs;?>','<?=$prc;?>','<?=$total;?>','<?=$disp;?>','<?=$disa;?>','<?=$ttl;?>','<?=$cgst_rt;?>','<?=$cgst_am;?>','<?=$sgst_rt;?>','<?=$sgst_am;?>','<?=$igst_rt;?>','<?=$igst_am;?>','<?=$net_am;?>','<?=$cat;?>','<?=$scat;?>','<?=$pnm;?>')" style="cursor:pointer;" title="Click Here To Edit" >
 <b><?=$pnm;?></b>
 </td>
-<td  align="left" width="6%"><b><?=$gnm;?></b></td>
+<td  align="left" width="11%"><b><?=$gnm;?></b></td>
 <td align="left" width="10%"><b></b><?=$betno;?></td>
 
-<td  align="center" width="5%"><b><?=$unit_nm;?></b></td>
-<td align="center" width="6%"><b></b><?=$refno;?></td>
+<td  align="center" hidden width="5%"><b><?=$unit_nm;?></b></td>
+<td align="center" hidden width="6%"><b></b><?=$refno;?></td>
 <td align="center" width="3%" ><b><?=$pcs;?></b></td>
 <td align="right" width="4%" ><b><?=round($prc,2);?></b></td>
 

@@ -442,4 +442,15 @@ $(document).ready(function()
     $('#cnt').html('');
     });
 });
+function get_cust_by_cs(div,cs,id,fn,searchid,query='',efn='')
+{
+var cs=encodeURIComponent(cs);
+var id=encodeURIComponent(id);
+var fn=encodeURIComponent(fn);
+var query=encodeURIComponent(query);
+var efn=encodeURIComponent(efn);
+if((!isNaN(cs) && cs.length>9) || (isNaN(cs) && cs.length>2)){
+$("#"+div).load("get_cust_by_cs.php?cs="+cs+"&id="+id+"&fn="+fn+"&searchid="+searchid+"&query="+query+"&efn="+efn).fadeIn('fast');
+}
+}
 </script>

@@ -76,6 +76,6 @@ $blno_ref=$R100['app_ref'];
 document.getElementById('ramm').value='<?=$ramm;?>';
 
 //document.getElementById('blno_ref').value="<?=$blno_ref;?>";
-get_blno();
+//get_blno();
 </script>
 

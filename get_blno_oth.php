@@ -7,6 +7,7 @@ $pno=$_REQUEST[pno];
 $cid=$_REQUEST[cid];
 $dldgr=$_REQUEST[dldgr];
 $nb=$_REQUEST[nb];
+$tp=$_REQUEST[tp];
 $brncd=$_REQUEST[brncd];if($brncd==""){$brncd1="";}else{$brncd1=" and brncd='$brncd'";}
 if($cid!="")
 {
@@ -31,8 +32,15 @@ $blano2.=" and  cbill!='$blno'";
 }
 $blano2.=")";
 ?>
-<select id="blno"  name="blno"   tabindex="1" class="sc1" style="width:98%;" onchange="gtcrvl1();get_refam()">
-<?
+<select id="blno"  name="blno"   tabindex="1" class="sc1" style="width:98%;" onchange="recallRamm();">
+<?php 
+if($tp==1)
+{
+?>
+<option value="">----Select----</option>
+<?php
+}
+
 $data11= mysqli_query($conn,"select * from  main_drcr where brncd='$brncd' and cid='$cid' and paid='0' and retn_stat!='1' and dldgr='4' $blano2 group by  cbill order by dt,sl  ")or die(mysqli_error($conn));
 while ($row1 = mysqli_fetch_array($data11))
 {
@@ -100,11 +108,6 @@ if($dldgr!=7)
   no_results_text: "Oops, nothing found!",
   
   });
-  <?php if($brncd==1){?>
- get_refam();	
-<?php }else
-{
-?>
-  gtcrvl1();
-<?php }?>
+recallRamm();
+
 </script>

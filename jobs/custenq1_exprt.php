@@ -56,6 +56,7 @@ if($qury!=""){$qury.=")";}
 <td width="7%" align="center"><span style="color:#000000;font-family:Arial;font-size:15px;"><strong>Sl.</strong></span></td>
 <td width="5%" align="center"><span style="color:#000000;font-family:Arial;font-size:13px;"><strong>Branch</strong></span></td>
 <td width="33%" align="center"><span style="color:#000000;font-family:Arial;font-size:15px;"><strong>Customer</strong></span></td>
+<td width="33%" align="center"><span style="color:#000000;font-family:Arial;font-size:15px;"><strong>GSTIN</strong></span></td>
 
 <td width="10%" align="center"><span style="color:#000000;font-family:Arial;font-size:15px;"><strong>Due</strong></span></td>
 <td width="10%" align="center"><span style="color:#000000;font-family:Arial;font-size:15px;"><strong>Advance</strong></span></td>
@@ -93,6 +94,7 @@ $snm=$R['nm'];
 $nm=$R['nm'];
 $adr=$R['addr'];
 $mob1=$R['cont'];
+$gstin=$R['gstin'];
 $query11="select SUM(IF(dldgr='4', amm, 0))- SUM(IF(cldgr='4', amm, 0)) as pcrdt,cid,brncd,sid from ".$DBprefix."drcr where (cldgr='4' or dldgr='4') ".$qry." and cid='$a' and (dt between '2000-01-01' and '$tdt')".$brncd1;
 $result11 = mysqli_query($conn,$query11);
 while ($R11 = mysqli_fetch_array ($result11))
@@ -160,6 +162,9 @@ $i++;
 <td align="left"><span style="color:#000000;font-family:Arial;font-size:15px;">
 <? echo $snm;?>
 </span></td>
+<td align="left"><span style="color:#000000;font-family:Arial;font-size:15px;">
+<? echo $gstin;?>
+</span></td>
 
 <td align="right"><span style="color:#000000;font-family:Arial;font-size:15px;"><? echo number_format($due,2);?></span></td>
 <td align="right"><span style="color:#000000;font-family:Arial;font-size:15px;"><? echo number_format($adv,2);?></span></td>
@@ -172,6 +177,7 @@ $i++;
 
 ?>
 <tr>
+<td ><span style="color:#000000;font-family:Arial;font-size:15px;"></span></td>
 <td ><span style="color:#000000;font-family:Arial;font-size:15px;"></span></td>
 <td ><span style="color:#000000;font-family:Arial;font-size:15px;"></span></td>
 <td ><span style="color:#000000;font-family:Arial;font-size:15px;"></span></td>

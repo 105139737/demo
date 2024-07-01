@@ -499,7 +499,7 @@ $blno1="RC".$vnoc1;
 $query51="select * from main_recv where blno='$blno1'";
 $result51 = mysqli_query($conn,$query51) or die(mysqli_error($conn));
 $count66=mysqli_num_rows($result51);
-}	
+}
 if($pamm>0)	
 {
 $query21 = "INSERT INTO ".$DBprefix."drcr (vno,cbill,cid,dt,nrtn,idt,mtd,mtddtl,dldgr,cldgr,amm,brncd,eby,edtm,typ,pay,sman,btyp,als,ssn,bill_typ,blnon,blno) VALUES 
@@ -532,7 +532,13 @@ $query21 = "INSERT INTO main_recv_dtl_app(ref,blno,amm,sman,cid,eby,brncd,disl,d
 VALUES ('$blno1','$blno','$pamm','$sale_per','$custnm','$user_currently_loged','$brncd','$disl','$damm','$remk')";
 $result21 = mysqli_query($conn,$query21)or die(mysqli_error($conn));	
 mysqli_query($conn,"UPDATE main_billing SET blno1='$blno1',blnon='$blnon' WHERE blno='$blno'");
+
+if(round($pamm+$damm)==round($bilamm)){
+	$qr=mysqli_query($conn,"update main_drcr set paid='1' where cbill='$blno'") or die(mysqli_error($conn));
 }
+
+}
+
 
 $ppdis=0;
 $query100 = "SELECT * FROM ".$DBprefix."slt where eby='$user_currently_loged' and bill_typ='$bill_typ' order by sl";

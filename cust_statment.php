@@ -193,9 +193,9 @@ var options = {
     getValue: "name",
 
     template: {
-        type: "description",
+       // type: "description",
         fields: {
-            description: "manufacturer"
+          //  description: "manufacturer"
         }
     },
 

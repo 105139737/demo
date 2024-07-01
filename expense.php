@@ -142,7 +142,7 @@ $(document).ready(function()
 	var exp_ledgr= document.getElementById('exp_ledgr').value;
 		if(exp_ledgr!=""){brncd="";}
 		$('#crbl').load('jrnl_form_gtdrvlfi.php?sl='+sl+'&pno='+proj+'&brncd='+brncd).fadeIn('fast');
-		sh();
+	
 		}
 
 function sh()

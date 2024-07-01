@@ -43,6 +43,7 @@ include("SimpleImage.php");
 	$sup = $_POST['sup'];
 	$cust1 = $_POST['cust1'];
 	$sup1 = $_POST['sup1'];
+	$pcat = $_POST['cat'];
 	
 	$val=date_chk($dt);
 	if($val==0)
@@ -218,7 +219,7 @@ $dt=date('d-M-Y',strtotime($dt));
 ?>
 <script language="javascript">
 alert('Added Successfully. Thank You.');
-document.location = "<?=$flnm;?>?bsl=<?php echo $bsl;?>&dt=<?php echo $dt;?>&dldgr=<?php echo $dldgr;?>&dt=<?php echo $dt_return;?>";
+document.location = "<?=$flnm;?>?bsl=<?php echo $bsl;?>&dt=<?php echo $dt;?>&dldgr=<?php echo $dldgr;?>&dt=<?php echo $dt_return;?>&pcat=<?php echo $pcat;?>";
 </script>
 <? } else {?>
 
