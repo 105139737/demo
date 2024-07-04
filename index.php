@@ -5,7 +5,7 @@ include("membersonly.inc.php");
 include "header.php";
 ?>
 
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<!-- AdminLTE dashboard demo (This is only for demo purposes) new -->
 <script src="js/AdminLTE/dashboard.js" type="text/javascript"></script>
 <div class="wrapper row-offcanvas row-offcanvas-left">
     <?php
