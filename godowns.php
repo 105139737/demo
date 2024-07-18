@@ -9,6 +9,8 @@ $sl=$_POST['sl'];
 $bnm=$_POST['bnm'];
 $gnm=$_POST['gnm'];
 $addr=$_POST['addr'];
+$dist=$_POST['dist'];
+$pin=$_POST['pin'];
 if($gnm=="")
 {
 	?>
@@ -27,7 +29,7 @@ else
 	$drcnt=mysqli_num_rows($dsql);
 	if($drcnt==0)
 	{
-			$sql=mysqli_query($conn,"insert into main_godown(gnm,addr) values('$gnm','$addr')") or die (mysqli_error($conn));
+			$sql=mysqli_query($conn,"insert into main_godown(gnm,addr,dist,pin) values('$gnm','$addr','$dist','$pin')") or die (mysqli_error($conn));
 	
 			?>
 			<script>
@@ -52,7 +54,7 @@ else
 	$drcnt=mysqli_num_rows($dsql);
 	if($drcnt==0)
 	{
-	$sql=mysqli_query($conn,"update main_godown set gnm='$gnm',addr='$addr' where sl='$sl'") or die (mysqli_error($conn));
+	$sql=mysqli_query($conn,"update main_godown set gnm='$gnm',addr='$addr',dist='$dist',pin='$pin' where sl='$sl'") or die (mysqli_error($conn));
 
 			?>
 			<script>

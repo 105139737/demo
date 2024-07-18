@@ -92,10 +92,25 @@ $('#data8').load('sale_dlt.php?blno='+blno).fadeIn('fast');
 
 
 
-function get_scat(brnd)  
+// function get_scat(brnd)  
+// {
+// $("#catdiv").load("get_sub_cat.php?cat="+brnd).fadeIn('fast');
+// }
+
+function get_cat()
 {
-$("#catdiv").load("get_sub_cat.php?cat="+brnd).fadeIn('fast');
+var cat= document.getElementById('cat').value;
+$('#gcat').load('get_cat_pur.php?cat='+cat).fadeIn('fast');
 }
+
+function get_prod()
+{
+var scat=document.getElementById('scat').value;
+var cat=document.getElementById('cat').value;
+$("#prod_div").load("get_product_stk.php?scat="+scat+"&cat="+cat).fadeIn('fast');	
+}
+
+
 function get_igst()  
 {
 scat=document.getElementById('scat').value;
@@ -148,7 +163,9 @@ $(".valchal").datepicker(jQueryDatePicker2Opts);
 <script type="text/javascript" src="jquery.ui.widget.min.js"></script>
 <script type="text/javascript" src="jquery.ui.datepicker.min.js"></script>
 
-
+<script type="text/javascript" src="js/datalist/jquery.easy-autocomplete.js"></script>
+<link rel="stylesheet" href="js/datalist/easy-autocomplete.css" title="style-orange">
+<link rel="stylesheet" href="js/datalist/easy-autocomplete.themes.css" title="style-orange">
 	</head>
  <body>
             <!-- Right side column. Contains the navbar and content of the page -->
@@ -178,22 +195,8 @@ $(".valchal").datepicker(jQueryDatePicker2Opts);
 <input type="text" id="tdt" name="tdt" size="13" value="<?echo $sa;?>" class="form-control" placeholder="Please Enter To Date">
 </td>
 <td align="left"  width="25%" ><b>Customer:</b><br>
-<select name="snm" class="form-control"  id="snm">
-<option value="">---All---</option>
-<?
-$query="Select * from  main_cust order by nm";
-   $result = mysqli_query($conn,$query);
-while ($R = mysqli_fetch_array ($result))
-{
-$sid=$R['sl'];
-$nm=$R['nm'];
-$cont=$R['cont'];
-?>
-<option value="<? echo $sid;?>"><? echo $nm;?> - <? echo $cont;?></option>
-<?
-}
-?>
-</select>
+<input class="form-control" type="text" name="cust_nm" autocomplete="off" id="cust_nm" size="40" onkeyup="if(this.value==''){$('#snm').val('');}" onfocus="this.select()">
+<input type="hidden" id="snm" name="snm">
 </td>
 <td align="left" width="25%" ><b>Branch:</b><br>
 <select name="brncd" class="form-control" size="1" id="brncd"   >
@@ -227,7 +230,7 @@ $bnm=$R['bnm'];
 <tr>
 
 	<td  align="left" ><font color="red">*</font><b>Brand :</b>
-	<select name="cat" class="form-control" size="1" id="cat" tabindex="8" onchange="get_scat(this.value)" required >
+	<select name="cat" class="form-control" size="1" id="cat" tabindex="8" onchange="get_cat()" required >
 	<Option value="">---Select---</option>
 	<?
 	$data1 = mysqli_query($conn,"Select * from main_catg order by cnm");
@@ -242,28 +245,27 @@ $bnm=$R['bnm'];
 	</td>
        
 	<td  align="left" ><b>Category :</b>
-	<div id="catdiv">
-	<select name="scat" class="form-control" size="1" id="scat" tabindex="8" onchange="get_igst()">
-	<Option value="">---Select---</option>
-	<?
-	$data1=mysqli_query($conn,"Select * from main_scat order by nm");
-	while($row1=mysqli_fetch_array($data1))
-	{
-		$sc_sl=$row1['sl'];
-		$sc_nm=$row1['nm'];
-		?>
-		<Option value="<?=$sc_sl;?>"><?=$sc_nm;?></option>
-		<?
-	}
-	?>
-	</select>
-	</div>
+	<div id="gcat">
+<select name="scat" class="form-control" size="1" id="scat" tabindex="8" onchange="get_prod()">
+<Option value="">---All---</option>
+<?/*
+$data1 = mysqli_query($conn,"Select * from main_scat order by nm");
+while ($row1 = mysqli_fetch_array($data1))
+{
+$sl=$row1['sl'];
+$cnm=$row1['nm'];
+echo "<option value='".$sl."'>".$cnm."</option>";
+}*/
+?>
+</select>
+</div>
 	</td>
 
 <td align="left"><b>Model:</b><br>
+<div id="prod_div">
 <select id="prnm" name="prnm" style="width:100%" class="form-control">
 <option value="">---Select---</option>
-<?
+<?/*
 $data1 = mysqli_query($conn,"Select * from main_product where typ='0' order by pnm");
 while ($row1 = mysqli_fetch_array($data1))
 	{
@@ -272,8 +274,9 @@ while ($row1 = mysqli_fetch_array($data1))
 	$pcd=$row1['pcd'];
 ?>
 <Option value="<?=$sl;?>"><?=reformat($pcd." ".$pnm);?></option>
-<?}?>
+<?}*/?>
 </select>
+</div>
 </td>
 <td  align="left">
 <b>Customer Type :</b>
@@ -381,7 +384,7 @@ $spnm=$rwss['nm'];
 
 	
 $('#pnm').chosen({no_results_text: "Oops, nothing found!",});
-$('#snm').chosen({no_results_text: "Oops, nothing found!",});
+//$('#snm').chosen({no_results_text: "Oops, nothing found!",});
 $('#cat').chosen({no_results_text: "Oops, nothing found!",});
 $('#bnm').chosen({no_results_text: "Oops, nothing found!",});
 $('#prnm').chosen({no_results_text: "Oops, nothing found!",});
@@ -393,6 +396,34 @@ var cat= document.getElementById('cat').value;
 var bnm= document.getElementById('bnm').value;
 $('#vv').load('get_v.php?cat='+cat+'&bnm='+bnm).fadeIn('fast');
 }
+
+var options = {
+    url: function(phrase) { 
+        if (phrase !== "") {
+			return "get_med_data.php?mnm="+encodeURIComponent(phrase);
+		}
+	},
+
+    getValue: "name",
+
+    template: {
+       // type: "description",
+        fields: {
+          //  description: "manufacturer"
+        }
+    },
+
+list: {
+onSelectItemEvent: function() {
+var value = $("#cust_nm").getSelectedItemData().id; //get the id associated with the selected value
+$("#snm").val(value).trigger("change"); //copy it to the hidden field
+}
+      
+},   
+};
+
+$("#cust_nm").easyAutocomplete(options);
+
 </script>
     </body>
 </html>

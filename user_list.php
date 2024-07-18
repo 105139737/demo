@@ -7,7 +7,7 @@ date_default_timezone_set('Asia/Kolkata');
 $dt = date('d-M-Y');
 
 $cy=date('Y');
-$all=rawurldecode($_REQUEST[all]);
+$all=rawurldecode($_REQUEST['all']);
 $actnum=$_REQUEST['actnum'];
 $logstat=$_REQUEST['logstat'];
 $userlevel=$_REQUEST['userlevel'];
@@ -56,10 +56,10 @@ $all1="";
 }
 
 
-$pno=rawurldecode($_REQUEST[pno]);
+$pno=rawurldecode($_REQUEST['pno']);
 
 //echo $src;
-$ps=rawurldecode($_REQUEST[ps]);
+$ps=rawurldecode($_REQUEST['ps']);
 if($ps=="")
 {
 $ps=10;
@@ -92,6 +92,8 @@ $start=($pno-1)*$ps;
 	    <th >Purch Edit</font></th>
 	    <th >CN Ent</font></th>
 	    <th >CN Edit</font></th>
+	    <th >Contra</font></th>
+	    <th >Expense</font></th>
       <th >SaleReport</font></th>
 
 	    
@@ -136,6 +138,8 @@ $pur_ent=$row['pur_ent'];
 $pur_edt=$row['pur_edt'];
 $ccn_ent=$row['ccn_ent'];
 $ccn_edt=$row['ccn_edt'];
+$contra=$row['contra'];
+$exp=$row['exp'];
 $salereport=$row['salereport'];
 $logstat=$row['logstat'];
 $lastpage=$row['lastpage'];
@@ -192,6 +196,8 @@ $query4 = "SELECT * FROM main_deg where lvl='$userlevel'";
 <td align="center"><input type="text" size="1" name="bill_ent<?=$x?>" id="bill_ent<?=$x?>" onblur="days_udt(this.value,'pur_edt','<?=$x?>')" value="<?echo $pur_edt;?>"></td>
 <td align="center"><input type="text" size="1" name="bill_ent<?=$x?>" id="bill_ent<?=$x?>" onblur="days_udt(this.value,'ccn_ent','<?=$x?>')" value="<?echo $ccn_ent;?>"></td>
 <td align="center"><input type="text" size="1" name="bill_ent<?=$x?>" id="bill_ent<?=$x?>" onblur="days_udt(this.value,'ccn_edt','<?=$x?>')" value="<?echo $ccn_edt;?>"></td>
+<td align="center"><input type="text" size="1" name="bill_ent<?=$x?>" id="bill_ent<?=$x?>" onblur="days_udt(this.value,'contra','<?=$x?>')" value="<?echo $contra;?>"></td>
+<td align="center"><input type="text" size="1" name="bill_ent<?=$x?>" id="bill_ent<?=$x?>" onblur="days_udt(this.value,'exp','<?=$x?>')" value="<?echo $exp;?>"></td>
 <td align="center"><input type="text" size="1" name="bill_ent<?=$x?>" id="bill_ent<?=$x?>" onblur="days_udt(this.value,'salereport','<?=$x?>')" value="<?echo $salereport;?>"></td>
 			<td align="center"><? echo $name;?></td>
 			<td align="center"><? echo $addr;?></td>

@@ -106,7 +106,11 @@ function edit(blno)
 window.open('trnsfer_edt.php?blno='+blno,'_blank');
 }
 
-	
+function update_vno(val,sl)
+{
+$('#vvno').load('update_vno_trn.php?val='+val+'&sl='+sl).fadeIn("fast");
+
+}	
 	
 
     </script>
@@ -155,6 +159,7 @@ window.open('trnsfer_edt.php?blno='+blno,'_blank');
 
 
   <center>
+        <div id="vvno" ></div>
         <div class="box box-success" >
  <table width="100%" class="table table-hover table-striped table-bordered"  >
 		

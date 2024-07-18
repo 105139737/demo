@@ -96,6 +96,10 @@ include("SimpleImage.php");
 	if($flnm=='expense.php')
 	{
 	$typ='44';
+	$edit_count = get_permission($dt, $exp_edt);
+	if ($edit_count == 0) {
+		die('<b><center><font color="red" size="5">Please Check Your Input Date, Contact Administrator. Please Go Back Previous Page....</font></center></b>');
+	}
 	//$flnm="bill_typ_acc.php";
 	}
 	if($flnm=='recv_reg.php')
@@ -118,6 +122,10 @@ include("SimpleImage.php");
 	{
 	$typ='3';
 	//$flnm="contra.php?brncd=$brncd";
+	$edit_count = get_permission($dt, $contra);
+	if ($edit_count == 0) {
+		die('<b><center><font color="red" size="5">Please Check Your Input Date, Contact Administrator. Please Go Back Previous Page....</font></center></b>');
+	}
 	}
 	if($flnm=='cust_credit_note.php')
 	{

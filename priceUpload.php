@@ -79,13 +79,13 @@ $saa="01-".date('m-Y');
 
     function get_scat() {
         var cat = document.getElementById('cat').value;
-        $("#catdiv").load("getscat_psw.php?cat=" + cat).fadeIn('fast');
+       // $("#catdiv").load("getscat_psw.php?cat=" + cat).fadeIn('fast');
     }
 
     function get_model() {
         var cat = document.getElementById('cat').value;
         var scat = document.getElementById('scat').value;
-        $("#moddiv").load("getmodel_psw.php?cat=" + cat + "&scat=" + scat).fadeIn('fast');
+       // $("#moddiv").load("getmodel_psw.php?cat=" + cat + "&scat=" + scat).fadeIn('fast');
     }
     </script>
     <script type="text/javascript" src="jquery.ui.core.min.js"></script>
@@ -179,15 +179,7 @@ $gnm=$R['gnm'];
                                         <select id="cat" name="cat" style="width:100%" class="form-control"
                                             onchange="get_scat()">
                                             <option value="">---All---</option>
-                                            <?
-$data12 = mysqli_query($conn,"Select * from main_catg order by sl");
-while ($row12 = mysqli_fetch_array($data12))
-	{
-	$sl=$row12['sl'];
-	$cnm=$row12['cnm'];
-?>
-                                            <Option value="<?=$sl;?>"><?=$cnm;?></option>
-                                            <?}?>
+           
                                         </select>
                                     </td>
                                     <td>
@@ -195,19 +187,7 @@ while ($row12 = mysqli_fetch_array($data12))
                                         <div id="catdiv">
                                             <select name="scat" id="scat" class="form-control" onchange="get_model()">
                                                 <option value="">---All---</option>
-                                                <?
-$get=mysqli_query($conn,"Select * from main_scat where cat='$cat' order by sl");
-while($row=mysqli_fetch_array($get))
-{
-	$sc_sl=$row['sl'];
-	$sc_nm=$row['nm'];
-	?>
-                                                <option value="<?echo $sc_sl;?>">
-                                                    <?echo $sc_nm;?>
-                                                </option>
-                                                <?
-}
-?>
+
                                             </select>
                                         </div>
                                     </td>
@@ -216,16 +196,7 @@ while($row=mysqli_fetch_array($get))
                                         <div id="moddiv">
                                             <select id="prnm" name="prnm" style="width:100%" class="form-control">
                                                 <option value="">---All---</option>
-                                                <?
-$data1 = mysqli_query($conn,"Select * from main_product where typ='0' order by sl");
-while ($row1 = mysqli_fetch_array($data1))
-	{
-	$sl=$row1['sl'];
-	$pnm=$row1['pnm'];
-	$pcd=$row1['pcd'];
-?>
-                                                <Option value="<?=$sl;?>"><?=reformat($pcd . " " . $pnm);?></option>
-                                                <?}?>
+
                                             </select>
                                         </div>
                                     </td>

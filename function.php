@@ -112,7 +112,30 @@ function get_branch_name_($current_branch_code){
 	 $current_branch_name=$rw1111['bnm'];
  
  }  
- return $current_branch_name; 
- }
- 
+ return $current_branch_name;
+}
+function get_avg_rate($conn, $pcd, $tdt)
+{
+
+	$query4 = "Select * from main_purchasedet where prsl='$pcd' and  dt<='$tdt'  order by sl desc limit 1";
+	$result4 = mysqli_query($conn, $query4);
+	while ($R4 = mysqli_fetch_array($result4)) {
+		$fsl = $R4['sl'];
+	}
+
+	$query4 = "Select * from main_purchasedet where prsl='$pcd' and  dt<='$tdt'  order by sl desc  limit 2";
+	$result4 = mysqli_query($conn, $query4);
+	while ($R4 = mysqli_fetch_array($result4)) {
+		$lsl = $R4['sl'];
+	}
+	$close_rt = 0;
+
+
+	$query4 = "Select sum(amm)/sum(qty) as stck1 from main_purchasedet where prsl='$pcd' and  dt<='$tdt' and sl between '$lsl' and '$fsl' order by sl";
+	$result4 = mysqli_query($conn, $query4);
+	while ($R4 = mysqli_fetch_array($result4)) {
+		$close_rt = round($R4['stck1'], 2);
+	}
+	return $close_rt;
+}
 ?>

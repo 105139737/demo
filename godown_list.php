@@ -16,6 +16,8 @@ if($total!=0)
 <th style="text-align:center;">Sl No</th>
 <th style="text-align:center;">Godown</th>
 <th style="text-align:center;">Address</th>
+<th style="text-align:center;">District</th>
+<th style="text-align:center;">Pin</th>
 <th style="text-align:center;">Action</th>
 </tr>
 <?
@@ -29,6 +31,8 @@ while($row=mysqli_fetch_array($get))
 	$bnm=$row['bnm'];
 	$gnm=$row['gnm'];
 	$addr=$row['addr'];
+	$dist=$row['dist'];
+	$pin=$row['pin'];
 	
 	/*	$getbrnd=mysqli_query($conn,"select * from main_branch where sl='$bnm'") or die(mysqli_error($conn));
 		while($brndar=mysqli_fetch_array($getbrnd))
@@ -40,6 +44,8 @@ while($row=mysqli_fetch_array($get))
 <td style="text-align:center;"><?=$cnt;?></td>
 <td style="text-align:left;"><?=$gnm;?></td>
 <td style="text-align:left;"><?=$addr;?></td>
+<td style="text-align:left;"><?=$dist;?></td>
+<td style="text-align:left;"><?=$pin;?></td>
 <td style="text-align:center;">
 <a href="godown_edit.php?sl=<?=$ssl;?>&gsl=<?=$gsl;?>" title="Click to Update"><i class="fa fa-pencil-square-o"></i></a>
 </td>

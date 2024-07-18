@@ -2,8 +2,9 @@
 $reqlevel = 3;
 include("membersonly.inc.php");
 $prnm=$_REQUEST['prnm'];
+$blno=$_REQUEST['blno'];
 $fbcd="";
-$query100 = "SELECT * FROM ".$DBprefix."trntemp where eby='$user_currently_loged' order by sl";
+$query100 = "SELECT * FROM main_trndtl where blno='$blno' order by sl";
 $result100 = mysqli_query($conn,$query100);
 while ($R100 = mysqli_fetch_array ($result100))
 {
@@ -18,7 +19,7 @@ if($fbcd==""){
 <?php
 }
 //if($fbcd!=""){$fbcdq=" and sl='$fbcd'";}
-$geti=mysqli_query($conn,"select * from main_godown where stat=1  order by gnm") or die(mysqli_error($conn));
+$geti=mysqli_query($conn,"select * from main_godown where stat=1 order by gnm") or die(mysqli_error($conn));
 while($rowi=mysqli_fetch_array($geti))
 {
 $sl=$rowi['sl'];
@@ -30,14 +31,14 @@ $result4 = mysqli_query($conn,$query4);
 while ($R4 = mysqli_fetch_array ($result4))
 {
 $stck=$R4['stck1'];
-}
-$stat="";
+}	
 if($stck==''){$stck=0;}
+$stat="";
 if(!empty($fbcd)){
 
-    if($fbcd!=$sl){
-        $stat="disabled";
-    }
+if($fbcd!=$sl){
+    $stat="disabled";
+}
 }
 ?>
 <option value="<? echo $sl;?>" <?php echo $stat;?>><? echo $gnm;?>  (Stock : <?=$stck;?> )</option>

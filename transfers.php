@@ -5,15 +5,15 @@ include "header.php";
 date_default_timezone_set('Asia/Kolkata');
 $fbcd=$_REQUEST['fbcd'];
 $tbcd=$_REQUEST['tbcd'];
+$transDistance=$_REQUEST['transDistance'];
 
 $dt=date('Y-m-d');
 $edtm=date('d-m-Y H:i:s a');
 
-if($fbcd=="" or $tbcd=="")
+if($fbcd=="" or $tbcd=="" or $transDistance=="")
 {
     $err="Please Fill All Fields..!!";
 }
-
 
 $query1 = "SELECT sum(qty) as gttl FROM ".$DBprefix."trntemp where eby='$user_currently_loged'";
 $result1 = mysqli_query($conn,$query1);
@@ -21,13 +21,18 @@ while ($R1 = mysqli_fetch_array ($result1))
 {
 $gttl=$R1['gttl'];
 }
-
 if($gttl==0)
 {
     $err="Please Add Some Product First..!!";
 }
 
-
+$query1 = "SELECT * FROM ".$DBprefix."trntemp where eby='$user_currently_loged' group by fbcd";
+$result1 = mysqli_query($conn,$query1);
+$count=mysqli_num_rows($result1);
+if($count>1)
+{
+    $err="From Godown cannot be different ";
+}
 
 $m=date('m');
 $y=date('y');
@@ -56,7 +61,7 @@ $query6="select * from ".$DBprefix."trns where blno='$blno'";
 $result5 = mysqli_query($conn,$query6);
 $count5=mysqli_num_rows($result5);
 }
-$query211 = "INSERT INTO main_trns (blno,fbcd,tbcd,edt,dt,eby,edtm) VALUES ('$blno','$fbcd','$tbcd','$dt','$dt','$user_currently_loged','$edtm')";
+$query211 = "INSERT INTO main_trns (blno,fbcd,tbcd,edt,dt,eby,edtm,transDistance) VALUES ('$blno','$fbcd','$tbcd','$dt','$dt','$user_currently_loged','$edtm','$transDistance')";
 $result211 = mysqli_query($conn,$query211)or die (mysqli_error($conn)); 
 
 

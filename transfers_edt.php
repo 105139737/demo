@@ -1,20 +1,16 @@
 <?php
 
-/**
- * @author Onnet Solution
- * @copyright 2013
- */
-
 $reqlevel = 1;
 include("membersonly.inc.php");
 include("Numbers/Words.php");
 include "header.php";
 date_default_timezone_set('Asia/Kolkata');
 
-$fbcd=$_REQUEST[fbcd];
-$tbcd=$_REQUEST[tbcd];
-$blno=$_REQUEST[blno];
-$dt=$_REQUEST[dt];
+$fbcd=$_REQUEST['fbcd'];
+$tbcd=$_REQUEST['tbcd'];
+$blno=$_REQUEST['blno'];
+$dt=$_REQUEST['dt'];
+$transDistance=$_REQUEST['transDistance'];
 
 $edtm=date('d-m-Y H:i:s a');
 
@@ -26,7 +22,7 @@ if($err=="")
 {
 
 
-$query211 = "Update main_trns set tbcd='$tbcd' where blno='$blno'";
+$query211 = "Update main_trns set tbcd='$tbcd',transDistance='$transDistance' where blno='$blno'";
 $result211 = mysqli_query($conn,$query211)or die (mysqli_error($conn)); 
 
 

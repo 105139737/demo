@@ -54,8 +54,8 @@ $start=($pno-1)*$ps;
 
 <table width="100%" class="table table-hover table-striped table-bordered" >
 <tr>
+<td align="center" width="15%">E-WayBill</td>
 <td align="center">Trn. No.</td>
-
 <td align="center">To Godown</td>
 <td align="center">Date</td>
 <td align="center">Action</td>
@@ -73,12 +73,16 @@ $rcntttl=mysqli_num_rows($datatt);
 $rcnt=mysqli_num_rows($datar);
 while ($row = mysqli_fetch_array($data))
 {
+$blno_sl=$row['sl'];
 $fbcd=$row['fbcd'];
 $tbcd=$row['tbcd'];
 $dt=$row['dt'];
 $blno=$row['blno'];
 $stat=$row['stat'];
-
+$vno=$row['vno'];
+$colorStatus=$row['colorStatus'];
+$backg="";
+if($colorStatus==1){$backg="#ffff00";}
 
 $query="Select * from main_godown where sl='$fbcd'";
 $result = mysqli_query($conn,$query);
@@ -96,11 +100,16 @@ $tgnm=$Ru['gnm'];
 }
 $sl++; 
 ?>
-	<tr>
-	<td align="center">
-	<b><a href="bill_new_trn.php?blno=<?=rawurlencode($blno);?>" target="_blank"><font color="red"><u><?=$blno; ?></u></font></a></b></font>
-	</td>
+	<tr id="trid<?php echo $blno_sl;?>" style="background-color:<?php echo $backg;?>">
+  <td align="center">
+	<input onclick="window.open('einv_json_trn.php?blno=<?=$blno;?>','_blank'); document.getElementById('trid<?php echo $blno_sl;?>').style.backgroundColor='#ffff00';" type="button" class="btn btn-info btn-xs bg-blue" id="button2" name="" value="E-WayBill Export"  >
 	
+</td>
+	<td align="center">
+  <input type="text" id="vno" name="vno" value="<?php echo $vno;?>" placeholder="Vehicle Number" onblur="update_vno(this.value,'<?php echo $blno_sl;?>')"><br>
+	<b><a href="bill_new_trn.php?blno=<?=rawurlencode($blno);?>" target="_blank"><font color="red"><u><?=$blno; ?></u></font></a></b></font>
+	
+</td>	
 	<td align="center"><?=$tgnm;?></td>
 	<td align="center"><?=$dt; ?></td>
 	<td align="center">

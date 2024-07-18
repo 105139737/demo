@@ -3,10 +3,10 @@ $reqlevel = 3;
 include("membersonly.inc.php");
 include "function.php";
 
-$cat=$_REQUEST[cat];
-$scat=$_REQUEST[scat];
-$psl=$_REQUEST[psl];
-$prnm3=rawurldecode($_REQUEST[prnm3]);
+$cat=$_REQUEST['cat'];
+$scat=$_REQUEST['scat'];
+$psl=$_REQUEST['psl'];
+$prnm3=rawurldecode($_REQUEST['prnm3']);
 $cat1="";
 $scat1="";
 if($cat!=""){$cat1=" and cat='$cat'";}
@@ -40,10 +40,16 @@ while ($row1 = mysqli_fetch_array($data1))
 $('#prnm').chosen({
   no_results_text: "Oops, nothing found!",
   });
-  $('#prnm_chosen .chosen-drop').click(function(e) {
+  try{
+document.getElementById("prnm3").focus();
+$('#prnm_chosen .chosen-drop').click(function(e) {
   e.stopPropagation();
 });
 $("#prnm").trigger("chosen:open");
 document.getElementById('prnm_chosen').className+=' chosen-with-drop chosen-container-active'
-document.getElementById("prnm3").focus();
+}
+catch(err)
+{
+
+}
 </script>

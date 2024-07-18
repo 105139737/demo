@@ -97,6 +97,7 @@ $(document).ready(function(){
 	<td  align="center" ><b>Rate</b></td>
 	<td  align="center" ><b>DPROFIT%</b></td>
 	<td  align="center" ><b>DLRCAL</b></td>
+	<td  align="center" ><b>OLD-DLR-NLC</b></td>
 	<td  align="center" ><b>DLR-NLC</b></td>
 	<td  align="center" ><b>Dis%</b></td>
 	<td  align="center" ><b>DisAm</b></td>
@@ -105,6 +106,7 @@ $(document).ready(function(){
 	<td  align="center" ><b>RTLCal</b></td>
 	<td  align="center" ><b>OfferPrice</b></td>
 	<td  align="center" ><b>OFFERLESS%</b></td>
+	<td  align="center" ><b>OLD-LastPrice</b></td>
 	<td  align="center" ><b>LastPrice</b></td>
 	</tr>
 	<?
@@ -152,6 +154,15 @@ while ($rowd = mysqli_fetch_array($datad111))
 {
 $inv=$rowd['inv'];
 }
+$olddnlc=0;
+$oldlprc=0;
+$query7="select * from  main_product_prc where psl='$pcd' order by sl desc limit 0,1";
+$result5 = mysqli_query($conn,$query7);
+while($row=mysqli_fetch_array($result5))
+{
+$olddnlc=$row['prc'];
+$oldlprc=$row['lprc'];
+}
 $sln1++;
 	?>
 	<tr title="<?php echo $sl;?>">	
@@ -164,9 +175,10 @@ $sln1++;
 	<input type="checkbox" value="<?=$sl?>" checked id="sl<?=$sl?>" name="sl[]">
 	<input type="hidden"  value="<?=$pnm;?>"  size="5" id="pnm<?php echo $sl?>" name="pnm<?php echo $sl?>">
 	</td>
-	<td  align="right" ><input type="text"  value="<?=round($rate,2);?>" readonly size="5" id="rate<?php echo $sl?>" name="rate<?php echo $sl?>"></td>
+	<td  align="right" ><input type="text"  value="<?=round($rate,2);?>" onblur="cal('<?php echo $sl?>')" size="5" id="rate<?php echo $sl?>" name="rate<?php echo $sl?>"></td>
 	<td  align="right" ><input type="text" size="2" onblur="cal('<?php echo $sl?>')" id="dp<?php echo $sl?>" name="dp<?php echo $sl?>"></td>
 	<td  align="right" ><input type="text" size="5" id="dnlc<?php echo $sl?>" readonly name="dnlc<?php echo $sl?>"></td>
+	<td  align="right" ><input type="text" size="5" id="olddnlc<?php echo $sl?>" readonly name="olddnlc<?php echo $sl?>" value="<?php echo $olddnlc;?>" style="background-color : #F1F692;"></td>
 	<td  align="right" ><input type="text" size="5" id="pldnlc<?php echo $sl?>" readonly name="pldnlc<?php echo $sl?>"></td>
 	<td  align="right" ><input type="text" size="2" onblur="cal('<?php echo $sl?>')" id="dpdisp<?php echo $sl?>" name="dpdisp<?php echo $sl?>"></td>
 	<td  align="right" ><input type="text" size="3" id="dpdisam<?php echo $sl?>" readonly name="dpdisam<?php echo $sl?>"></td>
@@ -175,6 +187,7 @@ $sln1++;
 	<td  align="right" ><input type="text" size="3" id="retoff<?php echo $sl?>" readonly name="retoff<?php echo $sl?>"></td>
 	<td  align="right" ><input type="text" size="3" id="offprc<?php echo $sl?>" readonly name="offprc<?php echo $sl?>"></td>
 	<td  align="right" ><input type="text" size="2" onblur="cal('<?php echo $sl?>')" id="offless<?php echo $sl?>" name="offless<?php echo $sl?>"></td>
+	<td  align="right" ><input type="text" size="3" id="oldlprc<?php echo $sl?>" readonly name="oldlprclprc<?php echo $sl?>" value="<?php echo $oldlprc;?>" style="background-color : #F1F692;"></td>
 	<td  align="right" ><input type="text" size="3" id="lprc<?php echo $sl?>" readonly name="lprc<?php echo $sl?>"></td>
 	</tr>
 	<script>
@@ -187,16 +200,19 @@ $sln1++;
 	<td  align="center" ><b>ModelName</b></td>
 	<td  align="center" ><b>QTY</b></td>
 	<td  align="center" ><b>ALL</b></td>
-	<td  align="center" ><b>WithGstRate</b></td>
+	<td  align="center" ><b>Rate</b></td>
 	<td  align="center" ><b>DPROFIT%</b></td>
-	<td  align="center" ><b>DLRNLC</b></td>
-	<td  align="center" ><b>PLDNLC</b></td>
+	<td  align="center" ><b>DLRCAL</b></td>
+	<td  align="center" ><b>OLD-DLR-NLC</b></td>
+	<td  align="center" ><b>DLR-NLC</b></td>
 	<td  align="center" ><b>Dis%</b></td>
 	<td  align="center" ><b>DisAm</b></td>
 	<td  align="center" ><b>InvPrc</b></td>
 	<td  align="center" ><b>RPROFIT%</b></td>
+	<td  align="center" ><b>RTLCal</b></td>
 	<td  align="center" ><b>OfferPrice</b></td>
 	<td  align="center" ><b>OFFERLESS%</b></td>
+	<td  align="center" ><b>OLD-LastPrice</b></td>
 	<td  align="center" ><b>LastPrice</b></td>
 	</tr>
 <?

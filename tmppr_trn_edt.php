@@ -1,7 +1,7 @@
 <?php
 $reqlevel = 3;
 include("membersonly.inc.php");
-$blno=$_REQUEST[blno];
+$blno=$_REQUEST['blno'];
 $sl=1;
 ?>
 <table border="0" width="100%" class="advancedtable">
@@ -57,5 +57,5 @@ $bcdnm=$rowii['gnm'];
 <?}?>
 </table>
 <script>
-gtt_unt();getb();get_betno();
+gtt_unt();cbcd();get_betno();
 </script>

@@ -184,8 +184,9 @@ function chk_dt(cdt)
 
  function sfdtl3(sl)
 {
-	$('#cnt').load('jrnl_form_det.php?sl='+sl).fadeIn("fast");
-	$('#myModal').modal('show');
+	/*$('#cnt').load('contra_det.php?sl='+sl).fadeIn("fast");
+	$('#myModal').modal('show');*/
+	window.open('contra_det.php?sl='+sl,"_blank")
 }
 
 function cancell(ssl)

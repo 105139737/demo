@@ -54,5 +54,6 @@ $bcdnm=$rowii['gnm'];
 </table>
 <script>
 //cbcd();
-gtt_unt();getb();get_betno();
+gtt_unt();get_betno();
+cbcd();
 </script>

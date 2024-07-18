@@ -79,6 +79,7 @@ $("#prnm").trigger("chosen:open");
 document.getElementById('prnm_chosen').className+=' chosen-with-drop chosen-container-active'
 document.getElementById("prnm3").focus();
 $('#prnm3').focus();
+$('#prnm3').val('');
 </script>
 <?
 }

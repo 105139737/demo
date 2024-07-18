@@ -1,7 +1,5 @@
 <?php
 include("membersonly.inc.php");
-$fbcd=$_REQUEST[fbcd];
-$tbcd=$_REQUEST[tbcd];
 ?>
     <select name="tbcd" class="form-control" size="1" id="tbcd" style="width:300px"  >
 	<option value="">---Select---</option>
