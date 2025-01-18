@@ -1,14 +1,13 @@
-<?php
+<?php 
 $reqlevel = 3;
-$cc=$_COOKIE['browserid'];
 include("membersonly.inc.php");
 include "header.php";
 ?>
 
-<!-- AdminLTE dashboard demo (This is only for demo purposes) new -->
+<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="js/AdminLTE/dashboard.js" type="text/javascript"></script>
 <div class="wrapper row-offcanvas row-offcanvas-left">
-    <?php
+    <?php 
             include "left_bar.php";
             ?>
 
@@ -50,7 +49,7 @@ include "header.php";
                     </section>
 
                     <section class="col-lg-12">
-                        <?php
+                        <?php 
 if($user_currently_loged!='onsadmin')
 {
 $get1=mysqli_query($conn,"select * from main_cornjob where sl>0 order by sl desc limit 0,10") or die(mysqli_error($conn));
@@ -68,7 +67,8 @@ if($total1>0)
                                 <th style="text-align:center;">Run Date & Time</th>
                                 <th style="text-align:center;">Status</th>
                             </tr>
-                            <?php
+<?php 
+$cnt2=0;
 while($row1=mysqli_fetch_array($get1))
 {
 	$cnt2++;
@@ -82,19 +82,19 @@ while($row1=mysqli_fetch_array($get1))
 	$color="";
 	if($response!="Success"){$color="red";}
 ?>
-                            <tr style="color:<?php echo $color;?>">
-                                <td style="text-align:center;"><?=$cnt2;?></td>
-                                <td style="text-align:center;"><b><?=$type;?></b></td>
-                                <td style="text-align:center;"><b><?=$fdt;?></b></td>
-                                <td style="text-align:center;"><b><?=$tdt;?></b></td>
-                                <td style="text-align:center;"><b><?=$dttm;?></b></td>
-                                <td style="text-align:center;"><b><?=$response;?></b></td>
+                            <tr style="color:<?php  echo $color;?>">
+                                <td style="text-align:center;"><?php  echo $cnt2;?></td>
+                                <td style="text-align:center;"><b><?php  echo $type;?></b></td>
+                                <td style="text-align:center;"><b><?php  echo $fdt;?></b></td>
+                                <td style="text-align:center;"><b><?php  echo $tdt;?></b></td>
+                                <td style="text-align:center;"><b><?php  echo $dttm;?></b></td>
+                                <td style="text-align:center;"><b><?php  echo $response;?></b></td>
                             </tr>
-                            <?php
+                            <?php 
 }
 ?>
                         </table>
-                        <?php
+                        <?php 
 }
 }
 
@@ -105,15 +105,15 @@ while($row1=mysqli_fetch_array($get1))
                         <br>
                         <br>
                         <br>
-                        <?php 
+                        <?php  
                         if(strtoupper($user_currently_loged)=='ADMIN'  OR strtoupper($user_currently_loged)=='HDADMIN')
                         {
                         ?>
                         <input type="button" value="Check Bill Status " class="btn btn-warning " onclick="check()">
-                    <?php } ?>
+                    <?php  } ?>
                         <div id="check"></div>
 
-                        <?php/*
+                        <?php /*
 if($user_currently_loged!='onsadmin')
 {
 $get=mysqli_query($conn,"select * from main_prod_prc_pdf where sl>0 $all1 order by sl desc") or die(mysqli_error($conn));
@@ -128,7 +128,7 @@ if($total>0)
                                 <th style="text-align:center;" width="75%">Attachments</th>
 
                             </tr>
-                            <?php
+                            <?php 
 while($row=mysqli_fetch_array($get))
 {
 	$cnt++;
@@ -138,17 +138,17 @@ while($row=mysqli_fetch_array($get))
 	 $path="product_price_pdf/".$ssl.".pdf";	
 ?>
                             <tr>
-                                <td style="text-align:center;"><?=$cnt;?></td>
-                                <td style="text-align:left;"><b><?=$title;?></b></td>
+                                <td style="text-align:center;"><?php  echo $cnt;?></td>
+                                <td style="text-align:left;"><b><?php  echo $title;?></b></td>
                                 <td style="text-align:left;">
-                                    <a href="<?=$path;?>">Click To Download</a>
+                                    <a href="<?php  echo $path;?>">Click To Download</a>
                                 </td>
                             </tr>
-                            <?php
+                            <?php 
 }
 ?>
                         </table>
-                        <?php
+                        <?php 
 }
 }
 */?>

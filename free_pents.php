@@ -1,4 +1,4 @@
-<?php
+<?php 
 
 /**
  * @author Nirmal Biswas
@@ -39,16 +39,16 @@ $result2 = mysqli_query($conn,$query2)or die (mysqli_error($conn));
 alert('Product Entry Completed. Thank You.....');
 document.location="pent.php";
 </script>
-<?  
+<?php   
     
     }
     else
     {
     ?>
 <script language="javascript">
-alert('<? echo $err;?>');
+alert('<?php  echo $err;?>');
 window.history.go(-1);
 </script>
-<?
+<?php 
     }
 ?>

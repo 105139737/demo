@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include("function.php");
@@ -9,7 +9,7 @@ $dt = date('d-M-Y');
 
 $cy=date('Y');
 
-$sl=$_REQUEST[sl];
+$sl=$_REQUEST['sl'];
 
 $brncd='';
 $data=mysqli_query($conn,"select * from main_cust where  sl='$sl'")or die(mysqli_error($conn));
@@ -68,7 +68,7 @@ $get=mysqli_query($conn,"update main_cust set app='1' where sl='$sl'") or die(my
 alert('App Permission Success....');
 show();
 </script>
-<?
+<?php 
 }
 else
 {
@@ -77,7 +77,7 @@ else
 alert('Please Check Customer Barnd....');
 show();
 </script>
-<?
+<?php 
 }
 		
 

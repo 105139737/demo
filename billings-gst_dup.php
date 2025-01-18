@@ -1,52 +1,57 @@
-<?php
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 include("Numbers/Words.php");
 include "header.php";
+$tpoint=0;
+$kg=0;
+$grm=0;
+$srt=0;
+$adp="";
 date_default_timezone_set('Asia/Kolkata');
 $cdt=date('Y-m-d');
 $dttm=date('d-m-Y H:i:s a');
-$custnm=$_POST[custnm];
-$addr=$_POST[addr];
-$mob=$_POST[mob];
-$mail=$_POST['mail'];
-$brncd=$_POST[brncd];
-$dt=$_POST[dt];
-$dis=$_POST[dis];
-$car=$_POST[car];
-$vat=$_POST[vat];
-$vatamm=$_POST[vatamm];
-$tamm=$_POST[tamm];
-$gstam=$_POST[gst];
-$payam=$_POST[pay];
-$dldgr=$_POST[dldgr];
-$mdt=$_POST[mdt];
-$pamm=$_POST[pamm];
-$crfno=$_POST[crfno];
-$idt=$_POST[idt];
-$cbnm=$_POST[cbnm];
-$fst=$_POST[fst];
-$tst=$_POST[tst];
-$tmod=$_POST[tmod];
-$psup=$_POST[psup];
-$vno=$_POST[vno];
-$lpd=$_POST[lpd];
+$custnm=$_POST['custnm']??"";
+$addr=$_POST['addr']??"";
+$mob=$_POST['mob']??"";
+$mail=$_POST['mail']??"";
+$brncd=$_POST['brncd']??"";
+$dt=$_POST['dt']??"";
+$dis=$_POST['dis']??"";
+$car=$_POST['car']??"";
+$vat=$_POST['vat']??"";
+$vatamm=$_POST['vatamm']??"";
+$tamm=$_POST['tamm']??"";
+$gstam=$_POST['gst']??"";
+$payam=$_POST['pay']??"";
+$dldgr=$_POST['dldgr']??"";
+$mdt=$_POST['mdt']??"";
+$pamm=$_POST['pamm']??"";
+$crfno=$_POST['crfno']??"";
+$idt=$_POST['idt']??"";
+$cbnm=$_POST['cbnm']??"";
+$fst=$_POST['fst']??"";
+$tst=$_POST['tst']??"";
+$tmod=$_POST['tmod']??"";
+$psup=$_POST['psup']??"";
+$vno=$_POST['vno']??"";
+$lpd=$_POST['lpd']??"";
 
-$dur_mnth=$_POST[dur_mnth];
-$no_servc=$_POST[no_servc];
-$sfno=$_POST[sfno];
-$dpay=$_POST[dpay];
-$finam=$_POST[finam];
-$emiam=$_POST[emiam];
-$emi_mnth=$_POST[emi_mnth];
+$dur_mnth=$_POST['dur_mnth']??"";
+$no_servc=$_POST['no_servc']??"";
+$sfno=$_POST['sfno']??"";
+$dpay=$_POST['dpay']??"";
+$finam=$_POST['finam']??"";
+$emiam=$_POST['emiam']??"";
+$emi_mnth=$_POST['emi_mnth']??"";
 
-$cust_typ=$_POST[cust_typ];
-$sale_per=$_POST[sale_per];
-$bill_typ=$_POST[bill_typ];
-$invto=$_POST[invto];
+$cust_typ=$_POST['cust_typ']??"";
+$sale_per=$_POST['sale_per']??"";
+$bill_typ=$_POST['bill_typ']??"";
+$invto=$_POST['invto']??"";
 
-$order_no=$_POST[order_no];
-$invno=$_POST[invno];
+$order_no=$_POST['order_no']??"";
+$invno=$_POST['invno']??"";
 
                                                                                                                                          
 $dt=date('Y-m-d', strtotime($dt));
@@ -133,7 +138,7 @@ $vnos=$rows['blno1'];
 $vid1=substr($vnos,4,5);
 $vid1=$vnos;
 while($count6>0){
-$vid1=$vid1+1;
+$vid1=(float)$vid1+1;
 $vnoc=str_pad($vid1, 5, '0', STR_PAD_LEFT);
 $blno='DUP/'.$vnoc.$yy;
 $query5="select * from main_billing_dup where blno1='$blno'";
@@ -256,7 +261,7 @@ $aiw=$nw->toWords($gttl);
 ?>
 <html>
 <div class="wrapper row-offcanvas row-offcanvas-left">
-<?
+<?php 
 include "left_bar.php";
 ?>
 <head>
@@ -289,9 +294,9 @@ height:9px;
 <table border="0" width="677px">
 <tr>
 <td  align="center" colspan="2">
-<font size="7"><b><?=$comp_nm;?></b></font>
+<font size="7"><b><?php  echo $comp_nm;?></b></font>
 <br>
-<font size="4"><b><?=$comp_addr;?></b></font>
+<font size="4"><b><?php  echo $comp_addr;?></b></font>
 </td>
 </tr>
 <tr>
@@ -299,13 +304,13 @@ height:9px;
 <font size="5"> <b><a href="bill_typ_dup.php" ><u>Back</u></a></b></font>
 </td>
 <td  align="left">
-<font size="5"> <b><a href="bill_new_gst_dup.php?blno=<?=rawurlencode($blno);?>" target="_blank"><font color="red"><u>Print</u></font></a></b></font>
+<font size="5"> <b><a href="bill_new_gst_dup.php?blno=<?php echo rawurlencode($blno);?>" target="_blank"><font color="red"><u>Print</u></font></a></b></font>
 </td>
 </tr>
 
 <tr>
 <td  align="center" colspan="2" >
-<font size="4" color="red"> <b> Bill No. : <?=$blno;?></b></font>
+<font size="4" color="red"> <b> Bill No. : <?php  echo $blno;?></b></font>
 </td>
 
 </tr>
@@ -317,16 +322,16 @@ height:9px;
 </body>
 </div>
 </html>
-<?
+<?php 
 }
 else
 {
 ?>
 <Script language="JavaScript">
-alert("<? echo $err;?>");
+alert("<?php  echo $err;?>");
 //history.go(-1);
-document.location="billing_gst_dup.php?bsl=<?=$bill_typ;?>"+"&blno=<?=$order_no;?>";
+document.location="billing_gst_dup.php?bsl=<?php  echo $bill_typ;?>"+"&blno=<?php  echo $order_no;?>";
 </script>
-<?
+<?php 
 }
 ?>

@@ -10,7 +10,7 @@
   $server = "localhost"; 	// often localhost
 $username = "root"; 			// Your MySQL server username
 $password = ""; 			// Your MySQL server password
-$database = "hndbtrkn_bill"; 			// If you fill in nothing database 'members' will be used. If 'members' doesn't exist it will be created.
+$database = "hndbtrkn_bill_1"; 			// If you fill in nothing database 'members' will be used. If 'members' doesn't exist it will be created.
 $DBprefix = "main";			// the prefix for the tables in the database (can be left blank)
 
 // The ranks for the members. The first in the list is userlevel is 1, every item after (seperate with comma's) increases with one.

@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include "header.php";
@@ -26,7 +26,7 @@ $fdt1=$fdt3;
 <html>
 <head>
         <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <style type="text/css"> 
@@ -154,12 +154,12 @@ $("#tdt").inputmask("dd-mm-yyyy", {"placeholder": "dd-mm-yyyy"});
 <td align="left" >
 
     <select name="brncd" class="form-control" size="1" id="brncd"   >
-<?
+<?php 
 if($user_current_level<0)
 {
 	?>
 	<option value="">---ALL---</option>
-	<?
+	<?php 
 }
 if($user_current_level<0)
 {
@@ -176,8 +176,8 @@ $sl=$R['sl'];
 $bnm=$R['bnm'];
 
 ?>
-<option value="<? echo $sl;?>"><? echo $bnm;?></option>
-<?
+<option value="<?php  echo $sl;?>"><?php  echo $bnm;?></option>
+<?php 
 }
 ?>
 </select>
@@ -186,13 +186,13 @@ $bnm=$R['bnm'];
 <td align="right" style="padding-top:15px">
 <b>Form : </b>
 <td align="left">
-<input type="text" id="fdt" name="fdt" size="20" value="<?echo $fdt;?>" readonly class="form-control" placeholder="Please Enter From Date" > </td>
+<input type="text" id="fdt" name="fdt" size="20" value="<?php echo $fdt;?>" readonly class="form-control" placeholder="Please Enter From Date" > </td>
 
 <td align="right" style="padding-top:15px">
 <b>To : </b>
 </td>
 <td align="left">
-<input type="text" id="tdt" name="tdt" size="20" value="<?echo $sa;?>" readonly class="form-control" placeholder="Please Enter To Date">
+<input type="text" id="tdt" name="tdt" size="20" value="<?php echo $sa;?>" readonly class="form-control" placeholder="Please Enter To Date">
 </td>
 
 <td align="right" style="padding-top:15px">
@@ -201,7 +201,7 @@ $bnm=$R['bnm'];
 <td align="left">
 <select name="pnm" class="form-control"  id="pnm"   >
 
-<?
+<?php 
 $query="Select * from  main_product order by pnm";
    $result = mysqli_query($conn,$query);
 while ($R = mysqli_fetch_array ($result))
@@ -225,8 +225,8 @@ while ($row1 = mysqli_fetch_array($data2))
 $brand=$row1['brand'];
 }
 ?>
-<option value="<? echo $sl;?>"><?=$pname;?> - <?=$cnm;?> - <?=$brand;?> - <?=$mnm;?></option>
-<?
+<option value="<?php  echo $sl;?>"><?php  echo $pname;?> - <?php  echo $cnm;?> - <?php  echo $brand;?> - <?php  echo $mnm;?></option>
+<?php 
 }?>
 </select>
 

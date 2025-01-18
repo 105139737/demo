@@ -1,8 +1,8 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include "header.php";
-$sl1=$_REQUEST[sl];
+$sl1=$_REQUEST['sl'];
 $data= mysqli_query($conn,"SELECT * FROM main_group where sl='$sl1'");
 		while ($row = mysqli_fetch_array($data))
 		{
@@ -23,7 +23,7 @@ $data= mysqli_query($conn,"SELECT * FROM main_group where sl='$sl1'");
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
  <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <head>
@@ -128,7 +128,7 @@ $(document).ready(function()
 
 <link rel="shortcut icon" href="favicon.ico"/>
 </head>
-<?
+<?php 
 
 ?>
 <body >
@@ -157,20 +157,20 @@ $(document).ready(function()
     <td align="right" width="20%"><font color="red">*</font>Primary Account :</td>
     <td align="left" width="30%"><select  name="pac" style="width:300px" class="form-control">
 							<option value="">-- Select --</option>
-							<?php 
+							<?php  
 							$get = mysqli_query($conn,"SELECT * FROM main_primary") or die(mysqli_error($conn));
 							while($row = mysqli_fetch_array($get))
 							{
 							?>
-								<option value="<?=$row['sl']?>" <?=$row['sl'] == $p ? 'selected' : '' ?>><?=$row['nm']?></option>
-							<?php 
+								<option value="<?php  echo $row['sl']?>" <?php  echo $row['sl'] == $p ? 'selected' : '' ?>><?php  echo $row['nm']?></option>
+							<?php  
 							} 
 							?>
 						</select></td>
 	<td align="right" width="20%"><font color="red">*</font>Account Group :</td>
     <td align="left" width="30%">
-      <input type="text" name="acgrp" id="acgrp" value="<?=$nm;?>"size="40" class="form-control">
-	   <input type="hidden" name="updt" id="updt" value="<?=$sl1;?>"size="40" class="form-control">
+      <input type="text" name="acgrp" id="acgrp" value="<?php  echo $nm;?>"size="40" class="form-control">
+	   <input type="hidden" name="updt" id="updt" value="<?php  echo $sl1;?>"size="40" class="form-control">
 	</td>   
   </tr>
   

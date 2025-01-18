@@ -1,4 +1,4 @@
-<?php 
+<?php  
 $reqlevel = 3; 
 include("membersonly.inc.php");
 include("function.php");
@@ -75,7 +75,7 @@ if($xls=='1')
     alert('Your request has been accepted. You will get you dwonload link in your home page in a few moments. Thank you...');
     window.history.go(-1);
     </script>
-    <?php
+    <?php 
     die('<b><center><font color="green" size="5">Your request has been accepted. You will get you dwonload link in your home page in a few moments. Thank you...</font></center></b>');
    
 	$file=date('Ymdhis').".xls";
@@ -86,12 +86,12 @@ if($xls=='1')
 {
 ?>
  <table  border="1" >
- <?php }
+ <?php  }
  else
  {
  ?>
  <table  width="100%" class="advancedtable"  >
- <?php }?>
+ <?php  }?>
 <tr bgcolor="000">
 <td colspan="27"><font size="5" color="#fff">Sale Details</font></td>
 </tr>		
@@ -115,7 +115,7 @@ if($xls=='1')
 			<td  align="center" ><b>Profit %</b></td>
 
 			</tr>
-			 <?
+			 <?php 
 		$sln=0;
 		$tota=0;
 $tq=0;
@@ -318,33 +318,33 @@ $profitp=round((($profit/$total)*100)/$pcs,2);
 		$asd++;
 	}
 		 ?>
-		<tr title="<?=$pcd." S Sl".$sl;?>">
-			<td  align="center"  ><?=$sln;?></td>
-		<td  align="center" ><?=$dt;?></td>
-		<td  align="center" ><a href="#" onclick="view('<?=$blno;?>')" title="Print"><?=$blno;?></a></td>
-		<td  align="left" ><a href="#" onclick="view1('<?=$blno;?>')" title="Print"><?=$nm;?> <b><?=$invnm;?></b></a><br>
+		<tr title="<?php  echo $pcd." S Sl".$sl;?>">
+			<td  align="center"  ><?php  echo $sln;?></td>
+		<td  align="center" ><?php  echo $dt;?></td>
+		<td  align="center" ><a href="#" onclick="view('<?php  echo $blno;?>')" title="Print"><?php  echo $blno;?></a></td>
+		<td  align="left" ><a href="#" onclick="view1('<?php  echo $blno;?>')" title="Print"><?php  echo $nm;?> <b><?php  echo $invnm;?></b></a><br>
 		</td>
-		<td  align="left" ><?=$mob1;?>
+		<td  align="left" ><?php  echo $mob1;?>
 		</td>
-		<td  align="center" ><?php echo $cust_typp;?></td>
-		<td  align="center" ><?=$gstin;?></td>
-			<td  align="left" title="<?=$pcd;?>" ><?=$pnm;?></td>
-			<td  align="center" ><?=$hsn;?></td>
-			<td  align="center" ><?=$betno;?></td>
-			<td  align="center" ><?=$pcs;?> <?=$unit_nm?></td>
-			<td  align="right" ><?=number_format($net_am,2);?></td>
+		<td  align="center" ><?php  echo $cust_typp;?></td>
+		<td  align="center" ><?php  echo $gstin;?></td>
+			<td  align="left" title="<?php  echo $pcd;?>" ><?php  echo $pnm;?></td>
+			<td  align="center" ><?php  echo $hsn;?></td>
+			<td  align="center" ><?php  echo $betno;?></td>
+			<td  align="center" ><?php  echo $pcs;?> <?php  echo $unit_nm?></td>
+			<td  align="right" ><?php echo number_format($net_am,2);?></td>
 
 
-			<td  align="right" ><?=number_format($close_rt,2);?></td>
-			<td  align="right" ><?=number_format($total,2);?></td>
+			<td  align="right" ><?php echo number_format($close_rt,2);?></td>
+			<td  align="right" ><?php echo number_format($total,2);?></td>
 
-			<td  align="right" ><?=number_format($profit,2);?></td>
-			<td  align="right" ><?=number_format($profitp,2);?></td>
+			<td  align="right" ><?php echo number_format($profit,2);?></td>
+			<td  align="right" ><?php echo number_format($profitp,2);?></td>
 
 			
 			</tr>	 
 
-	<?
+	<?php 
 
 $tnet_am+=$net_am;
 $ttotal+=$total;
@@ -355,19 +355,19 @@ $tprofitp+=$profitp;
 
 ?>
 
-<?
+<?php 
 }
 
 		?>
 <tr>
 <td colspan="11"  align="right"><b>Total :</b></td>
-<td  align="right" ><?=number_format($tnet_am,2);?></td>
+<td  align="right" ><?php echo number_format($tnet_am,2);?></td>
 
 
 			<td  align="right" ></td>
-			<td  align="right" ><?=number_format($ttotal,2);?></td>
+			<td  align="right" ><?php echo number_format($ttotal,2);?></td>
 
-			<td  align="right" ><?=number_format($tprofit,2);?></td>
+			<td  align="right" ><?php echo number_format($tprofit,2);?></td>
 			<td  align="right" ></td>
 </tr>
 </table>

@@ -1,4 +1,4 @@
-<?php 
+<?php  
 $reqlevel = 1;
 include("membersonly.inc.php");
 include "header.php";
@@ -12,7 +12,7 @@ $fdt="01-04-".$fy;
 
         <div class="wrapper row-offcanvas row-offcanvas-left">
  
-            <?php 
+            <?php  
             include "left_bar.php";
             ?>
 
@@ -357,7 +357,7 @@ $('#sdtl').load('sper_targets.php?brand='+brand+'&sper='+sper).fadeIn('fast');
   
 <select name="sper" class="form-control" size="1" id="sper"  onchange="getbrnd();show()">
 <option value="">---ALL---</option>
-<?php 
+<?php  
 $query="Select * from main_sale_per";
  $result = mysqli_query($conn,$query);
 while ($R = mysqli_fetch_array ($result))
@@ -366,8 +366,8 @@ $spid=$R['spid'];
 $spnm=$R['nm'];
 
 ?>
-<option value="<?php echo $spid;?>"><?php echo $spid;?> ( <?php echo $spnm;?> )</option>
-<?php
+<option value="<?php  echo $spid;?>"><?php  echo $spid;?> ( <?php  echo $spnm;?> )</option>
+<?php 
 }
 ?>
 </select>

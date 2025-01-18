@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include "header.php";
@@ -10,7 +10,7 @@ $saa="01-".date('m-Y');
 <html>
 <head>
         <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <style type="text/css"> 
@@ -135,15 +135,15 @@ $("#tdt").datepicker(jQueryDatePicker2Opts);
 <thead>
 <tr>
 <td align="left" width="16%"><b>Form:</b><br>
-<input type="text" id="fdt" name="fdt" size="13" value="<?echo $saa;?>" class="form-control" placeholder="Please Enter From Date" > </td>
+<input type="text" id="fdt" name="fdt" size="13" value="<?php echo $saa;?>" class="form-control" placeholder="Please Enter From Date" > </td>
 <td align="left" width="16%"><b>To:</b><br>
-<input type="text" id="tdt" name="tdt" size="13" value="<?echo $sa;?>" class="form-control" placeholder="Please Enter To Date">
+<input type="text" id="tdt" name="tdt" size="13" value="<?php echo $sa;?>" class="form-control" placeholder="Please Enter To Date">
 </td>
 <td align="left" width="16%"><b>Godown:</b></br>
 <select name="godown" class="form-control" size="1" id="godown" >
 <Option value="">---Select---</option>
 
-<?
+<?php 
 $query="Select * from main_godown";
 $result = mysqli_query($conn,$query);
 while ($R = mysqli_fetch_array ($result))
@@ -152,8 +152,8 @@ $sl=$R['sl'];
 $gnm=$R['gnm'];
 
 ?>
-<option value="<? echo $sl;?>"><? echo $gnm;?></option>
-<?
+<option value="<?php  echo $sl;?>"><?php  echo $gnm;?></option>
+<?php 
 }
 ?>
 </select>
@@ -163,7 +163,7 @@ $gnm=$R['gnm'];
 <td  align="left" width="16%"><font color="red">*</font><b>Brand :</b><br>
 <select name="cat" class="form-control" size="1" id="cat" tabindex="8" onchange="get_scat();gpro()"  >
 <Option value="">---Select---</option>
-<?
+<?php 
 $data1 = mysqli_query($conn,"Select * from main_catg order by cnm");
 while ($row1 = mysqli_fetch_array($data1))
 {
@@ -179,15 +179,15 @@ echo "<option value='".$sl."'>".$cnm."</option>";
 	<div id="catdiv">
 	<select name="scat" class="form-control" size="1" id="scat" tabindex="8" onchange="gpro()">
 	<Option value="">---Select---</option>
-	<?
+	<?php 
 	$data1=mysqli_query($conn,"Select * from main_scat order by nm");
 	while($row1=mysqli_fetch_array($data1))
 	{
 		$sc_sl=$row1['sl'];
 		$sc_nm=$row1['nm'];
 		?>
-		<Option value="<?=$sc_sl;?>"><?=$sc_nm;?></option>
-		<?
+		<Option value="<?php  echo $sc_sl;?>"><?php  echo $sc_nm;?></option>
+		<?php 
 	}
 	?>
 	</select>
@@ -197,7 +197,7 @@ echo "<option value='".$sl."'>".$cnm."</option>";
 <div id="gpro">
 <select id="prnm" name="prnm" style="width:100%" class="form-control">
 <option value="">---Select---</option>
-<?php/*
+<?php /*
 $data1 = mysqli_query($conn,"Select * from main_product where typ='0' order by pnm");
 while ($row1 = mysqli_fetch_array($data1))
 	{
@@ -205,8 +205,8 @@ while ($row1 = mysqli_fetch_array($data1))
 	$pnm=$row1['pnm'];
 	$pcd=$row1['pcd'];
 ?>
-<Option value="<?=$sl;?>"><?=reformat($pcd." ".$pnm);?></option>
-<?}*/ ?>
+<Option value="<?php  echo $sl;?>"><?php echo reformat($pcd." ".$pnm);?></option>
+<?php }*/ ?>
 </select>
 </div>
 </td>

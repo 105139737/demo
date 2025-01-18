@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 include "header.php";
@@ -7,7 +7,9 @@ $tbcd=$_REQUEST['bcd'];
 $sl=rawurldecode($_REQUEST['abc']);
 $dt=date('Y-m-d');
 $edtm=date('d-m-Y H:i:s a');
-
+$err="";
+$fbcd="";
+$trn_ref="";
 if($tbcd=="")
 {
     $err="Please Fill All Fields..!!";
@@ -57,13 +59,15 @@ $result211 = mysqli_query($conn,$query211)or die (mysqli_error($conn));
 
 
 $log="";
+$prnm="";
+$ret=0;
 while ($R100 = mysqli_fetch_array ($data1))
 {
 $bsl=$R100['sl'];    
 $prsl=$R100['prsl'];
 $qnty=$R100['pcs'];
 $prc=$R100['prc'];
-$remk=$R100['remk'];
+$remk=$R100['remk']??"";
 $fbcd=$R100['fbcd'];
 $refno=$R100['refno'];
 $unit=$R100['unit'];
@@ -123,7 +127,7 @@ $result2 = mysqli_query($conn,$query2);
 ?>
 <html>
         <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <head>
@@ -172,13 +176,13 @@ border: 1px solid #000;
 <font size="5"> <b><a href="bill_chln.php" ><u>Back</u></a></b></font>
 </td>
 <td  align="left">
-<font size="5"> <b><a href="bill_new_trn.php?blno=<?=rawurlencode($blno);?>" target="_blank"><font color="red"><u>Print</u></font></a></b></font>
+<font size="5"> <b><a href="bill_new_trn.php?blno=<?php echo rawurlencode($blno);?>" target="_blank"><font color="red"><u>Print</u></font></a></b></font>
 </td>
 </tr>
 
 <tr>
 <td  align="center" colspan="2" >
-<font size="4" color="red"> <b> Transfer No. : <?=$blno;?></b></font>
+<font size="4" color="red"> <b> Transfer No. : <?php  echo $blno;?></b></font>
 </td>
 
 </tr>
@@ -192,15 +196,15 @@ border: 1px solid #000;
 </body>
 </div>
 </html>
-<?
+<?php 
 }
 else
 {
     ?>
 <Script language="JavaScript">
-alert('<? echo $err;?>');
+alert('<?php  echo $err;?>');
 document.location="trnsfer.php";
 </script>
-<?
+<?php 
 }
 ?>

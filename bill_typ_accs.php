@@ -1,7 +1,8 @@
-<?php
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 include("function.php");
+$cnt="";
 
 $all=$_REQUEST['all'];
 $tp1=$_REQUEST['tp1'];
@@ -49,17 +50,17 @@ if($total!=0)
 <th style="text-align:center;" >Session</th>
 <th style="text-align:center;" >Type</th>
 <th style="text-align:center;" >Brand </th>
-<?php if(($user_currently_loged=='admin' or $user_currently_loged=='hdadmin') and $typ==44)
+<?php  if(($user_currently_loged=='admin' or $user_currently_loged=='hdadmin') and $typ==44)
 { ?>
 <th style="text-align:center;" >Expenses Ledger </th>
-<?php } ?>
-<?php if(($user_currently_loged=='admin' or $user_currently_loged=='hdadmin') and $typ==44)
+<?php  } ?>
+<?php  if(($user_currently_loged=='admin' or $user_currently_loged=='hdadmin') and $typ==44)
 { ?>
 <th style="text-align:center;" >Expenses User </th>
-<?php } ?>
+<?php  } ?>
 
 </tr>
-<?
+<?php 
 while($row=mysqli_fetch_array($get))
 {
 	$cnt++;
@@ -99,56 +100,56 @@ for($i=0;$i<count($rr);$i++)
 }		
 ?>
 <tr style="cursor:pointer;">
-<td style="text-align:center;" onclick="submit('<?=$ssl;?>')" >
-<?=$cnt;?></td>
-<td style="text-align:left;"  onclick="submit('<?=$ssl;?>')" >
-<b><?=$als;?></b></td>
-<td style="text-align:left;"  onclick="submit('<?=$ssl;?>')" >
-<?=$ssn;?></td>
-<td style="text-align:left;"  onclick="submit('<?=$ssl;?>')" >
-<?=$tps;?></td>
-<td style="text-align:left;"  onclick="submit('<?=$ssl;?>')" >
-<? echo $val;?></td>
-<?php if(($user_currently_loged=='admin' or $user_currently_loged=='hdadmin') and $typ==44)
+<td style="text-align:center;" onclick="submit('<?php  echo $ssl;?>')" >
+<?php  echo $cnt;?></td>
+<td style="text-align:left;"  onclick="submit('<?php  echo $ssl;?>')" >
+<b><?php  echo $als;?></b></td>
+<td style="text-align:left;"  onclick="submit('<?php  echo $ssl;?>')" >
+<?php  echo $ssn;?></td>
+<td style="text-align:left;"  onclick="submit('<?php  echo $ssl;?>')" >
+<?php  echo $tps;?></td>
+<td style="text-align:left;"  onclick="submit('<?php  echo $ssl;?>')" >
+<?php  echo $val;?></td>
+<?php  if(($user_currently_loged=='admin' or $user_currently_loged=='hdadmin') and $typ==44)
 { ?>
 <td>
-<select name="exp_ledgr" id="exp_ledgr" class="form-control"  tabindex="1"  onchange="sedtt('<?echo $ssl;?>','exp_ledgr',this.value,'main_billtype')" >
+<select name="exp_ledgr" id="exp_ledgr" class="form-control"  tabindex="1"  onchange="sedtt('<?php echo $ssl;?>','exp_ledgr',this.value,'main_billtype')" >
 <option value="">---Select---</option>
-<?php 
+<?php  
 $getl = mysqli_query($conn,"SELECT * FROM main_ledg where gcd='30'") or die(mysqli_error($conn));
 while($rowl = mysqli_fetch_array($getl))
 {
 ?>
-<option value="<?=$rowl['sl']?>" <?=$rowl['sl'] == $exp_ledgr ? 'selected' : '' ?>><?=$rowl['nm']?></option>
-<?php 
+<option value="<?php  echo $rowl['sl']?>" <?php  echo $rowl['sl'] == $exp_ledgr ? 'selected' : '' ?>><?php  echo $rowl['nm']?></option>
+<?php  
 } 
 ?>
 </select>
 </td>
-<?php } ?>
-<?php if(($user_currently_loged=='admin' or $user_currently_loged=='hdadmin') and $typ==44)
+<?php  } ?>
+<?php  if(($user_currently_loged=='admin' or $user_currently_loged=='hdadmin') and $typ==44)
 { ?>
 <td>
-<select name="user" id="user" class="form-control"  tabindex="1"  onchange="sedtt('<?echo $ssl;?>','user',this.value,'main_billtype')" >
+<select name="user" id="user" class="form-control"  tabindex="1"  onchange="sedtt('<?php echo $ssl;?>','user',this.value,'main_billtype')" >
 <option value="">---Select---</option>
-<?php 
+<?php  
 $getl1 = mysqli_query($conn,"SELECT * FROM main_signup where actnum='0' and userlevel in (10,5,7,6,-1) order by username") or die(mysqli_error($conn));
 while($rowl = mysqli_fetch_array($getl1))
 {
 ?>
-<option value="<?=$rowl['username']?>" <?=$rowl['username'] == $user ? 'selected' : '' ?>><?=$rowl['username']?> - <?=$rowl['name']?></option>
-<?php 
+<option value="<?php  echo $rowl['username']?>" <?php  echo $rowl['username'] == $user ? 'selected' : '' ?>><?php  echo $rowl['username']?> - <?php  echo $rowl['name']?></option>
+<?php  
 }
 ?>
 </select>
 </td>
-<?php } ?>
+<?php  } ?>
 </tr>
-<?															
+<?php 															
 }
 ?>
 </table>
-<?
+<?php 
 }
 else
 {
@@ -158,6 +159,6 @@ else
 	<td style="text-align:center;"><font size="4" color="red"><b>No Records Available</b></font></td>
 	</tr>
 	</table>
-	<?
+	<?php 
 }
 ?>

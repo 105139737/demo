@@ -1,8 +1,8 @@
-<?
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include "header.php";
-$sl=base64_decode($_REQUEST[sl]);
+$sl=base64_decode($_REQUEST['sl']);
 $data= mysqli_query($conn,"select * from main_suppl where  sl='$sl'")or die(mysqli_error($conn));
 while ($row = mysqli_fetch_array($data))
 {
@@ -20,7 +20,7 @@ $pan=$row['pan'];
 <html>
 <head>
         <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <style type="text/css"> 
@@ -78,31 +78,31 @@ function check1(){if(document.getElementById('spnm').value==''){alert("Plea
                      <!-- /.box (chat box) -->
                             <!-- TO DO List -->
 <HR> 	<form method="post" action="s_updates.php" id="form1"  name="form1" onsubmit="return check1()">
-<input type="hidden" id="sl" name="sl" value="<?=$sl;?>"><center><div class="box box-success" >
+<input type="hidden" id="sl" name="sl" value="<?php  echo $sl;?>"><center><div class="box box-success" >
 <table border="0"  width="860px" class="table table-hover table-striped table-bordered" >
 <tr>
 <td align="right">Shop Name : </td><td>
-<input type="text" class="form-control" id="spnm" name="spnm" value="<?=$spnm?>" placeholder="Please Enter Shop Name" style="width:430px"></td>
+<input type="text" class="form-control" id="spnm" name="spnm" value="<?php  echo $spnm?>" placeholder="Please Enter Shop Name" style="width:430px"></td>
 <td align="right">Contact Person : </td>
 <td>
-<input type="text" class="form-control" id="cnm"  name="cnm" value="<?=$cnm?>" placeholder="Please Enter Contact Person" style="width:430px"></td>
+<input type="text" class="form-control" id="cnm"  name="cnm" value="<?php  echo $cnm?>" placeholder="Please Enter Contact Person" style="width:430px"></td>
 </tr>
 <tr>
 <td align="right">Address : </td>
 <td>
-<input type="text" class="form-control" id="addr"  name="addr" value="<?=$addr?>" placeholder=" Address" style="width:430px">
+<input type="text" class="form-control" id="addr"  name="addr" value="<?php  echo $addr?>" placeholder=" Address" style="width:430px">
 </td>
 <td align="right">E-Mail ID :</td>
 <td >
-<input type="text" class="form-control" id="email"  name="email" value="<?=$email?>" placeholder="Please Enter  E-Mail" style="width:430px"></td>
+<input type="text" class="form-control" id="email"  name="email" value="<?php  echo $email?>" placeholder="Please Enter  E-Mail" style="width:430px"></td>
 </tr>
 <tr>
 <td align="right">Mobile No. 1 :</td>
 <td>
-<input type="text" class="form-control" id="mob1" name="mob1" value="<?=$mob1?>" placeholder="Enter Mobile No." style="width:430px" onkeypress="return isNumber(event)" maxlength="10" minlength="10"></td>
+<input type="text" class="form-control" id="mob1" name="mob1" value="<?php  echo $mob1?>" placeholder="Enter Mobile No." style="width:430px" onkeypress="return isNumber(event)" maxlength="10" minlength="10"></td>
 <td align="right">Mobile No. 2 :</td>
 <td>
-<input type="text" class="form-control" id="mob2" name="mob2" value="<?=$mob2?>" placeholder="Enter Mobile No"  style="width:430px" onkeypress="return isNumber(event)" maxlength="10" minlength="10"></td></tr>
+<input type="text" class="form-control" id="mob2" name="mob2" value="<?php  echo $mob2?>" placeholder="Enter Mobile No"  style="width:430px" onkeypress="return isNumber(event)" maxlength="10" minlength="10"></td></tr>
 
 <tr>
 <td colspan="4" align="right"  style="padding-right: 8px;">

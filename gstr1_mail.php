@@ -1,4 +1,4 @@
-<?
+<?php 
 include("config.php");
 ini_set("memory_limit","80M");
 $dt=date('d-m-Y');

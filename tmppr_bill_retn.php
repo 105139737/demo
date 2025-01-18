@@ -1,10 +1,10 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 $blno=rawurldecode($_REQUEST['blno']);
 ?>
 <table border="0" width="100%" class="advancedtable">
- <?
+ <?php 
  $tax_am=0;
  $gstam=0;
  $tnet_am=0;
@@ -37,18 +37,7 @@ $tamm=$R100['tamm'];
  $tax_am+=$tamm;
  $gstam+=$cgst_am+$sgst_am+$igst_am;
  $tnet_am+=$net_am;
-$cnm="";				
-$data1= mysqli_query($conn,"select * from main_catg where sl='$cat'")or die(mysqli_error($conn));
-while ($row1 = mysqli_fetch_array($data1))
-{
-$cnm=$row1['cnm'];
-}
-$scat_nm="";				
-$data2= mysqli_query($conn,"select * from main_scat where sl='$scat'")or die(mysqli_error($conn));
-while ($row1 = mysqli_fetch_array($data2))
-{
-$scat_nm=$row1['nm'];
-}
+
 $pnm="";
 $query6="select * from  ".$DBprefix."product where sl='$prsl'";
 $result5 = mysqli_query($conn,$query6);
@@ -74,38 +63,38 @@ $stck=$pcs-$rqty;
 ?>
 
 <tr class="even">
-<td  align="left" width="11%"><b><?=$pnm;?></b></td>
-<td  align="left" width="6%"><b><?=$gnm;?></b></td>
-<td align="left" width="10%"><b></b><?=$betno;?></td>
+<td  align="left" width="11%"><b><?php  echo $pnm;?></b></td>
+<td  align="left" width="6%"><b><?php  echo $gnm;?></b></td>
+<td align="left" width="10%"><b></b><?php  echo $betno;?></td>
 
-<td  align="center" width="5%"><b><?=$unit_nm;?></b></td>
-<td align="center" width="6%"><b></b><?=$refno;?></td>
-<td align="center" width="7%" ><b><?=$pcs;?>-<font color="red"><?=$rqty;?></font> = <?=$stck;?></b>
-<input type="text" name="q<?=$tsl;?>" id="q<?=$tsl;?>" onblur="if(this.value><?=$stck;?>){$('.upb'+<?=$tsl?>).html('<br><font color=\'red\'>Please Check  Quantity. Your Current Stock Is <?=$stck?>/pcs</font>');this.focus();document.getElementById('chk').value=1;}else{$('.upb'+<?=$tsl?>).html('');document.getElementById('chk').value=0;}" size="5" style="padding:1px;" />
-<span class="upb<?=$tsl?>"></span>
+<td  align="center" width="5%"><b><?php  echo $unit_nm;?></b></td>
+<td align="center" width="6%"><b></b><?php  echo $refno;?></td>
+<td align="center" width="7%" ><b><?php  echo $pcs;?>-<font color="red"><?php  echo $rqty;?></font> = <?php  echo $stck;?></b>
+<input type="text" name="q<?php  echo $tsl;?>" id="q<?php  echo $tsl;?>" onblur="if(this.value><?php  echo $stck;?>){$('.upb'+<?php  echo $tsl?>).html('<br><font color=\'red\'>Please Check  Quantity. Your Current Stock Is <?php  echo $stck?>/pcs</font>');this.focus();document.getElementById('chk').value=1;}else{$('.upb'+<?php  echo $tsl?>).html('');document.getElementById('chk').value=0;}" size="5" style="padding:1px;" />
+<span class="upb<?php  echo $tsl?>"></span>
 </td>
-<td align="right" width="4%" ><b><?=round($prc,2);?></b></td>
+<td align="right" width="4%" ><b><?php echo round($prc,2);?></b></td>
 
-<td align="right" width="6%"><b><?=round($total,2);?></b></td>
-<td align="center" width="4%"><b><?=$disp;?></b></td>
-<td align="right" width="5%"><b><?=$disa;?></b></td>
+<td align="right" width="6%"><b><?php echo round($total,2);?></b></td>
+<td align="center" width="4%"><b><?php  echo $disp;?></b></td>
+<td align="right" width="5%"><b><?php  echo $disa;?></b></td>
 
-<td align="right" width="5%"><b><?=round($ttl,2);?></b></td>
-<td align="center" width="3%" ><b><?=$cgst_rt;?></b></td>
-<td align="right" width="5%" ><b><?=round($cgst_am,2);?></b></td>
-<td align="center" width="3%" ><b><?=$sgst_rt;?></b></td>
-<td align="right" width="5%" ><b><?=round($sgst_am,2);?></b></td>
-<td align="center" width="3%" ><b><?=$igst_rt;?></b></td>
-<td align="right" width="5%" ><b><?=round($igst_am,2);?></b></td>
-<td align="right" width="7%" ><b><?=round($net_am,2);?></b></td>
+<td align="right" width="5%"><b><?php echo round($ttl,2);?></b></td>
+<td align="center" width="3%" ><b><?php  echo $cgst_rt;?></b></td>
+<td align="right" width="5%" ><b><?php echo round($cgst_am,2);?></b></td>
+<td align="center" width="3%" ><b><?php  echo $sgst_rt;?></b></td>
+<td align="right" width="5%" ><b><?php echo round($sgst_am,2);?></b></td>
+<td align="center" width="3%" ><b><?php  echo $igst_rt;?></b></td>
+<td align="right" width="5%" ><b><?php echo round($igst_am,2);?></b></td>
+<td align="right" width="7%" ><b><?php echo round($net_am,2);?></b></td>
 </tr>
 
-<?}?>
+<?php }?>
 
 </table>
 
 <script>
-document.getElementById('tamm').value='<?=$tax_am;?>';
-document.getElementById('gst').value='<?=$gstam;?>';
-document.getElementById('pay').value='<?=$tnet_am;?>';
+document.getElementById('tamm').value='<?php  echo $tax_am;?>';
+document.getElementById('gst').value='<?php  echo $gstam;?>';
+document.getElementById('pay').value='<?php  echo $tnet_am;?>';
 </script>

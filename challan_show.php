@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include "header.php";
@@ -8,7 +8,7 @@ $saa="01-".date('m-y');
 <html>
 <head>
         <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <style type="text/css"> 
@@ -143,13 +143,13 @@ document.location="challan_billing.php?blno="+blno;
 <td align="right" style="padding-top:15px">
 <b>Form : </b>
 <td align="left">
-<input type="text" id="fdt" name="fdt" value="<?echo $saa;?>" class="form-control" placeholder="Please Enter From Date" > </td>
+<input type="text" id="fdt" name="fdt" value="<?php echo $saa;?>" class="form-control" placeholder="Please Enter From Date" > </td>
 
 <td align="right" style="padding-top:15px">
 <b>To : </b>
 </td>
 <td align="left">
-<input type="text" id="tdt" name="tdt" value="<?echo $sa;?>"class="form-control" placeholder="Please Enter To Date">
+<input type="text" id="tdt" name="tdt" value="<?php echo $sa;?>"class="form-control" placeholder="Please Enter To Date">
 </td>
 <td align="right" style="padding-top:10px">
 <b>Car No : </b>
@@ -158,15 +158,15 @@ document.location="challan_billing.php?blno="+blno;
 
 <select name="cno" class="form-control"  id="cno" onchange="ddet()"  >
 <option value="">All</option>
-<?
+<?php 
  $data= mysqli_query($conn,"select * from main_dirver group by cno")or die(mysqli_error($conn));
  
 while ($row = mysqli_fetch_array($data))
 {
 $cno=$row['cno'];
 ?>
-<option value="<? echo $cno;?>"><? echo $cno;?></option>
-<?
+<option value="<?php  echo $cno;?>"><?php  echo $cno;?></option>
+<?php 
 }
 ?>
 </select>
@@ -189,12 +189,12 @@ $cno=$row['cno'];
 <td align="left" >
 
     <select name="brncd" class="form-control" size="1" id="brncd"   >
-<?
+<?php 
 if($user_current_level<0)
 {
 	?>
 	<option value="">---ALL---</option>
-	<?
+	<?php 
 }
 if($user_current_level<0)
 {
@@ -211,8 +211,8 @@ $sl=$R['sl'];
 $bnm=$R['bnm'];
 
 ?>
-<option value="<? echo $sl;?>"><? echo $bnm;?></option>
-<?
+<option value="<?php  echo $sl;?>"><?php  echo $bnm;?></option>
+<?php 
 }
 ?>
 </select>

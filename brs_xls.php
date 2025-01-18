@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 $fdt1=$_REQUEST['fdt'];
@@ -94,6 +94,7 @@ header("Content-Disposition: attachment; filename=$file");
 <tr style="height: 30px;">
 <th align="center">Sl.</th>
 <th align="center">Date</th>
+<th align="center">Entry Date</th>
 <th align="center">Vouchar No.</th>
 <th align="center">Check No.</th>
 <th align="center">Ref.No.</th>
@@ -107,20 +108,24 @@ header("Content-Disposition: attachment; filename=$file");
 <th align="center">Bank Stmnt Balance</th>
 
 <th align="center" width="10%">BRS Date</th>
+
 </tr>
 <tr>
-<td align="right" style="font-size:125%" colspan="8"><b>OPENING</b></td>
-<td align="left"><b><?php echo $opdr;?></b></td>
-<td align="left"><b><?php echo $opcr;?></b></td>
-<td align="left"><b><?php echo $bal_ac1;?></b></td>
-<td align="left"><b><?php echo $bal1;?></b></td>
+<td align="right" style="font-size:125%" colspan="9"><b>OPENING</b></td>
+<td align="left"><b><?php  echo $opdr;?></b></td>
+<td align="left"><b><?php  echo $opcr;?></b></td>
+<td align="left"><b><?php  echo $bal_ac1;?></b></td>
+<td align="left"><b><?php  echo $bal1;?></b></td>
 
 <td align="center" width="10%" style="font-size:125%"><span id="total_bal_ac11"></span></b></td>
 </tr>
 </thead>
 <tbody>
-<?
+<?php 
 $cc="0";
+$edt="";
+$total_am=0;
+$cls=0;
 //echo "SELECT *,sum(amm) as amm FROM main_drcr where sl>0 and blnon!=''".$brs_dtt.$todt.$lqr." group by blnon order by dt,sl";
 $data= mysqli_query($conn,"SELECT *,sum(amm) as amm FROM main_drcr where sl>0 and blnon!=''".$brs_dtt.$todt.$lqr." group by blnon order by dt,sl")or die(mysqli_error($conn));
 while ($row = mysqli_fetch_array($data))
@@ -138,16 +143,16 @@ $mtddtl= $row['mtddtl'];
 $amm= round($row['amm'],2);
 $nrtn= $row['nrtn'];
 $eby= $row['eby'];
-$edt= $row['edt'];
 $cid= $row['cid'];
 $cbill= $row['cbill'];
 $brs_dt= $row['brs_dt'];
 $sid= $row['sid'];
+$edtm= $row['edtm'];
+
+//$edtm=date('d-m-Y', strtotime($edtm));
 
 
-
-
-$total_am+=$amm;
+$total_am+=(float)$amm;
 
 if($nrtn=='')
 {
@@ -241,38 +246,41 @@ $bal_ac1=$bal_ac*(-1)." Cr";
 $dt=date('d-m-Y', strtotime($dt));
 if($brs_dt=="" or $brs_dt=="0000-00-00"){$brs_dt="";}else{$brs_dt=date('d-m-Y',strtotime($brs_dt));}
 ?>
-<tr class="<?php echo $cls;?>" style="height: 20px;">
-<td align="left" valign="top"><b><?php echo $cc;?></b></td>
-<td align="left" valign="top"><b><?php echo $dt;?></b></td>
-<td align="left" valign="top"><b><?php echo $blnon;?></b></td>
-<td align="left" valign="top"><b><?php echo $mtddtl;?></b></td>
-<td align="left" valign="top"><b><?php echo $refno;?></b></td>
-<td align="left" valign="top"><?php echo $pert;?></td>
-<td align="left" valign="top"><?php echo $name;?></td>
-<td align="left" valign="top"><?php echo $nrtn;?></td>
+<tr class="<?php  echo $cls;?>" style="height: 20px;">
+<td align="left" valign="top"><b><?php  echo $cc;?></b></td>
+<td align="left" valign="top"><b><?php  echo $dt;?></b></td>
+<td align="left" valign="top"><?php  echo $edtm;?></td>
+<td align="left" valign="top"><b><?php  echo $blnon;?></b></td>
+<td align="left" valign="top"><b><?php  echo $mtddtl;?></b></td>
+<td align="left" valign="top"><b><?php  echo $refno;?></b></td>
+<td align="left" valign="top"><?php  echo $pert;?></td>
+<td align="left" valign="top"><?php  echo $name;?></td>
+<td align="left" valign="top"><?php  echo $nrtn;?></td>
 
-<td align="left" valign="top"><b><?php echo $damm;?></b></td>
-<td align="left" valign="top"><b><?php echo $camm;?></b><b></td>
-<td align="left" valign="top"><b><?php echo $bal_ac1;?></b><b></td>
-<td align="left" valign="top"><b><span id="bank_st<?=$cc?>"><?php echo $bal1;?></span></b><b></td>
+<td align="left" valign="top"><b><?php  echo $damm;?></b></td>
+<td align="left" valign="top"><b><?php  echo $camm;?></b><b></td>
+<td align="left" valign="top"><b><?php  echo $bal_ac1;?></b><b></td>
+<td align="left" valign="top"><b><span id="bank_st<?php  echo $cc?>"><?php  echo $bal1;?></span></b><b></td>
 
 <td align="left" valign="top">
-<?php echo $brs_dt;?>
-<div id="brr<?php echo $sl1;?>"></div>
+<?php  echo $brs_dt;?>
+<div id="brr<?php  echo $sl1;?>"></div>
 </td>
+
 </tr>
-<?
+<?php 
 }
 ?>
-<input type="hidden" value="<?=$cc?>" id="countt" >
+<input type="hidden" value="<?php  echo $cc?>" id="countt" >
 <tr>
-<td align="right" style="font-size:125%" colspan="8"><b>TOTAL :</b></td>
+<td align="right" style="font-size:125%" colspan="9"><b>TOTAL :</b></td>
 <td align="left" style="font-size:125%"><b><span id="total_dr"></span></b></td>
 <td align="left" style="font-size:125%"><b><span id="total_cr"></span></b></td>
-<td align="left" style="font-size:125%"><b><span id=""><?=$bal_ac1;?></span></b></td>
+<td align="left" style="font-size:125%"><b><span id=""><?php  echo $bal_ac1;?></span></b></td>
 <td align="left" style="font-size:125%"><b><span id="total_bal"></span></b></td>
 
 <td align="center" width="10%"></td>
+
 </tr>
 <div id="tdv">
 </div>
@@ -280,4 +288,4 @@ if($brs_dt=="" or $brs_dt=="0000-00-00"){$brs_dt="";}else{$brs_dt=date('d-m-Y',s
 </tbody>
 </table>
 							
-<?}?>
+<?php }?>

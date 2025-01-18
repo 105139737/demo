@@ -1,10 +1,11 @@
-<?php
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
-
+$sl=0;
 $cat=$_REQUEST['cat'];
 $scat=$_REQUEST['scat'];
 $pnm=rawurldecode($_REQUEST['pnm']);
+$ean1="";
 $ean=$_REQUEST['ean'];
 if($cat!=""){$cat1=" and cat='$cat'";}else{$cat1="";}
 if($scat!=""){$scat1=" and scat='$scat'";}else{$scat1="";}
@@ -36,7 +37,8 @@ if($total!=0)
 <th style="text-align:center;">Discount</th>
 <th style="text-align:center;">Discount Amount</th>
 </tr>
-<?
+<?php 
+$sl=0;
 while($row=mysqli_fetch_array($get))
 {
 	$cnt++;
@@ -68,21 +70,21 @@ while($row=mysqli_fetch_array($get))
 	
 ?>
 <tr>
-<td style="text-align:center;"><?=$cnt;?></td>
-<td style="text-align:left;"><?=$cat;?></td>
-<td style="text-align:left;"><?=$scat;?></td>
-<td style="text-align:left;"><?=$pnm;?></td>
-<td style="text-align:left;"><?=$hsn;?></td>
-<td style="text-align:left;"><? echo '0';?></td>
-<td style="text-align:left;"><? echo '0';?></td>
-<td style="text-align:left;"><? echo '0';?></td>
+<td style="text-align:center;"><?php  echo $cnt;?></td>
+<td style="text-align:left;"><?php  echo $cat;?></td>
+<td style="text-align:left;"><?php  echo $scat;?></td>
+<td style="text-align:left;"><?php  echo $pnm;?></td>
+<td style="text-align:left;"><?php  echo $hsn;?></td>
+<td style="text-align:left;"><?php  echo '0';?></td>
+<td style="text-align:left;"><?php  echo '0';?></td>
+<td style="text-align:left;"><?php  echo '0';?></td>
 
 </tr>
-<?															
+<?php 															
 }
 ?>
 </table>
-<?
+<?php 
 }
 else
 {
@@ -92,6 +94,6 @@ else
 <td style="text-align:center;"><font size="4" color="red"><b>No Records Available</b></font></td>
 </tr>
 </table>
-<?
+<?php 
 }
 ?>

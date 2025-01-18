@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel=1;
 include("membersonly.inc.php");
 $prid=$_REQUEST[prid];
@@ -8,7 +8,7 @@ $prid=$_REQUEST[prid];
 ?>
 <select name="from"  id="from" class="sc" onchange="stk(this.value)">
 <option value="">---Select---</option>
-  <?
+  <?php 
   	  $data1= mysqli_query($conn,"select * from  main_stock where pcd='$prid' group by bcd");
 while ($row1 = mysqli_fetch_array($data1))
 {
@@ -23,8 +23,8 @@ while ($row = mysqli_fetch_array($data))
 
   ?>
   
-   <option value="<?echo $sl;?>"><?echo $bnm;?></option>
-  <?
+   <option value="<?php echo $sl;?>"><?php echo $bnm;?></option>
+  <?php 
   }
   }
   ?>

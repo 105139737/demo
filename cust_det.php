@@ -1,8 +1,8 @@
-<?php
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
-$sid=$_REQUEST[sl];
-$brncd=$_REQUEST[brncd];if($brncd==""){$brncd1="";}else{$brncd1=" and bcd='$brncd'";}
+$sid=$_REQUEST['sl'];
+$brncd=$_REQUEST['brncd'] ?? "";if($brncd==""){$brncd1="";}else{$brncd1=" and bcd='$brncd'";}
 
  $data4= mysqli_query($conn,"select * from  main_suppl where sid='$sid' and (tp='Debtors' or tp='Both')")or die(mysqli_error($conn));
 while ($row = mysqli_fetch_array($data4))
@@ -22,7 +22,7 @@ if($spn=="")
             <td  align="right" width="50%" ><font size="3"><b>Shop Name :</b></font></td>
             <td  align="left">
 			
-<font size="3"><b><?echo $spn;?></b></font>
+<font size="3"><b><?php echo $spn;?></b></font>
             </td>
           </tr>
 	  </table>
@@ -49,7 +49,7 @@ if($spn=="")
 			<b>Sale Rate</b>
 			</td>
 			     </tr>
-			 <?
+			 <?php 
 		$sln=0;
 		$tota=0;
 			
@@ -112,27 +112,27 @@ $prc1=$prc/$ptu;
 			 ?>
 		   <tr>
 		    <td  align="center" >
-			<?=$sln;?>
+			<?php  echo $sln;?>
 			</td>
 			 <td  align="center" >
-			<?=$edt;?>
+			<?php  echo $edt;?>
 			</td>
             <td  align="center" >
-			<?=$blno;?>
+			<?php  echo $blno;?>
 			</td>
 		
 			<td  align="center" >
-			<?=$pname;?>
+			<?php  echo $pname;?>
 			</td>
 			<td  align="center" >
-			<?=$stkf;?>/<?=$punt;?>
+			<?php  echo $stkf;?>/<?php  echo $punt;?>
 			</td>
 			<td  align="right" >
-			<b><?= number_format($ttl,2);?></b>
+			<b><?php echo  number_format($ttl,2);?></b>
 			</td>
             </tr>	 
 			 
-<?
+<?php 
 $tota=$ttl+$tota;
 
 }}?>
@@ -141,7 +141,7 @@ $tota=$ttl+$tota;
 <b>Total</b>
 </td>
 <td align="right">
-<b><?=number_format($tota,2);?></b>
+<b><?php echo number_format($tota,2);?></b>
 </td>
 
 	  </table>

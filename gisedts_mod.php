@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 date_default_timezone_set("Asia/Kolkata");
@@ -27,12 +27,12 @@ $sql =mysqli_query($conn,"UPDATE  $tblnm set $fn='$fv' where blnon='$sl' and dt=
 
 ?>
 <font color="green"><b>Success</b></font>
-<?}
+<?php }
 else
 {
 ?>
 <font color="red"><b>Error</b></font>
-<?	
+<?php 	
 }
 ?>
 

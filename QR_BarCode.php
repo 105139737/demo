@@ -1,4 +1,4 @@
-<?php
+<?php 
 /**
  * QR_BarCode - Barcode QR Code Image Generator
  * @author Legend Blogs

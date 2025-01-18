@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3; 
 include("membersonly.inc.php");
 $brncd=$_REQUEST['brncd'];
@@ -23,7 +23,7 @@ if($sup==""){$sup1="";}else{$sup1=" and sid='$sup'";}
 <th align="center" width="25%">Narration</th>
 <td align="center" width="5%"><b>Edit</b></td>
 </tr>
-<?
+<?php 
 		$f=0;
 		$totamm=0;
 $data= mysqli_query($conn,"SELECT * FROM main_drcr where typ='11' and (dldgr='4' or cldgr='4')  $brncd1 $ldgr1 $cust1 $sup1 order by dt desc");
@@ -124,22 +124,22 @@ $bnm=$R['bnm'];
 		}
 		$dt=date('d-M-Y', strtotime($dt));
 ?>
-<tr class="<?echo $cls;?>" style="height: 20px;">
-<td align="left" valign="top"><a href="#" title="By : <?=$eby;?> | On :<?=$edt;?>"><b><?echo $f;?></b></td>
-<td align="left" valign="top"><?echo $bnm;?></td>
-<td align="left" valign="top"><?echo $ldgr.$var;?></td>
-<td align="right" valign="top" align="right"><font color="red">Rs. <b><?echo number_format($amm,2);?></b></font></td>
-<td align="left" valign="top"><?echo $drcr;?></td>
-<td align="left" valign="top"><?echo $nrtn;?></td>
+<tr class="<?php echo $cls;?>" style="height: 20px;">
+<td align="left" valign="top"><a href="#" title="By : <?php  echo $eby;?> | On :<?php  echo $edt;?>"><b><?php echo $f;?></b></td>
+<td align="left" valign="top"><?php echo $bnm;?></td>
+<td align="left" valign="top"><?php echo $ldgr.$var;?></td>
+<td align="right" valign="top" align="right"><font color="red">Rs. <b><?php echo number_format($amm,2);?></b></font></td>
+<td align="left" valign="top"><?php echo $drcr;?></td>
+<td align="left" valign="top"><?php echo $nrtn;?></td>
 <td align="center" valign="top">
-<a href="#" onclick="sfdtl4('<? echo $sl; ?>')" title="Edit"> <i class="fa fa-edit"></i></a>
+<a href="#" onclick="sfdtl4('<?php  echo $sl; ?>')" title="Edit"> <i class="fa fa-edit"></i></a>
 </td>
 </tr>
-<?
+<?php 
 $totamm=$amm+$totamm;
 }
 ?>
 <tr>
-<td colspan="3" align="right"><b>Total : </b></td><td align="right"><b><?echo number_format($totamm,2);?></b></td>
+<td colspan="3" align="right"><b>Total : </b></td><td align="right"><b><?php echo number_format($totamm,2);?></b></td>
 </tr>
 </table>

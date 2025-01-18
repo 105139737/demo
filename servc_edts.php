@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 
@@ -80,7 +80,7 @@ mysqli_query($conn,"update main_unit set sun='$sun',mun='$mun',bun='$bun',smvlu=
 	alert('Update Successfully. Thank You');
 	document.location="prod_list.php";
 	</script>
-	<?
+	<?php 
 }
 else
 {
@@ -89,16 +89,16 @@ else
 	alert('Data Already Exists');
 	history.go(-1);
 	</script>
-	<?
+	<?php 
 }
 }
 else
 {
 	?>
 	<script>
-	alert('<?=$err;?>');
+	alert('<?php  echo $err;?>');
 	history.go(-1);
 	</script>
-	<?	
+	<?php 	
 }
 ?>

@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 include("Numbers/Words.php");
@@ -8,44 +8,44 @@ date_default_timezone_set('Asia/Kolkata');
 $cdt=date('Y-m-d');
 $dttm=date('d-m-Y H:i:s a');
 
-$custnm=$_POST[custnm];
-$addr=$_POST[addr];
-$mob=$_POST[mob];
-$mail=$_POST['mail'];
-$brncd=$_POST[brncd];
-$dt=$_POST[dt];
-$dis=$_POST[dis];
-$car=$_POST[car];
-$vat=$_POST[vat];
-$vatamm=$_POST[vatamm];
-$tamm=$_POST[tamm];
-$gstam=$_POST[gst];
-$payam=$_POST[pay];
-$dldgr=$_POST[dldgr];
-$mdt=$_POST[mdt];
-$pamm=$_POST[pamm];
-$crfno=$_POST[crfno];
-$idt=$_POST[idt];
-$cbnm=$_POST[cbnm];
-$fst=$_POST[fst];
-$tst=$_POST[tst];
-$tmod=$_POST[tmod];
-$psup=$_POST[psup];
-$vno=$_POST[vno];
-$lpd=$_POST[lpd];
+$custnm=$_POST['custnm']??"";
+$addr=$_POST['addr']??"";
+$mob=$_POST['mob']??"";
+$mail=$_POST['mail']??"";
+$brncd=$_POST['brncd']??"";
+$dt=$_POST['dt']??"";
+$dis=$_POST['dis']??"";
+$car=$_POST['car']??"";
+$vat=$_POST['vat']??"";
+$vatamm=$_POST['vatamm']??"";
+$tamm=$_POST['tamm']??"";
+$gstam=$_POST['gst']??"";
+$payam=$_POST['pay']??"";
+$dldgr=$_POST['dldgr']??"";
+$mdt=$_POST['mdt']??"";
+$pamm=$_POST['pamm']??"";
+$crfno=$_POST['crfno']??"";
+$idt=$_POST['idt']??"";
+$cbnm=$_POST['cbnm']??"";
+$fst=$_POST['fst']??"";
+$tst=$_POST['tst']??"";
+$tmod=$_POST['tmod']??"";
+$psup=$_POST['psup']??"";
+$vno=$_POST['vno']??"";
+$lpd=$_POST['lpd']??"";
 
-$dur_mnth=$_POST[dur_mnth];
-$no_servc=$_POST[no_servc];
-$sfno=$_POST[sfno];
-$dpay=$_POST[dpay];
-$finam=$_POST[finam];
-$emiam=$_POST[emiam];
-$emi_mnth=$_POST[emi_mnth];
+$dur_mnth=$_POST['dur_mnth']??"";
+$no_servc=$_POST['no_servc']??"";
+$sfno=$_POST['sfno']??"";
+$dpay=$_POST['dpay']??"";
+$finam=$_POST['finam']??"";
+$emiam=$_POST['emiam']??"";
+$emi_mnth=$_POST['emi_mnth']??"";
 
-$cust_typ=$_POST[cust_typ];
-$sale_per=$_POST[sale_per];
-$bill_typ=$_POST[bill_typ];
-$invto=$_POST[invto];
+$cust_typ=$_POST['cust_typ']??"";
+$sale_per=$_POST['sale_per']??"";
+$bill_typ=$_POST['bill_typ']??"";
+$invto=$_POST['invto']??"";
  
 $dt=date('Y-m-d', strtotime($dt));
 if($idt=="")
@@ -111,7 +111,7 @@ $vnos=$start_no;
 $vid1=$vnos;
 
 while($count6>0){
-$vid1=$vid1+1;
+$vid1=(float)$vid1+1;
 //$vnoc=str_pad($vid1, 5, '0', STR_PAD_LEFT);
 $vnoc=$vid1;
 $blno=$als.$vnoc.$ssn;
@@ -128,15 +128,15 @@ while($rows=mysqli_fetch_array($result51))
 $vnos=$rows['vno'];
 }	
 $vid1=substr($vnos,2,7);	
-	$vid1=$vid1+1;
+	$vid1=(float)$vid1+1;
 	$vnoc=str_pad($vid1, 7, '0', STR_PAD_LEFT);
 	$vcno="SV".$vnoc;
 
 
 $totamm=$pamm;
-$bilamm=$gttl+$cgst+$sgst+$igst;
+$bilamm=(float)$gttl+(float)$cgst+(float)$sgst+(float)$igst;
 $rgttl=round($bilamm);
-$roff=round($rgttl-$bilamm,2);
+$roff=round((float)$rgttl-(float)$bilamm,2);
 	
 
 	
@@ -152,7 +152,7 @@ $query211 = "INSERT INTO ".$DBprefix."ser_billing (blno,cid,amm,paid,crdtp,cbnm,
 VALUES ('$blno','$custnm','$bilamm','$pamm','$mdt','$cbnm','$dt','$cdt','$dttm','$vat','$vatamm','$car','$dis','$brncd','$user_currently_loged','$tpoint','$fst','$tst','1','$tmod','$psup','$vno','$lpd','$cugst','$dur_mnth','$no_servc','$sfno','$dpay','$finam','$emiam','$emi_mnth','$gttl','$gstam','$roff','$payam','$crfno','$cust_typ','$sale_per','$bill_typ','$als','$tp','$adrs','$ssn','$start_no','$invto')";
 $result211 = mysqli_query($conn,$query211)or die(mysqli_error($conn)); 
 	
-$gttl=$gttl+$roff;	
+$gttl=(float)$gttl+(float)$roff;	
 
 $query21 = "INSERT INTO ".$DBprefix."drcr (vno,cbill,cid,dt,nrtn,dldgr,cldgr,amm,brncd,eby,edtm,pay) VALUES ('$vcno','$blno','$custnm','$dt','Sale','4','-2','$gttl','$brncd','$user_currently_loged','$dttm','1')";
 $result21 = mysqli_query($conn,$query21)or die(mysqli_error($conn));
@@ -266,13 +266,11 @@ $gttl=$R1['gttl'];
 }
 
 
-$nw = new Numbers_Words();
-$aiw=$nw->toWords($gttl);
 
 ?>
 <html>
         <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <head>
@@ -313,9 +311,9 @@ border: 1px solid #000;
 <table border="0" width="677px">
 <tr>
 <td  align="center" colspan="2">
-<font size="7"><b><?=$comp_nm;?></b></font>
+<font size="7"><b><?php  echo $comp_nm;?></b></font>
 <br>
-<font size="4"><b><?=$comp_addr;?></b></font>
+<font size="4"><b><?php  echo $comp_addr;?></b></font>
 </td>
 </tr>
 <tr>
@@ -323,13 +321,13 @@ border: 1px solid #000;
 <font size="5"> <b><a href="bill_typ.php" ><u>Back</u></a></b></font>
 </td>
 <td  align="left">
-<font size="5"> <b><a href="bill_new_gst_ser.php?blno=<?=rawurlencode($blno);?>" target="_blank"><font color="red"><u>Print</u></font></a></b></font>
+<font size="5"> <b><a href="bill_new_gst_ser.php?blno=<?php echo rawurlencode($blno);?>" target="_blank"><font color="red"><u>Print</u></font></a></b></font>
 </td>
 </tr>
 
 <tr>
 <td  align="center" colspan="2" >
-<font size="4" color="red"> <b> Bill No. : <?=$blno;?></b></font>
+<font size="4" color="red"> <b> Bill No. : <?php  echo $blno;?></b></font>
 </td>
 
 </tr>
@@ -341,15 +339,15 @@ border: 1px solid #000;
 </body>
 </div>
 </html>
-<?
+<?php 
 }
 else
 {
     ?>
 <Script language="JavaScript">
-alert('<? echo $err;?>');
+alert('<?php  echo $err;?>');
 document.location="ser_bill_typ.php";
 </script>
-<?
+<?php 
 }
 ?>

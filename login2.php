@@ -1,4 +1,4 @@
-<?PHP
+<?php 
 
 // retrieve the submitted values
 
@@ -641,7 +641,7 @@ form:after {
 <div class="container">
 	<section id="content">
 		    <form name="form1" method="post" action="login.php">
-	<?PHP
+	<?php 
 
 if ($errormessage != ""){
 
@@ -649,11 +649,11 @@ if ($errormessage != ""){
 
 <script language="javascript">
 
-alert('<? echo $errormessage;?>');
+alert('<?php  echo $errormessage;?>');
 
 </script>
 
-<?
+<?php 
 
 
 
@@ -676,4 +676,4 @@ alert('<? echo $errormessage;?>');
 </div><!-- container -->
 </body>
 </html>
-<?php } ?>
+<?php  } ?>

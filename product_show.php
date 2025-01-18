@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 include "header.php";
@@ -6,7 +6,7 @@ include "header.php";
 <html>
 <head>
         <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <style type="text/css"> 
@@ -116,7 +116,7 @@ function pagnt(pno){
             <td  align="left">
 		<select name="cat" class="form-control" size="1" id="cat" tabindex="8" >
 				<Option value="">---Select---</option>
-<?
+<?php 
 
 $data1 = mysqli_query($conn,"Select * from main_catg order by cnm");
 
@@ -137,7 +137,7 @@ $data1 = mysqli_query($conn,"Select * from main_catg order by cnm");
  <td  align="left">
 <select name="bnm" class="form-control" size="1" id="bnm" tabindex="8"  >
 				<Option value="">---Select---</option>
-<?
+<?php 
 
 $data2 = mysqli_query($conn,"Select * from main_brand order by brand");
 
@@ -159,12 +159,12 @@ $data2 = mysqli_query($conn,"Select * from main_brand order by brand");
 <td align="left" >
 
     <select name="brncd" class="form-control" size="1" id="brncd"   >
-<?
+<?php 
 if($user_current_level<0)
 {
 	?>
 	<option value="">---ALL---</option>
-	<?
+	<?php 
 }
 if($user_current_level<0)
 {
@@ -181,8 +181,8 @@ $sl=$R['sl'];
 $bnm=$R['bnm'];
 
 ?>
-<option value="<? echo $sl;?>"><? echo $bnm;?></option>
-<?
+<option value="<?php  echo $sl;?>"><?php  echo $bnm;?></option>
+<?php 
 }
 ?>
 </select>

@@ -1,4 +1,4 @@
-<?php
+<?php 
 
 $reqlevel = 3;
 include("membersonly.inc.php");
@@ -35,7 +35,7 @@ if($prid=='' or $from=='' or $to=='' or $unt=='' or $qunt=='' or $qunt=='0')
 alert('Please Fill All The Fields.');
 window.history.go(-1);
 </script>
-<?
+<?php 
 }
 else
 {
@@ -60,7 +60,7 @@ if($stout>$stck)
 alert('Please Check Quantity...');
 window.history.go(-1);
 </script>
-<?	
+<?php 	
 }	
 else
 {
@@ -83,7 +83,7 @@ $result21 = mysqli_query($conn,$query21);
 alert('Product Transfer Completed. Thank You.....');
 document.location="stk_trn.php";
 </script>
-<?  
+<?php   
 }  
 
 }    

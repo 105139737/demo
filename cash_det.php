@@ -1,14 +1,14 @@
-<?
+<?php 
 $reqlevel=1;
 include("membersonly.inc.php");
 
 $pt=$_REQUEST['pt'];
 $ledgr=$_REQUEST['ledgr'];
-$pno=base64_decode($_REQUEST['pno']);
+$pno=base64_decode($_REQUEST['pno'] ?? "");
 $mledgr=$_REQUEST['mledgr'];
 $pt1=$_REQUEST['pt1']; 
-$fdt=$_REQUEST[fdt]; 
-$tdt=$_REQUEST[tdt]; 
+$fdt=$_REQUEST['fdt']; 
+$tdt=$_REQUEST['tdt']; 
 $qry1=" and (dt between '$fdt' and '$tdt')";
 ?>
 <table border="1" cellspacing="0" width="100%" class="advancedtable" >
@@ -21,10 +21,10 @@ $qry1=" and (dt between '$fdt' and '$tdt')";
 		 </tr>
 
 
-<?
+<?php 
 $tot=0;
 $query33 = "SELECT * FROM main_drcr where $pt='$mledgr' and $pt1='$ledgr' $pno $qry1";
-
+$eid="";
 $result33 = mysqli_query($conn,$query33);
 while ($R = mysqli_fetch_array ($result33))
 {
@@ -34,7 +34,7 @@ while ($R = mysqli_fetch_array ($result33))
 		$ldgr=$R['cldgr'];
 		$gamm=$R['amm'];
 		$sid=$R['sid'];
-		$eid=$R['eid'];
+		//$eid=$R['eid']??"";
 		$cid=$R['cid'];
 		$cbill=$R['cbill'];
 		
@@ -61,7 +61,7 @@ while ($R = mysqli_fetch_array ($result33))
 		
 		if($ldgr==89)
 		{
-			$query6="select * from  main_staf where username='$eid'";
+		$query6="select * from  main_staf where username='$eid'";
 		$result5 = mysqli_query($conn,$query6);
 		while($row=mysqli_fetch_array($result5))
 		{
@@ -87,15 +87,15 @@ while ($R = mysqli_fetch_array ($result33))
 		$gdt=date('d-m-Y', strtotime($gdt));
 ?>
 		<tr>		
-			<td  align="center" TITLE="<?=$ldgr;?>" ><font size="2" color="black"> <?echo $gdt;?></font></td>
+			<td  align="center" TITLE="<?php  echo $ldgr;?>" ><font size="2" color="black"> <?php echo $gdt;?></font></td>
 			
-            <td  align="left" ><font size="2" color="black"><?echo $gnrtn.$cnm;?></font></td>
+            <td  align="left" ><font size="2" color="black"><?php echo $gnrtn.$cnm;?></font></td>
 		
-			<td  align="right" ><font  color="black"><?echo sprintf('%0.2f', $gamm);?></font></td>
+			<td  align="right" ><font  color="black"><?php echo sprintf('%0.2f', $gamm);?></font></td>
 		 </tr>
 
 
-<?
+<?php 
 	$tot=$tot+$gamm;
 	}}
 ?>
@@ -104,7 +104,7 @@ while ($R = mysqli_fetch_array ($result33))
 Total : 
 </td>
 <td align="right">
-<font size="3"><b><?echo sprintf('%0.2f', $tot);?></b></font>
+<font size="3"><b><?php echo sprintf('%0.2f', $tot);?></b></font>
 </td>
 </tr>
 </table>

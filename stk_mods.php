@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel=1;
 include("membersonly.inc.php");
 $frm=$_POST['frm'];
@@ -24,9 +24,9 @@ if($num>0 && $num1>0)
 ?>
 <script>
 alert("Purchase Bill Swaping Successfully..");
-window.location="purchase_edit.php?blno=<?=$too;?>";
+window.location="purchase_edit.php?blno=<?php  echo $too;?>";
 </script>
-<?	
+<?php 	
 }			
 else
 {
@@ -34,5 +34,5 @@ else
 <script>
 alert("From or To - Bill Number Not Found");
 history.go(-1);
-</script><?	
+</script><?php 	
 }

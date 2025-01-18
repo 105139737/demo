@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 1; 
 
 include("membersonly.inc.php");
@@ -6,7 +6,7 @@ $fdt=$_REQUEST['fdt'];
 $tdt=$_REQUEST['tdt'];
 $fdt=date('Y-m-d', strtotime($fdt));
 $tdt=date('Y-m-d', strtotime($tdt));
-$brncd=$_REQUEST[brncd];if($brncd==""){$brncd1="";}else{$brncd1=" and bcd='$brncd'";}
+$brncd=$_REQUEST['brncd'] ?? "";if($brncd==""){$brncd1="";}else{$brncd1=" and bcd='$brncd'";}
 
 if($fdt=="" or $tdt=="")
 {
@@ -14,13 +14,13 @@ if($fdt=="" or $tdt=="")
 <center>
 <font color="pink">
 <b>
-<?
+<?php 
 echo "Please Fill All The Fields.....";
 ?>
 </b>
 </font>
 </center>
-<?
+<?php 
 }
 else
 {
@@ -40,13 +40,13 @@ if($rcnt==0)
 <center>
 <font color="pink">
 <b>
-<?
+<?php 
 echo "There Are No Bills Between These Dates.....";
 ?>
 </b>
 </font>
 </center>
-<?
+<?php 
 }
 else
 {
@@ -63,7 +63,7 @@ else
 <th align="center">Contact No.</th>
 <th align="center">Amount Rs.</th>
 </tr></thead>
-<?
+<?php 
 $sln=0;
 $tot=0;
 while($r=mysqli_fetch_array($cr1))
@@ -108,19 +108,19 @@ $tot=$gttl1+$tot;
 ?>
 
 <tr>
-<td align="center"><?=$sln;?></td>
-<td align="center"><a href="#" onclick="view('<?=$blno;?>')" title="Print"><?=$blno;?></a></td>
-<td align="center"><?=$d;?></td>
-<td align="center"><?=$cnm;?></td>
-<td align="center"><?=$cont;?></td>
+<td align="center"><?php  echo $sln;?></td>
+<td align="center"><a href="#" onclick="view('<?php  echo $blno;?>')" title="Print"><?php  echo $blno;?></a></td>
+<td align="center"><?php  echo $d;?></td>
+<td align="center"><?php  echo $cnm;?></td>
+<td align="center"><?php  echo $cont;?></td>
 <td align="right">
-<?=number_format($gttl1,2);?>
+<?php echo number_format($gttl1,2);?>
 </td>
 
 
 
 </tr>
-<?
+<?php 
 $vat="";
 $gttl1="";
 }
@@ -133,7 +133,7 @@ $gttl1="";
 <b> Total </b>
 </td>
 <td align="right">
-<?=number_format($tot,2);?>
+<?php echo number_format($tot,2);?>
 </td>
 </tr>
 

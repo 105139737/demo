@@ -1,6 +1,11 @@
-<?
+<?php 
 $reqlevel = 3; 
 include("membersonly.inc.php");
+$tiamm=0;
+$tttamm=0;
+$ttcgst=0;
+$ttsgst=0;
+$ttigst=0;
 $fdt=$_REQUEST['fdt'];
 $tdt=$_REQUEST['tdt'];
 $tdt=$_REQUEST['tdt'];
@@ -36,22 +41,22 @@ if($fdt!="" and $tdt!=""){$todts=" and dt between '$fdt' and '$tdt'";}else{$todt
 			<td  align="center" ><b>Taxable Value</b></td>
 			<td  align="center" ><b>Cess Amount</b></td>
 		</tr>
-			 <?
+			 <?php 
 		$sln=0;
 		$tamm1=0;
 
 $data1= mysqli_query($conn,"select * from  main_purchase where sl>0 ".$todts.$snm1." order by dt")or die(mysqli_error($conn));
 while ($row1 = mysqli_fetch_array($data1))
 {
-$blno=$row1['blno'];
-$invno=$row1['blno'];
-$dt=$row1['dt'];
-$gstin=$row1['gstin'];
-$sid=$row1['sid'];
-$tamm=$row1['amm'];
-$tst=$row1['tst'];
-$invto=$row1['inv'];
-$addr=$row1['addr'];
+$blno=$row1['blno'] ?? 0;
+$invno=$row1['blno'] ?? 0;
+$dt=$row1['dt'] ?? 0;
+$gstin=$row1['gstin'] ?? 0;
+$sid=$row1['sid'] ?? "";
+$tamm=$row1['amm'] ??0;
+$tst=$row1['tst'] ?? "";
+$invto=$row1['inv'] ?? "";
+$addr=$row1['addr'] ?? "";
 $dt=date('d-m-Y', strtotime($dt));
 $sln++;
 
@@ -123,25 +128,25 @@ $amm=0;
 <tr>
 
 
-<td  align="center"  ><?=$sln;?></td>
-<td  align="left"  ><?=$gstin;?></td>
-<td  align="left"  ><?=$nm;?></td>
-<td  align="left"  ><?=$invto;?></td>
-<td  align="center"  ><?=$dt;?></td>
-<td  align="right"  ><?=sprintf('%0.2f',$tamm);?></td>
-<td  align="left"  ><?=$statcd.'-'.$statnm;?></td>
-<td  align="center"  ><?='N';?></td>
-<td  align="center"  ><?='Regular';?></td>
+<td  align="center"  ><?php  echo $sln;?></td>
+<td  align="left"  ><?php  echo $gstin;?></td>
+<td  align="left"  ><?php  echo $nm;?></td>
+<td  align="left"  ><?php  echo $invto;?></td>
+<td  align="center"  ><?php  echo $dt;?></td>
+<td  align="right"  ><?php echo sprintf('%0.2f',$tamm);?></td>
+<td  align="left"  ><?php  echo $statcd.'-'.$statnm;?></td>
+<td  align="center"  ><?php echo 'N';?></td>
+<td  align="center"  ><?php echo 'Regular';?></td>
 <td  align="center"  ></td>
-<td  align="center"  ><?=$cgst_rt+$sgst_rt+$igst_rt;?></td>
-<td  align="right"  ><?=round($tcgst,2);?></td>
-<td  align="right"  ><?=round($tsgst,2);?></td>
-<td  align="right"  ><?=round($tigst,2);?></td>
+<td  align="center"  ><?php  echo $cgst_rt+$sgst_rt+$igst_rt;?></td>
+<td  align="right"  ><?php echo round($tcgst,2);?></td>
+<td  align="right"  ><?php echo round($tsgst,2);?></td>
+<td  align="right"  ><?php echo round($tigst,2);?></td>
 <td  align="center"  ></td>
-<td  align="right"  ><?=round($amm,2);?></td>
+<td  align="right"  ><?php echo round($amm,2);?></td>
 <td  align="center"  ></td>
 </tr>
-<?
+<?php 
 }
 }
 
@@ -236,25 +241,25 @@ $amm=0;
 <tr>
 
 
-<td  align="center"  ><?=$sln;?></td>
-<td  align="left"  ><?=$gstin1;?></td>
-<td  align="left"  ><?=$nm1;?></td>
-<td  align="left"  ><?=$invto1;?></td>
-<td  align="center"  ><?=$dt1;?></td>
-<td  align="right"  ><?=sprintf('%0.2f',$tamm2);?></td>
-<td  align="left"  ><?=$statcd1.'-'.$statnm1;?></td>
-<td  align="center"  ><?='N';?></td>
-<td  align="center"  ><?='Regular';?></td>
+<td  align="center"  ><?php  echo $sln;?></td>
+<td  align="left"  ><?php  echo $gstin1;?></td>
+<td  align="left"  ><?php  echo $nm1;?></td>
+<td  align="left"  ><?php  echo $invto1;?></td>
+<td  align="center"  ><?php  echo $dt1;?></td>
+<td  align="right"  ><?php echo sprintf('%0.2f',$tamm2);?></td>
+<td  align="left"  ><?php  echo $statcd1.'-'.$statnm1;?></td>
+<td  align="center"  ><?php echo 'N';?></td>
+<td  align="center"  ><?php echo 'Regular';?></td>
 <td  align="center"  ></td>
-<td  align="center"  ><?=$cgst_rt1+$sgst_rt1+$igst_rt1;?></td>
-<td  align="right"  ><?=round($tcgst1,2);?></td>
-<td  align="right"  ><?=round($tsgst1,2);?></td>
-<td  align="right"  ><?=round($tigst1,2);?></td>
+<td  align="center"  ><?php  echo $cgst_rt1+$sgst_rt1+$igst_rt1;?></td>
+<td  align="right"  ><?php echo round($tcgst1,2);?></td>
+<td  align="right"  ><?php echo round($tsgst1,2);?></td>
+<td  align="right"  ><?php echo round($tigst1,2);?></td>
 <td  align="center"  ></td>
-<td  align="right"  ><?=round($amm1,2);?></td>
+<td  align="right"  ><?php echo round($amm1,2);?></td>
 <td  align="center"  ></td>
 </tr>
-<?
+<?php 
 }
 }
 ?>

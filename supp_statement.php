@@ -1,5 +1,7 @@
-<?$reqlevel = 1;
+<?php $reqlevel = 1;
 include("membersonly.inc.php");
+$fdt="";
+$tdt="";
 $branch_nm="Supplier Summary";
 include "header.php";
 if($fdt=="")
@@ -19,7 +21,7 @@ $tdt=date('Y-m-d');
 <html>
 <head>
 <div class="wrapper row-offcanvas row-offcanvas-left">
-<?            
+<?php             
 include "left_bar.php";
 ?>
 <style type="text/css">
@@ -113,12 +115,12 @@ window.open('supp_statements.php?fdt='+fdt+'&tdt='+tdt+'&proj='+proj+'&amm='+amm
 <td align="right" style="padding-top:10px">
 <font size="3" ><b>Branch:</b></font>
 <select name="brncd" size="1" id="brncd"  class="sc" style="width:100px">
-<?
+<?php 
 if($user_current_level<0)
 {
 	?>
 	<option value="">---ALL---</option>
-	<?
+	<?php 
 }
 if($user_current_level<0)
 {
@@ -135,15 +137,15 @@ $sl=$R['sl'];
 $bnm=$R['bnm'];
 
 ?>
-<option value="<? echo $sl;?>"><? echo $bnm;?></option>
-<?
+<option value="<?php  echo $sl;?>"><?php  echo $bnm;?></option>
+<?php 
 }
 ?>
 </select>
 
 </td>
-<td align="right" style="padding-top:10px"> <font size="3" ><b>From  :</b></font><input type="text" name="fdt" id="fdt" class="sc" value="<?=$fdt;?>" style="width:100px"></td>
-<td align="right" style="padding-top:10px"> <font size="3" ><b>To  :</b></font><input type="text" name="tdt" id="tdt" class="sc" value="<?=$tdt;?>" style="width:100px"></td>
+<td align="right" style="padding-top:10px"> <font size="3" ><b>From  :</b></font><input type="text" name="fdt" id="fdt" class="sc" value="<?php  echo $fdt;?>" style="width:100px"></td>
+<td align="right" style="padding-top:10px"> <font size="3" ><b>To  :</b></font><input type="text" name="tdt" id="tdt" class="sc" value="<?php  echo $tdt;?>" style="width:100px"></td>
 <td align="left"><font size="3" ><b>Due / Advance  >= </b>Rs. </font>
 <input type="text" name="amm" id="amm" class="sc" value="0" style="width:100px">
 </td>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3; 
 set_time_limit(0);
 include("membersonly.inc.php");
@@ -8,7 +8,7 @@ $pnm=rawurldecode($_REQUEST['pnm']);
 
 $fdt=date('Y-m-d', strtotime($fdt));
 $tdt=date('Y-m-d', strtotime($tdt));
-$brncd=$_REQUEST[brncd];if($brncd==""){$brncd1="";}else{$brncd1=" and bcd='$brncd'";}
+$brncd=$_REQUEST['brncd'] ?? "";if($brncd==""){$brncd1="";}else{$brncd1=" and bcd='$brncd'";}
 if($fdt!="" and $tdt!=""){$todt=" and edt between '$fdt' and '$tdt'";}else{$todt="";}
 if($fdt!="" and $tdt!=""){$todts=" and dt between '$fdt' and '$tdt'";}else{$todts="";}
 
@@ -56,7 +56,7 @@ $pnm1="";
 			<b>Closing</b>
 			</td>
 		    </tr>
-			 <?
+			 <?php 
 			 /*
 			 $open=0;
 			  $query5=mysqli_query($conn,"Select sum((opst+stin)-stout) as stck1 from ".$DBprefix."stock where dt<='$fdt'".$pnm1)or die(mysqli_error($conn));
@@ -70,7 +70,7 @@ $open=$R5['stck1'];
 			
 			</td>
  <td  align="center" >
-			<b><?=$fdt;?> </b>
+			<b><?php  echo $fdt;?> </b>
 			</td>
 			  <td  align="center" colspan="4">
 			<b>Opening </b>
@@ -78,7 +78,7 @@ $open=$R5['stck1'];
 			
 			
 			<td  align="center" >
-			<b><?=$open;?></b>/Pcs
+			<b><?php  echo $open;?></b>/Pcs
 			</td>
 			<td  align="center" >
 			
@@ -87,7 +87,7 @@ $open=$R5['stck1'];
 			
 			</td>
 		    </tr>
-<?
+<?php 
 */
 $sln=0;
 $ccnt=0;
@@ -299,16 +299,16 @@ $close=$R5['stck1'];
 }
 
 	 ?>
-		   <tr title="<?=$pcd." S Sl".$stksl;?>" bgcolor="<?=$colo;?>">
-		   <?if($asd==1){?>
+		   <tr title="<?php  echo $pcd." S Sl".$stksl;?>" bgcolor="<?php  echo $colo;?>">
+		   <?php if($asd==1){?>
 		   <td  align="center"  >
-			<?=$sln;?>
+			<?php  echo $sln;?>
 			</td>
 			
 			 <td  align="center" >
-			<?=$dt;?>
+			<?php  echo $dt;?>
 			</td>
-			<?}else
+			<?php }else
 			{
 			?>
 			 <td  align="center"  >
@@ -317,28 +317,28 @@ $close=$R5['stck1'];
 			<td  align="center" >
 	
 			</td>
-			<?}?>
+			<?php }?>
 			<td  align="center" >
-			<?=$blno;?>
+			<?php  echo $blno;?>
 			</td>
 			<td  align="center" >
-			<?=$nrtn;?>
+			<?php  echo $nrtn;?>
 			</td>
             <td  align="left" >
-			<?=$spn;?>
+			<?php  echo $spn;?>
 			</td>
-		  <td  align="left" title="<?=$pcd;?>" >
-			<?=$pnm;?> - <?=$cnm;?> - <?=$brand;?> - <?=$mnm;?>
+		  <td  align="left" title="<?php  echo $pcd;?>" >
+			<?php  echo $pnm;?> - <?php  echo $cnm;?> - <?php  echo $brand;?> - <?php  echo $mnm;?>
 			</td>
 			<td  align="center" >
-<b><?=$stin;?></b>
+<b><?php  echo $stin;?></b>
 			</td>
 			<td  align="center" >
 		
-				<b><?=$stout;?></b>
+				<b><?php  echo $stout;?></b>
 			</td>
 			<td  align="center" >
-		<?
+		<?php 
 if($dt1!=$dt2)
 {
 			echo $close;
@@ -349,7 +349,7 @@ if($dt1!=$dt2)
 					
 		     </tr>	 
 			 
-<?
+<?php 
 }
 ?>
 		   <tr bgcolor="#eeeeee">
@@ -370,7 +370,7 @@ if($dt1!=$dt2)
             <td  align="left" >
 
 			</td>
-		  <td  align="left" title="<?=$pcd;?>" >
+		  <td  align="left" title="<?php  echo $pcd;?>" >
 
 			</td>
 			<td  align="center" >
@@ -382,7 +382,7 @@ if($dt1!=$dt2)
 			</td>
 			<td  align="center" >
 			<b>
-		<?
+		<?php 
 
 			echo $close;
 
@@ -393,7 +393,7 @@ if($dt1!=$dt2)
 					
 		     </tr>	 
 
-<?
+<?php 
 }?>
 
 

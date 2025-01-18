@@ -1,4 +1,4 @@
-<?php
+<?php 
 include "config.php";
 	$q=$_GET['q'];
 	$my_data=mysqli_real_escape_string($q);

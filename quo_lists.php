@@ -1,8 +1,16 @@
-<?
+<?php 
 $reqlevel = 3; 
 
 include("membersonly.inc.php");
 include("function.php");
+$car1="";
+$car="";
+$ttpcs=0;
+$paid1=0;
+$paid=0;
+$gst=0;
+$tpcs=0;
+$sl=0;
 $fdt=$_REQUEST['fdt'];
 $tdt=$_REQUEST['tdt'];
 $snm=rawurldecode($_REQUEST['snm']);
@@ -32,7 +40,7 @@ if($fdt!="" and $tdt!=""){$todts=" and dt between '$fdt' and '$tdt'";}else{$todt
 
 ?>
 
-<table  width="100%" class="advancedtable"  <?php if($val==1){?>border="1" <?php }?>>
+<table  width="100%" class="advancedtable"  <?php  if($val==1){?>border="1" <?php  }?>>
 <tr bgcolor="000">
 <td colspan="23"><font size="5" color="#fff">Quotation Details</font></td>
 </tr>		
@@ -61,7 +69,7 @@ if($fdt!="" and $tdt!=""){$todts=" and dt between '$fdt' and '$tdt'";}else{$todt
 	<td  align="center"  valign="top"><b>Rate(After GST)</b></td>
 	<td  align="center" ><b>Net Payable</b></td>
 	</tr>
-<?
+<?php 
 $sln=0;
 $total_am1=0;
 $disa_am1=0;
@@ -141,7 +149,7 @@ $rate=round($gst_rate*100,2);
 $gst=$cgst_rt+$sgst_rt+$igst_rt;
 
 $totals=round($prc*$pcs,2);
-$disa=round(($totals*$disp)/100,2);
+$disa=round(((float)$totals*(float)$disp)/100,2);
 $ttl=round($totals-$disa,2);
 
 
@@ -176,20 +184,20 @@ $hsn=$row['hsn'];
 		$asd++;
 	}
 		 ?>
-		<tr title="<?=$pcd." Sl - ".$sl;?>">
-		<?if($asd==1)
+		<tr title="<?php  echo $pcd." Sl - ".$sl;?>">
+		<?php if($asd==1)
 		{
 		?>
-		<td  align="center" valign="top" ><?=$sln;?><br/>
-		<a href="quotation_edt.php?blno=<?=$blno;?>" target="_blank"><i class="fa fa-edit"></i>
+		<td  align="center" valign="top" ><?php  echo $sln;?><br/>
+		<a href="quotation_edt.php?blno=<?php  echo $blno;?>" target="_blank"><i class="fa fa-edit"></i>
 		</td>
-		<td  align="center"  valign="top" ><?=$dt;?></td>
-		<td  align="center"  valign="top" ><a href="#" onclick="view('<?=$blno;?>')" title="Print"><?=$blno;?></a></td>
-		<td  align="left"  valign="top" ><b><?=$nm;?></b></td>
-		<td  align="left"  valign="top" ><?php echo $adrs;?></td>
-		<td  align="center"  valign="top" ><?php echo $cont;?></td>
-		<td  align="center"  valign="top" ><?=$gstin;?></td>
-		<?
+		<td  align="center"  valign="top" ><?php  echo $dt;?></td>
+		<td  align="center"  valign="top" ><a href="#" onclick="view('<?php  echo $blno;?>')" title="Print"><?php  echo $blno;?></a></td>
+		<td  align="left"  valign="top" ><b><?php  echo $nm;?></b></td>
+		<td  align="left"  valign="top" ><?php  echo $adrs;?></td>
+		<td  align="center"  valign="top" ><?php  echo $cont;?></td>
+		<td  align="center"  valign="top" ><?php  echo $gstin;?></td>
+		<?php 
 		}
 		else
 		{
@@ -201,36 +209,36 @@ $hsn=$row['hsn'];
 		<td  align="left" ></td> 
 		<td  align="left" ></td> 
 		<td  align="left" ></td> 
-		<?
+		<?php 
 		}
 		?>
 
-			<td  align="left" title="<?=$pcd;?>"  valign="top" ><?=$pnm;?></td>
-			<td  align="center"  valign="top" ><?=$hsn;?></td>
-			<td  align="center"  valign="top" ><?=$pcs;?></td>
-			<td  align="right"  valign="top" ><?=number_format($prc,2);?></td>
-			<td  align="right"  valign="top" ><?=number_format($total,2);?></td>
-			<td  align="center" valign="top" ><?=$disp;?></td>
-			<td  align="right"  valign="top" ><?=number_format($disa,2);?></td>
-			<td  align="right"  valign="top" ><?=number_format($ttl,2);?></td>
-			<td  align="center"  valign="top" ><?=$cgst_rt;?></td>
-			<td  align="center"  valign="top" ><?=number_format($cgst_am,2);?></td>
-			<td  align="center"  valign="top" ><?=$sgst_rt;?></td>
-			<td  align="center"  valign="top" ><?=number_format($sgst_am,2);?></td>
-			<td  align="center"  valign="top" ><?=$igst_rt;?></td>
-			<td  align="center"  valign="top" ><?=number_format($igst_am,2);?></td>
-			<td  align="center"  valign="top" ><?=number_format($rate,2);?></td>
-			<td  align="right"  valign="top" ><?=number_format($net_am,2);?></td>
+			<td  align="left" title="<?php  echo $pcd;?>"  valign="top" ><?php  echo $pnm;?></td>
+			<td  align="center"  valign="top" ><?php  echo $hsn;?></td>
+			<td  align="center"  valign="top" ><?php  echo $pcs;?></td>
+			<td  align="right"  valign="top" ><?php echo number_format($prc,2);?></td>
+			<td  align="right"  valign="top" ><?php echo number_format($total,2);?></td>
+			<td  align="center" valign="top" ><?php  echo $disp;?></td>
+			<td  align="right"  valign="top" ><?php echo number_format($disa,2);?></td>
+			<td  align="right"  valign="top" ><?php echo number_format($ttl,2);?></td>
+			<td  align="center"  valign="top" ><?php  echo $cgst_rt;?></td>
+			<td  align="center"  valign="top" ><?php echo number_format($cgst_am,2);?></td>
+			<td  align="center"  valign="top" ><?php  echo $sgst_rt;?></td>
+			<td  align="center"  valign="top" ><?php echo number_format($sgst_am,2);?></td>
+			<td  align="center"  valign="top" ><?php  echo $igst_rt;?></td>
+			<td  align="center"  valign="top" ><?php echo number_format($igst_am,2);?></td>
+			<td  align="center"  valign="top" ><?php echo number_format($rate,2);?></td>
+			<td  align="right"  valign="top" ><?php echo number_format($net_am,2);?></td>
 			</tr>	 
 
-	<?
+	<?php 
 
 
-$tamm=$ttl+$tamm;
-$wgamm=$net_am+$wgamm;
-$total_am+=$total;
-$disa_am+=$disa;
-$tpcs+=$pcs;
+$tamm=(float)$ttl+(float)$tamm;
+$wgamm=(float)$net_am+(float)$wgamm;
+$total_am+=(float)$total;
+$disa_am+=(float)$disa;
+$tpcs+=(float)$pcs;
 }
 	if($total_am>0)
 	{
@@ -238,45 +246,45 @@ $tpcs+=$pcs;
 	?>
 	<tr bgcolor="#e8ecf6">
 	<td colspan="11" align="right" valign="top" ><b>Total </b></td>
-	<td  align="right"  valign="top" ><b><?=number_format($total_am,2);?></b></td>
+	<td  align="right"  valign="top" ><b><?php echo number_format($total_am,2);?></b></td>
 	<td  align="right" ><b></b></td>
-	<td  align="right"  valign="top" ><b><?=number_format($disa_am,2);?></b></td>
-	<td  align="right"  valign="top" ><b><?=number_format($tamm,2);?></b></td>
-	<td align="right"  valign="top" colspan="2"><b><?=number_format($cgst,2);?></b></td>
-	<td align="right"  valign="top" colspan="2"><b><?=number_format($sgst,2);?></b></td>
-	<td align="right" valign="top"  colspan="2"><b><?=number_format($igst,2);?></b></td>
+	<td  align="right"  valign="top" ><b><?php echo number_format($disa_am,2);?></b></td>
+	<td  align="right"  valign="top" ><b><?php echo number_format($tamm,2);?></b></td>
+	<td align="right"  valign="top" colspan="2"><b><?php echo number_format($cgst,2);?></b></td>
+	<td align="right"  valign="top" colspan="2"><b><?php echo number_format($sgst,2);?></b></td>
+	<td align="right" valign="top"  colspan="2"><b><?php echo number_format($igst,2);?></b></td>
 	<td  align="right" valign="top"  ><b></b></td>
-	<td  align="right" valign="top"  ><b><?=number_format($wgamm,2);?></b></td>
+	<td  align="right" valign="top"  ><b><?php echo number_format($wgamm,2);?></b></td>
 	
 	</tr>
-	<?
+	<?php 
 	}
 	
-		$total_am1=$total_am1+$total_am;
-		$disa_am1=$disa_am+$disa_am1;
-		$tamm1=$tamm+$tamm1;
-		$car1=$car1+$car;
-		$paid1=$paid1+$paid;
+		$total_am1=(float)$total_am1+(float)$total_am;
+		$disa_am1=(float)$disa_am+(float)$disa_am1;
+		$tamm1=(float)$tamm+(float)$tamm1;
+		$car1=(float)$car1+(float)$car;
+		$paid1=(float)$paid1+(float)$paid;
 		$wgamm1=$wgamm1+$wgamm;
 		
-		$igst1=$igst+$igst1;
-		$cgst1=$cgst+$cgst1;
-		$sgst1=$sgst+$sgst1;
-		$ttpcs=$ttpcs+$tpcs;
+		$igst1=(float)$igst+(float)$igst1;
+		$cgst1=(float)$cgst+(float)$cgst1;
+		$sgst1=(float)$sgst+(float)$sgst1;
+		$ttpcs=(float)$ttpcs+(float)$tpcs;
 		}
 		?>
 <tr>
 		<td colspan="11"  valign="top" align="right"><b>Total</b></td>
 
-		<td align="right" valign="top" ><b><?=sprintf('%0.2f',$total_am1);?></b></td>
+		<td align="right" valign="top" ><b><?php echo sprintf('%0.2f',$total_am1);?></b></td>
 		<td></td>
-		<td align="right" valign="top" ><b><?=sprintf('%0.2f',$disa_am1);?></b></td>
-		<td align="right" valign="top" ><b><?=sprintf('%0.2f',$tamm1);?></b></td>
-		<td align="right" valign="top"  colspan="2"><b><?=number_format($cgst1,2);?></b></td>
-		<td align="right" valign="top" colspan="2"><b><?=number_format($sgst1,2);?></b></td>
-		<td align="right" valign="top"  colspan="2"><b><?=number_format($igst1,2);?></b></td>
+		<td align="right" valign="top" ><b><?php echo sprintf('%0.2f',$disa_am1);?></b></td>
+		<td align="right" valign="top" ><b><?php echo sprintf('%0.2f',$tamm1);?></b></td>
+		<td align="right" valign="top"  colspan="2"><b><?php echo number_format($cgst1,2);?></b></td>
+		<td align="right" valign="top" colspan="2"><b><?php echo number_format($sgst1,2);?></b></td>
+		<td align="right" valign="top"  colspan="2"><b><?php echo number_format($igst1,2);?></b></td>
 		<td  align="right" ><b></b></td>
-		<td align="right" valign="top" ><b><?=number_format($wgamm1,2);?></b></td>
+		<td align="right" valign="top" ><b><?php echo number_format($wgamm1,2);?></b></td>
 </tr>
 </table>
 

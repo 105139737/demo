@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include "header.php";
@@ -19,7 +19,7 @@ $brand=$row['brand'];
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
  <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <head>
@@ -254,7 +254,7 @@ document.forms["Form1"].submit();
 <link href="style.css" rel="stylesheet" type="text/css" />
 <link rel="shortcut icon" href="favicon.ico"/>
 </head>
-<?
+<?php 
 $query51="select * from ".$DBprefix."drcr order by vno";
 $result51 = mysqli_query($conn,$query51);
 while($rows=mysqli_fetch_array($result51))
@@ -295,8 +295,8 @@ $count6=mysqli_num_rows($result5);
 <input type="hidden" name="it" id="it" value="NA" readonly >
 
 <input type="hidden" name="flnm1" id="flnm1" value="1" >
-<input type="hidden" name="btyp" id="btyp" value="<? echo $typ; ?>" >
-<input type="hidden" class="form-control"  value="<?php echo $bill_typ;?>" tabindex="1"  name="bsl" id="bsl" >              
+<input type="hidden" name="btyp" id="btyp" value="<?php  echo $typ; ?>" >
+<input type="hidden" class="form-control"  value="<?php  echo $bill_typ;?>" tabindex="1"  name="bsl" id="bsl" >              
 
  <div class="box box-success" >
 <table  width="860px" class="table table-hover table-striped table-bordered">
@@ -306,7 +306,7 @@ $count6=mysqli_num_rows($result5);
 <td align="right" width="15%"><font color="red">*</font><b>Branch :</b></td>
 <td align="left" width="35%">
 <select name="brncd" class="form-control" size="1" id="brncd"  onchange="get_blno();gtcrvlfi();title1()" >
-<?
+<?php 
 if($user_current_level<0)
 {
 
@@ -325,18 +325,18 @@ while ($R = mysqli_fetch_array ($result))
 $slb=$R['sl'];
 $bnm=$R['bnm'];
 ?>
-<option value="<? echo $slb;?>" <?if($slb==$brncd){echo 'selected';}?>><? echo $bnm;?></option>
-<?
+<option value="<?php  echo $slb;?>" <?php if($slb==$brncd){echo 'selected';}?>><?php  echo $bnm;?></option>
+<?php 
 }
 ?>
 </select>
 </td>
 <td align="right" width="15%" ><font color="red">*</font><b>Date :</b></td>
 <td align="left" width="35%" >
-<input type="text" name="dt" id="dt" class="form-control" value="<? echo date('d-M-Y'); ?>" onchange="chk_dt('<?=date('d-M-Y')?>')">
+<input type="text" name="dt" id="dt" class="form-control" value="<?php  echo date('d-M-Y'); ?>" onchange="chk_dt('<?php echo date('d-M-Y')?>')">
 </td>   
   </tr>
-      <input type="hidden" name="vno" class="form-control" id="vno" value="<?echo $vno;?>" readonly style="background :transparent; color : red;">
+      <input type="hidden" name="vno" class="form-control" id="vno" value="<?php echo $vno;?>" readonly style="background :transparent; color : red;">
 
   
    <tr class="">
@@ -349,7 +349,7 @@ $bnm=$R['bnm'];
 <select id="cid"  name="cid"   tabindex="2" class="form-control"  onchange="get_blno()">
 <option value="">---Select---</option>
 
-<?
+<?php 
 if($tp=='2'){$qury=" and find_in_set(brand,'$brand')>0 ";}
 $query="select * from main_cust  WHERE sl>0 and typ='$tp' $qury order by nm";
 $result = mysqli_query($conn,$query);
@@ -360,8 +360,8 @@ $spn=$R['nm'];
 $cont=$R['cont'];
 $addr=$R['addr'];
 ?>
-<option value="<? echo $sid;?>" <?if($cid==$sid){?> selected <? } ?> ><? echo $spn;?> - <? echo $cont; if($addr!=""){?> - - <? echo $addr; }?></option>
-<?
+<option value="<?php  echo $sid;?>" <?php if($cid==$sid){?> selected <?php  } ?> ><?php  echo $spn;?> - <?php  echo $cont; if($addr!=""){?> - - <?php  echo $addr; }?></option>
+<?php 
 }
 ?>
 </select>
@@ -380,13 +380,13 @@ $addr=$R['addr'];
     <td align="left" >
       <select  name="dldgr" id="dldgr" class="form-control"  onchange="gtcrvlfi()">
 							<option value="">-- Select --</option>
-							<?php 
+							<?php  
 							$get = mysqli_query($conn,"SELECT * FROM main_ledg where gcd='1' or gcd='2'") or die(mysqli_error($conn));
 							while($row = mysqli_fetch_array($get))
 							{
 							?>
-								<option value="<?=$row['sl']?>" <?=$row['sl'] == '3' ? 'selected' : '' ?>><?=$row['nm']?></option>
-							<?php 
+								<option value="<?php  echo $row['sl']?>" <?php  echo $row['sl'] == '3' ? 'selected' : '' ?>><?php  echo $row['nm']?></option>
+							<?php  
 							} 
 							?>
 						</select>
@@ -436,13 +436,13 @@ $addr=$R['addr'];
     <td align="left" >
 	 <select  name="paymtd" id="paymtd" class="form-control">
 							<option value="">-- Select --</option>
-							<?php 
+							<?php  
 							$get = mysqli_query($conn,"SELECT * FROM ac_paymtd") or die(mysqli_error($conn));
 							while($row = mysqli_fetch_array($get))
 							{
 							?>
-								<option value="<?=$row['sl']?>" <?=$row['sl'] == '1' ? 'selected' : '' ?>><?=$row['mtd']?></option>
-							<?php 
+								<option value="<?php  echo $row['sl']?>" <?php  echo $row['sl'] == '1' ? 'selected' : '' ?>><?php  echo $row['mtd']?></option>
+							<?php  
 							} 
 							?>
 						</select>
@@ -469,7 +469,7 @@ $addr=$R['addr'];
     <td align="left"  >
 	<select id="sman" name="sman" tabindex="1"  class="form-control">
 	<option value="">---Select---</option>
-	<?
+	<?php 
 		$queryss="select * from main_sale_per  WHERE sl>0 order by spid";
 		$resultss=mysqli_query($conn,$queryss);
 		while($rwss=mysqli_fetch_array($resultss))
@@ -477,8 +477,8 @@ $addr=$R['addr'];
 			$spid=$rwss['spid'];
 			$spnm=$rwss['nm'];
 		?>
-			<option value="<?=$spid;?>"><?=$spid;?><?=$spnm;?> <?if($rwss['mob']!=""){?>( <?=$rwss['mob'];?> )<?}?></option>
-			<?
+			<option value="<?php  echo $spid;?>"><?php  echo $spid;?><?php  echo $spnm;?> <?php if($rwss['mob']!=""){?>( <?php  echo $rwss['mob'];?> )<?php }?></option>
+			<?php 
 		}
 	?>
 	</select>
@@ -513,7 +513,7 @@ $addr=$R['addr'];
 <td align="left" width="20%">
 <font size="3"><b>Branch :</b></font><br>
 <select name="bcd" class="form-control" size="1" id="bcd" >
-<?
+<?php 
 if($user_current_level<0)
 {
 $query1="Select * from main_branch where sl='$brncds'";
@@ -528,8 +528,8 @@ while ($R1 = mysqli_fetch_array ($result1))
 $slb1=$R1['sl'];
 $bnm1=$R1['bnm'];
 ?>
-<option value="<? echo $slb1;?>"><? echo $bnm1;?></option>
-<?
+<option value="<?php  echo $slb1;?>"><?php  echo $bnm1;?></option>
+<?php 
 }
 ?>
 </select>
@@ -540,31 +540,31 @@ $bnm1=$R1['bnm'];
 <font size="3"><b>Customer :</b></font><br>
 <select id="custid" name="custid" tabindex="1"  class="form-control" >
 	<option value="">---ALL---</option>
-	<?
+	<?php 
 		$query2="select * from main_cust WHERE sl>0 order by nm";
 		$result2=mysqli_query($conn,$query2);
 		while($rw2=mysqli_fetch_array($result2))
 		{
 			?>
-			<option value="<?=$rw2['sl'];?>"><?=$rw2['nm'];?> --  <?=$rw2['cont'];?></option>
-			<?
+			<option value="<?php  echo $rw2['sl'];?>"><?php  echo $rw2['nm'];?> --  <?php  echo $rw2['cont'];?></option>
+			<?php 
 		}
 	?>
 </select>
 </td>
 <td align="left" width="15%">
 <font size="3"><b>From Date : </b></font>
-<input type="text" id="fdt" name="fdt" value="<?=date('01-M-Y');?>" class="form-control" >
+<input type="text" id="fdt" name="fdt" value="<?php echo date('01-M-Y');?>" class="form-control" >
 </td>
 <td align="left" width="15%">
 <font size="3"><b>To Date : </b></font>
-<input type="text" id="tdt" name="tdt" value="<?=date('d-M-Y');?>" class="form-control" >
+<input type="text" id="tdt" name="tdt" value="<?php echo date('d-M-Y');?>" class="form-control" >
 </td>
 <td align="left" width="25%">
 <font size="3"><b>Sales Person : </b></font>
 	<select id="slp" name="slp" tabindex="1"  class="form-control">
 	<option value="">---ALL---</option>
-	<?
+	<?php 
 		$queryss="select * from main_sale_per  WHERE sl>0 order by spid";
 		$resultss=mysqli_query($conn,$queryss);
 		while($rwss=mysqli_fetch_array($resultss))
@@ -572,8 +572,8 @@ $bnm1=$R1['bnm'];
 			$spid=$rwss['spid'];
 			$spnm=$rwss['nm'];
 		?>
-			<option value="<?=$spid;?>"><?=$spid;?></option>
-			<?
+			<option value="<?php  echo $spid;?>"><?php  echo $spid;?></option>
+			<?php 
 		}
 	?>
 	</select>
@@ -648,12 +648,12 @@ $bnm1=$R1['bnm'];
   no_results_text: "Oops, nothing found!",
   
   });
-<?
+<?php 
 if($cid!="")
 {
 ?>
 get_blno();
-<?	
+<?php 	
 }
 ?>
 </script>

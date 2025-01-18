@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include "header.php";
@@ -7,7 +7,7 @@ include "header.php";
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <div class="wrapper row-offcanvas row-offcanvas-left">
-<?
+<?php 
 include "left_bar.php";
 
 ?>
@@ -78,7 +78,7 @@ function sh()
               </div><!-- /.box-tools -->
                 </div><!-- /.box-header -->
                 <div class="box-body" >
-<?
+<?php 
 $data= mysqli_query($conn,"SELECT * FROM main_mmenu order by sl") or die(mysqli_error($conn));
 ?>
 <table width="860px" class="table table-hover table-striped table-bordered">
@@ -93,7 +93,7 @@ Sl.
 Menu Name
 </th>
 </tr>
-		<?
+		<?php 
 		$f=0;
 		while ($row = mysqli_fetch_array($data))
 		{
@@ -107,16 +107,16 @@ Menu Name
 		else
 		{$cls="even";
 		}
-		$dt=date('d-M-Y', strtotime($dt));
+	//	$dt=date('d-M-Y', strtotime($dt));
 		?>
-<tr class="<?echo $cls;?>" style="height: 20px;">
+<tr class="<?php echo $cls;?>" style="height: 20px;">
 <td align="center" valign="top">
-<a href="main_m_edit.php?sl=<?=$sln;?>" title="Edit"><i class="fa fa-edit"></i></a></td>
-<td align="center" valign="top"><?echo $f;?>.</td>
-<td align="left" valign="top"><?echo $nm;?></td>
+<a href="main_m_edit.php?sl=<?php  echo $sln;?>" title="Edit"><i class="fa fa-edit"></i></a></td>
+<td align="center" valign="top"><?php echo $f;?>.</td>
+<td align="left" valign="top"><?php echo $nm;?></td>
 
 </tr>
-  <?
+  <?php 
   }
   ?>
 </table>

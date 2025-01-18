@@ -1,23 +1,25 @@
-<?
+<?php 
 $reqlevel = 3; 
 
 include("membersonly.inc.php");
 include("function.php");
+$total_damm=0;
+$total_net=0;
 $fdt=$_REQUEST['fdt'];
 $tdt=$_REQUEST['tdt'];
 $snm=rawurldecode($_REQUEST['snm']);
-$pr_nm=$_REQUEST['prnm'];
-$tp1=$_REQUEST['tp1'];
-$gst_no=$_REQUEST['gstin'];
-$godown=$_REQUEST['godown'];
-$stat=$_REQUEST['stat'];
-$brncd=$_REQUEST['brncd'];
-$val=$_REQUEST['val'];
+$pr_nm=$_REQUEST['prnm'] ?? "";
+$tp1=$_REQUEST['tp1'] ?? "";
+$gst_no=$_REQUEST['gstin'] ?? "";
+$godown=$_REQUEST['godown'] ?? "";
+$stat=$_REQUEST['stat'] ?? "";
+$brncd=$_REQUEST['brncd'] ?? "";
+$val=$_REQUEST['val'] ?? "";
 
-$cat=$_REQUEST['cat'];
-$scat=$_REQUEST['scat'];
-$sale_per=$_REQUEST['sale_per'];
-$btyp=rawurldecode($_REQUEST['btyp']);
+$cat=$_REQUEST['cat'] ?? "";
+$scat=$_REQUEST['scat'] ?? "";
+$sale_per=$_REQUEST['sale_per'] ?? "";
+$btyp=rawurldecode($_REQUEST['btyp'] ?? "");
 $btyp=str_replace("@","'",$btyp);
 
 if($btyp==""){$btyp1="";}else{$btyp1=" and ($btyp)";}
@@ -39,6 +41,7 @@ $tdt=date('Y-m-d', strtotime($tdt));
 if($fdt!="" and $tdt!=""){$todts=" and dt between '$fdt' and '$tdt'";}else{$todts="";}
 
 $dis1=0;
+$gst_no1="";
 if($val=='1')
 {
 $file="Sale_Summary.xls";
@@ -53,7 +56,7 @@ $broder="border='1'";
 
 ?>
 
- <table  <?if($val==1){?>width="70%"<?}else{?>width="100%"<?}?> class="advancedtable"  border="1">
+ <table  <?php if($val==1){?>width="70%"<?php }else{?>width="100%"<?php }?> class="advancedtable"  border="1">
 <tr bgcolor="000">
 <td colspan="12" align="center">
 
@@ -75,7 +78,7 @@ $broder="border='1'";
 			<td  align="center" ><b>Discount</b></td>
 			<td  align="center" ><b>Net Value</b></td>
 			</tr>
-			 <?
+			 <?php 
 $sln=0;
 $total=0;
 $data1= mysqli_query($conn,"select * from  main_billing where sl>0".$todts.$snm1.$brncd1.$gst_no1.$tp11.$cstat1.$sale_per1.$btyp1." order by dt,sl")or die(mysqli_error($conn));
@@ -127,29 +130,29 @@ $count=mysqli_num_rows($data);
 $color="";
 if($count==0){$color="red";}
 ?>		
-<tr bgcolor="<?php echo $color;?>">
-<td  align="center" ><?=$sln;?></td>
-<td  align="left" ><?=$als;?></td>
-<td  align="center" ><?=$dt;?></td>
-<td  align="left" ><?=get_branch_name($bcd);?></td>
-<td  align="left" ><?=$sale_per;?></td>
-<td  align="left" ><a href="bill_new_gst.php?blno=<?=$blno;?>" target="_blank"><?=$blno;?></td>
-<td  align="left" ><a href="bill_new_gst.php?blno=<?=$blno;?>&typ=1" target="_blank"><?=$nm;?> <b><?=$invnm;?></b></a></td>
-<td  align="left" ><a href="#" onclick="edit('<?=$blno;?>')"<?php echo $cust_typp;?></a></td>
-<td  align="left" ><?=$gstin;?></td>
-<td  align="right" ><?=number_format($amm,2);?></td>
-<td  align="right" ><?=number_format($damm,2);?></td>
-<td  align="right" ><?=number_format($net,2);?></td>
+<tr bgcolor="<?php  echo $color;?>">
+<td  align="center" ><?php  echo $sln;?></td>
+<td  align="left" ><?php  echo $als;?></td>
+<td  align="center" ><?php  echo $dt;?></td>
+<td  align="left" ><?php echo get_branch_name($bcd);?></td>
+<td  align="left" ><?php  echo $sale_per;?></td>
+<td  align="left" ><a href="bill_new_gst.php?blno=<?php  echo $blno;?>" target="_blank"><?php  echo $blno;?></td>
+<td  align="left" ><a href="bill_new_gst.php?blno=<?php  echo $blno;?>&typ=1" target="_blank"><?php  echo $nm;?> <b><?php  echo $invnm;?></b></a></td>
+<td  align="left" ><a href="#" onclick="edit('<?php  echo $blno;?>')"<?php  echo $cust_typp;?></a></td>
+<td  align="left" ><?php  echo $gstin;?></td>
+<td  align="right" ><?php echo number_format($amm,2);?></td>
+<td  align="right" ><?php echo number_format($damm,2);?></td>
+<td  align="right" ><?php echo number_format($net,2);?></td>
 </tr>	 
-<?
+<?php 
 }
 ?>
 <tr>
 
 <td  align="right" COlspan="9" ><b>Total:</b></td>
-<td  align="right" ><b><?=number_format($total,2);?></b></td>
-<td  align="right" ><b><?=number_format($total_damm,2);?></b></td>
-<td  align="right" ><b><?=number_format($total_net,2);?></b></td>
+<td  align="right" ><b><?php echo number_format($total,2);?></b></td>
+<td  align="right" ><b><?php echo number_format($total_damm,2);?></b></td>
+<td  align="right" ><b><?php echo number_format($total_net,2);?></b></td>
 </tr>
 </table>
 

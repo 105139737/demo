@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 
@@ -15,10 +15,11 @@ if($spid==""){$spid1="";}else{$spid1=" and sl='$spid'";}
 <th style="text-align:center;">Collection Target</th>
 <th style="text-align:center;">Sales Target</th>
 </tr>
-<?
+<?php 
 //echo "select * from main_sale_per where sl>0 $spid1 order by nm";
 $get=mysqli_query($conn,"select * from main_sale_per where sl>0 $spid1 order by nm") or die(mysqli_error($conn));
 $total=mysqli_num_rows($get);
+$cnt=0;
 while($row=mysqli_fetch_array($get))
 {
   $cnt++;
@@ -29,6 +30,8 @@ while($row=mysqli_fetch_array($get))
   $addr=$row['addr'];
 
 $get1=mysqli_query($conn,"select * from main_sp_target where spid='$spid'") or die(mysqli_error($conn));
+$target="";
+$starget="";
 while($row1=mysqli_fetch_array($get1))
 {
 $target=$row1['target'];
@@ -36,13 +39,13 @@ $starget=$row1['starget'];
 }
 ?>
 <tr>
-<td style="text-align:center;"><?=$cnt;?></td>
-<td style="text-align:left;"><?=$spid;?> (<?=$nm;?>)</td>
-<td style="text-align:center;"><input type="text" name="<?php echo $sl;?>" id="<?php echo $sl;?>" value="<?php echo $target;?>"></td>
-<td style="text-align:center;"><input type="text" name="s<?php echo $sl;?>" id="s<?php echo $sl;?>" value="<?php echo $starget;?>"></td>
+<td style="text-align:center;"><?php  echo $cnt;?></td>
+<td style="text-align:left;"><?php  echo $spid;?> (<?php  echo $nm;?>)</td>
+<td style="text-align:center;"><input type="text" name="<?php  echo $sl;?>" id="<?php  echo $sl;?>" value="<?php  echo $target;?>"></td>
+<td style="text-align:center;"><input type="text" name="s<?php  echo $sl;?>" id="s<?php  echo $sl;?>" value="<?php  echo $starget;?>"></td>
 
 </tr>
-<?                              
+<?php                               
 }
 ?>
 <tr>

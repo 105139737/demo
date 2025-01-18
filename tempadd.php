@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 
@@ -34,16 +34,16 @@ if($err=="")
 document.getElementById('blno').value='';
 document.getElementById('cal_dbal').value=0;
 document.getElementById('amm').value=0;
-$("#blno option[value='<?php echo $blno;?>']").remove(); 
+$("#blno option[value='<?php  echo $blno;?>']").remove(); 
 $('#blno').trigger("chosen:updated");
 recallRamm();
 </script>
-<?
+<?php 
 }
 else{
 ?>
 <script>
-alert("<?php echo $err;?>");
+alert("<?php  echo $err;?>");
 ctmppr();
 </script>
-<?php } ?>
+<?php  } ?>

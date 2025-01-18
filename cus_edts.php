@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 3; 
 include("membersonly.inc.php");
 $dttm=date('d-m-Y H:i:s');
@@ -16,7 +16,7 @@ if($tp=="")
 	alert("Blank Entry.....");
 	window.history.go(-1);
 	</script>
-	<?
+	<?php 
 }
 else
 {
@@ -32,7 +32,7 @@ else
 	alert("Update Successfully.....");
 	window.location='cus_typ.php';
 	</script>
-	<?
+	<?php 
 
 }
 else
@@ -42,7 +42,7 @@ else
 	alert("Duplicate Entry.....");
 	window.history.go(-1);
 	</script>
-	<?
+	<?php 
 	
 }
  } 

@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
  $query = "SELECT count(*) as tot FROM  main_trns where stat='0' and tbcd='$branch_code'";
@@ -11,5 +11,5 @@ $tot=$R['tot'];
 
 ?>
 
-You Have <?=$tot;?> Messege
+You Have <?php  echo $tot;?> Messege
             

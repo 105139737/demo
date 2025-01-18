@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 date_default_timezone_set('Asia/Kolkata');
@@ -6,14 +6,16 @@ $als=$_POST['als'];
 $tp=$_POST['tp'];
 $adrs=$_POST['adrs'];
 $ssn=$_POST['ssn'];
- $brand=$_POST['brand'];
+ $brand=$_POST['brand']??null;
 $brncd=$_POST['brncd'];
 $start_no=$_POST['start_no'];
 $inv_typ=$_POST['inv_typ'];
 $err="";
 
 $val="";
-for($i=0;$i<count($brand);$i++)
+if(!empty($brand) and count($brand)>0)
+{
+for($i=0;$i<count($brand)??0;$i++)
 {
 	
 	if($val=="")
@@ -24,6 +26,7 @@ for($i=0;$i<count($brand);$i++)
 	{
 	 $val=$val.','.$brand[$i];	
 	}
+}
 }
 
 if($als=="" or $tp=="" or $adrs=="" or $ssn=="" or $inv_typ=="")
@@ -46,15 +49,15 @@ $sql=mysqli_query($conn,"insert into main_billtype(als,tp,adrs,ssn,brand,brncd,s
 alert('Submitted Successfully');
 document.location="billtyp_ntry.php";
 </script>
-<?
+<?php 
 }
 else
 {
 ?>
 <script>
-alert("<?=$err;?>");
+alert("<?php  echo $err;?>");
 history.go(-1);
 </script>
-<?
+<?php 
 }
 ?>

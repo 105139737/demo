@@ -1,4 +1,4 @@
-<?PHP
+<?php 
 
 // retrieve the submitted values
 
@@ -523,7 +523,7 @@ background-image: url(img/boxbg.png);
   <div id="login">
   		<h2>login panel</h2>
     <form name="form1" method="post" action="login.php">
-	<?PHP
+	<?php 
 
 if ($errormessage != ""){
 
@@ -531,11 +531,11 @@ if ($errormessage != ""){
 
 <script language="javascript">
 
-alert('<? echo $errormessage;?>');
+alert('<?php  echo $errormessage;?>');
 
 </script>
 
-<?
+<?php 
 
 
 
@@ -566,4 +566,4 @@ alert('<? echo $errormessage;?>');
 </html>
 </html>
 
-<?php } ?>
+<?php  } ?>

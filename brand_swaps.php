@@ -1,10 +1,10 @@
-<?
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 include "header.php";
 ?>
         <div class="wrapper row-offcanvas row-offcanvas-left">
-           <?
+           <?php 
             include "left_bar.php";
             ?>
 <style type="text/css"> 
@@ -69,15 +69,15 @@ cursor:pointer;
             <td  align="left" width="30%">         
 			<select name="fbnd" id="fbnd" class="form-control">
 			<option value="">---Select---</option>
-			<?php 
+			<?php  
 			$sqls  = mysqli_query($conn,"select * from main_catg") or die(mysqli_error($conn));
 			while($rr = mysqli_fetch_array($sqls))
 			{
 				$catsl = $rr['sl'];
 				$cnms = $rr['cnm'];
 				?>
-				<option value="<?php echo catsl;?>"><?php echo $cnms; ?></option>
-				<?php
+				<option value="<?php  echo catsl;?>"><?php  echo $cnms; ?></option>
+				<?php 
 			}
 			?>
 			</select>
@@ -86,15 +86,15 @@ cursor:pointer;
             <td  align="left" width="30%">
             <select name="tbnd" id="tbnd" class="form-control">
 			<option value="">---Select---</option>
-			<?php 
+			<?php  
 			$sqlss  = mysqli_query($conn,"select * from main_catg") or die(mysqli_error($conn));
 			while($rrr = mysqli_fetch_array($sqlss))
 			{
 				$catsls = $rrr['sl'];
 				$cnmss = $rrr['cnm'];
 				?>
-				<option value="<?php echo catsls;?>"><?php echo $cnmss; ?></option>
-				<?php
+				<option value="<?php  echo catsls;?>"><?php  echo $cnmss; ?></option>
+				<?php 
 			}
 			?>
 			</select>

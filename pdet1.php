@@ -1,7 +1,7 @@
-<?php
+<?php 
 $reqlevel=3;
 include("membersonly.inc.php");
-$sl=$_REQUEST[sl];
+$sl=$_REQUEST['sl'];
 $prid=$_REQUEST[prid];
   	  $data1= mysqli_query($conn,"select * from main_product where sl='$prid'");
 while ($row1 = mysqli_fetch_array($data1))
@@ -27,4 +27,4 @@ $stck1=$stck/$tunt;
 echo '<b>Total Stock : '.$stck1." ".$unitnm.'</b>';
 
 ?>
-<input type="hidden" id="oldstk" name="oldstk" value="<?=$stck1;?>"> 
+<input type="hidden" id="oldstk" name="oldstk" value="<?php  echo $stck1;?>"> 

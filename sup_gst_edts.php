@@ -1,18 +1,18 @@
-<?PHP 
+<?php  
 $reqlevel = 3; 
 include("membersonly.inc.php");
 
 $dt=date('Y-m-d');
 $dttm=date('d-m-Y H:i:s');
 
-$sl=$_POST['sl'];
-$spn=$_POST['spnm'];
-$addr=$_POST['addr'];
-$gstin=$_POST['gstin'];
-$pan=$_POST['pan'];
-$st=$_POST['fst'];
+$sl=$_POST['sl']??0;
+$spn=$_POST['spnm']??"";
+$addr=$_POST['addr']??"";
+$gstin=$_POST['gstin']??"";
+$pan=$_POST['pan']??"";
+$st=$_POST['fst']??"";
 
-$err=="";
+$err="";
 if($spn=='' or $gstin=='' or $st=='')
 {
 ?>
@@ -20,7 +20,7 @@ if($spn=='' or $gstin=='' or $st=='')
 alert('Please Fill All The Fields.');
 history.go(-1);
 </script>
-<?	
+<?php 	
 }
 else
 {
@@ -46,17 +46,17 @@ $result6 = mysqli_query($conn,$query6)or die (mysqli_error($conn));
 alert('Update Successfully. Thank You...');
 document.location="sup_gst.php";
 </script>
-<?
+<?php 
 }
 else
 {
 ?>
 
 <Script language="JavaScript">
-alert('<? echo $err;?>');
+alert('<?php  echo $err;?>');
 window.history.go(-1);
 </script>
-<?
+<?php 
 }
 }
 ?>

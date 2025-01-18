@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel=3; 
 include("membersonly.inc.php");
 include("function.php");
@@ -20,7 +20,7 @@ $jobLink=CreateNewJob('jobs/final_cltns1.php',$user_currently_loged,'Final Colle
 alert('Your request has been accepted. You will get you dwonload link in your home page in a few moments. Thank you...');
 window.history.go(-1);
 </script>
-<?php
+<?php 
 die('<b><center><font color="green" size="5">Your request has been accepted. You will get you dwonload link in your home page in a few moments. Thank you...</font></center></b>');
 
 /* dldgr	paymtd */
@@ -65,7 +65,7 @@ header("Content-Disposition: attachment; filename=$file");
 
 
 </tr>
-<?
+<?php 
 $sln=0;
 $ttotal_am=0;
 $data1=mysqli_query($conn,"SELECT * FROM main_recv where sl>0 $als1 $mdt1 $ledg1 $cid1 $salper1 $brncd1 $todts $stat1 ORDER BY sl")or die(mysqli_error($conn));
@@ -151,38 +151,38 @@ $tadj_amm+=$adj_amm;
 $tcrdt_amm+=$crdt_amm;
 ?>
 <tr>
-<td align="center"><?=$sln;?></td>
-<td align="left"><?=$als;?></td>
-<td align="left"><?=$vchno;?></td>
-<td align="center"><?php echo $bnm;?></td>
-<td align="left"><?=$sman;?></td>
-<td align="left"><?=$cust_nm;?></td>
+<td align="center"><?php  echo $sln;?></td>
+<td align="left"><?php  echo $als;?></td>
+<td align="left"><?php  echo $vchno;?></td>
+<td align="center"><?php  echo $bnm;?></td>
+<td align="left"><?php  echo $sman;?></td>
+<td align="left"><?php  echo $cust_nm;?></td>
 <td align="center">
-<b><?php echo $dt;?></b>
+<b><?php  echo $dt;?></b>
 </td>
-<td align="center"><?php echo $refno;?></td>
-<td align="left"><?php echo $nrtn;?></td>
-<td align="left"><?php echo $ledgr_nm;?><b></b></td>
-<td align="center"><?php echo $mtd;?></td>
-<td align="center"><?php echo $tamm;?></td>
-<td align="center"><?php echo $adj_amm;?></td>
-<td align="center"><?php echo $crdt_amm;?></td>
+<td align="center"><?php  echo $refno;?></td>
+<td align="left"><?php  echo $nrtn;?></td>
+<td align="left"><?php  echo $ledgr_nm;?><b></b></td>
+<td align="center"><?php  echo $mtd;?></td>
+<td align="center"><?php  echo $tamm;?></td>
+<td align="center"><?php  echo $adj_amm;?></td>
+<td align="center"><?php  echo $crdt_amm;?></td>
 </tr>
-<?}
+<?php }
 /*
 if($total_am+$total_adj_am+$damm>0 and $a!=1)
 {
 ?>
 <tr bgcolor="#e8ecf6">
 <td colspan="11" align="right"><b>Total</b></td>
-<td align="right"><b><?php echo $total_am;?></b></td>
-<td align="right"><b><?php echo $total_adj_am;?></b></td>
+<td align="right"><b><?php  echo $total_am;?></b></td>
+<td align="right"><b><?php  echo $total_adj_am;?></b></td>
 <td></td>
-<td align="right"><b><?php echo $tdisamm;?></b></td>
+<td align="right"><b><?php  echo $tdisamm;?></b></td>
 <td></td>
 <td></td>
 </tr>
-<?
+<?php 
 
 }
 */
@@ -192,9 +192,9 @@ if($total_am+$total_adj_am+$damm>0 and $a!=1)
 ?>
 <tr>
 <td colspan="11" align="right"><b>Grand Total</b></td>
-<td align="right"><b><?php echo $ttamm;?></b></td>
-<td align="right"><b><?php echo $tadj_amm;?></b></td>
-<td align="right"><b><?php echo $tcrdt_amm;?></b></td>
+<td align="right"><b><?php  echo $ttamm;?></b></td>
+<td align="right"><b><?php  echo $tadj_amm;?></b></td>
+<td align="right"><b><?php  echo $tcrdt_amm;?></b></td>
 
 </tr>
 </table>

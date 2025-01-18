@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 $gdn11=$_REQUEST['gdn'];
@@ -30,7 +30,7 @@ if($cnt==0)
 <td align="center" style="color:red;font-weight:bold;font-size:150%;">Data Not Found</td>
 </tr>
 </table>
-<?
+<?php 
 }
 else
 {
@@ -44,7 +44,7 @@ else
 <td align="center" style="font-weight:bold;">Edit</td>
 </tr>
 
-	<?
+	<?php 
 while($row = mysqli_fetch_array($data))
 {
 $c++;
@@ -72,14 +72,14 @@ if($reord=="")
 }
 ?>
 <tr>
-<td align="center"><?=$c;?>.</td>
-<td align="center"><?=$gdn;?></td>
-<td align="center"><?=$prd;?></td>
-<td align="center"><?=$reord;?></td>
-<td align="center"><a href="reord_edit.php?sl=<?=$sl;?>" title="Click to Edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
+<td align="center"><?php  echo $c;?>.</td>
+<td align="center"><?php  echo $gdn;?></td>
+<td align="center"><?php  echo $prd;?></td>
+<td align="center"><?php  echo $reord;?></td>
+<td align="center"><a href="reord_edit.php?sl=<?php  echo $sl;?>" title="Click to Edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
 </tr>
 
-<?
+<?php 
 }
 echo "</table>";
 }	

@@ -1,9 +1,9 @@
-<?php
+<?php 
 include("membersonly.inc.php");
-$sl=$_REQUEST[sl];
-$pno=$_REQUEST[pno];
-$sid=$_REQUEST[sid1];
-$brncd=$_REQUEST[brncd];if($brncd==""){$brncd1="";}else{$brncd1=" and brncd='$brncd'";}
+$sl=$_REQUEST['sl'];
+$pno=$_REQUEST['pno'] ?? "";
+$sid=$_REQUEST['sid1'];
+$brncd=$_REQUEST['brncd'] ?? "";if($brncd==""){$brncd1="";}else{$brncd1=" and brncd='$brncd'";}
 if($sid!="")
 {
 	$sid1=" and sid='$sid' ";
@@ -49,4 +49,4 @@ $data1= mysqli_query($conn,"SELECT sum(amm) as t2 FROM main_drcr where pno='$pno
 		}
 		$T=$t2-$t1;
 		?>
-		 <img src="images\rp.png" height="15px"><input type="text" name="dbal" id="dbal" size="35" value="<?echo $T;?>" style="background :transparent; color : red;" readonly>
+		 <img src="images\rp.png" height="15px"><input type="text" name="dbal" id="dbal" size="35" value="<?php echo $T;?>" style="background :transparent; color : red;" readonly>

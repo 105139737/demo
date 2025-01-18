@@ -1,8 +1,8 @@
-<?
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 include("Numbers/Words.php");
-$blno=rawurldecode($_REQUEST[blno]);
+$blno=rawurldecode($_REQUEST['blno'] ?? "");
 
 ?>
 <html>
@@ -62,7 +62,7 @@ function blprnt(){
 	  <center>						
 							
 <form method="post" action="centrys.php" name="form1"  id="form1">
-<?    
+<?php     
 $csl=1;
 $sln=0;
  $query111 = "SELECT * FROM ".$DBprefix."billing where blno='$blno'";
@@ -151,11 +151,11 @@ $aiw=$nw->toWords($gttl1);
 <tr>
 <td valign="top" width="50%" height="130px"  rowspan="2" style="padding-left:5px;cellpadding:5px;font-family: Arial, Helvetica, sans-serif;">
 Name & Address :-<br><br>
-<b><font size="3"><?=$cnm;?></font><br><br>
-<font size="2"><?=$caddr;?><br><br>
-Contact No. <?=$cnt;?><br><br>
-<?if($fid!=""){?>
-Fertilizer ID : <?=$fid;}?>
+<b><font size="3"><?php  echo $cnm;?></font><br><br>
+<font size="2"><?php  echo $caddr;?><br><br>
+Contact No. <?php  echo $cnt;?><br><br>
+<?php if($fid!=""){?>
+Fertilizer ID : <?php  echo $fid;}?>
 
 </b>
 
@@ -164,7 +164,7 @@ Fertilizer ID : <?=$fid;}?>
 
 </td>
 <td width="50%" valign="top" style="padding-left:5px;height:30px;font-family: Arial, Helvetica, sans-serif;" >
-<b>Invoice No : <?=$blno;?></b> <span style="padding-left:5px;font-family: Arial, Helvetica, sans-serif;"><b>Date : <?=$edt;?></b></span>
+<b>Invoice No : <?php  echo $blno;?></b> <span style="padding-left:5px;font-family: Arial, Helvetica, sans-serif;"><b>Date : <?php  echo $edt;?></b></span>
 <tr>
 <td valign="middle" style="padding-left:5px; font-family: Arial, Helvetica, sans-serif;">
 <b>
@@ -214,7 +214,7 @@ Rate
 Amount <br> Rs.
 </td>
 </tr>	
-<?
+<?php 
 $sln=0;
  $query100 = "SELECT * FROM ".$DBprefix."billdtls where blno='$blno' and qty<0 order by sl";
    $result100 = mysqli_query($conn,$query100);
@@ -292,35 +292,35 @@ $aaa+=1;
 <tr   style="line-height: 14px;" >	
 
 <td align="left" style="font-family: Arial, Helvetica, sans-serif;" >
-<?=$sln;?>
+<?php  echo $sln;?>
 </td>
 <td align="left" style="font-family: Arial, Helvetica, sans-serif;" >
-<?=$prnm;?>
+<?php  echo $prnm;?>
 </td>
 <td align="left" style="font-family: Arial, Helvetica, sans-serif;">
-<?=$tech;?>
+<?php  echo $tech;?>
 </td>
 <td align="left" style="font-family: Arial, Helvetica, sans-serif;">
-<?=$co;?>
+<?php  echo $co;?>
 </td>
 
 <td align="left" style="font-family: Arial, Helvetica, sans-serif;">
-<?=$betno;?>
+<?php  echo $betno;?>
 </td>
 <td align="left" style="font-family: Arial, Helvetica, sans-serif;">
-<?=$expdt;?>
+<?php  echo $expdt;?>
 </td>
 <td align="right" style="font-family: Arial, Helvetica, sans-serif;">
-<?=$qnty;?>
+<?php  echo $qnty;?>
 </td>
 <td align="right" style="font-family: Arial, Helvetica, sans-serif;">
-<?=$bprc;?>
+<?php  echo $bprc;?>
 </td>
 <td align="right" style="font-family: Arial, Helvetica, sans-serif;">
-<?=$ttl;?>
+<?php  echo $ttl;?>
 </td>
 </tr>
-<?
+<?php 
 }
 ?>
 </table>
@@ -338,7 +338,7 @@ $aaa+=1;
 
 
 <td align="right" style="font-family: Arial, Helvetica, sans-serif;">
-<b><?=number_format($gttl,2);?></b>
+<b><?php echo number_format($gttl,2);?></b>
 </td>
 </tr>
 </tbody>	
@@ -360,7 +360,7 @@ Delivery At
 Add Vat. @
 </td>
 <td align="right" style="font-family: Arial, Helvetica, sans-serif;">
-<?=number_format($vat1,2);?>
+<?php echo number_format($vat1,2);?>
 </td>
 </tr>
 <tr>
@@ -368,7 +368,7 @@ Add Vat. @
 Add Freight
 </td>
 <td align="right" style="font-family: Arial, Helvetica, sans-serif;">
-<?=number_format($car,2);?>
+<?php echo number_format($car,2);?>
 </td>
 </tr>
 <tr>
@@ -390,7 +390,7 @@ Add Freight
 <b>Grand Total </b>
 </td>
 <td align="right" style="font-family: Arial, Helvetica, sans-serif;">
-<b><?=number_format($gttl1,2);?></b>
+<b><?php echo number_format($gttl1,2);?></b>
 </td>
 </tr>
 
@@ -399,7 +399,7 @@ Add Freight
 </tr>
 <tr>
 <td colspan="2" height="20px" valign="center" style="font-family: Arial, Helvetica, sans-serif;">
-Rupees :- <b><font size="3"><?echo $aiw;?> only </font></b>
+Rupees :- <b><font size="3"><?php echo $aiw;?> only </font></b>
 </td>
 </tr>
 </table>

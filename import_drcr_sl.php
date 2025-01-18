@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3; 
 include("membersonly.inc.php");
 $get1=mysqli_query($conn,"select * from bills_receivable order by sl") or die(mysqli_error($conn));

@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 date_default_timezone_set('Asia/Kolkata');
@@ -29,7 +29,7 @@ if($slp==""  or $sl=="")
 	alert('Please Fill All The Field');
 	history.go(-1);
 	</script>
-	<?
+	<?php 
 }
 else
 {
@@ -74,7 +74,7 @@ while ($row13 = mysqli_fetch_array($data13))
 			alert('Update Successfully. Thank You');
 			document.location="brand_assign.php";
 			</script>
-			<?
+			<?php 
 		}
 		else
 		{
@@ -83,7 +83,7 @@ while ($row13 = mysqli_fetch_array($data13))
 			alert('Data Already Exists');
 			history.go(-1);
 			</script>
-			<?
+			<?php 
 		}
 }
 	

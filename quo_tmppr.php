@@ -1,9 +1,9 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 ?>
 <table border="0" width="100%" class="advancedtable">
- <?
+ <?php 
  $tot_net_am=0;
 $query100 = "SELECT * FROM main_quo_temp where eby='$user_currently_loged'";
 $result100 = mysqli_query($conn,$query100);
@@ -48,47 +48,47 @@ while($row=mysqli_fetch_array($result5))
 {
 $pnm=$row['pnm'];
 }
-$geti=mysqli_query($conn,"select * from main_unit where cat='$prsl'") or die(mysqli_error($conn));
-while($rowi=mysqli_fetch_array($geti))
-{
-$unit_nm=$rowi[$unit];
-}
+// $geti=mysqli_query($conn,"select * from main_unit where cat='$prsl'") or die(mysqli_error($conn));
+// while($rowi=mysqli_fetch_array($geti))
+// {
+// $unit_nm=$rowi[$unit];
+// }
 
 ?>
 
 <tr class="even">
 <td  align="left" width="11%" >
-<b><font color="blue"><?=$pnm;?></font></b>
+<b><font color="blue"><?php  echo $pnm;?></font></b>
 </td>
 
-<td align="left" width="27%"><b></b><?=$desc;?></td>
-<td align="center" width="3%" ><b><?=$pcs;?></b></td>
-<td align="right" width="4%" ><b><?=round($prc,2);?></b></td>
+<td align="left" width="27%"><b></b><?php  echo $desc;?></td>
+<td align="center" width="3%" ><b><?php  echo $pcs;?></b></td>
+<td align="right" width="4%" ><b><?php echo round($prc,2);?></b></td>
 
-<td align="right" width="6%"><b><?=round($total,2);?></b></td>
-<td align="center" width="4%"><b><?=$disp;?></b></td>
-<td align="right" width="5%"><b><?=$disa;?></b></td>
+<td align="right" width="6%"><b><?php echo round($total,2);?></b></td>
+<td align="center" width="4%"><b><?php  echo $disp;?></b></td>
+<td align="right" width="5%"><b><?php  echo $disa;?></b></td>
 
-<td align="right" width="5%"><b><?=round($ttl,2);?></b></td>
-<td align="center" width="3%" ><b><?=$cgst_rt;?></b></td>
-<td align="right" width="5%" ><b><?=round($cgst_am,2);?></b></td>
-<td align="center" width="3%" ><b><?=$sgst_rt;?></b></td>
-<td align="right" width="5%" ><b><?=round($sgst_am,2);?></b></td>
-<td align="center" width="3%" ><b><?=$igst_rt;?></b></td>
-<td align="right" width="5%" ><b><?=round($igst_am,2);?></b></td>
-<td align="right" width="7%" ><b><?=round($net_am,2);?></b></td>
-<td align="center" width="4%"><b><a onclick="if(confirm('Are you Sure?')){deltpr('<?=$tsl;?>')}"><font color="red">Delete</font></a> </b></td>
+<td align="right" width="5%"><b><?php echo round($ttl,2);?></b></td>
+<td align="center" width="3%" ><b><?php  echo $cgst_rt;?></b></td>
+<td align="right" width="5%" ><b><?php echo round($cgst_am,2);?></b></td>
+<td align="center" width="3%" ><b><?php  echo $sgst_rt;?></b></td>
+<td align="right" width="5%" ><b><?php echo round($sgst_am,2);?></b></td>
+<td align="center" width="3%" ><b><?php  echo $igst_rt;?></b></td>
+<td align="right" width="5%" ><b><?php echo round($igst_am,2);?></b></td>
+<td align="right" width="7%" ><b><?php echo round($net_am,2);?></b></td>
+<td align="center" width="4%"><b><a onclick="if(confirm('Are you Sure?')){deltpr('<?php  echo $tsl;?>')}"><font color="red">Delete</font></a> </b></td>
 
 </tr>
 
-<?
+<?php 
 $tot_net_am+=$net_am;
 }
 ?>
 
 </table>
 <script>
-document.getElementById('pay').value=<?=round($tot_net_am,2);?>;
+document.getElementById('pay').value=<?php echo round($tot_net_am,2);?>;
 
 tot();
 </script>

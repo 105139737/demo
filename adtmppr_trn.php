@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 $pid=$_REQUEST['prnm'];
@@ -15,6 +15,7 @@ if($pid=='' or $qnt=='' or $qnt=='0' or $fbcd=='')
 {
 	$err="Please Fill All Fields....";
 }
+$betno1="";
 if($betno!="")
 {
 $betno1=" and betno='$betno'";	
@@ -32,7 +33,7 @@ while ($Rq = mysqli_fetch_array ($resultq))
 {
 $qty1=$Rq['qty1'];
 }
-$tot=$qty1+$qnt;
+$tot=(float)$qty1+(float)$qnt;
 $stck=0;
 $query4="Select sum(opst+stin-stout) as stck1 from ".$DBprefix."stock where pcd='$pid' and bcd='$fbcd' $betno1";
 $result4 = mysqli_query($conn,$query4);
@@ -81,29 +82,29 @@ document.getElementById("prnm3").focus();
 $('#prnm3').focus();
 $('#prnm3').val('');
 </script>
-<?
+<?php 
 }
 else
 {
 ?>
 <script>
-$('#prnm').append("<option value='"+<?php echo $tpcd;?>+"'>Auto Adding</option>");
-document.getElementById('prnm').value="<?php echo $tpcd;?>";
+$('#prnm').append("<option value='"+<?php  echo $tpcd;?>+"'>Auto Adding</option>");
+document.getElementById('prnm').value="<?php  echo $tpcd;?>";
 $('#prnm').trigger("chosen:updated");
 godown();
 add();
 </script>
-<?php
+<?php 
 }
 }
 else
 {
 ?>
 <script>
-alert('<?=$err;?>');
+alert('<?php  echo $err;?>');
 temp();
 
 </script>
-<?php
+<?php 
 }
 ?>

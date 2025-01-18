@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 $get=mysqli_query($conn,"select * from main_billtype where sl='130' ") or die(mysqli_error($conn));

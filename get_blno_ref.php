@@ -1,11 +1,13 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include "function.php";
-$sl=$_REQUEST[sl];
-$cid=$_REQUEST[cid];
-$cbill=$_REQUEST[blno];
-$brncd=$_REQUEST[brncd];if($brncd==""){$brncd1="";}else{$brncd1=" and brncd='$brncd'";}
+$sfno=0;
+$T=0;
+$sl=$_REQUEST['sl'];
+$cid=$_REQUEST['cid'];
+$cbill=$_REQUEST['blno'] ?? "";
+$brncd=$_REQUEST['brncd'];if($brncd==""){$brncd1="";}else{$brncd1=" and brncd='$brncd'";}
 if($cid!="")
 {
 $cid1=" and cid='$cid' ";
@@ -19,7 +21,7 @@ $cld=" and cldgr='$sl'";
 ?>
 <select id="blno"  name="blno"   tabindex="1" class="sc1" style="width:98%;" onchange="gtcrvlfi()">
 
-<?
+<?php 
 $data11= mysqli_query($conn,"select * from  main_drcr where brncd='$brncd' and cid='$cid' and paid='0'  group by  cbill order by sl,dt")or die(mysqli_error($conn));
 while ($row1 = mysqli_fetch_array($data11))
 {
@@ -57,13 +59,13 @@ $t2 = $row1['t2'];
 $T=$t1-$t2;
 */
 ?>
-<option value="<?=$blno?>"<?if($cbill==$blno){echo 'selected';}?>><?=reformat($blno)?> <?=$nm;?> <?=$sfno;?> Due Am. : <?=round($T,2)?>/- (Date : <?=$dt;?>) </option>
-<?
+<option value="<?php  echo $blno?>"<?php if($cbill==$blno){echo 'selected';}?>><?php echo reformat($blno)?> <?php  echo $nm;?> <?php  echo $sfno;?> Due Am. : <?php echo round($T,2)?>/- (Date : <?php  echo $dt;?>) </option>
+<?php 
 
 
 ?>
 
-<?}
+<?php }
 ?>
 </select>
 <script type="text/javascript">

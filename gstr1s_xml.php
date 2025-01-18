@@ -1,4 +1,4 @@
-<?php
+<?php 
 require("config.php");
 $fdt=$_REQUEST['fdt'];
 $tdt=$_REQUEST['tdt'];

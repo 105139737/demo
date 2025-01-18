@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 3; 
 include("membersonly.inc.php");
 include("functions.php");
@@ -14,7 +14,7 @@ if($bno1=="" or $bno2=="")
 	alert("Blank Entry.....");
 	window.history.go(-1);
 	</script>
-	<?
+	<?php 
 }
 else
 {
@@ -25,7 +25,7 @@ else
 	alert("Same Bill No. !");
 	window.history.go(-1);
 	</script>
-	<?
+	<?php 
 	}
 	else
 	{
@@ -77,7 +77,7 @@ else
 	alert("Swap Successfully.....");
 	window.location='swip_bno.php';
 	</script>
-	<?
+	<?php 
 	}
 
 
@@ -88,7 +88,7 @@ else
 	alert("Incurrect Bill No !");
 	window.history.go(-1);
 	</script>
-	<?
+	<?php 
 }
 }
 }

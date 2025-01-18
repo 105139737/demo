@@ -1,36 +1,36 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include("Numbers/Words.php");
 $cdt=date('Y-m-d');
 $dttm=date('d-m-Y H:i:s a');
-$sup=$_POST[sup];
-$brncd=$_POST[brncd];
-$inv=$_POST[inv];
-$dt=$_POST[dt];
-$lcd=$_POST[lcd];
-$lfr=$_POST[lfr];
-$tamm=$_POST[tamm];
-$dldgr=$_POST[dldgr];
-$mdt=$_POST[mdt];
-$pamm=$_POST[pamm];
-$crfno=$_POST[crfno];
-$idt=$_POST[idt];
-$cbnm=$_POST[cbnm];
-$vat=$_POST[vat];
-$sttl=$_POST[sttl];
-$tdis=$_POST[tdis];
-$fst=$_POST[fst];
-$tst=$_POST[tst];
-$addr=$_POST[addr];
+$sup=$_POST['sup'] ?? "";
+$brncd=$_POST['brncd'] ?? "";
+$inv=$_POST['inv'] ?? "";
+$dt=$_POST['dt'] ?? 0;
+$lcd=$_POST['lcd'] ?? "";
+$lfr=$_POST['lfr'] ?? "";
+$tamm=$_POST['tamm'] ?? 0;
+$dldgr=$_POST['dldgr'] ?? "";
+$mdt=$_POST['mdt'] ?? "";
+$pamm=$_POST['pamm'] ?? "";
+$crfno=$_POST['crfno'] ?? 0;
+$idt=$_POST['idt'] ?? "";
+$cbnm=$_POST['cbnm'] ?? "";
+$vat=$_POST['vat'] ?? 0;
+$sttl=$_POST['sttl'] ?? "";
+$tdis=$_POST['tdis'] ?? "";
+$fst=$_POST['fst'] ?? "";
+$tst=$_POST['tst'] ?? "";
+$addr=$_POST['addr'] ?? "";
 
-$roff=$_POST[roff];
-$adl=$_POST['adl'];
-$adlv=$_POST['adlv'];
-$tamm2=$_POST['tamm2'];
-$remk=$_POST['remk'];
-$typ=$_POST['typ'];
-
+$roff=$_POST['roff'] ?? "";
+$adl=$_POST['adl'] ?? "";
+$adlv=$_POST['adlv'] ?? 0;
+$tamm2=$_POST['tamm2'] ?? 0;
+$remk=$_POST['remk'] ?? "";
+$typ=$_POST['typ'] ?? "";
+$vat1="";
 $paid=0;
 $due=0;
 
@@ -141,7 +141,7 @@ $damm=$damm-($cgst+$sgst+$igst);
 $damm=$damm+$roff;
 if($adl=="+")
 {	
-$damm=$damm+$adlv;
+$damm=(float)$damm+(float)$adlv;
 }
 elseif($adl=="-")
 {
@@ -271,16 +271,16 @@ $result2 = mysqli_query($conn,$query2)or die (mysqli_error($conn));
 alert('Submit Successfully. Thank You...');
 document.location="ser_purchase.php";
 </script>
-<?
+<?php 
 }
 
 else
 {
     ?>
 <Script language="JavaScript">
-alert('<? echo $err;?>');
+alert('<?php  echo $err;?>');
 window.history.go(-1);
 </script>
-<?
+<?php 
 }
 ?>

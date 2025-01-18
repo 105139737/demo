@@ -1,4 +1,4 @@
-<?
+<?php 
 require("config.php");
 function parseToXML($htmlStr)
 {
@@ -12,10 +12,10 @@ return $xmlStr;
 //header("Content-type: text/xml");
 set_time_limit(0);
 $pno='0';
-$dt=$_REQUEST[fdt];
-$dt1=$_REQUEST[tdt];
-$pno=$_REQUEST[pno];
-$brncd=$_REQUEST[brncd];if($brncd==""){$brncd1="";}else{$brncd1=" and brncd='$brncd'";}
+$dt=$_REQUEST['fdt'];
+$dt1=$_REQUEST['tdt'];
+$pno=$_REQUEST['pno'] ?? "";
+$brncd=$_REQUEST['brncd'] ?? "";if($brncd==""){$brncd1="";}else{$brncd1=" and brncd='$brncd'";}
 if($dt=="" or $dt1=="")
 {
 echo 'Please Enter Valid Date Range.';
@@ -97,7 +97,7 @@ $IT=$gtot1;
 	  //echo '/>';
 ?>
 <table border="1" width="100%">			
-<?
+<?php 
 $gtot1=0;
 $data32t= mysqli_query($conn,"SELECT * FROM main_group where  pcd='8'");
 while ($row32t = mysqli_fetch_array($data32t))
@@ -146,16 +146,16 @@ $gtot1=$gtot1+$gtot2;
 <td align="right"><font size="1" color="red"><font size="4" color="black"><B> __________ </B></font></td>
 </tr>
 <tr >
-<? $ET=$gtot1;?>
+<?php  $ET=$gtot1;?>
 <td  align="right"><font size="4" color="BLACK"></font></td>
 <td  align="right"><font size="4" color="BLACK"></font></td>
-<td align="right"><font size="4" color="red"><font size="3" color="red"><B>  Rs <? echo number_format($gtot1,2); ?></B></font></td>
+<td align="right"><font size="4" color="red"><font size="3" color="red"><B>  Rs <?php  echo number_format($gtot1,2); ?></B></font></td>
 </tr>
   </table>
 </div>
   </td>
   </tr>
- <?$T=$IT-$ET;
+ <?php $T=$IT-$ET;
    if($T>=0)
    {
    $msg="Excess of Income over Expenditure";
@@ -164,22 +164,22 @@ $gtot1=$gtot1+$gtot2;
    <td align="left">
    
   </td>
-  <td align="right"><font size="3" color="#1A4C80"><? echo $msg; ?></font>
-  <font size="3" color="red"><B> Rs <? echo number_format($T,2); ?></B></font>
+  <td align="right"><font size="3" color="#1A4C80"><?php  echo $msg; ?></font>
+  <font size="3" color="red"><B> Rs <?php  echo number_format($T,2); ?></B></font>
   </td>
   
   </tr>
   <tr class="even">
   <td align="right">
-   <font size="4" color="red"><B> Rs <? echo number_format($IT,2); ?></B></font>
+   <font size="4" color="red"><B> Rs <?php  echo number_format($IT,2); ?></B></font>
   </td>
   <td align="right">
-  <font size="4" color="red"><B> Rs <? echo number_format($T+$ET,2); ?></B></font>
+  <font size="4" color="red"><B> Rs <?php  echo number_format($T+$ET,2); ?></B></font>
   </td>
   
   </tr>
    
-   <?
+   <?php 
    }
    else
    { $T=$T*-1;
@@ -187,8 +187,8 @@ $gtot1=$gtot1+$gtot2;
 	?>
 	<tr class="odd">
 	
-  <td align="right"><font size="3" color="#1A4C80"><? echo $msg; ?></font>
-  <font size="3" color="red"><B>  Rs <? echo number_format($T,2); ?></B></font>
+  <td align="right"><font size="3" color="#1A4C80"><?php  echo $msg; ?></font>
+  <font size="3" color="red"><B>  Rs <?php  echo number_format($T,2); ?></B></font>
   </td>
   <td align="left">
   
@@ -196,18 +196,18 @@ $gtot1=$gtot1+$gtot2;
   </tr>
   <tr class="even">
    <td align="right">
-   <font size="4" color="red"><B> Rs <? echo number_format($T+$IT,2); ?></B></font>
+   <font size="4" color="red"><B> Rs <?php  echo number_format($T+$IT,2); ?></B></font>
   </td>
   <td align="right">
-  <font size="4" color="red"><B> Rs <? echo number_format($ET,2); ?></B></font>
+  <font size="4" color="red"><B> Rs <?php  echo number_format($ET,2); ?></B></font>
   </td>
  
   </tr>
 	
-	<?
+	<?php 
    }
  ?>
-<?
+<?php 
 }
 
 //echo '</markers>';

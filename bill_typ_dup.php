@@ -1,13 +1,13 @@
-<?
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 include "header.php";
 $fdt=date('Y-m-d');
 
-$blno=$_REQUEST['blno'];
+$blno=$_REQUEST['blno'] ?? "";
 ?>
         <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <style type="text/css"> 
@@ -63,7 +63,7 @@ function submit(sl)
 							
 <body onload="get_list()">
 <form method="post" action="billing_gst_dup.php" id="form1" name="form1" target="_BLANK">      
-<input type="hidden" name="blno" id="blno" value="<?php echo $blno;?>">              
+<input type="hidden" name="blno" id="blno" value="<?php  echo $blno;?>">              
 <input type="hidden" class="form-control"  tabindex="1"  name="bsl" id="bsl" >              
 <div class="box box-success" >
 <table border="0" class="table table-hover table-striped table-bordered">
@@ -80,15 +80,15 @@ function submit(sl)
 <b>Brand : </b>
 <select name="brand1" id="brand1" class="form-control"  tabindex="1"  >
 <option value="">---ALL---</option>
-<?
+<?php 
 $dsql=mysqli_query($conn,"select * from main_catg order by sl") or die (mysqli_error($conn));
 while($erow=mysqli_fetch_array($dsql))
 {
 $bsl=$erow['sl'];
 $cnm=$erow['cnm'];
 ?>
-<option value="<?php echo $bsl;?>"><?php echo $cnm;?></option>
-<?
+<option value="<?php  echo $bsl;?>"><?php  echo $cnm;?></option>
+<?php 
 }
 ?>
 </select>
@@ -96,11 +96,11 @@ $cnm=$erow['cnm'];
 <td align="left" >
 <b>Branch : </b>
 <select name="brncd1" class="form-control"  tabindex="1"   size="1" id="brncd1" >
-<?
+<?php 
 $query="Select * from main_branch";
 ?>
 <option value="">---ALL---</option>
-<?
+<?php 
 $result = mysqli_query($conn,$query);
 while ($R = mysqli_fetch_array ($result))
 {
@@ -108,8 +108,8 @@ $sl=$R['sl'];
 $bnm=$R['bnm'];
 
 ?>
-<option value="<? echo $sl;?>"><? echo $bnm;?></option>
-<?
+<option value="<?php  echo $sl;?>"><?php  echo $bnm;?></option>
+<?php 
 }
 ?>
 </select>

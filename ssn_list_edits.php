@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 $dttm=date('d-m-Y H:i:s');
@@ -21,15 +21,15 @@ mysqli_query($conn,"update main_ssn set fdt='$fdt',tdt='$tdt' where sl='$sl'") o
 	alert('Update Successfully. Thank You');
 	document.location="ssn_list.php";
 	</script>
-	<?
+	<?php 
 }
 else
 {
 	?>
 	<script>
-	alert('<?=$err;?>');
+	alert('<?php  echo $err;?>');
 	history.go(-1);
 	</script>
-	<?	
+	<?php 	
 }
 ?>

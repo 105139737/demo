@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 
@@ -30,12 +30,12 @@ header("Content-Disposition: attachment; filename=$file");
 <tr>
 <td align="center" colspan="9"><b>
 <b>Stock Statement Invoice Wise</b><br>
-<font style="font-size:18px;font-family:Century"><b><?=$comp_nm;?> - <?=$branchnm;?></b></font><br/>
-<font style="font-size:13px;font-family:Century"><?=$comp_addr;?><br>
-Phone : <?=$cont;?>
+<font style="font-size:18px;font-family:Century"><b><?php  echo $comp_nm;?> - <?php  echo $branchnm;?></b></font><br/>
+<font style="font-size:13px;font-family:Century"><?php  echo $comp_addr;?><br>
+Phone : <?php  echo $cont;?>
 </font><br/>
-<font style="font-size:13px;">GSTIN NO. : <?=$gstin?></font><br>
-<font style="font-size:14px;"><b>Statement As On : <?=$dt;?></b></font>
+<font style="font-size:13px;">GSTIN NO. : <?php  echo $gstin?></font><br>
+<font style="font-size:14px;"><b>Statement As On : <?php  echo $dt;?></b></font>
 
 
 </b></td>
@@ -71,7 +71,7 @@ Phone : <?=$cont;?>
 			<b>Closing Stcok</b>
 			</td>
 			</tr>
-<?
+<?php 
 $cntt=0;
 $data= mysqli_query($conn,"select * from main_product where sl>0 $cat1 $pnm1  $brncd1")or die(mysqli_error($conn));
 while ($row = mysqli_fetch_array($data))
@@ -163,18 +163,18 @@ if($wzer=="0")
 	if($stck>0)	
 	{
 	?>
-	 <tr  title="<?=$pcd;?>">
-	<td  align="center" ><?=$cntt;?></td>
-	<td align="left"><?=$cnm;?></td>
-	<td align="left"><?=$snm;?></td>
-	<td align="left"><?=$pnm;?></td>
-	<td align="left" ><?=$refno1;?></td>
-	<td align="left" ><?=$rate;?></td>
-	<td align="left" ><?=$stock_in2;?></td>
-	<td align="left" ><?=$stock_in3;?></td>
-	<td align="left" ><?=$stock_in;?></td>
+	 <tr  title="<?php  echo $pcd;?>">
+	<td  align="center" ><?php  echo $cntt;?></td>
+	<td align="left"><?php  echo $cnm;?></td>
+	<td align="left"><?php  echo $snm;?></td>
+	<td align="left"><?php  echo $pnm;?></td>
+	<td align="left" ><?php  echo $refno1;?></td>
+	<td align="left" ><?php  echo $rate;?></td>
+	<td align="left" ><?php  echo $stock_in2;?></td>
+	<td align="left" ><?php  echo $stock_in3;?></td>
+	<td align="left" ><?php  echo $stock_in;?></td>
 		</tr>
-		<?
+		<?php 
 		
 	}
 	
@@ -183,18 +183,18 @@ if($wzer=="0")
 else
 {
 	?>
-	 <tr  title="<?=$pcd;?>">
-	<td  align="center" ><?=$cntt;?></td>
-	<td align="left"><?=$cnm;?></td>
-	<td align="left"><?=$snm;?></td>
-	<td align="left"><?=$pnm;?></td>
-	<td align="left" ><?=$refno1;?></td>
-	<td align="left" ><?=$rate;?></td>
-	<td align="left" ><?=$stock_in2;?></td>
-	<td align="left" ><?=$stock_in3;?></td>
-	<td align="left" ><?=$stock_in;?></td>
+	 <tr  title="<?php  echo $pcd;?>">
+	<td  align="center" ><?php  echo $cntt;?></td>
+	<td align="left"><?php  echo $cnm;?></td>
+	<td align="left"><?php  echo $snm;?></td>
+	<td align="left"><?php  echo $pnm;?></td>
+	<td align="left" ><?php  echo $refno1;?></td>
+	<td align="left" ><?php  echo $rate;?></td>
+	<td align="left" ><?php  echo $stock_in2;?></td>
+	<td align="left" ><?php  echo $stock_in3;?></td>
+	<td align="left" ><?php  echo $stock_in;?></td>
 		</tr>
-		<?
+		<?php 
 }
 	
 	

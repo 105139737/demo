@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include "header.php";
@@ -7,7 +7,7 @@ $cy=date('Y');
 <html>
 <head>
         <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <style type="text/css"> 
@@ -132,24 +132,24 @@ cursor:pointer;
 <tr>
 <td align="left" width="18%">
 <b>Form Date : </b>
-<input type="text" id="fdt" name="fdt" value="<?=date('d-m-Y');?>" class="form-control" >
+<input type="text" id="fdt" name="fdt" value="<?php echo date('d-m-Y');?>" class="form-control" >
 
 </td>
  <td  align="left" width="18%">
 <b>To Date : </b>
-<input type="text" id="tdt" name="tdt" value="<?=date('d-m-Y');?>" class="form-control" >
+<input type="text" id="tdt" name="tdt" value="<?php echo date('d-m-Y');?>" class="form-control" >
 
  </td>
 
 <td align="left" width="18%" >
 <b>Branch:</b>
 <select name="brncd" class="form-control" size="1" id="brncd"   >
-<?
+<?php 
 if($user_current_level<0)
 {
 	?>
 	<option value="">---ALL---</option>
-	<?
+	<?php 
 }
 if($user_current_level<0)
 {
@@ -166,8 +166,8 @@ $sl=$R['sl'];
 $bnm=$R['bnm'];
 
 ?>
-<option value="<? echo $sl;?>" <?if($sl==$branch_code){echo 'selected';}?>><? echo $bnm;?></option>
-<?
+<option value="<?php  echo $sl;?>" <?php if($sl==$branch_code){echo 'selected';}?>><?php  echo $bnm;?></option>
+<?php 
 }
 ?>
 </select>

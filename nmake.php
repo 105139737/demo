@@ -1,10 +1,10 @@
-<?
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 include "header.php";
 ?>
         <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <style type="text/css"> 
@@ -97,7 +97,7 @@ select.sc1 {
             <td align="right" style="padding-top:15px" >Primary :</td>
             <td align="left" >
                   <select name="tp" id="tp"  size="1" class="sc1">
-<?
+<?php 
 $query3 = "SELECT * FROM ".$DBprefix."primary";
    $result3 = mysqli_query($conn,$query3);
 while ($R = mysqli_fetch_array ($result3))
@@ -105,8 +105,8 @@ while ($R = mysqli_fetch_array ($result3))
 $x=$R['sl'];
 $y=$R['nm'];
 ?>
-<option value="<? echo $x;?>"><? echo $y;?></option>
-<?
+<option value="<?php  echo $x;?>"><?php  echo $y;?></option>
+<?php 
 }
 ?>
 </select>

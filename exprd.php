@@ -1,4 +1,4 @@
-<?php
+<?php 
 include("config.php");
 $a=$_REQUEST['key'];
 
@@ -16,7 +16,7 @@ $ndt=$bcd[2];
 <meta name="GENERATOR" content="Microsoft FrontPage 5.0">
 <meta name="ProgId" content="FrontPage.Editor.Document">
 <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
-<title>Already Expired on <? echo date('d-m-Y', strtotime($ndt));?>.............. Please Register</title>
+<title>Already Expired on <?php  echo date('d-m-Y', strtotime($ndt));?>.............. Please Register</title>
 <style type="text/css">
 body
 {
@@ -44,7 +44,7 @@ function chklccd(lcvl)
 
 <body>
 <form method="post" action="registers.php" name="f">
-<p align="center"><u><font size="7" color="#FF0000">Expired on <? echo date('d-m-Y', strtotime($ndt));?></font></u></p>
+<p align="center"><u><font size="7" color="#FF0000">Expired on <?php  echo date('d-m-Y', strtotime($ndt));?></font></u></p>
 <p align="center">&nbsp;</p>
 <div align="center">
   <center>
@@ -57,12 +57,12 @@ function chklccd(lcvl)
           <tr>
             <td width="40%"><font size="5" color="#FFFF66">Company Code</font></td>
             <td width="60%">
-            <div id="alsd"><input type="text" name="bcd" size="20" style="font-size: 18pt; color: #008000" value="<? echo $bc;?>" readonly></div></td>
+            <div id="alsd"><input type="text" name="bcd" size="20" style="font-size: 18pt; color: #008000" value="<?php  echo $bc;?>" readonly></div></td>
           </tr>
           <tr>
             <td width="40%"><font size="5" color="#FFFF66">Company Name</font></td>
             <td width="60%">
-            <input type="text" name="sn" size="30" style="font-size: 18pt; color: #008000" value="<? echo $bnm;?>" readonly></td>
+            <input type="text" name="sn" size="30" style="font-size: 18pt; color: #008000" value="<?php  echo $bnm;?>" readonly></td>
           </tr>
           <tr>
             <td width="40%"><font size="5" color="#FFFF66">License To.</font></td>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 include "header.php";
@@ -10,7 +10,7 @@ if($fm<4)
 $fdt="01-04-".$fy;
 ?>
         <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <style type="text/css"> 
@@ -135,13 +135,13 @@ select.sc1 {
     <td align="right" style="padding-top:15px;" ><b>Branch :</b></td>
     <td align="left" >
  <select name="brncd" class="form-control" size="1" id="brncd"   >
-<?
+<?php 
 if($user_current_level<0)
 {
 $query="Select * from main_branch";
 ?>
 <option value="">---ALL---</option>
-<?
+<?php 
 }
 else
 {
@@ -154,8 +154,8 @@ $sl=$R['sl'];
 $bnm=$R['bnm'];
 
 ?>
-<option value="<? echo $sl;?>"><? echo $bnm;?></option>
-<?
+<option value="<?php  echo $sl;?>"><?php  echo $bnm;?></option>
+<?php 
 }
 ?>
 </select>
@@ -173,11 +173,11 @@ $bnm=$R['bnm'];
         <tr >
     <td align="right" style="padding-top:15px;"><b>From :</b></td>
     <td align="left" >
-	<input type="text" name="fdt" class="form-control" id="fdt" value="<? echo $fdt; ?>">
+	<input type="text" name="fdt" class="form-control" id="fdt" value="<?php  echo $fdt; ?>">
 	</td>
 	<td align="right" style="padding-top:15px;"><b>To :</b></td>
     <td align="left" >
-	<input type="text" name="tdt" class="form-control" id="tdt" value="<? echo date('d-m-Y'); ?>">
+	<input type="text" name="tdt" class="form-control" id="tdt" value="<?php  echo date('d-m-Y'); ?>">
 	</td>   
   </tr>
    <tr >
@@ -185,13 +185,13 @@ $bnm=$R['bnm'];
 <td  align="left" style="width:25%">
 	 <select id="ledg" name="ledg" class="form-control"  onchange="sia(this.value)">
 							<option value="">-- Select --</option>
-							<?php 
+							<?php  
 							$get = mysqli_query($conn,"SELECT * FROM main_ledg order by nm") or die(mysqli_error($conn));
 							while($row = mysqli_fetch_array($get))
 							{
 							?>
-								<option value="<?=$row['sl']?>"><?=$row['nm']?></option>
-							<?php 
+								<option value="<?php  echo $row['sl']?>"><?php  echo $row['nm']?></option>
+							<?php  
 							} 
 							?>
 						</select>

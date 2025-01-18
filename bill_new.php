@@ -1,8 +1,8 @@
-<?
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 include("Numbers/Words.php");
-$blno=rawurldecode($_REQUEST[blno]);
+$blno=rawurldecode($_REQUEST['blno'] ?? "");
 		$sln=0;
 		$tota=0;
 $tq=0;
@@ -124,11 +124,11 @@ CST Reg. No. -
 <tr>
 <td>
 <font style="font-family: Times New Roman, Georgia, Serif;">
-Tax Invoice No. :- <b><?=$blno;?></b><br>
-Challan No. & Date :- <b><?=$dt;?></b><br>
-Buyer's Name :- <?=$nm;?><br>
-Address :-<?=$addr;?><br>
-Buyer's VAT No. :- <?=$vatno;?> 
+Tax Invoice No. :- <b><?php  echo $blno;?></b><br>
+Challan No. & Date :- <b><?php  echo $dt;?></b><br>
+Buyer's Name :- <?php  echo $nm;?><br>
+Address :-<?php  echo $addr;?><br>
+Buyer's VAT No. :- <?php  echo $vatno;?> 
 </font>
 </td>
 </tr>
@@ -148,7 +148,7 @@ Buyer's VAT No. :- <?=$vatno;?>
 <td align="center"><b>Tax Amount<br>Rs.  P.</b></td>
 <td align="center"><b>Total Amount<br>Rs. P.</b></td>
 </tr>
-<?
+<?php 
 $height="700";
 $sln=0;
 $data= mysqli_query($conn,"select * from  main_billdtls where sl>0 and blno='$blno'")or die(mysqli_error($conn));
@@ -195,31 +195,31 @@ if($unit=='3'){$stock_in=$pcs." Pcs";}
 $height=$height-21;
 ?>
 <tr id="tdb">
-<td align="center"><font size="2"><?=$sln;?></font></td>
-<td align="left"><font size="2"><?=$stock_in;?></font></td>
-<td align="left"><font size="2"><?=$pnm;?></font></td>
-<td align="right"><font size="2"><?=sprintf('%0.2f',$prc);?></font></td>
-<td align="right"><font size="2"><?=sprintf('%0.2f',$ttl);?></font></td>
+<td align="center"><font size="2"><?php  echo $sln;?></font></td>
+<td align="left"><font size="2"><?php  echo $stock_in;?></font></td>
+<td align="left"><font size="2"><?php  echo $pnm;?></font></td>
+<td align="right"><font size="2"><?php echo sprintf('%0.2f',$prc);?></font></td>
+<td align="right"><font size="2"><?php echo sprintf('%0.2f',$ttl);?></font></td>
 <td align="right"><font size="2"></font></td>
 <td align="right"><font size="2"></font></td>
-<td align="right"><font size="2"><?=sprintf('%0.2f',$ttl);?></font></td>
+<td align="right"><font size="2"><?php echo sprintf('%0.2f',$ttl);?></font></td>
 </tr>
-<?
+<?php 
 }
 ?>
-<tr style="height:<?=$height;?>px">
+<tr style="height:<?php  echo $height;?>px">
 <td align="center"></td>
 <td align="left"></td>
 <td align="center"></td>
 <td align="left"></td>
 <td align="center"></td>
-<td align="center" valign="bottom"><?=$vat;?> % </td>
-<td align="right" valign="bottom"><?=sprintf('%0.2f',$vatamm);?></td>
-<td align="right" valign="bottom"><?=sprintf('%0.2f',$gttl1);?></td>
+<td align="center" valign="bottom"><?php  echo $vat;?> % </td>
+<td align="right" valign="bottom"><?php echo sprintf('%0.2f',$vatamm);?></td>
+<td align="right" valign="bottom"><?php echo sprintf('%0.2f',$gttl1);?></td>
 </tr>
 <tr>
 <td align="right" colspan="7"><font  size="4"><b>Total-</b></font></td>
-<td align="right"><font  size="4"><b><?=sprintf('%0.2f',$gttl1);?></b></font></td>
+<td align="right"><font  size="4"><b><?php echo sprintf('%0.2f',$gttl1);?></b></font></td>
 </tr>
 </table>
 <br><br><br>

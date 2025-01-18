@@ -1,11 +1,11 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
-$sl=$_REQUEST[sl];
-$pno=$_REQUEST[pno];
-$cid=$_REQUEST[cid];
-$tp=$_REQUEST[tp];
-$brncd=$_REQUEST[brncd];if($brncd==""){$brncd1="";}else{$brncd1=" and brncd='$brncd'";}
+$sl=$_REQUEST['sl'];
+$pno=$_REQUEST['pno'] ?? "";
+$cid=$_REQUEST['cid'] ?? "";
+$tp=$_REQUEST['tp'] ?? "";
+$brncd=$_REQUEST['brncd'] ?? "";if($brncd==""){$brncd1="";}else{$brncd1=" and brncd='$brncd'";}
 if($cid!="")
 {
 $cid1=" and cid='$cid' ";
@@ -32,12 +32,12 @@ $blano2.=")";
 ?>
 <select id="blno"  name="blno"   tabindex="2" class="form-control"  onchange="recallRamm()" >
 <!--<option value="Opening">Opening</option>-->
-<?php 
+<?php  
 if($tp==1)
 {
 ?>
 <option value="">----Select----</option>
-<?php
+<?php 
 }
 $data11= mysqli_query($conn,"select * from  main_drcr where brncd='$brncd' and cid='$cid' and cbill!='' and paid='0' $blano2 group by  cbill order by dt,sl")or die(mysqli_error($conn));
 while ($row1 = mysqli_fetch_array($data11))
@@ -96,8 +96,8 @@ $log=1;
 if($T>0)
 {
 ?>
-<option value="<?=$blno?>"><?=$bill_no?> <?=$blno?> <?=$nm;?> <?=$sfno;?> Due Am. : <?php if($log==0){echo '>1';}else{echo round($T,2);}?>/- (Date : <?=$dt;?>) </option>
-<?
+<option value="<?php  echo $blno?>"><?php  echo $bill_no?> <?php  echo $blno?> <?php  echo $nm;?> <?php  echo $sfno;?> Due Am. : <?php  if($log==0){echo '>1';}else{echo round($T,2);}?>/- (Date : <?php  echo $dt;?>) </option>
+<?php 
 }
 else
 {
@@ -105,9 +105,9 @@ else
 }
 ?>
 
-<?}?>
+<?php }?>
 
-<?
+<?php 
 $data11= mysqli_query($conn,"select * from  main_addon where brncd='$brncd' and cid='$cid'")or die(mysqli_error($conn));
 while ($row1 = mysqli_fetch_array($data11))
 {
@@ -141,8 +141,8 @@ while ($R16 = mysqli_fetch_array ($result416))
 if($T>0)
 {
 ?>
-<option value="<?=$blno?>"><?=$blno?> (Date : <?=$dt;?>)</option>
-<?
+<option value="<?php  echo $blno?>"><?php  echo $blno?> (Date : <?php  echo $dt;?>)</option>
+<?php 
 }
 else
 {
@@ -150,7 +150,7 @@ else
 }
 ?>
 
-<?}?>
+<?php }?>
 </select>
 <script type="text/javascript">
    $('#blno').chosen({

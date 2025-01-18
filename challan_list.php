@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3; 
 
 include("membersonly.inc.php");
@@ -55,7 +55,7 @@ $dnm1="";
 			</td>
 		
 		     </tr>
-			 <?
+			 <?php 
 		$sln=0;
 		$tota=0;
 $tq=0;
@@ -82,29 +82,29 @@ $sln++;
 	 ?>
 		   <tr>
 		      <td  align="center"  >
-			<a onclick="" style="cursor:pointer;" onclick="bill('<?=$blno;?>')"><font color="red">To Invoice</font></a>
+			<a onclick="" style="cursor:pointer;" onclick="bill('<?php  echo $blno;?>')"><font color="red">To Invoice</font></a>
 			</td>
 		    <td  align="center"  >
-			<?=$sln;?>
+			<?php  echo $sln;?>
 			</td>
 			 <td  align="center" >
-			<?=$edt;?>
+			<?php  echo $edt;?>
 			</td>
 			<td  align="center" >
-				<a href="#" onclick="view('<?=$blno;?>')" title="Print"><?=$blno;?></a>
+				<a href="#" onclick="view('<?php  echo $blno;?>')" title="Print"><?php  echo $blno;?></a>
 			</td>
             <td  align="center" >
-			<?=$cno;?>
+			<?php  echo $cno;?>
 			</td>
 			
-			<td  align="center" title="<?=$pcd;?>" >
-			<?=$cnm;?>
+			<td  align="center" title="<?php  echo $pcd;?>" >
+			<?php  echo $cnm;?>
 			</td>
 		
 		
 		     </tr>	 
 			 
-<?
+<?php 
 }
 ?>
 

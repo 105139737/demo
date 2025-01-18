@@ -1,4 +1,4 @@
-<?php
+<?php 
 
 /**
  * @author Nirmal Biswas
@@ -31,7 +31,7 @@ $result21 = mysqli_query($conn,$query21)or die (mysqli_error($conn));
 alert('Update Successfully. Thank You...');
 document.location="unit_show.php";
 </script>
-<?
+<?php 
    }
    else
    {
@@ -43,10 +43,10 @@ document.location="unit_show.php";
    {
 	       ?>
 <Script language="JavaScript">
-alert('<? echo $err;?>');
+alert('<?php  echo $err;?>');
 window.history.go(-1);
 </script>
-<?
+<?php 
    }
 
    

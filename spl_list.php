@@ -1,4 +1,4 @@
-<?php 
+<?php  
 $reqlevel = 1;
 include("membersonly.inc.php");
 set_time_limit(0);
@@ -15,7 +15,7 @@ if($brncd==""){$brncd1="";}else{$brncd1=" and brncd='$brncd'";}
 <th ><b>Branch </b></th>
 <th><b>Barnd</b></th>
 </tr>
-<?php
+<?php 
 $cnt=0;
 $data11= mysqli_query($conn,"SELECT * FROM main_spl where sl>0 $brncd1 ");
 while ($row11= mysqli_fetch_array($data11))
@@ -40,12 +40,12 @@ $cnm=$row13['cnm'];
 
 ?>
 <tr>
-<td><a href="spl_edt.php?sl=<?php echo $tsl;?>">Edit</a></td>   
-<td><?php echo $cnt;?></td>
-<td><?php echo $bnm;?></td>
-<td><?php echo $cnm;?></td>
+<td><a href="spl_edt.php?sl=<?php  echo $tsl;?>">Edit</a></td>   
+<td><?php  echo $cnt;?></td>
+<td><?php  echo $bnm;?></td>
+<td><?php  echo $cnm;?></td>
 </tr>
-<?php }?>
+<?php  }?>
 </table>
 
 

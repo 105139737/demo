@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 
@@ -19,7 +19,8 @@ if($total>0)
 <th style="text-align:center;" >Attachments</th>
 <th style="text-align:center;" >Action </th>
 </tr>
-<?
+<?php 
+$cnt=0;
 while($row=mysqli_fetch_array($get))
 {
 	$cnt++;
@@ -62,21 +63,21 @@ $catnm=$catnm.', '.$cnm;
 */	 
 ?>
 <tr>
-<td style="text-align:center;"><?=$cnt;?></td>
-<td style="text-align:left;"><b><?=$cnm;?></b></td>
-<td style="text-align:left;"><b><?=$tpnm;?></b></td>
-<td style="text-align:left;"><b><?=$title;?></b></td>
+<td style="text-align:center;"><?php  echo $cnt;?></td>
+<td style="text-align:left;"><b><?php  echo $cnm;?></b></td>
+<td style="text-align:left;"><b><?php  echo $tpnm;?></b></td>
+<td style="text-align:left;"><b><?php  echo $title;?></b></td>
 <td style="text-align:left;">
-<iframe src="<?=$path;?>" style="width:600px; height:100px;" frameborder="0"></iframe>
+<iframe src="<?php  echo $path;?>" style="width:600px; height:100px;" frameborder="0"></iframe>
 </td>
-<td style="text-align:left;"><a href="prod_upload_pdf_edt.php?sl=<?php echo $ssl;?>"><i class="fa fa-edit"></i></a></td>
+<td style="text-align:left;"><a href="prod_upload_pdf_edt.php?sl=<?php  echo $ssl;?>"><i class="fa fa-edit"></i></a></td>
 
 </tr>
-<?															
+<?php 															
 }
 ?>
 </table>
-<?
+<?php 
 }
 else
 {
@@ -86,6 +87,6 @@ else
 	<td style="text-align:center;"><font size="4" color="red"><b>No Records Available</b></font></td>
 	</tr>
 	</table>
-	<?
+	<?php 
 }
 ?>

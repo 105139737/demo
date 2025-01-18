@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include "header.php";
@@ -7,7 +7,7 @@ include "header.php";
 <html>
 <head>
         <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <style type="text/css"> 
@@ -185,7 +185,7 @@ $('#vvno').load('update_vno_trn.php?val='+val+'&sl='+sl).fadeIn("fast");
 <td align="left"   >
 <select name="bcd" class="form-control" tabindex="10"  size="1" id="bcd" >
  <option value="">---All---</option>   
-<?
+<?php 
 $geti=mysqli_query($conn,"select * from main_godown order by gnm") or die(mysqli_error($conn));
 while($rowi=mysqli_fetch_array($geti))
 {
@@ -193,8 +193,8 @@ $sl=$rowi['sl'];
 $gnm=$rowi['gnm'];
 
 ?>
-<option value="<? echo $sl;?>"><? echo $gnm;?> </option>
-<?
+<option value="<?php  echo $sl;?>"><?php  echo $gnm;?> </option>
+<?php 
 
 
 }
@@ -209,7 +209,7 @@ $gnm=$rowi['gnm'];
 </font>
 </td>
 <td align="left">
-<input type="text" name="fdt" id="fdt" class="form-control" value="<?=$fdt;?>" >
+<input type="text" name="fdt" id="fdt" class="form-control" value="" >
 </td>
 <td align="right" style="padding-top:15px"> 
 <font size="3">
@@ -217,7 +217,7 @@ $gnm=$rowi['gnm'];
 </font>
 </td>
 <td align="left">
-<input type="text" name="tdt" id="tdt" class="form-control" value="<?=$tdt;?>" >
+<input type="text" name="tdt" id="tdt" class="form-control" value="" >
 </td>
 </tr>
 		  

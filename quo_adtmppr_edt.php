@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 
@@ -86,15 +86,15 @@ temp();
 $('#prnm').trigger('chosen:open');
 reset();
 </script>
-<?
+<?php 
 }
 else
 {
 ?>
 <script>
-alert('<?=$err;?>');
+alert('<?php  echo $err;?>');
 temp();
 </script>
-<?
+<?php 
 }
 ?>

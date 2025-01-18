@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3; 
 
 include("membersonly.inc.php");
@@ -23,7 +23,7 @@ else
 $pnm1="";	
 }
 ?>
-		 <table  class="table table-hover table-striped table-bordered"  >		<tr>		<td  align="center" ><b>Action</b></td>		<td  align="center" ><b>Sl</b></td>		<td  align="center" ><b>Date</b></td>		<td  align="center" ><b>Invoice</b></td>		<td  align="center" ><b>Shop Name</b></td>		</tr>		 <?
+		 <table  class="table table-hover table-striped table-bordered"  >		<tr>		<td  align="center" ><b>Action</b></td>		<td  align="center" ><b>Sl</b></td>		<td  align="center" ><b>Date</b></td>		<td  align="center" ><b>Invoice</b></td>		<td  align="center" ><b>Shop Name</b></td>		</tr>		 <?php 
 		$sln=0;
 		$tota=0;
 $tq=0;
@@ -56,9 +56,9 @@ $mob1=$rowd['mob1'];
 }
 
 			 ?>
-		   <tr>			<td  align="center"  ><a href="#" onclick="retn('<?=$blno;?>')" title="Return"><i class="fa fa-times"></i><br>Return</a></td>			<td  align="center"  ><?=$sln;?></td>			<td  align="center" ><?=$edt;?></td>			<td  align="center" ><?=$pbill;?></td>			<td  align="left" ><?=$spn;?></td>			</tr>	 
+		   <tr>			<td  align="center"  ><a href="#" onclick="retn('<?php  echo $blno;?>')" title="Return"><i class="fa fa-times"></i><br>Return</a></td>			<td  align="center"  ><?php  echo $sln;?></td>			<td  align="center" ><?php  echo $edt;?></td>			<td  align="center" ><?php  echo $pbill;?></td>			<td  align="left" ><?php  echo $spn;?></td>			</tr>	 
 			 
-<?
+<?php 
 }?>
 
 

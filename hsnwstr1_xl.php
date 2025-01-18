@@ -1,4 +1,4 @@
-<?
+<?php 
 
 set_time_limit(0);
 
@@ -48,7 +48,7 @@ header("Content-Disposition: attachment; filename=$file");
 
 </tr>
 
-<?
+<?php 
 
 
 
@@ -139,7 +139,7 @@ while($R000=mysqli_fetch_array($xqr))
 //echo $eqr;
 ?>	
 
-<?
+<?php 
 
 //echo "select sum(ttl) as ttamm, sum(cgst_am) as tcgst_am, sum(sgst_am) as tsgst_am,sum(igst_am) as tigst_am, sum(net_am) as tnet_am,sum(qty) as tpcs from main_billdtls where sl>0 $eqr $bqr";
 $ttamm=0;
@@ -179,25 +179,25 @@ if($tnet_am>0)
 
 <tr>
 
-<td><?=$hsn;?></td>
+<td><?php  echo $hsn;?></td>
 
-<td align="center"><?echo $igst;?>% </td>
+<td align="center"><?php echo $igst;?>% </td>
 
-<td><?echo "PIECE-PCS";?></td>
+<td><?php echo "PIECE-PCS";?></td>
 
 
 
-<td><?=$tpcs;?></td>	
+<td><?php  echo $tpcs;?></td>	
 
-<td><?=round($tnet_am,2);?></td>
+<td><?php echo round($tnet_am,2);?></td>
 
-<td><?=round($ttamm,2);?></td>
+<td><?php echo round($ttamm,2);?></td>
 
-<td><?=round($tigst_am,2);?></td>
+<td><?php echo round($tigst_am,2);?></td>
 
-<td><?=round($tcgst_am,2);?></td>
+<td><?php echo round($tcgst_am,2);?></td>
 
-<td><?=round($tsgst_am,2);?></td>
+<td><?php echo round($tsgst_am,2);?></td>
 
 <td>0.00</td>
 
@@ -209,7 +209,7 @@ if($tnet_am>0)
 
 	
 
-<?	
+<?php 	
 
 }
 
@@ -241,17 +241,17 @@ $ttpcs+=$tpcs;
 
 <td colspan="3">TOTAL</td>
 
-<td><?=$ttpcs;?></td>	
+<td><?php  echo $ttpcs;?></td>	
 
-<td><?=round($ttnet_am,2);?></td>
+<td><?php echo round($ttnet_am,2);?></td>
 
-<td><?=round($tttamm,2);?></td>
+<td><?php echo round($tttamm,2);?></td>
 
-<td><?=round($ttigst_am,2);?></td>
+<td><?php echo round($ttigst_am,2);?></td>
 
-<td><?=round($ttcgst_am,2);?></td>
+<td><?php echo round($ttcgst_am,2);?></td>
 
-<td><?=round($ttsgst_am,2);?></td>
+<td><?php echo round($ttsgst_am,2);?></td>
 
 <td>0.00</td>
 

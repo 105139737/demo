@@ -1,6 +1,10 @@
-<?$reqlevel = 3;
+<?php $reqlevel = 3;
 include("membersonly.inc.php");
 include "header.php";
+$fdt="";
+$tdt="";
+$brncd="";
+
 if($fdt=="")
 {   
  if(date('m')>3)
@@ -20,7 +24,7 @@ if($fdt=="")
  <html>
  <head>  
  <div class="wrapper row-offcanvas row-offcanvas-left">    
- <?    
+ <?php     
  include "left_bar.php";  
  ?>
  <style type="text/css"> 
@@ -120,13 +124,13 @@ var brncd= encodeURIComponent(document.getElementById('brncd').value);
 <td align="left" width="25%"><font color="red">*</font><font size="3"><b>Branch:</b></font><br>
 <select name="brncd" class="form-control" size="1" id="brncd" onchange="title1()">
 
-<?
+<?php 
 if($user_current_level<0)
 {
 $query="Select * from main_branch";
 ?>
 <option value="">---Select---</option>
-<?
+<?php 
 }
 else
 {
@@ -139,8 +143,8 @@ $slb=$R['sl'];
 $bnm=$R['bnm'];
 
 ?>
-<option value="<? echo $slb;?>" <?if($slb==$brncd){echo 'selected';}?>><? echo $bnm;?></option>
-<?
+<option value="<?php  echo $slb;?>" <?php if($slb==$brncd){echo 'selected';}?>><?php  echo $bnm;?></option>
+<?php 
 }
 ?>
 </select>
@@ -152,9 +156,9 @@ $bnm=$R['bnm'];
 </td>
 
 <td align="left" style="padding-top:10px"  width="25%"> <font size="3" ><b>From  :</b></font><br>
-<input type="text" name="fdt" id="fdt" class="form-control" value="<?=$fdt;?>" style="width:100%"></td>
+<input type="text" name="fdt" id="fdt" class="form-control" value="<?php  echo $fdt;?>" style="width:100%"></td>
 <td align="left" style="padding-top:10px" width="25%"> <font size="3" ><b>To  :</b></font><br>
-<input type="text" name="tdt" id="tdt" class="form-control" value="<?=$tdt;?>" style="width:100%"></td>
+<input type="text" name="tdt" id="tdt" class="form-control" value="<?php  echo $tdt;?>" style="width:100%"></td>
 </tr>
 <tr>
 <td colspan="6" align="right" style="padding-right:80px">

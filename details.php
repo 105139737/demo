@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 include "header.php";
@@ -12,7 +12,7 @@ $data13 = mysqli_query($conn,"Select * from main_cust where FIND_IN_SET(sl, '$cu
 	}
 ?>
         <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <style type="text/css"> 
@@ -128,8 +128,8 @@ pagnt(pno);
                 <section class="content">
 							
 <body onload="show()">
-<p><font size="4"><b>Customer Name: <?echo $customer_name;?></b></font></p>
-<p><font size="4"><b>Date: <?echo date('d-m-Y',strtotime($dt));?></b></font></p>
+<p><font size="4"><b>Customer Name: <?php echo $customer_name;?></b></font></p>
+<p><font size="4"><b>Date: <?php echo date('d-m-Y',strtotime($dt));?></b></font></p>
 <table  class="table table-hover table-striped table-bordered"  >
 
 <tr>
@@ -141,7 +141,7 @@ pagnt(pno);
 
 
 </tr>
-<?
+<?php 
 $totpayment=0;
 
 $samaun=mysqli_query($conn,"select sum(tamm) as tamm from main_recv_app where cid='$cust_sle' and dt='$dt'") or die (mysqli_error($conn));
@@ -181,10 +181,10 @@ while($ffst=mysqli_fetch_array($zas_bill))
 ?>
 <tr>
 
-<th width="25%"><?echo $totpayment;?></font></th>
-<th width="25%" ><?echo $T;?></font></th>
-<th width="25%" ><a href="order_details.php?cid=<?echo $cust_sle?>&dt=<?echo $dt;?>"><?echo $totorder;?></font></a></th>
-<th width="25%" ><a href="bill_details.php?cid=<?echo $cust_sle?>&dt=<?echo $dt;?>"><?echo $tot_bill;?></font></a></th>
+<th width="25%"><?php echo $totpayment;?></font></th>
+<th width="25%" ><?php echo $T;?></font></th>
+<th width="25%" ><a href="order_details.php?cid=<?php echo $cust_sle?>&dt=<?php echo $dt;?>"><?php echo $totorder;?></font></a></th>
+<th width="25%" ><a href="bill_details.php?cid=<?php echo $cust_sle?>&dt=<?php echo $dt;?>"><?php echo $tot_bill;?></font></a></th>
 
 
 </tr>

@@ -1,4 +1,4 @@
-<?php
+<?php 
 include("config.php");
 date_default_timezone_set('Asia/Kolkata');
 ini_set("memory_limit","780M");
@@ -7,9 +7,9 @@ $edt = date('d/m/Y h:i:s a', time());
 ob_start();
 
 
-$brncd=$_REQUEST[brncd];if($brncd==""){$brncd1="";}else{$brncd1=" and brncd='$brncd'";}
-$fdt=$_REQUEST[fdt];
-$tdt=$_REQUEST[tdt];
+$brncd=$_REQUEST['brncd'] ?? "";if($brncd==""){$brncd1="";}else{$brncd1=" and brncd='$brncd'";}
+$fdt=$_REQUEST['fdt'];
+$tdt=$_REQUEST['tdt'];
 $pno1='';
 if($pno1!='')
 {$pno=" and pno='$pno1' $brncd1";}else{$pno=" $brncd1";}
@@ -42,12 +42,12 @@ $prevdt = date ( 'Y-m-d' , $prevdt );
 <tr  >
 <th colspan="2" align="left" style="border-bottom: 1px solid #000;border-top: 1px solid #000;" >
 <font color="#000000" size="3">
-Cash A/c Details <?echo $dt?> As On  <?echo $fdt?> to <?echo $tdt?>
+Cash A/c Details <?php echo $dt?> As On  <?php echo $fdt?> to <?php echo $tdt?>
 </font>
 </th>
 </tr>
 
-<?
+<?php 
 	$data33= mysqli_query($conn,"SELECT * FROM main_ledg where gcd='2'");
 		while ($row33 = mysqli_fetch_array($data33))
 		{
@@ -68,7 +68,7 @@ $op=$damm-$camm;
 ?>
 	<tr bgcolor="#00a65a">
 	<td align="left" colspan="2" style="width: 100%;">
-	<font color="#FFF" size="3"><?=$lnm;?>  <b> Op Bal <?=$op;?></b></font>
+	<font color="#FFF" size="3"><?php  echo $lnm;?>  <b> Op Bal <?php  echo $op;?></b></font>
 	</td>
 	</tr>
 <tr >
@@ -80,14 +80,14 @@ $op=$damm-$camm;
   </td>
 </tr>  
 
-<?
+<?php 
 $ctotal=0;
 ?>
 <tr >
 
   <td  valign="top" style="width: 50%;">
 	  <table style="width:100%;" width="100%" class="advancedtable" cellspacing="0">
-  <?
+  <?php 
   $result1 = mysqli_query($conn,"SELECT sum(amm) as tot,cldgr,sl FROM main_drcr where dldgr='$ledgr' $pno $qry1 group by cldgr ");
 while ($R1 = mysqli_fetch_array ($result1))
 {
@@ -105,15 +105,15 @@ $rd=$R1['sl'];
   <tr >
   <td align="left" style="width:80%;">
   
-<b><? echo $lnm2;?></b></td>
+<b><?php  echo $lnm2;?></b></td>
   <td align="right" style="text-align:right;width:20%;">
-  <b><?
+  <b><?php 
  echo sprintf('%0.2f', $ctot);
   ?></b>
   </td>
   </tr>
 
-<?
+<?php 
 $ctotal=$ctotal+$ctot;
 }
 ?>
@@ -122,7 +122,7 @@ $ctotal=$ctotal+$ctot;
     <td  align="right" valign="top" style="width: 50%;">
  
     <table style="width: 100%;" class="advancedtable" cellspacing="0">
-  <?
+  <?php 
   $dtotal=0;
   $result = mysqli_query($conn,"SELECT sum(amm) as tot,dldgr,sl FROM main_drcr where cldgr='$ledgr' $pno $qry1 group by dldgr");
 while ($R = mysqli_fetch_array ($result))
@@ -140,19 +140,19 @@ $rd=$R['sl'];
 		$lnm1=$row1['nm'];
 		}
   ?>
-  <tr id="t<?=$rd;?>">
+  <tr id="t<?php  echo $rd;?>">
   <td align="left" style="width:80%;">
-    <span id="my<?=$rd;?>"><i  class="fa fa-plus-square" ></i><b> <?  echo $lnm1;?></b></span>
+    <span id="my<?php  echo $rd;?>"><i  class="fa fa-plus-square" ></i><b> <?php   echo $lnm1;?></b></span>
 
   </td>
   <td align="right" style="width:20%;">
-  <b><?
+  <b><?php 
  echo sprintf('%0.2f', $dtot);
   ?></b>
   </td>
   </tr>
 
-<?
+<?php 
  $dtotal=$dtotal+$dtot;
 }
 $cc=$op+($ctotal-$dtotal);
@@ -162,26 +162,26 @@ $cc=$op+($ctotal-$dtotal);
 </tr>
 <tr >
 <td align="right" style="border-bottom: 1px solid #000;border-top: 1px solid #000;">
-<font size="3" color="red">Total Bal : <?=sprintf('%0.2f', $ctotal);?></font>
+<font size="3" color="red">Total Bal : <?php echo sprintf('%0.2f', $ctotal);?></font>
 </td>
 <td align="right" color="red" style="border-bottom: 1px solid #000;border-top: 1px solid #000;">
-<font size="3" color="red">Total Bal : <?=sprintf('%0.2f', $dtotal);?></font>
+<font size="3" color="red">Total Bal : <?php echo sprintf('%0.2f', $dtotal);?></font>
 </td>
 </tr>
 <tr bgcolor="#e2edfa">
 <td align="Center" colspan="2">
-<font size="4" color="#000000"><b>Current Bal : <?=sprintf('%0.2f', $cc);?></b></font>
+<font size="4" color="#000000"><b>Current Bal : <?php echo sprintf('%0.2f', $cc);?></b></font>
 </td>
 
 </tr>
 
-<?
+<?php 
 }
 ?>
 </table>
 	</page>
 
-	<?
+	<?php 
 	$file='cash';
 		$content = ob_get_clean();
     // convert in PDF

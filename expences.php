@@ -1,4 +1,4 @@
-<?php
+<?php 
 
 /**
  * @author Onnet Solution
@@ -45,5 +45,5 @@ $result21 = mysqli_query($conn,$query21);
 alert('Submit Sucessfully.');
 document.location='expence.php';
 </script>
-<?
+<?php 
 

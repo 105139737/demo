@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include "header.php";
@@ -6,7 +6,7 @@ $bno1=$_REQUEST['b1'];
 $bno2=$_REQUEST['b2'];
 ?>
         <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
 			
             ?>
@@ -55,12 +55,12 @@ cursor:pointer;
 		     <tr>
             <td  align="right" ><b>From Bill No :</b></td>
             <td  align="left">
-			<input type="text" class="form-control" id="bno1" name="bno1" value="<?=$bno1;?>" size="50" placeholder="Enter Bill No." required>
+			<input type="text" class="form-control" id="bno1" name="bno1" value="<?php  echo $bno1;?>" size="50" placeholder="Enter Bill No." required>
 
             </td>
 			<td  align="right" ><b>To Bill No :</b></td>
             <td  align="left">
-			<input type="text" class="form-control" id="bno2" name="bno2" value="<?=$bno2;?>" size="50" placeholder="Enter Bill No." required>
+			<input type="text" class="form-control" id="bno2" name="bno2" value="<?php  echo $bno2;?>" size="50" placeholder="Enter Bill No." required>
 
             </td>
                <td colspan="2" align="left"  style="padding-right: 8px;">

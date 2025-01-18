@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 1; 
 include("membersonly.inc.php");
 setlocale(LC_MONETARY, 'en_IN');
@@ -7,10 +7,10 @@ $fdt=$_REQUEST[dt];
 $tdt=$_REQUEST[dt1];
 $ledg=$_REQUEST[cc];
 ?>
-<input type="hidden" id="ledg" name="ledg" size="5" value="<? echo $ledg; ?>" style="font-size: 12pt; text-align: left;color: #008000">
-<input type="hidden" id="fdt" name="fdt" size="5" value="<? echo $fdt; ?>" style="font-size: 12pt; text-align: left;color: #008000">
-<input type="hidden" id="tdt" name="tdt" size="5" value="<? echo $tdt; ?>" style="font-size: 12pt; text-align: left;color: #008000">
-<?
+<input type="hidden" id="ledg" name="ledg" size="5" value="<?php  echo $ledg; ?>" style="font-size: 12pt; text-align: left;color: #008000">
+<input type="hidden" id="fdt" name="fdt" size="5" value="<?php  echo $fdt; ?>" style="font-size: 12pt; text-align: left;color: #008000">
+<input type="hidden" id="tdt" name="tdt" size="5" value="<?php  echo $tdt; ?>" style="font-size: 12pt; text-align: left;color: #008000">
+<?php 
 
 $fdt=date('Y-m-d', strtotime($fdt));
 $tdt=date('Y-m-d', strtotime($tdt));
@@ -51,7 +51,7 @@ $amm=0;
 <td align="center" width="30%"> <font size="3">Perticulars</td>
 <td align="center" width="25%"> <font size="3">Amount</td>
 </tr>
-<?
+<?php 
 $sl=1;
 
 $amm1=0;
@@ -79,13 +79,13 @@ if($amm1!=0)
 {
 $f++;
 ?>
-<tr bgcolor="<? echo $clr; ?>">
+<tr bgcolor="<?php  echo $clr; ?>">
 <td align="center"  valign="top"> <font size="2" color="red">Prev.</font></td>
 <td align="center"  valign="top"> <font size="2" color="red"></font></td>
 <td align="left"  valign="top"> <font size="2" color="red">Prev.</font></td>
-<td align="right"  valign="top" > <font size="2" color="red"><?echo $amm1;?></font></td>
+<td align="right"  valign="top" > <font size="2" color="red"><?php echo $amm1;?></font></td>
 </tr>
-<?
+<?php 
 }
 $fdt1=date('Y-m-d', strtotime($fdt));
 $tdt1=date('Y-m-d', strtotime($tdt));
@@ -138,15 +138,15 @@ if($c!=0)
 {
 $f++;
 ?>
-<tr bgcolor="<? echo $clr; ?>">
-<td align="center"  valign="top"><a title="Code : <?echo $ff1;?>" style="cursor:pointer;"> <font size="2" color="<? echo $fclr; ?>"><?echo $dndt;?></font></td>
+<tr bgcolor="<?php  echo $clr; ?>">
+<td align="center"  valign="top"><a title="Code : <?php echo $ff1;?>" style="cursor:pointer;"> <font size="2" color="<?php  echo $fclr; ?>"><?php echo $dndt;?></font></td>
 
-<td align="center"  valign="top"> <font size="2" color="<? echo $fclr; ?>"><?echo $p1;?></font></td>
+<td align="center"  valign="top"> <font size="2" color="<?php  echo $fclr; ?>"><?php echo $p1;?></font></td>
 
-<td align="left"  valign="top"> <font size="2" color="<? echo $fclr; ?>">To. <?echo $ehnm;?></font></td>
-<td align="right"  valign="top"> <font size="2" color="<? echo $fclr; ?>"><?echo number_format($c,2);?></font></td>
+<td align="left"  valign="top"> <font size="2" color="<?php  echo $fclr; ?>">To. <?php echo $ehnm;?></font></td>
+<td align="right"  valign="top"> <font size="2" color="<?php  echo $fclr; ?>"><?php echo number_format($c,2);?></font></td>
 </tr>
-<?
+<?php 
 $DR=$DR+$c;
 }
 }
@@ -169,7 +169,7 @@ $fdt1 = date ( 'Y-m-d' , $newdate );
 <td align="center" width="30%"> <font size="3">Perticulars</td>
 <td align="center" width="25%"> <font size="3">Amount</td>
 </tr>
-<?
+<?php 
 $sl=1;
 
 $amm1=0;
@@ -198,13 +198,13 @@ if($amm1!=0)
 {
 $f++;
 ?>
-<tr bgcolor="<? echo $clr; ?>">
+<tr bgcolor="<?php  echo $clr; ?>">
 <td align="center"  valign="top"> <font size="2" color="red">Prev.</font></td>
 <td align="center"  valign="top"> <font size="2" color="red"></font></td>
 <td align="left"  valign="top"> <font size="2" color="red">Prev.</font></td>
-<td align="right"  valign="top" > <font size="2" color="red"><?echo $amm1;?></font></td>
+<td align="right"  valign="top" > <font size="2" color="red"><?php echo $amm1;?></font></td>
 </tr>
-<?
+<?php 
 }
 $fdt1=date('Y-m-d', strtotime($fdt));
 $tdt1=date('Y-m-d', strtotime($tdt));
@@ -257,14 +257,14 @@ if($c!=0)
 {
 $f++;
 ?>
-<tr bgcolor="<? echo $clr; ?>">
-<td align="center"  valign="top"><a title="Code : <?echo $ff1;?>" style="cursor:pointer;"> <font size="2" color="<? echo $fclr; ?>"><?echo $dndt;?></font></td>
+<tr bgcolor="<?php  echo $clr; ?>">
+<td align="center"  valign="top"><a title="Code : <?php echo $ff1;?>" style="cursor:pointer;"> <font size="2" color="<?php  echo $fclr; ?>"><?php echo $dndt;?></font></td>
 
-<td align="center"  valign="top"> <font size="2" color="<? echo $fclr; ?>"><?echo $p1;?></font></td>
-<td align="left"  valign="top"> <font size="2" color="<? echo $fclr; ?>">By. <?echo $ehnm;?></font></td>
-<td align="right"  valign="top"> <font size="2" color="<? echo $fclr; ?>"><?echo number_format($c,2);?></font></td>
+<td align="center"  valign="top"> <font size="2" color="<?php  echo $fclr; ?>"><?php echo $p1;?></font></td>
+<td align="left"  valign="top"> <font size="2" color="<?php  echo $fclr; ?>">By. <?php echo $ehnm;?></font></td>
+<td align="right"  valign="top"> <font size="2" color="<?php  echo $fclr; ?>"><?php echo number_format($c,2);?></font></td>
 </tr>
-<?
+<?php 
 $CR=$CR+$c;
 }
 }
@@ -292,32 +292,32 @@ $TOT=$DR;
 </table>
 </td>
 </tr>
-<?
+<?php 
 if($DFrd==0)
 {
 ?>
 <tr class="odd">
 <td width="50%" align="left" colspan="4"> <font size="2"></td>
 <td width="37%" align="right" colspan="3"> <font size="2">By Balance c/d </font></td>
-<td width="13%" align="right"> <font size="2"><?echo number_format($CFrd,2);?></font></td>
+<td width="13%" align="right"> <font size="2"><?php echo number_format($CFrd,2);?></font></td>
 </tr>
-<?
+<?php 
 }
 else
 {
 ?>
 <tr class="odd">
 <td width="37%" align="right" colspan="3"> <font size="2">By Balance f/d </font></td>
-<td width="13%" align="right"> <font size="2"><?echo number_format($DFrd,2);?></font></td>
+<td width="13%" align="right"> <font size="2"><?php echo number_format($DFrd,2);?></font></td>
 <td width="50%" align="right" colspan="4"> <font size="2"></td>
 </tr>
-<?
+<?php 
 }
 ?>
 
 <tr class="odd">
-<td width="50%" align="right" colspan="4"> <font size="3" color="red"><?echo number_format($TOT,2);?></font></td>
-<td width="50%" align="right" colspan="4"> <font size="3" color="red"><?echo number_format($TOT,2);?></font></td>
+<td width="50%" align="right" colspan="4"> <font size="3" color="red"><?php echo number_format($TOT,2);?></font></td>
+<td width="50%" align="right" colspan="4"> <font size="3" color="red"><?php echo number_format($TOT,2);?></font></td>
 </tr>
 </table>
 <br>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3; 
 include("config.php");
 $result = mysqli_query($conn,"SELECT * FROM main_product_ean ");

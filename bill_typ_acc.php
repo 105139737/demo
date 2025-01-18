@@ -1,10 +1,10 @@
-<?
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 include "header.php";
 $fdt=date('Y-m-d');
-$typ=$_REQUEST['typ'];
-$tt=$_REQUEST['tt'];
+$typ=$_REQUEST['typ'] ?? "";
+$tt=$_REQUEST['tt'] ?? "";
 if($typ=='33')
 {
 	$pg="income.php";
@@ -47,7 +47,7 @@ $pg="cust_credit_note.php";
 }
 ?>
         <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <style type="text/css"> 
@@ -108,9 +108,9 @@ $("#pay").load("gisedts_mod1.php?sl="+sl+"&fn="+fn+"&fv="+encodeURIComponent(fv)
                 <section class="content">
 							
 <body onload="get_list()">
-<form method="post" action="<?php echo $pg;?>" target="_blank" id="form1" name="form1">      
+<form method="post" action="<?php  echo $pg;?>" target="_blank" id="form1" name="form1">      
 <input type="hidden" class="form-control"  tabindex="1"  name="bsl" id="bsl" >              
-<input type="hidden" class="form-control"  value="<?php echo $typ;?>" tabindex="1"  name="typ" id="typ" >  
+<input type="hidden" class="form-control"  value="<?php  echo $typ;?>" tabindex="1"  name="typ" id="typ" >  
 <div id="pay"></div>        
 <div class="box box-success" >
 <table border="0" class="table table-hover table-striped table-bordered">
@@ -127,15 +127,15 @@ $("#pay").load("gisedts_mod1.php?sl="+sl+"&fn="+fn+"&fv="+encodeURIComponent(fv)
 <b>Brand : </b><br>
 <select name="brand1" id="brand1" class="form-control"  tabindex="1" onchange="get_list()" >
 <option value="">---ALL---</option>
-<?
+<?php 
 $dsql=mysqli_query($conn,"select * from main_catg order by sl") or die (mysqli_error($conn));
 while($erow=mysqli_fetch_array($dsql))
 {
 $bsl=$erow['sl'];
 $cnm=$erow['cnm'];
 ?>
-<option value="<?php echo $bsl;?>"><?php echo $cnm;?></option>
-<?
+<option value="<?php  echo $bsl;?>"><?php  echo $cnm;?></option>
+<?php 
 }
 ?>
 </select>
@@ -143,13 +143,13 @@ $cnm=$erow['cnm'];
 <td align="left"  width="22%">
 <b>Branch : </b><br>
 <select name="brncd1" class="form-control"  tabindex="1"   size="1" id="brncd1" onchange="get_list()" >
-<?
+<?php 
 if($user_current_level<0)
 {
 $query="Select * from main_branch";
 ?>
 <option value="">---ALL---</option>
-<?
+<?php 
 }
 else
 {
@@ -162,8 +162,8 @@ $sl=$R['sl'];
 $bnm=$R['bnm'];
 
 ?>
-<option value="<? echo $sl;?>"><? echo $bnm;?></option>
-<?
+<option value="<?php  echo $sl;?>"><?php  echo $bnm;?></option>
+<?php 
 }
 ?>
 </select>

@@ -1,4 +1,4 @@
-<?php 
+<?php  
 $reqlevel = 1;
 include("membersonly.inc.php");
 set_time_limit(0);
@@ -19,7 +19,7 @@ if($bcd==""){$bcd1="";}else{$bcd1=" and bcd='$bcd'";}
 <th><b>Godown </b></th>
 
 </tr>
-<?php
+<?php 
 $cnt=0;
 $data11= mysqli_query($conn,"SELECT * FROM main_godown_tag where sl>0 $brncd1 $bcd1");
 while ($row11= mysqli_fetch_array($data11))
@@ -52,14 +52,14 @@ $cnm=$row13['cnm'];
 
 ?>
 <tr>
-<td><a href="godown_tag_edt.php?sl=<?php echo $tsl;?>">Edit</a></td>   
-<td><?php echo $cnt;?></td>
-<td><?php echo $bnm;?></td>
-<td><?php echo $cnm;?></td>
-<td><?php echo $gnm;?></td>
+<td><a href="godown_tag_edt.php?sl=<?php  echo $tsl;?>">Edit</a></td>   
+<td><?php  echo $cnt;?></td>
+<td><?php  echo $bnm;?></td>
+<td><?php  echo $cnm;?></td>
+<td><?php  echo $gnm;?></td>
 
 </tr>
-<?php }?>
+<?php  }?>
 </table>
 
 

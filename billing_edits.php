@@ -1,66 +1,70 @@
-<?php
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 include("Numbers/Words.php");
 include "header.php";
+$vcno=0;
 date_default_timezone_set('Asia/Kolkata');
 $cdt=date('Y-m-d');
 $dttm=date('d-m-Y H:i:s a');
 ini_set('display_errors', 1);
-$custnm=$_POST[custnm];
-$addr=$_POST[addr];
-$mob=$_POST[mob];
-$mail=$_POST['mail'];
-$brncd=$_POST[brncd];
-$dt=$_POST[dt];
-$dis=$_POST[dis];
-$car=$_POST[car];
-$vat=$_POST[dealId];
-$vatamm=$_POST[vatamm];
-$tamm=$_POST[tamm];
-$gstam=$_POST[gst];
-$payam=$_POST[pay];
-$dldgr=$_POST[dldgr];
-$mdt=$_POST[mdt];
-$pamm=$_POST[pamm];
-$crfno=$_POST[crfno];
-$idt=$_POST[idt];
-$cbnm=$_POST[cbnm];
-$fst=$_POST[fst];
-$tst=$_POST[tst];
-$tmod=$_POST[tmod];
-$psup=$_POST[psup];
-$vno=$_POST[vno];
-$lpd=$_POST[lpd];
-$dur_mnth=$_POST[dur_mnth];
-$no_servc=$_POST[no_servc];
-$sfno=$_POST[sfno];
-$dpay=$_POST[dpay];
-$finam=$_POST[finam];
-$emiam=$_POST[emiam];
-$emi_mnth=$_POST[emi_mnth];
-$invto=$_POST[invto];
-$blno=$_POST[blno];
+$custnm=$_POST['custnm']??"";
+$addr=$_POST['addr']??"";
+$mob=$_POST['mob']??"";
+$mail=$_POST['mail']??"";
+$brncd=$_POST['brncd']??"";
+$dt=$_POST['dt']??"";
+$dis=$_POST['dis']??"";
+$car=$_POST['car']??"";
+$vat=$_POST['dealId']??"";
+$vatamm=$_POST['vatamm']??"";
+$tamm=$_POST['tamm']??"";
+$gstam=$_POST['gst']??"";
+$payam=$_POST['pay']??"";
+$dldgr=$_POST['dldgr']??"";
+$mdt=$_POST['mdt']??"";
+$pamm=$_POST['pamm']??"";
+$crfno=$_POST['crfno']??"";
+$idt=$_POST['idt']??"";
+$cbnm=$_POST['cbnm']??"";
+$fst=$_POST['fst']??"";
+$tst=$_POST['tst']??"";
+$tmod=$_POST['tmod']??"";
+$psup=$_POST['psup']??"";
+$vno=$_POST['vno']??"";
+$lpd=$_POST['lpd']??"";
+$dur_mnth=$_POST['dur_mnth']??"";
+$no_servc=$_POST['no_servc']??"";
+$sfno=$_POST['sfno']??"";
+$dpay=$_POST['dpay']??"";
+$finam=$_POST['finam']??"";
+$emiam=$_POST['emiam']??"";
+$emi_mnth=$_POST['emi_mnth']??"";
+$invto=$_POST['invto']??"";
+$blno=$_POST['blno']??"";
 
-$cust_typ=$_POST[cust_typ];
-$sale_per=$_POST[sale_per];
-$bill_typ=$_POST[bill_typ];
-$invto=$_POST[invto];
+$cust_typ=$_POST['cust_typ']??"";
+$sale_per=$_POST['sale_per']??"";
+$bill_typ=$_POST['bill_typ']??"";
+$invto=$_POST['invto']??"";
 
-$disl=$_POST[disl];
-$remk=$_POST[remk];
-$damm=$_POST[damm];
-$reference=$_POST[reference];
-$mr=$_POST[mr]; 
-$tcs=$_POST['tcs'];
-$tcsam=$_POST['tcsam'];
-$ship_addr=$_POST['ship_addr'];
-$ship_mob=$_POST['ship_mob'];
+$disl=$_POST['disl']??"";
+$remk=$_POST['remk']??"";
+$damm=$_POST['damm']??"";
+$reference=$_POST['reference']??"";
+$mr=$_POST['mr']??""; 
+$tcs=$_POST['tcs']??"";
+$tcsam=$_POST['tcsam']??"";
+$ship_addr=$_POST['ship_addr']??"";
+$ship_mob=$_POST['ship_mob']??"";
+$rv_chk="";
+$tout="";
 $data18= mysqli_query($conn,"select * from main_billing where blno='$blno'")or die(mysqli_error($conn));
 while ($row1 = mysqli_fetch_array($data18))
 {
 $rv_chk=$row1['rv'];
 } 
+$rv="";
 if($rv_chk=="")
 {
 $get222=mysqli_query($conn,"select * from main_billtype where sl='$bill_typ'") or die(mysqli_error($conn));
@@ -271,13 +275,17 @@ $err="Sale Rate Cat't Be Blank...";
 
 if($err=="")
 {
-
+$edt_blno1="";
+$vvid1=0;
+$vid1=0;
 $dd=mysqli_query($conn,"select * from main_billing_edt_log order by sl desc limit 0,1") or die(mysqli_error($conn));
 while($pps=mysqli_fetch_array($dd))
 {	
 $edt_blno1=$pps['edt_blno'];
-}	
+}
+if($edt_blno1!=""){
 $vvid1=substr($edt_blno1,2,7);	
+}
 $ssnn1=5;
 while($ssnn1>0)
 {
@@ -308,14 +316,14 @@ if($refcnt>0)
 	
 }
 
-	
+$tpoint=0;
  $query_log = "insert into  main_billing_edt_log (blno,refsl,cid,amm,paid,crdtp,cbnm,dt,edt,pdts,vat,vatamm,car,dis,bcd,eby,tpoint,fst,tst,gst,tmod,psup,vno,lpd,gstin,dur_mnth,no_servc,sfno,dpay,finam,emiam,emi_mnth,tamm,gstam,roff,payam,crfno,cust_typ,sale_per,bill_typ,als,tp,adrs,ssn,start_no,invto,bill_by,cstat,order_no,rv,blno1,disl,remk,damm,blnon)
 select blno,refsl,cid,amm,paid,crdtp,cbnm,dt,edt,pdts,vat,vatamm,car,dis,bcd,eby,tpoint,fst,tst,gst,tmod,psup,vno,lpd,gstin,dur_mnth,no_servc,sfno,dpay,finam,emiam,emi_mnth,tamm,gstam,roff,payam,crfno,cust_typ,sale_per,bill_typ,als,tp,adrs,ssn,start_no,invto,eby,cstat,order_no,rv,blno1,disl,remk,damm,blnon
 from main_billing where blno = '$blno'";
 $result_log = mysqli_query($conn,$query_log)or die (mysqli_error($conn)); 
 
-$query_log1 = "insert into  main_billdtls_edt_log (cat,scat,prsl,imei,unit,kg,grm,pcs,srt,adp,prc,ttl,blno,fst,tst,cgst_rt,sgst_rt,igst_rt,cgst_am,sgst_am,igst_am,net_am,refno,usl,uval,total,disp,disa,dt,betno,bcd,rate,tamm,bill_typ,stk_rate,cust,eby)
-select cat,scat,prsl,imei,unit,kg,grm,pcs,srt,adp,prc,ttl,blno,fst,tst,cgst_rt,sgst_rt,igst_rt,cgst_am,sgst_am,igst_am,net_am,refno,usl,uval,total,disp,disa,dt,betno,bcd,rate,tamm,bill_typ,stk_rate,cust,'$user_currently_loged'
+$query_log1 = "insert into  main_billdtls_edt_log (cat,scat,prsl,imei,unit,kg,grm,pcs,srt,adp,prc,ttl,blno,fst,tst,cgst_rt,sgst_rt,igst_rt,cgst_am,sgst_am,igst_am,net_am,refno,usl,uval,total,disp,disa,dt,betno,bcd,rate,tamm,bill_typ,stk_rate,cust,eby,sdt,sync_stat)
+select cat,scat,prsl,imei,unit,kg,grm,pcs,srt,adp,prc,ttl,blno,fst,tst,cgst_rt,sgst_rt,igst_rt,cgst_am,sgst_am,igst_am,net_am,refno,usl,uval,total,disp,disa,dt,betno,bcd,rate,tamm,bill_typ,stk_rate,cust,'$user_currently_loged',sdt,sync_stat
 from main_billdtls where blno = '$blno'";
 $result_log1 = mysqli_query($conn,$query_log1)or die (mysqli_error($conn)); 
 
@@ -374,7 +382,7 @@ $result21 = mysqli_query($conn,$query21)or die(mysqli_error($conn));
 
 
 
-$chk_amm=$pamm+$damm;
+$chk_amm=(float)$pamm+(float)$damm;
 if($chk_amm>0)
 {
 
@@ -472,7 +480,8 @@ $query31 = "INSERT INTO main_drcr (vno,dt,nrtn,typ,dldgr,cldgr,amm,eby,edtm,cid,
 ('$vcno','$dt','$remk','CC01','$disl','4','$damm','$user_currently_loged','$dttm','$custnm','$brncd','$blno','$sale_per','77','$als1','$ssn1','$rv','$blnon','$blno1','1')";
 $result31 = mysqli_query($conn,$query31)or die (mysqli_error($conn));
 }
-
+$nrtn="";
+$blno_ref="";
 $query31 = "INSERT INTO main_recv (blno,bcd,dt,cid,nrtn,dldgr,paymtd,tamm,refno,bill_type,als,ssn,eby,edt,app_ref,spid) VALUES 
 ('$blno1','$brncd','$dt','$custnm','$nrtn','$dldgr','$mdt','$pamm','$crfno','$rv','$als1','$ssn1','$user_currently_loged','$cdt','$blno_ref','$sale_per')";
 $result31 = mysqli_query($conn,$query31)or die (mysqli_error($conn));
@@ -493,7 +502,7 @@ VALUES ('$blno1','$blno','$pamm','$sale_per','$custnm','$user_currently_loged','
 $result21 = mysqli_query($conn,$query21)or die(mysqli_error($conn));	
 mysqli_query($conn,"UPDATE main_billing SET blno1='$blno1',blnon='$blnon' WHERE blno='$blno'");
 
-if(round($pamm+$damm)==round($bilamm)){
+if(round((float)$pamm+(float)$damm)==round((float)$bilamm)){
 	$qr=mysqli_query($conn,"update main_drcr set paid='1' where cbill='$blno'") or die(mysqli_error($conn));
 }
 }
@@ -565,6 +574,8 @@ $bill_typ=$R100['bill_typ'];
 $tstat=$R100['tstat'];
 $fbcd=$R100['fbcd'];
 $tbcd=$R100['tbcd'];
+$sdt=$R100['sdt'];
+$sync_stat=$R100['sync_stat'];
 $ret=$prc;
 $rate=$net_am/$pcs;
 $stk_rate1=$tamm/$pcs;
@@ -589,7 +600,7 @@ if($tstat!=2)
 $tbcd="";
 $fbcd="";
 $tstat=0;
-$tout="";
+
 $datag= mysqli_query($conn,"SELECT * FROM main_a_sale_chln where sl>0 and branch='$brncd' and  FIND_IN_SET('$bcd', bill_godown)>0  and stat='0'") or die(mysqli_error($conn));
 $count=mysqli_num_rows($datag);
 while($rowg=mysqli_fetch_array($datag))
@@ -634,10 +645,13 @@ $result21 = mysqli_query($conn,$query21)or die (mysqli_error($conn));
 }
 
 }
+$kg =0;
+$grm=0;
+$srt=0;
+$adp=0;
 
-
-$query21 = "INSERT INTO ".$DBprefix."billdtls (cat,scat,prsl,imei,unit,kg,grm,pcs,srt,adp,prc,ttl,blno,fst,tst,cgst_rt,sgst_rt,igst_rt,cgst_am,sgst_am,igst_am,net_am,refno,usl,uval,total,disp,disa,dt,betno,bcd,rate,tamm,bill_typ,stk_rate,cust,fbcd,tbcd,tstat,tout) 
-VALUES ('$cat','$scat','$prsl','$imei','$unit','$kg','$grm','$pcs','$srt','$adp','$prc','$ttl','$blno','$fst','$tst','$cgst_rt','$sgst_rt','$igst_rt','$cgst_am','$sgst_am','$igst_am','$net_am','$refno','$usl','$uval','$total','$disp','$disa','$dt','$betno','$bcd','$rate1','$tamm','$bill_typ','$stk_rate','$custnm','$fbcd','$tbcd','$tstat','$tout')";
+$query21 = "INSERT INTO ".$DBprefix."billdtls (cat,scat,prsl,imei,unit,kg,grm,pcs,srt,adp,prc,ttl,blno,fst,tst,cgst_rt,sgst_rt,igst_rt,cgst_am,sgst_am,igst_am,net_am,refno,usl,uval,total,disp,disa,dt,betno,bcd,rate,tamm,bill_typ,stk_rate,cust,fbcd,tbcd,tstat,tout,sdt,sync_stat) 
+VALUES ('$cat','$scat','$prsl','$imei','$unit','$kg','$grm','$pcs','$srt','$adp','$prc','$ttl','$blno','$fst','$tst','$cgst_rt','$sgst_rt','$igst_rt','$cgst_am','$sgst_am','$igst_am','$net_am','$refno','$usl','$uval','$total','$disp','$disa','$dt','$betno','$bcd','$rate1','$tamm','$bill_typ','$stk_rate','$custnm','$fbcd','$tbcd','$tstat','$tout','$sdt','$sync_stat')";
 $result21 = mysqli_query($conn,$query21)or die (mysqli_error($conn)); 
 
 $get1=mysqli_query($conn,"select * from ".$DBprefix."billdtls order by sl desc limit 0,1") or die(mysqli_error($conn));
@@ -670,15 +684,15 @@ $aiw=$nw->toWords($gttl1);
 alert('Updated Successfully..!');
 document.location="sale_show.php";
 </script>
-<?
+<?php 
 }
 else
 {
 ?>
 <Script language="JavaScript">
-alert('<? echo $err;?>');
+alert('<?php  echo $err;?>');
 window.history.go(-1);
 </script>
-<?
+<?php 
 }
 ?>

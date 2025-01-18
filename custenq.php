@@ -1,8 +1,18 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("config.php");
 $query1="Select * from main_cnm ";		 
  $result1 = mysqli_query($conn,$query1);
+ $pcrdt=0;
+ $opbl=0;
+ $opdbdt=0;
+ $opcrdt=0;
+ $obtp="";
+ $colo="";
+ $branch_nm="";
+ $branch_addr="";
+ $user_current_level="";
+ $branch_cnt="";
 while ($R = mysqli_fetch_array ($result1))
 {
 $comp_nm=$R['cnm'];
@@ -20,17 +30,17 @@ $acnm2=$R['acnm2'];
 }
 $tiamm=0;
 $teamm=0;
-$a=$_REQUEST['sl'];
+$a=$_REQUEST['sl']??"";
 if($a=="")
 {
 $a=$_REQUEST['cid'];	
 }
 $tdt=$_REQUEST['tdt'];
 $fdt=$_REQUEST['fdt'];
-$brncd=$_REQUEST['brncd'];
+$brncd=$_REQUEST['brncd']??"";
 if($brncd=="")
 {
-$brncd=$_REQUEST['bcd'];	
+$brncd=$_REQUEST['bcd']??"";	
 }
 $fdt=date('Y-m-d', strtotime($fdt));
 $tdt=date('Y-m-d', strtotime($tdt));
@@ -82,14 +92,14 @@ $result11 = mysqli_query($conn,$query11);
 while ($R11 = mysqli_fetch_array ($result11))
 {
   
-$pcrdt=round($R11['pcrdt'],2);
+$pcrdt=round($R11['pcrdt'] ?? 0,2);
 }
 $query11="select sum(amm) as pdbdt from ".$DBprefix."drcr where (dldgr='4' or dldgr='7')  and cid='$a' and dt < '$fdt' $brncd1";
 $result11 = mysqli_query($conn,$query11);
 while ($R11 = mysqli_fetch_array ($result11))
 {
   
-$pdbdt=round($R11['pdbdt'],2);
+$pdbdt=round($R11['pdbdt'] ?? 0,2);
 }
 $opbl=round($opbl-$pcrdt+$pdbdt,2);
 if($opbl>0)
@@ -241,35 +251,35 @@ function prnt()
   <td valign="top" width="70%"    style="padding-left:5px;cellpadding:5px;font-family: Arial, Helvetica, sans-serif;">
   <font size="5" >
   <b>
-<?=$comp_nm;?>
+<?php  echo $comp_nm;?>
   </b>
   </font>
   <br>
   <font size="2" >
-<?=$comp_addr;?>
+<?php  echo $comp_addr;?>
   <br>
-  <b>Mobile :</b> <?=$cont;?>
+  <b>Mobile :</b> <?php  echo $cont;?>
   </font>
    <br>
   <font size="2" >
-  <b>GSTIN NO. :</b> <?=$gstin;?>
+  <b>GSTIN NO. :</b> <?php  echo $gstin;?>
   </font>
   </td>
   <td width="50%" valign="top" align="right" style="height:30px;font-family: Arial, Helvetica, sans-serif;" >
  
 <font size="2" >
-Page No. <?=$pageno;?></br> <br>
+Page No. <?php  echo $pageno;?></br> <br>
 
 </font> </td>
   </tr>
 <tr style="border-bottom: 1px solid #000;">
-  <td align="center" colspan="2" style="font-family: Arial, Helvetica, sans-serif;" ><b>Statement for the period (From : <? echo date('d-m-Y', strtotime($fdt)); ?>&nbsp; To : <? echo date('d-m-Y', strtotime($tdt)); ?>)</b>
+  <td align="center" colspan="2" style="font-family: Arial, Helvetica, sans-serif;" ><b>Statement for the period (From : <?php  echo date('d-m-Y', strtotime($fdt)); ?>&nbsp; To : <?php  echo date('d-m-Y', strtotime($tdt)); ?>)</b>
   </td>
 
   </tr>
   <tr style="border-bottom: 1px solid #000;height:90px" >
   <td align="left" valign="top" colspan="2"><font size="2" >TO :
- <b>  <?=$bto."</b><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;".$baddr."<br>";
+ <b>  <?php  echo $bto."</b><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;".$baddr."<br>";
 
 if($bmob!="")
 {
@@ -298,26 +308,26 @@ echo "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mob : ".$bmob;
     <tr >
 <td align="center" colspan="3" ><font size="2" >Opening Balance</font></td>
 <td align="right">
-<font size="2"><? echo $opdbdt;?></font>
+<font size="2"><?php  echo $opdbdt;?></font>
 </td>
 <td align="right">
-<font size="2"><? echo $opcrdt;?></font>
+<font size="2"><?php  echo $opcrdt;?></font>
 </td>
 <td align="right">
-<font size="2"><?
+<font size="2"><?php 
 echo $opbl." ".$obtp;
 ?></font>
 </td>
 
 
   </tr>
-  <?
+  <?php 
  $nbal=$opbl;
  $tdebt=0;
  $tcredt=0;
  
  $pag=0;
-$query1="select *,sum(amm) as amm  from ".$DBprefix."drcr where (dldgr='4' or cldgr='4' or cldgr='7') and dldgr!='7'  and cid='$a' and dt between '$fdt' and '$tdt' $brncd1  group by dldgr,edtm,vno,blno,blnon order by dt,sl,cldgr";
+$query1="select *,sum(amm) as amm  from ".$DBprefix."drcr where (dldgr='4' or cldgr='4' or cldgr='7' or cbill='ADVANCE-PAYMENT-REFUND') and (dldgr!='7' or cbill='ADVANCE-PAYMENT-REFUND')  and cid='$a' and dt between '$fdt' and '$tdt' $brncd1  group by dldgr,edtm,vno,blno,blnon order by dt,sl,cldgr";
 $result1 = mysqli_query($conn,$query1);
 while ($R1 = mysqli_fetch_array ($result1))
 {
@@ -377,9 +387,9 @@ else
 {
 $dscrp=$bno;
 }
-if($dldgr==4 ){
+if($dldgr==4 or $dldgr==7){
     $damm=$amm;
-    $camm="";
+    $camm=0;
     $nbal=round($nbal+$amm,2);
     if($nbal<0)
    {
@@ -394,7 +404,7 @@ if($dldgr==4 ){
 }
 if($cldgr==4 or $cldgr==7){
     $camm=$amm;
-    $damm="";
+    $damm=0;
 	
     $nbal=$nbal-$amm;
     if($nbal<0)
@@ -457,31 +467,31 @@ if($pag==38)
   <td valign="top" width="70%"    style="padding-left:5px;cellpadding:5px;font-family: Arial, Helvetica, sans-serif;">
   <font size="5" >
   <b>
-<?=$branch_nm;?>
+<?php  echo $branch_nm;?>
   </b>
   </font>
   <br>
   <font size="2" >
-<?=$branch_addr;?>
-  Mobile : <?=$branch_cnt;?>
+<?php  echo $branch_addr;?>
+  Mobile : <?php  echo $branch_cnt;?>
   </font>
  
   </td>
   <td width="50%" valign="top" align="right" style="height:30px;font-family: Arial, Helvetica, sans-serif;" >
 
 <font size="2" >
-Page No. <?=$pageno;?><br>  <br>
+Page No. <?php  echo $pageno;?><br>  <br>
 
 </font> </td>
   </tr>
 <tr style="border-bottom: 1px solid #000;">
-  <td align="center" colspan="2" style="font-family: Arial, Helvetica, sans-serif;" ><b>Statement for the period (From : <? echo date('d-m-Y', strtotime($fdt)); ?>&nbsp; To : <? echo date('d-m-Y', strtotime($tdt)); ?>)</b>
+  <td align="center" colspan="2" style="font-family: Arial, Helvetica, sans-serif;" ><b>Statement for the period (From : <?php  echo date('d-m-Y', strtotime($fdt)); ?>&nbsp; To : <?php  echo date('d-m-Y', strtotime($tdt)); ?>)</b>
   </td>
 
   </tr>
   <tr style="border-bottom: 1px solid #000;height:90px" >
   <td align="left" valign="top" colspan="2"><font size="2" >TO :
-  <b>  <?=$bto."</b><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;".$baddr."<br>";
+  <b>  <?php  echo $bto."</b><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;".$baddr."<br>";
 
 if($bmob!="")
 {
@@ -503,25 +513,25 @@ echo "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mob : ".$bmob;
   </td>
   </tr>
  
-	<?
+	<?php 
 	$pag=0;
 	?>
 </td>
 </tr>
-<?
+<?php 
 	
 }
 		  ?>
-		  <tr bgcolor="<?=$colo;?>">
-		  <td align="center" ><font size="2" ><b><? echo date('d-m-Y', strtotime($rd1));?></b></font></td>
-		  <td align="left" ><font size="2" ><?=$dscrp;?></font></td>
-		  <td align="left" style="word-break:break-all" ><font size="2" ><?=$LDGRR_NM.$nrtn;?></font></td>
-		  <td align="right" ><font size="2" ><b><?=round($damm,2);?></b></font></td>
-		  <td align="right"><font size="2" ><b><?=round($camm,2);?></b></font></td>
-		  <td align="right" title="<?=$dsl;?>" ><font size="2" ><span style="color:<? if($nbal<0){echo "#0034ff";}else{echo "#FF0000";}?>;font-family:Arial;font-size:15px;"><? echo $nbalf;?></span></font></td>
+		  <tr bgcolor="<?php  echo $colo;?>">
+		  <td align="center" ><font size="2" ><b><?php  echo date('d-m-Y', strtotime($rd1));?></b></font></td>
+		  <td align="left" ><font size="2" ><?php  echo $dscrp;?></font></td>
+		  <td align="left" style="word-break:break-all" ><font size="2" ><?php  echo $LDGRR_NM.$nrtn;?></font></td>
+		  <td align="right" ><font size="2" ><b><?php echo round($damm??0,2);?></b></font></td>
+		  <td align="right"><font size="2" ><b><?php echo round($camm??0,2);?></b></font></td>
+		  <td align="right" title="<?php  echo $dsl;?>" ><font size="2" ><span style="color:<?php  if($nbal<0){echo "#0034ff";}else{echo "#FF0000";}?>;font-family:Arial;font-size:15px;"><?php  echo $nbalf;?></span></font></td>
 		 
 		  </tr>
-		  <?$pcs1=$pcs+$pcs1;
+		  <?php 
 		  if($cldgr!=-1 and $dldgr!=-1)
 		  {
 		  $tdebt=$tdebt+$damm;
@@ -537,10 +547,10 @@ echo "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mob : ".$bmob;
 		  <b>Total </b>
 		  </td>
 		  <td align="right">
-		  <font size="2" ><b><?=$tdebt;?></b></font>
+		  <font size="2" ><b><?php  echo $tdebt;?></b></font>
 		  </td>
 		  <td align="right">
-		 <font size="2" ><b> <?=$tcredt;?></b></font>
+		 <font size="2" ><b> <?php  echo $tcredt;?></b></font>
 		  </td>
 		   <td>
 		  </td>
@@ -565,7 +575,7 @@ echo "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mob : ".$bmob;
 </center>
 </body>
 </html>
-<?
+<?php 
 }
 else
 {

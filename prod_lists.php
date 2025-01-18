@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 include "function.php";
@@ -8,13 +8,14 @@ $pnm=rawurldecode($_REQUEST['pnm']);
 $ean=$_REQUEST['ean'];
 if($cat!=""){$cat1=" and cat='$cat'";}else{$cat1="";}
 if($scat!=""){$scat1=" and scat='$scat'";}else{$scat1="";}
+$ean1="";
 if($ean=="1"){$ean1=" and ean=''";}elseif($ean=="0"){$ean1=" and ean!=''";}
 
 $af="%".$pnm."%";
 if($pnm!=''){$a2=" and (pnm LIKE '$af' or pcd LIKE '$af')";}else{$a2='';}
 
-$pno=rawurldecode($_REQUEST['pno']);
-$ps=rawurldecode($_REQUEST['ps']);
+$pno=rawurldecode($_REQUEST['pno'] ?? "");
+$ps=rawurldecode($_REQUEST['ps'] ?? "");
 if($ps=="")
 {
 $ps=10;
@@ -39,7 +40,7 @@ if($total!=0)
 ?>
 
 <div align="left">
-<input type="text" name="ps" id="ps" value="<?=$ps;?>" size="7" onblur="pagnt1(this.value)" style="width:50px;">
+<input type="text" name="ps" id="ps" value="<?php  echo $ps;?>" size="7" onblur="pagnt1(this.value)" style="width:50px;">
 <a type="button" href="import_pcd.php" target="_blank" class="btn btn-success btn-sm">Generate Code</a>
 </div>
 
@@ -51,7 +52,7 @@ if($total!=0)
 <th style="text-align:center;">Model Name</th>
 <th style="text-align:center;">HSN</th>
 <th style="text-align:center;">IGST</th>
-<?/*<th style="text-align:center;">Sale Rate</th>
+<?php /*<th style="text-align:center;">Sale Rate</th>
 <th style="text-align:center;">Unit</th>
 <th style="text-align:center;">Small Unit</th>
 <th style="text-align:center;">Midle Unit</th>
@@ -59,7 +60,8 @@ if($total!=0)
 <th style="text-align:center;">Action</th>
 <th style="text-align:center;">Delete</th>
 </tr>
-<?
+<?php 
+$color="";
 while($row=mysqli_fetch_array($get))
 {
 	$cnt++;
@@ -123,70 +125,70 @@ $tdt=$drow['tdt'];
 }
 	
 ?>
-<tr bgcolor="<?=$color;?>">
-<td style="text-align:center;"><?=$sl;?></td>
-<td style="text-align:left;"><?=$cat;?></td>
-<td style="text-align:left;"><?=$scat;?></td>
-<td style="text-align:left;"><?=reformat($pnm);?><br><font color="red" size="2"> EAN  : <?php echo $ean;?> Code  : <?php echo $pcd;?></td>
-<td style="text-align:left;"><?=$hsn;?></td>
-<td style="text-align:left;"><?=$igst;?></td>
-<?/*<td style="text-align:left;"><?=$mrp;?></td>
-<td style="text-align:center;"><?=$unit;?></td>
+<tr bgcolor="<?php  echo $color;?>">
+<td style="text-align:center;"><?php  echo $sl;?></td>
+<td style="text-align:left;"><?php  echo $cat;?></td>
+<td style="text-align:left;"><?php  echo $scat;?></td>
+<td style="text-align:left;"><?php echo reformat($pnm);?><br><font color="red" size="2"> EAN  : <?php  echo $ean;?> Code  : <?php  echo $pcd;?></td>
+<td style="text-align:left;"><?php  echo $hsn;?></td>
+<td style="text-align:left;"><?php  echo $igst;?></td>
+<?php /*<td style="text-align:left;"><?php  echo $mrp;?></td>
+<td style="text-align:center;"><?php  echo $unit;?></td>
 <td style="text-align:right;">
-Name : <?=$sun1;?><br>
-Value : <?=$smvlu1;?><br>
-Rate : <?=$smvlu;?>
+Name : <?php  echo $sun1;?><br>
+Value : <?php  echo $smvlu1;?><br>
+Rate : <?php  echo $smvlu;?>
 
 </td>
 <td style="text-align:right;">
-Name : <?=$mun1;?><br>
-Value : <?=$mdvlu1;?><br>
-<?=$mdvlu;?>
+Name : <?php  echo $mun1;?><br>
+Value : <?php  echo $mdvlu1;?><br>
+<?php  echo $mdvlu;?>
 
 </td>
 <td style="text-align:right;">
-Name : <?=$bun1;?><br>
-Value : <?=$bgvlu1;?><br>
-<?=$bgvlu;?>
+Name : <?php  echo $bun1;?><br>
+Value : <?php  echo $bgvlu1;?><br>
+<?php  echo $bgvlu;?>
 </td>*/?>
 <td style="text-align:center;">
-<?
+<?php 
 if($typ==0)
 {
 ?>
-<a href="prod_list_edit.php?sl=<?=$psl;?>&gsl=<?=$gsl;?>" target="_blank" title="Click to Update"><i class="fa fa-pencil-square-o"></i></a> 
-<?
+<a href="prod_list_edit.php?sl=<?php  echo $psl;?>&gsl=<?php  echo $gsl;?>" target="_blank" title="Click to Update"><i class="fa fa-pencil-square-o"></i></a> 
+<?php 
 }
 else
 {
 ?>
-<a href="servc_edt.php?sl=<?=$psl;?>&gsl=<?=$gsl;?>" target="_blank" title="Click to Update"><i class="fa fa-pencil-square-o"></i></a> 
+<a href="servc_edt.php?sl=<?php  echo $psl;?>&gsl=<?php  echo $gsl;?>" target="_blank" title="Click to Update"><i class="fa fa-pencil-square-o"></i></a> 
 
-<?	
+<?php 	
 }
 ?>
-<?/*
+<?php /*
 &nbsp;&nbsp;&nbsp;
-<a onclick="if(confirm('Are you sure to delete...')){dlt('<?=$psl;?>')}" title="Click to Delete" style="color:red;"><i class="fa fa-trash-o" ></i></a>
+<a onclick="if(confirm('Are you sure to delete...')){dlt('<?php  echo $psl;?>')}" title="Click to Delete" style="color:red;"><i class="fa fa-trash-o" ></i></a>
 */?><br/>
-<?if($stat==0){?>
-<input type="button" onclick="act('<?=$psl;?>','1','Deactive')" value="Active" title="Click to Deactive" class="btn btn-primary btn-xs">
-<?} else{ ?>
-<input type="button" onclick="act('<?=$psl;?>','0','Active')" value="Deactive" title="Click to Active" class="btn btn-danger btn-xs">
-<? } ?>
+<?php if($stat==0){?>
+<input type="button" onclick="act('<?php  echo $psl;?>','1','Deactive')" value="Active" title="Click to Deactive" class="btn btn-primary btn-xs">
+<?php } else{ ?>
+<input type="button" onclick="act('<?php  echo $psl;?>','0','Active')" value="Deactive" title="Click to Active" class="btn btn-danger btn-xs">
+<?php  } ?>
 </td>
 
 
 <td style="text-align:center;">
-<?
+<?php 
 $sqle  = mysqli_query($conn,"select * from main_stock where pcd='$psl'") or die(mysqli_error($conn));
 $cnts = mysqli_num_rows($sqle);
 
 if($cnts == 0)
 {
 ?>
-<input type="button" title="Click Here To Delete" class="btn btn-block btn-danger btn-xs" value="Delete" onclick="dlts('<?php echo $psl; ?>')" name="B2">
-<?php	
+<input type="button" title="Click Here To Delete" class="btn btn-block btn-danger btn-xs" value="Delete" onclick="dlts('<?php  echo $psl; ?>')" name="B2">
+<?php 	
 }
 ?>
 
@@ -195,12 +197,12 @@ if($cnts == 0)
 
 
 </tr>
-<?															
+<?php 															
 }
 ?>
 </table>
 <center>
-<?
+<?php 
 
 
 $tp=$rcnt/$ps;
@@ -237,7 +239,7 @@ echo "Showing ".($start+1)." to ".($cnt1)." of ".$rcnt." entries".$flt;
     <table border="0" style="width:10%">
         <tr>
             <td>
-            <input type="text" size="10" id="pgn" name="pgn" value="<?=$pno;?>" style="text-align:center; width:50px;">
+            <input type="text" size="10" id="pgn" name="pgn" value="<?php  echo $pno;?>" style="text-align:center; width:50px;">
             </td>
 			<td style="padding-top:5px;"><input type="button" value="Go" onclick="pagnt1()"></td>
         </tr>
@@ -245,9 +247,9 @@ echo "Showing ".($start+1)." to ".($cnt1)." of ".$rcnt." entries".$flt;
 </center>
 
                             <ul class="pagination pagination-sm inline">
-							<li <? if($pno==1){ echo "class=\"disabled\"";}?>><a onclick="pagnt('1')"><i class="icon-circle-arrow-left"></i>First</a></li>
-                            <li <? if($pno==1){ echo "class=\"disabled\"";}?>><a onclick="pagnt('<?echo $prev;?>')"><i class="icon-circle-arrow-left"></i>Previous</a></li>
-                            <?
+							<li <?php  if($pno==1){ echo "class=\"disabled\"";}?>><a onclick="pagnt('1')"><i class="icon-circle-arrow-left"></i>First</a></li>
+                            <li <?php  if($pno==1){ echo "class=\"disabled\"";}?>><a onclick="pagnt('<?php echo $prev;?>')"><i class="icon-circle-arrow-left"></i>Previous</a></li>
+                            <?php 
                             
                             if($tp<=5)
                             {
@@ -255,8 +257,8 @@ echo "Showing ".($start+1)." to ".($cnt1)." of ".$rcnt." entries".$flt;
                               while($n<=$tp)
                               {
                                 ?>
-                             <li <? if($pno==$n){ echo "class=\"active\"";}?>><a onclick="pagnt('<?echo $n;?>')"><?echo $n;?></a></li>   
-                                <?
+                             <li <?php  if($pno==$n){ echo "class=\"active\"";}?>><a onclick="pagnt('<?php echo $n;?>')"><?php echo $n;?></a></li>   
+                                <?php 
                                 $n+=1;
                               }  
                             }
@@ -268,8 +270,8 @@ echo "Showing ".($start+1)." to ".($cnt1)." of ".$rcnt." entries".$flt;
                                   while($n<=5)
                               {
                                 ?>
-                             <li <? if($pno==$n){ echo "class=\"active\"";}?>><a onclick="pagnt('<?echo $n;?>')"><?echo $n;?></a></li>   
-                                <?
+                             <li <?php  if($pno==$n){ echo "class=\"active\"";}?>><a onclick="pagnt('<?php echo $n;?>')"><?php echo $n;?></a></li>   
+                                <?php 
                                 $n+=1;
                               }     
                                 }
@@ -279,8 +281,8 @@ echo "Showing ".($start+1)." to ".($cnt1)." of ".$rcnt." entries".$flt;
                                     while($n<=5)
                               {
                                 ?>
-                             <li <? if($pno==$n){ echo "class=\"active\"";}?>><a onclick="pagnt('<?echo $n;?>')"><?echo $n;?></a></li>   
-                                <?
+                             <li <?php  if($pno==$n){ echo "class=\"active\"";}?>><a onclick="pagnt('<?php echo $n;?>')"><?php echo $n;?></a></li>   
+                                <?php 
                                 $n+=1;
                               }   
                                 }
@@ -290,8 +292,8 @@ echo "Showing ".($start+1)." to ".($cnt1)." of ".$rcnt." entries".$flt;
                                  while($n<=$pno+2)
                               {
                                 ?>
-                             <li <? if($pno==$n){ echo "class=\"active\"";}?>><a onclick="pagnt('<?echo $n;?>')"><?echo $n;?></a></li>   
-                                <?
+                             <li <?php  if($pno==$n){ echo "class=\"active\"";}?>><a onclick="pagnt('<?php echo $n;?>')"><?php echo $n;?></a></li>   
+                                <?php 
                                 $n+=1;
                               }     
                                 }
@@ -300,12 +302,12 @@ echo "Showing ".($start+1)." to ".($cnt1)." of ".$rcnt." entries".$flt;
                                 
                             }
                             ?>
-                            <li <? if($pno==$tp){ echo "class=\"disabled\"";}?>><a onclick="pagnt('<?echo $next;?>')">Next<i class="icon-circle-arrow-right"></i></a></li>
-                            <li <? if($pno==$tp){ echo "class=\"disabled\"";}?>><a onclick="pagnt('<?echo $tp;?>')">Last<i class="icon-circle-arrow-right"></i></a></li>
+                            <li <?php  if($pno==$tp){ echo "class=\"disabled\"";}?>><a onclick="pagnt('<?php echo $next;?>')">Next<i class="icon-circle-arrow-right"></i></a></li>
+                            <li <?php  if($pno==$tp){ echo "class=\"disabled\"";}?>><a onclick="pagnt('<?php echo $tp;?>')">Last<i class="icon-circle-arrow-right"></i></a></li>
                             </ul>
                             </div>
 							</center>
-<?
+<?php 
 }
 else
 {
@@ -315,6 +317,6 @@ else
 <td style="text-align:center;"><font size="4" color="red"><b>No Records Available</b></font></td>
 </tr>
 </table>
-<?
+<?php 
 }
 ?>

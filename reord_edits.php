@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 0;
 include("membersonly.inc.php");
 date_default_timezone_set('Asia/Kolkata');
@@ -17,7 +17,7 @@ if($gdn==""||$prd==""||$reord=="")
 	alert("Please fill all fields..");
 	window.history.go(-1);
 	</script>
-	<?
+	<?php 
 }
 else
 {
@@ -33,7 +33,7 @@ else
 		alert("Update Successfully.....");
 		window.location='reord_vw.php';
 		</script>
-		<?
+		<?php 
 	}
 	else
 	{
@@ -42,7 +42,7 @@ else
 		alert("Duplicate Entry.....");
 		window.history.go(-1);
 		</script>
-		<?
+		<?php 
 	}
 }
 ?>

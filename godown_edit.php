@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 include "header.php";
@@ -15,7 +15,7 @@ while ($erow = mysqli_fetch_array($eget)) {
 $fdt = date('Y-m-d');
 ?>
 <div class="wrapper row-offcanvas row-offcanvas-left">
-	<?
+	<?php 
 	include "left_bar.php";
 	?>
 	<style type="text/css">
@@ -89,7 +89,7 @@ $fdt = date('Y-m-d');
 			<body>
 				<div class="box box-success">
 					<form method="post" action="godowns.php" id="form1" onSubmit="return check1()" name="form1">
-						<input type="hidden" name="sl" id="sl" value="<? echo $ssl; ?>">
+						<input type="hidden" name="sl" id="sl" value="<?php  echo $ssl; ?>">
 
 						<table border="0" class="table table-hover table-striped table-bordered">
 							<tr>
@@ -97,39 +97,39 @@ $fdt = date('Y-m-d');
 			<td  align="left" width="30%">
 			<select name="bnm" id="bnm" class="form-control">
 			<option value="">--Select--</option>
-			<?
+			<?php 
 			$dsql = mysqli_query($conn, "select * from main_branch order by bnm") or die(mysqli_error($conn));
 			while ($erow = mysqli_fetch_array($dsql)) {
 				$bsl = $erow['sl'];
 				$bnm5 = $erow['bnm'];
 			?>
-			<option value="<?php echo $bsl; ?>"<? if ($bsl == $bnm) {
+			<option value="<?php  echo $bsl; ?>"<?php  if ($bsl == $bnm) {
 													echo 'selected';
-												} ?>><?php echo $bnm5; ?></option>
-			<?
+												} ?>><?php  echo $bnm5; ?></option>
+			<?php 
 			}
 			?>
 			</select>
 			</td>-->
 								<td align="right" width="10%" style="padding-top:15px;"><b>Godown :</b></td>
 								<td align="left" width="30%">
-									<input type="text" class="form-control" name="gnm" id="gnm" value="<? echo $gnm; ?>" placeholder="Enter Godown Name...." required>
+									<input type="text" class="form-control" name="gnm" id="gnm" value="<?php  echo $gnm; ?>" placeholder="Enter Godown Name...." required>
 								</td>
 
 								<td align="right" width="10%" style="padding-top:15px;"><b>Address :</b></td>
 								<td align="left" colspan="">
-									<input type="text" class="form-control" name="addr" id="addr" value="<? echo $addr; ?>" placeholder="Enter Godown Address....">
+									<input type="text" class="form-control" name="addr" id="addr" value="<?php  echo $addr; ?>" placeholder="Enter Godown Address....">
 								</td>
 
 							</tr>
 							<tr>
 							<td align="right" width="10%" style="padding-top:15px;"><b>District :</b></td>
 								<td align="left" colspan="">
-									<input type="text" class="form-control" name="dist" id="dist"  value="<? echo $dist; ?>" placeholder="Enter Godown District....">
+									<input type="text" class="form-control" name="dist" id="dist"  value="<?php  echo $dist; ?>" placeholder="Enter Godown District....">
 								</td>
 								<td align="right" width="10%" style="padding-top:15px;"><b>Pin :</b></td>
 								<td align="left" colspan="">
-									<input type="text" class="form-control" name="pin" id="pin"  value="<? echo $pin; ?>" placeholder="Enter Godown Pin....">
+									<input type="text" class="form-control" name="pin" id="pin"  value="<?php  echo $pin; ?>" placeholder="Enter Godown Pin....">
 								</td>
 							</tr>
 							<tr>

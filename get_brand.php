@@ -1,4 +1,4 @@
-<?php 
+<?php  
 $reqlevel = 3;
 include("membersonly.inc.php");
 
@@ -13,15 +13,15 @@ while($rowi=mysqli_fetch_array($geti))
 ?>
 	<select name="brand"  class="form-control" size="1" id="brand" tabindex="8" onchange="show()"  >
 	<option value="">---ALL---</option>
-	<?php
+	<?php 
 	$data13 = mysqli_query($conn,"Select * from main_catg where sl>0 and find_in_set(sl,'$catsl')>0");
 	while ($row13 = mysqli_fetch_array($data13))
 	{
 	$sl3=$row13['sl'];
 	$cnm=$row13['cnm'];
 	?>
-	<Option value="<?=$sl3;?>"  ><?=$cnm;?></option>
-	<?php 
+	<Option value="<?php  echo $sl3;?>"  ><?php  echo $cnm;?></option>
+	<?php  
 	}
 	?>
 	</select>

@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 $cgst=$_POST['cgst'];
@@ -17,7 +17,7 @@ if($cgst=="" or $sgst=="" or $igst=="" or $cat=="")
 alert('Please Fill All The Fields.');
 history.go(-1);
 </script>
-<?	
+<?php 	
 }
 else
 {
@@ -44,10 +44,10 @@ $pag="gst_show.php";
 }
 ?>
 <script>
-alert('<?=$msg;?>');
-window.location.assign('<?=$pag;?>');
+alert('<?php  echo $msg;?>');
+window.location.assign('<?php  echo $pag;?>');
 </script>
-<?
+<?php 
 }
 else
 {
@@ -56,7 +56,7 @@ else
 alert('Duplicate Entry');
 history.go(-1);
 </script>
-<?
+<?php 
 }
 }
 ?>

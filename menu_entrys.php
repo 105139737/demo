@@ -1,4 +1,4 @@
-<?php
+<?php 
 include("membersonly.inc.php");
     
 	$mm = $_POST['mm'];
@@ -17,7 +17,7 @@ $sql3 = mysqli_query($conn,"insert into main_menu(msl,mnm,fnm,ntb) values('$mm',
 alert('Data Inserted Successfully. Thank You...');
 document.location = "menu_entry.php";
 </script>
-<?
+<?php 
 
 }
 else{
@@ -26,6 +26,6 @@ else{
 alert('Already Exists');
  window.history.go(-1);
 </script>
-<?
+<?php 
 }
 ?>

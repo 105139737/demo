@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 $sl=$_POST['psl'];
@@ -17,7 +17,7 @@ if($point=="" and $pcd=="")
 	alert("Please fill all Field.....");
 	window.history.go(-1);
 	</script>
-	<?
+	<?php 
 }
 else
 {
@@ -30,7 +30,7 @@ else
 	alert("Duplicate Product Entry.....");
 	window.history.go(-1);
 	</script>
-	<?
+	<?php 
 	}
 	else
 	{
@@ -40,7 +40,7 @@ else
 	alert("Update Successfully.....");
 	window.location="prd_point_show.php";
 	</script>
-	<?
+	<?php 
 	
 	}
 }

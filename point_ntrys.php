@@ -1,4 +1,4 @@
-<?php
+<?php 
 
 
 
@@ -61,7 +61,7 @@ document.location="point_ntry.php";
 
 </script>
 
-<?
+<?php 
 
    }
 
@@ -85,12 +85,12 @@ document.location="point_ntry.php";
 
 <Script language="JavaScript">
 
-alert('<? echo $err;?>');
+alert('<?php  echo $err;?>');
 document.location='point_ntry.php';
 
 </script>
 
-<?
+<?php 
 
    }
 

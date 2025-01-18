@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include "header.php";
@@ -8,7 +8,7 @@ $saa="01-".date('m-y');
 <html>
 <head>
         <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <style type="text/css"> 
@@ -169,24 +169,24 @@ function gtids()
 <tr  >
 <td align="left">
 <b>Form Date : </b><br>
-<input type="text" id="fdt" name="fdt" size="20" value="<?=$saa;?>" class="form-control" placeholder="Please Enter From Date" > </td>
+<input type="text" id="fdt" name="fdt" size="20" value="<?php  echo $saa;?>" class="form-control" placeholder="Please Enter From Date" > </td>
 <td align="left">
 <b>To Date : </b><br>
-<input type="text" id="tdt" name="tdt" size="20" value="<?=$sa;?>"class="form-control" placeholder="Please Enter To Date">
+<input type="text" id="tdt" name="tdt" size="20" value="<?php  echo $sa;?>"class="form-control" placeholder="Please Enter To Date">
 </td>
  <td align="left"><b>Customer Name :</b><br>
 
   <select id="custnm" name="custnm"  class="form-control" onchange="gtid()" >
 	<option value="">---Select---</option>
 	
-	<?
+	<?php 
 		$query="select * from main_cust  WHERE sl>0 order by nm";
 		$result=mysqli_query($conn,$query);
 		while($rw=mysqli_fetch_array($result))
 		{
 			?>
-			<option value="<?=$rw['sl'];?>"><?=$rw['nm'];?> <?if($rw['cont']!=""){?>( <?=$rw['cont'];?> )<?}?></option>
-			<?
+			<option value="<?php  echo $rw['sl'];?>"><?php  echo $rw['nm'];?> <?php if($rw['cont']!=""){?>( <?php  echo $rw['cont'];?> )<?php }?></option>
+			<?php 
 		}
 	?>
 	</select>
@@ -203,12 +203,12 @@ function gtids()
 
 
     <select name="brncd" class="form-control" size="1" id="brncd"   >
-<?
+<?php 
 if($user_current_level<0)
 {
 	?>
 	<option value="">---ALL---</option>
-	<?
+	<?php 
 }
 if($user_current_level<0)
 {
@@ -225,8 +225,8 @@ $sl=$R['sl'];
 $bnm=$R['bnm'];
 
 ?>
-<option value="<? echo $sl;?>"><? echo $bnm;?></option>
-<?
+<option value="<?php  echo $sl;?>"><?php  echo $bnm;?></option>
+<?php 
 }
 ?>
 </select>

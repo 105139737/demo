@@ -1,4 +1,4 @@
-<?php
+<?php 
 
 /**
  * @author Onnet Solution
@@ -20,7 +20,7 @@ $expdt=$_REQUEST[expdt];
 $usl=$_REQUEST[usl];
 $fbcd=$_REQUEST[fbcd];
 $tbcd=$_REQUEST[tbcd];
-$blno=$_REQUEST[blno];
+$blno=$_REQUEST['blno'] ?? "";
 
 $err="";
 if($expdt!="0000-00-00")
@@ -114,7 +114,7 @@ if($err=="")
 temp();
   $('#prnm').trigger('chosen:open');
 </script>
-<?
+<?php 
 }
 else
 {

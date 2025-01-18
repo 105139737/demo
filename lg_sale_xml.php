@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 3; 
 include("config.php");
 include("function.php");
@@ -23,14 +23,14 @@ $file_name="Sale-".$dt;
 ob_start();
 $fdt=date('Y-m-d', strtotime($fdt));
 $tdt=date('Y-m-d', strtotime($tdt));
-if($fdt!="" and $tdt!=""){$todts=" and dt between '$fdt' and '$tdt'";}else{$todts="";}
+if($fdt!="" and $tdt!=""){$todts=" and sdt between '$fdt' and '$tdt'";}else{$todts="";}
 $dis1=0;
 set_time_limit(0);
 
 header("Content-type: text/xml");
 
 
-echo '<?xml version="1.0" encoding="UTF-8"?>';
+echo '<?php xml version="1.0" encoding="UTF-8"?>';
 
 
 echo '<root>';
@@ -42,9 +42,11 @@ $sgst=0;
 $total_am=0;
 $disa_am=0;
 $tpcs=0;
-$data= mysqli_query($conn,"select *,sum(pcs) as qty from  main_billdtls where sl>0 and cat='2' $todts group by prsl,blno ")or die(mysqli_error($conn));
+//"select *,sum(pcs) as qty from main_billdtls where sl>0 and cat='2' and sync_stat=0 $todts group by prsl,blno "
+$data= mysqli_query($conn,"select * from main_billdtls where sl>0 and cat='2' and sync_stat=0 and betno is not null and betno!=''  $todts ")or die(mysqli_error($conn));
 while ($row = mysqli_fetch_array($data))
 {
+$tsl=$row['sl'];
 $cat=$row['cat'];
 $scat=$row['scat'];	
 $pcd=$row['prsl'];
@@ -54,7 +56,7 @@ $blno=$row['blno'];
 $unit=$row['unit'];
 $kg=$row['kg'];
 $grm=$row['grm'];
-$qty=$row['qty'];
+$qty=$row['pcs'];
 //$pcs="TEST".$qty;
 $pcs=$qty;
 $cgst_rt=$row['cgst_rt'];
@@ -64,7 +66,7 @@ $sgst_am=$row['sgst_am'];
 $igst_rt=$row['igst_rt'];
 $igst_am=$row['igst_am'];
 $total=$row['total'];
-$dt=$row['dt'];
+$dt=$row['sdt'];
 /*
 $ttl=$row['ttl'];
 */
@@ -155,11 +157,36 @@ $nm='HINDUSTAN DISTRIBUTORS-MBO';
 $gtm='DUR2987';   
 $stcode="HIND";
 }
+if($bcd=='8')//BARASAT
+{
+$nm='HINDUSTAN DISTRIBUTORS-MBO';
+$gtm='DUR3647';   
+$stcode="HIND";
+}
+if($bcd=='9')//BERHAMPORE
+{
+$nm='HINDUSTAN DISTRIBUTORS-MBO';
+$gtm='DUR3663';   
+$stcode="HIND";
+}
+if($bcd=='10')//KANCHRAPARA
+{
+$nm='HINDUSTAN DISTRIBUTORS-MBO';
+$gtm='DUR3688';   
+$stcode="HIND";
+}
+$betno_sync=lgBetnoModify($betno);
+
+$datasy= mysqli_query($conn,"select * from lg_sync where blno='$blno' and prsl='$pcd' and betno='$betno' and stat=0")or die(mysqli_error($conn));
+$count_sync=mysqli_num_rows($datasy);
+if(!empty($betno_sync) && $count_sync==0)
+{
 echo '<entry>';
 echo '<SELLOUT></SELLOUT>';
 echo '<BATCHNO>'.parseToXML($dt).'</BATCHNO>';
 echo '<SELLOUTDATE>'.parseToXML($dt).'</SELLOUTDATE>';
 echo '<SITECODE>'.parseToXML($stcode).'</SITECODE>';
+echo '<SERIALNO>'.parseToXML($betno_sync).'</SERIALNO>';
 echo '<MTCUST>HDLG</MTCUST>';
 echo '<SITECODETYPE>'.$SITECODETYPE.'</SITECODETYPE>';
 echo '<SITECODEINFO>16 L.K. MOITRA ROAD, Krishnanagar, WB, 741101</SITECODEINFO>';
@@ -177,6 +204,11 @@ echo '<GTMCODE>'.parseToXML($gtm).'</GTMCODE>';
 echo '<InvoiceAmount>'.parseToXML($net_am).'</InvoiceAmount>';
 echo '</entry>';
 
+$query21 = "UPDATE main_billdtls SET sync_stat=1 WHERE sl='$tsl'";
+$result2 = mysqli_query($conn,$query21)or die(mysqli_error($conn));
+$sync= mysqli_query($conn,"insert into lg_sync(blno,prsl,betno,sync_betno,dt,edtm) values('$blno','$pcd','$betno','$betno_sync','$edt','$edtm')")or die(mysqli_error($conn));
+
+}
 }
 
 echo '</root>';
@@ -210,6 +242,6 @@ curl_close($curl);
 
 $crnjob= mysqli_query($conn,"insert into main_cornjob(fnm,fdt,tdt,dt,dttm,response) values('lg_sale_xml','$fdt','$tdt','$edt','$edtm','$response')")or die(mysqli_error($conn));
 
-echo $response;
+//echo $response;
 
 ?>

@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 date_default_timezone_set('Asia/Kolkata');
@@ -47,15 +47,15 @@ $sql=mysqli_query($conn,"update main_task set cust='$csl' where sl>='$sl' and sp
 alert("Update Successfully....");
 document.location="task_assign.php";
 </script>
-<?
+<?php 
 }
 else
 {
 ?>
 <script>
-alert("<?php echo $err;?>");
+alert("<?php  echo $err;?>");
 window.history.go(-1);
 </script>
-<?	
+<?php 	
 }
 ?>

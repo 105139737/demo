@@ -1,4 +1,4 @@
-<?php 
+<?php  
 $reqlevel = 3;
 include("membersonly.inc.php");
 $brncd=$_POST['brncd'];
@@ -30,15 +30,15 @@ mysqli_query($conn,"update main_spl set brncd='$brncd',brand='$brand' where sl='
 	alert('Submitted Successfully. Thank You ');
 	document.location="spl.php";
 	</script>
-<?php
+<?php 
 }
 else
 {
 	?>
 	<script type="text/javascript" language="javascript">
-	alert('<?php echo $err;?>');
+	alert('<?php  echo $err;?>');
 	window.history.go(-1);
 	</script>
-	<?php 
+	<?php  
 }
 ?>

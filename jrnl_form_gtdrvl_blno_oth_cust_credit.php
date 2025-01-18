@@ -1,14 +1,14 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
-$sl=$_REQUEST[sl];
-$pno=$_REQUEST[pno];
-$cid=$_REQUEST[cid];
-$blno=rawurldecode($_REQUEST[blno]);
-$brncd=$_REQUEST[brncd];
-$ramm=$_REQUEST[ramm];
-$blno_ref=$_REQUEST[blno_ref];
-$today=$_REQUEST['dt'];
+$sl=$_REQUEST['sl'];
+$pno=$_REQUEST['pno'] ?? "";
+$cid=$_REQUEST['cid'] ?? "";
+$blno=rawurldecode($_REQUEST['blno'] ?? "");
+$brncd=$_REQUEST['brncd'] ?? "";
+$ramm=$_REQUEST['ramm']??0;
+$blno_ref=$_REQUEST['blno_ref']??"";
+$today=$_REQUEST['dt']??"";
 //$today=date('Y-m-d');
 $today=date('Y-m-d',strtotime($today));
 if($brncd==""){$brncd1="";}else{$brncd1=" and brncd='$brncd'";}
@@ -50,10 +50,10 @@ $T=round($R16['amm'],2);
 }
 $due_amm=round($T,2);
 ?>
-<input type="text" name="cal_dbal" id="cal_dbal" value="<?echo $T;?>" class="sc" style="background :transparent; color : red;font-weight:bold;" readonly>
-<?php
+<input type="text" name="cal_dbal" id="cal_dbal" value="<?php echo $T;?>" class="sc" style="background :transparent; color : red;font-weight:bold;" readonly>
+<?php 
 if($T>$ramm){$T=$ramm;}
 ?>
 <script>
-document.getElementById('amm').value='<?=$T;?>';
+document.getElementById('amm').value='<?php  echo $T;?>';
 </script>

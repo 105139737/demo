@@ -1,10 +1,16 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include("Numbers/Words.php");
 include('QR_BarCode.php');
+$tst="";
+$sale_per="";
+$iamm=0;
+$psup="";
+$pan="";
+$pan1="";
 
-$sl=rawurldecode($_REQUEST[sl]);
+$sl=rawurldecode($_REQUEST['sl']);
 
 $data= mysqli_query($conn,"select * from main_drcr where sl='$sl'")or die(mysqli_error($conn));
 while ($row = mysqli_fetch_array($data))
@@ -23,7 +29,7 @@ while ($row = mysqli_fetch_array($data))
 		$amm= $row['amm'];
 		$nrtn= $row['nrtn'];
 		$eby= $row['eby'];
-		$edt= $row['edt'];
+		$edt= $row['edt'] ?? "";
 		$sid= $row['sid'];
 		$bill_typ= $row['bill_typ'];
 		$brnc=$row['brncd'];
@@ -60,7 +66,7 @@ if($psup=="")
 ?>
 <html>
 <head>
-<title><?php echo $bill_no?></title>
+<title><?php  echo $sl?></title>
 <style>
 .tb
 {
@@ -110,7 +116,7 @@ function blprnt(){
 </script>
 
 
-<?
+<?php 
 
 
  
@@ -118,10 +124,10 @@ function blprnt(){
 
   
 	?>
-<div style="<?=$csss;?>">
+<div style="<?php  echo $csss;?>">
 
 <center>
-<div  width="100%"><br><font size="10" color="#000"><b><?php echo $comp_nm;?></b></font></div><br>
+<div  width="100%"><br><font size="10" color="#000"><b><?php  echo $comp_nm;?></b></font></div><br>
 <font style="font-size:20px;"><b>J O U R N A L</b></font>
 </center>
 <table align="center" style="border-collapse:collapse; border: 1px solid black; text-align:center;width:800px">
@@ -133,8 +139,8 @@ function blprnt(){
 <tr>
 <td style="text-align:center; border: 1px solid black; width:100%;">
 
-<font style="font-size:18px;"><?=$adrs;?></font><br/>
-<font style="font-size:14px;">GSTIN/UIN : <?=$gstin?></font>
+<font style="font-size:18px;"><?php  echo $adrs;?></font><br/>
+<font style="font-size:14px;">GSTIN/UIN : <?php  echo $gstin?></font>
 </td>
 
 </tr>
@@ -146,7 +152,7 @@ function blprnt(){
 <tr>
 <td>
 
-<?
+<?php 
 $query6="select * from  main_suppl where sl='$sid'";
 $result5 = mysqli_query($conn,$query6);
 while($row=mysqli_fetch_array($result5))
@@ -201,7 +207,7 @@ $dldgr="<b>".$cnm."</b><br>Pan : ".$pan."<br>Address : ".$baddr;
 <td style="text-align:left; border: 1px solid black; width:50%;">
 <table style="width:100%;">
 <tr>
-<td style="width:20%;"><font size="2">Ref. No.  </font><span style="float:right"><font size="2">:</font></span></td><td colspan="3"><font size="2"><b><?=$blno;?></b></font></td>
+<td style="width:20%;"><font size="2">Ref. No.  </font><span style="float:right"><font size="2">:</font></span></td><td colspan="3"><font size="2"><b><?php  echo $blno;?></b></font></td>
 </tr>
 </table>
 </td>
@@ -209,7 +215,7 @@ $dldgr="<b>".$cnm."</b><br>Pan : ".$pan."<br>Address : ".$baddr;
 
 <table style="width:100%;">
 <td style="text-align:left;vertical-align:top;"><font size="2">Date </font><span style="float:right"><font size="2">:</font></span></td>
-<td  valign="top"><font size="2"><?=$invdt;?>
+<td  valign="top"><font size="2"><?php  echo $invdt;?>
 </font>
 </td>
 </tr>
@@ -232,14 +238,14 @@ $dldgr="<b>".$cnm."</b><br>Pan : ".$pan."<br>Address : ".$baddr;
 <td rowspan="1" style="text-align:center; border: 1px solid black;"><font size="2">Credit(Rs.)</font></td>
 </tr>
 
-<?
+<?php 
 $height="260";
 ?>
 <tr id="tdb">
-<td style="text-align:left;" valign="top" ><font size="2"><?php echo "<b>Dr.</b> ".$dldgr;?>
+<td style="text-align:left;" valign="top" ><font size="2"><?php  echo "<b>Dr.</b> ".$dldgr;?>
 
 </font></td>
-<td style="text-align:right; " valign="top"><font size="2"><?php echo $amm;?></font></td>
+<td style="text-align:right; " valign="top"><font size="2"><?php  echo $amm;?></font></td>
 <td style="text-align:right; " valign="top"><font size="2"></font></td>
 </tr>
 <tr id="tdb">
@@ -251,20 +257,20 @@ $height="260";
 <td style="text-align:right; " valign="top"><font size="2">&nbsp;</font></td>
 </tr>
 <tr id="tdb">
-<td style="text-align:left;" valign="top" ><font size="2"><?php echo "<b>Cr. </b>".$cldgr;?>
+<td style="text-align:left;" valign="top" ><font size="2"><?php  echo "<b>Cr. </b>".$cldgr;?>
 
 </font>
 </td>
 <td style="text-align:right; " valign="top"><font size="2"></font></td>
-<td style="text-align:right; " valign="top"><font size="2"><?php echo $amm;?></font></td>
+<td style="text-align:right; " valign="top"><font size="2"><?php  echo $amm;?></font></td>
 </tr>
-<tr style="height:<?=$height;?>px;">
+<tr style="height:<?php  echo $height;?>px;">
 <td style="text-align:left;"><font size="2"></font></td>
 <td style="text-align:center;"><font size="2">&nbsp;</font></td>
 <td style="text-align:center;"><font size="2">&nbsp;</font></td>
 </tr>
 <tr >
-<td style="text-align:left;"><font size="2">Narration : <?php echo $nrtn;?></font></td>
+<td style="text-align:left;"><font size="2">Narration : <?php  echo $nrtn;?></font></td>
 <td style="text-align:center;"><font size="2">&nbsp;</font></td>
 <td style="text-align:center;"><font size="2">&nbsp;</font></td>
 </tr>
@@ -272,8 +278,8 @@ $height="260";
 <td style="text-align:right;" valign="top" ><font size="2">Total 
 
 </font></td>
-<td style="text-align:right; " valign="top"><?php echo $amm;?><font size="2"></font></td>
-<td style="text-align:right; " valign="top"><font size="2"><?php echo $amm;?></font></td>
+<td style="text-align:right; " valign="top"><?php  echo $amm;?><font size="2"></font></td>
+<td style="text-align:right; " valign="top"><font size="2"><?php  echo $amm;?></font></td>
 </tr>
 </table>
 
@@ -294,8 +300,8 @@ $height="260";
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 </td>
 
-<td><font style="font-size:14px;"><b>For, <?=$comp_nm;?></b></font><br>
-<img src="stmp/<?php echo $brnc;?>.png" width="72" height="70">
+<td><font style="font-size:14px;"><b>For, <?php  echo $comp_nm;?></b></font><br>
+<img src="stmp/<?php  echo $brnc;?>.png" width="72" height="70">
 </td>
 </tr>
 <tr align="center" style="vertical-align:bottom;">

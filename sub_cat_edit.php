@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 include "header.php";
@@ -16,7 +16,7 @@ while($erow=mysqli_fetch_array($eget))
 
 ?>
         <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <style type="text/css"> 
@@ -82,29 +82,29 @@ return false;
 <body>
 <div class="box box-success">
 <form method="post" action="sub_cat_edts.php" id="form1" name="form1">                    
-<input type="hidden" name="ssl" id="ssl" value="<?echo $ssl;?>">
+<input type="hidden" name="ssl" id="ssl" value="<?php echo $ssl;?>">
 <table border="0" class="table table-hover table-striped table-bordered">
             <tr>
 			<td align="right" width="20%" style="padding-top:15px;" ><b>Brand :</b></td>
 			<td  align="left" width="30%">
 			<select name="brand" id="brand" class="form-control">
 			<option value="">--Select--</option>
-			<?
+			<?php 
 			$dsql=mysqli_query($conn,"select * from main_catg order by sl") or die (mysqli_error($conn));
 			while($erow=mysqli_fetch_array($dsql))
 			{
 				$bsl=$erow['sl'];
 				$cnm=$erow['cnm'];
 			?>
-			<option value="<?php echo $bsl;?>" <?php if($brand==$bsl){echo 'selected';}?>><?php echo $cnm;?></option>
-			<?
+			<option value="<?php  echo $bsl;?>" <?php  if($brand==$bsl){echo 'selected';}?>><?php  echo $cnm;?></option>
+			<?php 
 			}
 			?>
 			</select>
 			</td>
 		    <td align="right" width="20%" style="padding-top:15px;" ><b>Category :</b></td>
             <td  align="left" width="30%">
-            <input type="text" class="form-control" name="nm" id="nm" value="<?echo $nm;?>" placeholder="Enter Category...." required>
+            <input type="text" class="form-control" name="nm" id="nm" value="<?php echo $nm;?>" placeholder="Enter Category...." required>
 			</td>
 			
 		
@@ -112,11 +112,11 @@ return false;
 			<tr>
 			<td align="right" width="20%" style="padding-top:15px;" ><b>HSN :</b></td>
             <td  align="left" width="30%">
-            <input type="text" class="form-control" name="hsn" id="hsn" value="<?echo $hsn;?>" placeholder="Enter HSN....">
+            <input type="text" class="form-control" name="hsn" id="hsn" value="<?php echo $hsn;?>" placeholder="Enter HSN....">
 			</td>
 			<td align="right" width="20%" style="padding-top:15px;" ><b>IGST :</b></td>
             <td  align="left" width="30%">
-            <input type="text" class="form-control" name="igst" id="igst" value="<?echo $igst;?>" onkeypress="return check(event)" placeholder="0.00" required>
+            <input type="text" class="form-control" name="igst" id="igst" value="<?php echo $igst;?>" onkeypress="return check(event)" placeholder="0.00" required>
 			</td>
 			</tr>
 			<tr>

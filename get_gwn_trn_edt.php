@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 $prnm=$_REQUEST['prnm'];
@@ -10,13 +10,20 @@ while ($R100 = mysqli_fetch_array ($result100))
 {
 $fbcd=$R100['fbcd'];
 }
+$bcd_tags=[];
+$geti=mysqli_query($conn,"select * from main_godown_tag where brncd='$branch_code' group by bcd") or die(mysqli_error($conn));
+while ($row = mysqli_fetch_array($geti))
+{
+$bcd_tags[]=$row['bcd'];
+}
+
 ?>
 <select name="bcd" class="form-control" tabindex="10"  size="1" id="bcd" onchange="gtt_unt();get_betno();">
-<?php
+<?php 
 if($fbcd==""){
 ?>
 <option value="">---Select---</option>
-<?php
+<?php 
 }
 //if($fbcd!=""){$fbcdq=" and sl='$fbcd'";}
 $geti=mysqli_query($conn,"select * from main_godown where stat=1 order by gnm") or die(mysqli_error($conn));
@@ -40,9 +47,13 @@ if($fbcd!=$sl){
     $stat="disabled";
 }
 }
+$tag_bcd_exists=array_search($sl,$bcd_tags);
+if($tag_bcd_exists=="" and $user_current_level>0){
+    $stat="disabled";
+}
 ?>
-<option value="<? echo $sl;?>" <?php echo $stat;?>><? echo $gnm;?>  (Stock : <?=$stck;?> )</option>
-<?
+<option value="<?php  echo $sl;?>" <?php  echo $stat;?>><?php  echo $gnm;?>  (Stock : <?php  echo $stck;?> )</option>
+<?php 
 }
 ?>
 </select>

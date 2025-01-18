@@ -1,4 +1,4 @@
-<?PHP $reqlevel = 1; include("membersonly.inc.php");?>
+<?php  $reqlevel = 1; include("membersonly.inc.php");?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <html>
@@ -194,7 +194,7 @@ document.onmouseout=hidestatus
 </head>
 
         <body>
-<font color="#ffffff">Welcome <?PHP 
+<font color="#ffffff">Welcome <?php  
 //echo the username that was used to login from the session
 echo $user_current_name." ".$user_current_Rank; 
 echo ("<br>");
@@ -208,7 +208,7 @@ echo "You have ".$user_current_ammount_new." Message to Read.";
      <h2 class="accordion-header">Invoice</h2> 
      <div class="accordion-content"> 
                             
-                                <?
+                                <?php 
 
 if ($user_current_level < 0){
 	
@@ -233,7 +233,7 @@ if ($user_current_level < 0 || $user_current_level > 2){
 </div>
      <h2 class="accordion-header">View & Edit</h2>                        
        <div class="accordion-content">                       
-                                <?
+                                <?php 
 
 
 if ($user_current_level < 0 || $user_current_level > 2){
@@ -252,7 +252,7 @@ echo "<li><a href=\"totpol.php\" target=\"mainFrame\">Cash Book</a></li>";
 </div>
      <h2 class="accordion-header">Accounts</h2>                        
        <div class="accordion-content">                       
-                                <?
+                                <?php 
 
 
 if ($user_current_level < 0 || $user_current_level > 4){
@@ -265,7 +265,7 @@ if ($user_current_level < 0 || $user_current_level > 4){
 }
 ?>
 
-<?
+<?php 
 if ($user_current_level < 0 || $user_current_level >2){
     echo "<li><a href=\"totcol.php\" target=\"mainFrame\">Transaction</a></li>";
     echo "<li><a href=\"ftrn.php\" target=\"mainFrame\">Fund Transfer</a></li>";
@@ -275,18 +275,18 @@ if ($user_current_level < 0 || $user_current_level >2){
 </div>
      <h2 class="accordion-header">System</h2>                        
        <div class="accordion-content">                       
-                                <?
+                                <?php 
 if ($user_current_level < 0){
 	
-?><li><?
+?><li><?php 
 	echo "<a href=\"nrcv.php\" target=\"mainFrame\">Not Verified</a>";
-?></li><li><?
+?></li><li><?php 
 	echo "<a href=\"billstp.php\" target=\"mainFrame\">Bill Format Setup</a>";
-?></li><li><?
+?></li><li><?php 
 	echo "<a href=\"mdtls.php\" target=\"mainFrame\">System Members</a>";
-?></li><li><?
+?></li><li><?php 
 	echo "<a href=\"db.php\" target=\"mainFrame\">Backup Database</a>";
-?></li><?
+?></li><?php 
 }
 ?>
 <li>

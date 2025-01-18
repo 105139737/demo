@@ -1,4 +1,4 @@
-<?PHP
+<?php 
 $reqlevel=3; 
 include("membersonly.inc.php");
 $blno9=rawurldecode($_REQUEST['blno']);

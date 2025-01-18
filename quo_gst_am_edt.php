@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 $blno=$_REQUEST['blno'];
@@ -12,4 +12,4 @@ $igst=$R1['igst'];
 }
 $gst=round($cgst+$sgst+$igst,2);
 ?>
-<input type="text" name="tgst" id="tgst" class="form-control" value="<?=$gst;?>" style="background-color:#f3f4f5;font-size:13pt;color:blue" readonly="true"> 
+<input type="text" name="tgst" id="tgst" class="form-control" value="<?php  echo $gst;?>" style="background-color:#f3f4f5;font-size:13pt;color:blue" readonly="true"> 

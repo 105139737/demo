@@ -1,7 +1,11 @@
-<?php
+<?php 
 set_time_limit(0);
 $reqlevel = 3;
 include("membersonly.inc.php");
+$start=0;
+$todt="";
+$TIN=0;
+$TOUT=0;
 $frmnm='';
 date_default_timezone_set('Asia/Kolkata');
 $dt = date('d-M-Y');
@@ -12,7 +16,7 @@ $tdt=$_REQUEST['tdt'];
 $pr_nm=$_REQUEST['prnm'];
 //$gst_no=$_REQUEST['gstin'];
 $godown=$_REQUEST['godown'];
-$brncd=$_REQUEST['brncd'];
+$brncd=$_REQUEST['brncd'] ?? "";
 
 $cat=$_REQUEST['cat'];
 $scat=$_REQUEST['scat'];
@@ -56,7 +60,7 @@ $gnm=$R['gnm'];
 <td  align="center"><b>Balance</b></td>
 
 </tr>
-<?
+<?php 
 $sl=$start;
 $c1='odd';
 $c3=0;
@@ -176,37 +180,37 @@ $TOUT+=$tout_stk;
 $CUR+=$close_stk;
 ?>
 
-<tr onclick="hist('<?php echo $pcd;?>','<?php echo $betno;?>')" style="cursor:pointer;">
-<td  align="center" ><?=$c;?></td>   
-<td  align="left" ><?=$cat1;?></td>
-<td  align="left" ><?=$scat1;?></td>
-<td  align="left" ><?=$pnm;?></td>
+<tr onclick="hist('<?php  echo $pcd;?>','<?php  echo $betno;?>')" style="cursor:pointer;">
+<td  align="center" ><?php  echo $c;?></td>   
+<td  align="left" ><?php  echo $cat1;?></td>
+<td  align="left" ><?php  echo $scat1;?></td>
+<td  align="left" ><?php  echo $pnm;?></td>
 
-<td  align="left"><?=$betno;?></td>
-<td  align="center" ><b><?=$gnm;?></b></td>
-<td  align="center" ><?=$open_stk;?></td>
-<td  align="center" ><?=$in_stk;?></td>
-<td  align="center" ><?=$out_stk;?></td>
-<td  align="center" ><?=$tin_stk;?></td>
-<td  align="center" ><?=$it;?></td>
-<td  align="center" ><?=$tout_stk;?></td>
-<td  align="center" ><b><?=$close_stk;?></b></td>
+<td  align="left"><?php  echo $betno;?></td>
+<td  align="center" ><b><?php  echo $gnm;?></b></td>
+<td  align="center" ><?php  echo $open_stk;?></td>
+<td  align="center" ><?php  echo $in_stk;?></td>
+<td  align="center" ><?php  echo $out_stk;?></td>
+<td  align="center" ><?php  echo $tin_stk;?></td>
+<td  align="center" ><?php  echo $it;?></td>
+<td  align="center" ><?php  echo $tout_stk;?></td>
+<td  align="center" ><b><?php  echo $close_stk;?></b></td>
 
 </tr>	 
-<?
+<?php 
 }
 }
 
 ?>
 <tr style="background-color:black;">
 <td colspan="6" align="right"><font color="#fff" size="3"><b>Grand Value </b></font></td>
-<td align="center"><font color="#fff" size="3"><b><span id="op"><?=$OP;?></span></b></font></td>
-<td align="center"><font color="#fff" size="3"><b><span id="IN"><?=$IN;?></span></b></font></td>
-<td align="center"><font color="#fff" size="3"><b><span id="OUT"><?=$OUT;?></span></b></font></td>
-<td align="center"><font color="#fff" size="3"><b><span id="OUT"><?=$TIN;?></span></b></font></td>
-<td align="center"><font color="#fff" size="3"><b><span id="IT"><?=$IT;?></span></b></font></td>
-<td align="center"><font color="#fff" size="3"><b><span id="IT"><?=$TOUT;?></span></b></font></td>
-<td align="center"><font color="#fff" size="3"><b><span id="CUR"><?=$CUR;?></span></b></font></td>
+<td align="center"><font color="#fff" size="3"><b><span id="op"><?php  echo $OP;?></span></b></font></td>
+<td align="center"><font color="#fff" size="3"><b><span id="IN"><?php  echo $IN;?></span></b></font></td>
+<td align="center"><font color="#fff" size="3"><b><span id="OUT"><?php  echo $OUT;?></span></b></font></td>
+<td align="center"><font color="#fff" size="3"><b><span id="OUT"><?php  echo $TIN;?></span></b></font></td>
+<td align="center"><font color="#fff" size="3"><b><span id="IT"><?php  echo $IT;?></span></b></font></td>
+<td align="center"><font color="#fff" size="3"><b><span id="IT"><?php  echo $TOUT;?></span></b></font></td>
+<td align="center"><font color="#fff" size="3"><b><span id="CUR"><?php  echo $CUR;?></span></b></font></td>
 <td align="center"></td>
 <td align="center"></td>
 </tr>

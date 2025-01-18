@@ -1,4 +1,4 @@
-<?php
+<?php 
 
 $reqlevel = 1;
 include("membersonly.inc.php");
@@ -133,7 +133,7 @@ $qttl=$R1['qttl'];
 ?>
 <html>
         <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <head>
@@ -174,9 +174,9 @@ border: 1px solid #000;
 <table border="0" width="677px">
 <tr>
 <td  align="center" colspan="2">
-<font size="7"><b><?=$comp_nm;?></b></font>
+<font size="7"><b><?php  echo $comp_nm;?></b></font>
 <br>
-<font size="4"><b><?=$comp_addr;?></b></font>
+<font size="4"><b><?php  echo $comp_addr;?></b></font>
 </td>
 </tr>
 <tr>
@@ -184,13 +184,13 @@ border: 1px solid #000;
 <font size="5"> <b><a href="corder.php" ><u>Back</u></a></b></font>
 </td>
 <td  align="left">
-<font size="5"> <b><a href="bill_new.php?blno=<?=rawurlencode($blno);?>" target="_blank"><font color="red"><u>Print</u></font></a></b></font>
+<font size="5"> <b><a href="bill_new.php?blno=<?php echo rawurlencode($blno);?>" target="_blank"><font color="red"><u>Print</u></font></a></b></font>
 </td>
 </tr>
 
 <tr>
 <td  align="center" colspan="2" >
-<font size="4" color="red"> <b> Bill No. : <?=$blno;?></b></font>
+<font size="4" color="red"> <b> Bill No. : <?php  echo $blno;?></b></font>
 </td>
 
 </tr>
@@ -203,15 +203,15 @@ border: 1px solid #000;
 </body>
 </div>
 </html>
-<?
+<?php 
 }
 else
 {
     ?>
 <Script language="JavaScript">
-alert('<? echo $err;?>');
+alert('<?php  echo $err;?>');
 document.location="corder.php";
 </script>
-<?
+<?php 
 }
 ?>

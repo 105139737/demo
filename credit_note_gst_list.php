@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include "header.php";
@@ -23,7 +23,7 @@ $fdt="01-04-".$fdt1;
 ?>
 <html>
  <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <head>
@@ -326,25 +326,25 @@ $('#gst_div').load('get_gst_comp.php?sup='+sup).fadeIn('fast');
 <br>
 <select id="sup" data-placeholder="Choose Your Supplier" name="sup"  class="form-control" tabindex="2" style="width:100%" onchange="get_gst()">
 <option value="">---Select---</option>
-<?
+<?php 
 $sql1="SELECT * FROM main_suppl  ORDER BY spn";
 $result1 = mysqli_query($conn,$sql1) or die(mysqli_error($conn));
 while($row1=mysqli_fetch_array($result1))
 {
 
 ?>
-<option value="<?=$row1['sl'];?>"><?=$row1['spn'];?></option>
-<?}?>
+<option value="<?php  echo $row1['sl'];?>"><?php  echo $row1['spn'];?></option>
+<?php }?>
 </select>
 </td>
 <td align="left" width="16%">
 <b>From  :</b>
-<input type="text" name="fdt" id="fdt" class="form-control" value="<?=$saa;?>" >
+<input type="text" name="fdt" id="fdt" class="form-control" value="<?php  echo $saa;?>" >
 </td>
 
 <td align="left" width="16%">
 <b>To  :</b>
-<input type="text" name="tdt" id="tdt" class="form-control" value="<?=$tdt;?>" >
+<input type="text" name="tdt" id="tdt" class="form-control" value="<?php  echo $tdt;?>" >
 </td>
 <td align="left" width="16%" >
 <b>Type :</b>

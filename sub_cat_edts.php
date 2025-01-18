@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 date_default_timezone_set('Asia/Kolkata');
@@ -21,7 +21,7 @@ if($nm=="" or $igst=="")
 	alert('Please Fill All The Field');
 	history.go(-1);
 	</script>
-	<?
+	<?php 
 }
 else
 {
@@ -43,7 +43,7 @@ $s=mysqli_query($conn,"select * from main_scat where nm='$nm' and igst='$igst' a
 			alert('Category & Category Wise Model HSN Update Successfully.');
 			document.location="sub_cat.php";
 			</script>
-			<?
+			<?php 
 		}
 		else
 		{
@@ -52,7 +52,7 @@ $s=mysqli_query($conn,"select * from main_scat where nm='$nm' and igst='$igst' a
 			alert('Data Already Exists');
 			history.go(-1);
 			</script>
-			<?
+			<?php 
 		}
 }
 ?>

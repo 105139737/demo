@@ -1,10 +1,10 @@
-<?
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 include "header.php";
 $yrs = date('Y');
 
-$sl1=$_REQUEST['sl'];
+$sl1=$_REQUEST['sl'] ?? "";
 
 if($sl1==''){
     $val='Submit';
@@ -16,7 +16,7 @@ else{
 }
 ?>
         <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <style type="text/css"> 
@@ -87,30 +87,30 @@ $('#custdv').load('get_assign_spid.php?spid='+spid).fadeIn('fast');
 <b>Main Sales Person :</b><br>
 <select name="spid" class="form-control" id="spid" required onchange="get_assign_spid(),show()">
 <Option value="">---Select---</option>
-<?
+<?php 
 $data1 = mysqli_query($conn,"Select * from main_sale_per order by spid");
 while ($row1 = mysqli_fetch_array($data1))
 {
 $sl=$row1['sl'];
 $spid=$row1['spid'];
 ?>
-<Option value="<?=$spid;?>" <?php if($spid==$sl1){echo 'selected';}?>><?=$spid;?></option>
-<?}?>
+<Option value="<?php  echo $spid;?>" <?php  if($spid==$sl1){echo 'selected';}?>><?php  echo $spid;?></option>
+<?php }?>
 </select>
 </td>
 <td  align="left" width="50%">
 <b>Sales Person Assign :</b><br>
 <div id="custdv">
 <select name="assign_spid[]"  multiple class="form-control" id="assign_spid" required>
-<?
+<?php 
 $data13 = mysqli_query($conn,"Select * from main_sale_per order by spid");
 while ($row13 = mysqli_fetch_array($data13))
 {
 $sl2=$row13['sl'];
 $spid2=$row13['spid'];
 ?>
-<Option value="<?=$spid2;?>"><?=$spid2;?></option>
-<?}?>
+<Option value="<?php  echo $spid2;?>"><?php  echo $spid2;?></option>
+<?php }?>
 </select>
 </div>
 </td>
@@ -119,17 +119,17 @@ $spid2=$row13['spid'];
 
 <td align="left">
 <b>Brand : </b><br>
-<select id="brand"  name="brand" class="form-control" required>
+<select id="brand"  name="brand" class="form-control" >
 <option value="" >---Select---</option>
 
-	<?
+	<?php 
 	$sq="SELECT * FROM main_catg WHERE sl>0 ORDER BY sl";
 	$res = mysqli_query($conn,$sq) or die(mysqli_error($conn));
 	while($ro=mysqli_fetch_array($res))
 	{
 	?>
-    <option value="<?=$ro['sl'];?>"><?=$ro['cnm'];?></option>
-	<?}?>
+    <option value="<?php  echo $ro['sl'];?>"><?php  echo $ro['cnm'];?></option>
+	<?php }?>
 </select>
 
     

@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3; 
 
 include("membersonly.inc.php");
@@ -26,7 +26,7 @@ if($fdt1!="" and $tdt1!=""){$todt=" and dt between '$fdt' and '$tdt'";}else{$tod
 			<td  align="center" ><b>Cancelled</b></td>
 			
 			</tr>
-			 <?
+			 <?php 
 $sln=0;
 $get= mysqli_query($conn,"select * from main_billtype where inv_typ='0' or inv_typ='2' or inv_typ='1' order by sl")or die(mysqli_error($conn));
 while ($PP=mysqli_fetch_array($get))
@@ -110,46 +110,46 @@ if($fblno!="")
 ?>
 
 <tr>
-		<td  align="center" ><?=$sln;?></td>
+		<td  align="center" ><?php  echo $sln;?></td>
 		<td  align="left" >Invoice For Outward Supply</td>
-		<td  align="center" ><?=$fblno;?></td>
-		<td  align="center" ><?=$toblno;?></td>
-		<td  align="center" ><?=$TOT;?></td>
-		<td  align="center" ><?=$Cancel;?></td>
+		<td  align="center" ><?php  echo $fblno;?></td>
+		<td  align="center" ><?php  echo $toblno;?></td>
+		<td  align="center" ><?php  echo $TOT;?></td>
+		<td  align="center" ><?php  echo $Cancel;?></td>
 			
 </tr>	
  
-<?
+<?php 
 }
 if($fblno_sr!="")
 {
 	$sln++;
 ?>
 <tr>
-		<td  align="center" ><?=$sln;?></td>
+		<td  align="center" ><?php  echo $sln;?></td>
 		<td  align="left" >Invoice For Outward Supply</td>
-		<td  align="center" ><?=$fblno_sr;?></td>
-		<td  align="center" ><?=$toblno_sr;?></td>
-		<td  align="center" ><?=$TOT_sr;?></td>
-		<td  align="center" ><?=$Cancel_sr;?></td>
+		<td  align="center" ><?php  echo $fblno_sr;?></td>
+		<td  align="center" ><?php  echo $toblno_sr;?></td>
+		<td  align="center" ><?php  echo $TOT_sr;?></td>
+		<td  align="center" ><?php  echo $Cancel_sr;?></td>
 			
 </tr>
-<?
+<?php 
 }
 if($fblno_sr_cr!="")
 {
 	$sln++;
 ?>
 <tr>
-		<td  align="center" ><?=$sln;?></td>
+		<td  align="center" ><?php  echo $sln;?></td>
 		<td  align="left" >Credit Note</td>
-		<td  align="center" ><?=$fblno_sr_cr;?></td>
-		<td  align="center" ><?=$toblno_sr_cr;?></td>
-		<td  align="center" ><?=$TOT_sr_cr;?></td>
-		<td  align="center" ><?=$Cancel_sr_cr;?></td>
+		<td  align="center" ><?php  echo $fblno_sr_cr;?></td>
+		<td  align="center" ><?php  echo $toblno_sr_cr;?></td>
+		<td  align="center" ><?php  echo $TOT_sr_cr;?></td>
+		<td  align="center" ><?php  echo $Cancel_sr_cr;?></td>
 			
 </tr>
-<?
+<?php 
 }
 }
 ?>

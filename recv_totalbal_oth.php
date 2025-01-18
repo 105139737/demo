@@ -1,9 +1,9 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 $id = $_REQUEST['cid'];
 $brncd=$_REQUEST['brncd'];
-$pno=$_REQUEST['pno'];
+$pno=$_REQUEST['pno'] ?? "";
 $tt=$_REQUEST['tt'];
 
 $T=0;
@@ -23,13 +23,13 @@ $T=$t1-$t2;
 if($tt==1)	
 {	
 ?>
-<input type="text" name="tdbal" id="tdbal"  value="<?php echo round($T,2);?>" style="background :transparent;color :red;font-weight:bold;" readonly>
-<?
+<input type="text" name="tdbal" id="tdbal"  value="<?php  echo round($T,2);?>" style="background :transparent;color :red;font-weight:bold;" readonly>
+<?php 
 }
 if($tt==2)
 {
 ?>
-<input type="text" name="tdbal" id="tdbal"  value="<?php echo round($T,2);?>" style="background :transparent;color :red;font-weight:bold;font-size:20px;" readonly>
-<?
+<input type="text" name="tdbal" id="tdbal"  value="<?php  echo round($T,2);?>" style="background :transparent;color :red;font-weight:bold;font-size:20px;" readonly>
+<?php 
 }
 ?>

@@ -1,31 +1,31 @@
-<?php
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
-$prnm=$_REQUEST[prnm];
-$unit=$_REQUEST[unit];
-$usl=$_REQUEST[usl];
-$qnty=$_REQUEST[qnty];
-$mrp=$_REQUEST[mrp];
-$total=$_REQUEST[total];
-$disp=$_REQUEST[disp];
-$disa=$_REQUEST[disa];
-$ldis=$_REQUEST[ldis];
-$ldisa=$_REQUEST[ldisa];
-$lttl=$_REQUEST[lttl];
-$fst=$_REQUEST[fst];
-$tst=$_REQUEST[tst];
-$cgst_rt=$_REQUEST[cgst_rt];
-$sgst_rt=$_REQUEST[sgst_rt];
-$igst_rt=$_REQUEST[igst_rt];
-$cgst_am=$_REQUEST[cgst_am];
-$sgst_am=$_REQUEST[sgst_am];
-$igst_am=$_REQUEST[igst_am];
-$net_am=$_REQUEST[net_amm];
-$bcd=$_REQUEST[bcd];
-$rate=$_REQUEST[rate];
-$blno=$_REQUEST[blno];
-$tsl=$_REQUEST[tsl];
-$betno=$_REQUEST[betno];
+$prnm=$_REQUEST['prnm'];
+$unit=$_REQUEST['unit'];
+$usl=$_REQUEST['usl'];
+$qnty=$_REQUEST['qnty'];
+$mrp=$_REQUEST['mrp'];
+$total=$_REQUEST['total'];
+$disp=$_REQUEST['disp'];
+$disa=$_REQUEST['disa'];
+$ldis=$_REQUEST['ldis'];
+$ldisa=$_REQUEST['ldisa'];
+$lttl=$_REQUEST['lttl'];
+$fst=$_REQUEST['fst'];
+$tst=$_REQUEST['tst'];
+$cgst_rt=$_REQUEST['cgst_rt'];
+$sgst_rt=$_REQUEST['sgst_rt'];
+$igst_rt=$_REQUEST['igst_rt'];
+$cgst_am=$_REQUEST['cgst_am'];
+$sgst_am=$_REQUEST['sgst_am'];
+$igst_am=$_REQUEST['igst_am'];
+$net_am=$_REQUEST['net_amm'];
+$bcd=$_REQUEST['bcd'];
+$rate=$_REQUEST['rate'];
+$blno=$_REQUEST['blno'] ?? "";
+$tsl=$_REQUEST['tsl'];
+$betno=$_REQUEST['betno'];
 $ssl="";
 if($tsl!=""){$ssl=" and sl!='$tsl'";}
 $err="";
@@ -70,7 +70,7 @@ $('.upd').html('<input type="button" value="ADD" onclick="add()" style="padding:
 reset();
 
 </script>
-<?
+<?php 
 }
 ?>
 <script>
@@ -78,15 +78,15 @@ tmppr1();
 reset();
 
 </script>
-<?
+<?php 
 }
 else
 {
 ?>
 <script>
-alert('<?=$err;?>');
+alert('<?php  echo $err;?>');
 tmppr1();
 </script>
-<?	
+<?php 	
 }
 ?>

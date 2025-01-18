@@ -127,8 +127,8 @@ $igst1=0;
 $cgst1=0;
 $sgst1=0;
 $ttpcs=0;
-$tnet_am="";
-$tprofit="";
+$tnet_am=0;
+$tprofit=0;
 $ttotal=0;
 $tprofit=0;
 $tprofitp=0;
@@ -326,7 +326,7 @@ $profitp=round((($profit/$total)*100)/$pcs,2);
 		$asd++;
 	}
 		 ?>
-		<tr title="<?=$pcd." S Sl".$sl;?>">
+		<tr >
 			<td  align="center"  ><?=$sln;?></td>
 		<td  align="center" ><?=$dt;?></td>
 		<td  align="center" ><a href="#" onclick="view('<?=$blno;?>')" title="Print"><?=$blno;?></a></td>
@@ -350,10 +350,10 @@ $profitp=round((($profit/$total)*100)/$pcs,2);
 
 	<?
 
-$tnet_am+=$net_am;
-$ttotal+=$total;
-$tprofit+=$profit;
-$tprofitp+=$profitp;
+$tnet_am+=(float)$net_am;
+$ttotal+=(float)$total;
+$tprofit+=(float)$profit;
+$tprofitp+=(float)$profitp;
 
 }
 

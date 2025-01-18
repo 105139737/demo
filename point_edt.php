@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include "header.php";
@@ -14,7 +14,7 @@ while($r=mysqli_fetch_array($qr))
 <html>
 <head>
         <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <style type="text/css"> 
@@ -159,7 +159,7 @@ return false;
             <td  align="left">
 <select id="pcd" name="pcd" class="sc" >
 		<option value="">---Select---</option>
-		<?
+		<?php 
 			$query6="select * from  ".$DBprefix."product order by pnm";
 			$result5 = mysqli_query($conn,$query6);
 			while($row=mysqli_fetch_array($result5))
@@ -181,8 +181,8 @@ while ($row1 = mysqli_fetch_array($data2))
 $brand=$row1['brand'];
 }
 				?>
-			<option value="<?=$psl;?>" <?if($pcd==$psl)  { echo 'selected';}?>><?=$pnm;?> - <?=$cnm;?> - <?=$brand;?> </option>
-				<?
+			<option value="<?php  echo $psl;?>" <?php if($pcd==$psl)  { echo 'selected';}?>><?php  echo $pnm;?> - <?php  echo $cnm;?> - <?php  echo $brand;?> </option>
+				<?php 
 				}
 				?>
 			</select>
@@ -190,14 +190,14 @@ $brand=$row1['brand'];
        
 			 <td  align="right" style="padding-top:17px"><b>Piece per Point :</b></td>
             <td  align="left">
-			<input type="text" class="form-control" id="point"  name="point" value="<?=$point;?>" placeholder="Piece per Point... "  onkeypress="return check(event)"  required>
+			<input type="text" class="form-control" id="point"  name="point" value="<?php  echo $point;?>" placeholder="Piece per Point... "  onkeypress="return check(event)"  required>
 			</td>
 			
 
 <!--			<td  align="right" style="padding-top:17px"><b></b></td>
             <td  align="left">
 			</td>-->
-<input type="hidden" class="form-control" id="psl"  name="psl" value="<?=$sl;?>">
+<input type="hidden" class="form-control" id="psl"  name="psl" value="<?php  echo $sl;?>">
 
 <td  align="right"  style="padding-right: 8px;">
 <input type="submit" class="btn btn-primary" id="Button1" name="" value="Update" >

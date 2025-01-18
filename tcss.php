@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 set_time_limit(0);
@@ -6,7 +6,7 @@ set_time_limit(0);
 $fdt=$_REQUEST['fdt'];
 $tdt=$_REQUEST['tdt'];
 $brncd=$_REQUEST['brncd'];
-$typ=$_REQUEST['typ'];
+$typ=$_REQUEST['typ'] ?? "";
 
 if($brncd!=""){ $brncd1=" and bcd='$brncd'";}else{$brncd1="";}
 if($brncd!=""){ $brcd1=" and brncd='$brncd'";}else{$brcd1="";}
@@ -25,7 +25,7 @@ header("Content-type: application/vnd.ms-excel");
 header("Content-Disposition: attachment; filename=$file"); 
 }
 ?>
-<table <?php if($typ!=1){?> border="0" width="860px"<?php } else{?> border="1"  <?php }?>  class="table table-hover table-striped table-bordered">
+<table <?php  if($typ!=1){?> border="0" width="860px"<?php  } else{?> border="1"  <?php  }?>  class="table table-hover table-striped table-bordered">
 <thead>
 <tr>
 <td align="left" ><b>Date</b></td>
@@ -35,8 +35,9 @@ header("Content-Disposition: attachment; filename=$file");
 <td align="right" <b>INV Value</b></td>
 <td align="right"<b>TCS Amount</b></td>
 </tr>
-<?php
+<?php 
 $cnt=0;
+$tcsam1=0;
 $qrrr= mysqli_query($conn,"select * from main_billing where sl>0 and tcsam>0 $todts  $brncd1");
 while($row1=mysqli_fetch_array ($qrrr))
 {
@@ -59,22 +60,22 @@ $pan=$rowd['pan'];
 
 ?>
 <tr>
-<td align="left"><?php echo $dt;?></td>
-<td align="left"><?php echo $nm;?></td>
-<td align="left"><?php echo $pan;?></td>
-<td align="left"><?php echo $blno;?></td>
-<td align="right"><?php echo $amm;?></td>
-<td align="right"><?php echo $tcsam;?></td>
+<td align="left"><?php  echo $dt;?></td>
+<td align="left"><?php  echo $nm;?></td>
+<td align="left"><?php  echo $pan;?></td>
+<td align="left"><?php  echo $blno;?></td>
+<td align="right"><?php  echo $amm;?></td>
+<td align="right"><?php  echo $tcsam;?></td>
 </tr>
-<?
+<?php 
 $tcsam1+=$tcsam;
 }
 ?>
 <tr>
 
 <td align="right" colspan="5"><b>Total  : </b></td>
-<td align="right"><?php echo $tcsam1;?></td>
+<td align="right"><?php  echo $tcsam1;?></td>
 </tr>
-<?
+<?php 
 echo "</table>";	
 ?>

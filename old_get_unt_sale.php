@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 $prnm=$_REQUEST['prnm'];
@@ -17,11 +17,11 @@ while($rowi=mysqli_fetch_array($geti))
 }
 ?>
 <select id="unit" name="unit" class="sc" tabindex="14" style="padding:3px;width:100%">
-<?if($sun!=''){?><option value="sun" <?if($unit_nm=="sun"){?> selected <? } ?>><?=$sun;?></option><?}?>
-<?if($mun!=''){?><option value="mun" <?if($unit_nm=="mun"){?> selected <? } ?>><?=$mun;?></option><?}?>
-<?if($bun!=''){?><option value="bun" <?if($unit_nm=="bun"){?> selected <? } ?>><?=$bun;?></option><?}?>
+<?php if($sun!=''){?><option value="sun" <?php if($unit_nm=="sun"){?> selected <?php  } ?>><?php  echo $sun;?></option><?php }?>
+<?php if($mun!=''){?><option value="mun" <?php if($unit_nm=="mun"){?> selected <?php  } ?>><?php  echo $mun;?></option><?php }?>
+<?php if($bun!=''){?><option value="bun" <?php if($unit_nm=="bun"){?> selected <?php  } ?>><?php  echo $bun;?></option><?php }?>
 </select>
-<input type="hidden" value="<?=$sl?>" name="usl" id="usl">
+<input type="hidden" value="<?php  echo $sl?>" name="usl" id="usl">
 <script>
 get_stock();
 </script>

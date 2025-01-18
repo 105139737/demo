@@ -1,10 +1,10 @@
-<?
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 include "header.php";
 ?>
         <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <style type="text/css"> 
@@ -93,7 +93,7 @@ document.location='brand_assign_edt.php?tm='+sl;
             <td  align="left" width="35%">
             <select name="slp" class="form-control" size="1" id="slp" tabindex="8"  required onchange="show()">
 <Option value="">---Select---</option>
-<?
+<?php 
 $data1 = mysqli_query($conn,"Select * from main_sale_per order by spid");
 
 		while ($row1 = mysqli_fetch_array($data1))
@@ -101,8 +101,8 @@ $data1 = mysqli_query($conn,"Select * from main_sale_per order by spid");
 	$sl=$row1['sl'];
 	$spid=$row1['spid'];
 ?>
-<Option value="<?=$spid;?>"><?=$spid;?></option>
-	<?}?>
+<Option value="<?php  echo $spid;?>"><?php  echo $spid;?></option>
+	<?php }?>
 </select>
 			</td>
 			
@@ -113,7 +113,7 @@ $data1 = mysqli_query($conn,"Select * from main_sale_per order by spid");
             <td  align="left" width="">
             <select name="cat[]" multiple class="form-control" size="1" id="cat" tabindex="8"  required>
 <Option value="ALL">ALL</option>
-<?
+<?php 
 $data13 = mysqli_query($conn,"Select * from main_catg");
 
 		while ($row13 = mysqli_fetch_array($data13))
@@ -121,8 +121,8 @@ $data13 = mysqli_query($conn,"Select * from main_catg");
 	$sl3=$row13['sl'];
 	$cnm=$row13['cnm'];
 ?>
-<Option value="<?=$sl3;?>"><?=$cnm;?></option>
-	<?}?>
+<Option value="<?php  echo $sl3;?>"><?php  echo $cnm;?></option>
+	<?php }?>
 </select>
 			</td>
 

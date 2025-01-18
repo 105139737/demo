@@ -1,4 +1,4 @@
-<?php
+<?php 
 
 /**
  * @author Onnet Solution
@@ -56,18 +56,18 @@ if($err=="")
 temp();
   $('#prnm').trigger('chosen:open');
 </script>
-<?
+<?php 
 }
 else
 {
 ?>
 <script>
-alert('<?=$err;?>');
+alert('<?php  echo $err;?>');
 temp();
 
   $('#prnm').trigger('chosen:open');
 
 </script>
-<?
+<?php 
 }
 ?>

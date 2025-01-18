@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3; 
 
 include("membersonly.inc.php");
@@ -6,7 +6,7 @@ $fdt=$_REQUEST['fdt'];
 $tdt=$_REQUEST['tdt'];
 $snm=rawurldecode($_REQUEST['snm']);
 $pnm=rawurldecode($_REQUEST['pnm']);
-$brncd=$_REQUEST[brncd];if($brncd==""){$brncd1="";}else{$brncd1=" and bcd='$brncd'";}
+$brncd=$_REQUEST['brncd'] ?? "";if($brncd==""){$brncd1="";}else{$brncd1=" and bcd='$brncd'";}
 $fdt=date('Y-m-d', strtotime($fdt));
 $tdt=date('Y-m-d', strtotime($tdt));
 
@@ -81,7 +81,7 @@ $dis1=0;
 			
 		
 		     </tr>
-			 <?
+			 <?php 
 		$sln=0;
 		$tota=0;
 $tq=0;
@@ -161,25 +161,25 @@ $brand=$row1['brand'];
 		$asd++;
 	}
  ?>
-		   <tr title="<?=$pcd." S Sl".$sl;?>">
-		   <?if($asd==1){?>
+		   <tr title="<?php  echo $pcd." S Sl".$sl;?>">
+		   <?php if($asd==1){?>
 		    <td  align="center"  >
-			<?=$sln;?>
+			<?php  echo $sln;?>
 			</td>
 			<td  align="center"  >
-		<a href="#" onclick="retn('<?=$blno;?>')" title="Return"><i class="fa fa-times"></i> <font color="red">Return</font></a>
+		<a href="#" onclick="retn('<?php  echo $blno;?>')" title="Return"><i class="fa fa-times"></i> <font color="red">Return</font></a>
 
 			</td>
 			 <td  align="center" >
-			<?=$dt;?>
+			<?php  echo $dt;?>
 			</td>
 			<td  align="center" >
-				<a href="#" onclick="view('<?=$blno;?>')" title="Print"><?=$blno;?></a>
+				<a href="#" onclick="view('<?php  echo $blno;?>')" title="Print"><?php  echo $blno;?></a>
 			</td>
             <td  align="left" >
-			<?=$nm;?>
+			<?php  echo $nm;?>
 			</td>
-		   <?}
+		   <?php }
 		   else
 		   {
 			?>
@@ -199,30 +199,30 @@ $brand=$row1['brand'];
 		
 			</td> 
 			
-		   <?
+		   <?php 
 		   }
 		   ?>
 		   
-			<td  align="left" title="<?=$pcd;?>" >
-			<?=$pnm;?> - <?=$cnm;?> - <?=$brand;?>
+			<td  align="left" title="<?php  echo $pcd;?>" >
+			<?php  echo $pnm;?> - <?php  echo $cnm;?> - <?php  echo $brand;?>
 			</td>
 			<td  align="center" >
-			<b><?=$point;?></b>
+			<b><?php  echo $point;?></b>
 			</td>
 			<td  align="center" >
-			<b><?=$pty1;?></b>
+			<b><?php  echo $pty1;?></b>
 			</td>
 			<td  align="right" >
-			<?=sprintf('%0.2f',$prc);?>
+			<?php echo sprintf('%0.2f',$prc);?>
 			</td>
 			<td  align="center" >
-			<?=$pdis;?> %
+			<?php  echo $pdis;?> %
 			</td>
 			<td  align="right" >
-			<?=sprintf('%0.2f',$fprc);?>
+			<?php echo sprintf('%0.2f',$fprc);?>
 			</td>
 			<td  align="right" >
-			<?=sprintf('%0.2f',$ttl);?>
+			<?php echo sprintf('%0.2f',$ttl);?>
 			</td>
 			<td  align="center" >
 			
@@ -240,7 +240,7 @@ $brand=$row1['brand'];
 		
 		     </tr>	 
 			 
-<?
+<?php 
 $qtyt=$pty1+$qtyt;
 $tpoint=$tpoint+$point;
 $tamm=$ttl+$tamm;
@@ -257,14 +257,14 @@ if($qtyt!=0)
 <td align="center">
 <font size="3">
 <b>
-<?=$tpoint;?>
+<?php  echo $tpoint;?>
 </b>
 </font>
 </td>
 <td align="center">
 <font size="3">
 <b>
-<?=$qtyt;?>
+<?php  echo $qtyt;?>
 </b>
 </font>
 </td>
@@ -277,35 +277,35 @@ if($qtyt!=0)
 
 <td align="right">
 <font size="3">
-<b><?=sprintf('%0.2f',$tamm);?></b>
+<b><?php echo sprintf('%0.2f',$tamm);?></b>
 </font>
 </td>
 <td align="right">
 <font size="3">
-<b><?=$car;?></b>
+<b><?php  echo $car;?></b>
 </font>
 </td>
 <td align="right">
 <font size="3">
-<b><?=$dis;?></b>
+<b><?php  echo $dis;?></b>
 </font>
 </td>
 <td align="right">
 <font size="3">
-<b><?=$vatamm;?></b>
+<b><?php  echo $vatamm;?></b>
 </font>
 </td>
 <td align="right">
 <font size="3" color="red">
 <b>
-<?=sprintf('%0.2f', $tamm+$car+$vatamm-$dis);?>
+<?php echo sprintf('%0.2f', $tamm+$car+$vatamm-$dis);?>
 
 </b>
 </font>
 </td>
 
 </tr>
-<?
+<?php 
 
 
 }
@@ -321,11 +321,11 @@ $ttpoint=$tpoint+$ttpoint;
 </td>
 <td align="right">
 <b>
-<?=$ttpoint;?>
+<?php  echo $ttpoint;?>
 </b>
 <td align="right">
 <b>
-<?=$tq;?>
+<?php  echo $tq;?>
 </b>
 </td>
 <td>
@@ -336,29 +336,29 @@ $ttpoint=$tpoint+$ttpoint;
 </td>
 <td align="right">
 <b>
-<?=$tamm1;?>
+<?php  echo $tamm1;?>
 </b>
 </td>
 <td align="right">
 <b>
-<?=$car1;?>
+<?php  echo $car1;?>
 </b>
 </td>
 <td align="right">
 <b>
-<?=$dis1;?>
+<?php  echo $dis1;?>
 </b>
 </td>
 <td align="right">
 <b>
 
-<?=$vatamm1;?>
+<?php  echo $vatamm1;?>
 </b>
 </td>
 <td  align="right" >
 		<font size="3" color="red">
 <b>
-<?=sprintf('%0.2f', $tamm1+$car1+$vatamm1-$dis1);?>
+<?php echo sprintf('%0.2f', $tamm1+$car1+$vatamm1-$dis1);?>
 
 </b>
 </font>

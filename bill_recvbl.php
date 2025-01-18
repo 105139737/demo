@@ -1,14 +1,14 @@
-<?php 
+<?php  
 $reqlevel = 1;
 include("membersonly.inc.php");
 include "header.php";
 $fdt=date('Y-m-d');
-$typ=$_REQUEST['typ'];
-$tt=$_REQUEST['tt'];
+$typ=$_REQUEST['typ'] ?? "";
+$tt=$_REQUEST['tt'] ?? "";
 
 ?>
 <div class="wrapper row-offcanvas row-offcanvas-left">
-<?
+<?php 
 include "left_bar.php";
 ?>
 <script src="js/plugins/input-mask/jquery.inputmask.js" type="text/javascript"></script>
@@ -117,7 +117,7 @@ function bill_recv_edit(sll)
 <body onload="show()">
 <form method="post" action="bill_recvbls.php" id="form1" name="form1">      
 <input type="hidden" class="form-control"  tabindex="1"  name="bsl" id="bsl" >              
-<input type="hidden" class="form-control"  value="<?php echo $typ;?>" tabindex="1"  name="typ" id="typ" >              
+<input type="hidden" class="form-control"  value="<?php  echo $typ;?>" tabindex="1"  name="typ" id="typ" >              
 <div class="box box-success" >
 <table border="0" class="table table-hover table-striped table-bordered">
 <tr>
@@ -125,15 +125,15 @@ function bill_recv_edit(sll)
 <b>Branch :</b>
 <select name="brnch" id="brnch" class="form-control"  tabindex="1"  onchange="show()">
 <option value="">---ALL---</option>		
-<?
+<?php 
 $dsql=mysqli_query($conn,"select * from main_branch order by sl") or die (mysqli_error($conn));
 while($erow=mysqli_fetch_array($dsql))
 {
 $bsl=$erow['sl'];
 $bnm=$erow['bnm'];
 ?>
-<option value="<?php echo $bsl;?>"><?php echo $bnm;?></option>
-<?
+<option value="<?php  echo $bsl;?>"><?php  echo $bnm;?></option>
+<?php 
 }
 ?>		
 </select>
@@ -142,15 +142,15 @@ $bnm=$erow['bnm'];
 <b>Sales Person : </b>
 <select name="sper" id="sper" class="form-control"  tabindex="1"  onchange="show()" >
 <option value="">---ALL---</option>
-<?
+<?php 
 $dsql1=mysqli_query($conn,"select * from main_sale_per order by sl") or die (mysqli_error($conn));
 while($erow1=mysqli_fetch_array($dsql1))
 {
 $spsl=$erow1['sl'];
 $spid=$erow1['spid'];
 ?>
-<option value="<?php echo $spid;?>"><?php echo $spid;?></option>
-<?
+<option value="<?php  echo $spid;?>"><?php  echo $spid;?></option>
+<?php 
 }
 ?>
 </select>
@@ -165,15 +165,15 @@ $spid=$erow1['spid'];
 <b>Brand :</b>
 <select name="brand" id="brand" class="form-control"  tabindex="1"  onchange="show()" >
 <option value="">---ALL---</option>
-<?
+<?php 
 $dsql2=mysqli_query($conn,"select * from main_catg order by sl") or die (mysqli_error($conn));
 while($erow2=mysqli_fetch_array($dsql2))
 {
 $bsl=$erow2['sl'];
 $cnm=$erow2['cnm'];
 ?>
-<option value="<?php echo $cnm;?>"><?php echo $cnm;?></option>
-<?
+<option value="<?php  echo $cnm;?>"><?php  echo $cnm;?></option>
+<?php 
 }
 ?>
 </select>
@@ -182,15 +182,15 @@ $cnm=$erow2['cnm'];
 <b>Party :</b><br>
 <select name="party" id="party" class="form-control"  tabindex="1"  onchange="show()" >
 <option value="">---ALL---</option>
-<?
+<?php 
 $dsql1=mysqli_query($conn,"select * from main_cust order by sl") or die (mysqli_error($conn));
 while($erowt=mysqli_fetch_array($dsql1))
 {
 $psl=$erowt['sl'];
 $custnm=$erowt['nm'];
 ?>
-<option value="<?php echo base64_encode($psl."@".$custnm);?>"><?php echo $custnm;?></option>
-<?
+<option value="<?php  echo base64_encode($psl."@".$custnm);?>"><?php  echo $custnm;?></option>
+<?php 
 }
 ?>
 </select>

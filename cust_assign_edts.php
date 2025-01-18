@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 date_default_timezone_set('Asia/Kolkata');
@@ -7,7 +7,7 @@ $edtm=date('y-m-d H:i:s a');
 $eby=$user_currently_loged;
 
 $x=$_POST['sl'];
-$cust=$_POST['cust'];
+$cust=$_POST['cust'] ?? "";
 $spid=$_POST['spid'];
 	
 if($spid=="" or $cust=="")
@@ -17,7 +17,7 @@ if($spid=="" or $cust=="")
 	alert('Please Fill All The Field');
 	history.go(-1);
 	</script>
-	<?
+	<?php 
 }
 else
 {
@@ -47,7 +47,7 @@ for($i=0;$i<$cnt;$i++)
 			alert('Update Successfully. Thank You');
 			document.location="cust_assign.php";
 			</script>
-			<?
+			<?php 
 		}
 		else
 		{
@@ -56,7 +56,7 @@ for($i=0;$i<$cnt;$i++)
 			alert('Data Already Exists');
 			history.go(-1);
 			</script>
-			<?
+			<?php 
 		}
 }
 	

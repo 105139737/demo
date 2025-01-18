@@ -1,4 +1,4 @@
-<?
+<?php 
 include "config.php";
 $cnm=rawurldecode($_REQUEST[cnm]);
 
@@ -11,4 +11,4 @@ $d=$R['addr'];
 }
 ?>
 
-<input type="tex" class="form-control" id="addr" name="addr" value="<?=$d;?>" tabindex="4" size="158" placeholder ="Enter Supplier Address">
+<input type="tex" class="form-control" id="addr" name="addr" value="<?php  echo $d;?>" tabindex="4" size="158" placeholder ="Enter Supplier Address">

@@ -1,8 +1,8 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include "header.php";
-$sl=$_REQUEST[sl];		
+$sl=$_REQUEST['sl'];		
 $data= mysqli_query($conn,"SELECT * FROM main_drcr where sl='$sl'");
 while ($row = mysqli_fetch_array($data))
 {
@@ -16,7 +16,7 @@ while ($row = mysqli_fetch_array($data))
 	$amm= $row['amm'];
 	$nrtn= $row['nrtn'];
 	$it= $row['it'];
-	$bsl= $row['bsl'];
+	$bsl= $row['bsl'] ?? "";
 	$sid= $row['sid'];
 	$bill_typ= $row['bill_typ'];
 	$brncd= $row['brncd'];
@@ -38,7 +38,7 @@ $dt=date('d-M-Y', strtotime($dt));
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
  <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <head>
@@ -297,7 +297,7 @@ if (input.files && input.files[0]) {
 <link href="style.css" rel="stylesheet" type="text/css" />
 <link rel="shortcut icon" href="favicon.ico"/>
 </head>
-<?
+<?php 
 /*$query51="select * from ".$DBprefix."drcr order by vno";
 $result51 = mysqli_query($conn,$query51);
 while($rows=mysqli_fetch_array($result51))
@@ -340,10 +340,10 @@ $typ=$row['inv_typ'];
                 </section>
 				   <section class="content">
 <form name="Form1" method="post" action="jrnl_forms.php" id="Form1" enctype="multipart/form-data">
-<input type="hidden" name="updt" id="updt" value="<?=$sl;?>" >
+<input type="hidden" name="updt" id="updt" value="<?php  echo $sl;?>" >
 <input type="hidden" name="flnm1" id="flnm1" value="1" >
-<input type="hidden" name="btyp" id="btyp" value="<? echo $typ; ?>" >
-<input type="hidden" class="form-control"  value="<?php echo $bill_typ;?>" tabindex="1"  name="bsl" id="bsl" >              
+<input type="hidden" name="btyp" id="btyp" value="<?php  echo $typ; ?>" >
+<input type="hidden" class="form-control"  value="<?php  echo $bill_typ;?>" tabindex="1"  name="bsl" id="bsl" >              
 
 
  <select  name="it" id="it" class="form-control" style="display:none">
@@ -354,13 +354,13 @@ $typ=$row['inv_typ'];
 <select  name="proj" id="proj" class="form-control" style="display:none">
 
 <option value="0"> NA </option>
-<?php 
+<?php  
 $get = mysqli_query($conn,"SELECT * FROM main_project") or die(mysqli_error($conn));
 while($row = mysqli_fetch_array($get))
 {
 ?>
-<option value="<?=$row['sl']?>"><?=$row['nm']?></option>
-<?php 
+<option value="<?php  echo $row['sl']?>"><?php  echo $row['nm']?></option>
+<?php  
 } 
 ?>
 </select>
@@ -374,12 +374,12 @@ while($row = mysqli_fetch_array($get))
   <tr>
     <td align="right" width="10%"><font color="red">*</font>Date :</td>
     <td align="left" width="40%">
-	<input type="text" name="dt" id="dt" class="form-control"  value="<? echo $dt; ?>" onchange="chk_dt('<?=date('d-M-Y')?>')">
+	<input type="text" name="dt" id="dt" class="form-control"  value="<?php  echo $dt; ?>" onchange="chk_dt('<?php echo date('d-M-Y')?>')">
 	</td>
 	<td align="right" width="10%"><font color="red">*</font>Branch:</td>
     <td align="left" width="40%">
     <select name="brncd" class="form-control" size="1" id="brncd"  onchange="gtcrvl1();gtdrvl()" >
-<?
+<?php 
 if($user_current_level<0)
 {
 $query="Select * from main_branch where sl='$brncds'";
@@ -395,8 +395,8 @@ $slb=$R['sl'];
 $bnm=$R['bnm'];
 
 ?>
-<option value="<? echo $slb;?>" <?if($slb==$brncd){echo 'selected';}?>><? echo $bnm;?></option>
-<?
+<option value="<?php  echo $slb;?>" <?php if($slb==$brncd){echo 'selected';}?>><?php  echo $bnm;?></option>
+<?php 
 }
 ?>
 </select> 
@@ -422,13 +422,13 @@ $bnm=$R['bnm'];
 	
 	 <select  name="cldgr" id="cldgr" class="sc" onchange="gtcrvl1(),sia(this.value),show_div(this.value)">
 							<option value="">-- Select --</option>
-							<?php 
+							<?php  
 							$get = mysqli_query($conn,"SELECT * FROM main_ledg where gcd!='3' and gcd!='5' and sl>0 and sl!=4  order by nm") or die(mysqli_error($conn));
 							while($row = mysqli_fetch_array($get))
 							{
 							?>
-								<option value="<?=$row['sl']?>" <?=$row['sl'] == $cldgr? 'selected' : '' ?>><?=$row['nm']?></option>
-							<?php 
+								<option value="<?php  echo $row['sl']?>" <?php  echo $row['sl'] == $cldgr? 'selected' : '' ?>><?php  echo $row['nm']?></option>
+							<?php  
 							} 
 							?>
 	</select>
@@ -440,13 +440,13 @@ $bnm=$R['bnm'];
 	
       <select  name="dldgr" id="dldgr" class="sc" onchange="gtdrvl(),sia1(this.value),show_div1(this.value)">
 							<option value="">-- Select --</option>
-							<?php 
+							<?php  
 							$get = mysqli_query($conn,"SELECT * FROM main_ledg where gcd!='3' and gcd!='4' and gcd!='5' and sl>0 and sl!=4 order by nm") or die(mysqli_error($conn));
 							while($row = mysqli_fetch_array($get))
 							{
 							?>
-								<option value="<?=$row['sl']?>" <?=$row['sl'] == $dldgr ? 'selected' : '' ?>><?=$row['nm']?></option>
-							<?php 
+								<option value="<?php  echo $row['sl']?>" <?php  echo $row['sl'] == $dldgr ? 'selected' : '' ?>><?php  echo $row['nm']?></option>
+							<?php  
 							} 
 							?>
 	</select>
@@ -505,30 +505,30 @@ $bnm=$R['bnm'];
     <td align="left" >
 	 <select  name="paymtd" id="paymtd" class="form-control">
 							<option value="">-- Select --</option>
-							<?php 
+							<?php  
 							$get = mysqli_query($conn,"SELECT * FROM ac_paymtd") or die(mysqli_error($conn));
 							while($row = mysqli_fetch_array($get))
 							{
 							?>
-								<option value="<?=$row['sl']?>" <?=$row['sl'] == $paymtd ? 'selected' : '' ?>><?=$row['mtd']?></option>
-							<?php 
+								<option value="<?php  echo $row['sl']?>" <?php  echo $row['sl'] == $paymtd ? 'selected' : '' ?>><?php  echo $row['mtd']?></option>
+							<?php  
 							} 
 							?>
 						</select>
 	</td>
 	<td align="right" >Ref. No. :</td>
     <td align="left" >
-       <input type="text" name="refno" id="refno" value="<?=$mtddtl;?>" class="form-control">
+       <input type="text" name="refno" id="refno" value="<?php  echo $mtddtl;?>" class="form-control">
 	</td>   
   </tr>
   <tr >
     <td align="right" ><font color="red">*</font>Amount :</td>
     <td align="left" >
-	 <img src="images\rp.png" height="15px"><input type="text" name="amm" value="<?=$amm;?>" id="amm" size="35">
+	 <img src="images\rp.png" height="15px"><input type="text" name="amm" value="<?php  echo $amm;?>" id="amm" size="35">
 	</td>
 	<td align="right" ><font color="red">*</font>Narration :</td>
     <td align="left" >
-  <input type="text" name="nrtn" id="nrtn" class="form-control" value="<?=$nrtn;?>">
+  <input type="text" name="nrtn" id="nrtn" class="form-control" value="<?php  echo $nrtn;?>">
 	</td>   
   </tr>
 <tr>
@@ -578,8 +578,8 @@ $bnm=$R['bnm'];
 <script src="chosen.jquery.js" type="text/javascript"></script>
 <script type="text/javascript">
 
-sia('<?=$cldgr;?>','<?=$sid;?>');
-sia1('<?=$dldgr;?>','<?=$sid;?>');
+sia('<?php  echo $cldgr;?>','<?php  echo $sid;?>');
+sia1('<?php  echo $dldgr;?>','<?php  echo $sid;?>');
 
   $('#ledg').chosen({
   no_results_text: "Oops, nothing found!",

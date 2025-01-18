@@ -1,8 +1,8 @@
-<?PHP
+<?php 
 $reqlevel = 1;
 // get the cookievars if they exist
-$rememberCookieUname = $_COOKIE["rememberCookieUname"];
-$rememberCookiePassword = $_COOKIE["rememberCookiePassword"];
+$rememberCookieUname = $_COOKIE["rememberCookieUname"] ?? "";
+$rememberCookiePassword = $_COOKIE["rememberCookiePassword"] ?? "";
 
 // the security header which should be included in al memberpaga's
 // first we include the configuration file which contains the database data
@@ -11,9 +11,11 @@ include("config.php");
 
 // tell we want to work with sessions
 session_start();
-$last_login = $_SESSION[lastlog];
+$last_login = $_SESSION['lastlog'] ?? "";
+$username=$_SESSION['id'] ?? "";
+$pass=$_SESSION['pass'] ?? "";
 // the $HTTP_SESSION_VARS[id] in this query indicates that we want to retrieve the username from the session.
-$query = "Select * from " . $DBprefix . "signup where username='" . $_SESSION[id] . "' And password = '" . $_SESSION[pass] . "' and logstat='1'";
+$query = "Select * from " . $DBprefix . "signup where username='" . $username . "' And password = '" . $pass . "' and logstat='1'";
 $result = mysqli_query($conn, $query);
 
 // if there are results check it the accesslevel is high enough. If there aren't results tell the user to log-in and stop (die) after that.
@@ -89,7 +91,7 @@ $user_currently_loged_plain = $_SESSION["id"];
 date_default_timezone_set('Asia/Kolkata');
 $lastactivetime = date("Y-m-d h:i:s");
 $lastpage = full_path();
-$query = "UPDATE " . $DBprefix . "signup Set logstat='1',lastactivetime='$lastactivetime',lastpage='$lastpage' where username='" . $_SESSION[id] . "'";
+$query = "UPDATE " . $DBprefix . "signup Set logstat='1',lastactivetime='$lastactivetime',lastpage='$lastpage' where username='" . $_SESSION['id'] . "'";
 $result = mysqli_query($conn, $query);
 
 if ($user_current_level < 0) {
@@ -333,7 +335,8 @@ function get_permission($dt, $dt_limit)
 }
 $max_execution_time = 0;
 $max_time_error = "Sorry,";
-$file_name = basename(parse_url($_SERVER['HTTP_REFERER'], PHP_URL_PATH));
+$HTTP_REFERER=$_SERVER['HTTP_REFERER']?? "";
+$file_name = basename(parse_url($HTTP_REFERER, PHP_URL_PATH));
 
 $main_menu = mysqli_query($conn, "select * from main_menu where fnm='$file_name' ") or die(mysqli_error($conn));
 while ($row1 = mysqli_fetch_array($main_menu)) {
@@ -351,13 +354,13 @@ if ($max_execution_time > 0) {
 ?>
 
 				<center>
-					<font color="red" size="5"><?php echo $a['message']; ?></font>
+					<font color="red" size="5"><?php  echo $a['message']; ?></font>
 				</center>
 
 				<script>
-					alert('<?php echo  $a['message']; ?>');
+					alert('<?php  echo  $a['message']; ?>');
 				</script>
-<?php
+<?php 
 			}
 		}
 	}

@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3; 
  
 include("membersonly.inc.php");
@@ -33,7 +33,7 @@ Product Name
 Bill No. 
 </td>
 </tr>
-<?
+<?php 
 $l=0;
 $data1= mysqli_query($conn,"select * from  main_trns where sl>0")or die(mysqli_error($conn));
 while ($row1 = mysqli_fetch_array($data1))
@@ -72,33 +72,33 @@ $l++;
 ?>
 <tr>
 <td>
-<?=$l;?>
+<?php  echo $l;?>
 </td>
 
 
 
 <td>
-<?=$edt1;?>
+<?php  echo $edt1;?>
 </td>
 
 <td>
-<?=$betno;?>
+<?php  echo $betno;?>
 </td>
 <td>
-<?=$expdt;?>
+<?php  echo $expdt;?>
 </td>
 <td>
-<?=$stout;?>
+<?php  echo $stout;?>
 </td>
 <td>
-<?=$pname;?>
+<?php  echo $pname;?>
 </td>
 <td>
-<?=$blno;?>
+<?php  echo $blno;?>
 </td>
 </tr>
 
-<?
+<?php 
 
 $sccnt++;
 }
@@ -136,7 +136,7 @@ Batch No.
 Exp Date
 </td>
 </tr>
-<?
+<?php 
 $l1=0;
 $data2= mysqli_query($conn,"select * from  main_billing where sl>0")or die(mysqli_error($conn));
 while ($row1 = mysqli_fetch_array($data2))
@@ -162,30 +162,30 @@ $l1++;
 ?>
 <tr>
 <td>
-<?=$l1;?>
+<?php  echo $l1;?>
 </td>
 <td>
-<?=$blno;?>
+<?php  echo $blno;?>
 </td>
 <td>
-<?=$pname;?>
+<?php  echo $pname;?>
 </td>
 <td>
-<?=$qty;?>
+<?php  echo $qty;?>
 </td>
 <td>
-<?=$edt;?>
+<?php  echo $edt;?>
 </td>
 
 <td>
-<?=$betno;?>
+<?php  echo $betno;?>
 </td>
 <td>
-<?=$expdt;?>
+<?php  echo $expdt;?>
 </td>
 </tr>
 
-<?
+<?php 
 }
 }
 ?>

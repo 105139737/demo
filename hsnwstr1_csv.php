@@ -1,9 +1,9 @@
-<?
+<?php 
 $reqlevel = 0;
 include("membersonly.inc.php");
 $typ=$_REQUEST['typ'];
-$fdt=$_REQUEST[fdt];
-$tdt=$_REQUEST[tdt];
+$fdt=$_REQUEST['fdt'];
+$tdt=$_REQUEST['tdt'];
 $fdt=date('Y-m-d', strtotime($fdt));
 $tdt=date('Y-m-d', strtotime($tdt));
 if($typ==1)
@@ -14,7 +14,7 @@ if($typ==2)
 {
 	$gval="Purchase";
 }
-$filename = "$gval GST_Report_HSN $yr-$mnth.csv";
+$filename = "$gval GST_Report_HSN.csv";
 $fp = fopen('php://output', 'w');
 
 
@@ -23,7 +23,7 @@ header('Content-type: application/csv');
 header('Content-Disposition: attachment; filename='.$filename);
 $header = str_replace('"', '', $header);
 
-fputs($fp, implode($header, ',')."\n");
+fputs($fp, implode(',',$header)."\n");
 
 $num_column = count($header);
 
@@ -53,7 +53,7 @@ $bqr=" and (blno='a'";
 $result9 = mysqli_query($conn,$query9) or die (mysqli_error($conn) );
 while($X=mysqli_fetch_array($result9))
 {
-$blno=$X[blno];	
+$blno=$X['blno'];	
 //echo $blno;
 if($bqr=="")
 {
@@ -102,7 +102,7 @@ $query91 = "SELECT blno FROM main_ser_billing where dt between '$fdt' and '$tdt'
 $result91 = mysqli_query($conn,$query91) or die (mysqli_error($conn) );
 while($X=mysqli_fetch_array($result91))
 {
-$blno=$X[blno];	
+$blno=$X['blno'];	
 if($bqr1=="")
 {
 $bqr1.=" or blno='$blno'";
@@ -155,7 +155,7 @@ $eqr.=")";
 $xqr=mysqli_query($conn,"select (cgst+sgst) as tigst from main_gst where cat='$sl1'")or die(mysqli_error($conn));
 while($R000=mysqli_fetch_array($xqr))
 {
-	$igst=$R000[tigst];
+	$igst=$R000['tigst'];
 }
 //echo $eqr;
 //echo "select sum(ttl) as ttamm, sum(cgst_am) as tcgst_am, sum(sgst_am) as tsgst_am,sum(igst_am) as tigst_am, sum(net_am) as tnet_am,sum(qty) as tpcs from main_billdtls where sl>0 $eqr $bqr";
@@ -173,12 +173,12 @@ $res1=mysqli_query($conn,"select sum(tamm) as ttamm, sum(cgst_am) as tcgst_am, s
 
 while($R1=mysqli_fetch_array($res1))
 {
-$ttamm=$R1[ttamm];
-$tcgst_am=$R1[tcgst_am];
-$tsgst_am=$R1[tsgst_am];
-$tigst_am=$R1[tigst_am];
-$tnet_am=$R1[tnet_am];
-$tpcs=$R1[tpcs];
+$ttamm=$R1['ttamm'];
+$tcgst_am=$R1['tcgst_am'];
+$tsgst_am=$R1['tsgst_am'];
+$tigst_am=$R1['tigst_am'];
+$tnet_am=$R1['tnet_am'];
+$tpcs=$R1['tpcs'];
 }
 
 $ttamm_ret=0;
@@ -194,12 +194,12 @@ $res1_ret=mysqli_query($conn,"select sum(tamm) as ttamm, sum(cgst_am) as tcgst_a
 }
 while($R1=mysqli_fetch_array($res1_ret))
 {
-$ttamm_ret=$R1[ttamm];
-$tcgst_am_ret=$R1[tcgst_am];
-$tsgst_am_ret=$R1[tsgst_am];
-$tigst_am_ret=$R1[tigst_am];
-$tnet_am_ret=$R1[tnet_am];
-$tpcs_ret=$R1[tpcs];
+$ttamm_ret=$R1['ttamm'];
+$tcgst_am_ret=$R1['tcgst_am'];
+$tsgst_am_ret=$R1['tsgst_am'];
+$tigst_am_ret=$R1['tigst_am'];
+$tnet_am_ret=$R1['tnet_am'];
+$tpcs_ret=$R1['tpcs'];
 }
 $ttamm=$ttamm-$ttamm_ret;
 $tcgst_am=$tcgst_am-$tcgst_am_ret;
@@ -240,12 +240,12 @@ $res11=mysqli_query($conn,"select sum(tamm) as ttamm, sum(cgst_am) as tcgst_am, 
 }
 while($R1=mysqli_fetch_array($res11))
 {
-$ttamm1=$R1[ttamm];
-$tcgst_am1=$R1[tcgst_am];
-$tsgst_am1=$R1[tsgst_am];
-$tigst_am1=$R1[tigst_am];
-$tnet_am1=$R1[tnet_am];
-$tpcs1=$R1[tpcs];
+$ttamm1=$R1['ttamm'];
+$tcgst_am1=$R1['tcgst_am'];
+$tsgst_am1=$R1['tsgst_am'];
+$tigst_am1=$R1['tigst_am'];
+$tnet_am1=$R1['tnet_am'];
+$tpcs1=$R1['tpcs'];
 }	
 if($tnet_am1!=0)
 {

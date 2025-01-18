@@ -1,7 +1,9 @@
-<?php
+<?php 
 $reqlevel = 3; 
 include("config.php");
 include("function.php");
+$dt="";
+$sl=0;
 date_default_timezone_set('Asia/Kolkata');
 set_time_limit(0);
 $file_name="Stock-".$dt;

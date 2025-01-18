@@ -1,4 +1,4 @@
-<?php 
+<?php  
 include("config.php");
 $datas=mysqli_query($conn,"select * from global where sl=1")or die(mysqli_error($conn));
 while($row=mysqli_fetch_array($datas))
@@ -7,9 +7,9 @@ $sms=$row['sms'];
 $linkGen=$row['linkGen'];
 }
 
-$vxy=explode("@",$_REQUEST['tp']);
+$vxy=explode("@",$_REQUEST['tp']??"");
 
-if($vxy[2]!=$linkGen)
+if(count($vxy)>1 && $vxy[2]!=$linkGen)
 {
     die("Sorry, Something went wrong. Please contact your administrator.");
 }
@@ -32,13 +32,13 @@ if($vxy[2]!=$linkGen)
 <button id='search-button' onclick="getData()" type='button'><span>Search</span></button>
 </form>
 </div>
-<?php 
+<?php  
 $tp=explode("@",$_REQUEST['tp']);
 
 ?>
 <input type="hidden" id="pageno" value="1">
-<input type="hidden" id="tp" value="<?php echo $tp[0]?>">
-<input type="hidden" id="cat" value="<?php echo $tp[1]?>">
+<input type="hidden" id="tp" value="<?php  echo $tp[0]?>">
+<input type="hidden" id="cat" value="<?php  echo $tp[1]?>">
 <div id="PriceDiv">
 </div>
 

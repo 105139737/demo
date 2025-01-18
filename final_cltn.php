@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel=3;
 include("membersonly.inc.php");
 include "header.php";
@@ -10,7 +10,7 @@ $saa="01-".date('m-Y');
 <html>
 <head>
 <div class="wrapper row-offcanvas row-offcanvas-left">
-<?
+<?php 
 include "left_bar.php";
 ?>
 <style type="text/css"> 
@@ -141,7 +141,7 @@ $("#tdt").datepicker(jQueryDatePicker2Opts);
 <div id="cust_src">
 	<select id="cid" name="cid" class="form-control">
 	<option value="">--- All ---</option>
-	<?/*
+	<?php /*
 	$get=mysqli_query($conn,"SELECT * FROM main_cust ORDER BY nm");
 	while($R=mysqli_fetch_array($get))
 	{
@@ -149,8 +149,8 @@ $("#tdt").datepicker(jQueryDatePicker2Opts);
 		$nm=$R['nm'];
 		$cont=$R['cont'];
 		?>
-		<option value="<? echo $sid;?>"><? echo $nm;?> - <? echo $cont;?></option>
-		<?
+		<option value="<?php  echo $sid;?>"><?php  echo $nm;?> - <?php  echo $cont;?></option>
+		<?php 
 	}*/
 	?>
 	</select>
@@ -159,24 +159,24 @@ $("#tdt").datepicker(jQueryDatePicker2Opts);
 <td width="25%;"><b>Sales Person:</b><br>
 	<select name="salper" id="salper" class="form-control">
 	<option value="">---All---</option>
-	<?
+	<?php 
 	$get=mysqli_query($conn,"SELECT * FROM main_sale_per ORDER BY nm");
 	while($row=mysqli_fetch_array($get))
 	{
 		$sid=$row['spid'];
 		$spid=$row['spid'];
 		?>
-		<option value="<? echo $sid;?>"><?php echo $spid;?></option>
-		<?
+		<option value="<?php  echo $sid;?>"><?php  echo $spid;?></option>
+		<?php 
 	}
 	?>
 	</select>
 </td>
 <td width="25%;"><b>Form:</b><br>
-<input type="text" id="fdt" name="fdt" value="<?echo $saa;?>" class="form-control">
+<input type="text" id="fdt" name="fdt" value="<?php echo $saa;?>" class="form-control">
 </td>
 <td width="25%;"><b>To:</b><br>
-<input type="text" id="tdt" name="tdt" value="<?echo $sa;?>" class="form-control">
+<input type="text" id="tdt" name="tdt" value="<?php echo $sa;?>" class="form-control">
 </td>
 
 </tr>
@@ -184,13 +184,13 @@ $("#tdt").datepicker(jQueryDatePicker2Opts);
 <td align="left" ><b>Ledger :</b>
 <select id="ledg" name="ledg" class="form-control" >
 <option value="">-- All --</option>
-<?php 
+<?php  
 $get = mysqli_query($conn,"SELECT * FROM main_ledg order by nm") or die(mysqli_error($conn));
 while($row = mysqli_fetch_array($get))
 {
 ?>
-<option value="<?=$row['sl']?>"><?=$row['nm']?></option>
-<?php 
+<option value="<?php  echo $row['sl']?>"><?php  echo $row['nm']?></option>
+<?php  
 } 
 ?>
 </select>
@@ -199,7 +199,7 @@ while($row = mysqli_fetch_array($get))
 <label><b>Payment Mode :</b></label>
 <select name="mdt" id="mdt"  onchange="pmod(this.value)" class="form-control">
 <option value="">-- All --</option>
-<?
+<?php 
 $data2 = mysqli_query($conn,"select * from ac_paymtd");
 
 while ($row2 = mysqli_fetch_array($data2))
@@ -207,21 +207,21 @@ while ($row2 = mysqli_fetch_array($data2))
 $mtd = $row2['mtd'];
 $msl = $row2['sl'];
 ?>
-<option value="<?php echo $msl;?>"><?php echo $mtd;?></option>
-<?
+<option value="<?php  echo $msl;?>"><?php  echo $mtd;?></option>
+<?php 
 }
 ?>
 </select>
 </td>
 <td ><b>Branch:</b><br>
 	<select name="brncd" id="brncd" class="form-control">
-	<?
+	<?php 
 	if($user_current_level<0)
 	{
 		$query="Select * from main_branch";
 		?>
 		<option value="">---All---</option>
-		<?
+		<?php 
 	}
 	else
 	{
@@ -234,8 +234,8 @@ $msl = $row2['sl'];
 		$bnm=$R['bnm'];
 
 		?>
-		<option value="<?php echo $bsl;?>"><?php echo $bnm;?></option>
-		<?
+		<option value="<?php  echo $bsl;?>"><?php  echo $bnm;?></option>
+		<?php 
 	}
 	?>
 	</select>
@@ -253,7 +253,7 @@ $msl = $row2['sl'];
 <td><b>ALS:</b><br>
 <select id="als" name="als" class="form-control tb">
 <option value="" >---- Select ----</option>
-<?
+<?php 
 $qr=mysqli_query($conn,"select * from main_billtype where inv_typ='77'") or die(mysqli_error($conn));
 while($R=mysqli_fetch_array($qr))
 {
@@ -262,8 +262,8 @@ while($R=mysqli_fetch_array($qr))
 	$tp1=$R['tp'];
 	$ssn1=$R['ssn'];
 ?>
-<option value="<?php echo $als1;?>" ><?php echo $als1;?></option>
-<?	
+<option value="<?php  echo $als1;?>" ><?php  echo $als1;?></option>
+<?php 	
 }
 ?>
 </select></td>

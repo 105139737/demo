@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 include "header.php";
@@ -6,11 +6,11 @@ $cr_tm=date('H:i');
 $ndl_tm=strtotime("+30 minute", strtotime($cr_tm));
 $dl_tm=date('H:i', $ndl_tm);
 
-$blno=rawurldecode($_REQUEST[blno]);
+$blno=rawurldecode($_REQUEST['blno'] ?? "");
 ?>
 <html>
         <div class="wrapper row-offcanvas row-offcanvas-left" >
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <head>
@@ -327,7 +327,7 @@ document.getElementById('plttl').value=qnty*point;
 
                             <!-- TO DO List -->
 							
-	<?
+	<?php 
 	$data1= mysqli_query($conn,"select * from  main_billing where blno='$blno'")or die(mysqli_error($conn));
 while ($row1 = mysqli_fetch_array($data1))
 {
@@ -372,7 +372,7 @@ $mail=$rowd['mail'];
                           
 <form method="post" target="" name="form1" id="form1"  action="billing_retns.php">
                               
-<input type="hidden" id="blno" class="form-control" readonly name="blno" value="<?=$blno;?>">
+<input type="hidden" id="blno" class="form-control" readonly name="blno" value="<?php  echo $blno;?>">
 						
 								
 
@@ -388,14 +388,14 @@ $mail=$rowd['mail'];
   
   <select id="custnm" name="custnm" tabindex="1"  class="form-control" onchange="gtid()" >
 
-	<?
+	<?php 
 		$query="select * from main_cust  WHERE sl='$sid' order by nm";
 		$result=mysqli_query($conn,$query);
 		while($rw=mysqli_fetch_array($result))
 		{
 			?>
-			<option value="<?=$rw['sl'];?>"<?=$rw['sl'] == $sid ? 'selected' : '' ?>><?=$rw['nm'];?> <?if($rw['cont']!=""){?>( <?=$rw['cont'];?> )<?}?> <?=$rw['typ'];?></option>
-			<?
+			<option value="<?php  echo $rw['sl'];?>"<?php  echo $rw['sl'] == $sid ? 'selected' : '' ?>><?php  echo $rw['nm'];?> <?php if($rw['cont']!=""){?>( <?php  echo $rw['cont'];?> )<?php }?> <?php  echo $rw['typ'];?></option>
+			<?php 
 		}
 	?>
 	</select>
@@ -407,12 +407,12 @@ $mail=$rowd['mail'];
      <td align="right" style="padding-top:15px;" width="15%"><b>Customer Type :</b></td>
 
 <td width="35%">
-<input type="text" id="typ" class="form-control" style="font-weight: bold;"  readonly="true" name="typ" value="<?=$typ;?>"  tabindex="4"  placeholder="Customer Type">
+<input type="text" id="typ" class="form-control" style="font-weight: bold;"  readonly="true" name="typ" value="<?php  echo $typ;?>"  tabindex="4"  placeholder="Customer Type">
  </td>
    <td align="right" style="padding-top:15px;" width="10%"><b>Address : </b></td>
 
 <td colspan="" width="40%">
- <input type="tex"  class="form-control" style="font-weight: bold;" value="<?=$addr;?>" id="addr" readonly="true" name="addr"  tabindex="4" placeholder="Customer Address">
+ <input type="tex"  class="form-control" style="font-weight: bold;" value="<?php  echo $addr;?>" id="addr" readonly="true" name="addr"  tabindex="4" placeholder="Customer Address">
  </td>
 
   </tr>
@@ -420,12 +420,12 @@ $mail=$rowd['mail'];
    <td align="right" style="padding-top:15px;"><b>Contact No. :</b></td>
 
 <td>
-<input type="text" id="mob" class="form-control" style="font-weight: bold;" readonly="true" name="mob" value="<?=$mob1;?>"  tabindex="4"  placeholder="Customer Contact No.">
+<input type="text" id="mob" class="form-control" style="font-weight: bold;" readonly="true" name="mob" value="<?php  echo $mob1;?>"  tabindex="4"  placeholder="Customer Contact No.">
  </td>
    <td align="right" style="padding-top:15px;"><b>E-Mail :</b></td>
 
 <td>
-<input type="text" id="mail" class="form-control" style="font-weight: bold;" readonly="true" name="mail" value="<?=$mail;?>" tabindex="4"  placeholder="Customer E-Mail">
+<input type="text" id="mail" class="form-control" style="font-weight: bold;" readonly="true" name="mail" value="<?php  echo $mail;?>" tabindex="4"  placeholder="Customer E-Mail">
  </td>
 
 
@@ -437,7 +437,7 @@ $mail=$rowd['mail'];
 <td align="left" >
 
 <select name="brncd" class="form-control" tabindex="2" size="1" id="brncd" onchange="getb()"  >
-<?
+<?php 
 if($user_current_level<0)
 {
 $query="Select * from main_branch";
@@ -453,8 +453,8 @@ $sl=$R['sl'];
 $bnm=$R['bnm'];
 
 ?>
-<option value="<? echo $sl;?>" <?=$sl == $bcd ? 'selected' : '' ?>><? echo $bnm;?></option>
-<?
+<option value="<?php  echo $sl;?>" <?php  echo $sl == $bcd ? 'selected' : '' ?>><?php  echo $bnm;?></option>
+<?php 
 }
 ?>
 </select>
@@ -462,7 +462,7 @@ $bnm=$R['bnm'];
 </td>
     <td align="right" style="padding-top:15px;"> <b>Date : </b></td>
   <td>
-  <input type="text" class="form-control"  id="dt"  name="dt" value="<?=$dt;?>" tabindex="3" size="35" readonly placeholder="Enter Date">
+  <input type="text" class="form-control"  id="dt"  name="dt" value="<?php  echo $dt;?>" tabindex="3" size="35" readonly placeholder="Enter Date">
   </td>
 </tr>
 
@@ -505,28 +505,28 @@ $bnm=$R['bnm'];
 
 <tr >
 <td align="left" ><b>Discount :</b><br>
-<input type="text" name="dis" id="dis"   onblur="v()" value="<?=$dis;?>" class="form-control" readonly style="text-align:right">
+<input type="text" name="dis" id="dis"   onblur="v()" value="<?php  echo $dis;?>" class="form-control" readonly style="text-align:right">
 </td>
 <td align="left" ><b>Freight :</b><br>
-<input type="text" name="car" id="car"   onblur="v()" value="<?=$car;?>" class="form-control" readonly  style="text-align:right">
+<input type="text" name="car" id="car"   onblur="v()" value="<?php  echo $car;?>" class="form-control" readonly  style="text-align:right">
 </td>
 <td align="left" ><b>Vat.(%) :</b><br>
-<input type="text" name="vat" id="vat" onblur="v()" value="<?=$vat;?>" class="form-control" readonly style="text-align:right" >
+<input type="text" name="vat" id="vat" onblur="v()" value="<?php  echo $vat;?>" class="form-control" readonly style="text-align:right" >
 </td>
 <td align="left" ><b>Vat Amount :</b><br>
-<input type="text" name="vatamm" id="vatamm" value="<?=$vatamm;?>" class="form-control" style="background-color:#f3f4f5;text-align:right" readonly="true" >
+<input type="text" name="vatamm" id="vatamm" value="<?php  echo $vatamm;?>" class="form-control" style="background-color:#f3f4f5;text-align:right" readonly="true" >
 </td>
 <td align="left" ><b>Pay Amount :</b><br>
 <font ><b>
 <div id="pay">
-<input type="text" name="tamm" id="tamm" value="<?=$amm;?>" class="form-control" style="background-color:#f3f4f5;" readonly="true"> 
+<input type="text" name="tamm" id="tamm" value="<?php  echo $amm;?>" class="form-control" style="background-color:#f3f4f5;" readonly="true"> 
 </div>
 </b></font>
 </td>
 <td align="left" ><b>Point :</b><br>
 <font ><b>
 <div id="poi">
-<input type="text" name="tpoint" id="tpoint" value="<?=$tpoint;?>" class="form-control" style="background-color:#f3f4f5;" readonly="true"> 
+<input type="text" name="tpoint" id="tpoint" value="<?php  echo $tpoint;?>" class="form-control" style="background-color:#f3f4f5;" readonly="true"> 
 </div>
 </b></font>
 </td>
@@ -545,7 +545,7 @@ $bnm=$R['bnm'];
 </tr>
 </table>
 
-<input type="hidden" id="prid"  name="prid" value="<? echo $cid;?>">
+<input type="hidden" id="prid"  name="prid" value="<?php  echo $cid;?>">
 <input type="hidden" id="stk" >
 <input type="hidden" id="fls" >
 </form>

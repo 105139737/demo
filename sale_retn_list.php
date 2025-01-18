@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3; 
 
 include("membersonly.inc.php");
@@ -57,7 +57,7 @@ $pnm1="";
 			</td>
 		
 		     </tr>
-			 <?
+			 <?php 
 		$sln=0;
 		$tota=0;
 $tq=0;
@@ -181,38 +181,38 @@ $stout1=$R8['stout1'];
 			 ?>
 		   <tr>
 		    <td  align="center"  >
-			<?=$sln;?>
+			<?php  echo $sln;?>
 			</td>
 			 <td  align="center" >
-			<?=$edt;?>
+			<?php  echo $edt;?>
 			</td>
 			<td  align="center" >
-				<a href="#" onclick="view('<?=$blno;?>')" title="Print"><?=$blno;?></a>
+				<a href="#" onclick="view('<?php  echo $blno;?>')" title="Print"><?php  echo $blno;?></a>
 			</td>
             <td  align="left" >
-			<?=$spn;?>
+			<?php  echo $spn;?>
 			</td>
 			
-			<td  align="center" title="<?=$pcd;?>" >
-			<?=$pname;?>
+			<td  align="center" title="<?php  echo $pcd;?>" >
+			<?php  echo $pname;?>
 			</td>
 			<td  align="center" >
-			<b><?=$pty1;?></b>/<?=$punt;?>
+			<b><?php  echo $pty1;?></b>/<?php  echo $punt;?>
 			</td>
 			<td  align="center" >
-			<?=$prc;?>
+			<?php  echo $prc;?>
 			</td>
 			<td  align="center" >
-			<?=$ttl;?>
+			<?php  echo $ttl;?>
 			</td>
 		
 			<td  align="center" >
-			<?=$stck;?>
+			<?php  echo $stck;?>
 			</td>
 		
 		     </tr>	 
 			 
-<?
+<?php 
 
 $tq=$pty1+$tq;
 }}?>
@@ -222,7 +222,7 @@ $tq=$pty1+$tq;
 </td>
 <td align="center">
 <b>
-<?=$tq;?>
+<?php  echo $tq;?>
 </b>
 </td>
 <td>

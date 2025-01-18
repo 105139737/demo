@@ -1,4 +1,8 @@
-<?$reqlevel = 3;include("membersonly.inc.php");include "header.php";if($fdt==""){    if(date('m')>3){        $fdt=date('Y')."-04-01";    }    else    {        $fdt=(date('Y')-1)."-04-01";    }    }if($tdt==""){    $tdt=date('Y-m-d');}?><html><head>        <div class="wrapper row-offcanvas row-offcanvas-left">            <?            include "left_bar.php";            ?><style type="text/css"> th{text-align:center;font-weight: 900;border:1px solid #37880a;}input:focus{background-color:Aqua;}a{cursor:pointer;}</style>       <link rel="stylesheet" href="dark-hive/jquery.ui.all.css" type="text/css"><script src="js/plugins/input-mask/jquery.inputmask.js" type="text/javascript"></script>        <script src="js/plugins/input-mask/jquery.inputmask.date.extensions.js" type="text/javascript"></script>        <script src="js/plugins/input-mask/jquery.inputmask.extensions.js" type="text/javascript"></script>   <script type="text/javascript" src="jquery.ui.core.min.js"></script><script type="text/javascript" src="jquery.ui.widget.min.js"></script><script type="text/javascript" src="jquery.ui.datepicker.min.js"></script>   <style type="text/css">.ui-datepicker{   font-family: Arial;   font-size: 13px;   z-index: 1003 !important;   display: none;}</style>
+<?php $reqlevel = 3;include("membersonly.inc.php");include "header.php";
+
+$fdt="";
+$tdt="";
+if($fdt==""){    if(date('m')>3){        $fdt=date('Y')."-04-01";    }    else    {        $fdt=(date('Y')-1)."-04-01";    }    }if($tdt==""){    $tdt=date('Y-m-d');}?><html><head>        <div class="wrapper row-offcanvas row-offcanvas-left">            <?php             include "left_bar.php";            ?><style type="text/css"> th{text-align:center;font-weight: 900;border:1px solid #37880a;}input:focus{background-color:Aqua;}a{cursor:pointer;}</style>       <link rel="stylesheet" href="dark-hive/jquery.ui.all.css" type="text/css"><script src="js/plugins/input-mask/jquery.inputmask.js" type="text/javascript"></script>        <script src="js/plugins/input-mask/jquery.inputmask.date.extensions.js" type="text/javascript"></script>        <script src="js/plugins/input-mask/jquery.inputmask.extensions.js" type="text/javascript"></script>   <script type="text/javascript" src="jquery.ui.core.min.js"></script><script type="text/javascript" src="jquery.ui.widget.min.js"></script><script type="text/javascript" src="jquery.ui.datepicker.min.js"></script>   <style type="text/css">.ui-datepicker{   font-family: Arial;   font-size: 13px;   z-index: 1003 !important;   display: none;}</style>
 <script type="text/javascript" src="prdcedt.js">
 </script> 	
 <script>	   
@@ -31,7 +35,7 @@ window.open('custenq1_exprt.php?fdt='+fdt+'&tdt='+tdt+'&proj='+proj+'&amm='+amm+
 <b>Brand : </b>
 <select name="cat" class="form-control" size="1" id="cat" tabindex="1">
 <Option value="">---All---</option>
-<?
+<?php 
 $data1 = mysqli_query($conn,"Select * from main_catg where stat='0' order by cnm");
 while ($row1 = mysqli_fetch_array($data1))
 {
@@ -42,8 +46,8 @@ echo "<option value='".$sl."'>".$cnm."</option>";
 ?>
 </select>
 </td>
-<td align="right" style="padding-top:10px"> <font size="3" ><b>From  :</b></font><input type="text" name="fdt" id="fdt" class="sc" value="<?=$fdt;?>" style="width:100px"></td>
-<td align="right" style="padding-top:10px"> <font size="3" ><b>To  :</b></font><input type="text" name="tdt" id="tdt" class="sc" value="<?=$tdt;?>" style="width:100px"></td>
+<td align="right" style="padding-top:10px"> <font size="3" ><b>From  :</b></font><input type="text" name="fdt" id="fdt" class="sc" value="<?php  echo $fdt;?>" style="width:100px"></td>
+<td align="right" style="padding-top:10px"> <font size="3" ><b>To  :</b></font><input type="text" name="tdt" id="tdt" class="sc" value="<?php  echo $tdt;?>" style="width:100px"></td>
 <td align="left"><font size="3" ><b>Due / Advance  >= </b>Rs. </font>
 <input type="text" name="amm" id="amm" class="sc" value="0" style="width:100px">
 </td>

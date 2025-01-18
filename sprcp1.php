@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 $dt=date('Y-m-d');
@@ -24,7 +24,7 @@ $a="%".$input."%";
     
 		header("Content-Type: text/xml");
 
-		echo "<?xml version=\"1.0\" encoding=\"utf-8\" ?><results>";
+		echo "<?php xml version=\"1.0\" encoding=\"utf-8\" ?><results>";
         $query = "SELECT * FROM ".$DBprefix."product where pname like '$a' limit 0,10";
    $result = mysqli_query($conn,$query);
 while ($R = mysqli_fetch_array ($result))

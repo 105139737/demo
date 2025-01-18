@@ -1,4 +1,4 @@
-<?php
+<?php 
 include("membersonly.inc.php");
 include("Numbers/Words.php");
 
@@ -7,13 +7,13 @@ $sl=$_REQUEST['sl'];
 $get=mysqli_query($conn,"select * from main_drcr where sl='$sl'") or die(mysqli_error($conn));
 while($row=mysqli_fetch_array($get))
 {
-   $bookid=$row['bookid'];
+   $bookid=$row['bookid'] ?? "";
 	$vno=$row['vno'];
 	$sbill=$row['sbill'];
 	$cbill=$row['cbill'];
 	$sid=$row['sid'];
-	$eid=$row['eid'];
-	$mnth=$row['mnth'];
+	$eid=$row['eid'] ?? "";
+	$mnth=$row['mnth'] ?? "";
 	$cid=$row['cid'];
 	$dt=$row['dt'];
 	$nrtn=$row['nrtn'];
@@ -82,8 +82,8 @@ function blprint()
 <table align="center" style="border-collapse:collapse; width:920px; border: 1px solid black;">
 <tr>
     <td colspan="5" style="text-align:center; background-color:#f2f2f2; padding:5px 0 5px 0; border-bottom:1px solid #000;">
-    <b style="font-family:Verdana, Geneva, sans-serif; font-size:25px;"><?=$comp_nm;?></b><br />
-    <font size="3"><?=$bill_adrs;?></font><br>
+    <b style="font-family:Verdana, Geneva, sans-serif; font-size:25px;"><?php  echo $comp_nm;?></b><br />
+    <font size="3"><?php  echo $bill_adrs;?></font><br>
     </td>
 </tr>
 <tr>
@@ -96,30 +96,30 @@ function blprint()
         <table border="1" width="100%" style="border-collapse:collapse; border:1px solid #000000;">
         <tr>
             <td style=" ">Voucher No.</td>
-            <td style=" padding-left:5px;"><?=$blnon;?></td>
+            <td style=" padding-left:5px;"><?php  echo $blnon;?></td>
             <td style="text-align:left;  padding-right:5px;">Date </td>
-            <td style="padding-left:5px; text-align:right;"><?php echo date('d-m-Y',strtotime($dt));?></td>
+            <td style="padding-left:5px; text-align:right;"><?php  echo date('d-m-Y',strtotime($dt));?></td>
         </tr>
         <tr>
             <td style=" ">Debit A/C</td>
-            <td colspan="3" style="padding-left:5px;"><?php echo $dldgr_nm;?></td>
+            <td colspan="3" style="padding-left:5px;"><?php  echo $dldgr_nm;?></td>
         </tr>
 		<tr>
             <td style="text-align:left;">Cridit Ledger Name </td>
-            <td style="text-align:left; padding-left:5px;"><?php echo $cldgr_nm;?></td>
+            <td style="text-align:left; padding-left:5px;"><?php  echo $cldgr_nm;?></td>
             <td style="text-align:left;">Amount</td>
-            <td style="text-align:right;"><?php echo sprintf('%0.2f', $amm);?></td>
+            <td style="text-align:right;"><?php  echo sprintf('%0.2f', $amm);?></td>
         </tr>
 		<tr>
             <td style="text-align:left;">Paid to </td>
-            <td colspan="3" style="text-align:left;"><?php echo $mtddtl;?></td>           
+            <td colspan="3" style="text-align:left;"><?php  echo $mtddtl;?></td>           
         </tr>
 		<tr>
             <td style="">Narration</td>
-            <td colspan="3" style="padding-left:5px; "><?php echo $nrtn;?></td>
+            <td colspan="3" style="padding-left:5px; "><?php  echo $nrtn;?></td>
         </tr>
 		<tr style="background-color:#f2f2f2;">           
-            <td colspan="4" align="center">Rupees <?php echo $aiw;?></td>
+            <td colspan="4" align="center">Rupees <?php  echo $aiw;?></td>
         </tr>
         </table>
     </td>

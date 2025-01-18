@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include("Numbers/Words.php");
@@ -6,7 +6,7 @@ include "header.php";
 date_default_timezone_set('Asia/Kolkata');
 
 $custnm=$_REQUEST[custnm];
-$blno=$_REQUEST[blno];
+$blno=$_REQUEST['blno'] ?? "";
 $dt=date('Y-m-d');
 $dttm=date('d-m-Y H:i:s a');
 $m=date('m', strtotime($dt));
@@ -135,18 +135,18 @@ $aiw=$nw->toWords($gttl1);
 
 ?>
 <Script language="JavaScript">
-document.location="billing_retns1.php?blno=<?echo $retno;?>";
+document.location="billing_retns1.php?blno=<?php echo $retno;?>";
 
 </script>
-<?
+<?php 
 }
 else
 {
 ?>
 <Script language="JavaScript">
-alert('<? echo $err;?>');
+alert('<?php  echo $err;?>');
 document.location="sale_return.php";
 </script>
-<?
+<?php 
 }
 ?>

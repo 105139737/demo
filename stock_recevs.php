@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 include "header.php";
@@ -24,7 +24,6 @@ $dtl_sl=$R100['sl'];
 $prsl=$R100['prsl'];
 $prnm=$R100['prnm'];
 $qnty=$R100['qty'];
-$rmk=$R100['rmk'];
 $fbcd=$R100['fbcd'];
 $refno=$R100['refno'];
 $usl=$R100['usl'];

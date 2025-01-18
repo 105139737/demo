@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include "header.php";
@@ -6,7 +6,7 @@ include "header.php";
 <html>
 <head>
         <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 			
@@ -197,14 +197,14 @@ function chk(q)
             <td  align="left" >
     <select id="prnm" name="prnm" class="sc1"  tabindex="2"  onchange="gett(this.value)" >
 		<option value="">---Select---</option>
-		<?
+		<?php 
 			$query6="select * from  ".$DBprefix."product order by pname";
 			$result5 = mysqli_query($conn,$query6);
 			while($row=mysqli_fetch_array($result5))
 				{
 				?>
-			<option value="<?=$row['sl'];?>"><?=$row['pname'];?></option>
-				<?
+			<option value="<?php  echo $row['sl'];?>"><?php  echo $row['pname'];?></option>
+				<?php 
 				}
 				?>
 			</select> 
@@ -269,11 +269,11 @@ Expiry Date :
 	
 <select name="from"  id="from" class="sc" >
 
-<?
+<?php 
 if ($user_current_level < 0)
 {
 ?>
-<?
+<?php 
 $query="Select * from main_branch";
 
    $result = mysqli_query($conn,$query);
@@ -282,17 +282,17 @@ while ($R = mysqli_fetch_array ($result))
 $sl=$R['sl'];
 $bnm=$R['bnm'];
 ?>
-<option value="<? echo $sl;?>"><? echo $bnm;?></option>
-<?
+<option value="<?php  echo $sl;?>"><?php  echo $bnm;?></option>
+<?php 
 }
 ?>
-<?	
+<?php 	
 }
 else
 {
 ?>
-<option value="<? echo $branch_sl;?>"><? echo $branch_nm;?></option>
-<?
+<option value="<?php  echo $branch_sl;?>"><?php  echo $branch_nm;?></option>
+<?php 
 }
 ?>
 </select>
@@ -301,7 +301,7 @@ else
 			     <td  align="right">To :</td>
             <td  align="left">
 	<select name="to"  id="to" class="sc">
-<?
+<?php 
 if ($user_current_level < 0)
 {
 	$query="Select * from main_branch";
@@ -316,8 +316,8 @@ while ($R = mysqli_fetch_array ($result))
 $sl=$R['sl'];
 $bnm=$R['bnm'];
 ?>
-<option value="<? echo $sl;?>"><? echo $bnm;?></option>
-<?
+<option value="<?php  echo $sl;?>"><?php  echo $bnm;?></option>
+<?php 
 }
 ?>
 </select>

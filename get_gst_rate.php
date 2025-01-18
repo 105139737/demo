@@ -1,11 +1,16 @@
-<?
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
+$sgst=0;
+$cgst=0;
+$igst=0;
+$hsn="";
 
-$dt=$_REQUEST[dt];
-$prnm=$_REQUEST[prnm];
+$dt=$_REQUEST['dt'] ?? "";
+$prnm=$_REQUEST['prnm'] ?? "";
 $dt=date('Y-m-d', strtotime($dt));
 
+$cat="";
 if($cat=='')
 {
 $data1 = mysqli_query($conn,"Select * from main_product where sl='$prnm'");

@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 $fdt1=$_REQUEST['fdt'];
@@ -104,10 +104,10 @@ $bal_op1=$bal_ac1;
 </tr>
 <tr>
 <td align="right" style="font-size:125%" colspan="7"><b>OPENING</b></td>
-<td align="left"><b><?php echo $opdr;?></b></td>
-<td align="left"><b><?php echo $opcr;?></b></td>
-<td align="left"><b><?php echo $bal_ac1;?></b></td>
-<td align="left"><b><?php echo $bal1;?></b></td>
+<td align="left"><b><?php  echo $opdr;?></b></td>
+<td align="left"><b><?php  echo $opcr;?></b></td>
+<td align="left"><b><?php  echo $bal_ac1;?></b></td>
+<td align="left"><b><?php  echo $bal1;?></b></td>
 
 <td align="center" width="10%" style="font-size:125%"><span id="total_bal_ac11"></span></b></td>
 </tr>
@@ -122,8 +122,10 @@ $bal_op1=$bal_ac1;
 <td align="center" width="10%" style="font-size:125%"></b></td>
 </tr>
 <tbody>
-<?
+<?php 
 $cc="0";
+$total_am=0;
+$cls="";
 //echo "SELECT *,sum(amm) as amm FROM main_drcr where sl>0 and blnon!=''".$brs_dtt.$todt.$lqr." group by blnon order by dt,sl";
 $data= mysqli_query($conn,"SELECT *,sum(amm) as amm FROM main_drcr where sl>0 and blnon!=''".$brs_dtt.$todt.$lqr." group by blnon order by dt,sl")or die(mysqli_error($conn));
 while ($row = mysqli_fetch_array($data))
@@ -141,7 +143,7 @@ $mtddtl= $row['mtddtl'];
 $amm= round($row['amm'],2);
 $nrtn= $row['nrtn'];
 $eby= $row['eby'];
-$edt= $row['edt'];
+//$edt= $row['edt'];
 $cid= $row['cid'];
 $cbill= $row['cbill'];
 $brs_dt= $row['brs_dt'];
@@ -244,35 +246,35 @@ $pert=$pert." : <b>".$name."</b>";
 $dt=date('d-m-Y', strtotime($dt));
 if($brs_dt=="" or $brs_dt=="0000-00-00"){$brs_dt="";}else{$brs_dt=date('d-m-Y',strtotime($brs_dt));}
 ?>
-<tr class="<?php echo $cls;?>" style="height: 20px;">
-<td align="left" valign="top"><b><?php echo $cc;?></b></td>
-<td align="left" valign="top"><b><?php echo $dt;?></b></td>
-<td align="left" valign="top"><b><?php echo $blnon;?></b></td>
-<td align="left" valign="top"><b><?php echo $mtddtl;?></b></td>
-<td align="left" valign="top"><b><?php echo $refno;?></b></td>
-<td align="left" valign="top"><?php echo $pert;?></td>
-<td align="left" valign="top"><?php echo $nrtn;?></td>
+<tr class="<?php  echo $cls;?>" style="height: 20px;">
+<td align="left" valign="top"><b><?php  echo $cc;?></b></td>
+<td align="left" valign="top"><b><?php  echo $dt;?></b></td>
+<td align="left" valign="top"><b><?php  echo $blnon;?></b></td>
+<td align="left" valign="top"><b><?php  echo $mtddtl;?></b></td>
+<td align="left" valign="top"><b><?php  echo $refno;?></b></td>
+<td align="left" valign="top"><?php  echo $pert;?></td>
+<td align="left" valign="top"><?php  echo $nrtn;?></td>
 
-<td align="left" valign="top"><b><?php echo $damm;?></b></td>
-<td align="left" valign="top"><b><?php echo $camm;?></b><b></td>
-<td align="left" valign="top"><b><?php echo $bal_ac1;?></b><b></td>
-<td align="left" valign="top"><b><span id="bank_st<?=$cc?>"><?php echo $bal1;?></span></b><b></td>
+<td align="left" valign="top"><b><?php  echo $damm;?></b></td>
+<td align="left" valign="top"><b><?php  echo $camm;?></b><b></td>
+<td align="left" valign="top"><b><?php  echo $bal_ac1;?></b><b></td>
+<td align="left" valign="top"><b><span id="bank_st<?php  echo $cc?>"><?php  echo $bal1;?></span></b><b></td>
 
 <td align="left" valign="top">
 
-<input type="text" id="tb<?php echo $cc;?>" name="tb<?php echo $cc;?>"  value="<? echo $brs_dt;?>" class="form-control dat" onblur="sedtt('<?echo $blnon;?>','brs_dt',this.value,'main_drcr','<?=$sl1;?>','<?=$dt;?>','<?=$ldgr;?>')" onchange="sedtt('<?echo $blnon;?>','brs_dt',this.value,'main_drcr','<?=$sl1;?>','<?=$dt;?>','<?=$ldgr;?>')">
-<div id="brr<?php echo $sl1;?>"></div>
+<input type="text" id="tb<?php  echo $cc;?>" name="tb<?php  echo $cc;?>"  value="<?php  echo $brs_dt;?>" class="form-control dat" onblur="sedtt('<?php echo $blnon;?>','brs_dt',this.value,'main_drcr','<?php  echo $sl1;?>','<?php  echo $dt;?>','<?php  echo $ldgr;?>')" onchange="sedtt('<?php echo $blnon;?>','brs_dt',this.value,'main_drcr','<?php  echo $sl1;?>','<?php  echo $dt;?>','<?php  echo $ldgr;?>')">
+<div id="brr<?php  echo $sl1;?>"></div>
 </td>
 </tr>
-<?
+<?php 
 }
 ?>
-<input type="hidden" value="<?=$cc?>" id="countt" >
+<input type="hidden" value="<?php  echo $cc?>" id="countt" >
 <tr>
 <td align="right" style="font-size:125%" colspan="7"><b>TOTAL :</b></td>
 <td align="left" style="font-size:125%"><b><span id="total_dr"></span></b></td>
 <td align="left" style="font-size:125%"><b><span id="total_cr"></span></b></td>
-<td align="left" style="font-size:125%"><b><span id=""><?=$bal_ac1;?></span></b></td>
+<td align="left" style="font-size:125%"><b><span id=""><?php  echo $bal_ac1;?></span></b></td>
 <td align="left" style="font-size:125%"><b><span id="total_bal"></span></b></td>
 
 <td align="center" width="10%"></td>
@@ -301,11 +303,11 @@ $(document).ready(function()
 });
 $(".dat").inputmask("dd-mm-yyyy", {"placeholder": "dd-mm-yyyy"});
 ttl();
-$('#total_bal_ac1').html('<?=$bal_ac1;?>')
-document.getElementById('sys_bal').value="<?=round($bal_ac,2);?>";
+$('#total_bal_ac1').html('<?php  echo $bal_ac1;?>')
+document.getElementById('sys_bal').value="<?php echo round($bal_ac,2);?>";
 
 </script>
-<?
+<?php 
 
 if($bal1<0)
 {
@@ -320,4 +322,4 @@ $bal_ac1=$bal_ac1*(-1);
 <script>
 
 </script> 							
-<?}?>
+<?php }?>

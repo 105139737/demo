@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3; 
 include("membersonly.inc.php");
 $fdt=$_REQUEST['fdt'];
@@ -24,7 +24,7 @@ $result9 = mysqli_query($conn,$query9) or die(mysqli_error($conn));
             <td  align="right"><b>Taxable Value</b></td>
             <td  align="right"><b>CESS Amount(Rs.)</b></td>
 </tr>
-<?
+<?php 
 //echo $tdt;
 $ttcgst=0;
 $ttsgst=0;
@@ -57,15 +57,15 @@ $ttcgst+=$tcgst;
 $ttsgst+=$tsgst;
 ?>
 <tr bgcolor="#e8ecf6">
-	<td  align="right"><b><?=$invno;?></b></td>
-	<td  align="right"><b><?=$invdt;?></b></td>
-	<td  align="right"><b><?=number_format($net_am,2);?></b></td>
+	<td  align="right"><b><?php  echo $invno;?></b></td>
+	<td  align="right"><b><?php  echo $invdt;?></b></td>
+	<td  align="right"><b><?php echo number_format($net_am,2);?></b></td>
 	<td  align="right"><b>19-West Bengal</b></td>
-	<td  align="right"><?=$cgst_rt+$sgst_rt?>%</td>
-	<td  align="right"><?=number_format($amm,2);?></td>
+	<td  align="right"><?php  echo $cgst_rt+$sgst_rt?>%</td>
+	<td  align="right"><?php echo number_format($amm,2);?></td>
 	<td  align="right">0.00</td>
 </tr>
-<?
+<?php 
 }
 }
 ?>

@@ -1,4 +1,4 @@
-<?php
+<?php 
 
 /**
  * @author Onnet Solution
@@ -183,7 +183,7 @@ $aiw=$nw->toWords($gttl);
 ?>
 <html>
         <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <head>
@@ -232,25 +232,25 @@ border: 1px solid #000;
 <font size="5"> <b><a href="billing.php" ><u>Back</u></a></b></font>
 </td>
 <td  align="left">
-<font size="5"> <b><a href="bill_new_challan.php?blno=<?=rawurlencode($blno);?>" target="_blank"><font color="red"><u>Print</u></font></a></b></font>
+<font size="5"> <b><a href="bill_new_challan.php?blno=<?php echo rawurlencode($blno);?>" target="_blank"><font color="red"><u>Print</u></font></a></b></font>
 </td>
 </tr>
 
 <tr>
 <td  align="center" colspan="2" >
-<font size="4" color="red"> <b> Bill No. : <?=$blno;?></b></font>
+<font size="4" color="red"> <b> Bill No. : <?php  echo $blno;?></b></font>
 </td>
 
 </tr>
 <tr>
 <td  align="center" colspan="2" >
-<font size="4" color="red"> <b> Total Amount : <?=number_format($gttl,2);?></b></font>
+<font size="4" color="red"> <b> Total Amount : <?php echo number_format($gttl,2);?></b></font>
 </td>
 
 </tr>
 <tr>
 <td  align="center" colspan="2" >
-<font size="4" color="red"> <b> In Word : <?=$aiw;?></b></font>
+<font size="4" color="red"> <b> In Word : <?php  echo $aiw;?></b></font>
 </td>
 
 </tr>
@@ -262,15 +262,15 @@ border: 1px solid #000;
 </body>
 </div>
 </html>
-<?
+<?php 
 }
 else
 {
     ?>
 <Script language="JavaScript">
-alert('<? echo $err;?>');
+alert('<?php  echo $err;?>');
 document.location="challan.php";
 </script>
-<?
+<?php 
 }
 ?>

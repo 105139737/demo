@@ -1,16 +1,16 @@
-<?
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include "header.php";
 include "function.php";
-
+$spid="";
 $sa=date('d-m-Y');
 $saa="01-".date('m-y');
 ?>
 <html>
 <head>
         <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <style type="text/css"> 
@@ -274,7 +274,7 @@ $("#fdt").datepicker(jQueryDatePicker2Opts);
 <td align="left" width="16%" ><b>Bill Type :</b><br>
 <select name="btyp[]" class="form-control" size="1" id="btyp"  multiple >
 
-<?
+<?php 
 $btyp=array();
 $query="Select * from bills_receivable ";
 $result = mysqli_query($conn,$query);
@@ -301,8 +301,8 @@ if($words=="")
 $words=$btyp[$i];
 }	
 ?>
-<option value="<? echo $words;?>"><? echo $words;?></option>
-<?
+<option value="<?php  echo $words;?>"><?php  echo $words;?></option>
+<?php 
 }
 ?>
 </select>
@@ -310,13 +310,13 @@ $words=$btyp[$i];
 
 <td align="left" width="16%" ><b>SALES PERSON:</b><br>
 <select name="sman" class="form-control" size="1" id="sman" onchange="get_days()"  >
-<?
+<?php 
 if($user_current_level<0)
 {
 $query="Select * from main_sale_per";
 ?>
 <option value="">---All---</option>
-<?
+<?php 
 }
 else
 {
@@ -326,10 +326,10 @@ $result = mysqli_query($conn,$query);
 while ($R = mysqli_fetch_array ($result))
 {
 $spid=$R['spid'];
-$bnm=$R['bnm'];
+$bnm=$R['bnm'] ?? "";
 ?>
-<option value="<? echo $spid;?>"><? echo $spid;?></option>
-<?
+<option value="<?php  echo $spid;?>"><?php  echo $spid;?></option>
+<?php 
 }
 ?>
 </select>
@@ -341,13 +341,13 @@ $bnm=$R['bnm'];
 </td>
 <td align="left" width="16%" ><b>Branch:</b><br>
 <select name="brncd" class="form-control" size="1" id="brncd"   >
-<?
+<?php 
 if($user_current_level<0)
 {
 $query="Select * from main_branch";
 ?>
 <option value="">---All---</option>
-<?
+<?php 
 }
 else
 {
@@ -360,8 +360,8 @@ $sl=$R['sl'];
 $bnm=$R['bnm'];
 
 ?>
-<option value="<? echo $sl;?>"><? echo $bnm;?></option>
-<?
+<option value="<?php  echo $sl;?>"><?php  echo $bnm;?></option>
+<?php 
 }
 ?>
 </select>
@@ -374,7 +374,7 @@ $bnm=$R['bnm'];
 </select>
 </td>
 <td align="left" width="16%"><b>Date :</b><br>
-<input type="text" id="dt" name="dt" size="13" value="<?echo $sa;?>" class="form-control" placeholder="Please Enter To Date">
+<input type="text" id="dt" name="dt" size="13" value="<?php echo $sa;?>" class="form-control" placeholder="Please Enter To Date">
 </td>
 </tr>
 <tr>
@@ -397,7 +397,7 @@ $bnm=$R['bnm'];
 <b>Brand</b>
 <select name="cat" class="form-control" size="1" id="cat" tabindex="1">
 <Option value="">---All---</option>
-<?
+<?php 
 $data1 = mysqli_query($conn,"Select * from main_catg where stat='0' order by cnm");
 while ($row1 = mysqli_fetch_array($data1))
 {
@@ -412,16 +412,16 @@ echo "<option value='".$sl."'>".$cnm."</option>";
 <b>Reference :</b>
 <select name="refsl" id="refsl" class="form-control">
 <option value="">---ALL---</option>	
-<?php 
+<?php  
 $geti12=mysqli_query($conn,"select * from main_reference order by sl") or die(mysqli_error($conn));
 while($rowi12=mysqli_fetch_array($geti12))
 {
 	$refsl=$rowi12['sl'];
 	$refnm=$rowi12['nm'];
 ?>
-<option value="<?php echo $refsl;?>"><?php echo $refnm;?></option>
+<option value="<?php  echo $refsl;?>"><?php  echo $refnm;?></option>
 
-<?php }?>
+<?php  }?>
 </select>
 </td>
 <td align="left"><b>Grand Total  :</b><br>

@@ -1,9 +1,10 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
-$uid=$_POST['uid'];
-$mm1=$_POST['mm'];
-$m1=$_POST['m'];
+$mm="";
+$uid=$_POST['uid'] ?? "";
+$mm1=$_POST['mm'] ?? "";
+$m1=$_POST['m'] ?? "";
  if($mm1!='')
  {
  $mm=implode(',',$mm1);

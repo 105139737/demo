@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 $blno=rawurldecode($_REQUEST['blno']);
@@ -34,15 +34,15 @@ $result21 = mysqli_query($conn,$query21)or die(mysqli_error($conn));
 temp();
 reset();
 </script>
-<?
+<?php 
 }
 if($err!='')
 {
 ?>
 <script>
-alert("<?=$err;?>");
+alert("<?php  echo $err;?>");
 temp();
 </script>
-<?
+<?php 
 }
 ?>

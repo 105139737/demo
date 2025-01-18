@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 $dttm=date('d-m-Y H:i:s');
@@ -29,7 +29,7 @@ $cgst=($igst/2);
 $sgst=$cgst;
 $fdt=$edt;
 $tdt="2030-12-31";
-$unit=$_POST['unit'];
+$unit=$_POST['unit'] ?? "";
 
 $err="";
 /*
@@ -84,16 +84,16 @@ $result=mysqli_query($conn,"INSERT INTO main_gst(cgst,sgst,igst,cat,fdt,tdt) VAL
 alert('Service Entry Completed. Thank You.....');
 document.location="servc.php";
 </script>
-<?  
+<?php   
     
     }
     else
     {
     ?>
 <script language="javascript">
-alert('<? echo $err;?>');
+alert('<?php  echo $err;?>');
 window.history.go(-1);
 </script>
-<?
+<?php 
     }
 ?>

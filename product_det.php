@@ -1,8 +1,8 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
-$pcd=$_REQUEST[sl];
-$brncd=$_REQUEST[brncd];if($brncd==""){$brncd1="";}else{$brncd1=" and bcd='$brncd'";}
+$pcd=$_REQUEST['sl'];
+$brncd=$_REQUEST['brncd'] ?? "";if($brncd==""){$brncd1="";}else{$brncd1=" and bcd='$brncd'";}
 
  $data= mysqli_query($conn,"select * from  main_product where sl='$pcd'")or die(mysqli_error($conn));
  
@@ -21,7 +21,7 @@ $ret=$row['ret'];
             <td  align="right" width="50%" ><font size="3"><b>Product Name :</b></font></td>
             <td  align="left">
 			
-<font size="3"><b><?echo $pname;?></b></font>
+<font size="3"><b><?php echo $pname;?></b></font>
             </td>
           </tr>
 	  </table>
@@ -59,7 +59,7 @@ $ret=$row['ret'];
 			<b>Stock Value</b>
 			</td>
 		     </tr>
-			 <?
+			 <?php 
 	$sln=0;	
 	$stkf=0;
 $stout1=0;
@@ -177,38 +177,38 @@ $to=$to+$sv;
 			 ?>
 		   <tr>
 		    <td  align="center" >
-			<?=$sln;?>
+			<?php  echo $sln;?>
 			</td>
 			 <td  align="center" >
-			<?=$betno;?>
+			<?php  echo $betno;?>
 			</td>
             <td  align="center" >
-			<?=$expdt;?>
+			<?php  echo $expdt;?>
 			</td>
 			 <td  align="center" >
-			<?=$punt;?>
+			<?php  echo $punt;?>
 			</td>
 			<td  align="center" >
-		<?=$open1;?>
+		<?php  echo $open1;?>
 			</td>
 			<td  align="center" >
-		<?=$stin1;?>
+		<?php  echo $stin1;?>
 			</td>
 			<td  align="center" >
-		<?=$stout1;?>
+		<?php  echo $stout1;?>
 			</td>
 			<td  align="center" >
-		<?=$stkf;?>
+		<?php  echo $stkf;?>
 			</td>
 			<td  align="center" >
-		<?=number_format($ret1,2);?>
+		<?php echo number_format($ret1,2);?>
 			</td>
 			<td   align="right" >
-		<?=number_format($to,2);?>
+		<?php echo number_format($to,2);?>
 			</td>
 		
 		     </tr>	 
-<?
+<?php 
 $to1=$to+$to1;
 $stkf=0;
 $stout1=0;
@@ -220,7 +220,7 @@ $open1=0;
 <b>Total Value </b>
 </td>
 <td align="right" >
-<b><?=number_format($to1,2);?></b>
+<b><?php echo number_format($to1,2);?></b>
 </td>
 </tr>
 

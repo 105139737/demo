@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel =-1;
 include("membersonly.inc.php");
 include "header.php";
@@ -83,7 +83,7 @@ $userlevel='Admin';
 
 ?>
         <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <style type="text/css"> 
@@ -181,16 +181,16 @@ function sbmunt(){
 								
 									
 											 <tr>
-											 <th><font color="#000000">User Name</font></th><td><font color="#000000"><?echo $username;?></font></td></tr>
+											 <th><font color="#000000">User Name</font></th><td><font color="#000000"><?php echo $username;?></font></td></tr>
 											 <tr>
-											  <th>Name</td><td><font color="#000000"><?echo $name;?></font></th></tr>
+											  <th>Name</td><td><font color="#000000"><?php echo $name;?></font></th></tr>
 											  <tr>
 										
 										
 											
-											 <th>Mobile No.</th><td align="center"><font color="#000000"><?echo $mob;?></font></td></tr>
+											 <th>Mobile No.</th><td align="center"><font color="#000000"><?php echo $mob;?></font></td></tr>
 							<tr>
-											<th>Email</th><td><font color="#000000"><?echo $mailadres;?></font></td></tr><tr>
+											<th>Email</th><td><font color="#000000"><?php echo $mailadres;?></font></td></tr><tr>
 										<th>Password</th><td><a  onclick="openOfferslDialog('boxpopup');">Change Password</a></font></td>
 										
 											 </tr>

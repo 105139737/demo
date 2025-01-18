@@ -1,7 +1,9 @@
-<?
+<?php 
 $reqlevel = 3; 
 
 include("membersonly.inc.php");
+$dis111=0;
+$amm2=0;
 $fdt=$_REQUEST['fdt'];
 $tdt=$_REQUEST['tdt'];
 $snm=rawurldecode($_REQUEST['snm']);
@@ -51,7 +53,7 @@ if($snm!=""){$snm1=" and sid='$snm'";}else{$snm1="";}
 	<td  align="center" ><b>Net Amount</b></td>
 	<td  align="center" ><b>Rate</b></td>
 	</tr>
-	<?
+	<?php 
 	$sln=0;
 	$tota1=0;
 	$fttl1=0;
@@ -197,16 +199,16 @@ if($blno1==$blno)
 }	
 	?>
 	<tr>
-	<?
+	<?php 
 	if($log==1)
 	{
 	?>
 
-	<td  align="center" ><?=$sln;?></td>
-	<td  align="center" ><?=$edt;?></td>
-	<td  align="center" ><?=$pbill;?></td>
-	<td  align="left" ><b><?=$spn;?></b></td>
-	<?
+	<td  align="center" ><?php  echo $sln;?></td>
+	<td  align="center" ><?php  echo $edt;?></td>
+	<td  align="center" ><?php  echo $pbill;?></td>
+	<td  align="left" ><b><?php  echo $spn;?></b></td>
+	<?php 
 	}
 	else
 	{
@@ -216,37 +218,37 @@ if($blno1==$blno)
 	<td  align="center" ></td>
 	<td  align="center" ></td>
 	
-	<?				
+	<?php 				
 	}
 	?>
-	<td  align="left" ><b><?=$pnm;?></b> </td>
-	<td  align="center" ><?=$hsn;?></td>
-	<td  align="center" ><?=$betno;?></td>
-	<td  align="center" ><?=$qty;?></td>
-	<td  align="left" ><?=$unit_nm;?></td>
-	<td  align="right" ><?=round($mrp,2);?></td>
-	<td  align="right" ><?=round($total,2);?></td>
+	<td  align="left" ><b><?php  echo $pnm;?></b> </td>
+	<td  align="center" ><?php  echo $hsn;?></td>
+	<td  align="center" ><?php  echo $betno;?></td>
+	<td  align="center" ><?php  echo $qty;?></td>
+	<td  align="left" ><?php  echo $unit_nm;?></td>
+	<td  align="right" ><?php echo round($mrp,2);?></td>
+	<td  align="right" ><?php echo round($total,2);?></td>
 
-	<td  align="center" ><?=$disp?></td>				
-	<td  align="right" ><?=round($dis,2);?></td>
-	<td  align="center" hidden><?=$ldis?></td>				
-	<td  align="center"hidden ><?=$ldisa?></td>				
+	<td  align="center" ><?php  echo $disp?></td>				
+	<td  align="right" ><?php echo round($dis,2);?></td>
+	<td  align="center" hidden><?php  echo $ldis?></td>				
+	<td  align="center"hidden ><?php  echo $ldisa?></td>				
 
-	<td  align="center" ><?=$amm;?></td>
-	<td  align="center" ><?=$cgst_rt;?></td>
-	<td  align="center" ><?=round($cgst_am,2);?></td>
-	<td  align="center" ><?=$sgst_rt;?></td>
-	<td  align="center" ><?=round($sgst_am,2);?></td>
-	<td  align="center" ><?=$igst_rt;?></td>
-	<td  align="center" ><?=$igst_am;?></td>
-	<td  align="right" ><?=round($net_am,2);?></td>
+	<td  align="center" ><?php  echo $amm;?></td>
+	<td  align="center" ><?php  echo $cgst_rt;?></td>
+	<td  align="center" ><?php echo round($cgst_am,2);?></td>
+	<td  align="center" ><?php  echo $sgst_rt;?></td>
+	<td  align="center" ><?php echo round($sgst_am,2);?></td>
+	<td  align="center" ><?php  echo $igst_rt;?></td>
+	<td  align="center" ><?php  echo $igst_am;?></td>
+	<td  align="right" ><?php echo round($net_am,2);?></td>
 	<td  align="right" ></td>
 	<td  align="right" ></td>
 	<td  align="right" ></td>
-	<td  align="right" ><?=round($rate,2);?></td>
+	<td  align="right" ><?php echo round($rate,2);?></td>
 	</tr>	 
 			 
-<?
+<?php 
 $tota=$total+$tota;
 $wgamm=$net_am+$wgamm;
 $fttl=$wgamm;
@@ -269,7 +271,7 @@ $ttsgst_am+=$tsgst_am;
 $ttigst_am+=$tigst_am;
 $ttgst+=$tcgst_am+$tsgst_am+$tigst_am;	
 $dis11=$dis11+$dis1;
-$dis111=$dis111+$ldisa1;
+$dis111=(float)$dis111+(float)$ldisa1;
 	$amm2=$amm1+$amm2;
 	$wgamm=$wgamm+$roff;
 	if($tamm2>0)
@@ -301,25 +303,25 @@ $dis111=$dis111+$ldisa1;
 	<td  align="center" ></td>
 	<td  align="center" ></td>
 	<td  align="center" ></td>
-	<td  align="right" ><font color="blue"><b><?=number_format($tota,2);?></b></font></td>
+	<td  align="right" ><font color="blue"><b><?php echo number_format($tota,2);?></b></font></td>
 	<td  align="center" ></td>				
-	<td  align="right" ><font color="blue"><b><?=$dis1;?></b></font></td>
+	<td  align="right" ><font color="blue"><b><?php  echo $dis1;?></b></font></td>
 	<td  align="center" hidden></td>				
-	<td  align="center" hidden><b><?=$ldisa1?></b></td>				
-	<td  align="right" ><font color="blue"><b><?=$amm1;?></b></font></td>
+	<td  align="center" hidden><b><?php  echo $ldisa1?></b></td>				
+	<td  align="right" ><font color="blue"><b><?php  echo $amm1;?></b></font></td>
 	<td  align="center" ></td>
-	<td  align="right" ><font color="blue"><b><?=$tcgst_am?></b></font></td>
+	<td  align="right" ><font color="blue"><b><?php  echo $tcgst_am?></b></font></td>
 	<td  align="center" ></td>
-	<td  align="right" ><font color="blue"><b><?=$tsgst_am?></b></font></td>
+	<td  align="right" ><font color="blue"><b><?php  echo $tsgst_am?></b></font></td>
 	<td  align="center" ></td>
-	<td  align="right" ><font color="blue"><b><?=$tigst_am?></b></font></td>
-	<td  align="right" ><span style="float:left;color:red" ><?=$roff;?></span><font color="blue"><b><?=number_format($wgamm,2);?></b></font></td>
-	<td  align="left" ><?=$al_ledg?></td>
-	<td  align="right" ><?=$adl.$adlv;?></td>
-	<td  align="right" ><b><?=$with_adl_tamm2;?></b></td>
+	<td  align="right" ><font color="blue"><b><?php  echo $tigst_am?></b></font></td>
+	<td  align="right" ><span style="float:left;color:red" ><?php  echo $roff;?></span><font color="blue"><b><?php echo number_format($wgamm,2);?></b></font></td>
+	<td  align="left" ><?php  echo $al_ledg?></td>
+	<td  align="right" ><?php  echo $adl.$adlv;?></td>
+	<td  align="right" ><b><?php  echo $with_adl_tamm2;?></b></td>
 	<td  align="right" ><b></b></td>
 	</tr>
-<?
+<?php 
 $Ttamm2+=$with_adl_tamm2;
 $ADls+=$adl.$adlv;
 
@@ -331,24 +333,24 @@ $ADls+=$adl.$adlv;
 <td align="right"></td>
 <td align="right"></td>
 <td align="right"></td>
-<td align="right"><font color="red"><b><?=number_format($tota1,2);?></b></font></td>
+<td align="right"><font color="red"><b><?php echo number_format($tota1,2);?></b></font></td>
 
 	<td  align="right" ><font color="red"><b></b></font></td>
-	<td  align="right" ><font color="red"><b><?=$dis11;?></b></font></td>
+	<td  align="right" ><font color="red"><b><?php  echo $dis11;?></b></font></td>
 	<td  align="right" hidden><font color="red"><b></b></font></td>
-	<td  align="right" hidden ><font color="red"><b><?=$dis111;?></b></font></td>
+	<td  align="right" hidden ><font color="red"><b><?php  echo $dis111;?></b></font></td>
 	
-		<td  align="right" ><font color="red"><b><?=$amm2;?></b></font></font></td>
+		<td  align="right" ><font color="red"><b><?php  echo $amm2;?></b></font></font></td>
 		<td  align="center" ></td>
-		<td  align="right" ><font color="red"><b><?=$ttcgst_am?></b></font></td>
+		<td  align="right" ><font color="red"><b><?php  echo $ttcgst_am?></b></font></td>
 		<td  align="center" ></td>
-		<td  align="right" ><font color="red"><b><?=$ttsgst_am?></b></font></td>
+		<td  align="right" ><font color="red"><b><?php  echo $ttsgst_am?></b></font></td>
 		<td  align="center" ></td>
-		<td  align="right" ><font color="red"><b><?=$ttigst_am?></b></font></td>
-<td align="right"><font color="red"><b><?=number_format($wgamm1,2);?></b></font></td>
+		<td  align="right" ><font color="red"><b><?php  echo $ttigst_am?></b></font></td>
+<td align="right"><font color="red"><b><?php echo number_format($wgamm1,2);?></b></font></td>
 <td  align="right" ></td>
-<td  align="right" ><font color="red"><b><?=number_format($ADls,2);?></b></font></td>
-<td  align="right" ><font color="red"><b><?=number_format($Ttamm2,2);?></b></font></td>
+<td  align="right" ><font color="red"><b><?php echo number_format($ADls,2);?></b></font></td>
+<td  align="right" ><font color="red"><b><?php echo number_format($Ttamm2,2);?></b></font></td>
 <td  align="right" ><font color="red"><b></b></font></td>
 </tr>
 	  </table>

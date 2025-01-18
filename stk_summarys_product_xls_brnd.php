@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include "function.php";
@@ -63,7 +63,7 @@ header("Content-Disposition: attachment; filename=$file");
 <td align="left" bgcolor="#99ffcc" ><b>Value</b></td>
 </tr>
 
-<?
+<?php 
 
 
 $sln=0;
@@ -195,60 +195,60 @@ $tclose_stk+=$close_stk;
 
 ?>
 <tr>
-<td align="left" ><b><?=$pnm;?></b></td>
+<td align="left" ><b><?php  echo $pnm;?></b></td>
 
-<td align="center" ><b><?=$open_stk;?></b></td>
-<td align="right" ><b><?=$open_rt;?></b></td>
-<td align="right" ><b><?=$open_val;?></b></td>
+<td align="center" ><b><?php  echo $open_stk;?></b></td>
+<td align="right" ><b><?php  echo $open_rt;?></b></td>
+<td align="right" ><b><?php  echo $open_val;?></b></td>
 
-<td align="center" ><b><?=$in_stk;?></b></td>
-<td align="right" ><b><?=$in_rt;?></b></td>
-<td align="right" ><b><?=$in_val;?></b></td>
+<td align="center" ><b><?php  echo $in_stk;?></b></td>
+<td align="right" ><b><?php  echo $in_rt;?></b></td>
+<td align="right" ><b><?php  echo $in_val;?></b></td>
 
-<td align="center" ><b><?=$out_stk;?></b></td>
-<td align="right" ><b><?=$out_rt;?></b></td>
-<td align="right" ><b><?=$out_val;?></b></td>
+<td align="center" ><b><?php  echo $out_stk;?></b></td>
+<td align="right" ><b><?php  echo $out_rt;?></b></td>
+<td align="right" ><b><?php  echo $out_val;?></b></td>
 
-<td align="center" ><b><?=$tin_stk;?></b></td>
-<td align="right" ><b><?=$tin_rt;?></b></td>
-<td align="right" ><b><?=$tin_val;?></b></td>
+<td align="center" ><b><?php  echo $tin_stk;?></b></td>
+<td align="right" ><b><?php  echo $tin_rt;?></b></td>
+<td align="right" ><b><?php  echo $tin_val;?></b></td>
 
-<td align="center" ><b><?=$tout_stk;?></b></td>
-<td align="right" ><b><?=$tout_rt;?></b></td>
-<td align="right" ><b><?=$tout_val;?></b></td>
+<td align="center" ><b><?php  echo $tout_stk;?></b></td>
+<td align="right" ><b><?php  echo $tout_rt;?></b></td>
+<td align="right" ><b><?php  echo $tout_val;?></b></td>
 
-<td align="center" ><b><?=$close_stk;?></b></td>
-<td align="right" ><b><?=$close_rt;?></b></td>
-<td align="right" ><b><?=$colse_val;?></b></td>
+<td align="center" ><b><?php  echo $close_stk;?></b></td>
+<td align="right" ><b><?php  echo $close_rt;?></b></td>
+<td align="right" ><b><?php  echo $colse_val;?></b></td>
 </tr> 
-<?
+<?php 
 }
 ?>
 <tr bgcolor="#a2cee6">
 <td align="left" ><font size="3"><b>Total</b></font></td>
 
-<td align="center" ><font size="3"><b><?=$topen_stk;?></b></font></td>
+<td align="center" ><font size="3"><b><?php  echo $topen_stk;?></b></font></td>
 <td align="right" ><font size="3"><b></b></font></td>
-<td align="right" ><font size="3"><b><?=$topen_val;?></b></font></td>
+<td align="right" ><font size="3"><b><?php  echo $topen_val;?></b></font></td>
 
-<td align="center" ><font size="3"><b><?=$tpin_stk;?></b></font></td>
+<td align="center" ><font size="3"><b><?php  echo $tpin_stk;?></b></font></td>
 <td align="right" ><font size="3"><b></b></font></td>
-<td align="right" ><font size="3"><b><?=$tpin_val;?></b></font></td>
+<td align="right" ><font size="3"><b><?php  echo $tpin_val;?></b></font></td>
 
-<td align="center" ><font size="3"><b><?=$tsout_stk;?></b></font></td>
+<td align="center" ><font size="3"><b><?php  echo $tsout_stk;?></b></font></td>
 <td align="right" ><font size="3"><b></b></font></td>
-<td align="right" ><font size="3"><b><?=$tsout_val;?></b></font></td>
+<td align="right" ><font size="3"><b><?php  echo $tsout_val;?></b></font></td>
 
-<td align="center" ><font size="3"><b><?=$ttin_stk;?></b></font></td>
+<td align="center" ><font size="3"><b><?php  echo $ttin_stk;?></b></font></td>
 <td align="right" ><font size="3"><b></b></font></td>
-<td align="right" ><font size="3"><b><?=$ttin_val;?></b></font></td>
+<td align="right" ><font size="3"><b><?php  echo $ttin_val;?></b></font></td>
 
-<td align="center" ><font size="3"><b><?=$ttout_stk;?></b></font></td>
+<td align="center" ><font size="3"><b><?php  echo $ttout_stk;?></b></font></td>
 <td align="right" ><font size="3"><b></b></font></td>
-<td align="right" ><font size="3"><b><?=$ttout_val;?></b></font></td>
+<td align="right" ><font size="3"><b><?php  echo $ttout_val;?></b></font></td>
 
-<td align="center" ><font size="3"><b><?=$tclose_stk;?></b></font></td>
+<td align="center" ><font size="3"><b><?php  echo $tclose_stk;?></b></font></td>
 <td align="right" ><font size="3"><b></b></font></td>
-<td align="right" ><font size="3"><b><?=$tcolse_val;?></b></font></td>
+<td align="right" ><font size="3"><b><?php  echo $tcolse_val;?></b></font></td>
 </tr> 
 </table>

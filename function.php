@@ -1,4 +1,4 @@
-<?php
+<?php 
 function parseToXML($htmlStr)
 {
 $xmlStr=str_replace('<','&lt;',$htmlStr);
@@ -27,6 +27,7 @@ function get_value($table,$srcfild,$srcval,$rtrnfild,$morecond)
 {
     ini_set('max_execution_time', 3000);
 	include("config.php");
+	$rtrnval=0;
 	$sql=mysqli_query($conn,"SELECT $rtrnfild FROM $table WHERE $srcfild='$srcval' $morecond");
 	while($R=mysqli_fetch_array($sql))
 	{
@@ -40,6 +41,7 @@ function get_val($table,$sl,$nm,$ufld)
     ini_set('max_execution_time', 3000);
 	include("config.php");
     $data= mysqli_query($conn,"select $nm from $table where $ufld='$sl'")or die(mysqli_error($conn));
+    $val="";
     while ($row= mysqli_fetch_array($data))
     {
         $val=$row[$nm];
@@ -137,5 +139,27 @@ function get_avg_rate($conn, $pcd, $tdt)
 		$close_rt = round($R4['stck1'], 2);
 	}
 	return $close_rt;
+}
+function lgBetnoModify($betno)
+{
+$betno_len=strlen($betno);
+$betno_sync ="";
+if($betno_len>5 && $betno_len<14)
+{
+$betno_sync=$betno;
+}
+elseif($betno_len==18)
+{
+ $betno_sync = substr($betno, 3, -2);
+}
+elseif($betno_len==19)
+{
+ $betno_sync = substr($betno, 4, -2);
+}
+else
+{
+ $betno_sync ="";
+}
+return $betno_sync;
 }
 ?>

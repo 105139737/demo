@@ -1,4 +1,4 @@
-<?php
+<?php 
 
 /**
  * @author Onnet Solution
@@ -9,7 +9,7 @@ $reqlevel = 3;
 include("membersonly.inc.php");
 include("Numbers/Words.php");
 $a=$_REQUEST[custid];
-$blno=$_REQUEST[blno];
+$blno=$_REQUEST['blno'] ?? "";
 $d=$_REQUEST[ddt];
 if($d!="")
 {
@@ -168,19 +168,19 @@ $result21 = mysqli_query($conn,$query21)or die (mysqli_error($conn));
 
 ?>
 <Script language="JavaScript">
-alert('Submit Successfully. Thank You...<?=$inv;?>');
+alert('Submit Successfully. Thank You...<?php  echo $inv;?>');
 document.location="retn_purchase.php";
 </script>
-<?
+<?php 
 }
 
 else
 {
     ?>
 <Script language="JavaScript">
-alert('<? echo $err;?>');
+alert('<?php  echo $err;?>');
 window.history.go(-1);
 </script>
-<?
+<?php 
 }
 ?>

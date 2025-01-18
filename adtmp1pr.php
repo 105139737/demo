@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 $prnm=$_REQUEST[prnm];
@@ -21,7 +21,7 @@ $cgst_am=$_REQUEST[cgst_am];
 $sgst_am=$_REQUEST[sgst_am];
 $igst_am=$_REQUEST[igst_am];
 $net_am=$_REQUEST[net_amm];
-$bcd=$_REQUEST[bcd];
+$bcd=$_REQUEST['bcd'];
 $rate=$_REQUEST[rate];
 $betno=$_REQUEST[betno];
 $tsl=$_REQUEST[tsl];
@@ -68,7 +68,7 @@ $result21 = mysqli_query($conn,$query21)or die (mysqli_error($conn));
 $('.upd').html('<input type="button" value="ADD" onclick="add()" style="padding:2px;width:100%" class="btn btn-info">');
 reset();
 </script>
-<?
+<?php 
 }
 ?>
 <script>
@@ -76,15 +76,15 @@ tmppr1();
 $('#cat').trigger('chosen:open');
 reset();
 </script>
-<?
+<?php 
 }
 else
 {
 ?>
 <script>
-alert('<?=$err;?>');
+alert('<?php  echo $err;?>');
 tmppr1();
 </script>
-<?	
+<?php 	
 }
 ?>

@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 /*
@@ -17,7 +17,7 @@ $a="%".$input."%";
 	$len = strlen($input);
 		header("Content-Type: text/xml");
 $cnt=0;
-		echo "<?xml version=\"1.0\" encoding=\"utf-8\" ?><results>";
+		echo "<?php xml version=\"1.0\" encoding=\"utf-8\" ?><results>";
         $query = "SELECT * FROM main_catg where cnm like '$a' limit 0,18";
    $result = mysqli_query($conn,$query);
 while ($R = mysqli_fetch_array ($result))

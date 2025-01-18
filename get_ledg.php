@@ -1,14 +1,14 @@
-<?php
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 $dt=date('Y-m-d');
 $dttm=date('d-m-Y H:i:s a');
 $adl=rawurldecode($_REQUEST['adl']);
-$remkk=$_REQUEST['remkk'];
+$remkk=$_REQUEST['remkk']??"";
 ?>
   		<select  name="remk" id="remk" tabindex="1"  class="form-control">
 		<option value="">---Select---</option>
-		<?php 
+		<?php  
 		if($adl=="+")
 		{
 		$gettt = mysqli_query($conn,"SELECT * FROM main_group WHERE pcd='8'") or die(mysqli_error($conn));	
@@ -24,8 +24,8 @@ $remkk=$_REQUEST['remkk'];
 		while($PM = mysqli_fetch_array($getl))
 		{
 		?>
-		<option value="<?=$PM['sl'];?>" <?php if($PM['sl']==$remkk){?> selected <? } ?>><?=$PM['nm']?></option>
-		<?php 
+		<option value="<?php  echo $PM['sl'];?>" <?php  if($PM['sl']==$remkk){?> selected <?php  } ?>><?php  echo $PM['nm']?></option>
+		<?php  
 		}
 		} 
 		?>

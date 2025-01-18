@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("config.php");
 
@@ -25,7 +25,7 @@ $mm=date('M', strtotime($m));
  <table  class="advancedtable" width="900px" border="1" >
 				     <tr bgcolor="#06dbfb">
 		 <td  align="center" colspan="3" >
-			<b>NADIA CLOSING STOCK <?=$dt;?></b>
+			<b>NADIA CLOSING STOCK <?php  echo $dt;?></b>
 			</td>
 			<td  align="center" colspan="7">
 			<b>NADIA</b>
@@ -65,7 +65,7 @@ $mm=date('M', strtotime($m));
 			<b>Nadia Total Kg/Ltr</b>
 			</td>
 		     </tr>
-<?
+<?php 
 
 
 $c1='odd';
@@ -179,43 +179,43 @@ $NADIA_pack=$CHAKADAHA_pack+$KRISHNAGAR_pack+$TEHATTA_pack;
 			$cs="even";
 		}
 			 ?>
-		   <tr class="<?=$cs;?>" >
+		   <tr class="<?php  echo $cs;?>" >
 		   
 		    <td  align="left" >
-			<?=$pname;?>
+			<?php  echo $pname;?>
 			</td>
 			 <td  align="right" style="cursor:pointer" >
-			<?=$pack;?>
+			<?php  echo $pack;?>
 			</td>
 			
 			 <td  align="right" >
-			<b><?echo number_format($ret,2);?></b>
+			<b><?php echo number_format($ret,2);?></b>
 			</td>
             <td  align="center" bgcolor="#ff9900" >
-			<?=$CHAKADAHA;?>
+			<?php  echo $CHAKADAHA;?>
 			</td>
 		  <td  align="right" bgcolor="#ff9900" >
-			<b><?=$CHAKADAHA_pack;?></b>
+			<b><?php  echo $CHAKADAHA_pack;?></b>
 			</td>
 			<td  align="center" bgcolor="#cc99ff" >
-		<?=$KRISHNAGAR;?>
+		<?php  echo $KRISHNAGAR;?>
 			</td>
 			  <td  align="right" bgcolor="#cc99ff"  >
-			<b><?=$KRISHNAGAR_pack;?></b>
+			<b><?php  echo $KRISHNAGAR_pack;?></b>
 			</td>
 			<td  align="center" bgcolor="#ff99cc"  >
-		<?=$TEHATTA;?>
+		<?php  echo $TEHATTA;?>
 			</td>
 		  <td  align="right" bgcolor="#ff99cc"  >
-			<b><?=$TEHATTA_pack;?></b>
+			<b><?php  echo $TEHATTA_pack;?></b>
 			</td>
 				<td  align="right" bgcolor="#ffcc99"  >
-			<?=$NADIA_pack;?>
+			<?php  echo $NADIA_pack;?>
 			</td>
 	
 		
 		     </tr>	 
-<?
+<?php 
 $CHAKADAHA_ret_total=$CHAKADAHA_ret+$CHAKADAHA_ret_total;
 $KRISHNAGAR_ret_total=$KRISHNAGAR_ret+$KRISHNAGAR_ret_total;
 $TEHATTA_ret_total=$TEHATTA_ret+$TEHATTA_ret_total;
@@ -228,22 +228,22 @@ $NADIA_ret_total=$TEHATTA_ret_total+$KRISHNAGAR_ret_total+$CHAKADAHA_ret_total;
 </td>
 
 <td align="center" >
-<b><?echo $CHAKADAHA_ret_total;?></b>
+<b><?php echo $CHAKADAHA_ret_total;?></b>
 </td>
 <td>
 </td>
 <td align="center" >
-<b><?echo $KRISHNAGAR_ret_total;?></b>
+<b><?php echo $KRISHNAGAR_ret_total;?></b>
 </td>
 <td>
 </td>
 <td align="center" >
-<b><?echo $TEHATTA_ret_total;?></b>
+<b><?php echo $TEHATTA_ret_total;?></b>
 </td>
 <td>
 </td>
 <td align="right" >
-<b><?=$NADIA_ret_total;?></b>
+<b><?php  echo $NADIA_ret_total;?></b>
 </td>
 
 

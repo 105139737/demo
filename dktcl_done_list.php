@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 include "header.php";
@@ -9,7 +9,7 @@ $tdt=date('d-m-Y');
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <div class="wrapper row-offcanvas row-offcanvas-left">
-	<?
+	<?php 
 	include "left_bar.php";
 	?>
 <head>
@@ -102,11 +102,11 @@ a
 <tr>
 <td style="text-align:right;"><b>From:</b></td>
 <td style="text-align:left;">
-<input type="text" name="fdt" class="form-control" id="fdt" value="<?=$fdt;?>" readonly>
+<input type="text" name="fdt" class="form-control" id="fdt" value="<?php  echo $fdt;?>" readonly>
 </td>
 <td style="text-align:right;"><b>To:</b></td>
 <td style="text-align:left;">
-<input type="text" name="tdt" class="form-control" id="tdt" value="<?=$tdt;?>" readonly>
+<input type="text" name="tdt" class="form-control" id="tdt" value="<?php  echo $tdt;?>" readonly>
 </td>
 <td style="text-align:right;"><label>Search :</label></td>
 <td>

@@ -1,10 +1,10 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include("Numbers/Words.php");
 ?>
 <table border="0" width="100%" class="advancedtable">
-<?
+<?php 
 $total_am=0;
 $total_cgst=0;
 $total_sgst=0;
@@ -62,32 +62,32 @@ $bcdnm=$rowii['gnm'];
 }
 ?>
 <tr class="even">
-<td align="left" width="10%" onclick="get_data('<?=$tsl;?>','<?=$prsl;?>','<?=$unit;?>','<?=$qty;?>','<?=$mrp;?>','<?=$total;?>','<?=$disp;?>','<?=$disa;?>','<?=$ttl;?>','<?=$cgst_rt;?>','<?=$cgst_am;?>','<?=$sgst_rt;?>','<?=$sgst_am;?>','<?=$igst_rt;?>','<?=$igst_am;?>','<?=$rate;?>','<?=$net_am;?>','<?=$unit;?>','<?=$betno;?>','<?=$bcd;?>')" style="cursor:pointer;">
-<b><?=$pnm;?></b>
+<td align="left" width="10%" onclick="get_data('<?php  echo $tsl;?>','<?php  echo $prsl;?>','<?php  echo $unit;?>','<?php  echo $qty;?>','<?php  echo $mrp;?>','<?php  echo $total;?>','<?php  echo $disp;?>','<?php  echo $disa;?>','<?php  echo $ttl;?>','<?php  echo $cgst_rt;?>','<?php  echo $cgst_am;?>','<?php  echo $sgst_rt;?>','<?php  echo $sgst_am;?>','<?php  echo $igst_rt;?>','<?php  echo $igst_am;?>','<?php  echo $rate;?>','<?php  echo $net_am;?>','<?php  echo $unit;?>','<?php  echo $betno;?>','<?php  echo $bcd;?>')" style="cursor:pointer;">
+<b><?php  echo $pnm;?></b>
 </td>
-<td align="left" width="10%" ><b><?=$bcdnm;?></b></td>
-<td align="center" width="5%" ><b><?=$unit_nm;?></b></td>
-<td align="center" width="7%" ><b><?=$betno;?></b></td>
-<td align="center" width="5%" ><b><?=$qty;?></b></td>
-<td align="right" width="5%" ><b><?=round($mrp,2);?></b></td>			
-<td align="right" width="6%" ><b><?=$total;?></b></td>
-<td align="center" width="5%" ><b><?=$disp;?></b></td>
-<td align="right" width="5%" ><b><?=$disa;?></b></td>
-<td align="center" hidden ><b><?=$ldis;?></b></td>
-<td align="right" hidden ><b><?=$ldisa;?></b></td>
-<td align="right" width="5%" ><b><?=round($ttl,2);?></b></td>
-<td align="center" width="3%" ><b><?=$cgst_rt;?></b></td>
-<td align="right" width="5%" ><b><?=round($cgst_am,2);?></b></td>
-<td align="center" width="3%" ><b><?=$sgst_rt;?></b></td>
-<td align="right" width="5%" ><b><?=round($sgst_am,2);?></b></td>
-<td align="center" width="3%" ><b><?=$igst_rt;?></b></td>
-<td align="right" width="5%" ><b><?=round($igst_am,2);?></b></td>
-<td align="right" width="5%" ><b><?=round($net_am,2);?></b></td>
-<td align="right" width="5%" ><b><?=round($rate,2);?></b></td>
+<td align="left" width="10%" ><b><?php  echo $bcdnm;?></b></td>
+<td align="center" width="5%" ><b><?php  echo $unit_nm;?></b></td>
+<td align="center" width="7%" ><b><?php  echo $betno;?></b></td>
+<td align="center" width="5%" ><b><?php  echo $qty;?></b></td>
+<td align="right" width="5%" ><b><?php echo round($mrp,2);?></b></td>			
+<td align="right" width="6%" ><b><?php  echo $total;?></b></td>
+<td align="center" width="5%" ><b><?php  echo $disp;?></b></td>
+<td align="right" width="5%" ><b><?php  echo $disa;?></b></td>
+<td align="center" hidden ><b><?php  echo $ldis;?></b></td>
+<td align="right" hidden ><b><?php  echo $ldisa;?></b></td>
+<td align="right" width="5%" ><b><?php echo round($ttl,2);?></b></td>
+<td align="center" width="3%" ><b><?php  echo $cgst_rt;?></b></td>
+<td align="right" width="5%" ><b><?php echo round($cgst_am,2);?></b></td>
+<td align="center" width="3%" ><b><?php  echo $sgst_rt;?></b></td>
+<td align="right" width="5%" ><b><?php echo round($sgst_am,2);?></b></td>
+<td align="center" width="3%" ><b><?php  echo $igst_rt;?></b></td>
+<td align="right" width="5%" ><b><?php echo round($igst_am,2);?></b></td>
+<td align="right" width="5%" ><b><?php echo round($net_am,2);?></b></td>
+<td align="right" width="5%" ><b><?php echo round($rate,2);?></b></td>
 
-<td align="center" width="3%"><b><a onclick="if(confirm('Are you Sure?')){deltpr1('<?=$tsl;?>')}"><font color="red">Delete</font></a> </b></td>
+<td align="center" width="3%"><b><a onclick="if(confirm('Are you Sure?')){deltpr1('<?php  echo $tsl;?>')}"><font color="red">Delete</font></a> </b></td>
 </tr>
-<?
+<?php 
 $total_am+=$total;
 $total_cgst+=$cgst_am;
 $total_sgst+=$sgst_am;
@@ -95,7 +95,7 @@ $total_igst+=$igst_am;
 $total_gst+=$cgst_am+$sgst_am+$igst_am;
 $total_tax+=$ttl;
 $total_net+=$net_am;
-$total_dis+=$disa+$ldisa;
+$total_dis+=(float)$disa+(float)$ldisa;
 }
 $bilamm=$total_net;
 $rgttl=round($bilamm);
@@ -103,16 +103,16 @@ $roff=round($rgttl-$bilamm,2);
 ?>
 </table>
 <script>
-document.getElementById('ttl_amm').value="<?=$total_am;?>";
-document.getElementById('cgst_amm').value="<?=$total_cgst;?>";
-document.getElementById('sgst_amm').value="<?=$total_sgst;?>";
-document.getElementById('igst_amm').value="<?=$total_igst;?>";
-document.getElementById('gst').value="<?=$total_gst;?>";
-document.getElementById('sttl').value="<?=$total_net;?>";
-document.getElementById('roff').value="<?=$roff;?>";
-document.getElementById('tamm').value="<?=$rgttl;?>";
-document.getElementById('tamm1').value="<?=$bilamm;?>";
-document.getElementById('tddis').value="<?=$total_dis;?>";
-document.getElementById('taxable_amm').value="<?=$total_tax;?>";
+document.getElementById('ttl_amm').value="<?php  echo $total_am;?>";
+document.getElementById('cgst_amm').value="<?php  echo $total_cgst;?>";
+document.getElementById('sgst_amm').value="<?php  echo $total_sgst;?>";
+document.getElementById('igst_amm').value="<?php  echo $total_igst;?>";
+document.getElementById('gst').value="<?php  echo $total_gst;?>";
+document.getElementById('sttl').value="<?php  echo $total_net;?>";
+document.getElementById('roff').value="<?php  echo $roff;?>";
+document.getElementById('tamm').value="<?php  echo $rgttl;?>";
+document.getElementById('tamm1').value="<?php  echo $bilamm;?>";
+document.getElementById('tddis').value="<?php  echo $total_dis;?>";
+document.getElementById('taxable_amm').value="<?php  echo $total_tax;?>";
 t2();
 </script>

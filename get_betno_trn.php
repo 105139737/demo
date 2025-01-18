@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 $pcd=$_REQUEST['prnm'];
@@ -10,14 +10,14 @@ if($pcd=="" or $brncd=="")
 {
 ?>
 <input type="text" class="sc" autocomplete="off" id="betno"  name="betno" onblur="spaces(this.value)" value="" tabindex="15" size="15"  >
-<?	
+<?php 	
 }
 else
 {
 ?>
-<input type="text"  list="bgss" id="betno" class="sc1" value="<?=$betno1;?>" autocomplete="off" name="betno" onblur="spaces(this.value)" size="20" tabindex="15">
+<input type="text"  list="bgss" id="betno" class="sc1" value="<?php  echo $betno1;?>" autocomplete="off" name="betno" onblur="spaces(this.value)" size="20" tabindex="15">
 <datalist id="bgss">
-<?
+<?php 
 $data1 = mysqli_query($conn,"SELECT * FROM main_stock WHERE pcd='$pcd' and bcd='$brncd' and betno!='' group by betno order by sl");
 while ($row1 = mysqli_fetch_array($data1))
 {
@@ -36,14 +36,14 @@ $stck=1;
 if($stck>0)	
 {
 ?>
-<option><?=$betnoo?></option>
-<?
+<option><?php  echo $betnoo?></option>
+<?php 
 }
 	}
 	
 ?>
 </datalist>
-<?
+<?php 
 }
 ?>
 <script>

@@ -1,13 +1,13 @@
-<?
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include "header.php";
-$sl454=$_REQUEST[sl];
+$sl454=$_REQUEST['sl'];
 ?>
 <html>
 <head>
         <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <style type="text/css"> 
@@ -154,7 +154,7 @@ return false;
  	<form name="f" method="post" action="parts_edts.php">
      <center>
         <div class="box box-success" >
-	<?
+	<?php 
 $data= mysqli_query($conn,"select * from main_parts where  sl='$sl454'")or die(mysqli_error($conn));
 while ($row = mysqli_fetch_array($data))
 {
@@ -178,7 +178,7 @@ $woamm=$row['woamm'];
             <td  align="left">
 		<select name="cat" class="form-control" size="1" id="cat" tabindex="8"  required>
 				<Option value="">---Select---</option>
-<?
+<?php 
 
 $data1 = mysqli_query($conn,"Select * from main_catg order by cnm");
 
@@ -187,9 +187,9 @@ $data1 = mysqli_query($conn,"Select * from main_catg order by cnm");
 	$sl=$row1['sl'];
 	$cnm=$row1['cnm'];
 ?>
-	<option value="<?=$sl;?>"<?if($sl==$cat){echo 'selected';}?>><?=$cnm;?></option>
+	<option value="<?php  echo $sl;?>"<?php if($sl==$cat){echo 'selected';}?>><?php  echo $cnm;?></option>
 
-<?
+<?php 
 	}
 	
  
@@ -202,7 +202,7 @@ $data1 = mysqli_query($conn,"Select * from main_catg order by cnm");
             <td  align="left">
 		<select name="bnm" class="form-control" size="1" id="bnm" tabindex="8"  required>
 				<Option value="">---Select---</option>
-<?
+<?php 
 
 $data2 = mysqli_query($conn,"Select * from main_brand order by brand");
 
@@ -211,8 +211,8 @@ $data2 = mysqli_query($conn,"Select * from main_brand order by brand");
 	$sl=$row1['sl'];
 	$brand=$row1['brand'];
 	?>
-	<option value="<?=$sl;?>"<?if($sl==$bnm){echo 'selected';}?>><?=$brand;?></option>
-	<?
+	<option value="<?php  echo $sl;?>"<?php if($sl==$bnm){echo 'selected';}?>><?php  echo $brand;?></option>
+	<?php 
 	}
  
 
@@ -223,13 +223,13 @@ $data2 = mysqli_query($conn,"Select * from main_brand order by brand");
 		   <tr>
             <td  align="right" style="padding-top:17px"><b>Parts Name :</b></td>
             <td  align="left">
-<input type="hidden" class="form-control" id="sl"  name="sl" value="<?=$xsl;?>" readonly size="50">
-<input type="text" class="form-control" id="pnm"  name="pnm" value="<?=$pnm;?>" size="50" placeholder="Parts Name... " required>
+<input type="hidden" class="form-control" id="sl"  name="sl" value="<?php  echo $xsl;?>" readonly size="50">
+<input type="text" class="form-control" id="pnm"  name="pnm" value="<?php  echo $pnm;?>" size="50" placeholder="Parts Name... " required>
 
             </td>
 			 <td  align="right" style="padding-top:17px"><b>Parts Code :</b></td>
             <td  align="left">
-			<input type="text" class="form-control" id="pcd"  name="pcd" value="<?=$pcd;?>" size="50" placeholder="Parts Code... " required>
+			<input type="text" class="form-control" id="pcd"  name="pcd" value="<?php  echo $pcd;?>" size="50" placeholder="Parts Code... " required>
 			</td>
 			
 			</tr>
@@ -239,12 +239,12 @@ $data2 = mysqli_query($conn,"Select * from main_brand order by brand");
 
 			<td  align="right" style="padding-top:17px"><b>In Warranty Amount :</b></td>
             <td  align="left">
-			<input type="text" class="form-control" id="wiamm" name="wiamm" onkeypress="return check1(event)" value="<?=$wiamm;?>" size="50" placeholder="Enter In Warranty Amount..." required>
+			<input type="text" class="form-control" id="wiamm" name="wiamm" onkeypress="return check1(event)" value="<?php  echo $wiamm;?>" size="50" placeholder="Enter In Warranty Amount..." required>
 	</td>
 			
 		  			<td  align="right" style="padding-top:17px"><b>Out Warranty Amount :</b></td>
             <td  align="left">
-			<input type="text" class="form-control" id="woamm" name="woamm" onkeypress="return check1(event)"value="<?=$woamm;?>" size="50" placeholder="Enter Out Warranty Amount..." required>
+			<input type="text" class="form-control" id="woamm" name="woamm" onkeypress="return check1(event)"value="<?php  echo $woamm;?>" size="50" placeholder="Enter Out Warranty Amount..." required>
 	</td>
 			<td colspan="2">
             </td>

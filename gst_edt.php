@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include "header.php";
@@ -15,7 +15,7 @@ while($row=mysqli_fetch_array($get))
 }
 ?>
         <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <style type="text/css"> 
@@ -61,22 +61,22 @@ cursor:pointer;
                    
 <div class="box box-success">
 <form method="post" action="gsts.php" id="form1" onSubmit="return check1()" name="form1">
-<input type="hidden" name="sl" id="sl" value="<?echo $sl;?>">
+<input type="hidden" name="sl" id="sl" value="<?php echo $sl;?>">
 <table border="0" width="800px"  align="center" class="table table-hover table-striped table-bordered">
 <tr>
 <td style="text-align:right;padding-top:15px;"><b>S-GST :</b></td>
 <td style="text-align:left;">
-<input type="text" class="form-control" name="sgst" id="sgst" value="<?echo $sgst;?>" size="20" placeholder="Enter SGST">
+<input type="text" class="form-control" name="sgst" id="sgst" value="<?php echo $sgst;?>" size="20" placeholder="Enter SGST">
 </td>
 
 <td style="text-align:right;padding-top:15px;"><b>C-GST :</b></td>
 <td style="text-align:left;">
-<input type="text" class="form-control" name="cgst" id="cgst" value="<?echo $cgst;?>" size="20" placeholder="Enter CGST">
+<input type="text" class="form-control" name="cgst" id="cgst" value="<?php echo $cgst;?>" size="20" placeholder="Enter CGST">
 </td>
 
 <td style="text-align:right;padding-top:15px;"><b>I-GST :</b></td>
 <td style="text-align:left;">
-<input type="text" class="form-control" name="igst" id="igst" value="<?echo $igst;?>" size="20" placeholder="Enter IGST">
+<input type="text" class="form-control" name="igst" id="igst" value="<?php echo $igst;?>" size="20" placeholder="Enter IGST">
 </td>
 <td style="text-align:left; padding-right:8px;">
 <input type="submit" value="Update" class="btn btn-primary" name="B1">

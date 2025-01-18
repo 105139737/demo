@@ -1,4 +1,4 @@
-<?php 
+<?php  
 $reqlevel = 3;
 include("membersonly.inc.php");
 include "header.php";
@@ -10,7 +10,7 @@ $cy=date('Y');
 <html>
 <head>
         <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <style type="text/css"> 
@@ -165,13 +165,13 @@ $("#prod_div").load("get_product_stk.php?scat="+scat+"&cat="+cat).fadeIn('fast')
 <tr>
 <td align="left" width="10%">
 <b>Date : </b>
-<input type="text" id="dt" name="dt" value="<?echo date('d-m-Y');?>" class="form-control" placeholder="Please Enter From Date" > 
+<input type="text" id="dt" name="dt" value="<?php echo date('d-m-Y');?>" class="form-control" placeholder="Please Enter From Date" > 
 </td>
 <td align="left" width="15%" >
 <b>Godown:</b>
 <select name="brncd" class="form-control" size="1" id="brncd">
 <option value="">---Select---</option>
-<?
+<?php 
 $query="Select * from main_godown where stat=1";
 $result = mysqli_query($conn,$query);
 while ($R = mysqli_fetch_array ($result))
@@ -182,8 +182,8 @@ $gnm=$R['gnm'];
 
 
 ?>
-<option value="<? echo $sl;?>"><? echo $gnm;?></option>
-<?
+<option value="<?php  echo $sl;?>"><?php  echo $gnm;?></option>
+<?php 
 }
 ?>
 </select>
@@ -193,7 +193,7 @@ $gnm=$R['gnm'];
 <b>Brand :</b><br>
 <select name="cat" class="form-control" size="1" id="cat" tabindex="8" onchange="get_cat()">
 <Option value="">---All---</option>
-<?
+<?php 
 $data11 = mysqli_query($conn,"Select * from main_catg order by sl");
 while ($row11 = mysqli_fetch_array($data11))
 {
@@ -209,7 +209,7 @@ echo "<option value='".$bsl."'>".$brnm."</option>";
 <div id="gcat">
 <select name="scat" class="form-control" size="1" id="scat" tabindex="8" onchange="get_prod()">
 <Option value="">---All---</option>
-<?
+<?php 
 $data1 = mysqli_query($conn,"Select * from main_scat order by nm");
 while ($row1 = mysqli_fetch_array($data1))
 {
@@ -227,7 +227,7 @@ echo "<option value='".$sl."'>".$cnm."</option>";
 <div id="prod_div">
 <select name="prnm" class="form-control"  id="prnm"   >
 <option value="">---All---</option>
-<?
+<?php 
 $data1 = mysqli_query($conn,"Select * from main_product where typ='0' order by pnm");
 while ($row1 = mysqli_fetch_array($data1))
 {
@@ -235,8 +235,8 @@ $msl=$row1['sl'];
 $pnm=$row1['pnm'];
 $pcd=$row1['pcd'];
 ?>
-<Option value="<?=$msl;?>"><?=reformat($pcd." ".$pnm);?></option>
-<?
+<Option value="<?php  echo $msl;?>"><?php echo reformat($pcd." ".$pnm);?></option>
+<?php 
 }
 ?>
 </select>

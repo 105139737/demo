@@ -1,10 +1,10 @@
-<?
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include "header.php";
 ?>
         <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
 			
             ?>
@@ -100,12 +100,12 @@ cursor:pointer;
  		     <tr>
             <td  align="center" width="10%"><b>Sl. No.</b></td>
             <td  align="center" width="80%"><b>Customer Type</b></td>
-        <?if($user_current_level<0)
+        <?php if($user_current_level<0)
            {?>
 		   <td  align="center" width="10%"><b>Edit</b></td>
-		  <?}?> 
+		  <?php }?> 
 </tr>
-<?
+<?php 
 	$c="";
 	$q=mysqli_query($conn,"select * from main_cus_typ")or die(mysqli_error($conn));
 	$cnt=mysqli_num_rows($q);
@@ -122,18 +122,18 @@ cursor:pointer;
 		$tp=$r['tp'];
 	?>
  		     <tr>
-            <td  align="center" width="10%"><?=$c;;?></td>
-            <td  align="center" width="80%"><?=$tp;?></td>
-            <?if($user_current_level<0)
+            <td  align="center" width="10%"><?php  echo $c;;?></td>
+            <td  align="center" width="80%"><?php  echo $tp;?></td>
+            <?php if($user_current_level<0)
            {?>
 			<td  align="center" width="10%">
-			<a href="cus_typ_edt.php?sl=<?=$sl;?>" >
+			<a href="cus_typ_edt.php?sl=<?php  echo $sl;?>" >
 			<i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
 			</td>
-		 <?}?> 
+		 <?php }?> 
 			</tr>
 	
-	<?	
+	<?php 	
 	}		
 	}
 ?>

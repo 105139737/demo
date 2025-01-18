@@ -1,11 +1,11 @@
-<?
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 include "header.php";
 $fdt = date('Y-m-d');
 ?>
 <div class="wrapper row-offcanvas row-offcanvas-left">
-	<?
+	<?php 
 	include "left_bar.php";
 	?>
 	<style type="text/css">
@@ -46,32 +46,9 @@ $fdt = date('Y-m-d');
 			$('#div_list').load('godown_list.php?all=' + encodeURIComponent(all)).fadeIn('fast');
 		}
 	</script>
-	<script src="js/plugins/input-mask/jquery.inputmask.js" type="text/javascript"></script>
-	<script src="js/plugins/input-mask/jquery.inputmask.date.extensions.js" type="text/javascript"></script>
-	<script src="js/plugins/input-mask/jquery.inputmask.extensions.js" type="text/javascript"></script>
-	<link rel="stylesheet" href="cupertino/jquery.ui.all.css" type="text/css">
-	<style type="text/css">
-		.ui-datepicker {
-			font-family: Arial;
-			font-size: 13px;
-			z-index: 1003 !important;
-			display: none;
-		}
-	</style>
+
 	<script type="text/javascript" language="javascript">
-		$(document).ready(function() {
-			var jQueryDatePicker2Opts = {
-				dateFormat: 'yy-mm-dd',
-				changeMonth: true,
-				changeYear: true,
-				showButtonPanel: false,
-				showAnim: 'show'
-			};
-			$("#fdt").datepicker(jQueryDatePicker2Opts);
-			$("#fdt").inputmask("yyyy-mm-dd", {
-				"placeholder": "yyyy-mm-dd"
-			});
-		});
+	
 
 		function check(evt) {
 			evt = (evt) ? evt : window.event;
@@ -82,9 +59,7 @@ $fdt = date('Y-m-d');
 			return true;
 		}
 	</script>
-	<script type="text/javascript" src="jquery.ui.core.min.js"></script>
-	<script type="text/javascript" src="jquery.ui.widget.min.js"></script>
-	<script type="text/javascript" src="jquery.ui.datepicker.min.js"></script>
+
 	<aside class="right-side">
 		<!-- Content Header (Page header) -->
 		<section class="content-header">
@@ -110,14 +85,14 @@ $fdt = date('Y-m-d');
 			<td  align="left" width="30%">
 			<select name="bnm" id="bnm" class="form-control">
 			<option value="">--Select--</option>
-			<?
+			<?php 
 			$dsql = mysqli_query($conn, "select * from main_branch order by bnm") or die(mysqli_error($conn));
 			while ($erow = mysqli_fetch_array($dsql)) {
 				$bsl = $erow['sl'];
 				$bnm = $erow['bnm'];
 			?>
-			<option value="<?php echo $bsl; ?>"><?php echo $bnm; ?></option>
-			<?
+			<option value="<?php  echo $bsl; ?>"><?php  echo $bnm; ?></option>
+			<?php 
 			}
 			?>
 			</select>

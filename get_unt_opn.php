@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 $prnm=$_REQUEST['prnm'];
@@ -18,11 +18,11 @@ while($rowi=mysqli_fetch_array($geti))
 ?>
 <select id="unit" name="unit" class="form-control" >
 <option value="">---Select---</option>
-<?if($sun!=''){?><option value="sun"><?=$sun;?></option><?}?>
-<?if($mun!=''){?><option value="mun"><?=$mun;?></option><?}?>
-<?if($bun!=''){?><option value="bun"><?=$bun;?></option><?}?>
+<?php if($sun!=''){?><option value="sun"><?php  echo $sun;?></option><?php }?>
+<?php if($mun!=''){?><option value="mun"><?php  echo $mun;?></option><?php }?>
+<?php if($bun!=''){?><option value="bun"><?php  echo $bun;?></option><?php }?>
 </select>
-<input type="hidden" value="<?=$sl?>" name="usl" id="usl">
+<input type="hidden" value="<?php  echo $sl?>" name="usl" id="usl">
 
 <script>
   $('#unit').chosen({

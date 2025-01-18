@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 
@@ -6,7 +6,7 @@ $sl=$_REQUEST['sl'];
 ?>
             <select name="prd" id="prd" class="form-control">
 			<option value="">-----Select-----</option>
-<?
+<?php 
 			$get=mysqli_query($conn,"select * from main_reorder where pcd='$sl' order by pcd")or die(mysqli_error($conn));
 			$rcnt=mysqli_num_rows($get);
 			if($rcnt>0)
@@ -20,8 +20,8 @@ $sl=$_REQUEST['sl'];
 					$sl=$r['sl'];	
 					$pnm=$r['pnm'];
 				?>
-				<option value="<?=$sl;?>"><?=$pnm;?></option>
-				<?
+				<option value="<?php  echo $sl;?>"><?php  echo $pnm;?></option>
+				<?php 
 			}
 			}
 			}
@@ -33,8 +33,8 @@ $sl=$_REQUEST['sl'];
 					$sl=$r['sl'];	
 					$pnm=$r['pnm'];
 				?>
-				<option value="<?=$sl;?>"><?=$pnm;?></option>
-				<?
+				<option value="<?php  echo $sl;?>"><?php  echo $pnm;?></option>
+				<?php 
 			}	
 			}
 			?>

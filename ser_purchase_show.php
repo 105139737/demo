@@ -1,4 +1,4 @@
-<?php 
+<?php  
 $reqlevel = 1;
 include("membersonly.inc.php");
 include "header.php";
@@ -7,7 +7,7 @@ $sa=date('d-m-Y');
 $saa="01-".date('m-Y');
 ?>
         <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <style type="text/css"> 
@@ -122,26 +122,26 @@ document.location='ser_purchase_list_xls.php?fdt='+fdt+'&tdt='+tdt+'&snm='+encod
 <tr>
 <td align="left" style="width:20%">
 <b>Form : </b>
-<input type="text" id="fdt" name="fdt" value="<?echo $saa;?>" class="form-control" placeholder="Please Enter From Date" > 
+<input type="text" id="fdt" name="fdt" value="<?php echo $saa;?>" class="form-control" placeholder="Please Enter From Date" > 
 </td>
 
 <td align="left" style="width:20%" >
 <b>To : </b>
-<input type="text" id="tdt" name="tdt" value="<?echo $sa;?>"class="form-control" placeholder="Please Enter To Date">
+<input type="text" id="tdt" name="tdt" value="<?php echo $sa;?>"class="form-control" placeholder="Please Enter To Date">
 </td>
 
 <td align="left" style="width:20%">
 <b>Company Name :</b><br>
 <select name="snm" class="form-control"  id="snm"   >
 <option value="">---All---</option>
-<?
+<?php 
 		$query="select * from main_suppl  WHERE sl>0 order by nm";
 		$result=mysqli_query($conn,$query);
 		while($rw=mysqli_fetch_array($result))
 		{
 			?>
-			<option value="<?=$rw['sl'];?>"><?=$rw['spn'];?> <?if($rw['nm']!=""){?>( <?=$rw['nm'];?> )<?}?></option>
-			<?
+			<option value="<?php  echo $rw['sl'];?>"><?php  echo $rw['spn'];?> <?php if($rw['nm']!=""){?>( <?php  echo $rw['nm'];?> )<?php }?></option>
+			<?php 
 		}
 	?>
 
@@ -151,13 +151,13 @@ document.location='ser_purchase_list_xls.php?fdt='+fdt+'&tdt='+tdt+'&snm='+encod
 <td align="left" width="20%">
 <b>Branch:</b>
 <select name="brncd" class="form-control" size="1" id="brncd">
-	<?
+	<?php 
 if($user_current_level<0)
 {
 $query="Select * from main_branch";
 ?>
 <option value="">---All---</option>
-<?
+<?php 
 }
 else
 {
@@ -169,8 +169,8 @@ while ($R = mysqli_fetch_array ($result))
 $sl=$R['sl'];
 $bnm=$R['bnm'];
 ?>
-<option value="<? echo $sl;?>"><? echo $bnm;?></option>
-<?
+<option value="<?php  echo $sl;?>"><?php  echo $bnm;?></option>
+<?php 
 }
 ?>
 </select>
@@ -180,15 +180,15 @@ $bnm=$R['bnm'];
 <b>Brand:</b>
 <select id="cat" name="cat" style="width:100%" class="form-control" onchange="get_scat()">
 <option value="">---All---</option>
-<?
+<?php 
 $data12 = mysqli_query($conn,"Select * from main_catg order by sl");
 while ($row12 = mysqli_fetch_array($data12))
 	{
 	$csl=$row12['sl'];
 	$cnm=$row12['cnm'];
 ?>
-<Option value="<?=$csl;?>"><?=$cnm;?></option>
-<?
+<Option value="<?php  echo $csl;?>"><?php  echo $cnm;?></option>
+<?php 
 }
 ?>
 </select>
@@ -198,15 +198,15 @@ while ($row12 = mysqli_fetch_array($data12))
 <div id="catdiv">
 <select name="scat" id="scat" class="form-control" onchange="get_model()">
 <option value="">---All---</option>
-<?
+<?php 
 $get=mysqli_query($conn,"Select * from main_scat where cat='$cat' order by sl");
 while($row=mysqli_fetch_array($get))
 {
 	$sc_sl=$row['sl'];
 	$sc_nm=$row['nm'];
 	?>
-	<option value="<?echo $sc_sl;?>"><?echo $sc_nm;?></option>
-	<?
+	<option value="<?php echo $sc_sl;?>"><?php echo $sc_nm;?></option>
+	<?php 
 }
 ?>
 </select>
@@ -216,15 +216,15 @@ while($row=mysqli_fetch_array($get))
 <b>Service:</b>
 <select id="prnm" name="prnm" style="width:100%" class="form-control">
 <option value="">---All---</option>
-<?
+<?php 
 $data1 = mysqli_query($conn,"Select * from main_product where typ='1' order by sl");
 while ($row1 = mysqli_fetch_array($data1))
 	{
 	$sl=$row1['sl'];
 	$pnm=$row1['pnm'];
 ?>
-<Option value="<?=$sl;?>"><?=reformat($pnm);?></option>
-<?}?>
+<Option value="<?php  echo $sl;?>"><?php echo reformat($pnm);?></option>
+<?php }?>
 </select>
 </td>
 
@@ -233,7 +233,7 @@ while ($row1 = mysqli_fetch_array($data1))
 <select name="godown" class="form-control" size="1" id="godown" >
 <option value="">---All---</option>
 
-<?
+<?php 
 if($user_current_level<0)
 {
 $query="Select * from main_branch";
@@ -249,8 +249,8 @@ $sl=$R['sl'];
 $bnm=$R['bnm'];
 
 ?>
-<option value="<? echo $sl;?>"><? echo $bnm;?></option>
-<?
+<option value="<?php  echo $sl;?>"><?php  echo $bnm;?></option>
+<?php 
 }
 ?>
 </select>

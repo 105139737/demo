@@ -1,5 +1,5 @@
-<?
-$blno=$_REQUEST[blno];
+<?php 
+$blno=$_REQUEST['blno'] ?? "";
 if($blno!='')
 {
 $filenm=str_replace('/','',$blno);

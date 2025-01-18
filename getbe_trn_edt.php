@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 $pcd=$_REQUEST[pcd];
@@ -15,4 +15,4 @@ if($stck=="")
 $stck=0;	
 }
 ?>
-<input type="text" class="sc" id="sih" readonly name="sih" value="<?=$stck;?>"  size="12">
+<input type="text" class="sc" id="sih" readonly name="sih" value="<?php  echo $stck;?>"  size="12">

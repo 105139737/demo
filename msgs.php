@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 include "header.php";
@@ -6,7 +6,7 @@ include "header.php";
 <html>
 <head>
         <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <style type="text/css"> 
@@ -87,7 +87,7 @@ select.sc {
                           
 							
 							
-								 <?
+								 <?php 
 				 
 				 
 $aa=0;
@@ -168,7 +168,7 @@ $to="To";
 
 
 ?>
-    <?
+    <?php 
 	
 	
 		echo"<table border=\"0\" width=\"100%\" class=\"table table-hover table-striped table-bordered\">";

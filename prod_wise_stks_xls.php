@@ -1,11 +1,11 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 date_default_timezone_set('Asia/Kolkata');
 $dt = date('d-M-Y');
  
 $cy=date('Y');
-$pnm=$_REQUEST['pnm'];
+$pnm=$_REQUEST['pnm'] ?? "";
 $catsl=$_REQUEST['cat'];
 $scatsl=$_REQUEST['scat'];
 $dt=$_REQUEST['dt'];
@@ -30,7 +30,7 @@ $jobLink=CreateNewJob('jobs/prod_wise_stks_xls.php',$user_currently_loged,'Model
 alert('Your request has been accepted. You will get you dwonload link in your home page in a few moments. Thank you...');
 window.history.go(-1);
 </script>
-<?php
+<?php 
 die('<b><center><font color="green" size="5">Your request has been accepted. You will get you dwonload link in your home page in a few moments. Thank you...</font></center></b>');
 
 $file="Product Wise Stock Details As on ".$dt.".xls";
@@ -42,12 +42,12 @@ header("Content-Disposition: attachment; filename=$file");
 <tr>
 <td  align="center" colspan="7">
 <b>Model Wise Stock Statement </b><br>
-<font style="font-size:18px;font-family:Century"><b><?=$comp_nm;?> - <?=$branchnm;?></b></font><br/>
-<font style="font-size:13px;font-family:Century"><?=$comp_addr;?><br>
-Phone : <?=$cont;?>
+<font style="font-size:18px;font-family:Century"><b><?php  echo $comp_nm;?> - <?php  echo $branchnm;?></b></font><br/>
+<font style="font-size:13px;font-family:Century"><?php  echo $comp_addr;?><br>
+Phone : <?php  echo $cont;?>
 </font><br/>
-<font style="font-size:13px;">GSTIN NO. : <?=$gstin?></font><br>
-<font style="font-size:14px;"><b>Statement As On : <?php echo $dt;?></b></font>
+<font style="font-size:13px;">GSTIN NO. : <?php  echo $gstin?></font><br>
+<font style="font-size:14px;"><b>Statement As On : <?php  echo $dt;?></b></font>
 </td>
 </tr>
  
@@ -61,7 +61,7 @@ Phone : <?=$cont;?>
 <td align="left"><b>Current Stock</b></td>
 
 </tr>
-<?
+<?php 
 $stk_val=0;
 $stk_val_gst=0;
 $Tot_stk_val=0;
@@ -119,18 +119,18 @@ $stk_val=$rate*$stkf;
 $stk_val_gst=$stk_rate*$stkf;
 
 ?>
-<tr title="<?=$pcd;?>, Stocksl :<?=$ssl;?>">
-<td  align="center" ><?=$sln;?></td>
-<td  align="left" ><?=$cnm;?></td>
-<td  align="left"><?=$scat_nm;?></td>
-<td  align="left"><?=$hsn;?></td>
-<td  align="left"><?=$nm;?></td>
-<td  align="left"><?=$pcode;?></td>
-<td  align="left" ><?=$stock_close;?></td>
+<tr title="<?php  echo $pcd;?>, Stocksl :<?php  echo $ssl;?>">
+<td  align="center" ><?php  echo $sln;?></td>
+<td  align="left" ><?php  echo $cnm;?></td>
+<td  align="left"><?php  echo $scat_nm;?></td>
+<td  align="left"><?php  echo $hsn;?></td>
+<td  align="left"><?php  echo $nm;?></td>
+<td  align="left"><?php  echo $pcode;?></td>
+<td  align="left" ><?php  echo $stock_close;?></td>
 
 
 </tr>	 
-<?
+<?php 
 $stkf=0;
 $Tot_stk_val+=$stk_val;
 $Tot_stk_val_gst+=$stk_val_gst;

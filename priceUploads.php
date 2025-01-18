@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 $sl=$_POST['sl'];
@@ -10,7 +10,7 @@ $catsl=$_REQUEST['cat'];
 $scatsl=$_REQUEST['scat'];
 $prnm=$_REQUEST['prnm'];
 $godown=$_REQUEST['godown'];
-$vstat=$_REQUEST['vstat'];
+$vstat=$_REQUEST['vstat'] ?? "";
 $pstat=$_REQUEST['pstat'];
 
 if($pstat==""){$pstat1="";}else{$pstat1=" and pstat='$pstat'";}

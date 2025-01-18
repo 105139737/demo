@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include "function.php";
@@ -17,4 +17,4 @@ $stck=$R4['stck1'];
 }
 
 ?>
-<input type="text" name="sih" id="sih" class="form-control" value="<?php echo $stck;?>" style="color:red;font-size:18px;font-weight:bold;" readonly onkeypress="return isNumber(event)">
+<input type="text" name="sih" id="sih" class="form-control" value="<?php  echo $stck;?>" style="color:red;font-size:18px;font-weight:bold;" readonly onkeypress="return isNumber(event)">

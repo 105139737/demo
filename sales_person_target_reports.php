@@ -1,6 +1,9 @@
-<?php 
+<?php  
 $reqlevel = 1;
 include("membersonly.inc.php");
+$brand2="";
+$find_in_cat="";
+$var="";
 $brand=$_REQUEST['brand'];
 ini_set('max_execution_time', 0);
 if($brand==""){$brand1="";}else{$brand1=" and cat='$brand'"; $brand2=" and brand='$brand'"; $find_in_cat=" and find_in_set('$brand',brand)>0";}
@@ -8,7 +11,7 @@ if($brand==""){$brand1="";}else{$brand1=" and cat='$brand'"; $brand2=" and brand
 
 $fdt=$_REQUEST['fdt'];
 $tdt=$_REQUEST['tdt'];
-$sper=$_REQUEST['sper'];
+$sper=$_REQUEST['sper'] ?? "";
 
 if($fdt=="" or $tdt=="")
 { 
@@ -36,19 +39,19 @@ $spid_array1=implode(',',$spid_array);
 
 ?>
 <div style="overflow-x:auto;">
-<b><span style="float:left"><h5>SECONDARY TGT VS ACH-MTD (<?php echo date('d-M-Y', strtotime($fdt))?> To <?php echo date('d-M-Y', strtotime($tdt))?>)</h5></span></b>
+<b><span style="float:left"><h5>SECONDARY TGT VS ACH-MTD (<?php  echo date('d-M-Y', strtotime($fdt))?> To <?php  echo date('d-M-Y', strtotime($tdt))?>)</h5></span></b>
 <table width="100%"  class="table table-bordered">
 <tr>
 <th>Sales Person</th>
 
-<?php 
+<?php  
 $data13= mysqli_query($conn,"SELECT * FROM main_scat where sl>0 and FIND_IN_SET(sl, '$cat_array1')>0 $brand1 order by sl ") or die(mysqli_error($conn));
 while ($row13 = mysqli_fetch_array($data13))
 {
 $catnm=$row13['nm'];
 ?>
-<th colspan="3" style="text-align:center;"><b><?php echo $catnm;?></b></th>
-<?php }?>
+<th colspan="3" style="text-align:center;"><b><?php  echo $catnm;?></b></th>
+<?php  }?>
 <th></th>
 <th></th>
 <th></th>
@@ -56,7 +59,7 @@ $catnm=$row13['nm'];
 
 <tr>
 <td></td>
-<?php 
+<?php  
 $i=0;
 $data13= mysqli_query($conn,"SELECT * FROM main_scat where sl>0 and FIND_IN_SET(sl, '$cat_array1')>0 $brand1 order by sl") or die(mysqli_error($conn));
 $no_of_scat=mysqli_num_rows($data13);
@@ -66,7 +69,7 @@ while ($row13 = mysqli_fetch_array($data13))
 <td><b>TGT</b></td>
 <td><b>ACH</b></td>
 <td><b>ACH%</b></td>
-<?php 
+<?php  
 $i=$i+3;
 }?>
 <td><b>TGT</b></td>
@@ -76,11 +79,15 @@ $i=$i+3;
 </tr>
 
 
-<?php 
+<?php  
 $s=0;
 $array_target=array();
 $array_ach=array();
 $array_achper=array();
+$target=0;
+$starget1=0;
+$netamm1t=0;
+$sachp1=0;
 $data12= mysqli_query($conn,"SELECT * FROM main_sale_per where sl>0 and FIND_IN_SET(spid, '$spid_array1')>0 order by sl ") or die(mysqli_error($conn));
 $no_of_salesperson=mysqli_num_rows($data12);
 while ($row12 = mysqli_fetch_array($data12))
@@ -89,8 +96,8 @@ $spid=$row12['spid'];
 $nm=$row12['nm'];
 ?>
 <tr>
-<td><b><?php echo $nm;?></b></td>
-<?php 
+<td><b><?php  echo $nm;?></b></td>
+<?php  
 
 $blno1="";
 $blno=array();
@@ -134,17 +141,17 @@ while ($row15 = mysqli_fetch_array($data15))
 		
 	
 ?>
-<td><?php echo $tgt;?></td>
-<td><?php echo $ach;?></td>
-<td><?php echo $achper;?> %</td>
-<?php 
+<td><?php  echo $tgt;?></td>
+<td><?php  echo $ach;?></td>
+<td><?php  echo $achper;?> %</td>
+<?php  
 $netamm=$netamm+$netamm1;
 $array_target[$s][$k]=$tgt;
 $array_ach[$s][$k]=$ach;
 $array_achper[$s][$k]=$achper;
 $k++;
 }
-$target=0;
+
 $data21s= mysqli_query($conn,"SELECT * FROM main_sp_target where sl>0 and spid='$spid' ") or die(mysqli_error($conn));
 while ($row21 = mysqli_fetch_array($data21s))
 {
@@ -156,11 +163,11 @@ $sachp=round($netamm*100/$starget,2);
 $sachp=0;
 }
 ?>
-<td align="right"><?php echo $starget;?></td>
-<td align="right"><?php echo $netamm;?></td>
-<td align="right"><?php echo $sachp;?></td>
+<td align="right"><?php  echo $starget;?></td>
+<td align="right"><?php  echo $netamm;?></td>
+<td align="right"><?php  echo $sachp;?></td>
 </tr>
-<?php 
+<?php  
 
 $s++;
 $starget1+=$starget;
@@ -172,7 +179,7 @@ $sachp1+=$sachp;
 <b>Total : </b>
 
 </td>
-<?php
+<?php 
 $array_target_final=array();
 $array_ach_final=array();
 $array_achper_final=array();
@@ -190,40 +197,40 @@ for($x=0;$x<$no_of_salesperson;$x++)
 
 $array_target_final[$y]=$val_target;
 $array_ach_final[$y]=$val_ach;
-$array_achper_final[$y]=round(($val_achper/$x),2);
+$array_achper_final[$y]=round((($val_ach*100)/$val_target),2);
 }
 
 for($j=0;$j<$no_of_scat;$j++)
 {
 ?>
 <td>
-<b><?php echo $array_target_final[$j];?></b>
+<b><?php  echo $array_target_final[$j];?></b>
 </td>
 <td>
-<b><?php echo $array_ach_final[$j];?></b>
+<b><?php  echo $array_ach_final[$j];?></b>
 </td>
 <td>
-<b><?php echo $array_achper_final[$j];?></b>
+<b><?php  echo $array_achper_final[$j];?></b>
 </td>
 
-<?php
+<?php 
 }
 ?>
 
 <td>
-<b><?php echo $starget1;?></b>
+<b><?php  echo $starget1;?></b>
 </td>
 <td align="right">
-<b><?php echo $netamm1t;?></b>
+<b><?php  echo $netamm1t;?></b>
 </td>
 <td>
-<b><?php echo round($netamm1t*100/$starget1,2);?></b>
+<b><?php  echo round($netamm1t*100/$starget1,2);?></b>
 </td>
 </tr>
 </table>
 </div>
 
-<?php
+<?php 
 
 $da1= mysqli_query($conn,"SELECT * FROM main_billtype where sl>0 and inv_typ='77' and tp='2'  and stat='0' $find_in_cat ");
 while ($rw1 = mysqli_fetch_array($da1))
@@ -262,7 +269,7 @@ $var=" and FIND_IN_SET(spid, '$spid_array2')";
 <th ><b>ACH</b></th>
 <th><b>ACH%</b></th>
 </tr>
-<?php 
+<?php  
 
 $netamm=0;
 $data121= mysqli_query($conn,"SELECT * FROM main_sale_per where sl>0 and FIND_IN_SET(spid, '$spid_array1')>0 $var order by sl") or die(mysqli_error($conn));
@@ -272,8 +279,8 @@ $spid=$row12['spid'];
 $nm=$row12['nm'];
 ?>
 <tr>
-<td><b><?php echo $nm;?></b></td>
-<?php 
+<td><b><?php  echo $nm;?></b></td>
+<?php  
 
 
 		$target=0;
@@ -303,11 +310,11 @@ $nm=$row12['nm'];
 		
 	
 ?>
-<td><?php echo $target;?></td>
-<td align="right"><?php echo $netamm1;?></td>
-<td><?php echo $achper1;?> %</td>
+<td><?php  echo $target;?></td>
+<td align="right"><?php  echo $netamm1;?></td>
+<td><?php  echo $achper1;?> %</td>
 </tr>
-<?php 
+<?php  
 $netamm+=$netamm1;
 }?>
 <tr>
@@ -316,7 +323,7 @@ $netamm+=$netamm1;
 
 </td>
 <td align="right">
-<b><?php echo $netamm;?></b>
+<b><?php  echo $netamm;?></b>
 </td>
 <td >
 

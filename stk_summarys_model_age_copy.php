@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 3;
 set_time_limit(0);
 include("membersonly.inc.php");
@@ -11,7 +11,7 @@ $tdt=$_REQUEST['tdt'];
 $catsl=$_REQUEST['cat']; 
 $scatsl=$_REQUEST['scat'];
 $rt=$_REQUEST['rt'];
-$val=$_REQUEST['val'];
+$val=$_REQUEST['val'] ?? "";
 $prnm=$_REQUEST['prnm'];
 $typ=$_REQUEST['typ'];
 $brncd=$_REQUEST['brncd'];if($brncd==""){$brncd1="";}else{$brncd1=" and main_stock.bcd='$brncd'";}
@@ -37,7 +37,7 @@ if($val=='1')
     alert('Your request has been accepted. You will get you dwonload link in your home page in a few moments. Thank you...');
     window.history.go(-1);
     </script>
-    <?php
+    <?php 
     die('<b><center><font color="green" size="5">Your request has been accepted. You will get you dwonload link in your home page in a few moments. Thank you...</font></center></b>');
    
 $file="Stock_ageing.xls";
@@ -46,7 +46,7 @@ header("Content-Disposition: attachment; filename=$file");
 }
 
 ?>
-<table  width="100%" class="advancedtable" <?if($val=='1'){?> border="1"<?}?>  >
+<table  width="100%" class="advancedtable" <?php if($val=='1'){?> border="1"<?php }?>  >
 <tr>
 
 <td align="left" bgcolor="#99ffcc" ><b>Particulars</b></td>
@@ -57,7 +57,7 @@ header("Content-Disposition: attachment; filename=$file");
 <td align="center" bgcolor="#99ffcc" ><b>Ageing</b></td>
 </tr>
 
-<?
+<?php 
 
 
 $sln=0;
@@ -71,10 +71,10 @@ $cat_sl=$row11['sl'];
 ?>
 <tr >
 <td colspan="8" bgcolor="#FFFFE0">
-<font color="red"><b><?=$cat_nm;?></b></font>
+<font color="red"><b><?php  echo $cat_nm;?></b></font>
 </td>
 </tr>
-<?
+<?php 
 $data2= mysqli_query($conn,"select * from main_product where sl>0 and typ='0' and scat='$cat_sl' and stat='0' $prnm1")or die(mysqli_error($conn));
 while ($row1 = mysqli_fetch_array($data2))
 {
@@ -97,7 +97,10 @@ $close_stk=$R4['stck1'];
 $pdt="";
 $ageing="0";
 $blno="";
-$query4="Select * from main_purchasedet where prsl='$pcd' and  dt<='$tdt'  order by sl desc limit 1";
+$tcolse_val=0;
+$tclose_stk=0;
+
+$tclose_stk=0;$query4="Select * from main_purchasedet where prsl='$pcd' and  dt<='$tdt'  order by sl desc limit 1";
 $result4 = mysqli_query($conn,$query4);
 while ($R4 = mysqli_fetch_array ($result4))
 {
@@ -142,29 +145,29 @@ if($close_stk!=0)
 {
 
 ?>
-<tr title="<?php echo $pcd;?>">
-<td align="left" ><b><?=$pnm;?></b></td>
-<td align="left" ><b><?=$pcode;?></b></td>
-<td align="center" ><b><?=$close_stk;?></b></td>
-<td align="center" ><b><?=$blno;?></b></td>
-<td align="center" ><b><?=$pdt;?></b></td>
-<td align="center" ><b><?=$ageing;?></b></td>
+<tr title="<?php  echo $pcd;?>">
+<td align="left" ><b><?php  echo $pnm;?></b></td>
+<td align="left" ><b><?php  echo $pcode;?></b></td>
+<td align="center" ><b><?php  echo $close_stk;?></b></td>
+<td align="center" ><b><?php  echo $blno;?></b></td>
+<td align="center" ><b><?php  echo $pdt;?></b></td>
+<td align="center" ><b><?php  echo $ageing;?></b></td>
 </tr> 
-<?
+<?php 
 }
 }
 else
 {
     ?>
-    <tr title="<?php echo $pcd;?>">
-    <td align="left" ><b><?=$pnm;?></b></td>
-    <td align="left" ><b><?=$pcode;?></b></td>
-    <td align="right" ><b><?=$colse_val;?></b></td>
-    <td align="center" ><b><?=$blno;?></b></td>
-    <td align="center" ><b><?=$pdt;?></b></td>
-    <td align="center" ><b><?=$ageing;?></b></td>
+    <tr title="<?php  echo $pcd;?>">
+    <td align="left" ><b><?php  echo $pnm;?></b></td>
+    <td align="left" ><b><?php  echo $pcode;?></b></td>
+    <td align="right" ><b><?php  echo $colse_val;?></b></td>
+    <td align="center" ><b><?php  echo $blno;?></b></td>
+    <td align="center" ><b><?php  echo $pdt;?></b></td>
+    <td align="center" ><b><?php  echo $ageing;?></b></td>
     </tr> 
-    <?   
+    <?php    
 }
 
 
@@ -176,7 +179,7 @@ else
 
 
 
-<td align="center" ><font size="3"><b><?=$tclose_stk;?></b></font></td>
+<td align="center" ><font size="3"><b><?php  echo $tclose_stk;?></b></font></td>
 <td align="right" ><font size="3"><b></b></font></td>
 <td align="right" ><font size="3"><b></b></font></td>
 <td align="right" ><font size="3"><b></b></font></td>

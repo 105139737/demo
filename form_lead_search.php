@@ -1,10 +1,10 @@
-<?
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 include "header.php";
 ?>
         <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <style type="text/css"> 
@@ -178,7 +178,7 @@ if(document.update.calls.value=='5')
 										
 											 </tr>
 
-<?		
+<?php 		
 
 
 
@@ -238,45 +238,45 @@ $color='#f9f9f9';
 $color='#ffffff';
 }
 ?>
-<tr style=" background-color:<?echo $color;?>;cursor:pointer" onclick="show('<?=$lid;?>')"  >
-<input type="hidden" name="lid" id="lid" value="<?echo $lid;?>">
+<tr style=" background-color:<?php echo $color;?>;cursor:pointer" onclick="show('<?php  echo $lid;?>')"  >
+<input type="hidden" name="lid" id="lid" value="<?php echo $lid;?>">
 
 <td align="center">
-<?=$sl;?>
+<?php  echo $sl;?>
 </td>
 
 <td align="center">
-<?=$lid;?><input type="hidden" name="lid" id="lid" value="<?echo $lid;?>">
+<?php  echo $lid;?><input type="hidden" name="lid" id="lid" value="<?php echo $lid;?>">
 </td>
 
 <td align="center">
-<?=$fnm;?>
+<?php  echo $fnm;?>
 </td>
 <td align="center">
-<?=$hph;?>
+<?php  echo $hph;?>
  </td>
 <td align="center">
-<?=$city;?>
+<?php  echo $city;?>
 </td>
 <td align="center">
-<?=$segment;?>
+<?php  echo $segment;?>
 </td>
 <td align="center">
-<?=$lotsize;?>
+<?php  echo $lotsize;?>
 </td>
 <td align="center">
-<?=$email;?>
+<?php  echo $email;?>
 </td>
 <td align="center">
-<?=$investment;?>
+<?php  echo $investment;?>
 </td>
 
 
 <td align="center">
-<?=$description;?>
+<?php  echo $description;?>
  </td>
 </tr>
-<?}
+<?php }
 ?>
 </table>
 									

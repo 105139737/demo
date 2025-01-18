@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 include "header.php";
@@ -13,7 +13,7 @@ else
 <html>
 <head>
         <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <style type="text/css">
@@ -148,13 +148,13 @@ function days_udt(pass,fld,sl)
 <b>	Branch :</b>
 <select name="brncd" class="form-control" size="1" id="brncd"   >
     <option value="">---All---</option>
-<?
+<?php 
 if($user_current_level<0)
 {
 $query="Select * from main_branch";
 ?>
 
-<?
+<?php 
 }
 else
 {
@@ -168,8 +168,8 @@ $sl=$R['sl'];
 $bnm=$R['bnm'];
 
 ?>
-<option value="<? echo $sl;?>"><? echo $bnm;?></option>
-<?
+<option value="<?php  echo $sl;?>"><?php  echo $bnm;?></option>
+<?php 
 }
 ?>
 </select>
@@ -194,7 +194,7 @@ $bnm=$R['bnm'];
 <b>	Designation :</b>
 <select name="userlevel" class="form-control" size="1" id="userlevel">
 <option value="">---ALL---</option>
-<?
+<?php 
 $query1="Select * from main_deg";
    $result1 = mysqli_query($conn,$query1);
 while ($R1 = mysqli_fetch_array ($result1))
@@ -202,8 +202,8 @@ while ($R1 = mysqli_fetch_array ($result1))
 $sl1=$R1['lvl'];
 $deg=$R1['deg'];
 ?>
-<option value="<? echo $sl1;?>"><? echo $deg;?></option>
-<?
+<option value="<?php  echo $sl1;?>"><?php  echo $deg;?></option>
+<?php 
 }
 ?>
 </select>

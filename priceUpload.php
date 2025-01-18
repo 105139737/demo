@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include "header.php";
@@ -116,13 +116,13 @@ $saa="01-".date('m-Y');
                                 <tr>
                                     <td align="left" width="25%">
                                         <b>Form : </b>
-                                        <input type="text" id="fdt" name="fdt" value="<?echo $saa;?>"
+                                        <input type="text" id="fdt" name="fdt" value="<?php echo $saa;?>"
                                             class="form-control" placeholder="Please Enter From Date">
                                     </td>
 
                                     <td align="left" width="25%">
                                         <b>To : </b>
-                                        <input type="text" id="tdt" name="tdt" value="<?echo $sa;?>"
+                                        <input type="text" id="tdt" name="tdt" value="<?php echo $sa;?>"
                                             class="form-control" placeholder="Please Enter To Date">
                                     </td>
 
@@ -130,17 +130,17 @@ $saa="01-".date('m-Y');
                                         <b>Company Name :</b><br>
                                         <select name="snm" class="form-control" id="snm">
                                             <option value="">---All---</option>
-                                            <?
+                                            <?php 
 		$query="select * from main_suppl  WHERE sl>0 order by nm";
 		$result=mysqli_query($conn,$query);
 		while($rw=mysqli_fetch_array($result))
 		{
 			?>
-                                            <option value="<?=$rw['sl'];?>"><?=$rw['spn'];?>
-                                                <?if($rw['nm']!=""){?>( <?=$rw['nm'];?> )
-                                                <?}?>
+                                            <option value="<?php  echo $rw['sl'];?>"><?php  echo $rw['spn'];?>
+                                                <?php if($rw['nm']!=""){?>( <?php  echo $rw['nm'];?> )
+                                                <?php }?>
                                             </option>
-                                            <?
+                                            <?php 
 		}
 	?>
 
@@ -153,7 +153,7 @@ $saa="01-".date('m-Y');
 <select name="godown" class="form-control" size="1" id="godown">
 <option value="">---All---</option>
 
-<?
+<?php 
 $query="Select * from main_godown";
 $result = mysqli_query($conn,$query);
 while ($R = mysqli_fetch_array ($result))
@@ -162,10 +162,10 @@ $sl=$R['sl'];
 $gnm=$R['gnm'];
 
 ?>
-<option value="<? echo $sl;?>">
-<? echo $gnm;?>
+<option value="<?php  echo $sl;?>">
+<?php  echo $gnm;?>
 </option>
-<?
+<?php 
 }
 ?>
 </select>

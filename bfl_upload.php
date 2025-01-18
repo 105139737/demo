@@ -1,11 +1,11 @@
-<?
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 $blno=$_REQUEST['blno'];
 ?>
 <form method="post" action="bfl_uploads.php" name="form1"  id="form1"  enctype="multipart/form-data" >
 
-<input type="hidden" class="form-control" id="blno" name="blno" value="<?php echo $blno;?>">
+<input type="hidden" class="form-control" id="blno" name="blno" value="<?php  echo $blno;?>">
 <div class="box box-success" >
 <table border="0"  width="860px" class="table table-hover table-striped table-bordered" >
 <tr>

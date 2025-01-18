@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include "header.php";
@@ -7,7 +7,7 @@ include "header.php";
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <div class="wrapper row-offcanvas row-offcanvas-left">
-<?
+<?php 
 include "left_bar.php";
 
 ?>
@@ -61,7 +61,7 @@ $('#show').load('mroll_list.php?uid='+uid).fadeIn('fast');
 <b>User Name:</b>
 <select class="form-control" id="uid" name="uid" required onchange="show()">
 <option value="">---Select---</option>
-<?php
+<?php 
 $sql1 = mysqli_query($conn,"select * from main_signup where sl>0") or die(mysqli_error($conn));
 while($row = mysqli_fetch_array($sql1))
 {
@@ -69,8 +69,8 @@ $sls = $row['sl'];
 $username = $row['username'];
 $name = $row['name'];
 ?>
-<option value="<?php echo $username;?>"><?php echo $username;?> - <?=$name?></option>	
-<?
+<option value="<?php  echo $username;?>"><?php  echo $username;?> - <?php  echo $name?></option>	
+<?php 
 }
 ?>
 </select>

@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 date_default_timezone_set('Asia/Kolkata');
@@ -21,13 +21,13 @@ while($row=mysqli_fetch_array($get))
 
 
 <form name="form1" method="post" action="close_technicians.php" id="form1" onsubmit="return check1()" enctype="multipart/form-data">
-<input type="hidden" name="sl" id="sl" value="<?=$sl;?>">
-<input type="hidden" name="calltyp" id="calltyp" value="<?=$call_type;?>">
-<input type="hidden" name="callid" id="callid" value="<?=$callid;?>">
-<input type="hidden" name="refno" id="refno" value="<?=$refno;?>">
-<input type="hidden" name="cid" id="cid" value="<?=$cnm;?>">
+<input type="hidden" name="sl" id="sl" value="<?php  echo $sl;?>">
+<input type="hidden" name="calltyp" id="calltyp" value="<?php  echo $call_type;?>">
+<input type="hidden" name="callid" id="callid" value="<?php  echo $callid;?>">
+<input type="hidden" name="refno" id="refno" value="<?php  echo $refno;?>">
+<input type="hidden" name="cid" id="cid" value="<?php  echo $cnm;?>">
 
-<?
+<?php 
 if($call_type==1)
 {
 ?>
@@ -54,7 +54,7 @@ if($call_type==1)
 </td>
 </tr>
 </table>
-<?
+<?php 
 }
 elseif($call_type==2)
 {
@@ -73,7 +73,7 @@ elseif($call_type==2)
 <td width="25%">
 <select name="pcd" id="pcd" class="form-control" size="1">
 <Option value="">---Select---</option>
-<?
+<?php 
 $sql=mysqli_query($conn,"select main_parts.pnm as pnm,main_tech_det.pcd as pcd,main_tech_det.qty as qty from main_parts,main_tech_det where main_parts.sl=main_tech_det.pcd and main_tech_det.refno='$refno'") or die (mysqli_error($conn));
 while($r=mysqli_fetch_array($sql))
 {
@@ -81,8 +81,8 @@ while($r=mysqli_fetch_array($sql))
 	$pcd=$r['pcd'];
 	$qty=$r['qty'];
 	?>
-	<Option value="<?=$pcd;?>"><?=$pnm;?>--Quantity-<?=$qty;?></option>
-	<?
+	<Option value="<?php  echo $pcd;?>"><?php  echo $pnm;?>--Quantity-<?php  echo $qty;?></option>
+	<?php 
 }
 ?>
 
@@ -106,7 +106,7 @@ while($r=mysqli_fetch_array($sql))
 
 <td align="left" width="10%">
 <input type="text" class="sc" name="rt" id="rt">
-<input type="hidden" class="span2 form-control" name="tid" id="tid"  value="<?=$tech_id;?>">
+<input type="hidden" class="span2 form-control" name="tid" id="tid"  value="<?php  echo $tech_id;?>">
 </td>
 <td align="left" width="15%"><input type="text" class="sc" name="qnty2" id="qnty2"  ></td>
 <td align="left" width="10%"><input type="text" class="sc" name="qnty" id="qnty"  onblur="chkval()"></td>
@@ -133,7 +133,7 @@ while($r=mysqli_fetch_array($sql))
 </td>
 </tr>
 </table>
-<?
+<?php 
 }
 elseif($call_type==3)
 {
@@ -155,7 +155,7 @@ elseif($call_type==3)
 </td>
 </tr>
 </table>
-	<?
+	<?php 
 }
 else
 {
@@ -172,7 +172,7 @@ else
 </td>
 </tr>
 </table>
-	<?
+	<?php 
 }
 ?>
 </form>

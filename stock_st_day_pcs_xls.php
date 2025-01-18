@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 
@@ -8,11 +8,11 @@ $dt = date('d-M-Y');
  
 $cy=date('Y');
 $pnm=$_REQUEST[pnm];
-$fdt=$_REQUEST[fdt];
-$tdt=$_REQUEST[tdt];
-$cat=$_REQUEST[cat];
-$scat=$_REQUEST[scat];
-$brncd=$_REQUEST[brncd];
+$fdt=$_REQUEST['fdt'];
+$tdt=$_REQUEST['tdt'];
+$cat=$_REQUEST['cat'] ?? "";
+$scat=$_REQUEST['scat'] ?? "";
+$brncd=$_REQUEST['brncd'] ?? "";
 if($brncd==""){$brncd1="";}else{$brncd1=" and bcd='$brncd'";}
 $tdt=date('Y-m-d',strtotime($tdt));
 $fdt=date('Y-m-d',strtotime($fdt));
@@ -38,12 +38,12 @@ header("Content-Disposition: attachment; filename=$file");
 <tr>
 <td align="center" colspan="8"><b>
 <b>Day Wise Stock(PCS Wise)</b><br>
-<font style="font-size:18px;font-family:Century"><b><?=$comp_nm;?> - <?=$branchnm;?></b></font><br/>
-<font style="font-size:13px;font-family:Century"><?=$comp_addr;?><br>
-Phone : <?=$cont;?>
+<font style="font-size:18px;font-family:Century"><b><?php  echo $comp_nm;?> - <?php  echo $branchnm;?></b></font><br/>
+<font style="font-size:13px;font-family:Century"><?php  echo $comp_addr;?><br>
+Phone : <?php  echo $cont;?>
 </font><br/>
-<font style="font-size:13px;">GSTIN NO. : <?=$gstin?></font><br>
-<font style="font-size:14px;"><b>Statement From : <?=date('d-m-Y', strtotime($fdt));?></b> To <b><?=date('d-m-Y', strtotime($tdt));?></b></font>
+<font style="font-size:13px;">GSTIN NO. : <?php  echo $gstin?></font><br>
+<font style="font-size:14px;"><b>Statement From : <?php echo date('d-m-Y', strtotime($fdt));?></b> To <b><?php echo date('d-m-Y', strtotime($tdt));?></b></font>
 
 </b></td>
 </tr>
@@ -57,7 +57,7 @@ Phone : <?=$cont;?>
 <td  align="center" ><b>Sale</b></td>
 <td  align="center" ><b>Closing Stcok</b></td>
 </tr>
-<?
+<?php 
 $sl=$start;
 $c1='odd';
 $c3=0;
@@ -164,16 +164,16 @@ $value=$stck*$rate;
 $tval+=$value;
 			 ?>
 <tr>
-<td  align="center" ><?=$sln;?></td>
-<td align="left"><?=$cnm;?></td>
-<td align="left"><?=$snm;?></td>
-<td  align="left" title="<?=$pcd?>"><?=$nm;?></td>
-<td  align="center"><?echo $stock_op;?></td>
-<td  align="center"><?=$stock_in;?></td>
-<td  align="center"><?=$stock_out;?></td>
-<td  align="center"><?=$stock_close;?></td>
+<td  align="center" ><?php  echo $sln;?></td>
+<td align="left"><?php  echo $cnm;?></td>
+<td align="left"><?php  echo $snm;?></td>
+<td  align="left" title="<?php  echo $pcd?>"><?php  echo $nm;?></td>
+<td  align="center"><?php echo $stock_op;?></td>
+<td  align="center"><?php  echo $stock_in;?></td>
+<td  align="center"><?php  echo $stock_out;?></td>
+<td  align="center"><?php  echo $stock_close;?></td>
 </tr>	 
-<?
+<?php 
 
 }
 ?>

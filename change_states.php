@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 
@@ -57,5 +57,5 @@ $update_pur_det = mysqli_query($conn,"UPDATE main_purchasedet set cgst_rt='$cgst
 	?>
 <script language="javascript">
 alert('Updated Successfully. Thank You...');
-document.location = "purchase_edit.php?blno=<?php echo $blno;?>";
+document.location = "purchase_edit.php?blno=<?php  echo $blno;?>";
 </script>

@@ -1,7 +1,7 @@
-<?
+<?php 
 $reqlevel = 3; 
 include("membersonly.inc.php");
-$mtd=$_REQUEST['mtd'];
+$mtd=$_REQUEST['mtd'] ?? "";
 $fdt=$_REQUEST['fdt'];
 $tdt=$_REQUEST['tdt'];
 $snm=$_REQUEST['snm'];
@@ -35,7 +35,7 @@ $dis1=0;
 			
 
 			</tr>
-			 <?
+			 <?php 
 		$sln=0;
 
 $data1= mysqli_query($conn,"select * from  main_visit where sl>0 ".$todt.$snm1.$slp1." order by sl")or die(mysqli_error($conn));
@@ -62,16 +62,16 @@ $mob1=$rowd['cont'];
 
 ?>
 <tr >
-<td  align="center"  ><?=$sln;?></td>
-<td  align="center" ><?=$edtm;?></td>		
-<td  align="left" ><?=$eby;?></td>		
-<td  align="left" ><?=$nm;?></td>		
-<td  align="left" ><?=$remk;?></td>		
+<td  align="center"  ><?php  echo $sln;?></td>
+<td  align="center" ><?php  echo $edtm;?></td>		
+<td  align="left" ><?php  echo $eby;?></td>		
+<td  align="left" ><?php  echo $nm;?></td>		
+<td  align="left" ><?php  echo $remk;?></td>		
 <td  align="left" >
-<a href="map.php?lat=<?=$lat?>&lng=<?=$lon;?>&nm=<?=rawurlencode($nm);?>" target="_balnk"><font color="blue"><?=$lat?>,<?=$lon;?></font></a>
+<a href="map.php?lat=<?php  echo $lat?>&lng=<?php  echo $lon;?>&nm=<?php echo rawurlencode($nm);?>" target="_balnk"><font color="blue"><?php  echo $lat?>,<?php  echo $lon;?></font></a>
 </td>		
 
 </tr>	 
-<?}?>
+<?php }?>
 </table>
  </div>

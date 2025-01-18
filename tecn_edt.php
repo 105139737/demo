@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include "header.php";
@@ -16,7 +16,7 @@ $img= $row['img'];
 }
 ?>
         <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <style type="text/css"> 
@@ -108,28 +108,28 @@ return false;
                 <!-- Main content -->
                 <section class="content">
 					<HR> 	<form method="post" action="tecn_edts.php" id="form1" onSubmit="return check1()" name="form1"  enctype="multipart/form-data">
-<input type="hidden" name="sl" id="sl" value="<?=$sl;?>">
+<input type="hidden" name="sl" id="sl" value="<?php  echo $sl;?>">
  <center>
         <div class="box box-success" >
         <table border="0" class="table table-hover table-striped table-bordered">
           <tr>
             <td align="right" >Name :</td>
             <td align="left" >
-            <input type="text" class="form-control" name="nm" id="nm" value="<?=$nm;?>" placeholder="Enter Name" ></td>
+            <input type="text" class="form-control" name="nm" id="nm" value="<?php  echo $nm;?>" placeholder="Enter Name" ></td>
                       <td align="right" >Contact :</td>
             <td align="left" >
-            <input type="text" name="cnt" id="cnt" value="<?=$cnt;?>"  class="form-control" onkeypress="return check(event)"  maxlength="10" placeholder="Enter Contact"></td>
+            <input type="text" name="cnt" id="cnt" value="<?php  echo $cnt;?>"  class="form-control" onkeypress="return check(event)"  maxlength="10" placeholder="Enter Contact"></td>
 
 		  </tr>
      <tr>
 	             <td align="right" >Address :</td>
             <td align="left" >
-            <textarea name="adrs" id="adrs" class="form-control" value=""  placeholder="Enter Address" style="height:90px;"><?=$adrs;?></textarea></td>
+            <textarea name="adrs" id="adrs" class="form-control" value=""  placeholder="Enter Address" style="height:90px;"><?php  echo $adrs;?></textarea></td>
 
             <td align="right" >Picture :</td>
             <td align="left" >
 <label for="fileToUpload" title="Click To Chose Picture">
-<img id="blah" src="<?=$img;?>" alt="Sub Product Category Image" style="width:90px; height:90px; cursor:pointer;"/>
+<img id="blah" src="<?php  echo $img;?>" alt="Sub Product Category Image" style="width:90px; height:90px; cursor:pointer;"/>
 </label>
 <input type="file" name="fileToUpload" id="fileToUpload" class="hidden" onchange="readURL(this);" accept="image/x-png, image/gif, image/jpeg">
           </tr>

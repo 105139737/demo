@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 $cdt=date('Y-m-d');
@@ -74,15 +74,15 @@ $result21 = mysqli_query($conn,$query21)or die (mysqli_error($conn));
 alert('Submitted Successfully. Thank You...');
 window.close();
 </script>
-<?
+<?php 
 }
 else
 {
 ?>
 <Script language="JavaScript">
-alert('<? echo $err;?>');
+alert('<?php  echo $err;?>');
 window.history.go(-1);
 </script>
-<?
+<?php 
 }
 ?>

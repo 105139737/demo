@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include "header.php";
@@ -10,7 +10,7 @@ $saa="01-".date('m-Y');
 <html>
 <head>
 <div class="wrapper row-offcanvas row-offcanvas-left">
-<?
+<?php 
 include "left_bar.php";
 ?>
 <style type="text/css"> 
@@ -122,13 +122,13 @@ $("#tdt").datepicker(jQueryDatePicker2Opts);
 <td align="left" width="25%" ><b>Branch:</b><br>
 <select name="brncd" class="form-control czn" size="1" id="brncd" onchange="get_brnc()">
 <option value="">---Select---</option>
-<?
+<?php 
 if($user_current_level<0)
 {
 $query="Select * from main_branch";
 ?>
 <!-- <option value="">---All---</option>
- --><?
+ --><?php 
 }
 else
 {
@@ -141,8 +141,8 @@ $sl=$R['sl'];
 $bnm=$R['bnm'];
 
 ?>
-<option value="<? echo $sl;?>"><? echo $bnm;?></option>
-<?
+<option value="<?php  echo $sl;?>"><?php  echo $bnm;?></option>
+<?php 
 }
 ?>
 </select>
@@ -152,7 +152,7 @@ $bnm=$R['bnm'];
 <div id="main_cust"> 
 <select name="snm" class="form-control"  id="snm"> 
 <option value="">---Select---</option>
-<!-- <?php /*
+<!-- <?php  /*
 $query="Select * from  main_cust group by cont";
    $result = mysqli_query($conn,$query);
 while ($R = mysqli_fetch_array ($result))
@@ -161,8 +161,8 @@ $sid=$R['sl'];
 $nm=$R['nm'];
 $cont=$R['cont'];
 ?>
-<option value="<? echo $cont;?>"><? echo $nm;?> - <? echo $cont;?></option>
-<?
+<option value="<?php  echo $cont;?>"><?php  echo $nm;?> - <?php  echo $cont;?></option>
+<?php 
 }*/
 ?> -->
 </select>
@@ -172,7 +172,7 @@ $cont=$R['cont'];
 <td  align="left"  width="20%"><b>Bill Type :</b>
 <select name="btyp" class="form-control" size="1" id="btyp" tabindex="8" onchange="get_scat(this.value)"  >
 <Option value="">---Select---</option>
-<?
+<?php 
 $qr=mysqli_query($conn,"select * from main_billtype where inv_typ='0'") or die(mysqli_error($conn));
 while($R=mysqli_fetch_array($qr))
 {
@@ -181,17 +181,17 @@ $als1=$R['als'];
 $tp1=$R['tp'];
 $ssn1=$R['ssn'];
 ?>
-<option value="<?php echo $ssl1;?>" ><?php echo $als1;?></option>
-<?	
+<option value="<?php  echo $ssl1;?>" ><?php  echo $als1;?></option>
+<?php 	
 }
 ?>
 </select>
 </td>
 <td align="left" width="20%"><b>Form:</b><br>
-<input type="text" id="fdt" name="fdt" size="13" value="<?echo $saa;?>" class="form-control" placeholder="Please Enter From Date" > 
+<input type="text" id="fdt" name="fdt" size="13" value="<?php echo $saa;?>" class="form-control" placeholder="Please Enter From Date" > 
 </td>
 <td align="left" width="20%"><b>To:</b><br>
-<input type="text" id="tdt" name="tdt" size="13" value="<?echo $sa;?>" class="form-control" placeholder="Please Enter To Date">
+<input type="text" id="tdt" name="tdt" size="13" value="<?php echo $sa;?>" class="form-control" placeholder="Please Enter To Date">
 </td>
 </tr>
 <tr>

@@ -1,24 +1,24 @@
-<?
+<?php 
 $reqlevel = 3; 
 include("membersonly.inc.php");
 include("function.php");
 set_time_limit(0);
-$fdt=$_REQUEST['fdt'];
-$tdt=$_REQUEST['tdt'];
-$snm=$_REQUEST['snm'];
-$brncd=$_REQUEST['brncd'];
-$sman=$_REQUEST['sman'];
-$val=$_REQUEST['val'];
-$dt=$_REQUEST['dt'];
-$invto=$_REQUEST['invto'];
-$order_by=$_REQUEST['order_by'];
-$cat=$_REQUEST['cat'];
-$refsl=$_REQUEST['refsl'];
-$gt=$_REQUEST['gt'];
-$paid=$_REQUEST['paid'];
-$fdt=$_REQUEST['fdt'];
-$tdt=$_REQUEST['tdt'];
-$day=$_REQUEST['day'];
+$fdt=$_REQUEST['fdt'] ?? "";
+$tdt=$_REQUEST['tdt'] ?? "";
+$snm=$_REQUEST['snm'] ?? "";
+$brncd=$_REQUEST['brncd'] ?? "";
+$sman=$_REQUEST['sman'] ?? "";
+$val=$_REQUEST['val'] ?? "";
+$dt=$_REQUEST['dt'] ?? "";
+$invto=$_REQUEST['invto'] ?? "";
+$order_by=$_REQUEST['order_by'] ?? "";
+$cat=$_REQUEST['cat'] ?? "";
+$refsl=$_REQUEST['refsl'] ?? "";
+$gt=$_REQUEST['gt'] ?? "";
+$paid=$_REQUEST['paid'] ?? "";
+$fdt=$_REQUEST['fdt'] ?? "";
+$tdt=$_REQUEST['tdt'] ?? "";
+$day=$_REQUEST['day'] ?? "";
 
 $btyp=rawurldecode($_REQUEST['btyp']);
 $blno=rawurldecode($_REQUEST['blno']);if($blno!=""){$blno1=" and cbill like '%$blno%' ";}else{$blno1="";}
@@ -93,10 +93,10 @@ if($day!="")
   }
   $qury_cust="  and FIND_IN_SET(cid, '$cust')>0";
 }
-
+$val_invto="";
 if($invto!='' or $refsl!='' or $todts!='')
 {
-$val_invto="";
+
 if($invto!='' or $refsl!='')
 {
 if($invto!=""){$invto1=" and invto='$invto'";}else{$invto1="";}	
@@ -137,7 +137,7 @@ if($val_invto!="")
 $val_invto.=")";
 }
 }
-
+$broder="";
 if($dt!="" ){$dt=date('Y-m-d', strtotime($dt));$dt_q=date('Y-m-d', strtotime($dt));$date=" and dt<='$dt'";}else{$date="";}
 $cdt=$dt;
 $dis1=0;
@@ -167,8 +167,8 @@ $i=1;
 
 
 
-$pno=$_REQUEST['pno'];
-$ps=$_REQUEST['ps'];
+$pno=$_REQUEST['pno'] ?? "";
+$ps=$_REQUEST['ps'] ?? "";
 if($ps==""){$ps=50;}
 if($pno==""){$pno=1;}
 $start=($pno-1)*$ps;
@@ -187,16 +187,16 @@ if($count>0)
 { 
 ?>
 <div align="left">
-<input type="text" name="ps" id="ps" value="<?php echo $ps;?>" style="width:50px;" onblur="pagnt1()">
+<input type="text" name="ps" id="ps" value="<?php  echo $ps;?>" style="width:50px;" onblur="pagnt1()">
 </div>
 
-<?if($val=='1')
+<?php if($val=='1')
 {?>
 <table  width="100%" border='1' >
 <thead>
 	<tr bgcolor="#e8ecf6">
 	<td align="left" valign="top" colspan="9"><font size="2" >
-	<b>  <?=$bto."</b><br>".$baddr."<br>";
+	<b>  <?php  echo $bto."</b><br>".$baddr."<br>";
 	if($bmob!="")
 	{
 	echo "Mob : ".$bmob;
@@ -204,10 +204,10 @@ if($count>0)
 	?>
 	</font></td>
 	</tr>
-<?}
+<?php }
 else {?>
-<table  width="100%" <?=$broder;?> class="advancedtable"  >
-<?}?>
+<table  width="100%" <?php  echo $broder;?> class="advancedtable"  >
+<?php }?>
 	<tr bgcolor="#e8ecf6">
 	<td  align="center" ><b>Sl</b></td>
 	<td  align="center"><b>BRAND</b></td>
@@ -221,10 +221,11 @@ else {?>
 	</tr>	
 </thead>
 <tbody>
-<?
+<?php 
 $tot=0;
 $tot_over_due=0;
 $tot_bill_amm=0;
+$slno=0;
 /*$data11= mysqli_query($conn,"select * from  main_drcr where sl>0  and cbill!='' and retn_stat!='1'  $brncd1  $snm1 $sman1 $btyp1 group by cbill order by dt")or die(mysqli_error($conn));
 while ($row1 = mysqli_fetch_array($data11))
 {*/
@@ -366,19 +367,19 @@ $slno++;
 
 		
 <tr>
-<td  align="center" ><b><?=$slno;?></b></td>
-<td  align="left"><b><?=$als;?></b></td>
-<td  align="center"><b><?=$bill_dt;?></b></td>
+<td  align="center" ><b><?php  echo $slno;?></b></td>
+<td  align="left"><b><?php  echo $als;?></b></td>
+<td  align="center"><b><?php  echo $bill_dt;?></b></td>
 
-<td  align="left" ><a onclick="vwdtl('<?=$blno;?>')" title="Click Here To View "><b><?=$blno;?></b></a></td>
-<td  align="left" ><b><?=$nm;?> <?=$invnm;?> <?=$sfno;?></b></td>
-<td  align="right" ><b><?=$bill_amm;?></b></td>
-<td  align="right" ><b><?=round($T,2);?></b></td>
-<td  align="center" ><b><?=$over_due;?></b></td>
+<td  align="left" ><a onclick="vwdtl('<?php  echo $blno;?>')" title="Click Here To View "><b><?php  echo $blno;?></b></a></td>
+<td  align="left" ><b><?php  echo $nm;?> <?php  echo $invnm;?> <?php  echo $sfno;?></b></td>
+<td  align="right" ><b><?php  echo $bill_amm;?></b></td>
+<td  align="right" ><b><?php echo round($T,2);?></b></td>
+<td  align="center" ><b><?php  echo $over_due;?></b></td>
 
-<td  align="left" ><b><?=$sale_per;?></b></td>
+<td  align="left" ><b><?php  echo $sale_per;?></b></td>
 </tr>
-<?
+<?php 
 $tot+=$T;
 $tot_over_due+=$over_due;
 $tot_bill_amm+=$bill_amm;
@@ -389,19 +390,19 @@ $slno++;
 ?>	
 	
 <tr>
-<td  align="center" ><b><?=$slno;?></b></td>
-<td  align="left"><b><?=$als;?></b></td>
-<td  align="center"><b><?=$bill_dt;?></b></td>
+<td  align="center" ><b><?php  echo $slno;?></b></td>
+<td  align="left"><b><?php  echo $als;?></b></td>
+<td  align="center"><b><?php  echo $bill_dt;?></b></td>
 
-<td  align="left" ><a onclick="vwdtl('<?=$blno;?>')" title="Click Here To View "><b><?=$blno;?></b></a></td>
-<td  align="left" ><b><?=$nm;?> <?=$invnm;?> <?=$sfno;?></b></td>
-<td  align="right" ><b><?=$bill_amm;?></b></td>
-<td  align="right" ><b><?=round($T,2);?></b></td>
-<td  align="center" ><b><?=$over_due;?></b></td>
+<td  align="left" ><a onclick="vwdtl('<?php  echo $blno;?>')" title="Click Here To View "><b><?php  echo $blno;?></b></a></td>
+<td  align="left" ><b><?php  echo $nm;?> <?php  echo $invnm;?> <?php  echo $sfno;?></b></td>
+<td  align="right" ><b><?php  echo $bill_amm;?></b></td>
+<td  align="right" ><b><?php echo round($T,2);?></b></td>
+<td  align="center" ><b><?php  echo $over_due;?></b></td>
 
-<td  align="left" ><b><?=$sale_per;?></b></td>
+<td  align="left" ><b><?php  echo $sale_per;?></b></td>
 </tr>
-<?	
+<?php 	
 $tot+=$T;
 $tot_over_due+=$over_due;
 $tot_bill_amm+=$bill_amm;
@@ -412,13 +413,13 @@ $tot_bill_amm+=$bill_amm;
 </tbody>
 <tr bgcolor="#faf9e0">
 <td  align="right" colspan="5"><b>Total : - </b></td>
-<td  align="right" ><b><?=round($tot_bill_amm,2);?></b></td>
-<td  align="right" ><b><?=round($tot,2);?></b></td>
+<td  align="right" ><b><?php echo round($tot_bill_amm,2);?></b></td>
+<td  align="right" ><b><?php echo round($tot,2);?></b></td>
 <td  align="center" ><b></b></td>
 <td></td>
 </tr>
 
-<?
+<?php 
 if($gt=='1')
 {
 $gtotal=0;
@@ -475,16 +476,16 @@ $gbilltotal+=$bill_amm;
 ?>
 <tr bgcolor="#e8ecf6">
 <td  align="right" colspan="5"><b>Grand Total : - </b></td>
-<td  align="right" ><b><?=round($gbilltotal,2);?></b></td>
-<td  align="right" ><b><?=round($gtotal,2);?></b></td>
+<td  align="right" ><b><?php echo round($gbilltotal,2);?></b></td>
+<td  align="right" ><b><?php echo round($gtotal,2);?></b></td>
 <td  align="center" ><b></b></td>
 <td></td>
 </tr>
-<?php }?>
+<?php  }?>
 </table>
 
 
-<?php
+<?php 
 $tp=$rcnt/$ps;
 if(($rcnt%$ps)>0)
 {
@@ -518,16 +519,16 @@ if($rcnt<$ps)
 }
 	
 ?>
-<font color="#FF0000"><center><b>Showing <?php echo $start+1;?> to <?php echo $to;?> of <?php echo $rcnt;?> entries <?php echo $flt?></b></center></font>
+<font color="#FF0000"><center><b>Showing <?php  echo $start+1;?> to <?php  echo $to;?> of <?php  echo $rcnt;?> entries <?php  echo $flt?></b></center></font>
 
 <center>
- <div align="center"><input type="text" size="10" id="pgn" name="pgn" value="<? echo $pno;?>"><input Type="button" value="Go" onclick="pagnt1('')"></div>
+ <div align="center"><input type="text" size="10" id="pgn" name="pgn" value="<?php  echo $pno;?>"><input Type="button" value="Go" onclick="pagnt1('')"></div>
 
 <div class="pagination pagination-centered" style="cursor:pointer;">
 <ul class="pagination pagination-sm inline">
-<li <?php  if($pno==1){?>class="disabled"<? }?>><a onclick="pagnt('1')"><i class="icon-circle-arrow-left"></i>First</a></li>
-<li <?php  if($pno==1){?>class="disabled"<? }?>><a onclick="pagnt('<?php echo $prev;?>')"><i class="icon-circle-arrow-left"></i>Previous</a></li>
-                            <?php 
+<li <?php   if($pno==1){?>class="disabled"<?php  }?>><a onclick="pagnt('1')"><i class="icon-circle-arrow-left"></i>First</a></li>
+<li <?php   if($pno==1){?>class="disabled"<?php  }?>><a onclick="pagnt('<?php  echo $prev;?>')"><i class="icon-circle-arrow-left"></i>Previous</a></li>
+                            <?php  
                             
                             if($tp<=5)
                             {
@@ -535,8 +536,8 @@ if($rcnt<$ps)
                               while($n<=$tp)
                               {
                                 ?>
-                         <li <?php  if($pno==$n){?>class="active";<? }?>><a onclick="pagnt('<?php echo $n;?>')"><?php echo $n;?></a></li>   
-                                <?php 
+                         <li <?php   if($pno==$n){?>class="active";<?php  }?>><a onclick="pagnt('<?php  echo $n;?>')"><?php  echo $n;?></a></li>   
+                                <?php  
                                 $n+=1;
                               }  
                             }
@@ -548,8 +549,8 @@ if($rcnt<$ps)
                                   while($n<=5)
                               {
                                 ?>
-                         <li <?php  if($pno==$n){?>class="active";<? }?>><a onclick="pagnt('<?php echo $n;?>')"><?php echo $n;?></a></li>   
-                                <?php 
+                         <li <?php   if($pno==$n){?>class="active";<?php  }?>><a onclick="pagnt('<?php  echo $n;?>')"><?php  echo $n;?></a></li>   
+                                <?php  
                                 $n+=1;
                               }     
                                 }
@@ -559,8 +560,8 @@ if($rcnt<$ps)
                                     while($n<=5)
                               {
                                 ?>
-                         <li <?php  if($pno==$n){?>class="active";<? }?>><a onclick="pagnt('<?php echo $n;?>')"><?php echo $n;?></a></li>   
-                                <?php 
+                         <li <?php   if($pno==$n){?>class="active";<?php  }?>><a onclick="pagnt('<?php  echo $n;?>')"><?php  echo $n;?></a></li>   
+                                <?php  
                                 $n+=1;
                               }   
                                 }
@@ -570,19 +571,19 @@ if($rcnt<$ps)
                                  while($n<=$pno+2)
                               {
                                 ?>
-                         <li <?php  if($pno==$n){?>class="active";<? }?>><a onclick="pagnt('<?php echo $n;?>')"><?php echo $n;?></a></li>   
-                                <?php 
+                         <li <?php   if($pno==$n){?>class="active";<?php  }?>><a onclick="pagnt('<?php  echo $n;?>')"><?php  echo $n;?></a></li>   
+                                <?php  
                                 $n+=1;
                               }     
                                 }
                                  
                             }
                             ?>
-<li <?php  if($pno==$tp){?>class="disabled"<? }?>><a onclick="pagnt('<?php echo $next;?>')">Next<i class="icon-circle-arrow-right"></i></a></li>
-<li <?php  if($pno==$tp){?>class="disabled"<? }?>><a onclick="pagnt('<?php echo $tp;?>')">Last<i class="icon-circle-arrow-right"></i></a></li>
+<li <?php   if($pno==$tp){?>class="disabled"<?php  }?>><a onclick="pagnt('<?php  echo $next;?>')">Next<i class="icon-circle-arrow-right"></i></a></li>
+<li <?php   if($pno==$tp){?>class="disabled"<?php  }?>><a onclick="pagnt('<?php  echo $tp;?>')">Last<i class="icon-circle-arrow-right"></i></a></li>
 </ul>
 </div>
-<?php 
-} else {?><center><b><h2><font color="#FF0000"><b>NO RECORD AVAILABLE</b></font></h2></b></center><? }
+<?php  
+} else {?><center><b><h2><font color="#FF0000"><b>NO RECORD AVAILABLE</b></font></h2></b></center><?php  }
 ?>
 </center>

@@ -1,4 +1,4 @@
-<?PHP
+<?php 
 $reqlevel = 3; 
 include("membersonly.inc.php");
 include('SimpleImage.php');
@@ -64,15 +64,15 @@ $result21 = mysqli_query($conn,$query21)or die (mysqli_error($conn));
 alert('Update Successfully. Thank You...');
 document.location="opening.php";
 </script>
-<?
+<?php 
 }
 else
 {
 ?>
 <Script language="JavaScript">
-alert('<? echo $err;?>');
+alert('<?php  echo $err;?>');
 window.history.go(-1);
 </script>
-<?
+<?php 
 }
 ?>

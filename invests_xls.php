@@ -1,4 +1,4 @@
-<?php 
+<?php  
 $reqlevel = 1;
 include("membersonly.inc.php");
 
@@ -8,7 +8,7 @@ $jobLink=CreateNewJob('jobs/invests_xls.php',$user_currently_loged,'Invest',$con
     alert('Your request has been accepted. You will get you dwonload link in your home page in a few moments. Thank you...');
     window.history.go(-1);
     </script>
-    <?php
+    <?php 
     die('<b><center><font color="green" size="5">Your request has been accepted. You will get you dwonload link in your home page in a few moments. Thank you...</font></center></b>');
    
 
@@ -43,7 +43,7 @@ $brand1=implode(',',$brand1);
 </tr>
 
 
-<?php 
+<?php  
 $data13 = mysqli_query($conn,"Select * from main_catg where sl>0 and FIND_IN_SET(sl, '$brand1')>0 ");
 while ($row13 = mysqli_fetch_array($data13))
 {
@@ -119,13 +119,13 @@ $T=round($t2-$t1,2);
 $D=($value+round($bal,2))-$T;
 ?>
 <tr>
-<td><b><?php echo $cnm;?></b></td>
-<td align="right" title="<?php echo $close_stk;?> @ <?php echo $rate;?>"><b><?php echo $value;?></b></td>
-<td><b><?php echo round($bal,2);?></b></td>
-<td><b><?php echo $T;?></b></td>
-<td><b><?php echo $D;?></b></td>
+<td><b><?php  echo $cnm;?></b></td>
+<td align="right" title="<?php  echo $close_stk;?> @ <?php  echo $rate;?>"><b><?php  echo $value;?></b></td>
+<td><b><?php  echo round($bal,2);?></b></td>
+<td><b><?php  echo $T;?></b></td>
+<td><b><?php  echo $D;?></b></td>
 </tr>
-<?php 
+<?php  
 }?>
 </table>
 </div>

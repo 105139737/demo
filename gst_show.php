@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 include "header.php";
@@ -6,7 +6,7 @@ include "header.php";
 <html>
 <head>
         <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <script src="js/plugins/input-mask/jquery.inputmask.js" type="text/javascript"></script>
@@ -135,13 +135,13 @@ document.location='gst_update.php?sl='+sl;
 <td align="left">
 <select class="form-control" id="cat"  name="cat">
 <option value="">---Select---</option>
-<?
+<?php 
 $get=mysqli_query($conn,"select * from main_scat order by nm") or die(mysqli_error($conn));
 while($row=mysqli_fetch_array($get))
 {
 ?>
-<option value="<?=$row['sl'];?>"><?=$row['nm'];?> (<?=$row['hsn'];?>)</option>
-<?
+<option value="<?php  echo $row['sl'];?>"><?php  echo $row['nm'];?> (<?php  echo $row['hsn'];?>)</option>
+<?php 
 }
 ?>
 </select>

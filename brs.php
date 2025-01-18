@@ -1,8 +1,8 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include "header.php";
-$brncd=$_REQUEST['brncd'];
+$brncd=$_REQUEST['brncd'] ?? "";
 
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
@@ -10,7 +10,7 @@ $brncd=$_REQUEST['brncd'];
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
  <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <head>
@@ -199,22 +199,22 @@ $("#brr"+div).load("gisedts_mod.php?sl="+encodeURIComponent(sl)+"&fn="+fn+"&fv="
 <tr>
 <td align="left" width="20%">
 <font size="3"><b>From Date : </b></font>
-<input type="text" id="fdt" name="fdt" value="<?=date('01-m-Y');?>" class="form-control" >
+<input type="text" id="fdt" name="fdt" value="<?php echo date('01-m-Y');?>" class="form-control" >
 </td>
 <td align="left" width="20%">
 <font size="3"><b>To Date : </b></font>
-<input type="text" id="tdt" name="tdt" value="<?=date('d-m-Y');?>" class="form-control" >
+<input type="text" id="tdt" name="tdt" value="<?php echo date('d-m-Y');?>" class="form-control" >
 </td>
 <td align="left" width="20%"><font size="3"></font><b>Cash Or Bank Ac. :</b></font>
 <select  name="dldgr" id="dldgr" class="form-control">
 <option value="">-- Select --</option>
-<?php 
+<?php  
 $get = mysqli_query($conn,"SELECT * FROM main_ledg where gcd='1' or gcd='22'") or die(mysqli_error($conn));
 while($row = mysqli_fetch_array($get))
 {
 ?>
-<option value="<?=$row['sl']?>" <?=$row['sl'] == $rowpages['pcd'] ? 'selected' : '' ?>><?=$row['nm']?></option>
-<?php 
+<option value="<?php  echo $row['sl']?>" ><?php  echo $row['nm']?></option>
+<?php  
 } 
 ?>
 </select>

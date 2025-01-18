@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 $cid=$_REQUEST['cid'];
@@ -24,7 +24,7 @@ $brncd=$_REQUEST['brncd'];
 <td align="left"  ><b>Discount Am.</b></td>
 <td align="left"  ><b>Discount Remark</b></td>
 </tr>
-<?
+<?php 
 $sln=0;
 $ttotal_am=0;
 $data1=mysqli_query($conn,"SELECT * FROM main_recv_app where sl>0 and cid='$cid' and bcd='$brncd' and stat='0'")or die(mysqli_error($conn));
@@ -84,21 +84,21 @@ $tdisamm+=$damm;
 if($blno==$blno1){$asd++;}	
 ?>
 <tr>
-<?php
+<?php 
 if($asd==1)
 {
 	?>
 	
-	<td align="center"><?=$sln;?></td>
-	<td align="center"><a href="javascript:can('<?=$sl;?>')"><font color="red"><b>Cancel</b></font></a></td>
-	<td align="center"><?=$sman;?></td>
-	<td align="center"><a href="javascript:get_app_val('<?=$blno;?>')"><font color="red"><b><?php echo $dt;?></b></font></a></td>
-	<td align="center"><?php echo $refno;?></td>
-	<td align="center"><?php echo $nrtn;?></td>
-	<td align="left"><?php echo $ledgr_nm;?><b></b></td>
-	<td align="center"><?php echo $mtd;?></td>
-	<td align="center"><?php echo $tamm;?></td>
-	<?
+	<td align="center"><?php  echo $sln;?></td>
+	<td align="center"><a href="javascript:can('<?php  echo $sl;?>')"><font color="red"><b>Cancel</b></font></a></td>
+	<td align="center"><?php  echo $sman;?></td>
+	<td align="center"><a href="javascript:get_app_val('<?php  echo $blno;?>')"><font color="red"><b><?php  echo $dt;?></b></font></a></td>
+	<td align="center"><?php  echo $refno;?></td>
+	<td align="center"><?php  echo $nrtn;?></td>
+	<td align="left"><?php  echo $ledgr_nm;?><b></b></td>
+	<td align="center"><?php  echo $mtd;?></td>
+	<td align="center"><?php  echo $tamm;?></td>
+	<?php 
 }
 else
 {
@@ -112,29 +112,29 @@ else
 	<td></td>
 	<td></td>
 	<td></td>
-	<?
+	<?php 
 }
 ?>
 
-<td  align="left"  ><b><?=$bill_no;?>.</b></td>
+<td  align="left"  ><b><?php  echo $bill_no;?>.</b></td>
 
-<td  align="right"  ><b><?=round($amm,2);?></b></td>
-<td align="left" ><b><?=$dislam;?></b></td>
-<td align="right" ><b><?=round($damm,2);?></b></td>
-<td align="left" ><b><?=$remk;?></b></td>
+<td  align="right"  ><b><?php echo round($amm,2);?></b></td>
+<td align="left" ><b><?php  echo $dislam;?></b></td>
+<td align="right" ><b><?php echo round($damm,2);?></b></td>
+<td align="left" ><b><?php  echo $remk;?></b></td>
 </tr>
-<?}
+<?php }
 if($total_am>0)
 {
 ?>
 <tr bgcolor="#e8ecf6">
 <td colspan="10" align="right"><b>Total</b></td>
-<td align="right"><b><?php echo $total_am;?></b></td>
+<td align="right"><b><?php  echo $total_am;?></b></td>
 <td></td>
-<td align="right"><b><?php echo $tdisamm;?></b></td>
+<td align="right"><b><?php  echo $tdisamm;?></b></td>
 <td></td>
 </tr>
-<?
+<?php 
 }
 $ttotal_am+=$total_am;
 $ttdisamm+=$tdisamm;
@@ -142,9 +142,9 @@ $ttdisamm+=$tdisamm;
 ?>
 <tr>
 <td colspan="10" align="right"><b>Grand Total</b></td>
-<td align="right"><b><?php echo $ttotal_am;?></b></td>
+<td align="right"><b><?php  echo $ttotal_am;?></b></td>
 <td></td>
-<td align="right"><b><?php echo $ttdisamm;?></b></td>
+<td align="right"><b><?php  echo $ttdisamm;?></b></td>
 <td></td>
 </tr>
 </table>

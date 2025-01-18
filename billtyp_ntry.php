@@ -1,11 +1,11 @@
-<?
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 include "header.php";
 $fdt=date('Y-m-d');
 ?>
         <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <style type="text/css"> 
@@ -124,13 +124,13 @@ function act(sl,val)
 <td align="left" >
 <b>Branch : </b>
 <select name="brncd" class="form-control" tabindex="1"  size="1" id="brncd" >
-<?
+<?php 
 if($user_current_level<0)
 {
 $query="Select * from main_branch";
 ?>
 <option value="">---Select---</option>
-<?
+<?php 
 }
 else
 {
@@ -143,8 +143,8 @@ $sl=$R['sl'];
 $bnm=$R['bnm'];
 
 ?>
-<option value="<? echo $sl;?>"><? echo $bnm;?></option>
-<?
+<option value="<?php  echo $sl;?>"><?php  echo $bnm;?></option>
+<?php 
 }
 ?>
 </select>
@@ -167,15 +167,15 @@ $bnm=$R['bnm'];
 <td>
 <label><b>Brand : </b></label><br>
 <select name="brand[]" id="brand" class="form-control" tabindex="1" multiple >
-<?
+<?php 
 $dsql=mysqli_query($conn,"select * from main_catg order by sl") or die (mysqli_error($conn));
 while($erow=mysqli_fetch_array($dsql))
 {
 $bsl=$erow['sl'];
 $cnm=$erow['cnm'];
 ?>
-<option value="<?php echo $bsl;?>"><?php echo $cnm;?></option>
-<?
+<option value="<?php  echo $bsl;?>"><?php  echo $cnm;?></option>
+<?php 
 }
 ?>
 </select>
@@ -239,15 +239,15 @@ $cnm=$erow['cnm'];
 <b>Brand : </b><br>
 <select name="brand1" id="brand1" class="form-control"  tabindex="1"  >
 <option value="">---ALL---</option>
-<?
+<?php 
 $dsql=mysqli_query($conn,"select * from main_catg order by sl") or die (mysqli_error($conn));
 while($erow=mysqli_fetch_array($dsql))
 {
 $bsl=$erow['sl'];
 $cnm=$erow['cnm'];
 ?>
-<option value="<?php echo $bsl;?>"><?php echo $cnm;?></option>
-<?
+<option value="<?php  echo $bsl;?>"><?php  echo $cnm;?></option>
+<?php 
 }
 ?>
 </select>
@@ -255,13 +255,13 @@ $cnm=$erow['cnm'];
 <td align="left" >
 <b>Branch : </b>
 <select name="brncd1" class="form-control"  tabindex="1"   size="1" id="brncd1" >
-<?
+<?php 
 if($user_current_level<0)
 {
 $query="Select * from main_branch";
 ?>
 <option value="">---ALL---</option>
-<?
+<?php 
 }
 else
 {
@@ -274,8 +274,8 @@ $sl=$R['sl'];
 $bnm=$R['bnm'];
 
 ?>
-<option value="<? echo $sl;?>"><? echo $bnm;?></option>
-<?
+<option value="<?php  echo $sl;?>"><?php  echo $bnm;?></option>
+<?php 
 }
 ?>
 </select>

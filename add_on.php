@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 include "header.php";
@@ -9,7 +9,7 @@ include "header.php";
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
  <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -153,7 +153,7 @@ display: none;
 <td align="right" width="10%"><font color="red">*</font><b>Branch:</b></td>
 <td align="left" width="20%">
 <select name="brncd" class="form-control" size="1" id="brncd" onchange="title1()">
-<?
+<?php 
 if($user_current_level<0)
 {
 $query="Select * from main_branch";
@@ -169,21 +169,21 @@ $slb=$R['sl'];
 $bnm=$R['bnm'];
 
 ?>
-<option value="<? echo $slb;?>" <?if($slb==$brncd){echo 'selected';}?>><? echo $bnm;?></option>
-<?
+<option value="<?php  echo $slb;?>" <?php if($slb==$brncd){echo 'selected';}?>><?php  echo $bnm;?></option>
+<?php 
 }
 ?>
 </select>
 </td>
 <td align="right" width="10%"><font color="red">*</font><b>Date :</b></td>
 <td align="left" width="25%">
-<input type="text" name="dt" id="dt" value="<?php echo date('d-m-Y');?>" class="form-control" required>
+<input type="text" name="dt" id="dt" value="<?php  echo date('d-m-Y');?>" class="form-control" required>
 </td>
 <td align="right" width="10%"><font color="red">*</font><b>Customer :</b></td>
 <td width="25%">
 <select name="cid" class="form-control" id="cid">
 <option value="">---All---</option>
-<?
+<?php 
 $query="Select * from  main_cust order by nm";
    $result = mysqli_query($conn,$query);
 while ($R = mysqli_fetch_array ($result))
@@ -193,8 +193,8 @@ $nm=$R['nm'];
 $cont=$R['cont'];
 $addr=$R['addr'];
 ?>
-<option value="<? echo $sid;?>"><? echo $nm;?> - <? echo $cont;?> - <? echo $addr;?></option>
-<?
+<option value="<?php  echo $sid;?>"><?php  echo $nm;?> - <?php  echo $cont;?> - <?php  echo $addr;?></option>
+<?php 
 }
 ?>
 </select>

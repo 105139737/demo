@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 //catch the sent data
@@ -50,7 +50,7 @@ $vnos=$start_no;
 $vid1=$vnos;
 
 while($count6>0){
-$vid1=$vid1+1;
+$vid1=(float)$vid1+1;
 //$vnoc=str_pad($vid1, 5, '0', STR_PAD_LEFT);
 $vnoc=$vid1;
 $blnon=$als.$vnoc.$ssn;
@@ -66,7 +66,7 @@ if($dt=='' or $cldgr=='' or $dldgr=='' or $amm=='' )
 	alert('Please Fill All The Fields.');
 	window.history.go(-1);
 	</script>
-	<?
+	<?php 
 }
 else
 {
@@ -82,7 +82,7 @@ while($rows=mysqli_fetch_array($result51))
 	$vid1=substr($vnos,2,7);
 	
 $count6=5;
-$vid1=$vid1+1;
+$vid1=(float)$vid1+1;
 $vnoc=str_pad($vid1, 7, '0', STR_PAD_LEFT);
 
 $vno="SV".$vnoc;
@@ -91,9 +91,9 @@ $vno="SV".$vnoc;
 	$query31 =mysqli_query($conn,"INSERT INTO main_drcr (vno,dt,nrtn,typ,dldgr,mtddtl,cldgr,amm,eby,edtm,sid,brncd,btyp,als,ssn,bill_typ,blnon) VALUES ('$vno','$dt','$nrtn','$typ','$dldgr','$refno','$cldgr','$amm','$user_currently_loged','$edt','$sid','$brncd','$btyp','$als','$ssn','$bsl','$blnon')") or die(mysqli_error($conn));
 		?><script language="javascript">
 		alert('Submitted Successfully. Thank You...');
-	 	document.location = "crdt_note.php?bsl=<?php echo $bsl;?>&dt=<?php echo $dt_return;?>";
+	 	document.location = "crdt_note.php?bsl=<?php  echo $bsl;?>&dt=<?php  echo $dt_return;?>";
 
-		</script><?
+		</script><?php 
 	}
 	else
 	{
@@ -101,7 +101,7 @@ $vno="SV".$vnoc;
 
 		?><script language="javascript">
 		alert('Updated Successfully. Thank You...');
-		document.location = "crdt_note.php?bsl=<?php echo $bsl;?>&dt=<?php echo $dt_return;?>";
-		</script><?
+		document.location = "crdt_note.php?bsl=<?php  echo $bsl;?>&dt=<?php  echo $dt_return;?>";
+		</script><?php 
 	}
 }

@@ -1,11 +1,11 @@
-<?
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 include "header.php";
 $fdt=date('Y-m-d');
 ?>
         <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <style type="text/css"> 
@@ -113,7 +113,7 @@ function show()
 
 <select name="spid" class="form-control" id="spid">
 <Option value="">---ALL---</option>
-<?
+<?php 
 $data2 = mysqli_query($conn,"Select * from main_sale_per where sl>0 order by nm");
 while ($row2 = mysqli_fetch_array($data2))
 {

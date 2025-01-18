@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 include "header.php";
@@ -6,7 +6,7 @@ include "header.php";
 ?>
         <div class="wrapper row-offcanvas row-offcanvas-left">
 
-            <?
+            <?php 
 
             include "left_bar.php";
 
@@ -371,24 +371,24 @@ function suggest(inputString){
         <tr class="odd">
     <td align="right" width="20%"><font color="red">*</font>From :</td>
     <td align="left" width="30%">
-	<input type="text" name="fdt" class="form-control" id="fdt" value="<? echo date('01-m-Y'); ?>">
+	<input type="text" name="fdt" class="form-control" id="fdt" value="<?php  echo date('01-m-Y'); ?>">
 	</td>
 	<td align="right" width="20%"><font color="red">*</font>To :</td>
     <td align="left" width="30%">
-	<input type="text" name="tdt" class="form-control" id="tdt" value="<? echo date('d-m-Y'); ?>">
+	<input type="text" name="tdt" class="form-control" id="tdt" value="<?php  echo date('d-m-Y'); ?>">
     </td>   
   </tr>
 <tr>
 <td align="right"><font color="red">*</font>Branch:</td>
 <td align="left">
 <select name="brncd" class="form-control" size="1" id="brncd">
-<?
+<?php 
 if($user_current_level<0)
 {
 $query="Select * from main_branch";
 ?>
 <option value="">---ALL---</option>
-<?
+<?php 
 }
 else
 {
@@ -401,8 +401,8 @@ $slb=$R['sl'];
 $bnm=$R['bnm'];
 
 ?>
-<option value="<? echo $slb;?>"><? echo $bnm;?></option>
-<?
+<option value="<?php  echo $slb;?>"><?php  echo $bnm;?></option>
+<?php 
 }
 ?>
 </select>
@@ -412,13 +412,13 @@ $bnm=$R['bnm'];
 <select  name="pno" id="pno" style="width:280px" class="sc">
 
 <option value=""> NA </option>
-<?php 
+<?php  
 $get = mysqli_query($conn,"SELECT * FROM main_project") or die(mysqli_error($conn));
 while($row = mysqli_fetch_array($get))
 {
 ?>
-<option value="<?=$row['sl']?>"><?=$row['nm']?></option>
-<?php 
+<option value="<?php  echo $row['sl']?>"><?php  echo $row['nm']?></option>
+<?php  
 } 
 ?>
 </select>

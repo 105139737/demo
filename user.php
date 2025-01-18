@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include "header.php";
@@ -20,7 +20,7 @@ $yy="G&co/".($y-1)."-".$y."/";
 
 ?>
         <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <style type="text/css"> 
@@ -164,7 +164,7 @@ else
             <td align="right" >Branch :</td>
             <td align="left" >
     <select name="brncd" class="form-control" size="1" id="brncd"   >
-<?
+<?php 
 $query="Select * from main_branch";
    $result = mysqli_query($conn,$query);
 while ($R = mysqli_fetch_array ($result))
@@ -172,8 +172,8 @@ while ($R = mysqli_fetch_array ($result))
 $sl=$R['sl'];
 $bnm=$R['bnm'];
 ?>
-<option value="<? echo $sl;?>"><? echo $bnm;?></option>
-<?
+<option value="<?php  echo $sl;?>"><?php  echo $bnm;?></option>
+<?php 
 }
 ?>
 </select>
@@ -183,7 +183,7 @@ $bnm=$R['bnm'];
 			</td>
             <td align="left" >
 <select name="userlevel" class="form-control" size="1" id="userlevel"   >
-<?
+<?php 
 $query1="Select * from main_deg";
    $result1 = mysqli_query($conn,$query1);
 while ($R1 = mysqli_fetch_array ($result1))
@@ -191,8 +191,8 @@ while ($R1 = mysqli_fetch_array ($result1))
 $sl1=$R1['lvl'];
 $deg=$R1['deg'];
 ?>
-<option value="<? echo $sl1;?>"><? echo $deg;?></option>
-<?
+<option value="<?php  echo $sl1;?>"><?php  echo $deg;?></option>
+<?php 
 }
 ?>
 </select>

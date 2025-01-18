@@ -1,6 +1,7 @@
-<?
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
+$gsl="";
 
 $all=$_REQUEST['all'];
 $af="%".$all."%";
@@ -20,10 +21,11 @@ if($total!=0)
 <th style="text-align:center;">HSN</th>
 <th style="text-align:center;">Action</th>
 </tr>
-<?
+<?php 
 $hsn="";
 $igst="";
 $nm="";
+$cnt=0;
 while($row=mysqli_fetch_array($get))
 {
 	$cnt++;
@@ -40,20 +42,20 @@ while($row=mysqli_fetch_array($get))
 		}
 ?>
 <tr>
-<td style="text-align:center;"><?=$cnt;?></td>
-<td style="text-align:center;"><?=$brndnm;?></td>
-<td style="text-align:left;"><?=$nm;?></td>
-<td style="text-align:left;"><?=$igst;?></td>
-<td style="text-align:left;"><?=$hsn;?></td>
+<td style="text-align:center;"><?php  echo $cnt;?></td>
+<td style="text-align:center;"><?php  echo $brndnm;?></td>
+<td style="text-align:left;"><?php  echo $nm;?></td>
+<td style="text-align:left;"><?php  echo $igst;?></td>
+<td style="text-align:left;"><?php  echo $hsn;?></td>
 <td style="text-align:center;">
-<a href="sub_cat_edit.php?sl=<?=$ssl;?>&gsl=<?=$gsl;?>" title="Click to Update"><i class="fa fa-pencil-square-o"></i></a>
+<a href="sub_cat_edit.php?sl=<?php  echo $ssl;?>&gsl=<?php  echo $gsl;?>" title="Click to Update"><i class="fa fa-pencil-square-o"></i></a>
 </td>
 </tr>
-<?															
+<?php 															
 }
 ?>
 </table>
-<?
+<?php 
 }
 else
 {
@@ -63,6 +65,6 @@ else
 	<td style="text-align:center;"><font size="4" color="red"><b>No Records Available</b></font></td>
 	</tr>
 	</table>
-	<?
+	<?php 
 }
 ?>

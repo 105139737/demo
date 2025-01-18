@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 include "header.php";
@@ -8,7 +8,7 @@ $dl_tm=date('H:i', $ndl_tm);
 ?>
 <html>
         <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <head>
@@ -430,14 +430,14 @@ function fucs()
 	<input type="text"  list="browsers" id="cno" class="form-control" autocomplete="off" onblur="ddet()"   name="cno" value="" size="20" tabindex="1" placeholder="Car No.">
 	    
   <datalist id="browsers">
-	<?
+	<?php 
 	$data1= mysqli_query($conn,"select * from main_dirver group by cno")or die(mysqli_error($conn));
 while ($row1 = mysqli_fetch_array($data1))
 {
 	$cno=$row1['cno'];
 	?>
-  <option value="<?=$cno;?>"/>
-<?
+  <option value="<?php  echo $cno;?>"/>
+<?php 
 }
 ?>
 
@@ -452,7 +452,7 @@ Car Details
   <td  style="padding-top:15px;"> 
   Date 
   </td>
-  <td> <input type="text" class="form-control" id="dt"  name="dt" value="<? echo date('d-m-Y');?>" tabindex="3" placeholder="Enter Date"></td>
+  <td> <input type="text" class="form-control" id="dt"  name="dt" value="<?php  echo date('d-m-Y');?>" tabindex="3" placeholder="Enter Date"></td>
   </tr>
   <tr>
 <td  style="padding-top:15px;">
@@ -524,14 +524,14 @@ License Type
 
 <select id="prnm" name="prnm" class="sc1"  style="width:230px"  onchange="gett(this.value)" >
 		<option value="">---Select---</option>
-		<?
+		<?php 
 			$query6="select * from  ".$DBprefix."product ";
 			$result5 = mysqli_query($conn,$query6);
 			while($row=mysqli_fetch_array($result5))
 				{
 				?>
-			<option value="<?=$row['sl'];?>"><?=$row['pname'];?></option>
-				<?
+			<option value="<?php  echo $row['sl'];?>"><?php  echo $row['pname'];?></option>
+				<?php 
 				}
 				?>
 			</select>
@@ -661,20 +661,20 @@ License Type
     <td align="left" >
 	 <select  name="dldgr" id="dldgr" style="width:280px"  class="sc1">
 							
-							<?php 
+							<?php  
 							$get = mysqli_query($conn,"SELECT * FROM main_ledg where gcd='1' or gcd='2'") or die(mysqli_error($conn));
 							while($row = mysqli_fetch_array($get))
 							{
 							?>
-								<option value="<?=$row['sl']?>" <?=$row['sl'] == '3' ? 'selected' : '' ?>><?=$row['nm']?></option>
-							<?php 
+								<option value="<?php  echo $row['sl']?>" <?php  echo $row['sl'] == '3' ? 'selected' : '' ?>><?php  echo $row['nm']?></option>
+							<?php  
 							} 
 							?>
 						</select>
 	</td>
 <td align="right" style="padding-top:15px;"> Payment Mode: </td>
 <td><select name="Combobox2" size="1" id="Combobox2" tabindex="10" onchange="pmod(this.value)" class="sc1">
-<?
+<?php 
 $data2 = mysqli_query($conn,"select * from ac_paymtd ");
 
 		while ($row2 = mysqli_fetch_array($data2))
@@ -704,7 +704,7 @@ $data2 = mysqli_query($conn,"select * from ac_paymtd ");
  <td>
 
 <select name="bnm" size="1" id="bnm" tabindex="12" class="sc1">
-<?
+<?php 
 $data1 = mysqli_query($conn,"select * from main_ledg where gcd='16'");
 echo "<option value=''>Select</option>";
 		while ($row1 = mysqli_fetch_array($data1))
@@ -744,7 +744,7 @@ Date:
 </tr>
 </table>
 
-<input type="hidden" id="prid"  name="prid" value="<? echo $cid;?>">
+<input type="hidden" id="prid"  name="prid" value="<?php  echo $cid;?>">
 <input type="hidden" id="stk" >
 <input type="hidden" id="fls" >
 </form>

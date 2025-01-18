@@ -1,4 +1,4 @@
-<?php
+<?php 
 
 /**
  * @author Nirmal Biswas
@@ -30,7 +30,7 @@ $result21 = mysqli_query($conn,$query21);
 alert('Submit Successfully. Thank You...');
 document.location="unit.php";
 </script>
-<?
+<?php 
    }
    else
    {
@@ -42,10 +42,10 @@ document.location="unit.php";
    {
 	       ?>
 <Script language="JavaScript">
-alert('<? echo $err;?>');
+alert('<?php  echo $err;?>');
 window.history.go(-1);
 </script>
-<?
+<?php 
    }
 
    

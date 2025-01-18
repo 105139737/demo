@@ -1,7 +1,8 @@
-<?php
+<?php 
 $reqlevel = 0;
 include("membersonly.inc.php");
 include "header.php";
+$brncd="";
 $bill_typ=$_REQUEST['bsl'];
 $get=mysqli_query($conn,"select * from main_billtype where sl='$bill_typ'") or die(mysqli_error($conn));
 while($row=mysqli_fetch_array($get))
@@ -15,7 +16,7 @@ $typ=$row['inv_typ'];
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
  <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <head>
@@ -186,7 +187,7 @@ function cancell(ssl)
 <link href="style.css" rel="stylesheet" type="text/css" />
 <link rel="shortcut icon" href="favicon.ico"/>
 </head>
-<?
+<?php 
 /*$query51="select * from ".$DBprefix."drcr order by vno";
 $result51 = mysqli_query($conn,$query51);
 while($rows=mysqli_fetch_array($result51))
@@ -228,8 +229,8 @@ $count6=mysqli_num_rows($result5);
 <input type="hidden" name="proj" id="proj" value="NA" readonly>
 <input type="hidden" name="it" id="it" value="NA" readonly >
 <input type="hidden" name="flnm1" id="flnm1" value="1" >
-<input type="hidden" name="btyp" id="btyp" value="<? echo $typ; ?>" >
-<input type="hidden" class="form-control"  value="<?php echo $bill_typ;?>" tabindex="1"  name="bsl" id="bsl" >              
+<input type="hidden" name="btyp" id="btyp" value="<?php  echo $typ; ?>" >
+<input type="hidden" class="form-control"  value="<?php  echo $bill_typ;?>" tabindex="1"  name="bsl" id="bsl" >              
 
  <div class="box box-success" >
 
@@ -239,12 +240,12 @@ $count6=mysqli_num_rows($result5);
   <tr >
     <td align="right" width="20%" ><font color="red">*</font>Date :</td>
     <td align="left" width="30%" >
-	<input type="text" name="dt" id="dt" value="<? echo date('d-M-Y'); ?>" class="form-control">
+	<input type="text" name="dt" id="dt" value="<?php  echo date('d-M-Y'); ?>" class="form-control">
 	</td>
 	<td align="right" width="20%" ><font color="red">*</font>Branch :</td>
     <td align="left" width="30%" >
      <select name="brncd" class="form-control" size="1" id="brncd"  onchange="gtcrvl1();gtcrvlfi()" >
-<?
+<?php 
 if($user_current_level<0)
 {
 
@@ -264,8 +265,8 @@ $slb=$R['sl'];
 $bnm=$R['bnm'];
 
 ?>
-<option value="<? echo $slb;?>" <?if($slb==$brncd){echo 'selected';}?>><? echo $bnm;?></option>
-<?
+<option value="<?php  echo $slb;?>" <?php if($slb==$brncd){echo 'selected';}?>><?php  echo $bnm;?></option>
+<?php 
 }
 ?>
 </select> 
@@ -292,7 +293,7 @@ $bnm=$R['bnm'];
 							<input type="hidden" value="12" id="dldgr" name="dldgr"/> 
 		<select id="sid"  name="sid"  tabindex="2" class="form-control" onchange="gtcrvl1()" >
 		<option value="">---Select---</option>
-	<?
+	<?php 
 $query="Select * from  main_suppl  order by spn";
    $result = mysqli_query($conn,$query);
 while ($R = mysqli_fetch_array ($result))
@@ -300,8 +301,8 @@ while ($R = mysqli_fetch_array ($result))
 $sid=$R['sl'];
 $spn=$R['spn'];
 ?>
-<option value="<? echo $sid;?>"><? echo $spn;?></option>
-<?
+<option value="<?php  echo $sid;?>"><?php  echo $spn;?></option>
+<?php 
 }
 ?>
 			</select>
@@ -311,13 +312,13 @@ $spn=$R['spn'];
     <td align="left" >
       <select  name="cldgr" id="cldgr" class="form-control" onchange="gtcrvlfi()">
 							<option value="">-- Select --</option>
-							<?php 
+							<?php  
 							$get = mysqli_query($conn,"SELECT * FROM main_ledg where gcd='1' or gcd='2' or gcd='22'") or die(mysqli_error($conn));
 							while($row = mysqli_fetch_array($get))
 							{
 							?>
-								<option value="<?=$row['sl']?>" <?=$row['sl'] == $rowpages['pcd'] ? 'selected' : '' ?>><?=$row['nm']?></option>
-							<?php 
+								<option value="<?php  echo $row['sl']?>" ><?php  echo $row['nm']?></option>
+							<?php  
 							} 
 							?>
 						</select>
@@ -345,13 +346,13 @@ $spn=$R['spn'];
     <td align="left" >
 	 <select  name="paymtd" id="paymtd" class="form-control">
 							<option value="">-- Select --</option>
-							<?php 
+							<?php  
 							$get = mysqli_query($conn,"SELECT * FROM ac_paymtd") or die(mysqli_error($conn));
 							while($row = mysqli_fetch_array($get))
 							{
 							?>
-								<option value="<?=$row['sl']?>" <?=$row['sl'] == $rowpages['pcd'] ? 'selected' : '' ?>><?=$row['mtd']?></option>
-							<?php 
+								<option value="<?php  echo $row['sl']?>" ><?php  echo $row['mtd']?></option>
+							<?php  
 							} 
 							?>
 						</select>
@@ -398,7 +399,7 @@ $spn=$R['spn'];
 
 <select id="ledg" name="ledg" class="form-control"  >
 <option value="">-- Select --</option>
-	<?
+	<?php 
 $query="Select * from  main_suppl  order by spn";
    $result = mysqli_query($conn,$query);
 while ($R = mysqli_fetch_array ($result))
@@ -406,8 +407,8 @@ while ($R = mysqli_fetch_array ($result))
 $sid=$R['sl'];
 $spn=$R['spn'];
 ?>
-<option value="<? echo $sid;?>"><? echo $spn;?></option>
-<?
+<option value="<?php  echo $sid;?>"><?php  echo $spn;?></option>
+<?php 
 }
 ?>
 </select>
@@ -459,7 +460,10 @@ $('#ledg').chosen({
   
   });
 
-
+$('#cldgr').chosen({
+  no_results_text: "Oops, nothing found!",
+  
+  });
 
   </script>
 

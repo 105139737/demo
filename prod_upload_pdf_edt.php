@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include "header.php";
@@ -16,7 +16,7 @@ $cy=date('Y');
 <html>
 <head>
         <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <style type="text/css"> 
@@ -56,28 +56,28 @@ cursor:pointer;
                 <!-- Main content -->
                 <section class="content">
  <form method="post" action="prod_upload_pdfs.php" id="form1"  enctype="multipart/form-data" name="form1">
-<input type="hidden" name="sl" id="sl" value="<?php echo $sl;?>">
+<input type="hidden" name="sl" id="sl" value="<?php  echo $sl;?>">
 
  <div class="box box-success" >
 <table border="0" width="860px" class="table table-hover table-striped table-bordered">
 <tr>
 
 <td align="left"  colspan="3">
-<iframe src="<?=$path;?>" style="width:100%; height:100px;" frameborder="0"></iframe>
+<iframe src="<?php  echo $path;?>" style="width:100%; height:100px;" frameborder="0"></iframe>
 </td>
 </tr>
 <tr>
 <td  align="left"><font color="red">*</font><b>Brand :</b><br/>
 <select name="cat" class="form-control" size="1" id="cat"  style="width:300px;">
-<?
+<?php 
 $data1 = mysqli_query($conn,"Select * from main_catg where sl>0 and find_in_set(sl,'$catsl')>0 order by cnm");
 while ($row1 = mysqli_fetch_array($data1))
 {
 $sl=$row1['sl'];
 $cnm=$row1['cnm'];
 ?>
-<Option value="<?=$sl;?>" selected ><?=$cnm;?></option>
-	<?
+<Option value="<?php  echo $sl;?>" selected ><?php  echo $cnm;?></option>
+	<?php 
 	}
 $data2 = mysqli_query($conn,"Select * from main_catg where sl>0 and find_in_set(sl,'$catsl')=0 order by cnm");
 while ($row1 = mysqli_fetch_array($data2))
@@ -85,15 +85,15 @@ while ($row1 = mysqli_fetch_array($data2))
 $sl31=$row1['sl'];
 $cnm1=$row1['cnm'];
 ?>
-<option value="<?=$sl31;?>"><?=$cnm1;?></option>
-<?
+<option value="<?php  echo $sl31;?>"><?php  echo $cnm1;?></option>
+<?php 
 }?>	
 </select>
 </td>
 <td  align="left"><font color="red">*</font><b>Type :</b>
 <select name="typ" class="form-control" size="1" id="typ" >
 <Option value="">---Select---</option>
-<?
+<?php 
 $data11 = mysqli_query($conn,"Select * from main_cus_typ");
 while ($row11 = mysqli_fetch_array($data11))
 {
@@ -101,15 +101,15 @@ $tpsl=$row11['sl'];
 $tp=$row11['tp'];
 if($typ==$tpsl){$slct="selected";}
 ?>
-<option value="<?php echo $tpsl;?>" <? if ($tpsl==$typ){?> selected <? } ?>><?php echo $tp;?></option>
-<?
+<option value="<?php  echo $tpsl;?>" <?php  if ($tpsl==$typ){?> selected <?php  } ?>><?php  echo $tp;?></option>
+<?php 
 }
 ?>
 </select>
 </td>
 <td align="left" width="25%" >
 <b>Title:</b>
-<input type="text" name="ttl" id="ttl" class="form-control" value="<?php echo $title;?>">
+<input type="text" name="ttl" id="ttl" class="form-control" value="<?php  echo $title;?>">
 </td>
 <td align="left" width="25%" >
 <label>

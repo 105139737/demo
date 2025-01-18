@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 
@@ -10,7 +10,7 @@ $cy=date('Y');
 $pnm=$_REQUEST[pnm];
 $y=$_REQUEST[y];
 $m=$_REQUEST[m];
-$brncd=$_REQUEST[brncd];if($brncd==""){$brncd1="";}else{$brncd1=" and bcd='$brncd'";}
+$brncd=$_REQUEST['brncd'] ?? "";if($brncd==""){$brncd1="";}else{$brncd1=" and bcd='$brncd'";}
 $tdt=$y."-".$m."-01";
 $fdt=$y."-".$m."-31";
 if($pnm!="")
@@ -94,7 +94,7 @@ header("Content-Disposition: attachment; filename=$file");
 
 		     </tr>
 
-<?
+<?php 
 
 
 
@@ -227,54 +227,54 @@ $to=$to+$sv;
 
 		    <td  align="center" >
 
-			<?=$sln;?>
+			<?php  echo $sln;?>
 
 			</td>
 
 			 <td  align="left" style="cursor:pointer" >
 
-	<?=$pnm;?> - <?=$cnm;?> - <?=$brand;?> - <?=$mnm;?>
+	<?php  echo $pnm;?> - <?php  echo $cnm;?> - <?php  echo $brand;?> - <?php  echo $mnm;?>
 
 			</td>
 
 			 <td  align="center" >
 
-			<?echo $open1;?>
+			<?php echo $open1;?>
 
 			</td>
 
             <td  align="center" >
 
-			<?=$stin1;?>
+			<?php  echo $stin1;?>
 
 			</td>
 
 			 <td  align="center" >
 
-			<?=$stout1;?>
+			<?php  echo $stout1;?>
 
 			</td>
 			 <td  align="center" >
 
-			<?=$it;?>
+			<?php  echo $it;?>
 
 			</td>
 
 			<td  align="center" >
 
-		<?=$stkf;?>
+		<?php  echo $stkf;?>
 
 			</td>
 
 			<td  align="right" >
 
-		<?=number_format($ret,2);;?>
+		<?php echo number_format($ret,2);;?>
 
 			</td>
 
 			<td  align="right" >
 
-		<?=number_format($sv,2);?>
+		<?php echo number_format($sv,2);?>
 
 			</td>
 
@@ -284,7 +284,7 @@ $to=$to+$sv;
 
 		     </tr>	 
 
-<?
+<?php 
 
 $to1=$to+$to1;
 
@@ -310,7 +310,7 @@ $open1=0;
 
 <td align="right" >
 
-<b><?=number_format($to1,2);?></b>
+<b><?php echo number_format($to1,2);?></b>
 
 </td>
 

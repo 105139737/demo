@@ -1,4 +1,4 @@
-<?php
+<?php 
 
 $reqlevel = 3;
 
@@ -17,12 +17,11 @@ include "header.php";
 	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
 
-
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 
  <div class="wrapper row-offcanvas row-offcanvas-left">
 
-            <?
+            <?php 
 
             include "left_bar.php";
 
@@ -267,7 +266,7 @@ $("#pay").load("gisedts_mod1.php?sl="+sl+"&fn="+fn+"&fv="+encodeURIComponent(fv)
 
 </head>
 
-<?
+<?php 
 
 
 
@@ -323,7 +322,7 @@ $("#pay").load("gisedts_mod1.php?sl="+sl+"&fn="+fn+"&fv="+encodeURIComponent(fv)
 
 							<option value="">-- Select --</option>
 
-							<?php 
+							<?php  
 
 							$get = mysqli_query($conn,"SELECT * FROM main_group order by nm") or die(mysqli_error($conn));
 
@@ -333,9 +332,9 @@ $("#pay").load("gisedts_mod1.php?sl="+sl+"&fn="+fn+"&fv="+encodeURIComponent(fv)
 
 							?>
 
-								<option value="<?=$row['sl']?>" <?=$row['sl'] == $rowpages['pcd'] ? 'selected' : '' ?>><?=$row['nm']?></option>
+								<option value="<?php  echo $row['sl']?>" ><?php  echo $row['nm']?></option>
 
-							<?php 
+							<?php  
 
 							} 
 

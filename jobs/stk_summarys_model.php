@@ -249,7 +249,7 @@ $query4="Select sum(amm)/sum(qty) as stck1 from main_purchasedet where prsl='$pc
 $result4 = mysqli_query($conn,$query4);
 while ($R4 = mysqli_fetch_array ($result4))
 {
-$close_rt=round($R4['stck1'],2);
+$close_rt=round($R4['stck1']??0,2);
 }
 
 if($close_rt<.000001)
@@ -258,7 +258,7 @@ $query4="Select $rt as stck1 from main_stock where pcd='$pcd' and main_stock.nrt
 $result4 = mysqli_query($conn,$query4);
 while ($R4 = mysqli_fetch_array ($result4))
 {
-$close_rt=round($R4['stck1'],2);
+$close_rt=round($R4['stck1']??0,2);
 }
 }
 $colse_val=$close_stk*$close_rt;

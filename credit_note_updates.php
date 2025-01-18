@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 $edtm = date('d-m-Y h:i:s a', time());
@@ -118,14 +118,14 @@ $sms=send_sms($cust_cont,$message,'1');
 alert('updated Successfully. Thank You..!');
 document.location = "credit_note_report.php";
 </script>
-<?	
+<?php 	
 }
 else
 {
 ?>
 <script language="javascript">
-alert('<?=$err;?>');
+alert('<?php  echo $err;?>');
 document.location = "credit_note_report.php";
 </script>
-<?	
+<?php 	
 }

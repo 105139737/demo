@@ -1,12 +1,12 @@
-<?php 
+<?php  
 $reqlevel = 3;
 include("membersonly.inc.php");
 $sup=$_POST['sup'];
 $brand=$_POST['brand'];
 
 
-
-if(sper=='')
+$err="";
+if($sup=='')
 {
 	$err="Please Select Supplier !";
 }
@@ -30,15 +30,15 @@ mysqli_query($conn,"insert into main_supplier_tag(sup,brand)values('$sup','$bran
 	alert('Submitted Successfully. Thank You ');
 	document.location="supplier_tag.php";
 	</script>
-<?php
+<?php 
 }
 else
 {
 	?>
 	<script type="text/javascript" language="javascript">
-	alert('<?php echo $err;?>');
+	alert('<?php  echo $err;?>');
 	window.history.go(-1);
 	</script>
-	<?php 
+	<?php  
 }
 ?>

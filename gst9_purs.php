@@ -1,24 +1,29 @@
-<?
+<?php 
 $reqlevel = 3; 
 include("membersonly.inc.php");
 $fdt=$_REQUEST['fdt'];
 $tdt=$_REQUEST['tdt'];
 $fdt=date('Y-m-d', strtotime($fdt));
 $tdt=date('Y-m-d', strtotime($tdt));
-$sl=$_REQUEST['sl'];
+$sl=$_REQUEST['sl'] ?? "";
 $tiamm=0;
 $tttamm=0;
 $tigst=0;
 $tcess=0;
 $ttcgst=0;
 $ttsgst=0;
+$amm1=0;
+$cgst_am1=0;
+$sgst_am1=0;
+$igst_am1=0;
+$gst1=0;
 $todt=" and dt between '$fdt' and '$tdt'";
 $file="Purchase_return_".date('Ymdhis').".xls";
 header("Content-type: application/vnd.ms-excel"); 
 header("Content-Disposition: attachment; filename=$file"); 
 
 ?>
- <table <?php if($sl=='1'){?>border="1"<?php }else{?> width="100%"<?php }?> class="advancedtable"  >
+ <table <?php  if($sl=='1'){?>border="1"<?php  }else{?> width="100%"<?php  }?> class="advancedtable"  >
 		
 <tr bgcolor="#e8ecf6">
 <td  align="right"  ><b>Rate (%)</b></td>
@@ -29,7 +34,7 @@ header("Content-Disposition: attachment; filename=$file");
 <td  align="right"><b> Total Tax</b></td>
 </tr>
 
-<?
+<?php 
 $tcgst=0;
 $tsgst=0;
 $net_am=0;
@@ -56,14 +61,14 @@ $gst=$cgst_am+$sgst_am+$igst_am;
 
 ?>
 <tr>
-            <td  align="right"  ><?=$ret?></td>
-            <td  align="right" ><?=$amm;?></td>
-            <td  align="right"><?=$cgst_am?></td>
-            <td  align="right" ><?=$sgst_am?></td>
-            <td  align="right" ><?=$igst_am?></td>
-            <td  align="right"><?=$gst?></td>
+            <td  align="right"  ><?php  echo $ret?></td>
+            <td  align="right" ><?php  echo $amm;?></td>
+            <td  align="right"><?php  echo $cgst_am?></td>
+            <td  align="right" ><?php  echo $sgst_am?></td>
+            <td  align="right" ><?php  echo $igst_am?></td>
+            <td  align="right"><?php  echo $gst?></td>
 </tr>
-<?
+<?php 
 $amm1+=$amm;
 $cgst_am1+=$cgst_am;
 $sgst_am1+=$sgst_am;
@@ -73,11 +78,11 @@ $gst1+=$gst;
 ?>
 <tr class="even">
             <td  align="right"  >Total : </td>
-            <td  align="right" ><?=$amm1;?></td>
-            <td  align="right" ><?=$cgst_am1?></td>
-            <td  align="right" ><?=$sgst_am1?></td>
-            <td  align="right"><?=$igst_am1?></td>
-            <td  align="right"><?=$gst1?></td>
+            <td  align="right" ><?php  echo $amm1;?></td>
+            <td  align="right" ><?php  echo $cgst_am1?></td>
+            <td  align="right" ><?php  echo $sgst_am1?></td>
+            <td  align="right"><?php  echo $igst_am1?></td>
+            <td  align="right"><?php  echo $gst1?></td>
 </tr>
 </table>
 

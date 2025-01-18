@@ -1,37 +1,37 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include("Numbers/Words.php");
 $cdt=date('Y-m-d');
 $dttm=date('d-m-Y H:i:s a');
-$sup=$_POST[sup];
-$brncd=$_POST[brncd];
-$inv=$_POST[inv];
-$dt=$_POST[dt];
-$lcd=$_POST[lcd];
-$lfr=$_POST[lfr];
-$tamm=$_POST[tamm];
-$dldgr=$_POST[dldgr];
-$mdt=$_POST[mdt];
-$pamm=$_POST[pamm];
-$crfno=$_POST[crfno];
-$idt=$_POST[idt];
-$cbnm=$_POST[cbnm];
-$vat=$_POST[vat];
-$sttl=$_POST[sttl];
-$tdis=$_POST[tdis];
-$fst=$_POST[fst];
-$tst=$_POST[tst];
-$addr=$_POST[addr];
+$sup=$_POST['sup']??"";
+$brncd=$_POST['brncd']??"";
+$inv=$_POST['inv']??"";
+$dt=$_POST['dt']??"";
+$lcd=$_POST['lcd']??"";
+$lfr=$_POST['lfr']??"";
+$tamm=$_POST['tamm']??"";
+$dldgr=$_POST['dldgr']??"";
+$mdt=$_POST['mdt']??"";
+$pamm=$_POST['pamm']??"";
+$crfno=$_POST['crfno']??"";
+$idt=$_POST['idt']??"";
+$cbnm=$_POST['cbnm']??"";
+$vat=$_POST['vat']??"";
+$sttl=$_POST['sttl']??"";
+$tdis=$_POST['tdis']??"";
+$fst=$_POST['fst']??"";
+$tst=$_POST['tst']??"";
+$addr=$_POST['addr']??"";
 
-$roff=$_POST['roff'];
-$adl=$_POST['adl'];
-$adlv=$_POST['adlv'];
-$tamm2=$_POST['tamm2'];
-$remk=$_POST['remk'];
-$blno=$_POST['blno'];
-$tcs=$_POST['tcs'];
-$tcsam=$_POST['tcsam'];
+$roff=$_POST['roff']??"";
+$adl=$_POST['adl']??"";
+$adlv=$_POST['adlv']??"";
+$tamm2=$_POST['tamm2']??"";
+$remk=$_POST['remk']??"";
+$blno=$_POST['blno']??"";
+$tcs=$_POST['tcs']??"";
+$tcsam=$_POST['tcsam']??"";
 $paid=0;
 $due=0;
 
@@ -136,7 +136,7 @@ elseif($adl=="-")
 $damm=$damm;	
 /*$damm=$damm-$adlv;*/
 }
-
+$vat1=0;
 $query211 = "UPDATE ".$DBprefix."purchase SET sid='$sup',amm='$gttl',paid='$pamm',crdtp='$mdt',edt='$cdt',
 eby='$user_currently_loged',pdts='$dttm',inv='$inv',dt='$dt',lfr='$lfr',lcd='$lcd',bcd='$brncd',vat='$vat',
 vatamm='$vat1',sdis='$tdis',tamm='$tamm',fst='$fst',tst='$tst',gst='1',addr='$addr',roff='$roff',adl='$adl',
@@ -287,16 +287,16 @@ $result2 = mysqli_query($conn,$query2)or die (mysqli_error($conn));
 alert('Updated Successfully. Thank You...');
 document.location="purchase_show.php";
 </script>
-<?
+<?php 
 }
 
 else
 {
     ?>
 <Script language="JavaScript">
-alert('<? echo $err;?>');
+alert('<?php  echo $err;?>');
 window.history.go(-1);
 </script>
-<?
+<?php 
 }
 ?>

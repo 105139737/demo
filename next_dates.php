@@ -1,10 +1,10 @@
-<?
+<?php 
 $reqlevel = 3;
 date_default_timezone_set('Asia/Kolkata');
 include("membersonly.inc.php");
-$fdt=$_REQUEST[fdt];
-$tdt=$_REQUEST[tdt];
-$brncd=$_REQUEST[brncd];if($brncd==""){$brncd1="";}else{$brncd1=" and bcd='$brncd'";}
+$fdt=$_REQUEST['fdt'];
+$tdt=$_REQUEST['tdt'];
+$brncd=$_REQUEST['brncd'] ?? "";if($brncd==""){$brncd1="";}else{$brncd1=" and bcd='$brncd'";}
 
 $fdt=date('Y-m-d',strtotime($fdt));
 $tdt=date('Y-m-d',strtotime($tdt));
@@ -72,7 +72,7 @@ $diff = floor($diff / (60*60*24));
 			</td>
 			</tr>
 			
-<?
+<?php 
 $in_total=0;
 $retn_total=0;
 $retn_w_d_total=0;
@@ -189,33 +189,33 @@ $ddt=date('Y-m-d',strtotime($dt));
 			
 			<tr>
 			<td  align="center" >
-			<b><?=$ddt;?></b><br>
+			<b><?php  echo $ddt;?></b><br>
 			
 			
 			</td>
 			<td  align="right" >
-			<b><?echo sprintf('%0.2f',$opval);?></b>
+			<b><?php echo sprintf('%0.2f',$opval);?></b>
 			</td>
 			<td  align="right" >
-			<b><?echo sprintf('%0.2f',$inval);?></b>
+			<b><?php echo sprintf('%0.2f',$inval);?></b>
 			</td>
 			<td  align="right" >
-			<b><?echo sprintf('%0.2f',$rval);?></b>
+			<b><?php echo sprintf('%0.2f',$rval);?></b>
 			</td>
 			<td  align="right" >
-			<b><?echo sprintf('%0.2f',$totR);?></b>
+			<b><?php echo sprintf('%0.2f',$totR);?></b>
 			</td>
 			<td  align="right" >
-			<b><?echo sprintf('%0.2f',$outval);?></b>
+			<b><?php echo sprintf('%0.2f',$outval);?></b>
 			</td>
 			<td  align="right" >
-			<b><?echo sprintf('%0.2f',$tots);?></b>
+			<b><?php echo sprintf('%0.2f',$tots);?></b>
 			</td>
 			<td  align="right" >
-			<b><?echo sprintf('%0.2f',$clval);?></b>
+			<b><?php echo sprintf('%0.2f',$clval);?></b>
 			</td>
 			</tr>
-<?
+<?php 
 $dt = strtotime ( "+ 1 day" , strtotime ( $dt) ) ;
 $dt = date ( 'Y-m-d' , $dt );
 $in_total+=$inval;
@@ -230,19 +230,19 @@ $sale_w_d_total+=$tots;
 			<b><font size="3">Total:</font></b>
 			</td>
 			<td  align="right" >
-			<b><?echo sprintf('%0.2f',$in_total);?></b>
+			<b><?php echo sprintf('%0.2f',$in_total);?></b>
 			</td>
 			<td  align="right" >
-			<b><?echo sprintf('%0.2f',$retn_total);?></b>
+			<b><?php echo sprintf('%0.2f',$retn_total);?></b>
 			</td>
 			<td  align="right" >
-			<b><?echo sprintf('%0.2f',$retn_w_d_total);?></b>
+			<b><?php echo sprintf('%0.2f',$retn_w_d_total);?></b>
 			</td>
 			<td  align="right" >
-			<b><?echo sprintf('%0.2f',$sale_total);?></b>
+			<b><?php echo sprintf('%0.2f',$sale_total);?></b>
 			</td>
 			<td  align="right" >
-			<b><?echo sprintf('%0.2f',$sale_w_d_total);?></b>
+			<b><?php echo sprintf('%0.2f',$sale_w_d_total);?></b>
 			</td>
 			<td  align="right" >
 		

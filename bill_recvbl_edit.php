@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 include "header.php";
@@ -23,7 +23,7 @@ $dt=date('d-m-Y',strtotime($dt));
 
 ?>
 <div class="wrapper row-offcanvas row-offcanvas-left">
-<?
+<?php 
 include "left_bar.php";
 ?>
 <script src="js/plugins/input-mask/jquery.inputmask.js" type="text/javascript"></script>
@@ -105,10 +105,10 @@ function bill_recv_edit(sll)
 							
 <body>
 <form method="post" action="bill_recvbl_edits.php" id="form1" name="form1">      
-<input type="hidden" class="form-control"  name="sl" id="sl"  value="<?php echo $sl;?>">              
-<input type="hidden" class="form-control"  name="dsl" id="dsl"  value="<?php echo $dsl;?>">              
+<input type="hidden" class="form-control"  name="sl" id="sl"  value="<?php  echo $sl;?>">              
+<input type="hidden" class="form-control"  name="dsl" id="dsl"  value="<?php  echo $dsl;?>">              
 <input type="hidden" class="form-control"  tabindex="1"  name="bsl" id="bsl" >              
-<input type="hidden" class="form-control"  value="<?php echo $typ;?>" tabindex="1"  name="typ" id="typ" >              
+<input type="hidden" class="form-control"  value="<?php  echo $typ;?>" tabindex="1"  name="typ" id="typ" >              
 <div class="box box-success" >
 <table border="0" class="table table-hover table-striped table-bordered">
 <tr>
@@ -116,15 +116,15 @@ function bill_recv_edit(sll)
 <b>Branch :</b>
 <select name="brnch" id="brnch" class="form-control"  tabindex="1"  onchange="show()">
 <option value="">---ALL---</option>		
-<?
+<?php 
 $dsql=mysqli_query($conn,"select * from main_branch order by sl") or die (mysqli_error($conn));
 while($erow=mysqli_fetch_array($dsql))
 {
 $bsl=$erow['sl'];
 $bnm=$erow['bnm'];
 ?>
-<option value="<?php echo $bsl;?>" <?php if($brncd==$bsl){ echo 'selected';}?>><?php echo $bnm;?></option>
-<?
+<option value="<?php  echo $bsl;?>" <?php  if($brncd==$bsl){ echo 'selected';}?>><?php  echo $bnm;?></option>
+<?php 
 }
 ?>		
 </select>
@@ -133,22 +133,22 @@ $bnm=$erow['bnm'];
 <b>Sales Person : </b>
 <select name="sper" id="sper" class="form-control"  tabindex="1"  onchange="show()" >
 <option value="">---ALL---</option>
-<?
+<?php 
 $dsql1=mysqli_query($conn,"select * from main_sale_per order by sl") or die (mysqli_error($conn));
 while($erow1=mysqli_fetch_array($dsql1))
 {
 $spsl=$erow1['sl'];
 $spid=$erow1['spid'];
 ?>
-<option value="<?php echo $spid;?>" <?php if($SALES_PERSON==$spid){ echo 'selected';}?>><?php echo $spid;?></option>
-<?
+<option value="<?php  echo $spid;?>" <?php  if($SALES_PERSON==$spid){ echo 'selected';}?>><?php  echo $spid;?></option>
+<?php 
 }
 ?>
 </select>
 </td>
 <td align="left" width="30%">
 <b>Date : </b>
-<input type="text" name="dt" id="dt" value="<?php echo $dt;?>" class="form-control">
+<input type="text" name="dt" id="dt" value="<?php  echo $dt;?>" class="form-control">
 </td>
 </tr>
 <tr>
@@ -156,15 +156,15 @@ $spid=$erow1['spid'];
 <b>Brand :</b>
 <select name="brand" id="brand" class="form-control"  tabindex="1"  onchange="show()" >
 <option value="">---ALL---</option>
-<?
+<?php 
 $dsql2=mysqli_query($conn,"select * from main_catg order by sl") or die (mysqli_error($conn));
 while($erow2=mysqli_fetch_array($dsql2))
 {
 $bsl=$erow2['sl'];
 $cnm=$erow2['cnm'];
 ?>
-<option value="<?php echo $cnm;?>" <?php if($BRAND==$cnm){ echo 'selected';}?>><?php echo $cnm;?></option>
-<?
+<option value="<?php  echo $cnm;?>" <?php  if($BRAND==$cnm){ echo 'selected';}?>><?php  echo $cnm;?></option>
+<?php 
 }
 ?>
 </select>
@@ -173,32 +173,32 @@ $cnm=$erow2['cnm'];
 <b>Party :</b><br>
 <select name="party" id="party" class="form-control"  tabindex="1"  onchange="show()" >
 <option value="">---ALL---</option>
-<?
+<?php 
 $dsql1=mysqli_query($conn,"select * from main_cust order by sl") or die (mysqli_error($conn));
 while($erowt=mysqli_fetch_array($dsql1))
 {
 $psl=$erowt['sl'];
 $custnm=$erowt['nm'];
 ?>
-<option value="<?php echo $psl."@".$custnm;?>" <?php if($Party_Name==$custnm){ echo 'selected';}?>><?php echo $custnm;?></option>
-<?
+<option value="<?php  echo $psl."@".$custnm;?>" <?php  if($Party_Name==$custnm){ echo 'selected';}?>><?php  echo $custnm;?></option>
+<?php 
 }
 ?>
 </select>
 </td>
 <td align="left">
 <b>Reference No.:</b><br>
-<input type="text" name="refno" id="refno" value="<?php echo $Ref_No;?>" class="form-control">
+<input type="text" name="refno" id="refno" value="<?php  echo $Ref_No;?>" class="form-control">
 </td>
 </tr>
 <tr>
 <td align="left">
 <b>Pending Amount :</b>
-<input type="text" name="pamnt" id="pamnt" value="<?php echo $Pending;?>" class="form-control">
+<input type="text" name="pamnt" id="pamnt" value="<?php  echo $Pending;?>" class="form-control">
 </td>
 <td>
 <b>Overdue :</b>
-<input type="text" name="ovramnt" id="ovramnt" value="<?php echo $Overdue;?>" class="form-control">
+<input type="text" name="ovramnt" id="ovramnt" value="<?php  echo $Overdue;?>" class="form-control">
 </td>
 
 <td align="right" colspan="2">

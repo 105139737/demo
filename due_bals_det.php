@@ -1,14 +1,17 @@
-<?
+<?php 
 $reqlevel = 3; 
 include("membersonly.inc.php");
 $blno=rawurldecode($_REQUEST['blno']);
 $dt=rawurldecode($_REQUEST['dt']);
 if($dt!="" ){$dt=date('Y-m-d', strtotime($dt));$date=" and dt<='$dt'";}else{$date="";}
+$brncd1="";
+$nbal =0;
+$colo="";
 ?>
 <div class="box box-success" >
 <table border="0" width="860px"  class="table table-hover table-striped table-bordered">
 <tr>
-<td align="center" colspan="9"><font color="red" size="4"><b>BILL NUMBER : <?=$blno;?></b></font></td>
+<td align="center" colspan="9"><font color="red" size="4"><b>BILL NUMBER : <?php  echo $blno;?></b></font></td>
 </tr>
 <tr>
 <td align="center"><b>Voucher No.</b></td>
@@ -21,11 +24,13 @@ if($dt!="" ){$dt=date('Y-m-d', strtotime($dt));$date=" and dt<='$dt'";}else{$dat
 <td align="right" ><b>Credit</b></td>
 <td align="right" ><b>Balance</b></td>
 </tr>
-<?
+<?php 
  $tdebt=0;
  $tcredt=0;
  
  $pag=0;
+ $pcs=0;
+  $pcs1=0;
 $query1="select *,sum(amm) as amm  from ".$DBprefix."drcr where cbill='$blno'  $brncd1  $date group by  cbill,dldgr,edtm,vno order by dt,sl";
 $result1 = mysqli_query($conn,$query1);
 while ($R1 = mysqli_fetch_array ($result1))
@@ -114,22 +119,22 @@ while ($row2 = mysqli_fetch_array($data2))
 $dldgr_nm= $row2['nm'];
 }
 ?>
-<tr bgcolor="<?=$colo;?>">
-<td align="center" ><a href="<?=$link;?>" target="_blank"><font size="2" color="red" ><? echo $blnon;?></font></a></td>
-<td align="center" ><font size="2" ><? echo $rd;?></font></td>
-<td align="left" ><font size="2" ><?=$dldgr_nm;?></font></td>
-<td align="left" ><font size="2" ><?=$mtd;?></font></td>
-<td align="left" ><font size="2" ><?=$ref;?></font></td>
-<td align="left" ><font size="2" ><?=$nrtn;?></font></td>
-<td align="right" ><font size="2" ><?=round($damm,2);?></font></td>
-<td align="right"><font size="2" ><?=round($camm,2);?></font></td>
-<td align="right" title="<?=$dsl;?>" ><font size="2" ><span style="color:<? if($nbal<0){echo "#0034ff";}else{echo "#FF0000";}?>;font-family:Arial;font-size:15px;"><? echo $nbalf;?></span></font></td>
+<tr bgcolor="<?php  echo $colo;?>">
+<td align="center" ><a href="<?php  echo $link;?>" target="_blank"><font size="2" color="red" ><?php  echo $blnon;?></font></a></td>
+<td align="center" ><font size="2" ><?php  echo $rd;?></font></td>
+<td align="left" ><font size="2" ><?php  echo $dldgr_nm;?></font></td>
+<td align="left" ><font size="2" ><?php  echo $mtd;?></font></td>
+<td align="left" ><font size="2" ><?php  echo $ref;?></font></td>
+<td align="left" ><font size="2" ><?php  echo $nrtn;?></font></td>
+<td align="right" ><font size="2" ><?php echo round((float)$damm??0,2);?></font></td>
+<td align="right"><font size="2" ><?php echo round((float)$camm??0,2);?></font></td>
+<td align="right" title="<?php  echo $dsl;?>" ><font size="2" ><span style="color:<?php  if($nbal<0){echo "#0034ff";}else{echo "#FF0000";}?>;font-family:Arial;font-size:15px;"><?php  echo $nbalf;?></span></font></td>
 </tr>
-<?$pcs1=$pcs+$pcs1;
+<?php $pcs1=$pcs+$pcs1;
 if($cldgr!=-1 and $dldgr!=-1)
 {
-$tdebt=$tdebt+$damm;
-$tcredt=$tcredt+$camm;
+$tdebt=(float)$tdebt+(float)$damm;
+$tcredt=(float)$tcredt+(float)$camm;
 }
 }
 ?>

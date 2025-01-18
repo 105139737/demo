@@ -1,6 +1,6 @@
-<?php
+<?php 
 include("membersonly.inc.php");
-$sl=$_REQUEST[sl];
+$sl=$_REQUEST['sl'];
 
 $query33 = "SELECT sum(amm) as tot1 FROM main_drcr where cldgr='19' and cid='$sl'";
 $result33 = mysqli_query($conn,$query33);

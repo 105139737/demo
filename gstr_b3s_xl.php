@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 $mnth=$_REQUEST['mnth'];
@@ -110,7 +110,7 @@ $tttamm1+=$ttamm1;
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>Year</td>
-<td><?=$yr;?></td>
+<td><?php  echo $yr;?></td>
 </tr>
 <tr>
 <td>&nbsp;</td>
@@ -124,13 +124,13 @@ $tttamm1+=$ttamm1;
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>Month</td>
-<td><?=$mnth;?></td>
+<td><?php  echo $mnth;?></td>
 </tr>
 <tr>
-<td colspan="12">1.&nbsp; GSTIN : <?=$gstin;?></td>
+<td colspan="12">1.&nbsp; GSTIN : <?php  echo $gstin;?></td>
 </tr>
 <tr>
-<td colspan="12">2. Legal name of the registered person : <?=$comp_nm;?></td>
+<td colspan="12">2. Legal name of the registered person : <?php  echo $comp_nm;?></td>
 </tr>
 <tr>
 <td colspan="12">&nbsp;</td>
@@ -156,10 +156,10 @@ $tttamm1+=$ttamm1;
 </tr>
 <tr>
 <td colspan="3" width="183">(a) Outward taxable supplies (other than zero rated,nil rated and exempted)</td>
-<td colspan="2"><?=number_format($tval,2);?></td>
-<td colspan="2"><?=number_format($ttigst,2);?></td>
-<td colspan="2"><?=number_format($ttcgst,2);?></td>
-<td colspan="2"><?=number_format($ttsgst,2);?></td>
+<td colspan="2"><?php echo number_format($tval,2);?></td>
+<td colspan="2"><?php echo number_format($ttigst,2);?></td>
+<td colspan="2"><?php echo number_format($ttcgst,2);?></td>
+<td colspan="2"><?php echo number_format($ttsgst,2);?></td>
 <td>0.00</td>
 </tr>
 <tr>
@@ -301,9 +301,9 @@ $tttamm1+=$ttamm1;
 </tr>
 <tr>
 <td colspan="3" width="183">(5) All other ITC</td>
-<td colspan="2" width="122"><?=number_format($tigst1,2);?></td>
-<td colspan="2" width="122"><?=number_format($tcgst1,2);?></td>
-<td colspan="2" width="122"><?=number_format($tsgst1,2);?></td>
+<td colspan="2" width="122"><?php echo number_format($tigst1,2);?></td>
+<td colspan="2" width="122"><?php echo number_format($tcgst1,2);?></td>
+<td colspan="2" width="122"><?php echo number_format($tsgst1,2);?></td>
 <td colspan="2" width="122">0.00</td>
 <td>&nbsp;</td>
 </tr>
@@ -341,9 +341,9 @@ $tttamm1+=$ttamm1;
 </tr>
 <tr>
 <td colspan="3" width="183">(C)&nbsp; Net ITC Available (A)-(B)</td>
-<td colspan="2" width="122"><?=number_format($tigst1,2);?></td>
-<td colspan="2" width="122"><?=number_format($tcgst1,2);?></td>
-<td colspan="2" width="122"><?=number_format($tsgst1,2);?></td>
+<td colspan="2" width="122"><?php echo number_format($tigst1,2);?></td>
+<td colspan="2" width="122"><?php echo number_format($tcgst1,2);?></td>
+<td colspan="2" width="122"><?php echo number_format($tsgst1,2);?></td>
 <td colspan="2" width="122">0.00</td>
 <td>&nbsp;</td>
 </tr>
@@ -466,8 +466,8 @@ $tttamm1+=$ttamm1;
 </tr>
 <tr>
 <td colspan="3">Integrated Tax</td>
-<td><?=number_format($ttigst,2);?></td>
-<td><?=number_format($tigst1,2);?></td>
+<td><?php echo number_format($ttigst,2);?></td>
+<td><?php echo number_format($tigst1,2);?></td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
@@ -478,9 +478,9 @@ $tttamm1+=$ttamm1;
 </tr>
 <tr>
 <td colspan="3">Central Tax</td>
-<td><?=number_format($ttcgst,2);?></td>
+<td><?php echo number_format($ttcgst,2);?></td>
 <td>&nbsp;</td>
-<td><?=number_format($tcgst1,2);?></td>
+<td><?php echo number_format($tcgst1,2);?></td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
@@ -490,10 +490,10 @@ $tttamm1+=$ttamm1;
 </tr>
 <tr>
 <td colspan="3">State/UT Tax</td>
-<td><?=number_format($ttsgst,2);?></td>
+<td><?php echo number_format($ttsgst,2);?></td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
-<td><?=number_format($tsgst1,2);?></td>
+<td><?php echo number_format($tsgst1,2);?></td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>

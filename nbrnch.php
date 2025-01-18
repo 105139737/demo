@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include "header.php";
@@ -17,7 +17,7 @@ $yy="G&co/".($y-1)."-".$y."/";
 }
 ?>
 <div class="wrapper row-offcanvas row-offcanvas-left">
-    <?
+    <?php 
 include "left_bar.php";
 ?>
     <style type="text/css">

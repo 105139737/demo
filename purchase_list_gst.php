@@ -1,11 +1,11 @@
-<?
+<?php 
 $reqlevel = 3; 
 
 include("membersonly.inc.php");
 $fdt=$_REQUEST['fdt'];
 $tdt=$_REQUEST['tdt'];
 $snm=rawurldecode($_REQUEST['snm']);
-$brncd=$_REQUEST[brncd];
+$brncd=$_REQUEST['brncd'] ?? "";
 if($brncd==""){$brncd1="";}else{$brncd1=" and bcd='$brncd'";}
 $fdt=date('Y-m-d', strtotime($fdt));
 $tdt=date('Y-m-d', strtotime($tdt));
@@ -30,7 +30,7 @@ if($snm!=""){$snm1=" and sid='$snm'";}else{$snm1="";}
 			<td  align="center" ><b>IGST Am.</b></td>
 			<td  align="center" ><b>Net Amount</b></td>
 			</tr>
-			 <?
+			 <?php 
 $sln=0;
 $TBasic=0;
 $TDiscount=0;
@@ -104,31 +104,31 @@ $Tigst+=$igst;
 $Tnet_am+=$net_am;
 			 ?>
 		   <tr>
-		<td  align="center" ><?=$sln;?></td>
-		<td  align="center" ><?=$edt;?></td>
-		<td  align="left" ><?=$pbill;?></td>
-		<td  align="left" ><?=$spn;?></td>
-		<td  align="left" ><?=$sgstin;?></td>
-		<td  align="right" ><b><?=$Basic;?></b></td>
-		<td  align="right" ><b><?=round($Discount,3);?></b></td>
-		<td  align="right" ><b><?=round($Taxable,3);?></b></td>
-		<td  align="right" ><b><?=round($cgst,3);?></b></td>
-		<td  align="right" ><b><?=round($sgst,3);?></b></td>
-		<td  align="right" ><b><?=round($igst,3);?></b></td>
-		<td  align="right" ><b><?=round($net_am,3);?></b></td>		
+		<td  align="center" ><?php  echo $sln;?></td>
+		<td  align="center" ><?php  echo $edt;?></td>
+		<td  align="left" ><?php  echo $pbill;?></td>
+		<td  align="left" ><?php  echo $spn;?></td>
+		<td  align="left" ><?php  echo $sgstin;?></td>
+		<td  align="right" ><b><?php  echo $Basic;?></b></td>
+		<td  align="right" ><b><?php echo round($Discount,3);?></b></td>
+		<td  align="right" ><b><?php echo round($Taxable,3);?></b></td>
+		<td  align="right" ><b><?php echo round($cgst,3);?></b></td>
+		<td  align="right" ><b><?php echo round($sgst,3);?></b></td>
+		<td  align="right" ><b><?php echo round($igst,3);?></b></td>
+		<td  align="right" ><b><?php echo round($net_am,3);?></b></td>		
 	    </tr>	 
-<?
+<?php 
 }
 ?>
    <tr bgcolor="#e8ecf6">
 		<td  align="right" colspan="5" ><b> Total</b></td>
 	
-		<td  align="right" ><b><?=$TBasic;?></b></td>
-		<td  align="right" ><b><?=$TDiscount;?></b></td>
-		<td  align="right" ><b><?=$TTaxable;?></b></td>
-		<td  align="right" ><b><?=$Tcgst;?></b></td>
-		<td  align="right" ><b><?=$Tsgst;?></b></td>
-		<td  align="right" ><b><?=$Tigst;?></b></td>
-		<td  align="right" ><b><?=$Tnet_am;?></b></td>		
+		<td  align="right" ><b><?php  echo $TBasic;?></b></td>
+		<td  align="right" ><b><?php  echo $TDiscount;?></b></td>
+		<td  align="right" ><b><?php  echo $TTaxable;?></b></td>
+		<td  align="right" ><b><?php  echo $Tcgst;?></b></td>
+		<td  align="right" ><b><?php  echo $Tsgst;?></b></td>
+		<td  align="right" ><b><?php  echo $Tigst;?></b></td>
+		<td  align="right" ><b><?php  echo $Tnet_am;?></b></td>		
 	    </tr>
 </table>

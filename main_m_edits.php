@@ -1,4 +1,4 @@
-<?php
+<?php 
 include("membersonly.inc.php");
 
 	$sls = $_POST['sls'];
@@ -13,5 +13,5 @@ $sql3 = mysqli_query($conn,"update main_mmenu set nm='$nm' where sl='$sls'") or 
 alert('Updated Successfully. Thank You...');
 document.location = "main_m_entry.php";
 </script>
-<?
+<?php 
 ?> 

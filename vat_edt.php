@@ -1,4 +1,4 @@
-<?
+<?php 
 
 $reqlevel = 1;
 
@@ -14,7 +14,7 @@ include "header.php";
 
         <div class="wrapper row-offcanvas row-offcanvas-left">
 
-            <?
+            <?php 
 
             include "left_bar.php";
 
@@ -125,7 +125,7 @@ $("#"+div).load("gisedts2.php?sl="+sl+"&fn="+fn+"&fv="+encodeURI(fv)+"&div="+div
                                     <i class="ion ion-clipboard"></i>
                                     <div class="box-title" style="width:200px;">Vat % </div>
 									
-									<?
+									<?php 
  $query3="Select * from ".$DBprefix."vat ";
 $result3 = mysqli_query($conn,$query3);
   while ($R3 = mysqli_fetch_array ($result3))
@@ -136,11 +136,11 @@ if($vat=="")
 {$vat="0";}
 ?>
 
-			<div id="vat<?=$x;?>" class="box-title">
-<a onclick="sedt('<?=$x;?>','vat','<?=$vat;?>','vat<?=$x;?>','main_vat')"><b><?=$vat;?></font></b></a>
+			<div id="vat<?php  echo $x;?>" class="box-title">
+<a onclick="sedt('<?php  echo $x;?>','vat','<?php  echo $vat;?>','vat<?php  echo $x;?>','main_vat')"><b><?php  echo $vat;?></font></b></a>
 </div> 
 
-<?}
+<?php }
 ?>	
 									
 									

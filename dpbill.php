@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 include "header.php";
@@ -9,7 +9,7 @@ $saa="01-".date('m-Y');
 <html>
 <head>
         <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <style type="text/css"> 
@@ -152,11 +152,11 @@ $("#tdt").inputmask("dd-mm-yyyy", {"placeholder": "dd-mm-yyyy"});
 <td>Form :
 </td> 
 <td>
-<input type="text" id="fdt" name="fdt" class="form-control" value="<?echo $saa;?>" placeholder="Please Enter From Date" > </td>
+<input type="text" id="fdt" name="fdt" class="form-control" value="<?php echo $saa;?>" placeholder="Please Enter From Date" > </td>
 <td>To :
 </td> 
 <td>
-<input type="text" id="tdt" name="tdt" class="form-control" value="<?echo $sa;?>" placeholder="Please Enter To Date">
+<input type="text" id="tdt" name="tdt" class="form-control" value="<?php echo $sa;?>" placeholder="Please Enter To Date">
 </td>
 
 <td align="right" style="padding-top:10px">
@@ -165,12 +165,12 @@ $("#tdt").inputmask("dd-mm-yyyy", {"placeholder": "dd-mm-yyyy"});
 <td align="left" >
 
     <select name="brncd" class="form-control" size="1" id="brncd"   >
-<?
+<?php 
 if($user_current_level<0)
 {
 	?>
 	<option value="">---ALL---</option>
-	<?
+	<?php 
 }
 if($user_current_level<0)
 {
@@ -187,8 +187,8 @@ $sl=$R['sl'];
 $bnm=$R['bnm'];
 
 ?>
-<option value="<? echo $sl;?>"><? echo $bnm;?></option>
-<?
+<option value="<?php  echo $sl;?>"><?php  echo $bnm;?></option>
+<?php 
 }
 ?>
 </select>

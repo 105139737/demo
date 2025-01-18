@@ -1,4 +1,4 @@
-<?php
+<?php 
 include("membersonly.inc.php");
 include("Numbers/Words.php");
 
@@ -119,8 +119,8 @@ function blprint()
 <table align="center" style="border-collapse:collapse; width:920px; border: 1px solid black;">
 <tr>
     <td colspan="5" style="text-align:center; background-color:#f2f2f2; padding:5px 0 5px 0; border-bottom:1px solid #000;">
-    <b style="font-family:Verdana, Geneva, sans-serif; font-size:25px;"><?=$comp_nm;?></b><br />
-    <font size="3"><?=$bill_adrs;?></font><br>
+    <b style="font-family:Verdana, Geneva, sans-serif; font-size:25px;"><?php  echo $comp_nm;?></b><br />
+    <font size="3"><?php  echo $bill_adrs;?></font><br>
     </td>
 </tr>
 <tr>
@@ -133,13 +133,13 @@ function blprint()
         <table border="1" width="100%" style="border-collapse:collapse; border:1px solid #000000;">
         <tr>
             <td style="width:10%; font-size:22px; padding-left:5px;">Voucher No.</td>
-            <td style="width:20%; padding-left:5px;"><b><?=$blnon;?></b></td>
+            <td style="width:20%; padding-left:5px;"><b><?php  echo $blnon;?></b></td>
             <td style="text-align:right; width:10%; font-size:22px; padding-right:5px;">Date </td>
-            <td style="width:10%; padding-left:5px; padding-left:5px;"><?php echo date('d-m-Y',strtotime($dt));?></td>
+            <td style="width:10%; padding-left:5px; padding-left:5px;"><?php  echo date('d-m-Y',strtotime($dt));?></td>
         </tr>
         <tr>
             <td style="width:10%; font-size:22px; padding-left:5px;">Name</td>
-            <td colspan="3" style="width:20%; padding-left:5px;"><b><?php echo $nm;?></b> </td>
+            <td colspan="3" style="width:20%; padding-left:5px;"><b><?php  echo $nm;?></b> </td>
         </tr>
         </table>
     </td>
@@ -149,15 +149,15 @@ function blprint()
         <table border="1" width="100%" style="border-collapse:collapse; border:0px solid #000000;">
         <tr>
             <td style="text-align:right; width:20%; font-size:22px;"><b>Payment Mode :</b></td>
-            <td style="text-align:left; width:30%; font-size:22px;"><?php echo $mtd;?></td>
+            <td style="text-align:left; width:30%; font-size:22px;"><?php  echo $mtd;?></td>
             <td style="text-align:right; width:20%; font-size:22px;"><b>Amount :</b></td>
-            <td style="text-align:left; width:30%; font-size:22px;"><?echo $amm;?></td>
+            <td style="text-align:left; width:30%; font-size:22px;"><?php echo $amm;?></td>
         </tr>
 		<tr>
             <td style="text-align:right;font-size:22px;"><b>Ref.No. :</b></td>
-            <td style="text-align:left;font-size:22px;"><?php echo $mtddtl;?></td>
+            <td style="text-align:left;font-size:22px;"><?php  echo $mtddtl;?></td>
             <td style="text-align:right;font-size:22px;"><b>Narration :</b></td>
-            <td style="text-align:left;font-size:22px;"><?php echo $nrtn;?></td>
+            <td style="text-align:left;font-size:22px;"><?php  echo $nrtn;?></td>
         </tr>
 		
 

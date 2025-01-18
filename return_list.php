@@ -1,14 +1,14 @@
-<?
+<?php 
 $reqlevel = 3; 
 include("membersonly.inc.php");
 $fdt=$_REQUEST['fdt'];
 $tdt=$_REQUEST['tdt'];
 $snm=rawurldecode($_REQUEST['snm']);
 $pnm=$_REQUEST[pnm];
-$cat=$_REQUEST[cat];
+$cat=$_REQUEST['cat'] ?? "";
 $bnm=$_REQUEST[bnm];
 
-$brncd=$_REQUEST[brncd];if($brncd==""){$brncd1="";}else{$brncd1=" and bcd='$brncd'";}
+$brncd=$_REQUEST['brncd'] ?? "";if($brncd==""){$brncd1="";}else{$brncd1=" and bcd='$brncd'";}
 $fdt=date('Y-m-d', strtotime($fdt));
 $tdt=date('Y-m-d', strtotime($tdt));
 
@@ -43,7 +43,7 @@ $dis1=0;
 			<td  align="center" ><b>Grand Total</b></td>
 
 		</tr>
-			 <?
+			 <?php 
 		$sln=0;
 		$tota=0;
 $tq=0;
@@ -128,13 +128,13 @@ $brand=$row1['brand'];
 	$asd++;
 	}
  ?>
-			<tr title="<?=$pcd." S Sl".$sl;?>">
-			<?if($asd==1){?>
-			<td  align="center"  ><?=$sln;?></td>
-			<td  align="center" ><?=$dt;?></td>
-			<td  align="center" ><?=$blno;?></td>
-			<td  align="left" ><?=$nm;?></td>
-			<?}
+			<tr title="<?php  echo $pcd." S Sl".$sl;?>">
+			<?php if($asd==1){?>
+			<td  align="center"  ><?php  echo $sln;?></td>
+			<td  align="center" ><?php  echo $dt;?></td>
+			<td  align="center" ><?php  echo $blno;?></td>
+			<td  align="left" ><?php  echo $nm;?></td>
+			<?php }
 			else
 			{
 			?>
@@ -144,22 +144,22 @@ $brand=$row1['brand'];
             <td  align="left" ></td> 
             <td  align="left" ></td> 
 			
-		   <?
+		   <?php 
 		   }
 		   ?>
 		   
-			<td  align="left" title="<?=$pcd;?>" ><?=$cnm;?> - <?=$brand;?> - <?=$variant;?></td>
-			<td  align="center" ><b><?=$pty1;?></b></td>
+			<td  align="left" title="<?php  echo $pcd;?>" ><?php  echo $cnm;?> - <?php  echo $brand;?> - <?php  echo $variant;?></td>
+			<td  align="center" ><b><?php  echo $pty1;?></b></td>
 	
-			<td  align="center" ><?=sprintf('%0.2f',$fprc)?></td>
-			<td  align="center" ><?=sprintf('%0.2f',$ttl)?></td>
-			<td  align="center" ><?=$rdt;?></td>
-			<td  align="center" ><a href="#" onclick="view('<?=$blno;?>','<?=$retno;?>')" title="Print"><?=$retno;?></a></td>
+			<td  align="center" ><?php echo sprintf('%0.2f',$fprc)?></td>
+			<td  align="center" ><?php echo sprintf('%0.2f',$ttl)?></td>
+			<td  align="center" ><?php  echo $rdt;?></td>
+			<td  align="center" ><a href="#" onclick="view('<?php  echo $blno;?>','<?php  echo $retno;?>')" title="Print"><?php  echo $retno;?></a></td>
 		
 			<td  align="center" ></td>
 			</tr>	 
 			 
-<?
+<?php 
 $qtyt=$pty1+$qtyt;
 $tamm=$ttl+$tamm;
 $tq=$pty1+$tq;
@@ -169,16 +169,16 @@ if($qtyt!=0)
 ?>
 <tr bgcolor="#e8ecf6">
 <td colspan="5" align="right"><b>Total</b></td>
-<td align="center"><font size="3"><b><?=$qtyt;?></b></font></td>
+<td align="center"><font size="3"><b><?php  echo $qtyt;?></b></font></td>
 <td></td>
 
-<td align="center"><font size="3"><b><?=sprintf('%0.2f',$tamm);?></b></font></td>
+<td align="center"><font size="3"><b><?php echo sprintf('%0.2f',$tamm);?></b></font></td>
 <td align="center"><font size="3"><b></b></font></td>
 <td align="center"><font size="3"></font></td>
 
-<td align="right"><font size="3" color="red"><b><?=sprintf('%0.2f',$tamm-$dis);?></b></font></td>
+<td align="right"><font size="3" color="red"><b><?php echo sprintf('%0.2f',$tamm-$dis);?></b></font></td>
 </tr>
-<?
+<?php 
 
 
 }
@@ -189,14 +189,14 @@ $tamm1=$tamm+$tamm1;
 }?>
 <tr>
 <td colspan="5" align="right"><b>Total</b></td>
-<td align="center"><b><?=$tq;?></b></td>
+<td align="center"><b><?php  echo $tq;?></b></td>
 <td></td>
 
-<td align="center"><b><?=sprintf('%0.2f',$tamm1);?></b></td>
+<td align="center"><b><?php echo sprintf('%0.2f',$tamm1);?></b></td>
 <td align="center"><b></b></td>
 <td align="center"><b></b></td>
 
-<td  align="right" ><font size="3" color="red"><b><?=sprintf('%0.2f',$tamm1);?></b></font></td>
+<td  align="right" ><font size="3" color="red"><b><?php echo sprintf('%0.2f',$tamm1);?></b></font></td>
 </tr>
 
 	  </table>

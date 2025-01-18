@@ -1,11 +1,11 @@
-<?PHP
+<?php 
 $reqlevel=1;
 include("membersonly.inc.php");
 include "header.php";
 
-$sl=$_REQUEST['sl'];
-$msl=$_REQUEST['msl'];
-
+$sl=$_REQUEST['sl']??"";
+$msl=$_REQUEST['msl']??"";
+$nm2="";
 $data=mysqli_query($conn,"select * from main_approll where sl='$sl'")or die(mysqli_error($conn));
 while($row=mysqli_fetch_array($data)) 
 {
@@ -40,7 +40,7 @@ $username1=$row2['username'];
 </script>
 </head>
 <div class="wrapper row-offcanvas row-offcanvas-left">
-	<?php
+	<?php 
 	include "left_bar.php";
 	?>
 <body onload="show()">
@@ -62,7 +62,7 @@ $username1=$row2['username'];
 
 		<div class="box-body">
 <form name="form1" id="form1" method="post" action="menu_assign_edits.php">
-	<input type="hidden" id="sl" name="sl" value="<?=$sl?>">
+	<input type="hidden" id="sl" name="sl" value="<?php  echo $sl?>">
 <table  width="800px"  align="center" class="table table-hover table-striped table-bordered">
 <tr>
 
@@ -74,15 +74,15 @@ $username1=$row2['username'];
 <td>
 	<select class="form-control" name="username" id="username" onchange="show()">
 	
-	<?php
+	<?php 
 		$select=mysqli_query($conn,"SELECT * FROM main_signup ORDER BY sl") or die(mysqli_error($conn));
 		while($r1=mysqli_fetch_array($select))   
 		{
 			$sl=$r1['sl'];
 			$username=$r1['username'];
 			?>
-			<option value="<?=$username;?>" <? if ($username==$username1) {echo 'Selected';}?>><?=$username;?></option>
-			<?php
+			<option value="<?php  echo $username;?>" <?php  if ($username==$username1) {echo 'Selected';}?>><?php  echo $username;?></option>
+			<?php 
 		}
 	?>
 	</select>
@@ -92,15 +92,15 @@ $username1=$row2['username'];
 <td>
 	<select  name="nm[]" id="nm" class="form-control" multiple>
 	
-	<?php
+	<?php 
 	$get1=mysqli_query($conn,"select * from main_appmenu where sl>0 and FIND_IN_SET(sl, '$msl')>0 order by sl") or die(mysqli_error($conn));
 	while(($row1 = mysqli_fetch_array($get1))) 
 	{
 		$sl=$row1['sl'];
 		$nm=$row1['nm'];
 		?>
-		<option value="<?php echo $sl;?>" selected><?php echo $nm;?></option>
-		<?
+		<option value="<?php  echo $sl;?>" selected><?php  echo $nm;?></option>
+		<?php 
 	}
 	$get11=mysqli_query($conn,"select * from main_appmenu where sl>0 and FIND_IN_SET(sl, '$msl')=0 order by sl") or die(mysqli_error($conn));
 	while($row11=mysqli_fetch_array($get11))
@@ -108,8 +108,8 @@ $username1=$row2['username'];
 		$sl=$row11['sl'];
 		$nm=$row11['nm'];
 		?>
-		<option value="<?php echo $sl;?>"><?php echo $nm;?></option>
-		<?
+		<option value="<?php  echo $sl;?>"><?php  echo $nm;?></option>
+		<?php 
 	} 
 	?>
 	</select>

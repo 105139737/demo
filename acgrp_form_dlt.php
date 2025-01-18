@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 $edt=date('Y-m-d');
@@ -25,6 +25,6 @@ $err="Data Delete Successfully.";
 
 ?>
 <script>
-alert("<?php echo $err; ?>");
+alert("<?php  echo $err; ?>");
 window.history.go(-1);
 </script>

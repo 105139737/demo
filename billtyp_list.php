@@ -1,7 +1,8 @@
-<?
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 include("function.php");
+$cnt=0;
 
 $all=$_REQUEST['all'];
 $tp1=$_REQUEST['tp1'];
@@ -58,7 +59,7 @@ if($total!=0)
 <th style="text-align:center;" width="5%">Action</th>
 <th >Status</font></th>
 </tr>
-<?
+<?php 
 while($row=mysqli_fetch_array($get))
 {
 	$cnt++;
@@ -155,29 +156,29 @@ $countt=mysqli_num_rows($get1);
 	
 ?>
 <tr>
-<td style="text-align:center;"><?=$cnt;?></td>
-<td style="text-align:left;"><?=get_val('main_branch',$brncd,'bnm','sl');?></td>
-<td style="text-align:left;"><?=$adrs;?></td>
-<td style="text-align:left;"><?=$tps;?></td>
-<td style="text-align:left;"><? echo $val;?></td>
-<td style="text-align:left;"><?=$als;?></td>
-<td style="text-align:left;"><?=$ssn;?></td>
-<td style="text-align:left;"><?=$start_no;?></td>
-<td style="text-align:left;"><?=$inv_typp;?></td>
+<td style="text-align:center;"><?php  echo $cnt;?></td>
+<td style="text-align:left;"><?php echo get_val('main_branch',$brncd,'bnm','sl');?></td>
+<td style="text-align:left;"><?php  echo $adrs;?></td>
+<td style="text-align:left;"><?php  echo $tps;?></td>
+<td style="text-align:left;"><?php  echo $val;?></td>
+<td style="text-align:left;"><?php  echo $als;?></td>
+<td style="text-align:left;"><?php  echo $ssn;?></td>
+<td style="text-align:left;"><?php  echo $start_no;?></td>
+<td style="text-align:left;"><?php  echo $inv_typp;?></td>
 
 
 <td style="text-align:center;">
 
-<a href="billtyp_edit.php?sl=<?=$ssl;?>" target="_blank" title="Click to Update"><i class="fa fa-pencil-square-o"></i></a>
+<a href="billtyp_edit.php?sl=<?php  echo $ssl;?>" target="_blank" title="Click to Update"><i class="fa fa-pencil-square-o"></i></a>
 
 </td>
-<td align="center"><? echo $stat1;?></td>
+<td align="center"><?php  echo $stat1;?></td>
 </tr>
-<?															
+<?php 															
 }
 ?>
 </table>
-<?
+<?php 
 }
 else
 {
@@ -187,6 +188,6 @@ else
 	<td style="text-align:center;"><font size="4" color="red"><b>No Records Available</b></font></td>
 	</tr>
 	</table>
-	<?
+	<?php 
 }
 ?>

@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include('SimpleImage.php');
@@ -11,7 +11,7 @@ $path="product_price_pdf";
  $cat=$_POST['cat'];
  $typ=$_POST['typ'];
 $title=$_POST['ttl'];
-$sl=$_POST['sl'];
+$sl=$_POST['sl'] ?? "";
 /*
 foreach ($cat as $cats) 
 {
@@ -26,7 +26,7 @@ if($title=="" or $cat=="" or $typ=="" )
 	alert('Please Fill All The Field');
 	history.go(-1);
 	</script>
-	<?
+	<?php 
 }
 else
 {
@@ -57,7 +57,7 @@ $sql=mysqli_query($conn,"insert into main_prod_prc_pdf(title,path,edt,edtm,eby,c
 			alert('Submitted Successfully. Thank You');
 			document.location="prod_upload_pdf.php";
 			</script>
-			<?php
+			<?php 
 		}
 		else
 		{
@@ -66,7 +66,7 @@ $sql=mysqli_query($conn,"insert into main_prod_prc_pdf(title,path,edt,edtm,eby,c
 			alert('Data Already Exists');
 			history.go(-1);
 			</script>
-			<?php
+			<?php 
 		}
 	}
 	else
@@ -85,7 +85,7 @@ $sql=mysqli_query($conn,"insert into main_prod_prc_pdf(title,path,edt,edtm,eby,c
 			alert('Update Successfully. Thank You');
 			document.location="prod_upload_pdf.php";
 			</script>
-			<?php 
+			<?php  
 		}
 		else
 		{
@@ -94,7 +94,7 @@ $sql=mysqli_query($conn,"insert into main_prod_prc_pdf(title,path,edt,edtm,eby,c
 			alert('Data Already Exists');
 			history.go(-1);
 			</script>
-			<?php
+			<?php 
 		}
 	}
 }

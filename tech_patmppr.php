@@ -1,11 +1,11 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 
 $sl=0;
 ?>
 <table border="0" width="100%" class="advancedtable">
-<?
+<?php 
 $result100=mysqli_query($conn,"SELECT * FROM main_tech_trntemp where eby='$user_currently_loged' order by sl");
 $cnt=mysqli_num_rows($result100);
 while($R100=mysqli_fetch_array($result100))
@@ -38,11 +38,11 @@ while($R100=mysqli_fetch_array($result100))
 	}
 ?>
 <tr class="odd">
-<td align="center" width="30%"><b><?=$pnm;?> - <?=$cnm;?> - <?=$brand;?></b></td>
-<td align="center" width="20%"><b><?=$qnty;?></b></td>
-<td align="center" width="10%"><b><a onclick="if(confirm('Are you Sure?')){deltpr('<?=$tsl;?>')}"><font color="red">Delete</font></a></b></td>
+<td align="center" width="30%"><b><?php  echo $pnm;?> - <?php  echo $cnm;?> - <?php  echo $brand;?></b></td>
+<td align="center" width="20%"><b><?php  echo $qnty;?></b></td>
+<td align="center" width="10%"><b><a onclick="if(confirm('Are you Sure?')){deltpr('<?php  echo $tsl;?>')}"><font color="red">Delete</font></a></b></td>
 </tr>
-<?
+<?php 
 }
 
 	$query1="SELECT sum(qnty) as qtyttl FROM main_tech_trntemp where eby='$user_currently_loged'";
@@ -57,9 +57,9 @@ while($R100=mysqli_fetch_array($result100))
 		?>
 <tr class="even">
 <td colspan="" align="right" ><b>Total : </b></td>
-<td align="center"><b><?=$qtyttl;?></b></td><td colspan=""></td>
+<td align="center"><b><?php  echo $qtyttl;?></b></td><td colspan=""></td>
 </tr>
-<?
+<?php 
 	}
 ?>
 </table>

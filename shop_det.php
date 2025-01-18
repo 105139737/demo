@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include "header.php";
@@ -14,7 +14,7 @@ $sl=$row11['sl'];
 }
 ?>
 <div class="wrapper row-offcanvas row-offcanvas-left">
-<?
+<?php 
 include "left_bar.php";
 ?>
 
@@ -79,20 +79,20 @@ cursor:pointer;
 <td align="right" >Shop Name :</td>
 
             <td align="left" >
-				<div id="cnm1<?=$sl;?>">
-<a  onclick="sedt('<?echo $sl;?>','cnm','<?echo $cnm;?>','cnm1<?=$sl;?>','main_cnm')"><b><? echo $cnm;?></font></b></a>
+				<div id="cnm1<?php  echo $sl;?>">
+<a  onclick="sedt('<?php echo $sl;?>','cnm','<?php echo $cnm;?>','cnm1<?php  echo $sl;?>','main_cnm')"><b><?php  echo $cnm;?></font></b></a>
  </div> 
 			</td>
 <td align="right" >Shop Address :</td>
  <td align="left" >
- 		<div id="addr<?=$sl;?>">
-<a  onclick="sedt('<?echo $sl;?>','addr','<?echo $addr;?>','addr<?=$sl;?>','main_cnm')"><b><? echo $addr;?></font></b></a>
+ 		<div id="addr<?php  echo $sl;?>">
+<a  onclick="sedt('<?php echo $sl;?>','addr','<?php echo $addr;?>','addr<?php  echo $sl;?>','main_cnm')"><b><?php  echo $addr;?></font></b></a>
  </div> 
 </td>
 <td align="right" >VAT No :</td>
 <td align="left" >
-	<div id="plicno<?=$sl;?>">
-<a  onclick="sedt('<?echo $sl;?>','plicno','<?echo $plicno;?>','plicno<?=$sl;?>','main_cnm')"><b><? echo $plicno;?></font></b></a>
+	<div id="plicno<?php  echo $sl;?>">
+<a  onclick="sedt('<?php echo $sl;?>','plicno','<?php echo $plicno;?>','plicno<?php  echo $sl;?>','main_cnm')"><b><?php  echo $plicno;?></font></b></a>
  </div>
 </td>
 			</tr>

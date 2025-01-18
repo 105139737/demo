@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include("Numbers/Words.php");
@@ -6,45 +6,46 @@ include("SimpleImage.php");
 //catch the sent data
 	$sl=0;
 	
-	$dt = $_POST['dt'];
-	$dt_return = $_POST['dt'];
-	$vno = $_POST['vno'];
-	$proj = $_POST['proj'];
-	$cldgr = $_POST['cldgr'];
-	$dldgr = $_POST['dldgr'];
-	$cbal = $_POST['cbal'];
-	$dbal = $_POST['dbal'];
-	$paymtd = $_POST['paymtd'];
-	$refno = $_POST['refno'];
+	$dt = $_POST['dt']??"";
+	$dt_return = $_POST['dt']??"";
+	$vno = $_POST['vno']??"";
+	$proj = $_POST['proj']??"";
+	$cldgr = $_POST['cldgr']??"";
+	$dldgr = $_POST['dldgr']??"";
+	$cbal = $_POST['cbal']??"";
+	$dbal = $_POST['dbal']??"";
+	$paymtd = $_POST['paymtd']??"";
+	$refno = $_POST['refno']??"";
 	
 	//$amm = $_POST['amm'];
 	
-	$it = $_POST['it'];
+	$it = $_POST['it']??"";
 	
 	//$nrtn = $_POST['nrtn'];
 	
-	$flnm = $_POST['flnm'];
-	$flnm1 = $_POST['flnm1'];
-	$sl = $_POST['updt'];
-	$cid = $_POST['cid'];
-	$sid = $_POST['sid'];
-	$brncd = $_POST['brncd'];
-	$dis = $_POST['dis'];
+	$flnm = $_POST['flnm']??"";
+	$flnm1 = $_POST['flnm1']??"";
+	$sl = $_POST['updt']??"";
+	$cid = $_POST['cid']??"";
+	$sid = $_POST['sid']??"";
+	$brncd = $_POST['brncd']??"";
+	$dis = $_POST['dis']??"";
 	
 	//$blno = $_POST['blno'];
 	
 	
-	$sman = $_POST['sman'];
+	$sman = $_POST['sman']??"";
 /*   Bill Type Details*/	
-	$bsl = $_POST['bsl'];
-	$btyp = $_POST['btyp'];
-	$sms = $_POST['sms'];
-	$cust = $_POST['cust'];
-	$sup = $_POST['sup'];
-	$cust1 = $_POST['cust1'];
-	$sup1 = $_POST['sup1'];
-	$pcat = $_POST['cat'];
-	
+	$bsl = $_POST['bsl']??"";
+	$btyp = $_POST['btyp']??"";
+	$sms = $_POST['sms']??"";
+	$cust = $_POST['cust']??"";
+	$sup = $_POST['sup']??"";
+	$cust1 = $_POST['cust1']??"";
+	$sup1 = $_POST['sup1']??"";
+	$pcat = $_POST['cat']??"";
+	$edt="";
+	$amm1=0;
 	$val=date_chk($dt);
 	if($val==0)
 	{
@@ -79,7 +80,7 @@ if($cnt>0)
 alert('Sorry!! Entry Already Exist.');
 window.history.go(-1);
 </script>
-<?
+<?php 
 }
  */	
 $err="";
@@ -111,7 +112,7 @@ $start_no=$row['start_no'];
 	}	
 	$vid1=substr($vnos,2,7);	
 	$count6=5;
-	$vid1=$vid1+1;
+	$vid1=(float)$vid1+1;
 	$vnoc=str_pad($vid1, 7, '0', STR_PAD_LEFT);
 	$vcno="SV".$vnoc;
 	
@@ -133,7 +134,7 @@ $start_no=$row['start_no'];
 	$vid1=$vnos;
 
 	while($count6>0){
-	$vid1=$vid1+1;
+	$vid1=(float)$vid1+1;
 	//$vnoc=str_pad($vid1, 5, '0', STR_PAD_LEFT);
 	$vnoc=$vid1;
 	$blnon=$als.$vnoc.$ssn;
@@ -219,13 +220,13 @@ $dt=date('d-M-Y',strtotime($dt));
 ?>
 <script language="javascript">
 alert('Added Successfully. Thank You.');
-document.location = "<?=$flnm;?>?bsl=<?php echo $bsl;?>&dt=<?php echo $dt;?>&dldgr=<?php echo $dldgr;?>&dt=<?php echo $dt_return;?>&pcat=<?php echo $pcat;?>";
+document.location = "<?php  echo $flnm;?>?bsl=<?php  echo $bsl;?>&dt=<?php  echo $dt;?>&dldgr=<?php  echo $dldgr;?>&dt=<?php  echo $dt_return;?>&pcat=<?php  echo $pcat;?>";
 </script>
-<? } else {?>
+<?php  } else {?>
 
 <script language="javascript">
-alert('<?php echo $err;?>');
+alert('<?php  echo $err;?>');
 window.history.go(-1);
 </script>
 
-<? } ?>
+<?php  } ?>

@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 $edt=date('Y-m-d');
@@ -19,7 +19,7 @@ if($count>0)
 alert('Data Already Exists. Thank You.....');
 window.history.go(-1);
 </script>
-<?php
+<?php 
 }
 else
 {
@@ -27,8 +27,8 @@ $q3=mysqli_query($conn,"insert into  main_discount (custid,days,prefnd,edt,edtm,
 ?>
 	<script language="javascript">
 	alert('Data Submit Successfully. Thank You.....');
-	document.location="discount_setup.php?custid=<?php echo $custid?>";
+	document.location="discount_setup.php?custid=<?php  echo $custid?>";
 	</script>
-<?php
+<?php 
 }
 ?>

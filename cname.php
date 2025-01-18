@@ -1,11 +1,23 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
+$fstt="";
     $id = $_REQUEST['cid'];
-    $brand = $_REQUEST['brand'];
+    $brand = $_REQUEST['brand']??"";
 
-	
+	$brncd="";
 	$pp=0;
+ $nm="";
+ $addr="";
+                $cont="";
+                $mail="";
+                $typ="";
+                $fst="";
+                $brncd="";
+                $tcs="";
+                $gstin="";
+                $credit_limit=""; 
+                $sl="";
 	$result = mysqli_query($conn,"SELECT * from ".$DBprefix."cust where sl='$id'");
           while($row = mysqli_fetch_array($result))
 		 {
@@ -50,7 +62,7 @@ $data1= mysqli_query($conn,"SELECT sum(amm) as t2 FROM main_drcr where cldgr='4'
 		$result416 = mysqli_query($conn,"SELECT  (SUM(IF(dldgr='4', amm, 0)) - SUM(IF(cldgr='4', amm, 0))) AS amm FROM main_drcr where cid='$id' and brncd='$brncd'")or die(mysqli_error($conn));
 		while ($R16 = mysqli_fetch_array ($result416))
 		{
-		$T=round($R16['amm'],2);
+		$T=round($R16['amm']??0,2);
 		}
 		
 $sale_per="";		

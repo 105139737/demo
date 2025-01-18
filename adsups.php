@@ -1,4 +1,4 @@
-<?PHP 
+<?php  
 $reqlevel = 3; 
 include("membersonly.inc.php");
 $dt=date('Y-m-d');
@@ -50,22 +50,22 @@ $result66 = mysqli_query($conn,$query66)or die (mysqli_error($conn));
 
 	$('#compose-modal').modal('hide');
 	
-	$('#sup').append('<option value="<?=$sl;?>"><?=$snm;?> <?if($pnm!=""){?>( <?=$pnm;?> )<?}?></option>');
+	$('#sup').append('<option value="<?php  echo $sl;?>"><?php  echo $snm;?> <?php if($pnm!=""){?>( <?php  echo $pnm;?> )<?php }?></option>');
 		$('#custnm').trigger('chosen:updated');
-	   document.getElementById('sup').value='<?=$sl;?>';
+	   document.getElementById('sup').value='<?php  echo $sl;?>';
 	    $('#sup').trigger('chosen:updated');
 		
 	gtid();
 	</script>
-	<?
+	<?php 
 
 }
 else
 {
 ?>
 <Script language="JavaScript">
-alert('<? echo $err;?>');
+alert('<?php  echo $err;?>');
 </script>
-<?
+<?php 
 }
 ?>

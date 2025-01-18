@@ -1,4 +1,4 @@
-<?
+<?php 
 include "config.php";
 $cnm=rawurldecode($_REQUEST[cnm]);
 
@@ -10,4 +10,4 @@ $c=$R['mob1'];
 $d=$R['addr'];
 }
 ?>
-<input type="text" id="mob" class="form-control" name="mob" value="<?=$c;?>" tabindex="4" size="35" placeholder ="Enter Supplier Contact No">
+<input type="text" id="mob" class="form-control" name="mob" value="<?php  echo $c;?>" tabindex="4" size="35" placeholder ="Enter Supplier Contact No">

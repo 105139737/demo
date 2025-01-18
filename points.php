@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 $dttm=date('d-m-Y H:i:s');
@@ -15,7 +15,7 @@ if($point=="" and $pcd=="")
 	alert("Please fill all Field.....");
 	window.history.go(-1);
 	</script>
-	<?
+	<?php 
 }
 else
 {
@@ -28,7 +28,7 @@ else
 	alert("Duplicate Product Entry.....");
 	window.history.go(-1);
 	</script>
-	<?
+	<?php 
 	}
 	else
 	{
@@ -38,7 +38,7 @@ else
 	alert("Submit Successfully.....");
 	window.location="point.php";
 	</script>
-	<?
+	<?php 
 	
 	}
 }

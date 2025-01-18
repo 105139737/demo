@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3; 
 include("membersonly.inc.php");
 include "function.php";
@@ -13,7 +13,7 @@ $prnm=$_REQUEST['prnm'];
 $godown=$_REQUEST['godown'];
 $vstat=$_REQUEST['vstat'];
 $ptyp=$_REQUEST['ptyp'];
-$val=$_REQUEST['val'];
+$val=$_REQUEST['val'] ?? "";
 
 if($vstat==""){$vstat1="";}else{$vstat1=" and vstat='$vstat'";}
 if($ptyp==""){$ptyp1="";}else{$ptyp1=" and app='$ptyp'";}
@@ -38,7 +38,7 @@ $broder="border='1'";
 }
 
 ?>
-<table  class="advancedtable"  border="1" <?if($val==1){?>width="70%"<?}else{?>width="100%"<?}?>>
+<table  class="advancedtable"  border="1" <?php if($val==1){?>width="70%"<?php }else{?>width="100%"<?php }?>>
 <tr bgcolor="#e8ecf6">
 <td  align="center" ><b>Sl</b></td>
 <td  align="center" ><b>Date</b></td>
@@ -51,7 +51,7 @@ $broder="border='1'";
 <td  align="center" ><b>TDS</b></td>
 <td  align="center" ><b>BILL VALUE</b></td>
 </tr>
-<?
+<?php 
 $sln=0;
 $total=0;
 $totalta=0;
@@ -104,27 +104,27 @@ $totalta+=$amm;
 $ttds+=$tds;
 	?>
 	<tr>
-	<td  align="center" ><?=$sln?></td>
-	<td  align="center" ><?=$dt?></td>
-	<td  align="left" ><?=get_branch_name($bcd);?></td>
-	<td  align="left" ><?=$inv?></td>
-	<td  align="left" ><?=$spn?></td>
-	<td  align="left" ><?=$gstinn?></td>
-	<td  align="left" ><?=$span?></td>
-	<td  align="right" ><?=number_format($amm,2)?></td>
-	<td  align="right" ><?=number_format($tds,2)?></td>
-	<td  align="right" ><?=number_format($tmm2,2)?></td>
+	<td  align="center" ><?php  echo $sln?></td>
+	<td  align="center" ><?php  echo $dt?></td>
+	<td  align="left" ><?php echo get_branch_name($bcd);?></td>
+	<td  align="left" ><?php  echo $inv?></td>
+	<td  align="left" ><?php  echo $spn?></td>
+	<td  align="left" ><?php  echo $gstinn?></td>
+	<td  align="left" ><?php  echo $span?></td>
+	<td  align="right" ><?php echo number_format($amm,2)?></td>
+	<td  align="right" ><?php echo number_format($tds,2)?></td>
+	<td  align="right" ><?php echo number_format($tmm2,2)?></td>
 	</tr>	 
 			 
 
-<?
+<?php 
 }
 ?>	<tr>
 	
 	<td  align="center" colspan="7" ><b>Total</b></td>
-	<td  align="right" ><b><?=number_format($totalta,2)?></b></td>
-	<td  align="right" ><b><?=number_format($ttds,2)?></b></td>
-	<td  align="right" ><b><?=number_format($total,2)?></b></td>
+	<td  align="right" ><b><?php echo number_format($totalta,2)?></b></td>
+	<td  align="right" ><b><?php echo number_format($ttds,2)?></b></td>
+	<td  align="right" ><b><?php echo number_format($total,2)?></b></td>
 	</tr>
 
 	  </table>

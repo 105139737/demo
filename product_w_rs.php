@@ -1,11 +1,11 @@
-<?
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 
-$fdt=$_REQUEST[fdt];
-$tdt=$_REQUEST[tdt];
+$fdt=$_REQUEST['fdt'];
+$tdt=$_REQUEST['tdt'];
 $pnm=rawurldecode($_REQUEST['pnm']);
-$brncd=$_REQUEST[brncd];if($brncd==""){$brncd1="";}else{$brncd1=" and tbcd='$brncd'";}
+$brncd=$_REQUEST['brncd'] ?? "";if($brncd==""){$brncd1="";}else{$brncd1=" and tbcd='$brncd'";}
 $fdt=date('Y-m-d', strtotime($fdt));
 $tdt=date('Y-m-d', strtotime($tdt));
 
@@ -47,7 +47,7 @@ $pnm1="";
 
 
 </tr>
- <?
+ <?php 
  $slno=0;
  $Tqty=0;
  $data= mysqli_query($conn,"select * from main_trns where sl>0".$brncd1.$dtt." order by dt")or die(mysqli_error($conn));
@@ -131,24 +131,24 @@ if($stat==1)
 
 
 <tr class="even">
-<td  align="left" ><b><?=$slno;?></b></td>
-<td  align="left" ><b><?=$fbnm;?></b></td>
-<td  align="left" ><b><?=$blno;?></b></td>
-<td  align="left" ><b><?=date("d-m-Y", strtotime($dt));?></b></td>
-<td  align="left" ><b><?=$prnm;?></b></td>
+<td  align="left" ><b><?php  echo $slno;?></b></td>
+<td  align="left" ><b><?php  echo $fbnm;?></b></td>
+<td  align="left" ><b><?php  echo $blno;?></b></td>
+<td  align="left" ><b><?php echo date("d-m-Y", strtotime($dt));?></b></td>
+<td  align="left" ><b><?php  echo $prnm;?></b></td>
 
 
-<td align="center"  ><b><?=$qnt1;?></b></td>
+<td align="center"  ><b><?php  echo $qnt1;?></b></td>
 
 
 
 
-<td align="center"  ><b><?=$stat1;?></b></td>
+<td align="center"  ><b><?php  echo $stat1;?></b></td>
 
 
 
 </tr>
-<?
+<?php 
 $Tqty=$qnt1+$Tqty;
 }}?>
 <tr>
@@ -156,7 +156,7 @@ $Tqty=$qnt1+$Tqty;
 <b>Total :</b>
 </td>
 <td align="center">
-<b><?=$Tqty;?></b>
+<b><?php  echo $Tqty;?></b>
 </td>
 <td>
 </td>

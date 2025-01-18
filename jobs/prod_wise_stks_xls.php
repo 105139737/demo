@@ -10,7 +10,7 @@ date_default_timezone_set('Asia/Kolkata');
 $dt = date('d-M-Y');
  
 $cy=date('Y');
-$pnm=$_REQUEST['pnm'];
+$pnm=$_REQUEST['pnm']??"";
 $catsl=$_REQUEST['cat'];
 $scatsl=$_REQUEST['scat'];
 $dt=$_REQUEST['dt'];
@@ -78,7 +78,7 @@ $Tot_stk_val_gst=0;
 
 $sl=0;
 $sln=0;
-
+$ssl=0;
 $data=mysqli_query($conn,"select * from main_product where sl>0 and typ='0' $cat1  $scat1  $all1 order by pnm")or die(mysqli_error($conn));
 while($row=mysqli_fetch_array($data))
 {

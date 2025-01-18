@@ -1,9 +1,9 @@
-<?php
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 $blno_ref=$_REQUEST['blno'];
 
-
+$sln=0;
 
 $data1=mysqli_query($conn,"SELECT * FROM main_recv where sl>0 and blno='$blno_ref'")or die(mysqli_error($conn));
 while($row1=mysqli_fetch_array($data1))
@@ -54,15 +54,15 @@ $result21 = mysqli_query($conn,$query21)or die(mysqli_error($conn));
 ?>
 <script>
 
-document.getElementById('dt').value="<?=$dt;?>";
-document.getElementById('nrtn').value="<?=$nrtn;?>";
-$('#dldgr').val('<?=$dldgr;?>');
+document.getElementById('dt').value="<?php  echo $dt;?>";
+document.getElementById('nrtn').value="<?php  echo $nrtn;?>";
+$('#dldgr').val('<?php  echo $dldgr;?>');
 $('#dldgr').trigger('chosen:updated');
-$('#paymtd').val('<?=$paymtd;?>');
+$('#paymtd').val('<?php  echo $paymtd;?>');
 $('#paymtd').trigger('chosen:updated');
-//document.getElementById('tamm').value="<?=$tamm;?>";
-document.getElementById('refno').value="<?=$refno;?>";
-document.getElementById('blno_ref').value="<?=$blno_ref;?>";
+//document.getElementById('tamm').value="<?php  echo $tamm;?>";
+document.getElementById('refno').value="<?php  echo $refno;?>";
+document.getElementById('blno_ref').value="<?php  echo $blno_ref;?>";
 $('#compose-modal1').modal('hide');	
 temp();
 reset();

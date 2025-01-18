@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 date_default_timezone_set('Asia/Kolkata');
@@ -54,4 +54,4 @@ $gh=mysqli_query($conn,"delete from main_tech_trntemp where eby='$user_currently
 alert('Submitted Successfully. Thank You');
 document.location="dktcl_pnding_list.php";
 </script>
-<?
+<?php 

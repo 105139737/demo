@@ -1,4 +1,4 @@
-<?php
+<?php 
 include("membersonly.inc.php");
 $fbcd=$_REQUEST['fbcd'];
 $tbcd="";
@@ -10,7 +10,8 @@ $tbcd=$R100['tbcd'];
 }
 ?>
 <select name="tbcd" class="form-control" tabindex="1" size="1" id="tbcd">
-<?
+<?php 
+$tbcdq="";
 if($tbcd!=""){$tbcdq=" and sl='$tbcd'";}
 $query="Select * from main_godown where stat=1 $tbcdq";
 $result = mysqli_query($conn,$query);
@@ -21,8 +22,8 @@ $bnm=$R['bnm'];
 $gnm=$R['gnm'];
 
 ?>
-<option value="<? echo $sl;?>"><? echo $gnm;?></option>
-<?
+<option value="<?php  echo $sl;?>"><?php  echo $gnm;?></option>
+<?php 
 }
 ?>
 </select>

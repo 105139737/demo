@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include "header.php";
@@ -6,7 +6,7 @@ date_default_timezone_set('Asia/Kolkata');
 $edt=date('Y-m-d');
 ?>
         <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <style type="text/css"> 
@@ -55,12 +55,12 @@ function show()
             <td align="right" width="20%">Godown :</td>
             <td align="left" width="30%">
             <select class="form-control" name="gdn" id="gdn">
-			<?
+			<?php 
 if($user_current_level<0)
 {
 	?>
 	<option value="">---ALL---</option>
-	<?
+	<?php 
 }
 if($user_current_level<0)
 {
@@ -77,8 +77,8 @@ $sl=$R['sl'];
 $bnm=$R['bnm'];
 
 ?>
-<option value="<? echo $sl;?>"><? echo $bnm;?></option>
-<?
+<option value="<?php  echo $sl;?>"><?php  echo $bnm;?></option>
+<?php 
 }
 ?>
 			</select>
@@ -87,15 +87,15 @@ $bnm=$R['bnm'];
             <td align="left" width="30%">
             <select name="prd" id="prd" class="form-control">
 			<option value="">-----Select-----</option>
-			<?
+			<?php 
 			$qr=mysqli_query($conn,"select * from main_product order by sl")or die(mysqli_error($conn));
 			while($r=mysqli_fetch_array($qr))
 			{
 					$sl=$r['sl'];	
 					$pnm=$r['pnm'];
 				?>
-				<option value="<?=$sl;?>"><?=$pnm;?></option>
-				<?
+				<option value="<?php  echo $sl;?>"><?php  echo $pnm;?></option>
+				<?php 
 			}
 			?>
 			</select>

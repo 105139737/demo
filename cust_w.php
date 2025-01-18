@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 include "header.php";
@@ -8,7 +8,7 @@ include "header.php";
 
         <div class="wrapper row-offcanvas row-offcanvas-left">
 
-            <?
+            <?php 
 
             include "left_bar.php";
 
@@ -117,13 +117,13 @@ $('#sgh').load('app_add.php?sl='+sl).fadeIn('fast');
 <td width="16%">
 <b>Branch:</b><br>
 <select name="brncd" class="form-control" size="1" id="brncd"   >
-<?
+<?php 
 if($user_current_level<0)
 {
 $query="Select * from main_branch";
 ?>
 <option value="">---Select---</option>
-<?
+<?php 
 }
 else
 {
@@ -136,8 +136,8 @@ $sl=$R['sl'];
 $bnm=$R['bnm'];
 
 ?>
-<option value="<? echo $sl;?>"><? echo $bnm;?></option>
-<?
+<option value="<?php  echo $sl;?>"><?php  echo $bnm;?></option>
+<?php 
 }
 ?>
 </select>
@@ -148,36 +148,36 @@ $bnm=$R['bnm'];
 <b>Brand : </b>
 <select name="brand" id="brand" class="form-control">
 <option value="">---All---</option>
-<?
+<?php 
 $dsql=mysqli_query($conn,"select * from main_catg order by sl") or die (mysqli_error($conn));
 while($erow=mysqli_fetch_array($dsql))
 {
 $bsl=$erow['sl'];
 $cnm=$erow['cnm'];
 ?>
-<option value="<?php echo $bsl;?>"><?php echo $cnm;?></option>
-<?
+<option value="<?php  echo $bsl;?>"><?php  echo $cnm;?></option>
+<?php 
 }
 ?>
 </select>
 </td>
 <td width="16%" hidden>
 <b>Type : </b>
-<input type="hidden" id="typ" name="typ" value="<?php echo "2";?>">
+<input type="hidden" id="typ" name="typ" value="<?php  echo "2";?>">
 </td>      
 <td width="16%">
 <b>Sales Person : </b>
 <select name="sale_per" id="sale_per" class="form-control">
 <option value="">---All---</option>
-<?
+<?php 
 $dsql=mysqli_query($conn,"select * from main_sale_per order by sl") or die (mysqli_error($conn));
 while($erow=mysqli_fetch_array($dsql))
 {
 $bsl=$erow['sl'];
 $spid=$erow['spid'];
 ?>
-<option value="<?php echo $spid;?>"><?php echo $spid;?></option>
-<?
+<option value="<?php  echo $spid;?>"><?php  echo $spid;?></option>
+<?php 
 }
 ?>
 </select>

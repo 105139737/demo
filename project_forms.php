@@ -1,4 +1,4 @@
-<?php
+<?php 
 include("config.php");
 //catch the sent data
 	$sl=0;
@@ -16,7 +16,7 @@ include("config.php");
 alert('Please Fill All The Fields.');
 window.history.go(-1);
 </script>
-<?	}
+<?php 	}
 	else
 	{
 	
@@ -27,7 +27,7 @@ $result = mysqli_query($conn,$sql);
 alert('Updated Successfully. Thank You...');
 document.location = "project_form.php";
 </script>
-<?
+<?php 
 	
 	}
 	}
@@ -42,7 +42,7 @@ if($pnm=='')
 alert('Please Fill All The Fields.');
 window.history.go(-1);
 </script>
-<?	}
+<?php 	}
 	else
 	{	
 
@@ -61,7 +61,7 @@ if($cnt>0)
 alert('Sorry!! Project Already Exist.');
 window.history.go(-1);
 </script>
-<?
+<?php 
 }
 else
 {
@@ -74,7 +74,7 @@ $result2 = mysqli_query($conn,$query2);
 alert('Project Added Successfully, Thank You.');
 document.location = "project_form.php";
 </script>
-<?
+<?php 
 
 }}}
 ?>

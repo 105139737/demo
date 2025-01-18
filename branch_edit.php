@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include "header.php";
@@ -29,7 +29,7 @@ $vat=$row['vat'];
 }
 ?>
 <div class="wrapper row-offcanvas row-offcanvas-left">
-<?
+<?php 
 include "left_bar.php";
 ?>
 <style type="text/css"> 
@@ -113,9 +113,9 @@ return false;
                             <!-- TO DO List -->
 
 <form method="post" action="branch_edits.php" id="form1" onSubmit="return check1()" name="form1">
-<input type="hidden" id="sl" name="sl" value="<?=$sl;?>">
-<input type="hidden" name="vat" id="vat" value="<?=$vat;?>" class="form-control" size="20" placeholder="Vat No.">
-<input type="hidden" name="bls" id="bls" class="form-control" value="<?=$als;?>" size="20" placeholder="Enter  Alias" readonly></td>
+<input type="hidden" id="sl" name="sl" value="<?php  echo $sl;?>">
+<input type="hidden" name="vat" id="vat" value="<?php  echo $vat;?>" class="form-control" size="20" placeholder="Vat No.">
+<input type="hidden" name="bls" id="bls" class="form-control" value="<?php  echo $als;?>" size="20" placeholder="Enter  Alias" readonly></td>
 
 <center>
 <div class="box box-success" >
@@ -123,17 +123,17 @@ return false;
 <tr>
 <td align="right" >Name :</td>
 <td align="left" >
-<input type="text" class="form-control" name="sn" id="sn" value="<?=$bnm;?>" size="20" placeholder="Enter  Name" >
+<input type="text" class="form-control" name="sn" id="sn" value="<?php  echo $bnm;?>" size="20" placeholder="Enter  Name" >
 </td>
 <td align="right" >Contact No. :</td>
 <td align="left" >
-<input type="text" name="bcnt" id=="bcnt" class="form-control" value="<?=$bcnt;?>" size="20" onkeypress="return check(event)" maxlength="10" placeholder="Enter  Contact No">
+<input type="text" name="bcnt" id=="bcnt" class="form-control" value="<?php  echo $bcnt;?>" size="20" onkeypress="return check(event)" maxlength="10" placeholder="Enter  Contact No">
 </td>
 </tr>
 <tr>
 <td align="right" >Address :</td>
 <td align="left" colspan="3">
-<input type="text" name="addr" id="addr" class="form-control" value="<?=$addr;?>" size="20" placeholder="Enter  Address">
+<input type="text" name="addr" id="addr" class="form-control" value="<?php  echo $addr;?>" size="20" placeholder="Enter  Address">
 </td>
 
 </tr>

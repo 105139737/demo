@@ -1,4 +1,4 @@
-<?php
+<?php 
 include('config.php');
     $prnm = $_REQUEST['prnm'];
     $pri = $_REQUEST['pri'];

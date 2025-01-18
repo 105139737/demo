@@ -1,11 +1,11 @@
-<?php
+<?php 
 include("membersonly.inc.php");
 $bcd=$_REQUEST['bcd'];
 ?>
 
 <select name="snm" class="form-control czn"  id="snm"> 
 <option value="">---All---</option>
-<?
+<?php 
 $query09="Select * from  main_cust WHERE brncd='$bcd' group by cont";
 $result09 = mysqli_query($conn,$query09);
 while ($R09 = mysqli_fetch_array ($result09))
@@ -14,8 +14,8 @@ while ($R09 = mysqli_fetch_array ($result09))
 $nm1=$R09['nm'];
 $cont1=$R09['cont'];
 ?>
-<option value="<? echo $cont1;?>"><? echo $nm1;?> - <? echo $cont1;?></option>
-<?
+<option value="<?php  echo $cont1;?>"><?php  echo $nm1;?> - <?php  echo $cont1;?></option>
+<?php 
 }
 ?>
 </select>

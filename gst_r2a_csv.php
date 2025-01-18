@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3; 
 include("membersonly.inc.php");
 $fdt=$_REQUEST['fdt'];
@@ -39,7 +39,7 @@ header("Content-Disposition: attachment; filename=$file");
 			<td  align="center" ><b>Taxable Value</b></td>
 			<td  align="center" ><b>Cess Amount</b></td>
 		</tr>
-			 <?
+			 <?php 
 		$sln=0;
 		$tamm1=0;
 
@@ -126,25 +126,25 @@ $amm=0;
 <tr>
 
 
-<td  align="center"  ><?=$sln;?></td>
-<td  align="left"  ><?=$gstin;?></td>
-<td  align="left"  ><?=$nm;?></td>
-<td  align="left"  ><?=$invto;?></td>
-<td  align="center"  ><?=$dt;?></td>
-<td  align="right"  ><?=sprintf('%0.2f',$tamm);?></td>
-<td  align="left"  ><?=$statcd.'-'.$statnm;?></td>
-<td  align="center"  ><?='N';?></td>
-<td  align="center"  ><?='Regular';?></td>
+<td  align="center"  ><?php  echo $sln;?></td>
+<td  align="left"  ><?php  echo $gstin;?></td>
+<td  align="left"  ><?php  echo $nm;?></td>
+<td  align="left"  ><?php  echo $invto;?></td>
+<td  align="center"  ><?php  echo $dt;?></td>
+<td  align="right"  ><?php echo sprintf('%0.2f',$tamm);?></td>
+<td  align="left"  ><?php  echo $statcd.'-'.$statnm;?></td>
+<td  align="center"  ><?php echo 'N';?></td>
+<td  align="center"  ><?php echo 'Regular';?></td>
 <td  align="center"  ></td>
-<td  align="center"  ><?=$cgst_rt+$sgst_rt+$igst_rt;?></td>
-<td  align="right"  ><?=round($tcgst,2);?></td>
-<td  align="right"  ><?=round($tsgst,2);?></td>
-<td  align="right"  ><?=round($tigst,2);?></td>
+<td  align="center"  ><?php  echo $cgst_rt+$sgst_rt+$igst_rt;?></td>
+<td  align="right"  ><?php echo round($tcgst,2);?></td>
+<td  align="right"  ><?php echo round($tsgst,2);?></td>
+<td  align="right"  ><?php echo round($tigst,2);?></td>
 <td  align="center"  ></td>
-<td  align="right"  ><?=round($amm,2);?></td>
+<td  align="right"  ><?php echo round($amm,2);?></td>
 <td  align="center"  ></td>
 </tr>
-<?
+<?php 
 }
 }
 
@@ -239,25 +239,25 @@ $amm=0;
 <tr>
 
 
-<td  align="center"  ><?=$sln;?></td>
-<td  align="left"  ><?=$gstin1;?></td>
-<td  align="left"  ><?=$nm1;?></td>
-<td  align="left"  ><?=$invto1;?></td>
-<td  align="center"  ><?=$dt1;?></td>
-<td  align="right"  ><?=sprintf('%0.2f',$tamm2);?></td>
-<td  align="left"  ><?=$statcd1.'-'.$statnm1;?></td>
-<td  align="center"  ><?='N';?></td>
-<td  align="center"  ><?='Regular';?></td>
+<td  align="center"  ><?php  echo $sln;?></td>
+<td  align="left"  ><?php  echo $gstin1;?></td>
+<td  align="left"  ><?php  echo $nm1;?></td>
+<td  align="left"  ><?php  echo $invto1;?></td>
+<td  align="center"  ><?php  echo $dt1;?></td>
+<td  align="right"  ><?php echo sprintf('%0.2f',$tamm2);?></td>
+<td  align="left"  ><?php  echo $statcd1.'-'.$statnm1;?></td>
+<td  align="center"  ><?php echo 'N';?></td>
+<td  align="center"  ><?php echo 'Regular';?></td>
 <td  align="center"  ></td>
-<td  align="center"  ><?=$cgst_rt1+$sgst_rt1+$igst_rt1;?></td>
-<td  align="right"  ><?=round($tcgst1,2);?></td>
-<td  align="right"  ><?=round($tsgst1,2);?></td>
-<td  align="right"  ><?=round($tigst1,2);?></td>
+<td  align="center"  ><?php  echo $cgst_rt1+$sgst_rt1+$igst_rt1;?></td>
+<td  align="right"  ><?php echo round($tcgst1,2);?></td>
+<td  align="right"  ><?php echo round($tsgst1,2);?></td>
+<td  align="right"  ><?php echo round($tigst1,2);?></td>
 <td  align="center"  ></td>
-<td  align="right"  ><?=round($amm1,2);?></td>
+<td  align="right"  ><?php echo round($amm1,2);?></td>
 <td  align="center"  ></td>
 </tr>
-<?
+<?php 
 }
 }
 ?>

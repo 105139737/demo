@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel=3;
 include("membersonly.inc.php");
 include "header.php";
@@ -10,7 +10,7 @@ $saa="01-".date('m-Y');
 <html>
 <head>
 <div class="wrapper row-offcanvas row-offcanvas-left">
-<?
+<?php 
 include "left_bar.php";
 ?>
 <style type="text/css"> 
@@ -143,28 +143,28 @@ $('#data8').load('order_del.php?blno='+blno).fadeIn('fast');
 <td width="14%;"><b>Sales Person:</b><br>
 	<select name="salper" id="salper" class="form-control">
 	<option value="">---All---</option>
-	<?
+	<?php 
 	$get=mysqli_query($conn,"SELECT * FROM main_sale_per ORDER BY nm");
 	while($row=mysqli_fetch_array($get))
 	{
 		$sid=$row['spid'];
 		$spid=$row['spid'];
 		?>
-		<option value="<? echo $sid;?>"><?php echo $spid;?></option>
-		<?
+		<option value="<?php  echo $sid;?>"><?php  echo $spid;?></option>
+		<?php 
 	}
 	?>
 	</select>
 </td>
 <td width="14%;"><b>Branch:</b><br>
 	<select name="brncd" id="brncd" class="form-control">
-	<?
+	<?php 
 	if($user_current_level<0)
 	{
 		$query="Select * from main_branch";
 		?>
 		<option value="">---All---</option>
-		<?
+		<?php 
 	}
 	else
 	{
@@ -177,17 +177,17 @@ $('#data8').load('order_del.php?blno='+blno).fadeIn('fast');
 		$bnm=$R['bnm'];
 
 		?>
-		<option value="<?php echo $bsl;?>"><?php echo $bnm;?></option>
-		<?
+		<option value="<?php  echo $bsl;?>"><?php  echo $bnm;?></option>
+		<?php 
 	}
 	?>
 	</select>
 </td>
 <td width="14%;"><b>Form:</b><br>
-<input type="text" id="fdt" name="fdt" value="<?echo $saa;?>" class="form-control">
+<input type="text" id="fdt" name="fdt" value="<?php echo $saa;?>" class="form-control">
 </td>
 <td width="14%;"><b>To:</b><br>
-<input type="text" id="tdt" name="tdt" value="<?echo $sa;?>" class="form-control">
+<input type="text" id="tdt" name="tdt" value="<?php echo $sa;?>" class="form-control">
 </td>
 
 <td width="14%;"><b>Status:</b><br>

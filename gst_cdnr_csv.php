@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 0;
 include("membersonly.inc.php");
 $fdt=$_REQUEST['fdt'];
@@ -37,7 +37,7 @@ $datas[10]="";
 $datas[11]="";
 fputcsv($fp, $datas);
 }
-fputs($fp, implode($header, ',')."\n");
+fputs($fp, implode(',',$header)."\n");
 
 $num_column = count($header);
 
@@ -45,7 +45,7 @@ $sln=0;
 		$tamm1=0;
 
 
-$data1= mysqli_query($conn,"select * from  main_billing_ret where sl>0 and gstin!='' and cstat='0'".$todts.$snm1."order by dt")or die(mysqli_error($conn));
+$data1= mysqli_query($conn,"select * from  main_billing_ret where sl>0 and (gstin!='' or gstin is null ) and (cstat='0' or cstat is null) ".$todts.$snm1."order by dt")or die(mysqli_error($conn));
 while ($row1 = mysqli_fetch_array($data1))
 {
 
@@ -121,11 +121,11 @@ $tttamm=0;
 		$igst_rt=$row['igst_rt'];   
 			
 		$tiamm+=$net_am;
-		$tttamm+=$amm;
+		$tttamm=$amm;
 		$ttcgst+=$tcgst;
 		$ttsgst+=$tsgst; 
-		$ttto+=$net_am;
-	}
+		$ttto=$net_am;
+	
 
 	$datas[0]=$gstin;
 	$datas[1]=$nm;
@@ -143,7 +143,7 @@ $tttamm=0;
 
 		
 	fputcsv($fp, $datas);	
-
+}
 
 }
 

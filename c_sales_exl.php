@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 set_time_limit(0);
@@ -14,7 +14,7 @@ $jobLink=CreateNewJob('jobs/c_sales_exl.php',$user_currently_loged,'Customer Wis
 alert('Your request has been accepted. You will get you dwonload link in your home page in a few moments. Thank you...');
 window.history.go(-1);
 </script>
-<?php
+<?php 
 die('<b><center><font color="green" size="5">Your request has been accepted. You will get you dwonload link in your home page in a few moments. Thank you...</font></center></b>');
 
 if($snm!=""){ $snm1=" and cont='$snm'";}else{$snm1="";}
@@ -43,7 +43,7 @@ header("Content-Disposition: attachment; filename=$file");
 <td align="center" width="30%"><b>Mobile</b></td>
 <td align="right" width="20%"><b>Amount</b></td>
 </tr>
-<?php
+<?php 
 $cnt=0;
 
 $query10="Select * from  main_cust where sl>0 $snm1 $brcd1 group by cont";
@@ -86,12 +86,12 @@ if($tamm>0)
 $cnt++;		
 ?>
 <tr>
-<td align="left"><?php echo $cnt;?></td>
-<td align="left"><?php echo $nm;?></td>
-<td align="left"><?php echo $cont;?></td>
-<td align="right"><?php echo $tamm;?></td>
+<td align="left"><?php  echo $cnt;?></td>
+<td align="left"><?php  echo $nm;?></td>
+<td align="left"><?php  echo $cont;?></td>
+<td align="right"><?php  echo $tamm;?></td>
 </tr>
-<?
+<?php 
 }
 }
 echo "</table>";	

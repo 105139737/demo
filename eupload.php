@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include "header.php";
@@ -14,7 +14,7 @@ $ship=$row1['ship'];
 
 ?>
 <div class="wrapper row-offcanvas row-offcanvas-left">
-    <?
+    <?php 
             include "left_bar.php";
 			
             ?>
@@ -68,7 +68,7 @@ $ship=$row1['ship'];
                                                 <td align="right"><b>Bill No :</b></td>
                                                 <td align="left">
                                                     <input type="text" class="form-control" readonly id="blno"
-                                                        name="blno" value="<?=$blno;?>" size="50"
+                                                        name="blno" value="<?php  echo $blno;?>" size="50"
                                                         placeholder="Enter Bill No." required>
 
                                                 </td>
@@ -117,15 +117,15 @@ $ship=$row1['ship'];
                                                 <b>Address :</b><br>
                                                     <select id="ship" name="ship" tabindex="1" required class="form-control" onchange="update_ship(this.value)">
                                                     <option value="">---Select---</option>
-                                                    <?
+                                                    <?php 
                                                     $query="select * from main_cust_shipping  WHERE cid='$cid'";
                                                     $result=mysqli_query($conn,$query);
                                                     while($rw=mysqli_fetch_array($result))
                                                     {
                                                     ?>
-                                                    <option value="<?=$rw['sl'];?>" <?if($ship==$rw['sl']){echo"selected";}?>
-                                                    ><?=$rw['addr'];?> (Mob : <?=$rw['mob'];?>)</option>
-                                                    <?
+                                                    <option value="<?php  echo $rw['sl'];?>" <?php if($ship==$rw['sl']){echo"selected";}?>
+                                                    ><?php  echo $rw['addr'];?> (Mob : <?php  echo $rw['mob'];?>)</option>
+                                                    <?php 
                                                     }
                                                     ?>
                                                     </select>

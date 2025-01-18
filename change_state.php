@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 $blno=$_REQUEST['blno'];
@@ -10,20 +10,20 @@ $blno=$_REQUEST['blno'];
 <td><b>From State: </b> <br>
 <select id="state" name="state" class="span2 form-control" width="50%" required="">
 <option value="">---Select---</option>
-	<?
+	<?php 
 	$sql="SELECT * FROM main_state WHERE sl>0 ORDER BY sn";
 	$result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
 		while($row=mysqli_fetch_array($result))
 		{
 	?>
-    <option value="<?=$row['sl'];?>"<?php if($row['sl']=='1'){echo 'selected';}?>><?=$row['sn'];?> - <?=$row['cd'];?></option>
-<?}?>
+    <option value="<?php  echo $row['sl'];?>"<?php  if($row['sl']=='1'){echo 'selected';}?>><?php  echo $row['sn'];?> - <?php  echo $row['cd'];?></option>
+<?php }?>
 </select>
 </td>
 </tr>
 <tr>
 <td colspan="2" align="right" style="padding-right: 8px;">
-<input type="hidden" id="blno" name="blno" value="<?php echo $blno;?>">
+<input type="hidden" id="blno" name="blno" value="<?php  echo $blno;?>">
 <input type="submit" class="btn btn-primary" id="Button1" name="Button1" value="Update">
 </td>
 </tr>

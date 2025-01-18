@@ -1,22 +1,24 @@
-<?php
+<?php 
 include("membersonly.inc.php");
-$pnog=rawurldecode($_REQUEST[pnog]);
+$acldgr1="";
+$dt=0;
+$pnog=rawurldecode($_REQUEST['pnog'] ?? "");
 //echo $src;
-$ps=rawurldecode($_REQUEST[ps]);
+$ps=rawurldecode($_REQUEST['ps'] ?? "");
 if($ps=="")
 {
 $ps=10;
 }
 if($pnog==""){$pnog=1;}
 $start=($pnog-1)*$ps;
-$acgrp=rawurldecode($_REQUEST[acgrp]);
-$acldgr=rawurldecode($_REQUEST[acldgr]);
+$acgrp=rawurldecode($_REQUEST['acgrp']);
+$acldgr=rawurldecode($_REQUEST['acldgr']);
 if($acgrp!=""){$acgrp1=" and gcd='$acgrp'";}
 if($acldgr!=""){$acldgr1=" and nm like '%$acldgr%'";}
 
 ?>
 <div align="left">
-<input type="text" name="ps" id="ps" value="<?=$ps;?>" size="7" onblur="pagnt1(this.value)">
+<input type="text" name="ps" id="ps" value="<?php  echo $ps;?>" size="7" onblur="pagnt1(this.value)">
 </div>
 <table width="860px" class="table table-hover table-striped table-bordered">
 <tr >
@@ -28,7 +30,7 @@ if($acldgr!=""){$acldgr1=" and nm like '%$acldgr%'";}
 <th align="center" width="10%">Edit</th>
 </tr>
 <tbody>
-<?
+<?php 
 $f=0;
 $sl=$start;
 $sln=0;
@@ -70,15 +72,15 @@ $count1=mysqli_num_rows($qr1);
 
 
 ?>
-<tr class="<?echo $cls;?>" style="height: 20px;">
-<td align="left" valign="top"><?echo $f;?></td>
-<td align="left" valign="top"><?echo $pcd;?></td>
-<td align="left" valign="top"><?echo $p;?></td>
-<td align="left" valign="top"><?echo $nm;?></td>
+<tr class="<?php echo $cls;?>" style="height: 20px;">
+<td align="left" valign="top"><?php echo $f;?></td>
+<td align="left" valign="top"><?php echo $pcd;?></td>
+<td align="left" valign="top"><?php echo $p;?></td>
+<td align="left" valign="top"><?php echo $nm;?></td>
 <td>
-<select name="bcd" id="bcd" class="form-control"  tabindex="1"  onchange="sedtt('<?echo $sl;?>','bcd',this.value,'main_ledg')" >
+<select name="bcd" id="bcd" class="form-control"  tabindex="1"  onchange="sedtt('<?php echo $sl;?>','bcd',this.value,'main_ledg')" >
 <option value="">---Select---</option>
-<?php 
+<?php  
 $query="Select * from main_branch where sl>0";
 $result = mysqli_query($conn,$query);
 while ($R = mysqli_fetch_array ($result))
@@ -87,23 +89,23 @@ $bsl=$R['sl'];
 $bnm=$R['bnm'];
 
 ?>
-<option value="<? echo $bsl;?>"<?php if($bcd==$bsl){echo 'selected';}?>><? echo $bnm;?></option>
-<?
+<option value="<?php  echo $bsl;?>"<?php  if($bcd==$bsl){echo 'selected';}?>><?php  echo $bnm;?></option>
+<?php 
 }
 ?>
 </select>
 </td>
 <td align="center" valign="top">
-<? if($stat==1){ ?><a href="acldgr_form_edit.php?sl=<?=$sl;?>"  title="Edit"><img src="images/edit.png" width="20"/></a><br/><? } ?>
-<? if($count==0 and $count1==0){ ?>
-<a href="" title="Click to Delete" onclick="if(confirm('Are you sure to delete ....')){dlt('<?=$sl;?>')}"><font color="red"><b>Delete</b></font></a>
-<? } else { }?>
+<?php  if($stat==1){ ?><a href="acldgr_form_edit.php?sl=<?php  echo $sl;?>"  title="Edit"><img src="images/edit.png" width="20"/></a><br/><?php  } ?>
+<?php  if($count==0 and $count1==0){ ?>
+<a href="" title="Click to Delete" onclick="if(confirm('Are you sure to delete ....')){dlt('<?php  echo $sl;?>')}"><font color="red"><b>Delete</b></font></a>
+<?php  } else { }?>
 </td>
 </td>
 
 </tr>
 
-<?
+<?php 
 
 }
 
@@ -119,7 +121,7 @@ $bnm=$R['bnm'];
 
 
 
-<?
+<?php 
 
 $tp=$rcnt/$ps;
 
@@ -177,17 +179,17 @@ echo "<font color=\"#FFF\">Showing ".($start+1)." to ".($sl)." of ".$rcnt." entr
 
 ?>
 
-<div align="left"><input type="text" size="10" id="pgn" name="pgn" value="<? echo $pnog;?>"><input Type="button" value="Go" onclick="pagnt1('')"></div>
+<div align="left"><input type="text" size="10" id="pgn" name="pgn" value="<?php  echo $pnog;?>"><input Type="button" value="Go" onclick="pagnt1('')"></div>
 
 <div class="pagination pagination-centered">
 
                             <ul class="pagination pagination-sm inline">
 
-							<li <? if($pnog==1){ echo "class=\"disabled\"";}?>><a onclick="pagnt('1')"><i class="icon-circle-arrow-left"></i>First</a></li>
+							<li <?php  if($pnog==1){ echo "class=\"disabled\"";}?>><a onclick="pagnt('1')"><i class="icon-circle-arrow-left"></i>First</a></li>
 
-                            <li <? if($pnog==1){ echo "class=\"disabled\"";}?>><a onclick="pagnt('<?echo $prev;?>')"><i class="icon-circle-arrow-left"></i>Previous</a></li>
+                            <li <?php  if($pnog==1){ echo "class=\"disabled\"";}?>><a onclick="pagnt('<?php echo $prev;?>')"><i class="icon-circle-arrow-left"></i>Previous</a></li>
 
-                            <?
+                            <?php 
 
                             
 
@@ -203,9 +205,9 @@ echo "<font color=\"#FFF\">Showing ".($start+1)." to ".($sl)." of ".$rcnt." entr
 
                                 ?>
 
-                             <li <? if($pnog==$n){ echo "class=\"active\"";}?>><a onclick="pagnt('<?echo $n;?>')"><?echo $n;?></a></li>   
+                             <li <?php  if($pnog==$n){ echo "class=\"active\"";}?>><a onclick="pagnt('<?php echo $n;?>')"><?php echo $n;?></a></li>   
 
-                                <?
+                                <?php 
 
                                 $n+=1;
 
@@ -229,9 +231,9 @@ echo "<font color=\"#FFF\">Showing ".($start+1)." to ".($sl)." of ".$rcnt." entr
 
                                 ?>
 
-                             <li <? if($pnog==$n){ echo "class=\"active\"";}?>><a onclick="pagnt('<?echo $n;?>')"><?echo $n;?></a></li>   
+                             <li <?php  if($pnog==$n){ echo "class=\"active\"";}?>><a onclick="pagnt('<?php echo $n;?>')"><?php echo $n;?></a></li>   
 
-                                <?
+                                <?php 
 
                                 $n+=1;
 
@@ -251,9 +253,9 @@ echo "<font color=\"#FFF\">Showing ".($start+1)." to ".($sl)." of ".$rcnt." entr
 
                                 ?>
 
-                             <li <? if($pnog==$n){ echo "class=\"active\"";}?>><a onclick="pagnt('<?echo $n;?>')"><?echo $n;?></a></li>   
+                             <li <?php  if($pnog==$n){ echo "class=\"active\"";}?>><a onclick="pagnt('<?php echo $n;?>')"><?php echo $n;?></a></li>   
 
-                                <?
+                                <?php 
 
                                 $n+=1;
 
@@ -273,9 +275,9 @@ echo "<font color=\"#FFF\">Showing ".($start+1)." to ".($sl)." of ".$rcnt." entr
 
                                 ?>
 
-                             <li <? if($pnog==$n){ echo "class=\"active\"";}?>><a onclick="pagnt('<?echo $n;?>')"><?echo $n;?></a></li>   
+                             <li <?php  if($pnog==$n){ echo "class=\"active\"";}?>><a onclick="pagnt('<?php echo $n;?>')"><?php echo $n;?></a></li>   
 
-                                <?
+                                <?php 
 
                                 $n+=1;
 
@@ -293,9 +295,9 @@ echo "<font color=\"#FFF\">Showing ".($start+1)." to ".($sl)." of ".$rcnt." entr
 
                             ?>
 
-                            <li <? if($pnog==$tp){ echo "class=\"disabled\"";}?>><a onclick="pagnt('<?echo $next;?>')">Next<i class="icon-circle-arrow-right"></i></a></li>
+                            <li <?php  if($pnog==$tp){ echo "class=\"disabled\"";}?>><a onclick="pagnt('<?php echo $next;?>')">Next<i class="icon-circle-arrow-right"></i></a></li>
 
-                            <li <? if($pnog==$tp){ echo "class=\"disabled\"";}?>><a onclick="pagnt('<?echo $tp;?>')">Last<i class="icon-circle-arrow-right"></i></a></li>
+                            <li <?php  if($pnog==$tp){ echo "class=\"disabled\"";}?>><a onclick="pagnt('<?php echo $tp;?>')">Last<i class="icon-circle-arrow-right"></i></a></li>
 
                             </ul>
 

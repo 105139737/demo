@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include("Numbers/Words.php");
@@ -77,5 +77,5 @@ $result21 = mysqli_query($conn,$query21)or die (mysqli_error($conn));
 <script>
 tmppr1();
 reset();
-get_prod('<?=$psl;?>');
+get_prod('<?php  echo $psl;?>');
 </script>

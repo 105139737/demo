@@ -1,11 +1,11 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 
 $sl=0;
 ?>
 <table border="0" width="100%" class="advancedtable">
-<?
+<?php 
 $result100=mysqli_query($conn,"SELECT * FROM main_tech_trntemp_close where eby='$user_currently_loged' order by sl");
 $cnt=mysqli_num_rows($result100);
 while($R100=mysqli_fetch_array($result100))
@@ -49,15 +49,15 @@ elseif($wtyp==2)
 	}
 ?>
 <tr class="odd">
-<td align="center" width="25%"><b><?=$pnm;?> - <?=$cnm;?> - <?=$brand;?></b></td>
-<td align="center" width="25%"><b><?=$wtypo;?></b></td>
-<td align="center" width="10%"><b><?=$rt;?></b></td>
-<td align="center" width="15%"><b><?=$qnty2;?></b></td>
-<td align="center" width="10%"><b><?=$qnty;?></b></td>
-<td align="center" width="10%"><b><?=$amm;?></b></td>
-<td align="center" width="5%"> <b><a onclick="if(confirm('Are you Sure?')){deltpr('<?=$tsl;?>')}"><font color="red">Delete</font></a></b></td>
+<td align="center" width="25%"><b><?php  echo $pnm;?> - <?php  echo $cnm;?> - <?php  echo $brand;?></b></td>
+<td align="center" width="25%"><b><?php  echo $wtypo;?></b></td>
+<td align="center" width="10%"><b><?php  echo $rt;?></b></td>
+<td align="center" width="15%"><b><?php  echo $qnty2;?></b></td>
+<td align="center" width="10%"><b><?php  echo $qnty;?></b></td>
+<td align="center" width="10%"><b><?php  echo $amm;?></b></td>
+<td align="center" width="5%"> <b><a onclick="if(confirm('Are you Sure?')){deltpr('<?php  echo $tsl;?>')}"><font color="red">Delete</font></a></b></td>
 </tr>
-<?
+<?php 
 }
 
 	$query1="SELECT sum(qnty) as qtyttl,sum(amm) as amm FROM main_tech_trntemp_close where eby='$user_currently_loged'";
@@ -73,12 +73,12 @@ elseif($wtyp==2)
 		?>
 <tr class="even">
 <td colspan="4" align="right" ><b>Total : </b></td>
-<td align="center"><b><?=$qtyttl;?></b></td>
+<td align="center"><b><?php  echo $qtyttl;?></b></td>
 
-<td align="center"><b><?=$ammnt;?></b></td>
+<td align="center"><b><?php  echo $ammnt;?></b></td>
 <td align="center"><b></b></td>
 </tr>
-<?
+<?php 
 	}
 ?>
 </table>

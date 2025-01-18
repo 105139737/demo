@@ -1,4 +1,4 @@
-<?php
+<?php 
 include 'config.php';
 //include "../function.php";
 require("function.php");
@@ -304,7 +304,7 @@ echo $myJSON;
 else
 {
 ?>
-<center> <font size="7" color="red"><?php echo $err_log;?></font></center>
-<?	
+<center> <font size="7" color="red"><?php  echo $err_log;?></font></center>
+<?php 	
 }
 	

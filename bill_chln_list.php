@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3; 
 include("membersonly.inc.php");
 $fdt=$_REQUEST['fdt'];
@@ -38,7 +38,7 @@ $dis1=0;
 			
 
 			</tr>
-			 <?
+			 <?php 
 		$sln=0;
 
 $data1= mysqli_query($conn,"select * from  main_billdtls where sl>0 and tstat='1' and tbcd='$bcd' ".$todt." order by sl")or die(mysqli_error($conn));
@@ -93,22 +93,22 @@ $scat_nm=$row1['nm'];
 ?>
 <tr >
 <td align="center">
-<input type="checkbox" name="chk[]" value="<?=$sl;?>"  onclick="ch1('<?=$sl;?>',this.checked)" style="width:20px;"/>
+<input type="checkbox" name="chk[]" value="<?php  echo $sl;?>"  onclick="ch1('<?php  echo $sl;?>',this.checked)" style="width:20px;"/>
 </td> 
-<td  align="center"  ><?=$sln;?></td>
-<td  align="left" ><?=$fgnm;?></td>
-<td  align="left" ><?=$tgnm;?></td>
-<td  align="left" ><?=$blno;?></td>	
-<td  align="left" ><?=$dt;?></td>	
-<td  align="left" ><?=$cnm;?></td>
-<td  align="left" ><?=$scat_nm;?></td>
-<td  align="left" ><?=$pcd." - ".$pnm;?></td>		
-<td  align="left" ><?=$betno;?></td>		
-<td  align="left" ><?=$pcs;?></td>		
-<td align="center" width="4%"><b><a onclick="if(confirm('Are you Sure?')){del('<?=$sl;?>')}"><font color="red">Delete</font></a> </b></td>
+<td  align="center"  ><?php  echo $sln;?></td>
+<td  align="left" ><?php  echo $fgnm;?></td>
+<td  align="left" ><?php  echo $tgnm;?></td>
+<td  align="left" ><?php  echo $blno;?></td>	
+<td  align="left" ><?php  echo $dt;?></td>	
+<td  align="left" ><?php  echo $cnm;?></td>
+<td  align="left" ><?php  echo $scat_nm;?></td>
+<td  align="left" ><?php  echo $pcd." - ".$pnm;?></td>		
+<td  align="left" ><?php  echo $betno;?></td>		
+<td  align="left" ><?php  echo $pcs;?></td>		
+<td align="center" width="4%"><b><a onclick="if(confirm('Are you Sure?')){del('<?php  echo $sl;?>')}"><font color="red">Delete</font></a> </b></td>
 		
 
 </tr>	 
-<?}?>
+<?php }?>
 </table>
  </div>

@@ -1,4 +1,4 @@
-<?
+<?php 
 
 $reqlevel = 1;
 
@@ -14,7 +14,7 @@ include "header.php";
 
         <div class="wrapper row-offcanvas row-offcanvas-left">
 
-            <?
+            <?php 
 
             include "left_bar.php";
 
@@ -176,7 +176,7 @@ document.location='parts_edit.php?sl='+sl;
             <td  align="left">
 		<select name="cat" class="form-control" size="1" id="cat" tabindex="8" >
 				<Option value="">---Select---</option>
-<?
+<?php 
 
 $data1 = mysqli_query($conn,"Select * from main_catg order by cnm");
 
@@ -197,7 +197,7 @@ $data1 = mysqli_query($conn,"Select * from main_catg order by cnm");
  <td  align="left">
 <select name="bnm" class="form-control" size="1" id="bnm" tabindex="8"  >
 				<Option value="">---Select---</option>
-<?
+<?php 
 
 $data2 = mysqli_query($conn,"Select * from main_brand order by brand");
 

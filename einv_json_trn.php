@@ -1,6 +1,12 @@
-<?php
+<?php 
 include 'config.php';
 //include "../function.php";
+$cgst_am=0;
+$sgst_am=0;
+$igst_am=0;
+$disp=0;
+$disa1=0;
+$err_log="";
 require("function.php");
 $blno = $_REQUEST['blno'];
 $query1 = "Select * from main_cnm ";
@@ -60,7 +66,7 @@ if ($count6 > 0) {
 		while ($row = mysqli_fetch_array($data)) {
 			$tbnm = $row['gnm'];
 			$taddr = $row['addr'];
-			$tbcnt = $row['bcnt'];
+			$tbcnt = $row['bcnt'] ?? "";
 			$dist = $row['dist'];
 			$pin = $row['pin'];
 		}
@@ -68,7 +74,7 @@ if ($count6 > 0) {
 		while ($row = mysqli_fetch_array($data)) {
 			$fbnm = $row['gnm'];
 			$faddr = $row['addr'];
-			$fbcnt = $row['bcnt'];
+			$fbcnt = $row['bcnt'] ?? "";
 			$fdist = $row['dist'];
 			$fpin = $row['pin'];
 		}
@@ -227,7 +233,7 @@ if ($err_log == "") {
 } else {
 ?>
 	<center>
-		<font size="7" color="red"><?php echo $err_log; ?></font>
+		<font size="7" color="red"><?php  echo $err_log; ?></font>
 	</center>
-<?
+<?php 
 }

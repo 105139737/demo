@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 $dt=date('Y-m-d');
@@ -19,23 +19,23 @@ if($count>0)
 ?>
 <select name="sgstin"  id="sgstin"  class="form-control"  required>
 
-<?
+<?php 
 while($row=mysqli_fetch_array ($result1))
 {
 $gstin=$row['gstin'];
 $addr=$row['addr'];
 ?>
-<option value="<?=$gstin?>"><?=$gstin?> <?if($addr!=""){?>( <?=$addr;?> )<?}?></option>
-<?
+<option value="<?php  echo $gstin?>"><?php  echo $gstin?> <?php if($addr!=""){?>( <?php  echo $addr;?> )<?php }?></option>
+<?php 
 }
 ?>
 </select>
-<?}
+<?php }
 else
 {
 ?>
 <input type="text" name="sgstin" id="sgstin" class="form-control" value="" required>
-<?}?>
+<?php }?>
 <script>
-document.getElementById('name').value='<?=$name;?>';
+document.getElementById('name').value='<?php  echo $name;?>';
 </script>

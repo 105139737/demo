@@ -1,14 +1,15 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include "function.php";
-$sl=$_REQUEST[sl];
-$pno=$_REQUEST[pno];
-$cid=$_REQUEST[cid];
-$dldgr=$_REQUEST[dldgr];
-$brncd=$_REQUEST[brncd];if($brncd==""){$brncd1="";}else{$brncd1=" and brncd='$brncd'";}
-$blno_ref=$_REQUEST[blno_ref];
+$sl=$_REQUEST['sl'];
+$pno=$_REQUEST['pno'] ?? "";
+$cid=$_REQUEST['cid'] ?? "";
+$dldgr=$_REQUEST['dldgr']??"";
+$brncd=$_REQUEST['brncd'] ?? "";if($brncd==""){$brncd1="";}else{$brncd1=" and brncd='$brncd'";}
+$blno_ref=$_REQUEST['blno_ref']??"";
 $blno_ref1="";
+$T=0;
 if($blno_ref!="")	
 {
 $blno_ref1=" and blno!='$blno_ref'";
@@ -38,7 +39,7 @@ $blano2.=")";
 ?>
 <select id="blno"  name="blno"   tabindex="1" class="sc1" style="width:98%;" onchange="gtcrvl1()">
 
-<?
+<?php 
 $data11= mysqli_query($conn,"select * from  main_drcr where brncd='$brncd' and cid='$cid' and paid='0'  and retn_stat!='1' $blano2  group by  cbill order by sl,dt")or die(mysqli_error($conn));
 while ($row1 = mysqli_fetch_array($data11))
 {
@@ -46,6 +47,7 @@ $blno=$row1['cbill'];
 $dt=$row1['dt'];
 $dt=date('d-m-Y', strtotime($dt));
 $invto="";
+$sfno="";
 $data2= mysqli_query($conn,"select * from  main_billing where blno='$blno'")or die(mysqli_error($conn));
 while ($row2 = mysqli_fetch_array($data2))
 {
@@ -76,18 +78,18 @@ $t2 = $row1['t2'];
 $T=$t1-$t2;
 */
 ?>
-<option value="<?=$blno?>"><?=reformat($blno)?> <?=$nm;?> <?=$sfno;?> Due Am. : <?=round($T,2)?>/- (Date : <?=$dt;?>) </option>
-<?
+<option value="<?php  echo $blno?>"><?php echo reformat($blno)?> <?php  echo $nm;?> <?php  echo $sfno;?> Due Am. : <?php echo round($T??0,2)?>/- (Date : <?php  echo $dt;?>) </option>
+<?php 
 
 
 ?>
 
-<?}
+<?php }
 if($dldgr!=7)
 {
 ?>
 <option value="ADVANCE-PAYMENT">ADVANCE PAYMENT</option>
-<?}?>
+<?php }?>
 </select>
 <script type="text/javascript">
    $('#blno').chosen({

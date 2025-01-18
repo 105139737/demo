@@ -1,9 +1,9 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 ?>
 <table border="0" width="100%" class="advancedtable">
- <?
+ <?php 
 $query100 = "SELECT * FROM ".$DBprefix."ordertmp where eby='$user_currently_loged' order by sl";
 $result100 = mysqli_query($conn,$query100);
 while ($R100 = mysqli_fetch_array ($result100))
@@ -37,14 +37,14 @@ $brand=$row1['brand'];
 
 ?>
 <tr class="even">
-<td  align="left" width="60%"><b><?=$pnm;?> - <?=$cnm;?> - <?=$brand;?> - <?=$mnm;?></b></td>
+<td  align="left" width="60%"><b><?php  echo $pnm;?> - <?php  echo $cnm;?> - <?php  echo $brand;?> - <?php  echo $mnm;?></b></td>
 
-<td align="center" width="30%" ><b><?=$qnty;?></b></td>
+<td align="center" width="30%" ><b><?php  echo $qnty;?></b></td>
 
-<td align="center" width="10%"><b><a onclick="if(confirm('Are you Sure?')){deltpr('<?=$tsl;?>')}"><font color="red">Delete</font></a> </b></td>
+<td align="center" width="10%"><b><a onclick="if(confirm('Are you Sure?')){deltpr('<?php  echo $tsl;?>')}"><font color="red">Delete</font></a> </b></td>
 </tr>
 
-<?}?>
+<?php }?>
 
 </table>
 

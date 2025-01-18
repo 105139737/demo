@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include("Numbers/Words.php");
@@ -171,7 +171,7 @@ document.location="part_in.php";
 
 </script>
 
-<?
+<?php 
 
 
 
@@ -181,10 +181,10 @@ else
 ?>
 
 <Script language="JavaScript">
-alert('<?=$err;?>');
+alert('<?php  echo $err;?>');
 window.history.go(-1);
 </script>
-<?
+<?php 
 
 }
 

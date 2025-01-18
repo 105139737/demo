@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3; 
 
 include("membersonly.inc.php");
@@ -58,7 +58,7 @@ $pnm1="";
 			<b>Amount</b>
 			</td>
 		     </tr>
-			 <?
+			 <?php 
 		$sln=0;
 		$tota=0;
 $log=0;
@@ -145,40 +145,40 @@ $ppt1=$ppt;
 			 ?>
 		   <tr>
 		     
-		    <td  align="center" title="<?=$blno;?>" >
-			<?=$sln;?>
+		    <td  align="center" title="<?php  echo $blno;?>" >
+			<?php  echo $sln;?>
 			</td>
 			 <td  align="center" >
-			<?=$edt;?>
+			<?php  echo $edt;?>
 			</td>
 			<td  align="center" >
-			<?=$pbill;?>
+			<?php  echo $pbill;?>
 			</td>
             <td  align="center" >
-			<?=$spn;?>
+			<?php  echo $spn;?>
 			</td>
 		
 			<td  align="center" >
-			<?=$pname;?>
+			<?php  echo $pname;?>
 			</td>
 			<td  align="center" >
-			<b><?=$pty1;?></b>/<?=$punt;?>
+			<b><?php  echo $pty1;?></b>/<?php  echo $punt;?>
 			</td>
 			<td  align="center" >
-			<?=$prc;?>
+			<?php  echo $prc;?>
 			</td>
 			<td  align="center" >
-			<?=$pprc;?>
+			<?php  echo $pprc;?>
 			</td>
 			<td  align="center" >
-			<?=$vat;?>
+			<?php  echo $vat;?>
 			</td>
 			<td  align="right" >
-			<?=number_format($ppt1,2);?>
+			<?php echo number_format($ppt1,2);?>
 			</td>
 		     </tr>	 
 			 
-<?
+<?php 
 $tota=$ppt1+$tota;
 $log=0;
 $ppt1=0;
@@ -189,7 +189,7 @@ $ppt1=0;
 <b>Total</b>
 </td>
 <td align="right">
-<b><?=number_format($tota-$lfr,2);?></b>
+<b><?php echo number_format($tota-$lfr,2);?></b>
 </td>
 
 	  </table>

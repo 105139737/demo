@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
    $query = "SELECT * FROM ".$DBprefix."product order by pnm";
@@ -28,11 +28,11 @@ if($stck<=$reo)
    <li style="padding-left:5px"> 
 					<a href="#">
                           <i class="fa fa-warning text-yellow"></i> 
-						<font  color="#f54c4d"><?=$pname;?> Current Stock </font> <b><?=$stck;?></b>
+						<font  color="#f54c4d"><?php  echo $pname;?> Current Stock </font> <b><?php  echo $stck;?></b>
                         </a>
 						
                       </li>
-<?
+<?php 
 }
 }
 

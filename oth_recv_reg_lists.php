@@ -1,11 +1,12 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
+$sln="";
 $brncd=$_REQUEST['brncd'];if($brncd==""){$brncd1="";}else{$brncd1=" and brncd='$brncd'";}
-$fdt1=$_REQUEST['fdt'];
-$tdt1=$_REQUEST['tdt'];
-$slp=rawurldecode($_REQUEST[slp]);
-$val=$_REQUEST[val];
+$fdt1=$_REQUEST['fdt'] ?? "";
+$tdt1=$_REQUEST['tdt'] ?? "";
+$slp=rawurldecode($_REQUEST['slp'] ?? "");
+$val=$_REQUEST['val'] ?? "";
 $af="%".$slp."%";
 if($slp==""){$slp1="";}else{$slp1=" and sman like '$af'";}
 
@@ -26,11 +27,11 @@ if($brncd==""){$brncd1="";}else{$brncd1=" and brncd='$brncd'";}
 
 if($val=="0")
 {
-	$pno1=$_REQUEST[pno1];
+	$pno1=$_REQUEST['pno1'] ?? "";
 	if($pno1!=0)
 	{$pnoo=" and pno='$pno1'";}else{$pnoo="";}
-	$pnog=rawurldecode($_REQUEST[pnog]);
-	$ps=rawurldecode($_REQUEST[ps]);
+	$pnog=rawurldecode($_REQUEST['pnog'] ?? "");
+	$ps=rawurldecode($_REQUEST['ps'] ?? "");
 	if($ps=="")
 	{
 	$ps=10;
@@ -55,28 +56,28 @@ if($val=="0")
 {
 ?>
 <div align="left">
-<input type="text" name="ps" id="ps" value="<?php echo $ps;?>" size="7" onblur="pagnt1(this.value)">
+<input type="text" name="ps" id="ps" value="<?php  echo $ps;?>" size="7" onblur="pagnt1(this.value)">
 </div>
-<?
+<?php 
 }
 ?>
 <table width="100%" border="1" class="table table-hover table-striped table-bordered">
 <thead>
 <tr>
 <td align="right" colspan="7"><font size="3"> <b> Grand Total : </b></font></td>
-<td align="center"><font size="3"> <b> <?=number_format($gtotal,2);?> </b></font></td>
+<td align="center"><font size="3"> <b> <?php echo number_format($gtotal??0,2);?> </b></font></td>
 <td align="center"></td>
 <td align="center"></td>
 <td align="center"></td>
 <td align="center"></td>
 <td align="center"></td>
-<?
+<?php 
 if($val=='0')
 {
 ?>
 <td align="center" hidden></td>
 <td align="center"></td>
-<?
+<?php 
 }
 ?>
 </tr>
@@ -88,13 +89,13 @@ if($val=='0')
 <td align="center"></td>
 <td align="center"></td>
 <td align="center"></td>
-<?
+<?php 
 if($val=='0')
 {
 ?>
 <td align="center"  hidden></td>
 <td align="center"></td>
-<?
+<?php 
 }
 ?>
 </tr>
@@ -110,20 +111,20 @@ if($val=='0')
 <th align="center">Payment Mode</th>
 <th align="center">Reference No.</th>
 <th align="center" >Narration</th>
-<?
+<?php 
 if($val=='0')
 {
 ?>
 <th align="center">Print</th>
 <th align="center">Edit</th>
 <th align="center">Action</th>
-<?
+<?php 
 }
 ?>
 </tr>
 </thead>
 <tbody>
-<?
+<?php 
 if($val=='0')
 {
 $sl=$start;
@@ -226,46 +227,46 @@ $data= mysqli_query($conn,"SELECT * FROM main_drcr where cldgr='4' and retn_stat
 		}
 		$dt=date('d-M-Y', strtotime($dt));
 		?>
-<tr class="<?php echo $cls;?>" style="height: 20px;">
-<td align="left" valign="top"><a href="#" title="By : <?php echo $eby;?> | On :<?=$edt;?>"><b><?php echo $sl;?></b></td>
-<td align="left" valign="top"><b><?php echo $dt;?></b></td>
-<td align="left" valign="top"><b><?php echo $sman;?></b></td>
-<td align="left" valign="top"><b><?echo $blnon;?></b></td>
-<td align="left" valign="top"><b><?php echo $cbill;?> <br> <font color="black">Ref / SF No : </font><?php echo $sfno;?> 
-<br> <font color="black">Invoice To : </font><?php echo $invto_nm;?></b></td>
-<td align="left" valign="top"><b><?php echo $spn;?></b></td>
-<td align="left" valign="top"><b><?php echo $dldgr;?></b></td>
-<td align="center" valign="top" align="right"><font color="red">Rs. <b><?php echo $amm;?></b></font></td>
-<td align="left" valign="top"><b><?php echo $mtd;?></b><b></td>
-<td align="left" valign="top"><b><?php echo $mtddtl;?></b><b></td>
-<td align="left" valign="top"><?php echo $nrtn;?></td>
-<?
+<tr class="<?php  echo $cls;?>" style="height: 20px;">
+<td align="left" valign="top"><a href="#" title="By : <?php  echo $eby;?> | On :<?php  echo $edt;?>"><b><?php  echo $sl;?></b></td>
+<td align="left" valign="top"><b><?php  echo $dt;?></b></td>
+<td align="left" valign="top"><b><?php  echo $sman;?></b></td>
+<td align="left" valign="top"><b><?php echo $blnon;?></b></td>
+<td align="left" valign="top"><b><?php  echo $cbill;?> <br> <font color="black">Ref / SF No : </font><?php  echo $sfno;?> 
+<br> <font color="black">Invoice To : </font><?php  echo $invto_nm;?></b></td>
+<td align="left" valign="top"><b><?php  echo $spn;?></b></td>
+<td align="left" valign="top"><b><?php  echo $dldgr;?></b></td>
+<td align="center" valign="top" align="right"><font color="red">Rs. <b><?php  echo $amm;?></b></font></td>
+<td align="left" valign="top"><b><?php  echo $mtd;?></b><b></td>
+<td align="left" valign="top"><b><?php  echo $mtddtl;?></b><b></td>
+<td align="left" valign="top"><?php  echo $nrtn;?></td>
+<?php 
 if($val=='0')
 {
 ?>
 <td align="center" valign="top">
-<? /*<a href="cash_report.php?sl=<?php echo $sl1;?>" target="_blank" title="Click Here To Print Voucher"><i class="fa fa-print fa-2x" style="color:#333333;"></i></a>*/?>
+<?php  /*<a href="cash_report.php?sl=<?php  echo $sl1;?>" target="_blank" title="Click Here To Print Voucher"><i class="fa fa-print fa-2x" style="color:#333333;"></i></a>*/?>
 </td>
 <td align="center" valign="top">
 
-<?/*<a href="#" onclick="editt('<?php echo $sl1; ?>')" title="Edit"><img src="images/edit.png" width="30"/></a>*/?>
+<?php /*<a href="#" onclick="editt('<?php  echo $sl1; ?>')" title="Edit"><img src="images/edit.png" width="30"/></a>*/?>
 
 </td>
 <td align="center" valign="top">
 
-<a href="#" onclick="cancell('<?php echo $sl1; ?>')" title="Cancel"><font color="red"><i class="fa fa-times fa-2x"></i></font></a>
+<a href="#" onclick="cancell('<?php  echo $sl1; ?>')" title="Cancel"><font color="red"><i class="fa fa-times fa-2x"></i></font></a>
 
 </td>
-<?
+<?php 
 }
 ?>
 </tr>
-<?
+<?php 
 }
 ?>
 </tbody>
 </table>
-<?
+<?php 
 if($val=='0')
 {
 
@@ -297,12 +298,12 @@ if($rcnt!=$rcntttl)
 }
 echo "<font color=\"#000\">Showing ".($start+1)." to ".($sl)." of ".$rcnt." entries".$flt."</font>";
 ?>
-<div align="left"><input type="text" size="10" id="pgn" name="pgn" value="<?php echo $pnog;?>"><input Type="button" value="Go" onclick="pagnt1('')"></div>
+<div align="left"><input type="text" size="10" id="pgn" name="pgn" value="<?php  echo $pnog;?>"><input Type="button" value="Go" onclick="pagnt1('')"></div>
 <div class="pagination pagination-centered">
                             <ul class="pagination pagination-sm inline">
-							<li <?php if($pnog==1){ echo "class=\"disabled\"";}?>><a onclick="pagnt('1')"><i class="icon-circle-arrow-left"></i>First</a></li>
-                            <li <?php if($pnog==1){ echo "class=\"disabled\"";}?>><a onclick="pagnt('<?php echo $prev;?>')"><i class="icon-circle-arrow-left"></i>Previous</a></li>
-                            <?php
+							<li <?php  if($pnog==1){ echo "class=\"disabled\"";}?>><a onclick="pagnt('1')"><i class="icon-circle-arrow-left"></i>First</a></li>
+                            <li <?php  if($pnog==1){ echo "class=\"disabled\"";}?>><a onclick="pagnt('<?php  echo $prev;?>')"><i class="icon-circle-arrow-left"></i>Previous</a></li>
+                            <?php 
                             
                             if($tp<=5)
                             {
@@ -310,8 +311,8 @@ echo "<font color=\"#000\">Showing ".($start+1)." to ".($sl)." of ".$rcnt." entr
                               while($n<=$tp)
                               {
                                 ?>
-                             <li <?php if($pnog==$n){ echo "class=\"active\"";}?>><a onclick="pagnt('<?php echo $n;?>')"><?php echo $n;?></a></li>   
-                                <?php
+                             <li <?php  if($pnog==$n){ echo "class=\"active\"";}?>><a onclick="pagnt('<?php  echo $n;?>')"><?php  echo $n;?></a></li>   
+                                <?php 
                                 $n+=1;
                               }  
                             }
@@ -323,8 +324,8 @@ echo "<font color=\"#000\">Showing ".($start+1)." to ".($sl)." of ".$rcnt." entr
                                   while($n<=5)
                               {
                                 ?>
-                             <li <?php if($pnog==$n){ echo "class=\"active\"";}?>><a onclick="pagnt('<?php echo $n;?>')"><?php echo $n;?></a></li>   
-                                <?php
+                             <li <?php  if($pnog==$n){ echo "class=\"active\"";}?>><a onclick="pagnt('<?php  echo $n;?>')"><?php  echo $n;?></a></li>   
+                                <?php 
                                 $n+=1;
                               }     
                                 }
@@ -334,8 +335,8 @@ echo "<font color=\"#000\">Showing ".($start+1)." to ".($sl)." of ".$rcnt." entr
                                     while($n<=5)
                               {
                                 ?>
-                             <li <?php if($pnog==$n){ echo "class=\"active\"";}?>><a onclick="pagnt('<?php echo $n;?>')"><?php echo $n;?></a></li>   
-                                <?php
+                             <li <?php  if($pnog==$n){ echo "class=\"active\"";}?>><a onclick="pagnt('<?php  echo $n;?>')"><?php  echo $n;?></a></li>   
+                                <?php 
                                 $n+=1;
                               }   
                                 }
@@ -345,8 +346,8 @@ echo "<font color=\"#000\">Showing ".($start+1)." to ".($sl)." of ".$rcnt." entr
                                  while($n<=$pnog+2)
                               {
                                 ?>
-                             <li <?php if($pnog==$n){ echo "class=\"active\"";}?>><a onclick="pagnt('<?php echo $n;?>')"><?php echo $n;?></a></li>   
-                                <?php
+                             <li <?php  if($pnog==$n){ echo "class=\"active\"";}?>><a onclick="pagnt('<?php  echo $n;?>')"><?php  echo $n;?></a></li>   
+                                <?php 
                                 $n+=1;
                               }     
                                 }
@@ -355,16 +356,16 @@ echo "<font color=\"#000\">Showing ".($start+1)." to ".($sl)." of ".$rcnt." entr
                                 
                             }
                             ?>
-                            <li <?php if($pnog==$tp){ echo "class=\"disabled\"";}?>><a onclick="pagnt('<?php echo $next;?>')">Next<i class="icon-circle-arrow-right"></i></a></li>
-                            <li <?php if($pnog==$tp){ echo "class=\"disabled\"";}?>><a onclick="pagnt('<?php echo $tp;?>')">Last<i class="icon-circle-arrow-right"></i></a></li>
+                            <li <?php  if($pnog==$tp){ echo "class=\"disabled\"";}?>><a onclick="pagnt('<?php  echo $next;?>')">Next<i class="icon-circle-arrow-right"></i></a></li>
+                            <li <?php  if($pnog==$tp){ echo "class=\"disabled\"";}?>><a onclick="pagnt('<?php  echo $tp;?>')">Last<i class="icon-circle-arrow-right"></i></a></li>
                             </ul>
                             </div>
 							
 							
-<?
+<?php 
 }
 
 ?>							
 <script>
-$("#total").html('<font size="3"><b><?=number_format($total_am,2);?></b></font>');
+$("#total").html('<font size="3"><b><?php echo number_format($total_am,2);?></b></font>');
 </script>							

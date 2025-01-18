@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3; 
 include("config.php");
 set_time_limit(0);

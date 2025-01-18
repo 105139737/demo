@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include "header.php";
@@ -6,7 +6,7 @@ include "header.php";
 <html>
 <head>
         <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <style type="text/css"> 
@@ -95,7 +95,7 @@ cursor:pointer;
 
 <ul id="red" class="treeview-red">
 <p align="left"><b>Product List</b></p>
-<?
+<?php 
 $data= mysqli_query($conn,"select * from  main_stock where sl>0 and bcd='$branch_code' group by pcd")or die(mysqli_error($conn));
 while ($row = mysqli_fetch_array($data))
 {
@@ -137,10 +137,10 @@ $stkf=$stck/$ptu;
 
 
 ?>
-<li align="left"><span><b> <font size="4"><?=$b;?></font></b> (Category : <?=$catg;?>) (Stock : <b><font size="3"><?=$stkf."</font></b> ".$punt;?>) (Tech : <?=$tech;?>) (Comp : <?=$co;?>)</span>
+<li align="left"><span><b> <font size="4"><?php  echo $b;?></font></b> (Category : <?php  echo $catg;?>) (Stock : <b><font size="3"><?php  echo $stkf."</font></b> ".$punt;?>) (Tech : <?php  echo $tech;?>) (Comp : <?php  echo $co;?>)</span>
 <ul>
 
-<?
+<?php 
 $to=0;
  $query3="Select * from ".$DBprefix."stock where pcd='$pcd' and bcd='$branch_code' group by betno order by expdt";
 $result3 = mysqli_query($conn,$query3);
@@ -162,18 +162,18 @@ $ret1=$ret*$ptu;
 $sv=$stkf1*$ret1;
 $to=$to+$sv;
 ?>
-<li><span><b> <font size="3">Batch No. <?=$betno;?></font></b> (<?=$expdt;?>) (Stock : <b><font size="3"><?=$stkf1."</font></b> ".$punt;?>) ( MRP Rs. <b><?=$ret1."</b> /".$punt;?>)  (Stock Value : <b><?=$sv;?></b> )</span></li>
+<li><span><b> <font size="3">Batch No. <?php  echo $betno;?></font></b> (<?php  echo $expdt;?>) (Stock : <b><font size="3"><?php  echo $stkf1."</font></b> ".$punt;?>) ( MRP Rs. <b><?php  echo $ret1."</b> /".$punt;?>)  (Stock Value : <b><?php  echo $sv;?></b> )</span></li>
 
 
-<?	
+<?php 	
 }
 ?>
 
 </ul>
 
 </li>
-<p align="left">Total Stock Value : <b>Rs.<?=number_format($to,2);?> </b></p>
-<?
+<p align="left">Total Stock Value : <b>Rs.<?php echo number_format($to,2);?> </b></p>
+<?php 
 }
 ?>	
 

@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include "header.php";
@@ -6,7 +6,7 @@ include "header.php";
 <html>
 <head>
 	<div class="wrapper row-offcanvas row-offcanvas-left">
-		<?
+		<?php 
 		include "left_bar.php";
 		?>
 <style type="text/css"> 
@@ -194,14 +194,14 @@ document.forms["form1"].submit();
 <select id="brand"  name="brand" class="form-control" >
 <option value="" >---Select---</option>
 
-	<?
+	<?php 
 	$sq="SELECT * FROM main_catg WHERE sl>0 ORDER BY sl";
 	$res = mysqli_query($conn,$sq) or die(mysqli_error($conn));
 	while($ro=mysqli_fetch_array($res))
 	{
 	?>
-    <option value="<?=$ro['sl'];?>"><?=$ro['cnm'];?></option>
-	<?}?>
+    <option value="<?php  echo $ro['sl'];?>"><?php  echo $ro['cnm'];?></option>
+	<?php }?>
 </select>
 </td>
 
@@ -235,14 +235,14 @@ document.forms["form1"].submit();
 <td align="left">
 <b>State : </b>
 <select id="fst"  name="fst" class="form-control" >
-	<?
+	<?php 
 	$sql="SELECT * FROM main_state WHERE sl>0 ORDER BY sn";
 	$result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
 	while($row=mysqli_fetch_array($result))
 	{
 	?>
-    <option value="<?=$row['sl'];?>"<?if($row['sl']=='1'){echo 'selected';}?>><?=$row['sn'];?> - <?=$row['cd'];?></option>
-	<?}?>
+    <option value="<?php  echo $row['sl'];?>"<?php if($row['sl']=='1'){echo 'selected';}?>><?php  echo $row['sn'];?> - <?php  echo $row['cd'];?></option>
+	<?php }?>
 </select>
 
 </td>
@@ -256,15 +256,15 @@ document.forms["form1"].submit();
 <b>Sales Person : </b>
 <select name="sale_per" id="sale_per" class="form-control">
 <option value="">---Select---</option>
-<?
+<?php 
 $dsql=mysqli_query($conn,"select main_sale_per.spid,main_sale_per.nm from main_sale_per INNER JOIN main_signup ON main_sale_per.spid=main_signup.username where main_signup.actnum='0'") or die (mysqli_error($conn));
 while($erow=mysqli_fetch_array($dsql))
 {
 $spid=$erow['spid'];
 $nm=$erow['nm'];
 ?>
-<option value="<?php echo $spid;?>"><?php echo $nm;?> - <?php echo $spid;?></option>
-<?
+<option value="<?php  echo $spid;?>"><?php  echo $nm;?> - <?php  echo $spid;?></option>
+<?php 
 }
 ?>
 </select>
@@ -274,13 +274,13 @@ $nm=$erow['nm'];
 <td >
 <b>Type : </b>
 <select id="ctyp" name="ctyp" class="span2 form-control">
-<?
+<?php 
 $p=mysqli_query($conn,"select * from main_cus_typ order by sl desc") or die (mysqli_error($conn));
 while($rw2=mysqli_fetch_array($p))
 {
 ?>
-<option value="<?=$rw2['sl'];?>" ><?=$rw2['tp'];?></option>
-<?
+<option value="<?php  echo $rw2['sl'];?>" ><?php  echo $rw2['tp'];?></option>
+<?php 
 }
 ?>
 </select>
@@ -290,13 +290,13 @@ while($rw2=mysqli_fetch_array($p))
 <td>
 <b>Branch:</b><br>
 <select name="brncd" class="form-control" size="1" id="brncd"   >
-<?
+<?php 
 if($user_current_level<0)
 {
 $query="Select * from main_branch";
 ?>
 <option value="">---Select---</option>
-<?
+<?php 
 }
 else
 {
@@ -309,8 +309,8 @@ $sl=$R['sl'];
 $bnm=$R['bnm'];
 
 ?>
-<option value="<? echo $sl;?>"><? echo $bnm;?></option>
-<?
+<option value="<?php  echo $sl;?>"><?php  echo $bnm;?></option>
+<?php 
 }
 ?>
 </select>

@@ -1,7 +1,7 @@
-<?
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
-$cat=$_REQUEST[cat];
+$cat=$_REQUEST['cat'] ?? "";
 $bnm=$_REQUEST[bnm];
 
 if($cat!="")
@@ -16,7 +16,7 @@ $r=" and bnm='$bnm'";
 ?>
 <select name="pnm" class="form-control"  id="pnm"  >
 <option value="">---All---</option>
-<?
+<?php 
 $query="Select * from  main_product where sl>0 $q $r order by pnm";
    $result = mysqli_query($conn,$query);
 while ($R = mysqli_fetch_array ($result))
@@ -25,8 +25,8 @@ $sl=$R['sl'];
 $mnm=$R['mnm'];
 $pname=$R['pnm'];
 ?>
-<option value="<? echo $sl;?>"><? echo $pname;?> - <? echo $mnm;?></option>
-<?
+<option value="<?php  echo $sl;?>"><?php  echo $pname;?> - <?php  echo $mnm;?></option>
+<?php 
 }
 ?>
 </select>

@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 date_default_timezone_set('Asia/Kolkata');
@@ -8,7 +8,7 @@ include "header.php";
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
  <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <head>
@@ -251,14 +251,14 @@ else
   <select id="sup" name="sup" tabindex="1"  class="form-control" onchange="gtid()" >
 	<option value="">---Select---</option>
 	<option value="Add">---Add New---</option>
-	<?
+	<?php 
 		$query="select * from main_suppl  WHERE sl>0 order by nm";
 		$result=mysqli_query($conn,$query);
 		while($rw=mysqli_fetch_array($result))
 		{
 			?>
-			<option value="<?=$rw['sl'];?>"><?=$rw['spn'];?> <?if($rw['nm']!=""){?>( <?=$rw['nm'];?> )<?}?></option>
-			<?
+			<option value="<?php  echo $rw['sl'];?>"><?php  echo $rw['spn'];?> <?php if($rw['nm']!=""){?>( <?php  echo $rw['nm'];?> )<?php }?></option>
+			<?php 
 		}
 	?>
 	</select>
@@ -293,7 +293,7 @@ else
             <td  align="left" width="30%">
 		<select name="branch" class="form-control" size="1" id="branch" tabindex="8"  required>
 				
-<?
+<?php 
 if($user_current_level<0)
 {
 $data2 = mysqli_query($conn,"Select * from main_branch order by sl");
@@ -322,7 +322,7 @@ else
 		
 			    <td align="right"  width="15%" style="padding-top:15px;"><font color="red">* </font><b>Date :</b></td>
             <td align="left" width="30%" >
-            <input type="text" class="span2 form-control" name="dt" id="dt" size="20" value="<?=$dt;?>" required >
+            <input type="text" class="span2 form-control" name="dt" id="dt" size="20" value="<?php  echo $dt;?>" required >
 			</td>
 			
 		
@@ -359,7 +359,7 @@ else
 <td > 
 <select id="pnm" style="width:100%;" name="pnm" class="sc1"  tabindex="1">
 		<option value="">---Select---</option>
-		<?
+		<?php 
 
    $result56 = mysqli_query($conn,"Select * from ".$DBprefix."parts");
 while ($R56 = mysqli_fetch_array ($result56))
@@ -383,8 +383,8 @@ $brand=$row1['brand'];
 
 ?>
 
-<option value="<?=$psl?>"><?=$pnm?> - <?=$cnm?> - <?=$brand?></option>
-<?}?>
+<option value="<?php  echo $psl?>"><?php  echo $pnm?> - <?php  echo $cnm?> - <?php  echo $brand?></option>
+<?php }?>
 			</select>
 </td>
 <td>
@@ -476,13 +476,13 @@ Less Fright :</b>
     <td align="left" >
 	
 		 <select  name="dldgr" id="dldgr"   class="form-control">
-							<?php 
+							<?php  
 							$get = mysqli_query($conn,"SELECT * FROM main_ledg where gcd='1' or gcd='2'") or die(mysqli_error($conn));
 							while($row = mysqli_fetch_array($get))
 							{
 							?>
-								<option value="<?=$row['sl']?>"<?=$row['sl'] == '3' ? 'selected' : '' ?>><?=$row['nm']?></option>
-							<?php 
+								<option value="<?php  echo $row['sl']?>"<?php  echo $row['sl'] == '3' ? 'selected' : '' ?>><?php  echo $row['nm']?></option>
+							<?php  
 							} 
 							?>
 						</select>
@@ -490,7 +490,7 @@ Less Fright :</b>
 <td align="right" style="padding-top:15px;"> <b>Payment Mode: </b></td>
 <td><select name="mdt" size="1" id="mdt" tabindex="10" onchange="pmod(this.value)" class="form-control">
 
-<?
+<?php 
 if($user_current_level!=-1)
 							{
 							$query1="select * from ac_paymtd where sl='1'";
@@ -511,7 +511,7 @@ $data2 = mysqli_query($conn,$query1);
 </select>
  </td>
 <td align="right" style="padding-top:15px;"><b>Payment Amount:</b> </td>
-<td><input type="text"  class="form-control" id="pamm" name="pamm" value="" <?if($user_current_level!=-1){echo 'readonly';}?>  placeholder="<?if($user_current_level!=-1){echo 'Cash Sale Only';}else{echo 'Enter Payment Amount';}?>" size="25"></td>
+<td><input type="text"  class="form-control" id="pamm" name="pamm" value="" <?php if($user_current_level!=-1){echo 'readonly';}?>  placeholder="<?php if($user_current_level!=-1){echo 'Cash Sale Only';}else{echo 'Enter Payment Amount';}?>" size="25"></td>
 
 </tr>
 <tr id="gtdl1" style="display:none">

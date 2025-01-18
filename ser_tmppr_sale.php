@@ -1,10 +1,10 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 $bill_typ=$_REQUEST['bill_typ'];
 ?>
 <table border="0" width="100%" class="advancedtable">
- <?
+ <?php 
 $query100 = "SELECT * FROM ".$DBprefix."ser_slt where eby='$user_currently_loged' and bill_typ='$bill_typ' order by sl";
 $result100 = mysqli_query($conn,$query100) or die(mysqli_error($conn));
 while ($R100 = mysqli_fetch_array ($result100))
@@ -62,34 +62,34 @@ $bcdnm=$rowii['bnm'];
 ?>
 
 <tr class="even">
-<td  align="left" width="15%" <? /*onclick="get_data('<?=$tsl;?>','<?=$bcd;?>','<?=$prsl;?>','<?=$betno;?>','<?=$unit;?>','<?=$refno;?>','<?=$pcs;?>','<?=$prc;?>','<?=$total;?>','<?=$disp;?>','<?=$disa;?>','<?=$ttl;?>','<?=$cgst_rt;?>','<?=$cgst_am;?>','<?=$sgst_rt;?>','<?=$sgst_am;?>','<?=$igst_rt;?>','<?=$igst_am;?>','<?=$net_am;?>')" style="cursor:pointer;" title="Click Here To Edit" */?> >
-<b><?=$pnm;?></b>
+<td  align="left" width="15%" <?php  /*onclick="get_data('<?php  echo $tsl;?>','<?php  echo $bcd;?>','<?php  echo $prsl;?>','<?php  echo $betno;?>','<?php  echo $unit;?>','<?php  echo $refno;?>','<?php  echo $pcs;?>','<?php  echo $prc;?>','<?php  echo $total;?>','<?php  echo $disp;?>','<?php  echo $disa;?>','<?php  echo $ttl;?>','<?php  echo $cgst_rt;?>','<?php  echo $cgst_am;?>','<?php  echo $sgst_rt;?>','<?php  echo $sgst_am;?>','<?php  echo $igst_rt;?>','<?php  echo $igst_am;?>','<?php  echo $net_am;?>')" style="cursor:pointer;" title="Click Here To Edit" */?> >
+<b><?php  echo $pnm;?></b>
 </td>
-<td  align="left" hidden><b><?=$bcdnm;?></b></td>
-<td align="center" hidden><b></b><?=$betno;?></td>
+<td  align="left" hidden><b><?php  echo $bcdnm;?></b></td>
+<td align="center" hidden><b></b><?php  echo $betno;?></td>
 
-<td  align="center" width="5%"><b><?=$unit_nm;?></b></td>
-<td align="center" hidden><b></b><?=$refno;?></td>
-<td align="center" width="5%" ><b><?=$pcs;?></b></td>
-<td align="right" width="6%" ><b><?=round($prc,2);?></b></td>
+<td  align="center" width="5%"><b><?php  echo $unit_nm;?></b></td>
+<td align="center" hidden><b></b><?php  echo $refno;?></td>
+<td align="center" width="5%" ><b><?php  echo $pcs;?></b></td>
+<td align="right" width="6%" ><b><?php echo round($prc,2);?></b></td>
 
-<td align="right" width="7%"><b><?=round($total,2);?></b></td>
-<td align="center" width="5%"><b><?=$disp;?></b></td>
-<td align="right" width="6%"><b><?=$disa;?></b></td>
+<td align="right" width="7%"><b><?php echo round($total,2);?></b></td>
+<td align="center" width="5%"><b><?php  echo $disp;?></b></td>
+<td align="right" width="6%"><b><?php  echo $disa;?></b></td>
 
-<td align="right" width="6%"><b><?=round($ttl,2);?></b></td>
-<td align="center" width="5%" ><b><?=$cgst_rt;?></b></td>
-<td align="right" width="6%" ><b><?=round($cgst_am,2);?></b></td>
-<td align="center" width="5%" ><b><?=$sgst_rt;?></b></td>
-<td align="right" width="6%" ><b><?=round($sgst_am,2);?></b></td>
-<td align="center" width="5%" ><b><?=$igst_rt;?></b></td>
-<td align="right" width="6%" ><b><?=round($igst_am,2);?></b></td>
-<td align="right" width="7%" ><b><?=round($net_am,2);?></b></td>
-<td align="center" width="4%"><b><a onclick="if(confirm('Are you Sure?')){deltpr('<?=$tsl;?>')}"><font color="red">Delete</font></a> </b></td>
+<td align="right" width="6%"><b><?php echo round($ttl,2);?></b></td>
+<td align="center" width="5%" ><b><?php  echo $cgst_rt;?></b></td>
+<td align="right" width="6%" ><b><?php echo round($cgst_am,2);?></b></td>
+<td align="center" width="5%" ><b><?php  echo $sgst_rt;?></b></td>
+<td align="right" width="6%" ><b><?php echo round($sgst_am,2);?></b></td>
+<td align="center" width="5%" ><b><?php  echo $igst_rt;?></b></td>
+<td align="right" width="6%" ><b><?php echo round($igst_am,2);?></b></td>
+<td align="right" width="7%" ><b><?php echo round($net_am,2);?></b></td>
+<td align="center" width="4%"><b><a onclick="if(confirm('Are you Sure?')){deltpr('<?php  echo $tsl;?>')}"><font color="red">Delete</font></a> </b></td>
 
 </tr>
 
-<?}?>
+<?php }?>
 
 </table>
 

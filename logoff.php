@@ -1,11 +1,11 @@
-<?PHP
+<?php 
 include("membersonly.inc.php");
 //tell we want to work with sessions
 
 session_start();
 date_default_timezone_set('Asia/Kolkata');
 $lastactivetime=date("Y-m-d h:i:s");
-$query = "UPDATE ".$DBprefix."signup Set logstat='0',lastactivetime='$lastactivetime' where username='".$_SESSION[id]."'";
+$query = "UPDATE ".$DBprefix."signup Set logstat='0',lastactivetime='$lastactivetime' where username='".$_SESSION['id']."'";
 $result = mysqli_query($conn,$query);
 // set the cookie vars to zero
 

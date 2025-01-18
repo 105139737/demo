@@ -1,8 +1,9 @@
-<?
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include "header.php";
 include "function.php";
+$bnm5="";
 $saa="01-".date('m-Y');
 $cy=date('Y');
 date_default_timezone_set('Asia/Kolkata');
@@ -30,7 +31,7 @@ $fdt1=$fdt3;
 <html>
 <head>
         <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <style type="text/css"> 
@@ -195,18 +196,18 @@ window.open('stk_summarys_product.php?brncd='+brncd+'&scat='+scat+'&rt='+rt+'&fd
 <tr>
 <td align="left" width="33%">
 <b>Form : </b>
-<input type="text" id="fdt" name="fdt" value="<?echo $saa;?>" class="form-control" placeholder="Please Enter From Date" > 
+<input type="text" id="fdt" name="fdt" value="<?php echo $saa;?>" class="form-control" placeholder="Please Enter From Date" > 
 </td>
 
 <td align="left" width="33%" >
 <b>To : </b>
-<input type="text" id="tdt" name="tdt" value="<?echo $tdt;?>"class="form-control" placeholder="Please Enter To Date">
+<input type="text" id="tdt" name="tdt" value="<?php echo $tdt;?>"class="form-control" placeholder="Please Enter To Date">
 </td>
 <td align="left" width="33%" >
 <b>Godown:</b>
 <select name="brncd" class="form-control" size="1" id="brncd">
 <option value="">---Select---</option>
-<?
+<?php 
 $query="Select * from main_godown";
 $result = mysqli_query($conn,$query);
 while ($R = mysqli_fetch_array ($result))
@@ -221,8 +222,8 @@ while($rul=mysqli_fetch_array($q))
 $bnm5=$rul['bnm'];
 }
 ?>
-<option value="<? echo $sl;?>"><? echo $bnm5;?> - <? echo $gnm;?></option>
-<?
+<option value="<?php  echo $sl;?>"><?php  echo $bnm5;?> - <?php  echo $gnm;?></option>
+<?php 
 }
 ?>
 </select>
@@ -233,7 +234,7 @@ $bnm5=$rul['bnm'];
 <b>Brand :</b><br>
 <select name="cat"  style="width:100%" size="1" id="cat" tabindex="8" onchange="get_cat()">
 <Option value="">---All---</option>
-<?
+<?php 
 $data11 = mysqli_query($conn,"Select * from main_catg order by sl");
 while ($row11 = mysqli_fetch_array($data11))
 {
@@ -249,7 +250,7 @@ echo "<option value='".$bsl."'>".$brnm."</option>";
 <div id="gcat">
 <select name="scat" class="form-control" size="1" id="scat" tabindex="8">
 <Option value="">---All---</option>
-<?
+<?php 
 $data1 = mysqli_query($conn,"Select * from main_scat order by nm");
 while ($row1 = mysqli_fetch_array($data1))
 {

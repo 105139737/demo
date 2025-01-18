@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include("Numbers/Words.php");
@@ -6,35 +6,35 @@ include("SimpleImage.php");
 //catch the sent data
 	$sl=0;
 	
-	$dt = $_POST['dt'];
-	$vno = $_POST['vno'];
-	$proj = $_POST['proj'];
-	$cldgr = $_POST['cldgr'];
-	$dldgr = $_POST['dldgr'];
-	$cbal = $_POST['cbal'];
-	$dbal = $_POST['dbal'];
-	$paymtd = $_POST['paymtd'];
-	$refno = $_POST['refno'];
-	$amm = $_POST['amm'];
-	$it = $_POST['it'];
-	$nrtn = $_POST['nrtn'];
-	$flnm = $_POST['flnm'];
-	$flnm1 = $_POST['flnm1'];
-	$sl = $_POST['updt'];
-	$cid = $_POST['cid'];
-	$sid = $_POST['sid'];
-	$brncd = $_POST['brncd'];
-	$dis = $_POST['dis'];
-	$blno = $_POST['blno'];
-	$sman = $_POST['sman'];
+	$dt = $_POST['dt'] ?? "";
+	$vno = $_POST['vno'] ?? "";
+	$proj = $_POST['proj'] ?? "";
+	$cldgr = $_POST['cldgr'] ?? "";
+	$dldgr = $_POST['dldgr'] ?? "";
+	$cbal = $_POST['cbal'] ?? "";
+	$dbal = $_POST['dbal'] ?? "";
+	$paymtd = $_POST['paymtd'] ?? "";
+	$refno = $_POST['refno'] ?? "";
+	$amm = $_POST['amm'] ?? "";
+	$it = $_POST['it'] ?? "";
+	$nrtn = $_POST['nrtn'] ?? "";
+	$flnm = $_POST['flnm'] ?? "";
+	$flnm1 = $_POST['flnm1'] ?? "";
+	$sl = $_POST['updt'] ?? 0;
+	$cid = $_POST['cid'] ?? "";
+	$sid = $_POST['sid'] ?? "";
+	$brncd = $_POST['brncd'] ?? "";
+	$dis = $_POST['dis'] ?? "";
+	$blno = $_POST['blno'] ?? "";
+	$sman = $_POST['sman'] ?? "";
 /*   Bill Type Details*/	
-	$bsl = $_POST['bsl'];
-	$btyp = $_POST['btyp'];
-	$sms = $_POST['sms'];
-	$cust = $_POST['cust'];
-	$sup = $_POST['sup'];
-	$cust1 = $_POST['cust1'];
-	$sup1 = $_POST['sup1'];
+	$bsl = $_POST['bsl'] ?? "";
+	$btyp = $_POST['btyp'] ?? "";
+	$sms = $_POST['sms'] ?? "";
+	$cust = $_POST['cust'] ?? "";
+	$sup = $_POST['sup'] ?? "";
+	$cust1 = $_POST['cust1'] ?? "";
+	$sup1 = $_POST['sup1'] ?? "";
 	
 	$val=date_chk($dt);
 	if($val==0)
@@ -157,19 +157,28 @@ $yy="/".($y-1)."-".$y;
 }	
 	$als='RF/';
 	$ssn=$yy;
-	$start_no=0;	
-	}
+	$start_no=0;
+	
+if($blno=="ADVANCE-PAYMENT"){$blno="ADVANCE-PAYMENT-REFUND";$dldgr='7';}
+}
 $ym=date('Ym', strtotime($dt));	
 $count6=5;
+$vnos=0;
 $query51="select * from ".$DBprefix."drcr where als='$als' and ssn='$ssn' and blnon!='' order by sl desc limit 0,1";
 $result51 = mysqli_query($conn,$query51)or die(mysqli_error($conn));
 while($rows=mysqli_fetch_array($result51))
 {
 $vnos=$rows['blnon'];
 }
+if(!empty($vnos))
+{
 $bill=explode($als,$vnos);
 $bill1=explode($ssn,$bill[1]);
 $vnos=$bill1[0];
+}
+else{
+   $vnos=0; 
+}
 if($start_no>$vnos)
 {
 $vnos=$start_no;
@@ -182,7 +191,7 @@ $vid1=substr($vnos,6,15);
 }
 
 while($count6>0){
-$vid1=$vid1+1;
+$vid1=(float)$vid1+1;
 //$vnoc=str_pad($vid1, 5, '0', STR_PAD_LEFT);
 $vnoc=$vid1;
 $blnon=$als.$ym.$vnoc.$ssn;
@@ -195,7 +204,7 @@ $count6=mysqli_num_rows($result5);
 /*   Bill Type Details*/	
 	
 $err="";
-	
+if(!empty($_FILES['fileToUpload1']['tmp_name'])){
 $size=filesize($_FILES['fileToUpload1']['tmp_name']);
 
 if($size>700000)
@@ -209,7 +218,7 @@ if($size>700000)
 {
 // $err="Please Check Upload File Size ...";    
 }
-	
+}
 	
 if($err=="")
 {
@@ -223,7 +232,7 @@ if($err=="")
 alert('Please Fill All The Fields.');
 window.history.go(-1);
 </script>
-<?	}
+<?php 	}
 	else
 	{
 	$dt=date('Y-m-d', strtotime($dt));	
@@ -257,7 +266,7 @@ else
 $qr=mysqli_query($conn,"update main_drcr set paid='0' where cbill='$blno'") or die(mysqli_error($conn));	
 }
 }
-
+if(!empty($_FILES['fileToUpload1']['tmp_name'])){
 $path5="img/".$dirnm;
 if (!file_exists($path5)) {
 mkdir($path5);
@@ -270,16 +279,16 @@ $ext = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 $path="img/".$dirnm."/".$vno.".".$ext;
 if (file_exists($_FILES['fileToUpload1']['tmp_name'])) {
 move_uploaded_file($_FILES['fileToUpload1']['tmp_name'], $path);
-
+}
 $qrupdt =mysqli_query($conn, "UPDATE main_drcr set path='$path' where sl='$sl'")or die (mysqli_error($conn));
 }
 
 ?>
 <script language="javascript">
 alert('Updated Successfully. Thank You...');
-document.location ="<?=$flnm;?>?bsl=<?php echo $bsl;?>";
+document.location ="<?php  echo $flnm;?>?bsl=<?php  echo $bsl;?>";
 </script>
-<?
+<?php 
 /*
 $path5="img/".$dirnm;
 if (!file_exists($path5)) {
@@ -299,22 +308,22 @@ if($dt==''  or $cldgr=='' or $dldgr=='' or $paymtd=='' or $amm=='' )
 	?>
 <script language="javascript">
 alert('Please Fill All The Fields.');
-<?
+<?php 
 if($flnm1=="")
 {
 ?>
 window.history.go(-1);
-<?
+<?php 
 }
 else
 {
 ?>
-document.location = "<?=$flnm;?>?bsl=<?php echo $bsl;?>";
-<?
+document.location = "<?php  echo $flnm;?>?bsl=<?php  echo $bsl;?>";
+<?php 
 }
 ?>
 </script>
-<?	}
+<?php 	}
 	else
 	{
 	date_default_timezone_set('Asia/Kolkata');
@@ -325,22 +334,22 @@ document.location = "<?=$flnm;?>?bsl=<?php echo $bsl;?>";
 	?>
 <script language="javascript">
 alert('Sorry!! Credit Ledger & Debit Ledger Can not be Same.');
-<?
+<?php 
 if($flnm1=="")
 {
 ?>
 window.history.go(-1);
-<?
+<?php 
 }
 else
 {
 ?>
-document.location = "<?=$flnm;?>?bsl=<?php echo $bsl;?>";
-<?
+document.location = "<?php  echo $flnm;?>?bsl=<?php  echo $bsl;?>";
+<?php 
 }
 ?>
 </script>
-<?
+<?php 
 	}
 	else
 	{
@@ -360,7 +369,7 @@ if($cnt>0)
 alert('Sorry!! Entry Already Exist.');
 window.history.go(-1);
 </script>
-<?
+<?php 
 }
 else
 {
@@ -373,7 +382,7 @@ $vnos=$rows['vno'];
 }	
 $vid1=substr($vnos,2,7);	
 $count6=5;
-	$vid1=$vid1+1;
+	$vid1=(float)$vid1+1;
 	$vnoc=str_pad($vid1, 7, '0', STR_PAD_LEFT);
 	$vcno="SV".$vnoc;
 /*	
@@ -433,17 +442,17 @@ if($typ==44)
 
 ?>
 <script>
-window.open("expense_cash_report_new.php?sl=<?php echo $last_sl;?>","_blank").focus();
+window.open("expense_cash_report_new.php?sl=<?php  echo $last_sl;?>","_blank").focus();
 </script>
-<?php
+<?php 
 }
 ?>
 <script language="javascript">
 alert('Added Successfully. Thank You.');
-document.location = "<?=$flnm;?>?bsl=<?php echo $bsl;?>&dt=<?php echo $dt;?>";
+document.location = "<?php  echo $flnm;?>?bsl=<?php  echo $bsl;?>&dt=<?php  echo $dt;?>";
 </script>
-<?
-
+<?php 
+if(!empty($_FILES['fileToUpload']['tmp_name'])){
 $path5="img/".$dirnm;
 if (!file_exists($path5)) {
 mkdir($path5);
@@ -459,6 +468,7 @@ move_uploaded_file($_FILES['fileToUpload']['tmp_name'], $path);
 
 $qrupdt =mysqli_query($conn, "UPDATE main_drcr set path='$path' where vno='$vcno'")or die (mysqli_error($conn));
 }
+}
 }}}}
 
 }
@@ -466,23 +476,23 @@ else
 {
 	?>
 <script language="javascript">
-alert('<?=$err;?>');
-<?
+alert('<?php  echo $err;?>');
+<?php 
 if($flnm1=="")
 {
 ?>
 window.history.go(-1);
-<?
+<?php 
 }
 else
 {
 ?>
-document.location = "<?=$flnm;?>?bsl=<?php echo $bsl;?>";
-<?
+document.location = "<?php  echo $flnm;?>?bsl=<?php  echo $bsl;?>";
+<?php 
 }
 ?>
 </script>	
-<?
+<?php 
 } 
 ?>
 

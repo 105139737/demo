@@ -1,22 +1,24 @@
-<?php
+<?php 
 $reqlevel = 3; 
 include("membersonly.inc.php");
+$val_invto="";
+$refsl="";
 set_time_limit(0);
 
 include("function.php");
-$fdt=$_REQUEST['fdt'];
-$tdt=$_REQUEST['tdt'];
-$snm=$_REQUEST['snm'];
-$brncd=$_REQUEST['brncd'];
-$sman=$_REQUEST['sman'];
-$val=$_REQUEST['val'];
-$dt=$_REQUEST['dt'];
-$invto=$_REQUEST['invto'];
-$order_by=$_REQUEST['order_by'];
-$cat=$_REQUEST['cat'];
-$day=$_REQUEST['day'];
+$fdt=$_REQUEST['fdt'] ?? "";
+$tdt=$_REQUEST['tdt'] ?? "";
+$snm=$_REQUEST['snm'] ?? "";
+$brncd=$_REQUEST['brncd'] ?? "";
+$sman=$_REQUEST['sman'] ?? "";
+$val=$_REQUEST['val'] ?? "";
+$dt=$_REQUEST['dt'] ?? "";
+$invto=$_REQUEST['invto'] ?? "";
+$order_by=$_REQUEST['order_by'] ?? "";
+$cat=$_REQUEST['cat'] ?? "";
+$day=$_REQUEST['day'] ?? "";
 
-$btyp=rawurldecode($_REQUEST['btyp']);
+$btyp=rawurldecode($_REQUEST['btyp'] ?? "");
 $btyp=str_replace("@","'",$btyp);
 $blno=rawurldecode($_REQUEST['blno']);if($blno!=""){$blno1=" and cbill like '%$blno%' ";}else{$blno1="";}
 if($btyp==""){$btyp1="";}else{$btyp1=" and ($btyp)";}
@@ -140,4 +142,4 @@ $i=1;
 $data11= mysqli_query($conn,"select * from  main_drcr where sl>0  and cbill!='' and retn_stat!='1'  and paid='0' $brncd1  $snm1 $qury_cust $btyp1 $date $blno1 $val_invto $qury group by cbill order by $order_by1 ") or die(mysqli_error($conn));
 $count=mysqli_num_rows($data11);
 ?>
-<span><font size="3" color="red"><b>Total Bill : <?php echo $count;?></b></font></span>
+<span><font size="3" color="red"><b>Total Bill : <?php  echo $count;?></b></font></span>

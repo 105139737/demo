@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include "header.php";
@@ -9,7 +9,7 @@ $saa="01-".date('m-Y');
 <html>
 <head>
         <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <style type="text/css"> 
@@ -106,7 +106,7 @@ $("#tdt").inputmask("dd-mm-yyyy", {"placeholder": "dd-mm-yyyy"});
 
 <select name="slp" class="form-control czn"  id="slp"   >
 <option value="">---All---</option>
-<?
+<?php 
 $query="Select * from  main_sale_per order by spid";
    $result = mysqli_query($conn,$query);
 while ($R = mysqli_fetch_array ($result))
@@ -114,8 +114,8 @@ while ($R = mysqli_fetch_array ($result))
 $sid=$R['sl'];
 $spid=$R['spid'];
 ?>
-<option value="<? echo $spid;?>"><? echo $spid;?></option>
-<?
+<option value="<?php  echo $spid;?>"><?php  echo $spid;?></option>
+<?php 
 }
 ?>
 </select>
@@ -124,12 +124,12 @@ $spid=$R['spid'];
 <td align="left" width="16%" >
 <b>Form:</b><br>
 
-<input type="text" id="fdt" name="fdt" size="13" value="<?echo $saa;?>" class="form-control" placeholder="Please Enter From Date" > </td>
+<input type="text" id="fdt" name="fdt" size="13" value="<?php echo $saa;?>" class="form-control" placeholder="Please Enter From Date" > </td>
 
 <td align="left" width="16%"  >
 <b>To:</b>
 <br>
-<input type="text" id="tdt" name="tdt" size="13" value="<?echo $tdt;?>" class="form-control" placeholder="Please Enter To Date">
+<input type="text" id="tdt" name="tdt" size="13" value="<?php echo $tdt;?>" class="form-control" placeholder="Please Enter To Date">
 </td>
 <td align="left"  width="16%" >
 <b>Customer:</b>
@@ -137,7 +137,7 @@ $spid=$R['spid'];
 
 <select name="snm" class="form-control"  id="snm"   >
 <option value="">---All---</option>
-<?
+<?php 
 $query="Select * from  main_cust order by nm";
    $result = mysqli_query($conn,$query);
 while ($R = mysqli_fetch_array ($result))
@@ -146,8 +146,8 @@ $sid=$R['sl'];
 $nm=$R['nm'];
 $cont=$R['cont'];
 ?>
-<option value="<? echo $sid;?>"><? echo $nm;?> </option>
-<?
+<option value="<?php  echo $sid;?>"><?php  echo $nm;?> </option>
+<?php 
 }
 ?>
 </select>

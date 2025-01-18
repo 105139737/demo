@@ -1,4 +1,4 @@
-<?php
+<?php 
 $sl=$_REQUEST['sl'];
 $fn=$_REQUEST['fn'];
 $fv=rawurldecode($_REQUEST['fv']);
@@ -11,7 +11,7 @@ $tblnm=$_REQUEST['tblnm'];
 <script type="text/javascript" src="jquery.ui.datepicker.min.js"></script>
 <link rel="stylesheet" href="wb.validation.css" type="text/css">
 <script type="text/javascript" src="wb.validation.min.js"></script>
-<input type="text" value="<? echo $fv;?>"  id="tb" name="tb" onblur="edt1('<?=$sl;?>','<?=$fn;?>',this.value,'<?=$div;?>','<?=$tblnm;?>')" style="color:red" class="form-control">
+<input type="text" value="<?php  echo $fv;?>"  id="tb" name="tb" onblur="edt1('<?php  echo $sl;?>','<?php  echo $fn;?>',this.value,'<?php  echo $div;?>','<?php  echo $tblnm;?>')" style="color:red" class="form-control">
 <script type="text/javascript"> 
 $(document).ready(function()
 {

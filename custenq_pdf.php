@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("config.php");
 date_default_timezone_set('Asia/Kolkata');
@@ -8,9 +8,9 @@ $edt = date('d/m/Y h:i:s a', time());
 ob_start();
 $tiamm=0;
 $teamm=0;
-$a=$_REQUEST[sl];
-$tdt=$_REQUEST[tdt];
-$fdt=$_REQUEST[fdt];
+$a=$_REQUEST['sl'];
+$tdt=$_REQUEST['tdt'];
+$fdt=$_REQUEST['fdt'];
 
 $file=$a;
 
@@ -102,14 +102,14 @@ $cont=$R['cont'];
   <td valign="top" style="text-align: left;    width: 90%;valign:top;border-bottom: 1px solid #000;">
   <font size="5" style="font-size:14pt">
   <b>
-<?=$comp_nm;?>
+<?php  echo $comp_nm;?>
   </b>
   </font>
   <br/>
   <font size="2" >
-<?=$comp_addr;?>
+<?php  echo $comp_addr;?>
   <br/>
-  Mobile : <?=$cont;?>
+  Mobile : <?php  echo $cont;?>
   </font>
   </td>
   <td style="text-align: right;    width: 10%;valign:top;border-bottom: 1px solid #000;" >
@@ -120,13 +120,13 @@ page [[page_cu]]/[[page_nb]]<br/> <br/>
 </font> </td>
   </tr>
 <tr style="border-bottom: 1px solid #000;">
-  <td colspan="2" style="font-family: Arial, Helvetica, sans-serif;width:100%;text-align:center;border-bottom: 1px solid #000;" ><b>Statement for the period (From : <? echo date('d-m-Y', strtotime($fdt)); ?>&nbsp; To : <? echo date('d-m-Y', strtotime($tdt)); ?>)</b>
+  <td colspan="2" style="font-family: Arial, Helvetica, sans-serif;width:100%;text-align:center;border-bottom: 1px solid #000;" ><b>Statement for the period (From : <?php  echo date('d-m-Y', strtotime($fdt)); ?>&nbsp; To : <?php  echo date('d-m-Y', strtotime($tdt)); ?>)</b>
   </td>
 
   </tr>
   <tr style="border-bottom: 1px solid #000;height:90px" >
   <td align="left" valign="top" colspan="2"><font size="2" >TO :
- <b>  <?=$bto."</b><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;".$baddr."<br/>";
+ <b>  <?php  echo $bto."</b><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;".$baddr."<br/>";
 
 if($bmob!="")
 {
@@ -155,9 +155,9 @@ echo "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mob : ".$bmob;
     <tr >
   <td align="center" colspan="5" style="width: 90%;" ><font size="2" >Opening Balance</font></td>
 
-  <td align="right" style="width: 10%;"><font size="2" ><? echo $opbl;?></font></td>
+  <td align="right" style="width: 10%;"><font size="2" ><?php  echo $opbl;?></font></td>
   </tr>
-  <?
+  <?php 
  $nbal=$opbl;
  $tdebt=0;
  $tcredt=0;
@@ -257,16 +257,16 @@ $rd1=$rd;
 $nrtn0=substr($nrtn,0,32);
 $nrtn1=$nrtn0.'<br/>'.substr($nrtn,33,32);
 		  ?>
-		  <tr bgcolor="<?=$colo;?>">
-		  <td align="center" ><font size="2" ><? echo $rd1;?></font></td>
-		  <td align="left" ><font size="2" ><?=$dscrp;?></font></td>
-		  <td align="left" ><font size="2" ><?=$nrtn1;?></font></td>
-		  <td align="right" ><font size="2" ><?=round($damm,2);?></font></td>
-		  <td align="right"><font size="2" ><?=round($camm,2);?></font></td>
-		  <td align="right" title="<?=$dsl;?>" ><font size="2" ><span style="color:<? if($nbal<0){echo "#0034ff";}else{echo "#FF0000";}?>;font-family:Arial;font-size:15px;"><? echo $nbalf;?></span></font></td>
+		  <tr bgcolor="<?php  echo $colo;?>">
+		  <td align="center" ><font size="2" ><?php  echo $rd1;?></font></td>
+		  <td align="left" ><font size="2" ><?php  echo $dscrp;?></font></td>
+		  <td align="left" ><font size="2" ><?php  echo $nrtn1;?></font></td>
+		  <td align="right" ><font size="2" ><?php echo round($damm,2);?></font></td>
+		  <td align="right"><font size="2" ><?php echo round($camm,2);?></font></td>
+		  <td align="right" title="<?php  echo $dsl;?>" ><font size="2" ><span style="color:<?php  if($nbal<0){echo "#0034ff";}else{echo "#FF0000";}?>;font-family:Arial;font-size:15px;"><?php  echo $nbalf;?></span></font></td>
 		 
 		  </tr>
-		  <?$pcs1=$pcs+$pcs1;
+		  <?php $pcs1=$pcs+$pcs1;
 		  if($cldgr!=-1 and $dldgr!=-1)
 		  {
 		  $tdebt=$tdebt+$damm;
@@ -282,10 +282,10 @@ $nrtn1=$nrtn0.'<br/>'.substr($nrtn,33,32);
 		  <b>Total </b>
 		  </td>
 		  <td align="right" style="width:10%;border-top: 1px solid #000;border-bottom: 1px solid #000;">
-		  <font size="2" ><b><?=$tdebt;?></b></font>
+		  <font size="2" ><b><?php  echo $tdebt;?></b></font>
 		  </td>
 		  <td align="right" style="width:10%;border-top: 1px solid #000;border-bottom: 1px solid #000;">
-		 <font size="2" ><b> <?=$tcredt;?></b></font>
+		 <font size="2" ><b> <?php  echo $tcredt;?></b></font>
 		  </td>
 		   <td style="width:10%;border-top: 1px solid #000;border-bottom: 1px solid #000;">
 		  </td>
@@ -296,7 +296,7 @@ $nrtn1=$nrtn0.'<br/>'.substr($nrtn,33,32);
 		
 	</page>
 
-	<?
+	<?php 
 		$content = ob_get_clean();
     // convert in PDF
 		require_once('html2pdf/html2pdf.class.php');

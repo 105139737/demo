@@ -1,10 +1,10 @@
-<?
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
-$prnm=$_REQUEST['prnm'];
-$brncd=rawurldecode($_REQUEST['brncd']);
-$brand=rawurldecode($_REQUEST['cat']);
-$blno=$_REQUEST['blno'];
+$prnm=$_REQUEST['prnm'] ?? "";
+$brncd=rawurldecode($_REQUEST['brncd'] ?? "");
+$brand=rawurldecode($_REQUEST['cat'] ?? "");
+$blno=$_REQUEST['blno'] ?? "";
 $tsl="";
 if($blno=="")
 {
@@ -25,9 +25,9 @@ $tsl=$row11['bcd'];
 
 ?>
 <select name="bcd" class="form-control" tabindex="10"  size="1" id="bcd" onchange="gtt_unt();">
-<?php if($tsl==""){?>
+<?php  if($tsl==""){?>
 <option value="">---Select---</option>
-<?
+<?php 
 }
 $brncd1="";
 if ($user_current_level > 0)
@@ -53,8 +53,8 @@ $stck=$R4['stck1'];
 }	
 if($stck==''){$stck=0;}
 ?>
-<option value="<? echo $sl;?>"<?if($sl==$tsl){echo 'selected';}?>><? echo $gnm;?>  (Stock : <?=$stck;?> )</option>
-<?
+<option value="<?php  echo $sl;?>"<?php if($sl==$tsl){echo 'selected';}?>><?php  echo $gnm;?>  (Stock : <?php  echo $stck;?> )</option>
+<?php 
 }
 }
 ?>

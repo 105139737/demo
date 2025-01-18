@@ -1,4 +1,4 @@
-<?PHP
+<?php 
  $reqlevel = 1; 
 include("membersonly.inc.php");
 
@@ -94,18 +94,18 @@ if(curl_errno($ch))
 
 ?>
 <Script language="JavaScript">
-alert('Entry Completed.Your Supplier ID is <? echo $sid; ?> Thank You...');
+alert('Entry Completed.Your Supplier ID is <?php  echo $sid; ?> Thank You...');
 window.history.go(-1);
 </script>
-<?
+<?php 
 }
 else
 {
 ?>
 <Script language="JavaScript">
-alert('<? echo $err;?>');
+alert('<?php  echo $err;?>');
 window.history.go(-1);
 </script>
-<?
+<?php 
 }
 ?>

@@ -1,4 +1,4 @@
-<?
+<?php 
 date_default_timezone_set('Asia/Kolkata');
 $dt3 = date('y-m-d');
 $pdt=date('Y-m-d', strtotime($dt));
@@ -104,6 +104,7 @@ $gtot2=$gtot2+$gtot3;
 if($ldgr=='-2')
 {
 $data331= mysqli_query($conn,"SELECT * FROM main_ledg where sl='-4'");
+$cnt7="";
 while ($row33 = mysqli_fetch_array($data331))
 {
 

@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include "function.php";
@@ -23,7 +23,7 @@ $jobLink=CreateNewJob('jobs/get_blno_oth_update.php',$user_currently_loged,$nm,$
 alert('Your request has been accepted. You will get you dwonload link in your home page in a few moments. Thank you...');
 
 </script>
-<?php
+<?php 
 die('<b><center><font color="green" size="5">Your request has been accepted. You will get you dwonload link in your home page in a few moments. Thank you...</font></center></b>');
 
 $paid1="";

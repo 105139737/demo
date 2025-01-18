@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3; 
 include("membersonly.inc.php");
 $result = mysqli_query($conn,"SELECT * FROM main_product WHERE md5(UPPER(pnm))=md5(LOWER(pnm))");

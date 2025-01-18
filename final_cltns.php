@@ -1,7 +1,11 @@
-<?php
+<?php 
 $reqlevel=3; 
 include("membersonly.inc.php");
 include("function.php");
+$tamm1=0;
+$ttotal_adj_am=0;
+$ttotal_crdt_amm=0;
+$ttdisamm=0;
 
 $cid=rawurldecode($_REQUEST['cid']);
 $salper=rawurldecode($_REQUEST['salper']);
@@ -22,9 +26,9 @@ $diff=dates_diff($fdt,$tdt);
 if($salereport-1<$diff and ($cid=='' or array_search($cid,$cust_array))){
 	?>
 	<script language="javascript">
-	alert("You have to excel export if you want to see data of more than "+<?php echo $salereport; ?>+" day");
+	alert("You have to excel export if you want to see data of more than "+<?php  echo $salereport; ?>+" day");
 	</script>
-	<?php
+	<?php 
 	die('<b><center><font color="green" size="5">You have to excel export if you want to see data of more than '.$salereport.' day </font></center></b>');
 	
 	}
@@ -79,7 +83,7 @@ $todts=" and dt between '$fdt' and '$tdt'";}else{$todts="";}
 <td align="left"  ><b>Discount Remark</b></td>
 <td align="center"><b>Branch</b></td>
 </tr>
-<?
+<?php 
 $sln=0;
 $ttotal_am=0;
 $data1=mysqli_query($conn,"SELECT * FROM main_recv where sl>0 $als1 $mdt1 $ledg1 $cid1 $salper1 $brncd1 $todts $stat1 ORDER BY sl")or die(mysqli_error($conn));
@@ -190,31 +194,31 @@ $tdisamm+=$damm;
 if($blno==$blno1){$asd++;}	
 ?>
 <tr>
-<?php
+<?php 
 if($asd==1)
 {
 	
 	?>
 	
-	<td align="center"><?=$sln;?></td>
+	<td align="center"><?php  echo $sln;?></td>
 
-<?php if($edit_count>0){ ?>
+<?php  if($edit_count>0){ ?>
 
 	<td align="center">
-	<a href="recv_reg_oth_edt.php?blno=<?=$blno;?>" target="_blank" ><i class="fa fa-pencil-square-o"></i></a><br/>
+	<a href="recv_reg_oth_edt.php?blno=<?php  echo $blno;?>" target="_blank" ><i class="fa fa-pencil-square-o"></i></a><br/>
 	</td>
 	<td align="center">
-	<?
+	<?php 
 	if($edit_count>0){
 	if($cstat==0)	{	?>
-	<a href="javascript:if(confirm('Are you sure to Cancel...')){cncl('<?php echo $msl;?>')}"><font color="red"><b>Cancel</b></font></a>
+	<a href="javascript:if(confirm('Are you sure to Cancel...')){cncl('<?php  echo $msl;?>')}"><font color="red"><b>Cancel</b></font></a>
 	
-	<? }
+	<?php  }
 elseif($cstat==1){echo $cstat1;}
 	?>
 	</td>
 
-<?php 
+<?php  
 }
 }
 else 
@@ -222,24 +226,24 @@ else
 ?>
 <td></td>
 <td></td>
-<?php
+<?php 
 } 
 ?>
 
 
 
-	<td align="left"><?=$vchno;?></td>
-	<td align="left"><?=$sman;?></td>
-	<td align="left"><?=$cust_nm;?></td>
+	<td align="left"><?php  echo $vchno;?></td>
+	<td align="left"><?php  echo $sman;?></td>
+	<td align="left"><?php  echo $cust_nm;?></td>
 	<td align="center">
-	<b><?php echo $dt;?></b>
+	<b><?php  echo $dt;?></b>
 	</td>
-	<td align="center"><?php echo $refno;?></td>
-	<td align="left"><?php echo $nrtn;?></td>
-	<td align="left"><?php echo $ledgr_nm;?><b></b></td>
-	<td align="center"><?php echo $mtd;?></td>
-	<td align="center"><?php echo $tamm;?></td>
-	<?
+	<td align="center"><?php  echo $refno;?></td>
+	<td align="left"><?php  echo $nrtn;?></td>
+	<td align="left"><?php  echo $ledgr_nm;?><b></b></td>
+	<td align="center"><?php  echo $mtd;?></td>
+	<td align="center"><?php  echo $tamm;?></td>
+	<?php 
 	$tamm1+=$tamm;
 }
 else
@@ -257,37 +261,37 @@ else
 	<td></td>
 	<td></td>
 	<td></td>
-	<?
+	<?php 
 }
 ?>
 
-<td  align="left"  ><b><?=$bill_no;?></b></td>
+<td  align="left"  ><b><?php  echo $bill_no;?></b></td>
 
-<td  align="right"  ><b><?=round($amm,2);?></b></td>
-<td  align="right"  ><b><?=round($adj_amm,2);?></b></td>
-<td  align="right"  ><b><?=round($crdt_amm,2);?></b></td>
-<td align="left" ><b><?=$dislam;?></b></td>
-<td align="right" ><b><?=round($damm,2);?></b></td>
-<td align="left" ><b><?=$remk;?></b></td>
-<td align="center"><?php echo $bnm;?></td>
+<td  align="right"  ><b><?php echo round($amm,2);?></b></td>
+<td  align="right"  ><b><?php echo round($adj_amm,2);?></b></td>
+<td  align="right"  ><b><?php echo round($crdt_amm,2);?></b></td>
+<td align="left" ><b><?php  echo $dislam;?></b></td>
+<td align="right" ><b><?php echo round($damm,2);?></b></td>
+<td align="left" ><b><?php  echo $remk;?></b></td>
+<td align="center"><?php  echo $bnm;?></td>
 </tr>
-<?}
+<?php }
 if($total_am+$total_adj_am+$tdisamm+$total_crdt_amm>0)
 {
 	
 ?>
 <tr bgcolor="#e8ecf6">
 <td colspan="13" align="right"><b>Total</b></td>
-<td align="right"><b><?php echo $total_am;?></b></td>
-<td align="right"><b><?php echo $total_adj_am;?></b></td>
-<td align="right"><b><?php echo $total_crdt_amm;?></b></td>
-<td align="right"><b><?php echo $tdisamm;?></b></td>
+<td align="right"><b><?php  echo $total_am;?></b></td>
+<td align="right"><b><?php  echo $total_adj_am;?></b></td>
+<td align="right"><b><?php  echo $total_crdt_amm;?></b></td>
+<td align="right"><b><?php  echo $tdisamm;?></b></td>
 <td></td>
-<td align="right"><b><?php echo $tdisamm;?></b></td>
+<td align="right"><b><?php  echo $tdisamm;?></b></td>
 <td></td>
 <td></td>
 </tr>
-<?
+<?php 
 $ttotal_am+=$total_am;
 $ttotal_adj_am+=$total_adj_am;
 $ttotal_crdt_amm+=$total_crdt_amm;
@@ -298,13 +302,13 @@ $ttdisamm+=$tdisamm;
 ?>
 <tr>
 <td colspan="11" align="right"><b>Grand Total</b></td>
-<td align="right"><b><?php echo $tamm1;?></b></td>
+<td align="right"><b><?php  echo $tamm1;?></b></td>
 <td align="right"><b></b></td>
-<td align="right"><b><?php echo $ttotal_am;?></b></td>
-<td align="right"><b><?php echo $ttotal_adj_am;?></b></td>
-<td align="right"><b><?php echo $ttotal_crdt_amm;?></b></td>
+<td align="right"><b><?php  echo $ttotal_am;?></b></td>
+<td align="right"><b><?php  echo $ttotal_adj_am;?></b></td>
+<td align="right"><b><?php  echo $ttotal_crdt_amm;?></b></td>
 <td></td>
-<td align="right"><b><?php echo $ttdisamm;?></b></td>
+<td align="right"><b><?php  echo $ttdisamm;?></b></td>
 <td></td>
 <td></td>
 </tr>

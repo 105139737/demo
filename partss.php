@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 date_default_timezone_set('Asia/Kolkata');
@@ -48,7 +48,7 @@ $sql=mysqli_query($conn,"insert into main_parts(cat,bnm,pnm,pcd,wiamm,woamm,edt,
 			alert('Submitted Successfully. Thank You');
 			document.location="parts.php";
 			</script>
-			<?
+			<?php 
 		}
 		else
 		{
@@ -57,13 +57,13 @@ $sql=mysqli_query($conn,"insert into main_parts(cat,bnm,pnm,pcd,wiamm,woamm,edt,
 			alert('Data Already Exists');
 			history.go(-1);
 			</script>
-			<?
+			<?php 
 		}	
 	}
 }
 ?>
 <script>
-alert('<?=$err;?>');
+alert('<?php  echo $err;?>');
 history.go(-1);
 </script>
-<?
+<?php 

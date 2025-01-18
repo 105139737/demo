@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include "header.php";
@@ -16,7 +16,7 @@ while($row=mysqli_fetch_array($data))
 <html>
 <head>
 	<div class="wrapper row-offcanvas row-offcanvas-left">
-		<?
+		<?php 
 		include "left_bar.php";
 		?>
 <style type="text/css"> 
@@ -113,7 +113,7 @@ function isNumber(evt)
                 <!-- Main content -->
 <section class="content">
 <form method="post" action="new_bank_edts.php" id="form1" name="form1" onsubmit="return check1()">
-<input type="hidden" id="sl" name="sl" value="<?php echo $sl;?>">
+<input type="hidden" id="sl" name="sl" value="<?php  echo $sl;?>">
 
 <div class="box box-success">
 <table width="860px" class="table table-hover table-striped table-bordered">
@@ -122,13 +122,13 @@ function isNumber(evt)
 <td align="right" style="padding-top:15px;">Branch : </td>
 <td>
 <select name="brncd" class="form-control"  tabindex="1"   size="1" id="brncd" required>
-<?
+<?php 
 if($user_current_level<0)
 {
 $query="Select * from main_branch";
 ?>
 <option value="">---ALL---</option>
-<?
+<?php 
 }
 else
 {
@@ -141,8 +141,8 @@ $bsl=$R['sl'];
 $bnm=$R['bnm'];
 
 ?>
-<option value="<? echo $bsl;?>"<?php if($bsl==$brncd){echo 'selected';}?>><? echo $bnm;?></option>
-<?
+<option value="<?php  echo $bsl;?>"<?php  if($bsl==$brncd){echo 'selected';}?>><?php  echo $bnm;?></option>
+<?php 
 }
 ?>
 </select>
@@ -151,23 +151,23 @@ $bnm=$R['bnm'];
 <tr>
 <td style="text-align:right; padding-top:15px;">Bank Name:</td>
 <td>
-<input type="text" id="bnm" name="bnm" value="<?php echo $bnm1;?>" class="form-control" placeholder="Please Enter Bank Name">
+<input type="text" id="bnm" name="bnm" value="<?php  echo $bnm1;?>" class="form-control" placeholder="Please Enter Bank Name">
 </td>
 <td style="text-align:right; padding-top:15px;">A/C No. :</td>
 <td>
-<input type="text" id="ac" name="ac" value="<?php echo $ac;?>" class="form-control" placeholder="Please Enter A/C No.">
+<input type="text" id="ac" name="ac" value="<?php  echo $ac;?>" class="form-control" placeholder="Please Enter A/C No.">
 </td>
 </tr>
 <tr>
 <td style="text-align:right; padding-top:15px;">IFSC Code :</td>
 <td>
-<input type="text" class="form-control" value="<?php echo $ifsc;?>" id="ifsc" name="ifsc" placeholder="Please Enter IFSC Code">
+<input type="text" class="form-control" value="<?php  echo $ifsc;?>" id="ifsc" name="ifsc" placeholder="Please Enter IFSC Code">
 </td>
 
 
 <td style="text-align:right; padding-top:15px;">Bank Branch:</td>
 <td colspan="3">
-<input type="text" class="form-control" id="branch" name="branch" value="<?php echo $branch;?>" placeholder="Please Enter Bank Branch">
+<input type="text" class="form-control" id="branch" name="branch" value="<?php  echo $branch;?>" placeholder="Please Enter Bank Branch">
 </td>
 </tr>
 <tr>

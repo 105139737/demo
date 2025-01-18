@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 3; 
 include("membersonly.inc.php");
 
@@ -17,7 +17,7 @@ if($assign_spid=="")
 	alert("Blank Entry.....");
 	window.history.go(-1);
 	</script>
-	<?
+	<?php 
 }
 else
 {
@@ -33,7 +33,7 @@ else
 	alert("Update Successfully.....");
 	window.location='sale_person_assign.php';
 	</script>
-	<?
+	<?php 
 
 }
 else
@@ -43,7 +43,7 @@ else
 	alert("No Sales Person Found.....");
 	window.history.go(-1);
 	</script>
-	<?
+	<?php 
 	
 }
  } 

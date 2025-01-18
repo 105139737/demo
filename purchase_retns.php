@@ -1,11 +1,11 @@
-<?php
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 include("Numbers/Words.php");
 include "header.php";
 date_default_timezone_set('Asia/Kolkata');
 $blno=$_POST['blno'];
-$ddt=$_POST['ddt'];
+$ddt=$_POST['ddt']??"";
 $dt=$_POST['dt'];
 $chk=$_POST['chk'];
 $dt=date('Y-m-d', strtotime($dt));
@@ -90,21 +90,24 @@ $stout=$qty;
 $qnt=$_POST['q'.$tsl];
 if($qnt>0){
 $total=round($mrp*$qnt,2);
+$disa1=0;
 if($disp>0)
 {
 $disa1=round(($total*$disp)/100,2);
 }
 $amm=$total-$disa1;
 $ttl=$amm;
-
+$sgst_am=0;
 if($sgst_rt>0)
 {
  $sgst_am=round((($amm*$sgst_rt)/100),2);
 }
+$cgst_am=0;
 if($cgst_rt>0)
 {
  $cgst_am=round((($amm*$cgst_rt)/100),2);
 }
+$igst_am=0;
 if($igst_rt>0)
 {
  $igst_am=round((($amm*$igst_rt)/100),2);
@@ -128,7 +131,8 @@ while($roww=mysqli_fetch_array($get))
 if($unit=='sun'){$stock_in=$qnt*$smvlu;$rate1=$rate/$smvlu;$uval=$smvlu;$stk_rate=$stk_rate1/$smvlu;}
 if($unit=='mun'){$stock_in=$qnt*$mdvlu;$rate1=$rate/$mdvlu;$uval=$mdvlu;$stk_rate=$stk_rate1/$smvlu;}
 if($unit=='bun'){$stock_in=$qnt*$bgvlu;$rate1=$rate/$bgvlu;$uval=$bgvlu;$stk_rate=$stk_rate1/$smvlu;}
-
+$ldis=0;
+$ldisa=0;
 $query21 = "INSERT INTO ".$DBprefix."purchasedet_ret(sup,cat,scat,unit,uval,prsl,qty,mrp,ttl,blno,fst,tst,cgst_rt,sgst_rt,igst_rt,cgst_am,sgst_am,igst_am,net_am,amm,usl,total,disp,disa,ldis,ldisa,bcd,rate,eby,betno,dt,stk_rate,refno)
  VALUES ('$sup','$cat','$scat','$unit','$uval','$prsl','$qnt','$mrp','$ttl','$blnon','$fst','$tst','$cgst_rt','$sgst_rt','$igst_rt','$cgst_am','$sgst_am','$igst_am','$net_am','$amm','$usl','$total','$disp','$disa1','$ldis','$ldisa','$bcd','$rate1','$eby','$betno','$dt','$stk_rate','$blno')";
 $result21 = mysqli_query($conn,$query21)or die (mysqli_error($conn)); 
@@ -220,14 +224,12 @@ $result21 = mysqli_query($conn,$query21)or die (mysqli_error($conn));
 */
  
 
-$nw = new Numbers_Words();
-$aiw=$nw->toWords($tamm);
 ?>
 <script>
 alert('Submit Successfully. Thank You...');
 document.location="purchase_show.php";
 </script>
-<?
+<?php 
 }
 else
 {
@@ -236,6 +238,6 @@ else
 alert('Please Check Quantity...');
 document.location="purchase_gst_ret.php";
 </script>
-<?	
+<?php 	
 }
 ?>

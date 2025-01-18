@@ -1,4 +1,4 @@
-<?php
+<?php 
 include("config.php");
 date_default_timezone_set('Asia/Kolkata');
 $edt=date('Y-m-d');
@@ -89,24 +89,24 @@ $sl=$R111['sl'];
 <table>
  <tr>
      <td>
-    <b> MAKE :  <?=$arr['DoDetails']['MAKE'];?> || ModelNo : <?=$arr['DoDetails']['ModelNo'];?> ||  InvoiceAmount : <?=$arr['DoDetails']['InvoiceAmount'];?></b>
+    <b> MAKE :  <?php  echo $arr['DoDetails']['MAKE'];?> || ModelNo : <?php  echo $arr['DoDetails']['ModelNo'];?> ||  InvoiceAmount : <?php  echo $arr['DoDetails']['InvoiceAmount'];?></b>
      </td>
 </tr>
 </table>
 <Script language="JavaScript">
-document.getElementById('sfno').value='<?=$arr['DoDetails']['DealID'];?>';
-document.getElementById('dpay').value='<?=$arr['DoDetails']['AdvanceEMI'];?>';
-document.getElementById('finam').value='<?=$arr['DoDetails']['NetLoanAmount'];?>';
-document.getElementById('emiam').value='<?=$arr['DoDetails']['TotalEMI'];?>';
+document.getElementById('sfno').value='<?php  echo $arr['DoDetails']['DealID'];?>';
+document.getElementById('dpay').value='<?php  echo $arr['DoDetails']['AdvanceEMI'];?>';
+document.getElementById('finam').value='<?php  echo $arr['DoDetails']['NetLoanAmount'];?>';
+document.getElementById('emiam').value='<?php  echo $arr['DoDetails']['TotalEMI'];?>';
 
 
-$('#invto').append('<option value="<?=$sl;?>"><?=$nm;?> <?if($mob!=""){?>( <?=$mob;?> )<?}?></option>');
+$('#invto').append('<option value="<?php  echo $sl;?>"><?php  echo $nm;?> <?php if($mob!=""){?>( <?php  echo $mob;?> )<?php }?></option>');
 $('#invto').trigger('chosen:updated');
-document.getElementById('invto').value='<?=$sl;?>';
+document.getElementById('invto').value='<?php  echo $sl;?>';
 $('#invto').trigger('chosen:updated');
 //adnew();
 </script>
-<?
+<?php 
 }
 else
 {

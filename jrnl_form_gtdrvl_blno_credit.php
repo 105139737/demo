@@ -1,11 +1,11 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
-$sl=$_REQUEST[sl];
-$pno=$_REQUEST[pno];
-$cid=$_REQUEST[cid];
-$blno=$_REQUEST[blno];
-$brncd=$_REQUEST[brncd];if($brncd==""){$brncd1="";}else{$brncd1=" and brncd='$brncd'";}
+$sl=$_REQUEST['sl'];
+$pno=$_REQUEST['pno'] ?? "";
+$cid=$_REQUEST['cid'] ?? "";
+$blno=$_REQUEST['blno'] ?? "";
+$brncd=$_REQUEST['brncd'] ?? "";if($brncd==""){$brncd1="";}else{$brncd1=" and brncd='$brncd'";}
 if($cid!="")
 {
 	$cid1=" and (cid='$cid' or sid='$cid')";
@@ -35,4 +35,4 @@ $t2 = $row1['t2'];
 }
 $T=$t1-$t2;
 ?>
-<img src="images\rp.png" height="15px"><input type="text" name="dbal2" id="dbal2"  size="35" value="<?echo $T;?>" style="background :transparent; color : red;width:120px;font-weight:bold;" readonly>
+<img src="images\rp.png" height="15px"><input type="text" name="dbal2" id="dbal2"  size="35" value="<?php echo $T;?>" style="background :transparent; color : red;width:120px;font-weight:bold;" readonly>

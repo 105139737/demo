@@ -1,4 +1,4 @@
-<?php 
+<?php  
 $reqlevel=3;
 include("membersonly.inc.php");
 include "header.php";
@@ -10,7 +10,7 @@ $cy=date('Y');
 <html>
 <head>
         <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <style type="text/css"> 
@@ -182,14 +182,14 @@ $("#prod_div").load("get_product_stk.php?cat="+cat+"&scat="+scat+"&psl="+psl+"&p
 <tr>
 <td align="left" width="10%">
 <b>Date : </b>
-<input type="text" id="dt" name="dt" value="<?echo date('d-m-Y');?>" class="form-control" placeholder="Please Enter From Date" > 
+<input type="text" id="dt" name="dt" value="<?php echo date('d-m-Y');?>" class="form-control" placeholder="Please Enter From Date" > 
 </td>
 
 <td  align="left" width="20%">
 <b>Brand :</b><br>
 <select name="cat" class="form-control" size="1" id="cat" tabindex="8" onchange="get_cat();get_prod()">
 <Option value="">---All---</option>
-<?
+<?php 
 $data11 = mysqli_query($conn,"Select * from main_catg order by sl");
 while ($row11 = mysqli_fetch_array($data11))
 {
@@ -205,7 +205,7 @@ echo "<option value='".$bsl."'>".$brnm."</option>";
 <div id="gcat">
 <select name="scat" class="form-control" size="1" id="scat" tabindex="8" onchange="get_prod()">
 <Option value="">---All---</option>
-<?/*
+<?php /*
 $data1 = mysqli_query($conn,"Select * from main_scat order by nm");
 while ($row1 = mysqli_fetch_array($data1))
 {
@@ -223,15 +223,15 @@ echo "<option value='".$sl."'>".$cnm."</option>";
 <div id="prod_div">
 <select name="prnm" class="form-control"  id="prnm">
 <option value="">---All---</option>
-<?/*
+<?php /*
 $data1 = mysqli_query($conn,"Select * from main_product where typ='0' and stat='0' order by pnm");
 while ($row1 = mysqli_fetch_array($data1))
 {
 $msl=$row1['sl'];
 $pnm=$row1['pnm'];
 ?>
-<Option value="<?=$msl;?>"><?=reformat($pnm);?></option>
-<?
+<Option value="<?php  echo $msl;?>"><?php echo reformat($pnm);?></option>
+<?php 
 }*/
 ?>
 </select>
@@ -247,7 +247,7 @@ $pnm=$row1['pnm'];
 
 </tbody>
 </table>
-<div id="sgh">
+<div id="sgh" style="overflow-y: scroll;">
 </div>
 	
 

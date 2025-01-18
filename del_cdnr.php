@@ -1,11 +1,11 @@
-<?php
+<?php 
 /**
  * @author Onnet Solution
  * @copyright 2013
  */
 $reqlevel = 1;
 include("membersonly.inc.php");
-include("Numbers/Words.php");
+//include("Numbers/Words.php");
 
 $refno=$_REQUEST['refno'];
 //$typ=$_REQUEST['typ'];
@@ -45,7 +45,7 @@ $vid1=substr($vnos,2,7);
 $count6=5;
 while($count6>0)
 {
-$vid1=$vid1+1;
+$vid1=(float)$vid1+1;
 $vnoc=str_pad($vid1, 7, '0', STR_PAD_LEFT);
 $del_ref="DEL".$vnoc;
 $query5="select * from main_cdnr_del where del_ref='$del_ref'";

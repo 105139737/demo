@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 		date_default_timezone_set('Asia/Kolkata');
@@ -21,4 +21,4 @@ $result13 = mysqli_query($conn,$query13);
 alert('Update Successfully. Thank You.');
 document.location = "attend.php";
 </script>
-<?
+<?php 

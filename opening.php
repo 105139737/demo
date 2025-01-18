@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include "header.php";
@@ -9,7 +9,7 @@ $edt=date('Y-m-d');
 
 ?>
 <div class="wrapper row-offcanvas row-offcanvas-left">
-<?
+<?php 
 include "left_bar.php";
 ?>
 <style type="text/css"> 
@@ -215,7 +215,7 @@ return false;
 <td align="left" width="33%"><b>Company :</b><br>
 <select id="cat" name="cat" class="form-control" onchange="get_cat()">
 <option value="">---Select---</option>
-<?
+<?php 
 
 $data1 = mysqli_query($conn,"Select * from main_catg order by cnm");
 
@@ -224,8 +224,8 @@ $data1 = mysqli_query($conn,"Select * from main_catg order by cnm");
 	$sl=$row1['sl'];
 	$cnm=$row1['cnm'];
 ?>
-<option value="<?=$sl;?>"><?=$cnm;?></option>
-	<?}?>
+<option value="<?php  echo $sl;?>"><?php  echo $cnm;?></option>
+	<?php }?>
 </select>
 </td>
 
@@ -237,7 +237,7 @@ $data1 = mysqli_query($conn,"Select * from main_catg order by cnm");
 <div id="scat_div">
 <select id="scat" name="scat" class="form-control"  onchange="get_prod()">
 <option value="">---Select---</option>
-<?
+<?php 
 $data1 = mysqli_query($conn,"Select * from main_scat order by nm");
 
 		while ($row1 = mysqli_fetch_array($data1))
@@ -245,8 +245,8 @@ $data1 = mysqli_query($conn,"Select * from main_scat order by nm");
 	$sl=$row1['sl'];
 	$nm=$row1['nm'];
 ?>
-<Option value="<?=$sl;?>"><?=$nm;?></option>
-	<?}?>
+<Option value="<?php  echo $sl;?>"><?php  echo $nm;?></option>
+	<?php }?>
 </select>
 </div>
 </td>
@@ -254,15 +254,15 @@ $data1 = mysqli_query($conn,"Select * from main_scat order by nm");
 <div id="prod_div">
 <select id="prnm" name="prnm" class="form-control" onchange="gtt_unt();show()">
 <option value="">---Select---</option>
-<?
+<?php 
 $data1 = mysqli_query($conn,"Select * from main_product order by pnm");
 while ($row1 = mysqli_fetch_array($data1))
 	{
 	$sl=$row1['sl'];
 	$pnm=$row1['pnm'];
 ?>
-<Option value="<?=$sl;?>"><?=$pnm;?></option>
-<?}?>
+<Option value="<?php  echo $sl;?>"><?php  echo $pnm;?></option>
+<?php }?>
 </select>
 </div>
 </td>

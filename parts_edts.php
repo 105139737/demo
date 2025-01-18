@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 date_default_timezone_set('Asia/Kolkata');
@@ -53,7 +53,7 @@ $result2 = mysqli_query($conn,$query2)or die (mysqli_error($conn));
 			alert('Update Successfully. Thank You');
 			document.location="parts_show.php";
 			</script>
-			<?
+			<?php 
 		}
 		else
 		{
@@ -62,13 +62,13 @@ $result2 = mysqli_query($conn,$query2)or die (mysqli_error($conn));
 			alert('Data Already Exists');
 			history.go(-1);
 			</script>
-			<?
+			<?php 
 		}	
 	}
 }
 ?>
 <script>
-alert('<?=$err;?>');
+alert('<?php  echo $err;?>');
 history.go(-1);
 </script>
-<?
+<?php 

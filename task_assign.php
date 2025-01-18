@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 include "header.php";
@@ -6,7 +6,7 @@ $yrs = date('Y');
 
 ?>
         <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <style type="text/css"> 
@@ -50,12 +50,15 @@ function show()
 {
 var spid= document.getElementById('spid').value;
 var day= document.getElementById('day').value;
-$('#sgh').load('task_assign_list.php?spid='+encodeURIComponent(spid)+'&day='+day).fadeIn('fast');
+var yr= document.getElementById('yr').value;
+$('#sgh').load('task_assign_list.php?spid='+encodeURIComponent(spid)+'&day='+day+'&yr='+yr).fadeIn('fast');
 }
 function pagnt(pno){
 var ps=document.getElementById('ps').value;
 var spid=document.getElementById('spid').value;
-$('#sgh').load("task_assign_list.php?ps="+ps+"&pno="+pno+"&spid="+encodeURIComponent(spid)).fadeIn('fast');
+var day= document.getElementById('day').value;
+var yr= document.getElementById('yr').value;
+$('#sgh').load("task_assign_list.php?ps="+ps+"&pno="+pno+"&spid="+encodeURIComponent(spid)+'&day='+day+'&yr='+yr).fadeIn('fast');
 $('#pgn').val=pno;
 }
 function pagnt1(pno){
@@ -67,9 +70,11 @@ function edit(sl)
 {
 document.location='task_assign_edt.php?tm='+sl;
 }
-function xls(sl)
+function xls()
 {
-document.location='task_assign_list_xls.php';
+var yr=document.getElementById('yr').value;
+ window.open('task_assign_list_xls.php?yr='+yr, '_blank');
+//document.location='task_assign_list_xls.php?yr='+yr;
 }
 /*function getday(sl)
 {
@@ -79,6 +84,11 @@ var str= data;
 $('#dt').val(str);
 })
 }*/
+function autoGen()
+{
+var yr=document.getElementById('yr').value;
+document.location='task_assigns_auto.php?yr='+yr;
+}
 </script>
 
 
@@ -110,15 +120,15 @@ $('#dt').val(str);
 <td  align="left" width="35%">
 <select name="spid" class="form-control" size="1" id="spid" tabindex="8"  required onchange="getcust();show()">
 <Option value="">---Select---</option>
-<?
+<?php 
 $data1 = mysqli_query($conn,"Select * from main_sale_per order by spid");
 while ($row1 = mysqli_fetch_array($data1))
 {
 $sl=$row1['sl'];
 $spid=$row1['spid'];
 ?>
-<Option value="<?=$spid;?>"><?=$spid;?></option>
-<?}?>
+<Option value="<?php  echo $spid;?>"><?php  echo $spid;?></option>
+<?php }?>
 </select>
 </td>
 <td align="right" style="padding-top:15px;"  width="15%"><b>Day :</b></td>
@@ -139,26 +149,27 @@ $spid=$row1['spid'];
 <td align="right" style="padding-top:15px;" ><b>Customer :</b></td>
 <td  align="left" width="25%"><div id="custdv">
 <select name="cust[]"  multiple class="form-control" size="1" id="cust" tabindex="8"  required>
-<?
-$data13 = mysqli_query($conn,"Select * from main_cust");
+<?php 
+$data13 = mysqli_query($conn,"Select * from main_cust where typ='2'");
 while ($row13 = mysqli_fetch_array($data13))
 {
 $sl3=$row13['sl'];
 $cnm=$row13['nm'];
 ?>
-<Option value="<?=$sl3;?>"><?=$cnm;?></option>
-<?}?>
+<Option value="<?php  echo $sl3;?>"><?php  echo $cnm;?></option>
+<?php }?>
 </select></div>
 </td>
 <td align="right" style="padding-top:15px;" ><b>Year :</b></td>
 <td  align="left">
-<input type="text" id="yr" name="yr" value="<?php echo $yrs; ?>" class="form-control" required> 
+<input type="text" id="yr" name="yr" value="<?php  echo $yrs; ?>" class="form-control" required> 
 </td>			
 </tr>
 <tr>
 <td align="right" colspan="4">
 <input type="submit" class="btn btn-success" value="Submit" name="B1" >
 <input type="button" class="btn btn-info" value="Export to Excel" onclick="xls()" name="B1" >
+<input type="submit" class="btn btn-success" value="Auto Generate For Next Year" onclick="autoGen()" name="B1" >
 </td>
 </tr>
 </table>

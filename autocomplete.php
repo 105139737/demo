@@ -1,4 +1,4 @@
-<?php
+<?php 
 include "config.php";
 	$q=$_GET['q'];
 	$manu=$_REQUEST[mu];

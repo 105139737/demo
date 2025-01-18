@@ -1,4 +1,4 @@
-<?php 
+<?php  
 $reqlevel = 1;
 include("membersonly.inc.php");
 include "header.php";
@@ -20,7 +20,7 @@ $brand=$row11['brand'];
 
         <div class="wrapper row-offcanvas row-offcanvas-left">
  
-            <?php 
+            <?php  
             include "left_bar.php";
             ?>
 
@@ -299,14 +299,14 @@ var bcd=encodeURIComponent(document.getElementById('bcd').value);
               </div><!-- /.box-tools -->
                 </div><!-- /.box-header -->
                 <div class="box-body" >
-<input type="hidden" value="<?php echo $tsl;?>" name="sl" id="sl">
+<input type="hidden" value="<?php  echo $tsl;?>" name="sl" id="sl">
         <table border="0"   align="center" class="table table-hover table-striped table-bordered">
 
   <tr>
 	<td align="left" ><b>Branch : </b>
 	<select name="brncd" class="form-control" tabindex="1" id="brncd"  onchange="show()" required>
 	    <Option value=""  >---Select---</option>
-	<?
+	<?php 
 	
 	$query="Select * from main_branch where sl>0";
    $result = mysqli_query($conn,$query);
@@ -316,8 +316,8 @@ var bcd=encodeURIComponent(document.getElementById('bcd').value);
 	$bnm=$R['bnm'];
 
 	?>
-	<option value="<? echo $sl;?>"<?php if($sl==$brncd){echo 'selected';}?>><? echo $bnm;?></option>
-	<?
+	<option value="<?php  echo $sl;?>"<?php  if($sl==$brncd){echo 'selected';}?>><?php  echo $bnm;?></option>
+	<?php 
 	}
 	?>
 	</select>
@@ -325,15 +325,15 @@ var bcd=encodeURIComponent(document.getElementById('bcd').value);
 <td align="left" ><font color="red">*</font><label>Brand :</label>
 <select name="brand"  class="form-control" size="1" id="brand" tabindex="8"  >
 <Option value=""  >---Select---</option>
-<?php
+<?php 
 $data13 = mysqli_query($conn,"Select * from main_catg where sl>0 ");
 while ($row13 = mysqli_fetch_array($data13))
 {
 $sl3=$row13['sl'];
 $cnm=$row13['cnm'];
 ?>
-<Option value="<?=$sl3;?>" <?php if($sl3==$brand){echo 'selected';}?> ><?=$cnm;?></option>
-<?php 
+<Option value="<?php  echo $sl3;?>" <?php  if($sl3==$brand){echo 'selected';}?> ><?php  echo $cnm;?></option>
+<?php  
 }
 ?>
 </select>

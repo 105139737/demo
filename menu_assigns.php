@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel =1;
 include("membersonly.inc.php");
 $err="";
@@ -25,15 +25,15 @@ $insert=mysqli_query($conn,"insert into main_approll(username,msl) values('$user
 alert("Submitted Successfully....");
 document.location="menu_assign.php";
 </script>
-<?php
+<?php 
 }
 else
 {
 ?>
 <script>
-alert('<?php echo $err;?>');
+alert('<?php  echo $err;?>');
 window.history.go(-1);
 </script>
-<?php
+<?php 
 }
 ?>

@@ -1,4 +1,4 @@
-<?php
+<?php 
 
 /**
  * @author Nirmal
@@ -21,13 +21,13 @@ while ($rowa = mysqli_fetch_array($dataa))
                                         <img src="img/avatar3.png" alt="user image" class="offline"/>
                                         <p class="message">
                                             <a href="#" class="name">
-                                                <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> <? echo $tm;?></small>
-                                                <? echo $user;?>
+                                                <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> <?php  echo $tm;?></small>
+                                                <?php  echo $user;?>
                                             </a>
-                                            <? echo $msg;?>
+                                            <?php  echo $msg;?>
                                         </p>
                                     </div>
-<?
+<?php 
 
 }
 ?>

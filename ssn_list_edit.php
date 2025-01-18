@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include "header.php";
@@ -17,7 +17,7 @@ $tdt=date('d-m-Y',strtotime($tdt));
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
  <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <head>
@@ -120,17 +120,17 @@ $(document).ready(function()
                 </section>
 				   <section class="content">
 <form name="Form1" method="post" action="ssn_list_edits.php" id="Form1">
-<input type="hidden" name="sl" id="sl" value="<?=$sl?>">
+<input type="hidden" name="sl" id="sl" value="<?php  echo $sl?>">
 <div class="box box-success">
 <table  width="860px" class="table table-hover table-striped table-bordered">    
 <tr>
 <td  ><font size="4"><b>From :</b></font></td>
 <td align="left">
-<input type="text" name="fdt" class="form-control" id="fdt" value="<?=$fdt?>">
+<input type="text" name="fdt" class="form-control" id="fdt" value="<?php  echo $fdt?>">
 </td> 	
 <td  ><font size="4"><b>To :</b></font></td>
 <td align="left" >
-<input type="text" name="tdt" class="form-control" id="tdt" value="<?=$tdt?>">
+<input type="text" name="tdt" class="form-control" id="tdt" value="<?php  echo $tdt?>">
 </td> 	
 </tr>
   <tr style="display:none;">

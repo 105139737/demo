@@ -1,4 +1,4 @@
-<?php 
+<?php  
 $reqlevel = 3;
 include("membersonly.inc.php");
 $tiamm=0;
@@ -27,7 +27,7 @@ header("Content-Disposition: attachment; filename=$file");
 <td width="10%" align="center"><span style="color:#000000;font-family:Arial;font-size:15px;"><strong>Due</strong></span></td>
 <td width="10%" align="center"><span style="color:#000000;font-family:Arial;font-size:15px;"><strong>Advance</strong></span></td>
 </tr>
-<?
+<?php 
 $i=0;
 $DTOT=0;
 $ATOT=0;
@@ -109,17 +109,17 @@ if($a!="")
 $i++;
 ?>
 <tr>
-<td align="center"><span style="color:#000000;font-family:Arial;font-size:15px;"><?=$i;?></span></td>
-<td align="center"><span style="color:#000000;font-family:Arial;font-size:15px;"><? echo get_branch_name($brncd);?></span></td>
+<td align="center"><span style="color:#000000;font-family:Arial;font-size:15px;"><?php  echo $i;?></span></td>
+<td align="center"><span style="color:#000000;font-family:Arial;font-size:15px;"><?php  echo get_branch_name($brncd);?></span></td>
 <td align="left"><span style="color:#000000;font-family:Arial;font-size:15px;">
-<a href="supp_statments.php?cid=<?=$a;?>&fdt=<?=$fdt;?>&tdt=<?=$tdt;?>&proj=0&brncd=<?=$brncd;?>" target="_blank"><? echo $snm;?> - (<?=$mob1;?>)</a>
+<a href="supp_statments.php?cid=<?php  echo $a;?>&fdt=<?php  echo $fdt;?>&tdt=<?php  echo $tdt;?>&proj=0&brncd=<?php  echo $brncd;?>" target="_blank"><?php  echo $snm;?> - (<?php  echo $mob1;?>)</a>
 </span></td>
-<td align="right"><span style="color:#000000;font-family:Arial;font-size:15px;"><? echo number_format($adv,2);?></span></td>
-<td align="right"><span style="color:#000000;font-family:Arial;font-size:15px;"><? echo number_format($due,2);?></span></td>
+<td align="right"><span style="color:#000000;font-family:Arial;font-size:15px;"><?php  echo number_format($adv,2);?></span></td>
+<td align="right"><span style="color:#000000;font-family:Arial;font-size:15px;"><?php  echo number_format($due,2);?></span></td>
 
 </tr>
 
-<?
+<?php 
 }
 }
 }
@@ -129,8 +129,8 @@ $i++;
 <td ><span style="color:#000000;font-family:Arial;font-size:15px;"></span></td>
 <td ><span style="color:#000000;font-family:Arial;font-size:15px;"></span></td>
 <td ><span style="color:#000000;font-family:Arial;font-size:15px;"></span></td>
-<td align="right"><span style="color:#000000;font-family:Arial;font-size:17px;"><? echo number_format($ATOT,2);?></span></td>
-<td align="right"><span style="color:#000000;font-family:Arial;font-size:17px;"><? echo number_format($DTOT,2);?></span></td>
+<td align="right"><span style="color:#000000;font-family:Arial;font-size:17px;"><?php  echo number_format($ATOT,2);?></span></td>
+<td align="right"><span style="color:#000000;font-family:Arial;font-size:17px;"><?php  echo number_format($DTOT,2);?></span></td>
 
 </tr>
 </table>

@@ -1,8 +1,8 @@
-<?
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 include("Numbers/Words.php");
-$blno=rawurldecode($_REQUEST[blno]);
+$blno=rawurldecode($_REQUEST['blno'] ?? "");
 ?>
 <html>
 <head>
@@ -61,7 +61,7 @@ function blprnt(){
 	  <center>						
 							
 <form method="post" action="centrys.php" name="form1"  id="form1">
-<?    
+<?php     
 $csl=1;
 $sln=0;
  $query111 = "SELECT * FROM ".$DBprefix."billing_oth where blno='$blno'";
@@ -133,7 +133,7 @@ $qttl=$R1['qttl'];
 <font size="2"><b>Bill No :</b></font>
 </td>
 <td>
-<font size="2"><b><?=$blno;?></b></font>
+<font size="2"><b><?php  echo $blno;?></b></font>
 </td>
 </tr>
 <tr>
@@ -141,7 +141,7 @@ $qttl=$R1['qttl'];
 <font size="2"><b>Date :</b></font>
 </td>
 <td>
-<font size="2"><b><?=$dt;?></b></font>
+<font size="2"><b><?php  echo $dt;?></b></font>
 </td>
 </tr>
 <tr>
@@ -149,7 +149,7 @@ $qttl=$R1['qttl'];
 <font size="2"><b>Name :</b></font>
 </td>
 <td>
-<font size="2"><b><?=$cnm;?></b></font>
+<font size="2"><b><?php  echo $cnm;?></b></font>
 </td>
 </tr>
 <tr>
@@ -157,7 +157,7 @@ $qttl=$R1['qttl'];
 <font size="2"><b>Serial No. :</b></font>
 </td>
 <td>
-<font size="2"><b><?=$cusl;?> </b></font>
+<font size="2"><b><?php  echo $cusl;?> </b></font>
 </td>
 </tr>
 <tr>
@@ -165,7 +165,7 @@ $qttl=$R1['qttl'];
 <font size="2"><b>Contact :</b></font>
 </td>
 <td>
-<font size="2"><b><?=$cnt;?></b></font>
+<font size="2"><b><?php  echo $cnt;?></b></font>
 </td>
 </tr>
 
@@ -189,11 +189,11 @@ $qttl=$R1['qttl'];
 </b>
 </td>
 <td  align="right" style="font-family: Arial, Helvetica, sans-serif;" >
-<font size="3"><b><?=number_format($gttl,2);?></b></font>
+<font size="3"><b><?php echo number_format($gttl,2);?></b></font>
 </td>
 </tr>
 
-<?
+<?php 
 
 $sln=0;
 $ppoint=0;
@@ -233,10 +233,10 @@ $cpoint=0;
 </table>
 <table border="0" width="100%">
 <tr>
-<td >Previou point :</td><td align="right"> <?=$cpoint;?></td ></tr><tr>
-<td >Current point :</td><td align="right"> <?=$ppoint;?></td ></tr><tr>
+<td >Previou point :</td><td align="right"> <?php  echo $cpoint;?></td ></tr><tr>
+<td >Current point :</td><td align="right"> <?php  echo $ppoint;?></td ></tr><tr>
 <tr><td colspan="2"><hr></td></tr>
-<td ><b>Total point :</b></td><td align="right"> <b><?=$cpoint+$ppoint;?></b></td ></tr>
+<td ><b>Total point :</b></td><td align="right"> <b><?php  echo $cpoint+$ppoint;?></b></td ></tr>
 <tr><td colspan="2"><hr></td></tr>
 </table>
 

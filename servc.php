@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include "header.php";
@@ -6,7 +6,7 @@ include "header.php";
 <html>
 <head>
         <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <style type="text/css"> 
@@ -137,7 +137,7 @@ $("#hsndiv").load("get_hsn.php?scat="+scat).fadeIn('fast');
 	<td  align="left" width="30%" style="display:none;">
 	<select name="cat" class="form-control" size="1" id="cat" tabindex="8" onchange="get_scat(this.value)">
 	<Option value="">---Select---</option>
-	<?
+	<?php 
 	$data1 = mysqli_query($conn,"Select * from main_catg order by cnm");
 	while ($row1 = mysqli_fetch_array($data1))
 	{
@@ -154,15 +154,15 @@ $("#hsndiv").load("get_hsn.php?scat="+scat).fadeIn('fast');
 	<div id="catdiv">
 	<select name="scat" class="form-control" size="1" id="scat" tabindex="8" onchange="get_igst()">
 	<Option value="">---Select---</option>
-	<?
+	<?php 
 	$data1=mysqli_query($conn,"Select * from main_scat order by nm");
 	while($row1=mysqli_fetch_array($data1))
 	{
 		$sc_sl=$row1['sl'];
 		$sc_nm=$row1['nm'];
 		?>
-		<Option value="<?=$sc_sl;?>"><?=$sc_nm;?></option>
-		<?
+		<Option value="<?php  echo $sc_sl;?>"><?php  echo $sc_nm;?></option>
+		<?php 
 	}
 	?>
 	</select>

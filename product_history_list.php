@@ -1,6 +1,10 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
+$betno1="";
+$opst1=0;
+$stin1=0;
+$stout1=0;
 $pnm=$_REQUEST['pnm'];
 $scat=$_REQUEST['scat'];
 $cat=$_REQUEST['cat'];
@@ -37,7 +41,7 @@ date_default_timezone_set('Asia/Kolkata');
 			<td  align="center" ><b>Transfer In Bill No</b></td>
 			<td  align="center" ><b>Transfer Out Bill No</b></td>
 			</tr>
-<?
+<?php 
 $cnt=0;
 $sql=mysqli_query($conn,"select * from main_stock where pcd='$pnm' $bcd $betno1 order by dt") or die (mysqli_error($conn));
 while($r=mysqli_fetch_array($sql))
@@ -81,22 +85,22 @@ $pnm=$row1['pnm'];
 }
 	?>
 	<tr bgcolor="">
-			<td  align="center" ><b><?echo $cnt;?></b></td>
-			<td  align="center" ><b><?echo date('d-m-Y',strtotime($dt));?></b></td>
-			<td  align="center" ><b><?echo $pnm;?></b></td>
-			<td  align="center" ><b><?echo $opst;?></b></td>
-			<td  align="center" ><b><?echo $stin;?></b></td>
-			<td  align="center" ><b><?echo $stout;?></b></td>
-			<td  align="left"><b><?echo $nrtn;?></b></td>
-			<td  align="center"><b><?echo $betno;?></b></td>
-			<td  align="center"><b><a href="purchase_edit.php?blno=<?echo $pbill;?>" target="_blank"><?echo $pbill;?></a></b></td>
-			<td  align="center"><b><a href="billing_edit.php?blno=<?echo $sbill;?>" target="_blank"><?echo $sbill;?></a></b></td>
-			<td  align="center" ><b><?echo $rbill;?></b></td>
-			<td  align="center" ><b><?echo $prbill;?></b></td>
-			<td  align="center" ><b><a href="stock_recv_view.php?blno=<?echo $tout;?>" target="_blank"><?echo $tout;?></a></b></td>
-			<td  align="center" ><b><a href="stock_recv_view.php?blno=<?echo $tin;?>" target="_blank"><?echo $tin;?></a></b></td>
+			<td  align="center" ><b><?php echo $cnt;?></b></td>
+			<td  align="center" ><b><?php echo date('d-m-Y',strtotime($dt));?></b></td>
+			<td  align="center" ><b><?php echo $pnm;?></b></td>
+			<td  align="center" ><b><?php echo $opst;?></b></td>
+			<td  align="center" ><b><?php echo $stin;?></b></td>
+			<td  align="center" ><b><?php echo $stout;?></b></td>
+			<td  align="left"><b><?php echo $nrtn;?></b></td>
+			<td  align="center"><b><?php echo $betno;?></b></td>
+			<td  align="center"><b><a href="purchase_edit.php?blno=<?php echo $pbill;?>" target="_blank"><?php echo $pbill;?></a></b></td>
+			<td  align="center"><b><a href="billing_edit.php?blno=<?php echo $sbill;?>" target="_blank"><?php echo $sbill;?></a></b></td>
+			<td  align="center" ><b><?php echo $rbill;?></b></td>
+			<td  align="center" ><b><?php echo $prbill;?></b></td>
+			<td  align="center" ><b><a href="stock_recv_view.php?blno=<?php echo $tout;?>" target="_blank"><?php echo $tout;?></a></b></td>
+			<td  align="center" ><b><a href="stock_recv_view.php?blno=<?php echo $tin;?>" target="_blank"><?php echo $tin;?></a></b></td>
 			</tr>
-	<?
+	<?php 
 	$pbill="";
 	$sbill="";	
 	$rbill="";
@@ -108,10 +112,10 @@ $pnm=$row1['pnm'];
 ?>
 <tr>
 			<td  align="right" colspan="3"><b>Total : </b></td>
-			<td  align="center" ><b><?echo $opst1;?></b></td>
-			<td  align="center" ><b><?echo $stin1;?></b></td>
-			<td  align="center" ><b><?echo $stout1;?></b></td>
-			<td  align="left"><b>= <?=($opst1+$stin1)-$stout1?></b></td>
+			<td  align="center" ><b><?php echo $opst1;?></b></td>
+			<td  align="center" ><b><?php echo $stin1;?></b></td>
+			<td  align="center" ><b><?php echo $stout1;?></b></td>
+			<td  align="left"><b>= <?php echo ($opst1+$stin1)-$stout1?></b></td>
 			<td  align="center"><b></b></td>
 			<td  align="center"><b></b></td>
 			<td  align="center"><b></b></td>
