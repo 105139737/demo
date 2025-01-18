@@ -1,8 +1,8 @@
-<?
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include "header.php";
-$sl=$_REQUEST[sl];
+$sl=$_REQUEST['sl'];
 $data= mysqli_query($conn,"select * from main_gst where sl='$sl'")or die(mysqli_error($conn));
 while ($row = mysqli_fetch_array($data))
 {
@@ -16,7 +16,7 @@ $cat=$row['cat'];
 ?>
 <html>
 <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <script src="js/plugins/input-mask/jquery.inputmask.js" type="text/javascript"></script>
@@ -143,36 +143,36 @@ select.sc {
 							
 <HR> 	
 <form name="form1" id="form1" method="post" action="gsts.php" onsubmit="return check()">
-<input type="hidden" id="sl" name="sl" value="<?=$sl;?>">
+<input type="hidden" id="sl" name="sl" value="<?php  echo $sl;?>">
 <center>
 <div class="box box-success" >
 <table border="0"  width="800px" class="table table-hover table-striped table-bordered" >
 <tr>
 <td  align="right" style="padding-top:17px"><b>CGST :</b></td>
 <td  align="left">
-<input type="text" class="form-control" id="cgst" name="cgst" value="<?=$cgst;?>" size="50" placeholder="Enter CGST">
+<input type="text" class="form-control" id="cgst" name="cgst" value="<?php  echo $cgst;?>" size="50" placeholder="Enter CGST">
 </td>
 <td  align="right" style="padding-top:17px"><b>SGST :</b></td>
 <td  align="left">
-<input type="text" class="form-control" id="sgst"  name="sgst" value="<?=$sgst;?>" size="50" placeholder="Enter SGST">
+<input type="text" class="form-control" id="sgst"  name="sgst" value="<?php  echo $sgst;?>" size="50" placeholder="Enter SGST">
 </td>
 </tr>
 <tr>
 <td  align="right" style="padding-top:17px"><b>IGST :</b></td>
 <td  align="left">
-<input type="text" class="form-control" id="igst" name="igst" value="<?=$igst;?>" size="50" placeholder="Enter IGST">
+<input type="text" class="form-control" id="igst" name="igst" value="<?php  echo $igst;?>" size="50" placeholder="Enter IGST">
 </td>
 <td  align="right" style="padding-top:17px"><b>Category :</b></td>
 <td  align="left">
 <select class="form-control" id="cat"  name="cat">
 <option value="">---Select---</option>
-<?
+<?php 
 $get=mysqli_query($conn,"select * from main_scat order by nm") or die(mysqli_error($conn));
 while($row=mysqli_fetch_array($get))
 {
 ?>
-<option value="<?=$row['sl']?>" <?=$row['sl']==$cat? 'selected' : ''?>><?=$row['nm']?> (<?=$row['hsn']?>)</option>
-<?
+<option value="<?php  echo $row['sl']?>" <?php  echo $row['sl']==$cat? 'selected' : ''?>><?php  echo $row['nm']?> (<?php  echo $row['hsn']?>)</option>
+<?php 
 }
 ?>
 </select>
@@ -181,11 +181,11 @@ while($row=mysqli_fetch_array($get))
 <tr>
 <td  align="right" style="padding-top:17px"><b>From Date :</b></td>
 <td  align="left">
-<input type="text" class="form-control" id="fdt" name="fdt" value="<?=$fdt;?>" size="50" required>
+<input type="text" class="form-control" id="fdt" name="fdt" value="<?php  echo $fdt;?>" size="50" required>
 </td>
 <td  align="right" style="padding-top:17px"><b>To Date :</b></td>
 <td  align="left">
-<input type="text" class="form-control" id="tdt"  name="tdt" value="<?=$tdt;?>" size="50" required>
+<input type="text" class="form-control" id="tdt"  name="tdt" value="<?php  echo $tdt;?>" size="50" required>
 </td>
 </tr>
 <tr>

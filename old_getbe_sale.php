@@ -1,12 +1,12 @@
-<?
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
-$pcd=$_REQUEST['pcd'];
-$scat=$_REQUEST['scat'];
-$brncd=$_REQUEST['brncd'];
-$unit=$_REQUEST['unit'];
-$reffno=$_REQUEST['reffno'];
-$betno=rawurldecode($_REQUEST['betno']);
+$pcd=$_REQUEST['pcd']??"";
+$scat=$_REQUEST['scat']??"";
+$brncd=$_REQUEST['brncd']??"";
+$unit=$_REQUEST['unit']??"";
+$reffno=$_REQUEST['reffno']??"";
+$betno=rawurldecode($_REQUEST['betno']??"");
 if($betno!=''){$betno1=" and betno='$betno'";}else{$betno1="";}
 
 $get=mysqli_query($conn,"select * from ".$DBprefix."unit where cat='$pcd'") or die(mysqli_error($conn));
@@ -22,7 +22,7 @@ while($roww=mysqli_fetch_array($get))
 
 ?>
 <select name="refno"  id="refno" class="sc1" style="width:100%" tabindex="15" tabindex="10" >
-<?/*
+<?php /*
 $data1 = mysqli_query($conn,"SELECT * FROM main_stock WHERE pcd='$pcd' and bcd='$brncd'  group by refno order by dt,sl desc");
 while ($row1 = mysqli_fetch_array($data1))
 {
@@ -67,7 +67,7 @@ if($stck>0)
 {*/
 	?>
 <option value="Opening">Opening Stock</option>
-<?
+<?php 
 /*
 	}
 	}
@@ -77,7 +77,7 @@ if($stck>0)
 <script>
 get_prc();
 </script>
-<input type="hidden" class="sc" id="scat_unit" readonly name="scat_unit" style="text-align:center" value="<?=$unit;?>"  size="12">
+<input type="hidden" class="sc" id="scat_unit" readonly name="scat_unit" style="text-align:center" value="<?php  echo $unit;?>"  size="12">
 
 
 

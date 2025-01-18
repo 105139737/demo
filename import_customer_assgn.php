@@ -1,4 +1,4 @@
-<?php
+<?php 
 include "config.php";
 $edt=date('Y-m-d');
 $dttm=date('d-m-Y H:i:s');

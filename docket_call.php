@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include "header.php";
@@ -8,7 +8,7 @@ $cdt=date('d-m-Y');
 <html>
 <head>
 	<div class="wrapper row-offcanvas row-offcanvas-left">
-	<?
+	<?php 
 	include "left_bar.php";
 	?>
 <script src="js/plugins/input-mask/jquery.inputmask.js" type="text/javascript"></script>
@@ -126,7 +126,7 @@ function addspnm()
 	<select name="cnm" id="cnm" class="form-control" size="1" onchange="gtid()">
 	<Option value="">---Select---</option>
 	<option value="Add">---Add New Customer---</option>
-	<?
+	<?php 
 		$data=mysqli_query($conn,"Select * from main_cust order by nm");
 		while($row=mysqli_fetch_array($data))
 		{
@@ -150,7 +150,7 @@ function addspnm()
 </td>
 <td align="right" style="padding-top:17px"><b>Date :</b></td>
 <td align="left">
-<input type="text" class="form-control" id="cdt" name="cdt" value="<?=$cdt;?>" size="50" readonly>
+<input type="text" class="form-control" id="cdt" name="cdt" value="<?php  echo $cdt;?>" size="50" readonly>
 </td>
 </tr>
 <tr>
@@ -158,7 +158,7 @@ function addspnm()
 <td align="left">
 	<select name="brand" id="brand" class="form-control" size="1">
 	<Option value="">---Select---</option>
-	<?
+	<?php 
 		$data1=mysqli_query($conn,"Select * from main_brand order by brand");
 		while($row1=mysqli_fetch_array($data1))
 		{
@@ -183,7 +183,7 @@ function addspnm()
 <td align="left">
 	<select name="call_type" id="call_type" class="form-control" size="1">
 	<Option value="">---Select---</option>
-	<?
+	<?php 
 		$data2=mysqli_query($conn,"Select * from main_call_typ order by call_typ");
 		while($row2=mysqli_fetch_array($data2))
 		{

@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 include("Numbers/Words.php");
@@ -33,9 +33,15 @@ while($rows=mysqli_fetch_array($result51))
 {
 $vnos=$rows['blno'];
 }
+if(!empty($vnos)){
 $bill=explode($als,$vnos);
 $bill1=explode($ssn,$bill[1]);
 $vnos=$bill1[1];
+}
+else
+{
+    $vnos=0;
+}
 if($start_no>$vnos)
 {
 $vnos=$start_no;
@@ -43,7 +49,7 @@ $vnos=$start_no;
 $vid1=$vnos;
 
 while($count6>0){
-$vid1=$vid1+1;
+$vid1=(float)$vid1+1;
 //$vnoc=str_pad($vid1, 5, '0', STR_PAD_LEFT);
 $vnoc=$vid1;
 $blnon=$als.$vnoc.$ssn;
@@ -159,7 +165,10 @@ if($unit=='mun'){$stout=$qt*$mdvlu;$rate1=$rate/$mdvlu;$uval=$mdvlu;$stk_rate=$s
 if($unit=='bun'){$stout=$qt*$bgvlu;$rate1=$rate/$bgvlu;$uval=$bgvlu;$stk_rate=$stk_rate1/$bgvlu;}
 
 
-
+$kg=0;
+$grm=0;
+$srt=0;
+$adp=0;
 
 $query21 = "INSERT INTO ".$DBprefix."billdtls_ret (cat,scat,prsl,imei,unit,kg,grm,pcs,srt,adp,prc,ttl,blno,fst,tst,cgst_rt,sgst_rt,igst_rt,cgst_am,sgst_am,igst_am,net_am,refno,usl,uval,total,disp,disa,dt,betno,bcd,rate,tamm,bill_typ,stk_rate,cust,eby) 
 VALUES ('$cat','$scat','$prsl','$imei','$unit','$kg','$grm','$qt','$srt','$adp','$prc','$lttl','$blnon','$fst','$tst','$cgst_rt','$sgst_rt','$igst_rt','$cgst_am','$sgst_am','$igst_am','$net_am','$refno','$usl','$uval','$total','$disp','$disa','$dt','$betno','$bcd','$rate1','$tamm','$bill_typ','$stk_rate','$cust','$$user_currently_loged')";
@@ -203,7 +212,7 @@ $vnos=$rows['vno'];
 }	
 $vid1=substr($vnos,2,7);	
 $count6=5;
-	$vid1=$vid1+1;
+	$vid1=(float)$vid1+1;
 	$vnoc=str_pad($vid1, 7, '0', STR_PAD_LEFT);
 	$vcno="SV".$vnoc;
 
@@ -230,13 +239,11 @@ $query21 = "INSERT INTO ".$DBprefix."drcr (vno,cbill,cid,dt,nrtn,dldgr,cldgr,amm
 $result21 = mysqli_query($conn,$query21)or die(mysqli_error($conn));
 }
 
-$nw = new Numbers_Words();
-$aiw=$nw->toWords($rgttl);
 ?>
 
 <html>
         <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <head>
@@ -280,29 +287,24 @@ border: 1px solid #000;
 <font size="5"> <b><a href="sale_show.php" ><u>Back</u></a></b></font>
 </td>
 <td  align="center">
-<font size="5"> <b><a href="bill_new_gst_ret.php?blno=<?=rawurlencode($blnon);?>" target="_blank"><font color="red"><u>Print</u></font></a></b></font>
+<font size="5"> <b><a href="bill_new_gst_ret.php?blno=<?php echo rawurlencode($blnon);?>" target="_blank"><font color="red"><u>Print</u></font></a></b></font>
 </td>
 
 </tr>
 
 <tr>
 <td  align="center" colspan="3" >
-<font size="4" color="red"> <b> Return  No. : <?=$blnon;?></b></font>
+<font size="4" color="red"> <b> Return  No. : <?php  echo $blnon;?></b></font>
 </td>
 
 </tr>
 <tr>
 <td  align="center" colspan="3" >
-<font size="4" color="red"> <b> Total Amount : <?=number_format($rgttl,2);?></b></font>
+<font size="4" color="red"> <b> Total Amount : <?php echo number_format($rgttl,2);?></b></font>
 </td>
 
 </tr>
-<tr>
-<td  align="center" colspan="3" >
-<font size="4" color="red"> <b> In Word : <?=$aiw;?></b></font>
-</td>
 
-</tr>
 </table>
 
 
@@ -311,7 +313,7 @@ border: 1px solid #000;
 </body>
 </div>
 </html>
-<?
+<?php 
 }
 else
 {
@@ -320,6 +322,6 @@ else
 alert('Please Check Quantity...');
 document.location="billing_gst_ret.php";
 </script>
-<?	
+<?php 	
 }
 ?>

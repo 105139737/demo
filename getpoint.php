@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 $pcd=$_REQUEST[pcd];
@@ -13,4 +13,4 @@ $point=$R3['point'];
 
 ?>
 
-<input type="text" class="sc"  id="point" name="point" style="text-align:center" onblur="cal()"  value="<?=$point;?>"  tabindex="9" size="15"  >
+<input type="text" class="sc"  id="point" name="point" style="text-align:center" onblur="cal()"  value="<?php  echo $point;?>"  tabindex="9" size="15"  >

@@ -1,9 +1,9 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 $id = $_REQUEST['cid'];
 $brncd=$_REQUEST['brncd'];
-$pno=$_REQUEST['pno'];
+$pno=$_REQUEST['pno'] ?? "";
 
 $T=0;
 $t1=0;
@@ -26,4 +26,4 @@ $T=round($R16['amm'],2);
 }
 //$T=$t1-$t2;			
 ?>
-<input type="text" name="dbal" id="dbal"  value="<?php echo $T;?>" style="background :transparent;color :red;width:120px;;font-weight:bold;" readonly>
+<input type="text" name="dbal" id="dbal"  value="<?php  echo $T;?>" style="background :transparent;color :red;width:120px;;font-weight:bold;" readonly>

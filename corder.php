@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 include "header.php";
@@ -8,7 +8,7 @@ $dl_tm=date('H:i', $ndl_tm);
 ?>
 <html>
         <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <head>
@@ -285,14 +285,14 @@ $("#asd").hide();
   <select id="custnm" name="custnm" tabindex="1"  class="form-control" onchange="gtid()" >
 	<option value="">---Select---</option>
 	<option value="Add">---Add New Customer---</option>
-	<?
+	<?php 
 		$query="select * from main_cust  WHERE sl>0 order by nm";
 		$result=mysqli_query($conn,$query);
 		while($rw=mysqli_fetch_array($result))
 		{
 			?>
-			<option value="<?=$rw['sl'];?>"><?=$rw['nm'];?> <?if($rw['cont']!=""){?>( <?=$rw['cont'];?> )<?}?></option>
-			<?
+			<option value="<?php  echo $rw['sl'];?>"><?php  echo $rw['nm'];?> <?php if($rw['cont']!=""){?>( <?php  echo $rw['cont'];?> )<?php }?></option>
+			<?php 
 		}
 	?>
 	</select>
@@ -329,7 +329,7 @@ $("#asd").hide();
 <td align="left" >
 
 <select name="brncd" class="form-control" tabindex="2" size="1" id="brncd" onchange="getb()"  >
-<?
+<?php 
 if($user_current_level<0)
 {
 $query="Select * from main_branch";
@@ -345,8 +345,8 @@ $sl=$R['sl'];
 $bnm=$R['bnm'];
 
 ?>
-<option value="<? echo $sl;?>"><? echo $bnm;?></option>
-<?
+<option value="<?php  echo $sl;?>"><?php  echo $bnm;?></option>
+<?php 
 }
 ?>
 </select>
@@ -354,7 +354,7 @@ $bnm=$R['bnm'];
 </td>
     <td align="right" style="padding-top:15px;"> <b>Date : </b></td>
   <td>
-  <input type="text" class="form-control"  id="dt"  name="dt" value="<? echo date('d-m-Y');?>" tabindex="3" size="35" placeholder="Enter Date">
+  <input type="text" class="form-control"  id="dt"  name="dt" value="<?php  echo date('d-m-Y');?>" tabindex="3" size="35" placeholder="Enter Date">
   </td>
 </tr>
 
@@ -382,7 +382,7 @@ $bnm=$R['bnm'];
 
 <select id="prnm" name="prnm" class="sc"  tabindex="4"   onchange="getb()" >
 		<option value="">---Select---</option>
-		<?
+		<?php 
 			$query6="select * from  ".$DBprefix."product order by pnm";
 			$result5 = mysqli_query($conn,$query6);
 			while($row=mysqli_fetch_array($result5))
@@ -404,8 +404,8 @@ while ($row1 = mysqli_fetch_array($data2))
 $brand=$row1['brand'];
 }
 				?>
-			<option value="<?=$row['sl'];?>"><?=$pnm;?> - <?=$cnm;?> - <?=$brand;?> - <?=$mnm;?></option>
-				<?
+			<option value="<?php  echo $row['sl'];?>"><?php  echo $pnm;?> - <?php  echo $cnm;?> - <?php  echo $brand;?> - <?php  echo $mnm;?></option>
+				<?php 
 				}
 				?>
 			</select>
@@ -462,7 +462,7 @@ $brand=$row1['brand'];
 </tr>
 </table>
 
-<input type="hidden" id="prid"  name="prid" value="<? echo $cid;?>">
+<input type="hidden" id="prid"  name="prid" value="<?php  echo $cid;?>">
 <input type="hidden" id="stk" >
 <input type="hidden" id="fls" >
 </form>

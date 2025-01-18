@@ -1,4 +1,4 @@
-<?php
+<?php 
 include("config.php");
 
 $query21 = "update ".$DBprefix."drcr set dt='2018-10-10' where typ='11' and (dldgr='-1' or cldgr='-1')";

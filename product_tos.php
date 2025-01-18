@@ -1,4 +1,4 @@
-<?PHP $reqlevel = 3; 
+<?php  $reqlevel = 3; 
 include("membersonly.inc.php");
 
 $dt=date('Y-m-d');
@@ -10,7 +10,7 @@ $scat=$_POST['scat'];
 $tcat=$_POST['tcat'];
 $tscat=$_POST['tscat'];
 
-$err=="";
+$err="";
 
 if($fpcd=="" or $tpcd=="")
 {
@@ -34,15 +34,15 @@ $result6 = mysqli_query($conn,$query6) or die(mysqli_error($conn));
 alert('Submit Successfully. Thank You...');
 window.close();
 </script>
-<?
+<?php 
 }
 else
 {
 ?>
 <Script language="JavaScript">
-alert('<? echo $err;?>');
+alert('<?php  echo $err;?>');
 window.history.go(-1);
 </script>
-<?
+<?php 
 }
 ?>

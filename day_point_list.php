@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3; 
 
 include("membersonly.inc.php");
@@ -24,7 +24,7 @@ $dis1=0;
 	<td  align="center" width="40%"><b>Customer</b></td>
 
 </tr>
-			 <?
+			 <?php 
 		$sln=0;
 		$point1=0;
 	
@@ -59,18 +59,18 @@ while ($row1 = mysqli_fetch_array($data1))
 		   <tr >
 			
 		
-			<td  align="center"><?=$sln;?></td>
-			<td  align="center"><?=$edt;?></td>
-			<td  align="center"><?=$point;?></td>	
-			<td  align="left"> <?=$cusl;?>. <?=$cnm;?> (<?=$cnt;?>) </td>
+			<td  align="center"><?php  echo $sln;?></td>
+			<td  align="center"><?php  echo $edt;?></td>
+			<td  align="center"><?php  echo $point;?></td>	
+			<td  align="left"> <?php  echo $cusl;?>. <?php  echo $cnm;?> (<?php  echo $cnt;?>) </td>
 			</tr>	 
-<?}?>
+<?php }?>
    <tr >
 			
 		
 			<td colspan="2" align="right"><b>Total : </b></td>
 			
-			<td  align="center"><b><?=$point1;?></b></td>	
+			<td  align="center"><b><?php  echo $point1;?></b></td>	
 			<td  align="left">  </td>
 			</tr>	
  

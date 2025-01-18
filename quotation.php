@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 include "header.php";
@@ -328,12 +328,12 @@ $("#prod_div").load("quo_get_product.php?cat="+cat+"&scat="+scat).fadeIn('fast')
 <tr>
 <td align="right" style="padding-top:15px;"> <b>Date : </b>
 <td>
-<input type="text" class="form-control"  id="dt"  name="dt" value="<? echo date('d-m-Y');?>" tabindex="1" placeholder="Enter Date">
+<input type="text" class="form-control"  id="dt"  name="dt" value="<?php  echo date('d-m-Y');?>" tabindex="1" placeholder="Enter Date">
 </td>
 <td align="right" style="padding-top:15px;"><b>Branch :</b></td>
 	<td>
 	<select name="brncd" class="form-control" tabindex="1" id="brncd"  >
-	<?
+	<?php 
 	$query="Select * from main_branch order by sl";
 	$result = mysqli_query($conn,$query);
 	while ($R = mysqli_fetch_array ($result))
@@ -342,8 +342,8 @@ $("#prod_div").load("quo_get_product.php?cat="+cat+"&scat="+scat).fadeIn('fast')
 	$bnm=$R['bnm'];
 
 	?>
-	<option value="<? echo $sl;?>"><? echo $bnm;?></option>
-	<?
+	<option value="<?php  echo $sl;?>"><?php  echo $bnm;?></option>
+	<?php 
 	}
 	?>
 	</select>
@@ -356,14 +356,14 @@ $("#prod_div").load("quo_get_product.php?cat="+cat+"&scat="+scat).fadeIn('fast')
 	<div id="fst_div">
 	<select id="fst" data-placeholder="Choose Your Supplier" name="fst"  tabindex="1" class="form-control" onchange="get_gst()" >
 
-	<?
+	<?php 
 	$sql="SELECT * FROM main_state WHERE sl>0 ORDER BY sn";
 	$result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
 	while($row=mysqli_fetch_array($result))
 	{
 	?>
-	<option value="<?=$row['sl'];?>"<?if($row['sl']=='1'){echo 'selected';}?>><?=$row['sn'];?> - <?=$row['cd'];?></option>
-	<?}?>
+	<option value="<?php  echo $row['sl'];?>"<?php if($row['sl']=='1'){echo 'selected';}?>><?php  echo $row['sn'];?> - <?php  echo $row['cd'];?></option>
+	<?php }?>
 	</select>
 	</div>
 	</td>
@@ -371,14 +371,14 @@ $("#prod_div").load("quo_get_product.php?cat="+cat+"&scat="+scat).fadeIn('fast')
 	<div id="tst_div">
 	<select id="tst" data-placeholder="Choose Your Supplier" name="tst"  tabindex="1" class="form-control" onchange="get_gst()"  >
 
-	<?
+	<?php 
 	$sql="SELECT * FROM main_state WHERE sl>0 ORDER BY sn";
 	$result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
 	while($row=mysqli_fetch_array($result))
 	{
 	?>
-	<option value="<?=$row['sl'];?>"<?if($row['sl']=='1'){echo 'selected';}?>><?=$row['sn'];?> - <?=$row['cd'];?></option>
-	<?}?>
+	<option value="<?php  echo $row['sl'];?>"<?php if($row['sl']=='1'){echo 'selected';}?>><?php  echo $row['sn'];?> - <?php  echo $row['cd'];?></option>
+	<?php }?>
 	</select>
 	</div>
 	</td>
@@ -393,7 +393,7 @@ $("#prod_div").load("quo_get_product.php?cat="+cat+"&scat="+scat).fadeIn('fast')
 
 <select name="cat" class="form-control" size="1" id="cat" tabindex="1" onchange="get_scat();get_prod()">
 <Option value="">---Brand---</option>
-<?
+<?php 
 $data1 = mysqli_query($conn,"Select * from main_catg where stat='0' order by sl");
 while ($row1 = mysqli_fetch_array($data1))
 {
@@ -408,7 +408,7 @@ echo "<option value='".$sl."'>".$cnm."</option>";
 <div id="scatdiv">
 <select name="scat" class="form-control" size="1" id="scat" tabindex="1" onchange="get_prod()">
 <Option value="">---Category---</option>
-<?
+<?php 
 $data2 = mysqli_query($conn,"Select * from main_scat where stat='0' order by sl");
 while ($row2 = mysqli_fetch_array($data2))
 {

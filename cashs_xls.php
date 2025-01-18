@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 
@@ -7,10 +7,10 @@ date_default_timezone_set('Asia/Kolkata');
 $dt = date('d-M-Y');
 
 $cy=date('Y');
-		$fdt=$_REQUEST[fdt];
-		$tdt=$_REQUEST[tdt];
+		$fdt=$_REQUEST['fdt'];
+		$tdt=$_REQUEST['tdt'];
 		$snm=$_REQUEST[snm];
-	$brncd=$_REQUEST[brncd];if($brncd==""){$brncd1="";}else{$brncd1=" and brncd='$brncd'";}
+	$brncd=$_REQUEST['brncd'] ?? "";if($brncd==""){$brncd1="";}else{$brncd1=" and brncd='$brncd'";}
 if($fdt=="" or $tdt==""){$ftdt="";}else{$fdt=date('Y-m-d', strtotime($fdt));$tdt=date('Y-m-d', strtotime($tdt));$ftdt=" and dt between '$fdt' and '$tdt'";}
 
 if($snm!="")
@@ -65,7 +65,7 @@ header("Content-Disposition: attachment; filename=$file");
 
   </tr>
   
-  <?
+  <?php 
 
   $cnt=0;
 $tin=0;
@@ -102,27 +102,27 @@ $cnm=$row['nm'];
   ?>
     <tr >
 
-  <td align="center" title="<?echo $sl?>">
-  <font color="#000"><?=$slno;?></font>
+  <td align="center" title="<?php echo $sl?>">
+  <font color="#000"><?php  echo $slno;?></font>
   </td>
   <td align="center">
-<b><?=$blno;?></b>
+<b><?php  echo $blno;?></b>
   </td>
 
   <td align="left">
-  <font color="#000"><?=$spn;?></font>
+  <font color="#000"><?php  echo $spn;?></font>
   </td>
     <td align="left">
-  <font color="#000"><?=$edt;?></font>
+  <font color="#000"><?php  echo $edt;?></font>
   </td>
   <td align="right">
-  <font color="#000"><?=$amm;?></font>
+  <font color="#000"><?php  echo $amm;?></font>
   </td>
 
 
 
   </tr>
-  <?
+  <?php 
 $tin+=$amm;
 	}
 							
@@ -133,7 +133,7 @@ $tin+=$amm;
 <b>Total Cash Sale:</b>
 </td>
 <td align="right">
-<b><?=$tin;?></b>
+<b><?php  echo $tin;?></b>
 </td>
 </tr>
   </table>
@@ -163,7 +163,7 @@ $tin+=$amm;
 
   </tr>
   
- <?
+ <?php 
 
   $cnt=0;
 $tin1=0;
@@ -200,27 +200,27 @@ $cnm=$row['nm'];
   ?>
     <tr >
 
-  <td align="center" title="<?echo $sl?>">
-  <font color="#000"><?=$slno;?></font>
+  <td align="center" title="<?php echo $sl?>">
+  <font color="#000"><?php  echo $slno;?></font>
   </td>
   <td align="center">
-<b><?=$blno;?></b>
+<b><?php  echo $blno;?></b>
   </td>
 
   <td align="left">
-  <font color="#000"><?=$spn;?></font>
+  <font color="#000"><?php  echo $spn;?></font>
   </td>
     <td align="left">
-  <font color="#000"><?=$edt;?></font>
+  <font color="#000"><?php  echo $edt;?></font>
   </td>
   <td align="right">
-  <font color="#000"><?=$amm1;?></font>
+  <font color="#000"><?php  echo $amm1;?></font>
   </td>
 
 
 
   </tr>
-  <?
+  <?php 
 $tin1+=$amm1;
 	}
 							
@@ -231,7 +231,7 @@ $tin1+=$amm1;
 <b>Total Credit Sale:</b>
 </td>
 <td align="right">
-<b><?=$tin1;?></b>
+<b><?php  echo $tin1;?></b>
 </td>
 </tr>
   </table>

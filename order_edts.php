@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 
@@ -7,12 +7,12 @@ date_default_timezone_set('Asia/Kolkata');
 $cdt=date('Y-m-d');
 $dttm=date('d-m-Y H:i:s a');
 
-$cid=$_POST[cid];
-$brncd=$_POST[brncd];
-$dt=$_POST[dt];
-$sale_per=$_POST[sale_per];
-$blno=$_POST[blno];
-$vstat=$_POST[vstat];
+$cid=$_POST['cid']??"";
+$brncd=$_POST['brncd']??"";
+$dt=$_POST['dt']??"";
+$sale_per=$_POST['sale_per']??"";
+$blno=$_POST['blno']??"";
+$vstat=$_POST['vstat']??"";
 
 $dt=date('Y-m-d',strtotime($dt));
 $err="";
@@ -71,9 +71,9 @@ $bgvlu=$roww['bgvlu'];
 $unit='sun';
 
 
-if($unit=='sun'){$stock_in=$pcs*$smvlu;$rate1=$rate/$smvlu;$uval=$smvlu;$stk_rate=$stk_rate1/$smvlu;}
-if($unit=='mun'){$stock_in=$pcs*$mdvlu;$rate1=$rate/$mdvlu;$uval=$mdvlu;$stk_rate=$stk_rate1/$smvlu;}
-if($unit=='bun'){$stock_in=$pcs*$bgvlu;$rate1=$rate/$bgvlu;$uval=$bgvlu;$stk_rate=$stk_rate1/$smvlu;}
+if($unit=='sun'){$stock_in=(float)$pcs*(float)$smvlu;$rate1=(float)$rate/(float)$smvlu;$uval=$smvlu;$stk_rate=(float)$stk_rate1/(float)$smvlu;}
+if($unit=='mun'){$stock_in=(float)$pcs*(float)$mdvlu;$rate1=(float)$rate/(float)$mdvlu;$uval=$mdvlu;$stk_rate=(float)$stk_rate1/(float)$smvlu;}
+if($unit=='bun'){$stock_in=(float)$pcs*(float)$bgvlu;$rate1=(float)$rate/(float)$bgvlu;$uval=$bgvlu;$stk_rate=(float)$stk_rate1/(float)$smvlu;}
 
 
 
@@ -88,18 +88,18 @@ $dlttt=mysqli_query($conn,"delete from main_edt_orderdtls where blno='$blno'")or
 $err="Data Update Successfully....";
 ?>
 <Script language="JavaScript">
-alert("<? echo $err;?>");
+alert("<?php  echo $err;?>");
 document.location="order_invoice.php";
 </script>
-<?
+<?php 
 }
 else
 {
 ?>
 <Script language="JavaScript">
-alert("<? echo $err;?>");
+alert("<?php  echo $err;?>");
 window.history.go(-1);
 </script>
-<?
+<?php 
 }
 ?>

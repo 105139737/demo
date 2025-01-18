@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include "header.php";
@@ -7,7 +7,7 @@ include "header.php";
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <div class="wrapper row-offcanvas row-offcanvas-left">
-<?
+<?php 
 include "left_bar.php";
 
 ?>
@@ -75,7 +75,7 @@ function snd_fun(sl,val)
 	<b>Main Menu :</b> 
 	<select class="form-control" id="mm" name="mm" required>
 	<option value="">---SELECT---</option>
-	<?php
+	<?php 
 	$sql1 = mysqli_query($conn,"select * from main_mmenu where sl>0") or die(mysqli_error($conn));
 	while($row = mysqli_fetch_array($sql1))
 	{
@@ -83,8 +83,8 @@ function snd_fun(sl,val)
 	$nm = $row['nm'];
 	
 	?>
-	<option value="<?php echo $sls;?>"><?php echo $nm;?></option>	
-	<?
+	<option value="<?php  echo $sls;?>"><?php  echo $nm;?></option>	
+	<?php 
 	}
 	?>
 	</select></td>	 
@@ -123,7 +123,7 @@ function snd_fun(sl,val)
               </div><!-- /.box-tools -->
                 </div><!-- /.box-header -->
                 <div class="box-body" >
-<?
+<?php 
 $data= mysqli_query($conn,"SELECT * FROM main_menu order by msl,sl") or die(mysqli_error($conn));
 ?>
 <table width="860px" class="table table-hover table-striped table-bordered">
@@ -151,7 +151,7 @@ New Tab
 Edit
 </th>	
 </tr>
-		<?
+		<?php 
 		$f=0;
 		while ($row = mysqli_fetch_array($data))
 		{
@@ -167,7 +167,7 @@ Edit
 		$ntb=$row['ntb'];				
 		$snd=$row['snd'];				
 		
-        if($ntb == _blank)
+        if($ntb == "_blank")
 		{
 			$ntb1 = "Yes";
 		}
@@ -183,22 +183,22 @@ Edit
 		else
 		{$cls="even";
 		}
-		$dt=date('d-M-Y', strtotime($dt));
+	//	$dt=date('d-M-Y', strtotime($dt));
 		?>
-<tr class="<?echo $cls;?>" style="height: 20px;">
-<td align="center" valign="top"><?echo $f;?>.</td>
-<td align="left" valign="top"><?echo $nm1;?></td>
-<td align="left" valign="top"><?echo $mnm;?></td>
-<td align="left" valign="top"><?php if($msl=='4' or $msl=='7'){?><input type="text" onblur="snd_fun('<?php echo $sln?>',this.value)" name="snd" id="snd" value="<?echo $snd;?>" class="form-control"><?php } ?>
-<div id="snd_div<?php echo $sln?>"></div>
+<tr class="<?php echo $cls;?>" style="height: 20px;">
+<td align="center" valign="top"><?php echo $f;?>.</td>
+<td align="left" valign="top"><?php echo $nm1;?></td>
+<td align="left" valign="top"><?php echo $mnm;?></td>
+<td align="left" valign="top"><?php  if($msl=='4' or $msl=='7'){?><input type="text" onblur="snd_fun('<?php  echo $sln?>',this.value)" name="snd" id="snd" value="<?php echo $snd;?>" class="form-control"><?php  } ?>
+<div id="snd_div<?php  echo $sln?>"></div>
 </td>
-<td align="left" valign="top"><?echo $fnm;?></td>
-<td align="left" valign="top"><?echo $ntb1;?></td>
+<td align="left" valign="top"><?php echo $fnm;?></td>
+<td align="left" valign="top"><?php echo $ntb1;?></td>
 
 <td align="left" valign="top">
-<a href="menu_edit.php?sl=<?=$sln;?>" title="Edit"><i class="fa fa-edit"></i></a></td>
+<a href="menu_edit.php?sl=<?php  echo $sln;?>" title="Edit"><i class="fa fa-edit"></i></a></td>
 </tr>
-  <?
+  <?php 
   }
   ?>
 </table>

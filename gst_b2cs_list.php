@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3; 
 include("membersonly.inc.php");
 $fdt=$_REQUEST['fdt'];
@@ -26,7 +26,7 @@ $ttsgst=0;
             <td  align="right" style="padding-top:15px"><b>Cess Amount</b></td>
 </tr>
 
-<?
+<?php 
 $inv_ret="and ( blno='a'";
 $query9 = "SELECT * FROM main_billing_ret where gstin='' and (fst=tst or (amm<250000 and fst!=tst)) and  dt between '$fdt' and '$tdt' and cstat='0'";
 $result9 = mysqli_query($conn,$query9) or die(mysqli_error($conn));
@@ -96,15 +96,15 @@ $amm_ret+=$row['amm'];
 ?>
 <tr class="even">
             <td  align="right" style="padding-top:15px" colspan="2">Other than E-Commerce</td>
-            <td  align="right" style="padding-top:15px" colspan="2"><?=$statcd.'-'.$statnm;?></td>
-            <td  align="right" style="padding-top:15px"><?=$cgst_rt+$sgst_rt+$igst_rt?>%</td>
-            <td  align="right" style="padding-top:15px"><?=$cgst_rt?>%</td>
-            <td  align="right" style="padding-top:15px"><?=$sgst_rt?>%</td>
-            <td  align="right" style="padding-top:15px"><?=$igst_rt?>%</td>
-            <td  align="right" style="padding-top:15px"><?=number_format($amm-$amm_ret,2);?></td>
+            <td  align="right" style="padding-top:15px" colspan="2"><?php  echo $statcd.'-'.$statnm;?></td>
+            <td  align="right" style="padding-top:15px"><?php  echo $cgst_rt+$sgst_rt+$igst_rt?>%</td>
+            <td  align="right" style="padding-top:15px"><?php  echo $cgst_rt?>%</td>
+            <td  align="right" style="padding-top:15px"><?php  echo $sgst_rt?>%</td>
+            <td  align="right" style="padding-top:15px"><?php  echo $igst_rt?>%</td>
+            <td  align="right" style="padding-top:15px"><?php echo number_format($amm-$amm_ret,2);?></td>
             <td  align="right" style="padding-top:15px">0.00</td>
 </tr>
-<?
+<?php 
 }
 ?>
 

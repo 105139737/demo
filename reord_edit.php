@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include "header.php";
@@ -15,7 +15,7 @@ $reord= $row['re'];
 }
 ?>
         <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <style type="text/css"> 
@@ -95,15 +95,15 @@ return false;
             <td align="left" >
             <select class="form-control" name="gdn" id="gdn">
 			<option value="">-----Select-----</option>
-			<?
+			<?php 
 			$qr1=mysqli_query($conn,"select * from main_branch order by bnm")or die(mysqli_error($conn));
 			while($r1=mysqli_fetch_array($qr1))
 			{
 					$sl1=$r1['sl'];	
 					$bnm=$r1['bnm'];
 				?>
-				<option value="<?=$sl1;?>"<?if($gdn==$sl1) {echo 'selected';}?>><?=$bnm;?></option>
-				<?
+				<option value="<?php  echo $sl1;?>"<?php if($gdn==$sl1) {echo 'selected';}?>><?php  echo $bnm;?></option>
+				<?php 
 			}
 			?>
 			</select>
@@ -112,15 +112,15 @@ return false;
             <td align="left" >
             <select name="prd" id="prd" class="form-control">
 			<option value="">-----Select-----</option>
-			<?
+			<?php 
 			$qr=mysqli_query($conn,"select * from main_product order by pnm")or die(mysqli_error($conn));
 			while($r=mysqli_fetch_array($qr))
 			{
 					$sl2=$r['sl'];	
 					$pnm=$r['pnm'];
 				?>
-				<option value="<?=$sl2;?>"<?if($prd==$sl2) {echo 'selected';}?>><?=$pnm;?></option>
-				<?
+				<option value="<?php  echo $sl2;?>"<?php if($prd==$sl2) {echo 'selected';}?>><?php  echo $pnm;?></option>
+				<?php 
 			}
 			?>
 			</select>
@@ -129,7 +129,7 @@ return false;
      <tr>
 	             <td align="right" >Reorder :</td>
             <td align="left" >
-            <input type="text" name="reord" id="reord" value="<?=$reord;?>" class="form-control" onkeypress="return check(event)" placeholder="Enter Reorder"></td>
+            <input type="text" name="reord" id="reord" value="<?php  echo $reord;?>" class="form-control" onkeypress="return check(event)" placeholder="Enter Reorder"></td>
 			</td>
 
             <td colspan="4" align="right"  style="padding-right: 8px;">
@@ -137,7 +137,7 @@ return false;
 			  </td>
           </tr>
           </table>
-		  <input type="hidden" name="sl0" id="sl0" value="<?=$sl;?>" >
+		  <input type="hidden" name="sl0" id="sl0" value="<?php  echo $sl;?>" >
   </form>
   </div>
 							<!-- /.box-body -->

@@ -1,9 +1,9 @@
-<?
+<?php 
 $reqlevel=3;
 include("membersonly.inc.php");
 include("Numbers/Words.php");
 $new_ammount_in_word = new Numbers_Words();
-$sl=$_REQUEST[sl];
+$sl=$_REQUEST['sl'];
 	
 	
 	
@@ -12,7 +12,7 @@ $sl=$_REQUEST[sl];
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Money Reciepts<? echo $nm; ?></title>
+<title>Money Reciepts<?php  echo $nm; ?></title>
 <meta name="generator" content="WYSIWYG Web Builder 8 - http://www.wysiwygwebbuilder.com">
 <style type="text/css">
 div#container
@@ -264,7 +264,7 @@ z-index:20;
 }
 
 </style>
-<?
+<?php 
 
 $datatt= mysqli_query($conn,"SELECT * FROM main_drcr where sl='$sl'")or die(mysqli_error($conn));
 $rcntttl=mysqli_num_rows($datatt);
@@ -363,15 +363,15 @@ function blprnt()
 <table align='center' border="0" width="770px">
 <tr>
 <td  align="center" colspan="2">
-<font size="5"><b><?=$mtd1;?> Receipt</b></font>
+<font size="5"><b><?php  echo $mtd1;?> Receipt</b></font>
 </td>
 </tr>
 <tr height="45px;">
 <td  align="left">
-Receipt No : <?=$vno.'/'.$fdtss  ?>
+Receipt No : <?php  echo $vno.'/'.$fdtss  ?>
 </td>
 <td  align="right">
-Date : <?=$dt ?>
+Date : <?php  echo $dt ?>
 </td>
 </tr>
 </table>
@@ -382,37 +382,37 @@ Date : <?=$dt ?>
 <td  align="left" width="25%">
 Name :
 </td><td  align="left" colspan="2">
-<?=$spn;?>
+<?php  echo $spn;?>
 </td>
 </tr>
 <tr height="30px;">
 <td  align="left">
 Address :
 </td><td  align="left" colspan="2">
-<?=$addr;?>
+<?php  echo $addr;?>
 </td>
 </tr>
 <tr height="30px;">
 <td  align="left">
 Mobile No. :
 </td><td  align="left" colspan="2">
-<?=$mob1;?>
+<?php  echo $mob1;?>
 </td>
 </tr>
 <tr height="30px;">
 <td  align="left" >
 Amount :
 </td><td  align="left" colspan="2">
-<b><?=$amm;?>/-</b>
+<b><?php  echo $amm;?>/-</b>
 
- ( <? echo $ammtow." only"; ?> )
+ ( <?php  echo $ammtow." only"; ?> )
 </td>
 </tr>
 <tr height="30px;">
 <td  align="left">
 Naration :
 </td><td  align="left" colspan="2">
-<?=$nrtn;?>
+<?php  echo $nrtn;?>
 </td>
 </tr>
 <tr height="30px;">

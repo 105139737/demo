@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 include "header.php";
@@ -7,7 +7,7 @@ $sl=$_REQUEST['sl'];
 <html>
 <head>
         <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <style type="text/css"> 
@@ -88,7 +88,7 @@ select.sc {
                           
 							
 							
-								 <?
+								 <?php 
 				 
 				 
 
@@ -164,12 +164,12 @@ $to="To";
   
 <tr>
 
-<td align="center">	<? echo $bnmf[0];?>  <? echo $br;?> <? echo $rec;?> <? echo $stout3[0];?> <? echo $unitnm1[0];?> <? echo $pname1[0];?><? echo $to;?> <? echo $bnm[0];?>
+<td align="center">	<?php  echo $bnmf[0];?>  <?php  echo $br;?> <?php  echo $rec;?> <?php  echo $stout3[0];?> <?php  echo $unitnm1[0];?> <?php  echo $pname1[0];?><?php  echo $to;?> <?php  echo $bnm[0];?>
 </td>
-<td align="center"><?echo $dtm1[0];?></td>
+<td align="center"><?php echo $dtm1[0];?></td>
 </tr>
 </table>
-<?
+<?php 
 $result=mysqli_query($conn,"update main_trn set f='1' where sl='$sl'");?>
 		
 							

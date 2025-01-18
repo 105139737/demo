@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 $cust_typ=$_REQUEST['cust_typ'];
@@ -10,13 +10,13 @@ $brand=$_REQUEST['brand'];
 <td align="right" width="30%">Ledger Type:</td>
 <td  width="70%">
 <select id="ctyp" name="ctyp" class="span2 form-control" style="width:100%">
-			<?
+			<?php 
 			$p=mysqli_query($conn,"select * from main_cus_typ where sl='$cust_typ'") or die (mysqli_error($conn));
 			while($rw2=mysqli_fetch_array($p))
 		{
 			?>
-			<option value="<?=$rw2['sl'];?>" ><?=$rw2['tp'];?></option>
-			<?
+			<option value="<?php  echo $rw2['sl'];?>" ><?php  echo $rw2['tp'];?></option>
+			<?php 
 		}
 			?>
 </select> 
@@ -46,14 +46,14 @@ $brand=$_REQUEST['brand'];
 <td align="right">Brand:</td>
 <td>
 <select id="brand"  name="brand" class="form-control" >
-	<?
+	<?php 
 	$sq="SELECT * FROM main_catg WHERE sl='$brand'";
 	$res = mysqli_query($conn,$sq) or die(mysqli_error($conn));
 	while($ro=mysqli_fetch_array($res))
 	{
 	?>
-    <option value="<?=$ro['sl'];?>"><?=$ro['cnm'];?></option>
-	<?}?>
+    <option value="<?php  echo $ro['sl'];?>"><?php  echo $ro['cnm'];?></option>
+	<?php }?>
 </select>
 </td>
 </tr>
@@ -83,15 +83,15 @@ $brand=$_REQUEST['brand'];
 <td>
 <select name="s_per" id="s_per" class="form-control">
 <option value="">---Select---</option>
-<?
+<?php 
 $dsql=mysqli_query($conn,"select * from main_sale_per order by sl") or die (mysqli_error($conn));
 while($erow=mysqli_fetch_array($dsql))
 {
 $bsl=$erow['sl'];
 $spid=$erow['spid'];
 ?>
-<option value="<?php echo $spid;?>"><?php echo $spid;?></option>
-<?
+<option value="<?php  echo $spid;?>"><?php  echo $spid;?></option>
+<?php 
 }
 ?>
 </select>

@@ -1,4 +1,4 @@
-<?php
+<?php 
 
 /**
  * @author Onnet Solution
@@ -16,7 +16,7 @@ $fbcd=$_REQUEST[fbcd];
 $tbcd=$_REQUEST[tbcd];
 $tsl=$_REQUEST[tsl];
 $dt=$_REQUEST[dt];
-$blno=$_REQUEST[blno];
+$blno=$_REQUEST['blno'] ?? "";
 
 
 if($pid=='' or $qnt=='' or $qnt=='0')
@@ -77,7 +77,7 @@ if($err=="")
 temp();
   $('#prnm').trigger('chosen:open');
 </script>
-<?
+<?php 
 }
 else
 {

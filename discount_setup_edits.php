@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 $edt=date('Y-m-d');
@@ -20,7 +20,7 @@ if($count>0)
 alert('Data Already Exists. Thank You.....');
 window.history.go(-1);
 </script>
-<?php
+<?php 
 }
 else
 { 
@@ -30,6 +30,6 @@ $q3=mysqli_query($conn,"Update main_discount set custid='$custid',days='$days',p
 	alert('Data Update Successfully. Thank You.....');
 	document.location="discount_setup.php";
 	</script>
-<?php
+<?php 
 }
 ?>

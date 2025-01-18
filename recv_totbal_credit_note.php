@@ -1,9 +1,9 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 $id = $_REQUEST['cid'];
 $brncd=$_REQUEST['brncd'];
-$pno=$_REQUEST['pno'];
+$pno=$_REQUEST['pno'] ?? "";
 
 $T=0;
 $t1=0;
@@ -20,4 +20,4 @@ $t2 = $row1['t2'];
 }
 $T=$t1-$t2;			
 ?>
-<img src="images\rp.png" height="15px"><input type="text" name="dbal1" id="dbal1"  value="<?php echo $T;?>" style="background :transparent;color :red;width:120px;;font-weight:bold;" readonly>
+<img src="images\rp.png" height="15px"><input type="text" name="dbal1" id="dbal1"  value="<?php  echo $T;?>" style="background :transparent;color :red;width:120px;;font-weight:bold;" readonly>

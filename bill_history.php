@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include "header.php";
@@ -10,7 +10,7 @@ $saa=date('d-m-Y');
 <html>
 <head>
         <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <style type="text/css"> 
@@ -92,13 +92,13 @@ $("#tdt").datepicker(jQueryDatePicker2Opts);
 <tr>
 <td align="left"  ><b>Branch:</b><br>
 <select name="brncd" class="form-control" size="1" id="brncd"   >
-<?
+<?php 
 if($user_current_level<0)
 {
 $query="Select * from main_branch";
 ?>
 <option value="">---All---</option>
-<?
+<?php 
 }
 else
 {
@@ -111,16 +111,16 @@ $sl=$R['sl'];
 $bnm=$R['bnm'];
 
 ?>
-<option value="<? echo $sl;?>"><? echo $bnm;?></option>
-<?
+<option value="<?php  echo $sl;?>"><?php  echo $bnm;?></option>
+<?php 
 }
 ?>
 </select>
 </td>
 <td align="left" width="25%"><b>Form:</b><br>
-<input type="text" id="fdt" name="fdt" size="13" value="<?echo $saa;?>" class="form-control" placeholder="Please Enter From Date" > </td>
+<input type="text" id="fdt" name="fdt" size="13" value="<?php echo $saa;?>" class="form-control" placeholder="Please Enter From Date" > </td>
 <td align="left" width="25%"><b>To:</b><br>
-<input type="text" id="tdt" name="tdt" size="13" value="<?echo $sa;?>" class="form-control" placeholder="Please Enter To Date">
+<input type="text" id="tdt" name="tdt" size="13" value="<?php echo $sa;?>" class="form-control" placeholder="Please Enter To Date">
 </td>
 <td align="left" width="20%">
 <b>Bill No :</b>

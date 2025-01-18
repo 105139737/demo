@@ -1,4 +1,4 @@
-<?PHP
+<?php 
 $reqlevel=1;
 include("membersonly.inc.php");
 include "header.php";
@@ -23,7 +23,7 @@ $nm=$row['nm'];
 </script>
 </head>
 <div class="wrapper row-offcanvas row-offcanvas-left">
-	<?php
+	<?php 
 	include "left_bar.php";
 	?>
 <body onload="show()">
@@ -45,11 +45,11 @@ $nm=$row['nm'];
 
 		<div class="box-body">
 <form name="form1" id="form1" method="post" action="menu_setup_edits.php">
-	<input type="hidden" id="sl" name="sl" value="<?=$sl?>">
+	<input type="hidden" id="sl" name="sl" value="<?php  echo $sl?>">
 <table  width="800px"  align="center" class="table table-hover table-striped table-bordered">
 <tr>
 <td align="right"><font face="times new roman" color="black"><b>Menu Name :</b></font></td>
-<td><input type="text" id="nm" name="nm" value="<?=$nm?>"" class="form-control" placeholder="Enter Menu Name"></td>
+<td><input type="text" id="nm" name="nm" value="<?php  echo $nm?>"" class="form-control" placeholder="Enter Menu Name"></td>
 </tr>
 <tr>
 	<td align="right" colspan="6">

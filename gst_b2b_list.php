@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3; 
 include("membersonly.inc.php");
 $fdt=$_REQUEST['fdt'];
@@ -39,7 +39,7 @@ if($fdt!="" and $tdt!=""){$todts=" and dt between '$fdt' and '$tdt'";}else{$todt
 
 
 		</tr>
-			 <?
+			 <?php 
 		$sln=0;
 		$tamm1=0;
 
@@ -103,6 +103,10 @@ $amm=0;
 	$sgst_am=0; 
 	$log=0;
 	$ttto=0;
+	$tiamm=0;
+	$tttamm=0;
+	$ttcgst=0;
+	$ttsgst=0;
 
 	$data=mysqli_query($conn,"select *,sum(net_am) as net_am,sum(tamm) as amm,sum(cgst_am) as cgst_am,sum(sgst_am) as sgst_am from  main_billdtls where  blno='$invno' group by sgst_rt")or die(mysqli_error($conn));
 	while($row=mysqli_fetch_array($data))
@@ -126,22 +130,22 @@ $amm=0;
 <tr>
 
 
-<td  align="center"  ><?=$sln;?></td>
-<td  align="left"  ><?=$gstin;?></td>
-<td  align="left"  ><?=$nm;?></td>
-<td  align="left"  ><?=$blno;?></td>
-<td  align="center"  ><?=$dt;?></td>
-<td  align="center"  ><?=sprintf('%0.2f',$tamm);?></td>
-<td  align="left"  ><?=$statcd.'-'.$statnm;?></td>
-<td  align="center"  ><?='N';?></td>
-<td  align="center"  ><?='Regular';?></td>
+<td  align="center"  ><?php  echo $sln;?></td>
+<td  align="left"  ><?php  echo $gstin;?></td>
+<td  align="left"  ><?php  echo $nm;?></td>
+<td  align="left"  ><?php  echo $blno;?></td>
+<td  align="center"  ><?php  echo $dt;?></td>
+<td  align="center"  ><?php echo sprintf('%0.2f',$tamm);?></td>
+<td  align="left"  ><?php  echo $statcd.'-'.$statnm;?></td>
+<td  align="center"  ><?php echo 'N';?></td>
+<td  align="center"  ><?php echo 'Regular';?></td>
 <td  align="center"  ></td>
-<td  align="center"  ><?=$cgst_rt+$sgst_rt+$igst_rt;?></td>
-<td  align="center"  ><?=$cgst_rt;?></td>
-<td  align="center"  ><?=$sgst_rt;?></td>
-<td  align="center"  ><?=$igst_rt;?></td>
+<td  align="center"  ><?php  echo $cgst_rt+$sgst_rt+$igst_rt;?></td>
+<td  align="center"  ><?php  echo $cgst_rt;?></td>
+<td  align="center"  ><?php  echo $sgst_rt;?></td>
+<td  align="center"  ><?php  echo $igst_rt;?></td>
 <td  align="center"  ></td>
-<td  align="center"  ><?=round($amm,2);?></td>
+<td  align="center"  ><?php echo round($amm,2);?></td>
 <td  align="center"  ></td>
 
 
@@ -152,7 +156,7 @@ $amm=0;
 
 
 </tr>
-<?
+<?php 
 }
 }
 
@@ -231,23 +235,23 @@ $amm=0;
 <tr>
 
 
-<td  align="center"  ><?=$sln;?></td>
-<td  align="left"  ><?=$gstin;?></td>
-<td  align="left"  ><?=$nm;?></td>
-<td  align="left"  ><?=$blno;?></td>
-<td  align="center"  ><?=$dt;?></td>
-<td  align="center"  ><?=sprintf('%0.2f',$tamm);?></td>
-<td  align="left"  ><?=$statcd.'-'.$statnm;?></td>
-<td  align="center"  ><?='N';?></td>
-<td  align="center"  ><?='Regular';?></td>
+<td  align="center"  ><?php  echo $sln;?></td>
+<td  align="left"  ><?php  echo $gstin;?></td>
+<td  align="left"  ><?php  echo $nm;?></td>
+<td  align="left"  ><?php  echo $blno;?></td>
+<td  align="center"  ><?php  echo $dt;?></td>
+<td  align="center"  ><?php echo sprintf('%0.2f',$tamm);?></td>
+<td  align="left"  ><?php  echo $statcd.'-'.$statnm;?></td>
+<td  align="center"  ><?php echo 'N';?></td>
+<td  align="center"  ><?php echo 'Regular';?></td>
 <td  align="center"  ></td>
-<td  align="center"  ><?=$cgst_rt+$sgst_rt+$igst_rt;?></td>
-<td  align="center"  ><?=$cgst_rt;?></td>
-<td  align="center"  ><?=$sgst_rt;?></td>
-<td  align="center"  ><?=$igst_rt;?></td>
+<td  align="center"  ><?php  echo $cgst_rt+$sgst_rt+$igst_rt;?></td>
+<td  align="center"  ><?php  echo $cgst_rt;?></td>
+<td  align="center"  ><?php  echo $sgst_rt;?></td>
+<td  align="center"  ><?php  echo $igst_rt;?></td>
 <td  align="center"  ></td>
-<td  align="center"  ><?=round($amm,2);?></td>
+<td  align="center"  ><?php echo round($amm,2);?></td>
 <td  align="center"  ></td>
 </tr>
-<?}}?>
+<?php }}?>
 </table>

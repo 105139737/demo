@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include "header.php";
@@ -16,7 +16,7 @@ while($rw2=mysqli_fetch_array($result2))
 }
 ?>
 <div class="wrapper row-offcanvas row-offcanvas-left">
-<?
+<?php 
 include "left_bar.php";
 ?>
 <style type="text/css"> 
@@ -151,8 +151,8 @@ return false;
 <table border="0"  width="800px"  align="center" class="table table-hover table-striped table-bordered">
 <tr>
 <td align="left">Customer:
-<input type="text" name="custid_" id="custid_" onblur="show()" onclick="show()" value="<?php echo $customer?>" <?php if($custid!=''){?> readonly class="form-control" <?php }else{?> class="datalist form-control" list="datalist" onkeyup="datalist(this.value,'custid')"<?php }?>>
-	<input type="hidden" value="<?php echo $custid?>" name="custid" id="custid">
+<input type="text" name="custid_" id="custid_" onblur="show()" onclick="show()" value="<?php  echo $customer?>" <?php  if($custid!=''){?> readonly class="form-control" <?php  }else{?> class="datalist form-control" list="datalist" onkeyup="datalist(this.value,'custid')"<?php  }?>>
+	<input type="hidden" value="<?php  echo $custid?>" name="custid" id="custid">
 </td>
 <td align="left" >Dayes:
 	<input type="text" name="days" id="days" class="form-control" size="20" onkeypress="return check(event)" placeholder="Enter Dayes">

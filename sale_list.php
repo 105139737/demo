@@ -1,7 +1,9 @@
-<?php 
+<?php  
 $reqlevel = 3; 
 include("membersonly.inc.php");
 include("function.php");
+$odamm1=0;
+$tcs1=0;
 $fdt=$_REQUEST['fdt'];
 $tdt=$_REQUEST['tdt'];
 $snm=rawurldecode($_REQUEST['snm']);
@@ -26,9 +28,9 @@ $cust_array=[0,831,833,841,18774,33243,33818,37578,828,835,842,844,847,898,26442
 if($salereport-1<$diff && $blno=='' && ($snm=='' or array_search($snm,$cust_array))){
 ?>
 <script language="javascript">
-alert("You have to excel export if you want to see data of more than "+<?php echo $salereport; ?>+" day");
+alert("You have to excel export if you want to see data of more than "+<?php  echo $salereport; ?>+" day");
 </script>
-<?php
+<?php 
 die('<b><center><font color="green" size="5">You have to excel export if you want to see data of more than '.$salereport.' day </font></center></b>');
 
 }
@@ -40,8 +42,8 @@ if($scat==""){$scat1="";}else{$scat1=" and scat='$scat'";}
 if($cat==""){$cat1="";}else{$cat1=" and cat='$cat'";}
 if($einv_stat==""){$einv_stat1="";}else{$einv_stat1=" and einv_stat='$einv_stat'";}
 
-if($einv_stat=="Null"){$einv_stat1=" and einv_stat is null";}
-
+//if($einv_stat=="Null"){$einv_stat1=" and einv_stat is null";}
+$gst_no1="";
 if($brncd==""){$brncd1="";}else{$brncd1=" and bcd='$brncd'";}
 if($godown==""){$godown1="";}else{$godown1=" and bcd='$godown'";}
 if($gst_no=="1"){$gst_no1=" and gstin!=''";}if($gst_no=="2"){$gst_no1=" and gstin=''";}
@@ -122,7 +124,7 @@ $dis1=0;
 			<td  align="center" ><b>TCS</b></td>
 			<td  align="center" ><b>Net Payable</b></td>
 			</tr>
-			 <?
+			 <?php 
 		$sln=0;
 		$tota=0;
 $tq=0;
@@ -317,78 +319,78 @@ $hsn=$row['hsn'];
 		$backg="";
 	}
 		 ?>
-		<tr   id="trid<?php echo $blno_sl;?>" style="background-color:<?php echo $backg;?>">
-		<?if($asd==1){?>
-		<td  align="center"  ><?=$sln;?></td>
+		<tr   id="trid<?php  echo $blno_sl;?>" style="background-color:<?php  echo $backg;?>">
+		<?php if($asd==1){?>
+		<td  align="center"  ><?php  echo $sln;?></td>
 
-		<?php if($cdt<=$last_edit_date){ ?>
+		<?php  if($cdt<=$last_edit_date){ ?>
 
 		<td>
-		<?php if($cstat!=1){ ?>
-		<a href="#" onclick="edit('<?=$blno;?>')"><i class="fa fa-pencil-square-o"></i></a>
-		<? }?>
+		<?php  if($cstat!=1){ ?>
+		<a href="#" onclick="edit('<?php  echo $blno;?>')"><i class="fa fa-pencil-square-o"></i></a>
+		<?php  }?>
 		</td>
 
-		<?php 
+		<?php  
 		}
 		else 
 		{
 		?>
 		<td></td>
-		<?php
+		<?php 
 		} 
 		?>
 
 		<td>
-			<?php if($cstat!=1){ ?>
-		<a href="bill_typ_return.php?blno=<?=$blno;?>" target="_blank" title="Click Here To Return"><b><font color="red" size="3">Return</b></font></a>
-		<? }?><br>
-		<?php if($AckNo!=''){?><a onclick="window.open('eupload.php?blno=<?=$blno;?>&cid=<?=$cid_ship?>&ship=<?=$ship?>','_blank');document.getElementById('trid<?php echo $blno_sl;?>').style.backgroundColor='#FFFFFF';"><font color="#8000ff">EUploaded</font></a><?php }else{?>
-		<a onclick="window.open('eupload.php?blno=<?=$blno;?>&cid=<?=$cid_ship?>&ship=<?=$ship?>','_blank');document.getElementById('trid<?php echo $blno_sl;?>').style.backgroundColor='#FFFFFF';">EUpload</a><?php }?>
+			<?php  if($cstat!=1){ ?>
+		<a href="bill_typ_return.php?blno=<?php  echo $blno;?>" target="_blank" title="Click Here To Return"><b><font color="red" size="3">Return</b></font></a>
+		<?php  }?><br>
+		<?php  if($AckNo!=''){?><a onclick="window.open('eupload.php?blno=<?php  echo $blno;?>&cid=<?php  echo $cid_ship?>&ship=<?php  echo $ship?>','_blank');document.getElementById('trid<?php  echo $blno_sl;?>').style.backgroundColor='#FFFFFF';"><font color="#8000ff">EUploaded</font></a><?php  }else{?>
+		<a onclick="window.open('eupload.php?blno=<?php  echo $blno;?>&cid=<?php  echo $cid_ship?>&ship=<?php  echo $ship?>','_blank');document.getElementById('trid<?php  echo $blno_sl;?>').style.backgroundColor='#FFFFFF';">EUpload</a><?php  }?>
 		</td>
 		<td>
-		<?php if($dstat==0){ ?>
-		<span id="delivered<?php echo $blno_sl;?>">
-		<a style="cursor:pointer" onclick="delvr('<?php echo $blno;?>','<?php echo $blno_sl;?>')" title="Click For Delivery"><font color="#8000ff" size="3"><b>Undelivered</b></font></a>
+		<?php  if($dstat==0){ ?>
+		<span id="delivered<?php  echo $blno_sl;?>">
+		<a style="cursor:pointer" onclick="delvr('<?php  echo $blno;?>','<?php  echo $blno_sl;?>')" title="Click For Delivery"><font color="#8000ff" size="3"><b>Undelivered</b></font></a>
 		</span>
-		<? } else{?>
+		<?php  } else{?>
 		<font color="green" size="3"><b>Delivered</b></font>
-		<? }?><br>
-		<a onclick="window.open('einv_json.php?blno=<?=$blno;?>','_blank'); document.getElementById('trid<?php echo $blno_sl;?>').style.backgroundColor='#ffff00';">E-Export</a>
+		<?php  }?><br>
+		<a onclick="window.open('einv_json.php?blno=<?php  echo $blno;?>','_blank'); document.getElementById('trid<?php  echo $blno_sl;?>').style.backgroundColor='#ffff00';">E-Export</a>
 		</td>
-		<?php 
+		<?php  
 		if($edit_count>0)
 		{
 		if($cstat==1){
 		?>
-		<td  align="center" ><a href="javascript:revert('<?=$blno;?>')"><font color="red"><b>Revert</b></font></a></td>
-		<?
+		<td  align="center" ><a href="javascript:revert('<?php  echo $blno;?>')"><font color="red"><b>Revert</b></font></a></td>
+		<?php 
 		}
 		else
 		{
 		?>
-		<td  align="center" ><a href="#" onclick="cancelc('<?php echo $blno;?>')" title="Click to Cancel"><font color="red" size="3"><i class="fa fa-times"></i>Cancel</font></a></td>
-		<?}} 
+		<td  align="center" ><a href="#" onclick="cancelc('<?php  echo $blno;?>')" title="Click to Cancel"><font color="red" size="3"><i class="fa fa-times"></i>Cancel</font></a></td>
+		<?php }} 
 		else
 		{ ?>
-		<td  align="center" ><?php if($cstat==1){ echo "Canceled";}else{ echo "OK";}?></td>
-		<? }?>
+		<td  align="center" ><?php  if($cstat==1){ echo "Canceled";}else{ echo "OK";}?></td>
+		<?php  }?>
 		
-		<td  align="center" ><a href="eway_bill_json.php?blno=<?php echo $blno;?>" target="_blank"><?=$dt;?></a></td>
-		<td  align="center" data-toggle="tooltip" data-placement="top" title="<?php echo $billing_addr ? $billing_addr : "" ;?>">
-			<a href="#" onclick="view('<?=$blno;?>')"  >
-			<?=$blno;?></a></td>
-		<td  align="left" ><a href="#" onclick="view1('<?=$blno;?>')" title="Print"><?=$nm;?> <b><?=$invnm;?></b></a><br>
-		<input type="text" id="vno" name="vno" value="<?php echo $vno;?>" placeholder="Vehicle Number" onblur="update_vno(this.value,'<?php echo $blno_sl;?>')">
+		<td  align="center" ><a href="eway_bill_json.php?blno=<?php  echo $blno;?>" target="_blank"><?php  echo $dt;?></a></td>
+		<td  align="center" data-toggle="tooltip" data-placement="top" title="<?php  echo $billing_addr ? $billing_addr : "" ;?>">
+			<a href="#" onclick="view('<?php  echo $blno;?>')"  >
+			<?php  echo $blno;?></a></td>
+		<td  align="left" ><a href="#" onclick="view1('<?php  echo $blno;?>')" title="Print"><?php  echo $nm;?> <b><?php  echo $invnm;?></b></a><br>
+		<input type="text" id="vno" name="vno" value="<?php  echo $vno;?>" placeholder="Vehicle Number" onblur="update_vno(this.value,'<?php  echo $blno_sl;?>')">
 		</td>
-		<td  align="left" ><?=$mob1;?>
+		<td  align="left" ><?php  echo $mob1;?>
 
-		<br><font size="2"> <b><a href="coupon_print.php?blno=<?=rawurlencode($blno);?>&typ=1" target="_blank"><font color="red"><u>Coupon Print</u></font></a></b></font>
+		<br><font size="2"> <b><a href="coupon_print.php?blno=<?php echo rawurlencode($blno);?>&typ=1" target="_blank"><font color="red"><u>Coupon Print</u></font></a></b></font>
 
 		</td>
-		<td  align="center" ><?php echo $cust_typp;?></td>
-		<td  align="center" ><?=$gstin;?></td>
-		<?}
+		<td  align="center" ><?php  echo $cust_typp;?></td>
+		<td  align="center" ><?php  echo $gstin;?></td>
+		<?php }
 		else
 		{
 		?>
@@ -405,32 +407,32 @@ $hsn=$row['hsn'];
 		<td  align="left" ></td> 
 		<td  align="left" ></td> 
 		
-<?
+<?php 
 }
 ?>
 
-			<td  align="left" title="<?=$pcd;?>" ><a <? /*onclick="document.location='swip_bno.php?b1=<?=$blno;?>&b2=<?=$blno;?>'"*/ ?>><?=$pnm;?></a></td>
-			<td  align="center" ><?=$hsn;?></td>
-			<td  align="center" ><?=$betno;?></td>
-			<td  align="center" ><?=$pcs;?> <?=$unit_nm?></td>
-			<td  align="right" ><?=number_format($rate,2);?></td>
-			<td  align="right" ><?=number_format($total,2);?></td>
-			<td  align="center" ><?=$disp;?></td>
-			<td  align="right" ><?=number_format($disa,2);?></td>
-			<td  align="right" ><?=number_format($ttl,2);?></td>
-			<td  align="center" ><?=$cgst_rt;?></td>
-			<td  align="center" ><?=number_format($cgst_am,2);?></td>
-			<td  align="center" ><?=$sgst_rt;?></td>
-			<td  align="center" ><?=number_format($sgst_am,2);?></td>
-			<td  align="center" ><?=$igst_rt;?></td>
-			<td  align="center" ><?=number_format($igst_am,2);?></td>
-			<td  align="center" ><?=number_format($afgst,2);?></td>
+			<td  align="left" title="<?php  echo $pcd;?>" ><a <?php  /*onclick="document.location='swip_bno.php?b1=<?php  echo $blno;?>&b2=<?php  echo $blno;?>'"*/ ?>><?php  echo $pnm;?></a></td>
+			<td  align="center" ><?php  echo $hsn;?></td>
+			<td  align="center" ><?php  echo $betno;?></td>
+			<td  align="center" ><?php  echo $pcs;?> <?php  echo $unit_nm?></td>
+			<td  align="right" ><?php echo number_format($rate,2);?></td>
+			<td  align="right" ><?php echo number_format($total,2);?></td>
+			<td  align="center" ><?php  echo $disp;?></td>
+			<td  align="right" ><?php echo number_format($disa,2);?></td>
+			<td  align="right" ><?php echo number_format($ttl,2);?></td>
+			<td  align="center" ><?php  echo $cgst_rt;?></td>
+			<td  align="center" ><?php echo number_format($cgst_am,2);?></td>
+			<td  align="center" ><?php  echo $sgst_rt;?></td>
+			<td  align="center" ><?php echo number_format($sgst_am,2);?></td>
+			<td  align="center" ><?php  echo $igst_rt;?></td>
+			<td  align="center" ><?php echo number_format($igst_am,2);?></td>
+			<td  align="center" ><?php echo number_format($afgst,2);?></td>
 			<td  align="left" ></td> 
 			<td  align="left" ></td> 
-			<td  align="right" ><?=number_format($net_am,2);?></td>
+			<td  align="right" ><?php echo number_format($net_am,2);?></td>
 			</tr>	 
 
-	<?
+	<?php 
 
 
 $tamm=$ttl+$tamm;
@@ -448,20 +450,20 @@ $tpcs+=$pcs;
 
 	<td align="center"><b></td>
 	<td></td>
-	<td  align="right" ><b><?=number_format($total_am,2);?></b></td>
+	<td  align="right" ><b><?php echo number_format($total_am,2);?></b></td>
 	<td  align="right" ><b></b></td>
-	<td  align="right" ><b><?=number_format($disa_am,2);?></b></td>
-	<td  align="right" ><b><?=number_format($tamm,2);?></b></td>
-	<td align="right" colspan="2"><b><?=number_format($cgst,2);?></b></td>
-	<td align="right" colspan="2"><b><?=number_format($sgst,2);?></b></td>
-	<td align="right" colspan="2"><b><?=number_format($igst,2);?></b></td>
+	<td  align="right" ><b><?php echo number_format($disa_am,2);?></b></td>
+	<td  align="right" ><b><?php echo number_format($tamm,2);?></b></td>
+	<td align="right" colspan="2"><b><?php echo number_format($cgst,2);?></b></td>
+	<td align="right" colspan="2"><b><?php echo number_format($sgst,2);?></b></td>
+	<td align="right" colspan="2"><b><?php echo number_format($igst,2);?></b></td>
 	<td  align="right" ><b></b></td>
-	<td  align="right" ><font color="red"><?echo $odamm; ?></font></td> 
-	<td  align="right" ><font color="red"><?echo $tcs; ?></font></td> 
-	<td  align="right" ><b><?=number_format($wgamm,2);?></b></td>
+	<td  align="right" ><font color="red"><?php echo $odamm; ?></font></td> 
+	<td  align="right" ><font color="red"><?php echo $tcs; ?></font></td> 
+	<td  align="right" ><b><?php echo number_format($wgamm,2);?></b></td>
 	
 	</tr>
-	<?
+	<?php 
 
 
 		}
@@ -481,19 +483,19 @@ $tpcs+=$pcs;
 		<tr>
 	<td colspan="14" align="right"><b>Total</b></td>
 	
-	<td align="center"><b><?php echo $ttpcs;?></b></td>
+	<td align="center"><b><?php  echo $ttpcs;?></b></td>
 	<td></td>
 	<td></td>
 	<td></td>
 	<td></td>
-	<td align="right"><b><?=sprintf('%0.2f',$tamm1);?></b></td>
-	<td align="right" colspan="2"><b><?=number_format($cgst1,2);?></b></td>
-	<td align="right" colspan="2"><b><?=number_format($sgst1,2);?></b></td>
-	<td align="right" colspan="2"><b><?=number_format($igst1,2);?></b></td>
+	<td align="right"><b><?php echo sprintf('%0.2f',$tamm1);?></b></td>
+	<td align="right" colspan="2"><b><?php echo number_format($cgst1,2);?></b></td>
+	<td align="right" colspan="2"><b><?php echo number_format($sgst1,2);?></b></td>
+	<td align="right" colspan="2"><b><?php echo number_format($igst1,2);?></b></td>
 	<td  align="right" ><b></b></td>
-	<td  align="right" ><b><?=number_format($odamm1,2);?></b></td>
-	<td  align="right" ><b><?=number_format($tcs1,2);?></b></td>
-	<td align="right"><b><?=number_format($wgamm1,2);?></b></td>
+	<td  align="right" ><b><?php echo number_format($odamm1,2);?></b></td>
+	<td  align="right" ><b><?php echo number_format($tcs1,2);?></b></td>
+	<td align="right"><b><?php echo number_format($wgamm1,2);?></b></td>
 </tr>
 </table>
 

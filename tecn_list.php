@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 $c="";
@@ -12,7 +12,7 @@ if($cnt==0)
 <td align="center" style="color:red;font-weight:bold;font-size:150%;">Data Not Found</td>
 </tr>
 </table>
-<?
+<?php 
 }
 else
 {
@@ -27,7 +27,7 @@ else
 <td align="center" style="font-weight:bold;">Action</td>
 </tr>
 
-	<?
+	<?php 
 while($row = mysqli_fetch_array($data))
 {
 	$c++;
@@ -43,15 +43,15 @@ if($img=="")
 }
 ?>
 <tr>
-<td align="center"><?=$c;?>.</td>
-<td align="center"><?=$nm;?></td>
-<td align="center"><?=$cnt;?></td>
-<td align="center"><?=$adrs;?></td>
-<td align="center"><img src="<?=$img;?>" height="60px;" width="60px;"></td>
-<td align="center"><a href="tecn_edt.php?sl=<?=$sl;?>" title="Click to Edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i><a></td>
+<td align="center"><?php  echo $c;?>.</td>
+<td align="center"><?php  echo $nm;?></td>
+<td align="center"><?php  echo $cnt;?></td>
+<td align="center"><?php  echo $adrs;?></td>
+<td align="center"><img src="<?php  echo $img;?>" height="60px;" width="60px;"></td>
+<td align="center"><a href="tecn_edt.php?sl=<?php  echo $sl;?>" title="Click to Edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i><a></td>
 </tr>
 
-<?
+<?php 
 }
 echo "</table>";
 }	

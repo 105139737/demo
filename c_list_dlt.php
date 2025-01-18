@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 $edt=date('Y-m-d');
@@ -41,15 +41,15 @@ $qr2=mysqli_query($conn,"delete from main_cust where sl='$sl'") or die (mysqli_e
 <script>
 show();	
 </script>
-<? 
+<?php  
 }
 else
 {
 ?>
 <script>
-alert("<?php echo $err; ?>");
+alert("<?php  echo $err; ?>");
 show();	
 </script>
-<? 
+<?php  
 }	
 ?>

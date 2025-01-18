@@ -1,4 +1,4 @@
-<?php
+<?php 
 include("membersonly.inc.php");
 //catch the sent data
 	$sl=0;
@@ -32,7 +32,7 @@ if($ldgr=='' or $proj=='' or $obal==0 or $nrtn=='' or $drcr=='' or $cust=='')
 alert('Please Fill All The Fields.');
 window.history.go(-1);
 </script>
-<?	}
+<?php 	}
 	else
 	{
 	
@@ -67,9 +67,9 @@ $result31 = mysqli_query($conn,$query31)or die (mysqli_error($conn));
 <script language="javascript">
 alert('Updated Successfully. Thank You...');
 window.history.go(-1);
-//document.location = "op_cust.php?brncd=<? echo $brncd;?>";
+//document.location = "op_cust.php?brncd=<?php  echo $brncd;?>";
 </script>
-<?
+<?php 
 	
 	}
 	}
@@ -82,7 +82,7 @@ if($ldgr=='' or $proj=='' or $obal==0 or $nrtn=='' or $drcr=='')
 alert('Please Fill All The Fields.');
 window.history.go(-1);
 </script>
-<?	}
+<?php 	}
 	else
 	{	
 
@@ -97,7 +97,7 @@ if($cnt>0)
 alert('Sorry!! Opening Balance Already Exist.');
 window.history.go(-1);
 </script>
-<?
+<?php 
 }
 else
 {
@@ -150,9 +150,9 @@ $result21 = mysqli_query($conn,$query21)or die (mysqli_error($conn));
 <script language="javascript">
 alert('Added Successfully, Thank You.');
 window.history.go(-1);
-//document.location = "op_cust.php?brncd=<? echo $brncd;?>";
+//document.location = "op_cust.php?brncd=<?php  echo $brncd;?>";
 </script>
-<?
+<?php 
 
 }}}
 ?>

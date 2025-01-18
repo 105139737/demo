@@ -1,5 +1,6 @@
-<?php
+<?php 
 include("membersonly.inc.php");
+$file_exists="";
 $pageno = $_POST['pageno'];
 $no_of_records_per_page = 10;
 $offset = ($pageno-1) * $no_of_records_per_page;
@@ -19,7 +20,7 @@ $offset = ($pageno-1) * $no_of_records_per_page;
   </thead>
 
   <tbody>
-<?php 
+<?php  
 $eby=strtolower($user_currently_loged);
 if($user_currently_loged=='admin' or $user_currently_loged=='hdadmin')
 {
@@ -38,20 +39,23 @@ $data=mysqli_query($conn,$q)or die(mysqli_error($conn));
       $req_date=$row['req_date'];
       $comp_date=$row['comp_date'];
       $eby=$row['eby'];
+      $file_exist=0;
+      if(!empty($file)){
       $file_exists=file_exists($file);
+      }
       if($file_exists!=1){$status="Processing";}
     ?>
     <tr>      
-      <td data-label="Brand"><? echo $id;?></td>
-      <td data-label="Category"><? echo $nm;?></td>
-      <td data-label="Model Name"><? echo $status;?></td>
-      <td data-label="Model Name"><?php if($status=='Done'){?><a target="_new" href="<?php echo  $file;?>">Download Now</a><?php } ?></td>
-      <td data-label="Model Name"><? echo $req_date;?></td>
-      <td data-label="Model Name"><? echo $comp_date;?></td>
-      <td data-label="Model Name"><? echo $eby;?></td>
+      <td data-label="Brand"><?php  echo $id;?></td>
+      <td data-label="Category"><?php  echo $nm;?></td>
+      <td data-label="Model Name"><?php  echo $status;?></td>
+      <td data-label="Model Name"><?php  if($status=='Done'){?><a target="_new" href="<?php  echo  $file;?>">Download Now</a><?php  } ?></td>
+      <td data-label="Model Name"><?php  echo $req_date;?></td>
+      <td data-label="Model Name"><?php  echo $comp_date;?></td>
+      <td data-label="Model Name"><?php  echo $eby;?></td>
 
     </tr>
-    <?php
+    <?php 
 }
 ?>
   </tbody>

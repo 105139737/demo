@@ -1,13 +1,13 @@
-<?
+<?php 
 $reqlevel = 1; 
 include("membersonly.inc.php");
 setlocale(LC_MONETARY, 'en_IN');
 set_time_limit(0);
 $pno='0';
-$dt=$_REQUEST[fdt];
-$dt1=$_REQUEST[tdt];
-$pno=$_REQUEST[pno];
-$brncd=$_REQUEST[brncd];if($brncd==""){$brncd1="";}else{$brncd1=" and brncd='$brncd'";}
+$dt=$_REQUEST['fdt'];
+$dt1=$_REQUEST['tdt'];
+$pno=$_REQUEST['pno'] ?? "";
+$brncd=$_REQUEST['brncd'] ?? "";if($brncd==""){$brncd1="";}else{$brncd1=" and brncd='$brncd'";}
 if($dt=="" or $dt1=="")
 {
 echo 'Please Enter Valid Date Range.';
@@ -40,9 +40,9 @@ header("Content-type: application/vnd.ms-excel");
 header("Content-Disposition: attachment; filename=$file"); 
 
 ?>
-<input type="hidden" id="pno" name="pno" size="5" value="<? echo $pno; ?>" style="font-size: 12pt; text-align: left;color: #008000">
-<input type="hidden" id="fdt" name="fdt" size="5" value="<? echo $dt; ?>" style="font-size: 12pt; text-align: left;color: #008000">
-<input type="hidden" id="tdt" name="tdt" size="5" value="<? echo $dt1; ?>" style="font-size: 12pt; text-align: left;color: #008000">
+<input type="hidden" id="pno" name="pno" size="5" value="<?php  echo $pno; ?>" style="font-size: 12pt; text-align: left;color: #008000">
+<input type="hidden" id="fdt" name="fdt" size="5" value="<?php  echo $dt; ?>" style="font-size: 12pt; text-align: left;color: #008000">
+<input type="hidden" id="tdt" name="tdt" size="5" value="<?php  echo $dt1; ?>" style="font-size: 12pt; text-align: left;color: #008000">
 
 <input type="hidden" id="ck" name="ck" size="5" value="" style="font-size: 12pt; text-align: left;color: #008000"></td>
 
@@ -52,7 +52,7 @@ header("Content-Disposition: attachment; filename=$file");
 
           <tr style="height: 30px;">
           <td colspan="2" align="center">
-        <font size="4" ><b>Income & Expenditure A/c<br><?echo $dt?> To  <?echo $dt1?></b></font>
+        <font size="4" ><b>Income & Expenditure A/c<br><?php echo $dt?> To  <?php echo $dt1?></b></font>
           </td>
 		  </tr>
        
@@ -64,7 +64,7 @@ header("Content-Disposition: attachment; filename=$file");
 <tr bgcolor="#FFF">
   <td align="center" width="50%" valign="top"><div id="sdtl1">
 <table border="0"  width="100%">			
-<?
+<?php 
 $gtot1=0;
 $cnt7=0;
 $data32= mysqli_query($conn,"SELECT * FROM main_group where  pcd='7'");
@@ -75,10 +75,10 @@ while ($row32 = mysqli_fetch_array($data32))
 	?>
 <tr >
        
-            <td align="left" colspan="3"><font size="3" color="#1A4C80"><b><u><? echo $gnm; ?> :</b></u></font></td>
+            <td align="left" colspan="3"><font size="3" color="#1A4C80"><b><u><?php  echo $gnm; ?> :</b></u></font></td>
 
 </tr>	
-	<?
+	<?php 
 		$gtot2=0;
 		$data33= mysqli_query($conn,"SELECT * FROM main_ledg where gcd='$gcd'");
 		while ($row33 = mysqli_fetch_array($data33))
@@ -106,16 +106,16 @@ if($gtot3!=0)
 ?>
  <tr >
        
-            <td align="left"><font size="3" color="#1A4C80"><a href="#" onClick="show4('<? echo $ldgr;?>','<? echo $pdt;?>','<? echo $pdt1;?>','<? echo $pno;?>')"><? echo $gnm; ?></font></a></td>
-			<td align="right"><font size="3" color="#1A4C80"><font size="3" color="red">  Rs </font><? echo number_format($gtot3,2); ?></font></td>
+            <td align="left"><font size="3" color="#1A4C80"><a href="#" onClick="show4('<?php  echo $ldgr;?>','<?php  echo $pdt;?>','<?php  echo $pdt1;?>','<?php  echo $pno;?>')"><?php  echo $gnm; ?></font></a></td>
+			<td align="right"><font size="3" color="#1A4C80"><font size="3" color="red">  Rs </font><?php  echo number_format($gtot3,2); ?></font></td>
 			<td align="left"><font size="3" color="#1A4C80"></font></td>
 </tr> 
 
 		<tr class="even">
-         <td align="center" colspan="3"><div id="<? echo $ldgr; ?>">    </div></td>
+         <td align="center" colspan="3"><div id="<?php  echo $ldgr; ?>">    </div></td>
 		</tr>        
 
-<?
+<?php 
 }
 
 }
@@ -123,10 +123,10 @@ if($gtot3!=0)
  <tr >
        
            
-			<td align="right" colspan="3"><font size="3" color="#1A4C80"><font size="3" color="red">  Rs </font><? echo number_format($gtot2,2); ?></font></td>
+			<td align="right" colspan="3"><font size="3" color="#1A4C80"><font size="3" color="red">  Rs </font><?php  echo number_format($gtot2,2); ?></font></td>
 		
 </tr>
-<?
+<?php 
 $gtot1=$gtot1+$gtot2;
 }
 ?>
@@ -137,10 +137,10 @@ $gtot1=$gtot1+$gtot2;
 <td align="right"><font size="1" color="red"><font size="4" color="black"><B> __________ </B></font></td>
 </tr>
 <tr >
-<? $IT=$gtot1;?>
+<?php  $IT=$gtot1;?>
 <td  align="right"><font size="4" color="BLACK"></font></td>
 <td  align="right"><font size="4" color="BLACK"></font></td>
-<td align="right"><font size="4" color="red"><font size="3" color="red"><B>  Rs <? echo number_format($gtot1,2); ?></B></font></td>
+<td align="right"><font size="4" color="red"><font size="3" color="red"><B>  Rs <?php  echo number_format($gtot1,2); ?></B></font></td>
 </tr>
   </table>
 </div>
@@ -148,7 +148,7 @@ $gtot1=$gtot1+$gtot2;
   <td align="center" width="50%" valign="top">
   <div id="sdtl1">
 <table border="0" width="100%">			
-<?
+<?php 
 $gtot1=0;
 $data32= mysqli_query($conn,"SELECT * FROM main_group where  pcd='8'");
 while ($row32 = mysqli_fetch_array($data32))
@@ -159,10 +159,10 @@ while ($row32 = mysqli_fetch_array($data32))
 		?>
 <tr >
        
-            <td align="left" colspan="3"><font size="3" color="#1A4C80"><b><u><? echo $gnm; ?> :</b></u></font></td>
+            <td align="left" colspan="3"><font size="3" color="#1A4C80"><b><u><?php  echo $gnm; ?> :</b></u></font></td>
 
 </tr>	
-	<?
+	<?php 
 			$gtot2=0;
 		$data33= mysqli_query($conn,"SELECT * FROM main_ledg where gcd='$gcd'");
 		while ($row33 = mysqli_fetch_array($data33))
@@ -187,25 +187,25 @@ if($gtot3!=0)
 ?>
  <tr >
        
-            <td align="left"><font size="3" color="#1A4C80"><a href="#" onClick="show3('<? echo $ldgr;?>','<? echo $pdt;?>','<? echo $pdt1;?>','<? echo $pno;?>')"><? echo $gnm; ?></font></a></td>
-			<td align="right"><font size="3" color="#1A4C80"><font size="3" color="red">  Rs </font><? echo number_format($gtot3,2); ?></font></td>
+            <td align="left"><font size="3" color="#1A4C80"><a href="#" onClick="show3('<?php  echo $ldgr;?>','<?php  echo $pdt;?>','<?php  echo $pdt1;?>','<?php  echo $pno;?>')"><?php  echo $gnm; ?></font></a></td>
+			<td align="right"><font size="3" color="#1A4C80"><font size="3" color="red">  Rs </font><?php  echo number_format($gtot3,2); ?></font></td>
 			<td align="left"><font size="3" color="#1A4C80"></font></td>
 </tr> 
 
 		<tr class="even">
-         <td align="center" colspan="3"><div id="<? echo $ldgr; ?>">    </div></td>
+         <td align="center" colspan="3"><div id="<?php  echo $ldgr; ?>">    </div></td>
 		</tr>        
 
-<?
+<?php 
 }}
 ?>
  <tr >
        
            
-			<td align="right" colspan="3"><font size="3" color="#1A4C80"><font size="3" color="red">  Rs </font><? echo number_format($gtot2,2); ?></font></td>
+			<td align="right" colspan="3"><font size="3" color="#1A4C80"><font size="3" color="red">  Rs </font><?php  echo number_format($gtot2,2); ?></font></td>
 		
 </tr>
-<?
+<?php 
 $gtot1=$gtot1+$gtot2;
 }
 ?>
@@ -216,16 +216,16 @@ $gtot1=$gtot1+$gtot2;
 <td align="right"><font size="1" color="red"><font size="4" color="black"><B> __________ </B></font></td>
 </tr>
 <tr >
-<? $ET=$gtot1;?>
+<?php  $ET=$gtot1;?>
 <td  align="right"><font size="4" color="BLACK"></font></td>
 <td  align="right"><font size="4" color="BLACK"></font></td>
-<td align="right"><font size="4" color="red"><font size="3" color="red"><B>  Rs <? echo number_format($gtot1,2); ?></B></font></td>
+<td align="right"><font size="4" color="red"><font size="3" color="red"><B>  Rs <?php  echo number_format($gtot1,2); ?></B></font></td>
 </tr>
   </table>
 </div>
   </td>
   </tr>
- <?$T=$IT-$ET;
+ <?php $T=$IT-$ET;
    if($T>=0)
    {
    $msg="Excess of Income over Expenditure";
@@ -234,22 +234,22 @@ $gtot1=$gtot1+$gtot2;
    <td align="left">
    
   </td>
-  <td align="right"><font size="3" color="#1A4C80"><? echo $msg; ?></font>
-  <font size="3" color="red"><B> Rs <? echo number_format($T,2); ?></B></font>
+  <td align="right"><font size="3" color="#1A4C80"><?php  echo $msg; ?></font>
+  <font size="3" color="red"><B> Rs <?php  echo number_format($T,2); ?></B></font>
   </td>
   
   </tr>
   <tr class="even">
   <td align="right">
-   <font size="4" color="red"><B> Rs <? echo number_format($IT,2); ?></B></font>
+   <font size="4" color="red"><B> Rs <?php  echo number_format($IT,2); ?></B></font>
   </td>
   <td align="right">
-  <font size="4" color="red"><B> Rs <? echo number_format($T+$ET,2); ?></B></font>
+  <font size="4" color="red"><B> Rs <?php  echo number_format($T+$ET,2); ?></B></font>
   </td>
   
   </tr>
    
-   <?
+   <?php 
    }
    else
    { $T=$T*-1;
@@ -257,8 +257,8 @@ $gtot1=$gtot1+$gtot2;
 	?>
 	<tr class="odd">
 	
-  <td align="right"><font size="3" color="#1A4C80"><? echo $msg; ?></font>
-  <font size="3" color="red"><B>  Rs <? echo number_format($T,2); ?></B></font>
+  <td align="right"><font size="3" color="#1A4C80"><?php  echo $msg; ?></font>
+  <font size="3" color="red"><B>  Rs <?php  echo number_format($T,2); ?></B></font>
   </td>
   <td align="left">
   
@@ -266,15 +266,15 @@ $gtot1=$gtot1+$gtot2;
   </tr>
   <tr class="even">
    <td align="right">
-   <font size="4" color="red"><B> Rs <? echo number_format($T+$IT,2); ?></B></font>
+   <font size="4" color="red"><B> Rs <?php  echo number_format($T+$IT,2); ?></B></font>
   </td>
   <td align="right">
-  <font size="4" color="red"><B> Rs <? echo number_format($ET,2); ?></B></font>
+  <font size="4" color="red"><B> Rs <?php  echo number_format($ET,2); ?></B></font>
   </td>
  
   </tr>
 	
-	<?
+	<?php 
    }
  ?>
   
@@ -287,6 +287,6 @@ $gtot1=$gtot1+$gtot2;
 
   </table>
   </div>
-<?
+<?php 
 }
 ?>

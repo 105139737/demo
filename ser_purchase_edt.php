@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 include "header.php";
@@ -686,7 +686,7 @@ document.getElementById('tamm2').value=tvvvv.round(2);
                 <!-- Main content -->
 <section class="content">
 <form method="post" name="form1" id="form1" action="ser_purchase_edts.php" enctype="multipart/form-data">
-<input type="hidden" name="blno" id="blno" value="<?php echo $blno;?>">
+<input type="hidden" name="blno" id="blno" value="<?php  echo $blno;?>">
 <div class="box box-success" >
 <table border="0" width="860px" class="table table-hover table-striped table-bordered">
 <tr>
@@ -697,14 +697,14 @@ document.getElementById('tamm2').value=tvvvv.round(2);
 <select id="sup" name="sup" tabindex="1"  class="form-control" onchange="gtid()" >
 <option value="">---Select---</option>
 <option value="Add">---Add New---</option>
-<?
+<?php 
 $query="select * from main_suppl WHERE sl>0 order by nm";
 $result=mysqli_query($conn,$query);
 while($rw=mysqli_fetch_array($result))
 {
 ?>
-<option value="<?=$rw['sl'];?>" <?php if($sid==$rw['sl']){ echo 'selected';}?>><?=$rw['spn'];?> <?if($rw['nm']!=""){?>( <?=$rw['nm'];?> )<?}?></option>
-<?
+<option value="<?php  echo $rw['sl'];?>" <?php  if($sid==$rw['sl']){ echo 'selected';}?>><?php  echo $rw['spn'];?> <?php if($rw['nm']!=""){?>( <?php  echo $rw['nm'];?> )<?php }?></option>
+<?php 
 }
 ?>
 </select>
@@ -718,7 +718,7 @@ while($rw=mysqli_fetch_array($result))
 <div id="get_add">
 <select name="addr"  id="addr"  class="form-control" onchange="get_state()">
 
-<?
+<?php 
 $query1="Select * from main_suppl_gst where spn='$sid'";
 $result1=mysqli_query($conn,$query1);
 while($row=mysqli_fetch_array ($result1))
@@ -729,8 +729,8 @@ $pan=$row['pan'];
 $gstin=$row['gstin'];
 $x=$row['sl'];
 ?>
-<option value="<?=$x?>" <?php if($addr==$row['sl']){ echo 'selected';}?>><?=$addr?> <?if($gstin!=""){?>( <?=$gstin;?> )<?}?></option>
-<?
+<option value="<?php  echo $x?>" <?php  if($addr==$row['sl']){ echo 'selected';}?>><?php  echo $addr?> <?php if($gstin!=""){?>( <?php  echo $gstin;?> )<?php }?></option>
+<?php 
 }
 ?>
 </select>
@@ -755,7 +755,7 @@ $x=$row['sl'];
 <td align="left" >
 
 <select name="brncd" class="form-control" tabindex="5"  size="1" id="brncd" >
-<?
+<?php 
 if($user_current_level<0)
 {
 $query="Select * from main_branch";
@@ -771,8 +771,8 @@ $sl=$R['sl'];
 $bnm=$R['bnm'];
 
 ?>
-<option value="<? echo $sl;?>" <?php if($bcd==$sl){ echo 'selected';}?>><? echo $bnm;?></option>
-<?
+<option value="<?php  echo $sl;?>" <?php  if($bcd==$sl){ echo 'selected';}?>><?php  echo $bnm;?></option>
+<?php 
 }
 ?>
 </select>
@@ -783,11 +783,11 @@ $bnm=$R['bnm'];
 <tr>
 <td align="right" style="padding-top:15px;"> <b>Invoice No. : </b></td>
 <td>
-<input type="text" class="form-control" tabindex="6"  id="inv"  name="inv" value="<?php echo $inv;?>" size="35" placeholder="Enter Invoice No...">
+<input type="text" class="form-control" tabindex="6"  id="inv"  name="inv" value="<?php  echo $inv;?>" size="35" placeholder="Enter Invoice No...">
 </td>
 <td align="right" style="padding-top:15px;"> <b>Date : </b></td>
 <td>
-<input type="text" class="form-control"  id="dt" tabindex="7"  name="dt" value="<? echo date('d-m-Y',strtotime($dt));?>" width="100%" placeholder="Enter Date">
+<input type="text" class="form-control"  id="dt" tabindex="7"  name="dt" value="<?php  echo date('d-m-Y',strtotime($dt));?>" width="100%" placeholder="Enter Date">
 </td>
 </tr>
 <tr>
@@ -796,14 +796,14 @@ $bnm=$R['bnm'];
 <div id="fst_div">
 <select id="fst" data-placeholder="Choose Your Supplier" name="fst"  class="form-control" onchange="get_gst()" width="100%">
 
-<?
+<?php 
 $sql="SELECT * FROM main_state WHERE sl>0 ORDER BY sn";
 $result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
 while($row=mysqli_fetch_array($result))
 {
 ?>
-<option value="<?=$row['sl'];?>"<?if($row['sl']==$fst){echo 'selected';}?>><?=$row['sn'];?> - <?=$row['cd'];?></option>
-<?}?>
+<option value="<?php  echo $row['sl'];?>"<?php if($row['sl']==$fst){echo 'selected';}?>><?php  echo $row['sn'];?> - <?php  echo $row['cd'];?></option>
+<?php }?>
 </select>
 </div>
 </td>
@@ -812,14 +812,14 @@ while($row=mysqli_fetch_array($result))
 <div id="tst_div">
 <select id="tst" data-placeholder="Choose Your Supplier" name="tst" class="form-control" onchange="get_gst()" width="100%" >
 
-<?
+<?php 
 $sql="SELECT * FROM main_state WHERE sl>0 ORDER BY sn";
 $result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
 while($row=mysqli_fetch_array($result))
 {
 ?>
-<option value="<?=$row['sl'];?>"<?if($row['sl']==$tst){echo 'selected';}?>><?=$row['sn'];?> - <?=$row['cd'];?></option>
-<?}?>
+<option value="<?php  echo $row['sl'];?>"<?php if($row['sl']==$tst){echo 'selected';}?>><?php  echo $row['sn'];?> - <?php  echo $row['cd'];?></option>
+<?php }?>
 </select>
 </div>
 </td>
@@ -828,14 +828,14 @@ while($row=mysqli_fetch_array($result))
 <td align="right" style="padding-top:15px;"> <b>Type : </b></td>
 <td>
 <select id="typ" name="typ" class="form-control" width="100%" >
-<?
+<?php 
 $sql="SELECT * FROM main_ledg WHERE gcd='6' or gcd='20' ORDER BY nm";
 $result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
 while($row=mysqli_fetch_array($result))
 {
 ?>
-<option value="<?=$row['sl'];?>"<?php if($typ==$row['sl']){ echo 'selected';}?> ><?=$row['nm'];?></option>
-<?}?>
+<option value="<?php  echo $row['sl'];?>"<?php  if($typ==$row['sl']){ echo 'selected';}?> ><?php  echo $row['nm'];?></option>
+<?php }?>
 </select>
   </td>
 <td align="right"   ><b>File Upload :</b></td>
@@ -881,21 +881,21 @@ while($row=mysqli_fetch_array($result))
 <select id="prnm" name="prnm" tabindex="10"  onchange="get_gstval()" style="width:100%">
 <option value="">---Select---</option>
 <option value="Add">---Add New---</option>
-<?
+<?php 
 $data1 = mysqli_query($conn,"Select * from main_product where typ='1' order by pnm");
 while ($row1 = mysqli_fetch_array($data1))
 	{
 	$sl=$row1['sl'];
 	$pnm=$row1['pnm'];
 ?>
-<Option value="<?=$sl;?>"><?=reformat($pnm);?></option>
-<?}?>
+<Option value="<?php  echo $sl;?>"><?php echo reformat($pnm);?></option>
+<?php }?>
 </select>
 </div>
 </td>
 <td align="left" hidden>
 <select name="bcd" class="form-control" tabindex="5"  size="1" id="bcd" >
-<?
+<?php 
 if($user_current_level<0)
 {
 $query="Select * from main_branch";
@@ -911,8 +911,8 @@ $sl=$R['sl'];
 $bnm=$R['bnm'];
 
 ?>
-<option value="<? echo $sl;?>"><? echo $bnm;?></option>
-<?
+<option value="<?php  echo $sl;?>"><?php  echo $bnm;?></option>
+<?php 
 }
 ?>
 </select>
@@ -1067,7 +1067,7 @@ $bnm=$R['bnm'];
 </td>
  <td colspan="2">
  <b>Remark's :</b>
- <input type="text" class="form-control" id="remk" tabindex="38"  name="remk" value="<?=$remk;?>" size="25" >
+ <input type="text" class="form-control" id="remk" tabindex="38"  name="remk" value="<?php  echo $remk;?>" size="25" >
  </td>
  <td>
  <b>Add/Less</b><br>
@@ -1098,13 +1098,13 @@ $bnm=$R['bnm'];
 	<td align="left" >
 	<font color="red">*</font><b>Cash Or Bank Ac. :</b>
 	 <select  name="dldgr" id="dldgr" tabindex="42"  class="form-control">
-							<?php 
+							<?php  
 							$get = mysqli_query($conn,"SELECT * FROM main_ledg where gcd='1' or gcd='2'") or die(mysqli_error($conn));
 							while($row = mysqli_fetch_array($get))
 							{
 							?>
-								<option value="<?=$row['sl']?>"<?=$row['sl'] == '3' ? 'selected' : '' ?>><?=$row['nm']?></option>
-							<?php 
+								<option value="<?php  echo $row['sl']?>"<?php  echo $row['sl'] == '3' ? 'selected' : '' ?>><?php  echo $row['nm']?></option>
+							<?php  
 							} 
 							?>
 						</select>
@@ -1114,7 +1114,7 @@ $bnm=$R['bnm'];
 <b>Payment Mode: </b>
 <select name="mdt" size="1" id="mdt" tabindex="43" onchange="pmod(this.value)" class="form-control">
 
-<?
+<?php 
 $data2 = mysqli_query($conn,"select * from ac_paymtd ");
 
 		while ($row2 = mysqli_fetch_array($data2))
@@ -1165,7 +1165,7 @@ $data2 = mysqli_query($conn,"select * from ac_paymtd ");
 
 
  
-<input type="hidden" id="prid"  name="prid" value="<? echo $cid;?>">
+<input type="hidden" id="prid"  name="prid" value="<?php  echo $cid;?>">
 <input type="hidden" id="stk" >
 <input type="hidden" id="fls" >
 <div id="ps">

@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 $uid=$_REQUEST['uid'];
@@ -10,7 +10,7 @@ $uid=$_REQUEST['uid'];
 <td style="font-size:16px;" width="20%"><b>View</b></td>
 <td style="font-size:16px;" width="20%"><b>Edit</b></td>
 </tr>
-<?php
+<?php 
 $sql1 = mysqli_query($conn,"select * from main_appmenu where sl>0 order by sl") or die(mysqli_error($conn));
 while($row = mysqli_fetch_array($sql1))
 {
@@ -39,12 +39,12 @@ if($vw==1){$vw="checked";}
 if($et==1){$et="checked";}
 ?>
 <tr>
-<td><b><input type="checkbox" value="<?=$mmsl?>"  <?=$main_chk;?> id="mm<?=$sl?>" name="mm[]"><font size="3"><?php echo $nm;?></font></b></td>
-<td><b><input type="checkbox" value="1" <?=$ent;?> id="ent<?=$mmsl?>" name="ent<?=$mmsl?>"></b></td>
-<td><b><input type="checkbox" value="1" <?=$vw;?> id="vw<?=$mmsl?>" name="vw<?=$mmsl?>"></b></td>
-<td><b><input type="checkbox" value="1" <?=$et;?> id="et<?=$mmsl?>" name="et<?=$mmsl?>"></b></td>
+<td><b><input type="checkbox" value="<?php  echo $mmsl?>"  <?php  echo $main_chk;?> id="mm<?php  echo $sl?>" name="mm[]"><font size="3"><?php  echo $nm;?></font></b></td>
+<td><b><input type="checkbox" value="1" <?php  echo $ent;?> id="ent<?php  echo $mmsl?>" name="ent<?php  echo $mmsl?>"></b></td>
+<td><b><input type="checkbox" value="1" <?php  echo $vw;?> id="vw<?php  echo $mmsl?>" name="vw<?php  echo $mmsl?>"></b></td>
+<td><b><input type="checkbox" value="1" <?php  echo $et;?> id="et<?php  echo $mmsl?>" name="et<?php  echo $mmsl?>"></b></td>
 </tr>
-<?
+<?php 
 
 }
 ?>

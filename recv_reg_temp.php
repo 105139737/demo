@@ -1,6 +1,7 @@
-<?php
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
+$err="";
 $blno=rawurldecode($_REQUEST['blno']);
 $amm=rawurldecode($_REQUEST['amm']);
 $sman=rawurldecode($_REQUEST['sman']);
@@ -36,21 +37,21 @@ VALUES ('$blno','$amm','$sman','$cid','$user_currently_loged','$brncd','$disl','
 $result21 = mysqli_query($conn,$query21)or die(mysqli_error($conn));	
 ?>
 <script>
-$("#blno option[value='<?php echo $blno;?>']").remove(); 
+$("#blno option[value='<?php  echo $blno;?>']").remove(); 
 $('#blno').trigger("chosen:updated"); 
 reset();
 recallRamm()
 </script>
 
-<?
+<?php 
 }
 if($err!='')
 {
 ?>
 <script>
-alert("<?=$err;?>");
+alert("<?php  echo $err;?>");
 temp();
 </script>
-<?
+<?php 
 }
 ?>

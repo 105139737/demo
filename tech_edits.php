@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 $dt=date('Y-m-d');
@@ -29,19 +29,19 @@ $result2 = mysqli_query($conn,$query2)or die (mysqli_error($conn));
 $msg="Update Successfully. Thank You..!";
 ?>
 <script language="javascript">
-alert('<?=$msg;?>');
+alert('<?php  echo $msg;?>');
 document.location="pcat.php";
 </script>
-<?
+<?php 
 }
 else
 {
 ?>
 <script language="javascript">
-alert('<?=$err;?>');
+alert('<?php  echo $err;?>');
 window.history.go(-1);
 </script>
-<?	
+<?php 	
 }
 ?>
 

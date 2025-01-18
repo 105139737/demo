@@ -1,4 +1,4 @@
-<?
+<?php 
 require("config.php");
 function parseToXML($htmlStr)
 {
@@ -15,7 +15,7 @@ $fdt=$_REQUEST['fdt'];
 $tdt=$_REQUEST['tdt'];
 $snm=$_REQUEST['snm'];
 
-$brncd=$_REQUEST[brncd];
+$brncd=$_REQUEST['brncd'] ?? "";
 $ale="";
 if($fdt=="" or $tdt=="" or $snm=="")
 {

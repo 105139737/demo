@@ -1,4 +1,4 @@
-<?php
+<?php 
 
 $reqlevel = 0;
 include("membersonly.inc.php");
@@ -8,7 +8,7 @@ $typ=1;
 set_time_limit(0);
 $fdt=date('Y-m-d', strtotime($fdt));
 $tdt=date('Y-m-d', strtotime($tdt));
-$snm=$_REQUEST['snm'];
+$snm=$_REQUEST['snm'] ?? "";
 if($snm!=""){$snm1=" and cid='$snm'";}else{$snm1="";}
 
 
@@ -107,13 +107,13 @@ if($rcnt>0)
 	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(0,$rw, $gstin);
 	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(1,$rw, $blno);
 	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(2,$rw, $dt);
-	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(3,$rw, round($tamm,2));
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(3,$rw, round($tamm??0,2));
 	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(4,$rw, $statcd.'-'.$statnm);
 	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(5,$rw, 'N');
 	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(6,$rw, 'Regular');
 	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(7,$rw, '');
 	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(8,$rw, $cgst_rt+$sgst_rt);
-	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(9,$rw, round($amm,2));
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(9,$rw, round($amm??0,2));
 	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(10,$rw, '');
 }
 else
@@ -168,10 +168,10 @@ if($mnc>0)
 {
 		$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(0,$rw1, $invno1);
 		$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(1,$rw1, $invdt1);
-		$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(2,$rw1, round($net_am1,2));
+		$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(2,$rw1, round($net_am1??0,2));
 		$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(3,$rw1, $statcd1.'-'.$statnm1);
 		$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(4,$rw1, $cgst_rt1+$sgst_rt1);
-		$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(5,$rw1, round($amm1,2));
+		$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(5,$rw1, round($amm1??0,2));
 		$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(6,$rw1, '');
 		$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(7,$rw1, '');
 }
@@ -206,7 +206,7 @@ if($mnc1>0)
 		$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(0,$rw2, 'OE');
 		$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(1,$rw2, '19-West Bengal');
 		$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(2,$rw2, $cgst_rt2+$sgst_rt2);
-		$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(3,$rw2, round($amm2,2));
+		$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(3,$rw2, round($amm2??0,2));
 		$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(4,$rw2, '');
 		$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(5,$rw2, '');
 }
@@ -330,7 +330,6 @@ $res0=mysqli_query($conn,"select * from main_scat where hsn='$hsn'") or die(mysq
 while($R0=mysqli_fetch_array($res0))
 {
 $sl1=$R0['sl'];
-$cat=$R0['cnm'];
 $snm=$R0['nm'];
 $qr.=" or scat='$sl1'";
 }
@@ -345,7 +344,7 @@ $eqr.=")";
 $xqr=mysqli_query($conn,"select (cgst+sgst) as tigst from main_gst where cat='$sl1'")or die(mysqli_error($conn));
 while($R000=mysqli_fetch_array($xqr))
 {
-	$igst=$R000[tigst];
+	$igst=$R000['tigst'];
 }
 $ttamm=0;
 $tcgst_am=0;
@@ -381,11 +380,11 @@ if($mnc5>0)
 		$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(1,$rw3, substr($avv,0,30));
 		$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(2,$rw3, 'PCS-PIECE');
 		$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(3,$rw3, $tpcs);
-		$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(4,$rw3, round($tnet_am,2));
-		$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(5,$rw3, round($ttamm,2));
-		$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(6,$rw3, round($tigst_am,2));
-		$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(7,$rw3, round($tcgst_am,2));
-		$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(8,$rw3, round($tsgst_am,2));
+		$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(4,$rw3, round($tnet_am??0,2));
+		$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(5,$rw3, round($ttamm??0,2));
+		$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(6,$rw3, round($tigst_am??0,2));
+		$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(7,$rw3, round($tcgst_am??0,2));
+		$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(8,$rw3, round($tsgst_am??0,2));
 		$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(9,$rw3, '');
 }
 else

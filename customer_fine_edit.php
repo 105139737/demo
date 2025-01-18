@@ -1,8 +1,8 @@
-<?php
+<?php 
 $reqlevel=5;
 include("membersonly.inc.php");
 
-$sl=$_REQUEST[sl];		
+$sl=$_REQUEST['sl'];		
 $data= mysqli_query($conn,"SELECT * FROM main_drcr where sl='$sl'");
 while ($row = mysqli_fetch_array($data))
 {
@@ -27,16 +27,16 @@ $dt=date('d-m-Y', strtotime($dt));
 <table width="100%" class="table table-hover table-striped table-bordered">
 <tr >
 <td align="left" width="50%" ><font color="red">*</font>Date :
-<input type="text" name="dt" class="form-control dat" id="dt" value="<? echo $dt; ?>"> 
+<input type="text" name="dt" class="form-control dat" id="dt" value="<?php  echo $dt; ?>"> 
 </td>
 <td align="left" width="50%" ><font color="red">*</font>Branch  :						
 <select name="brncd" class="form-control" size="1" id="brncd"  onchange="gtcrvl1();get_blno();" >
-<?
+<?php 
 if($user_current_level<0)
 {
 ?>
 <option value="">---Select---</option>
-<?
+<?php 
 }
 if($user_current_level<0)
 {
@@ -53,8 +53,8 @@ $slb=$R['sl'];
 $bnm=$R['bnm'];
 
 ?>
-<option value="<? echo $slb;?>"<?=$R['sl'] == $brncd ? 'selected' : '' ?>><? echo $bnm;?></option>
-<?
+<option value="<?php  echo $slb;?>"<?php  echo $R['sl'] == $brncd ? 'selected' : '' ?>><?php  echo $bnm;?></option>
+<?php 
 }
 ?>
 </select>
@@ -65,13 +65,13 @@ $bnm=$R['bnm'];
     <td align="left" ><font color="red">*</font>Income Head :
 		<select  name="cldgr" id="cldgr" class="form-control" onchange="gtcrvl1()"  >
 		<option value="">-- Select --</option>
-		<?php 
+		<?php  
 		$get = mysqli_query($conn,"SELECT * FROM main_ledg where gcd='3' or gcd='4'") or die(mysqli_error($conn));
 		while($row = mysqli_fetch_array($get))
 		{
 		?>
-			<option value="<?=$row['sl']?>" <?=$row['sl'] == $cldgr ? 'selected' : '' ?>><?=$row['nm']?></option>
-		<?php 
+			<option value="<?php  echo $row['sl']?>" <?php  echo $row['sl'] == $cldgr ? 'selected' : '' ?>><?php  echo $row['nm']?></option>
+		<?php  
 		} 
 		?>
 		</select>
@@ -84,7 +84,7 @@ $bnm=$R['bnm'];
 <td width="50%">
 <select id="cid"  name="cid"   tabindex="2" class="form-control" ><!--onchange="get_blno()"-->
 <option value="">---Select---</option>
-<?
+<?php 
 $query="select * from main_cust  WHERE sl>0 order by nm";
 $result = mysqli_query($conn,$query);
 while ($R = mysqli_fetch_array ($result))
@@ -94,8 +94,8 @@ $spn=$R['nm'];
 $cont=$R['cont'];
 $addr=$R['addr'];
 ?>
-<option value="<? echo $sid;?>" <?if($cid==$sid){?> selected <? } ?> ><? echo $spn;?>  - <? echo $cont;?></option>
-<?
+<option value="<?php  echo $sid;?>" <?php if($cid==$sid){?> selected <?php  } ?> ><?php  echo $spn;?>  - <?php  echo $cont;?></option>
+<?php 
 }
 ?>
 </select>
@@ -108,23 +108,23 @@ $addr=$R['addr'];
   
   <tr >
     <td align="left" >Ref. No. :
-       <input type="text" name="cbill" class="form-control" id="cbill" size="40" value="<?echo $cbill;?>">
+       <input type="text" name="cbill" class="form-control" id="cbill" size="40" value="<?php echo $cbill;?>">
 	</td>  
     <td align="left" ><font color="red">*</font>Ammount :
-	 <input type="text" name="amm" id="amm" class="form-control" value="<?echo $amm;?>">
+	 <input type="text" name="amm" id="amm" class="form-control" value="<?php echo $amm;?>">
 	</td>	
   </tr>
   
   <tr >
     <td align="left"  colspan="3" ><font color="red">*</font>Narration :
-	<input type="text" name="nrtn" class="form-control" id="nrtn" size="100" value="<?echo $nrtn;?>">
+	<input type="text" name="nrtn" class="form-control" id="nrtn" size="100" value="<?php echo $nrtn;?>">
 	</td>
   </tr>
 
   <tr >
     <td colspan="4" align="right"><input type="submit" class="btn btn-info" value="Update"></td>
   </tr>
- <input type="hidden" name="sl" id="sl" value="<?echo $sl;?>">
+ <input type="hidden" name="sl" id="sl" value="<?php echo $sl;?>">
 </table>
 </div>
 </form>

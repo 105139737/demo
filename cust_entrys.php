@@ -1,4 +1,4 @@
-<?PHP 
+<?php  
 $reqlevel = 3; 
 include("membersonly.inc.php");
 date_default_timezone_set('Asia/Kolkata');
@@ -26,6 +26,7 @@ $brncd=$_POST['brncd'];
 $credit_limit=$_POST['credit_limit'];
 $gtm=$_POST['gtm'];
 $isfin=$_POST['isfin'];
+$gstdt="";
 $err='';
 if($ctyp=='2')
 {
@@ -104,16 +105,16 @@ $sql=mysqli_query($conn,"insert into main_cust_asgn(spid,cust,edt,eby) values('$
 alert('Submitted Successfully. Thank You...');
 document.location="cust_entry.php";
 </script>
-<?
+<?php 
 }
 else
 {
 ?>
 <script>
-alert('<?=$err;?>');
+alert('<?php  echo $err;?>');
 history.go(-1);
 </script>
-<?
+<?php 
 }
 
 ?>

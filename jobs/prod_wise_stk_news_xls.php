@@ -41,10 +41,14 @@ header("Content-Disposition: attachment; filename=$file");*/
 <td align="center"><b>BETHUA</b></td>
 <td align="center"><b>BURDWAN SHOWROOM</b></td>
 <td align="center"><b>KARIMPUR</b></td>
+<td align="center"><b>BARASAT</b></td>
+<td align="center"><b>BERHAMPORE</b></td>
+<td align="center"><b>KANCHRAPARA</b></td>
 <td align="center"><b>BALANCE</b></td>
 </tr>
 <?php
 $cntc=0;
+$ssl=0;
 $data=mysqli_query($conn,"select * from main_product where sl>0 and stat='0' and typ='0' $cat1  $scat1  $all1 order by pnm")or die(mysqli_error($conn));
 while($row=mysqli_fetch_array($data))
 {
@@ -158,7 +162,28 @@ while($row=mysqli_fetch_array($data))
 	{
 		$gwn11=$R['stck1'];
 	}
-	$balance=$gwn1+$gwn4+$gwn5+$gwn6+$gwn7+$gwn8+$gwn9+$gwn10+$gwn11;
+	$gwn12=0;
+	$query="SELECT sum(opst+stin-stout) as stck1 from ".$DBprefix."stock where pcd='$pcd' and dt<='$dt' AND bcd='12'";
+	$result=mysqli_query($conn,$query);
+	while($R=mysqli_fetch_array($result))
+	{
+		$gwn12=$R['stck1'];
+	}
+	$gwn13=0;
+	$query="SELECT sum(opst+stin-stout) as stck1 from ".$DBprefix."stock where pcd='$pcd' and dt<='$dt' AND bcd='13'";
+	$result=mysqli_query($conn,$query);
+	while($R=mysqli_fetch_array($result))
+	{
+		$gwn13=$R['stck1'];
+	}
+	$gwn14=0;
+	$query="SELECT sum(opst+stin-stout) as stck1 from ".$DBprefix."stock where pcd='$pcd' and dt<='$dt' AND bcd='14'";
+	$result=mysqli_query($conn,$query);
+	while($R=mysqli_fetch_array($result))
+	{
+		$gwn14=$R['stck1'];
+	}
+	$balance=$gwn1+$gwn4+$gwn5+$gwn6+$gwn7+$gwn8+$gwn9+$gwn10+$gwn11+$gwn12+$gwn13+$gwn14;
 	
 	if($gwn1==''){$gwn1=0;}
 	if($gwn2==''){$gwn2=0;}
@@ -171,6 +196,9 @@ while($row=mysqli_fetch_array($data))
 	if($gwn9==''){$gwn9=0;}
 	if($gwn10==''){$gwn10=0;}
 	if($gwn11==''){$gwn11=0;}
+	if($gwn12==''){$gwn12=0;}
+	if($gwn13==''){$gwn13=0;}
+	if($gwn14==''){$gwn14=0;}
 	?>
 	<tr title="<?=$pcd;?>, Stocksl :<?=$ssl;?>">
 	<td align="center"><?php echo $cntc;?></td>
@@ -186,6 +214,9 @@ while($row=mysqli_fetch_array($data))
 	<td align="center"><?php echo $gwn8;?></td>
 	<td align="center"><?php echo $gwn9;?></td>
 	<td align="center"><?php echo $gwn11;?></td>
+	<td align="center"><?php echo $gwn12;?></td>
+	<td align="center"><?php echo $gwn13;?></td>
+	<td align="center"><?php  echo $gwn14;?></td>
 	<td align="center"><?php echo $balance;?></td>
 	</tr>	 
 

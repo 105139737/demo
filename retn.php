@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include "header.php";
@@ -8,7 +8,7 @@ $saa="01-".date('m-y');
 <html>
 <head>
         <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <style type="text/css"> 
@@ -143,13 +143,13 @@ $("#tdt").inputmask("dd-mm-yyyy", {"placeholder": "dd-mm-yyyy"});
 <td align="right" style="padding-top:15px">
 <b>Form : </b>
 <td align="left">
-<input type="text" id="fdt" name="fdt" size="20" value="<?echo $saa;?>" class="form-control" placeholder="Please Enter From Date" > </td>
+<input type="text" id="fdt" name="fdt" size="20" value="<?php echo $saa;?>" class="form-control" placeholder="Please Enter From Date" > </td>
 
 <td align="right" style="padding-top:15px">
 <b>To : </b>
 </td>
 <td align="left">
-<input type="text" id="tdt" name="tdt" size="20" value="<?echo $sa;?>"class="form-control" placeholder="Please Enter To Date">
+<input type="text" id="tdt" name="tdt" size="20" value="<?php echo $sa;?>"class="form-control" placeholder="Please Enter To Date">
 </td>
 <td align="right" style="padding-top:15px">
 <b>Shop Name : </b>
@@ -158,7 +158,7 @@ $("#tdt").inputmask("dd-mm-yyyy", {"placeholder": "dd-mm-yyyy"});
 
 <select name="snm" class="form-control"  id="snm"   >
 <option value="">All</option>
-<?
+<?php 
 $query="Select * from  main_suppl where tp='Debtors' or tp='Both' order by spn";
    $result = mysqli_query($conn,$query);
 while ($R = mysqli_fetch_array ($result))
@@ -166,8 +166,8 @@ while ($R = mysqli_fetch_array ($result))
 $sid=$R['sid'];
 $spn=$R['spn'];
 ?>
-<option value="<? echo $sid;?>"><? echo $spn;?></option>
-<?
+<option value="<?php  echo $sid;?>"><?php  echo $spn;?></option>
+<?php 
 }
 ?>
 </select>
@@ -178,7 +178,7 @@ $spn=$R['spn'];
 <td align="left">
 <select name="pnm" class="form-control"  id="pnm"   >
 <option value="">All</option>
-<?
+<?php 
 $query="Select * from  main_product order by pname";
    $result = mysqli_query($conn,$query);
 while ($R = mysqli_fetch_array ($result))
@@ -186,8 +186,8 @@ while ($R = mysqli_fetch_array ($result))
 $sl=$R['sl'];
 $pname=$R['pname'];
 ?>
-<option value="<? echo $sl;?>"><? echo $pname;?></option>
-<?
+<option value="<?php  echo $sl;?>"><?php  echo $pname;?></option>
+<?php 
 }
 ?>
 </select>

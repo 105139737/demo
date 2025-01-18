@@ -1,15 +1,17 @@
-<?php
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 include "header.php";
+$stock_in=0;
 date_default_timezone_set('Asia/Kolkata');
-$fbcd=$_REQUEST['fbcd'];
-$tbcd=$_REQUEST['tbcd'];
-$transDistance=$_REQUEST['transDistance'];
+$fbcd=$_REQUEST['fbcd']??"";
+$tbcd=$_REQUEST['tbcd']??"";
+$transDistance=$_REQUEST['transDistance']??"";
 
 $dt=date('Y-m-d');
 $edtm=date('d-m-Y H:i:s a');
-
+$err="";
+$ret=0;
 if($fbcd=="" or $tbcd=="" or $transDistance=="")
 {
     $err="Please Fill All Fields..!!";
@@ -75,7 +77,6 @@ while ($R100 = mysqli_fetch_array ($result100))
 $prsl=$R100['prsl'];
 $prnm=$R100['prnm'];
 $qnty=$R100['qty'];
-$prc=$R100['prc'];
 $remk=$R100['remk'];
 $fbcd=$R100['fbcd'];
 $refno=$R100['refno'];
@@ -107,6 +108,7 @@ $stk_rate=$rate_array[0];
 $rate=$rate_array[1];
 
 $get=mysqli_query($conn,"select * from ".$DBprefix."unit where cat='$prsl'") or die(mysqli_error($conn));
+$uval="";
 while($roww=mysqli_fetch_array($get))
 {
 	$sun=$roww['sun'];
@@ -154,7 +156,7 @@ $qttl=$R1['qttl'];
 ?>
 <html>
         <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <head>
@@ -203,13 +205,13 @@ border: 1px solid #000;
 <font size="5"> <b><a href="trnsfer.php" ><u>Back</u></a></b></font>
 </td>
 <td  align="left">
-<font size="5"> <b><a href="bill_new_trn.php?blno=<?=rawurlencode($blno);?>" target="_blank"><font color="red"><u>Print</u></font></a></b></font>
+<font size="5"> <b><a href="bill_new_trn.php?blno=<?php echo rawurlencode($blno);?>" target="_blank"><font color="red"><u>Print</u></font></a></b></font>
 </td>
 </tr>
 
 <tr>
 <td  align="center" colspan="2" >
-<font size="4" color="red"> <b> Transfer No. : <?=$blno;?></b></font>
+<font size="4" color="red"> <b> Transfer No. : <?php  echo $blno;?></b></font>
 </td>
 
 </tr>
@@ -223,15 +225,15 @@ border: 1px solid #000;
 </body>
 </div>
 </html>
-<?
+<?php 
 }
 else
 {
     ?>
 <Script language="JavaScript">
-alert('<? echo $err;?>');
+alert('<?php  echo $err;?>');
 document.location="trnsfer.php";
 </script>
-<?
+<?php 
 }
 ?>

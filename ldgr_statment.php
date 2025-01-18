@@ -1,6 +1,10 @@
-<?$reqlevel = 3;
+<?php $reqlevel = 3;
 include("membersonly.inc.php");
 include "header.php";
+$fdt="";
+$tdt="";
+$brncd="";
+$sto="";
 if($fdt=="")
 {   
  if(date('m')>3)
@@ -20,7 +24,7 @@ if($fdt=="")
  <html>
  <head>  
  <div class="wrapper row-offcanvas row-offcanvas-left">    
- <?    
+ <?php     
  include "left_bar.php";  
  ?>
  <style type="text/css"> 
@@ -115,7 +119,7 @@ if($fdt=="")
 <td align="left" width="25%"><font color="red">*</font><font size="3"><b>Branch:</b></font><br>
 <select name="brncd" class="form-control" size="1" id="brncd" >
 <option value="">---Select---</option>
-<?
+<?php 
 if($user_current_level<0)
 {
 $query="Select * from main_branch";
@@ -131,8 +135,8 @@ $slb=$R['sl'];
 $bnm=$R['bnm'];
 
 ?>
-<option value="<? echo $slb;?>" <?if($slb==$brncd){echo 'selected';}?>><? echo $bnm;?></option>
-<?
+<option value="<?php  echo $slb;?>" <?php if($slb==$brncd){echo 'selected';}?>><?php  echo $bnm;?></option>
+<?php 
 }
 ?>
 </select>
@@ -141,22 +145,22 @@ $bnm=$R['bnm'];
 <td align="left" width="25%"> <font size="3"><b>Ledger Name :</b></font><br>
 <select id="cid"  name="cid"  tabindex="2" class="sc">	
 	<option value="">---Select---</option>		
-	<?		
+	<?php 		
 	$query6="select * from  main_ledg where sl!='170' order by nm";		
 	$result5 = mysqli_query($conn,$query6);		
 	while($row=mysqli_fetch_array($result5))		
 		{			
 	?>		
-	<option value="<?=$row['sl'];?>"<?=$sto==$row['sl'] ? 'selected' : ''?>><?=$row['nm'];?></option>	
-	<?}?>		
+	<option value="<?php  echo $row['sl'];?>"<?php  echo $sto==$row['sl'] ? 'selected' : ''?>><?php  echo $row['nm'];?></option>	
+	<?php }?>		
 	</select>
 	<input type="hidden" name="proj" id="proj" value="NA" readonly>
 </td>
 
 <td align="left" width="25%"> <font size="3" ><b>From  :</b></font>
-<input type="text" name="fdt" id="fdt" class="sc" value="<?=$fdt;?>"></td>
+<input type="text" name="fdt" id="fdt" class="sc" value="<?php  echo $fdt;?>"></td>
 <td align="left" width="25%"> <font size="3" ><b>To  :</b></font>
-<input type="text" name="tdt" id="tdt" class="sc" value="<?=$tdt;?>" ></td>
+<input type="text" name="tdt" id="tdt" class="sc" value="<?php  echo $tdt;?>" ></td>
 </tr>
 <tr>
 <td colspan="6" align="right" style="padding-right:80px">

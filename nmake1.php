@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 ?>
@@ -42,7 +42,7 @@ cursor:pointer;
             <td width="40%"><font size="5" color="#FFFF66">Primary</font></td>
             <td width="60%">
             <select name="tp" id="tp" size="1" style="font-family: Times New Roman; font-size: 18pt">
-<?
+<?php 
 $query3 = "SELECT * FROM ".$DBprefix."primary";
    $result3 = mysqli_query($conn,$query3);
 while ($R = mysqli_fetch_array ($result3))
@@ -50,8 +50,8 @@ while ($R = mysqli_fetch_array ($result3))
 $x=$R['sl'];
 $y=$R['nm'];
 ?>
-<option value="<? echo $x;?>"><? echo $y;?></option>
-<?
+<option value="<?php  echo $x;?>"><?php  echo $y;?></option>
+<?php 
 }
 ?>
 </select>

@@ -1,6 +1,6 @@
-<?php
+<?php 
 include("config.php");
-$all=rawurldecode($_REQUEST['searchtext']);
+$all=rawurldecode($_REQUEST['searchtext'] ?? "");
 $al="%".$all."%";
 if($all!="")
 {
@@ -25,17 +25,17 @@ header("Content-Disposition: attachment; filename=$file");
   <thead>
     <tr>    
       <th scope="col">Model Name</th>
-      <?php if($tp==2){?>
+      <?php  if($tp==2){?>
       <th scope="col">DLR-NLC</th>
       <th scope="col">Dis%</th>      
       <th scope="col">DisAm</th>      
       <th scope="col">Inv-Price</th>
-      <?php }if($tp==1){?>
+      <?php  }if($tp==1){?>
       <th scope="col">Offer-Price</th>
       <th scope="col">OFFERLESS%</th>
       <th scope="col">Last-Price</th>
-      <?php }?>
-      <?php if($tp==''){?>
+      <?php  }?>
+      <?php  if($tp==''){?>
       <th scope="col">DLR-NLC</th>
       <th scope="col">Dis%</th>     
       <th scope="col">DisAm</th>   
@@ -43,11 +43,11 @@ header("Content-Disposition: attachment; filename=$file");
       <th scope="col">Offer-Price</th>
       <th scope="col">OFFERLESS%</th>
       <th scope="col">Last-Price</th>
-      <?php }?>
+      <?php  }?>
     </tr>
   </thead>
   <tbody>
-    <?php 
+    <?php  
     $sl=0;
     $sln=0;
 
@@ -97,28 +97,28 @@ header("Content-Disposition: attachment; filename=$file");
     $invprc=$prc-($prc*$dis)/100;
     ?>
     <tr>      
-      <td data-label="Model Name"><? echo $modelno;?></td>
-      <?php if($tp==2){?>
-      <td data-label="DLR-NLC"><? echo round($prc,0);?></td>
-      <td data-label="Dis%"><? echo round($dis,2);?></td>
-      <td data-label="Dis%"><? echo round($disam,2);?></td>
-      <td data-label="Inv-Price"><? echo round($invprc,0);?></td>
-      <?php }if($tp==1){?>
-      <td data-label="Offer-Price"><? echo round($offprc,2);?></td>
-      <td data-label="Offer-Price"><? echo round($offless,2);?></td>
-      <td data-label="Last-Price"><? echo round($lprc,2);?></td>
-      <?php }?>
-      <?php if($tp==''){?>
-        <td data-label="DLR-NLC"><? echo round($prc,0);?></td>
-      <td data-label="Dis%"><? echo round($dis,2);?></td>
-      <td data-label="Dis%"><? echo round($disam,2);?></td>
-      <td data-label="Inv-Price"><? echo round($invprc,0);?></td>
-      <td data-label="Offer-Price"><? echo round($offprc,0);?></td>
-      <td data-label="Offer-Price"><? echo round($offless,0);?></td>
-      <td data-label="Last-Price"><? echo round($lprc,0);?></td>
-        <?php }?>
+      <td data-label="Model Name"><?php  echo $modelno;?></td>
+      <?php  if($tp==2){?>
+      <td data-label="DLR-NLC"><?php  echo round($prc,0);?></td>
+      <td data-label="Dis%"><?php  echo round($dis,2);?></td>
+      <td data-label="Dis%"><?php  echo round($disam,2);?></td>
+      <td data-label="Inv-Price"><?php  echo round($invprc,0);?></td>
+      <?php  }if($tp==1){?>
+      <td data-label="Offer-Price"><?php  echo round($offprc,2);?></td>
+      <td data-label="Offer-Price"><?php  echo round($offless,2);?></td>
+      <td data-label="Last-Price"><?php  echo round($lprc,2);?></td>
+      <?php  }?>
+      <?php  if($tp==''){?>
+        <td data-label="DLR-NLC"><?php  echo round($prc,0);?></td>
+      <td data-label="Dis%"><?php  echo round($dis,2);?></td>
+      <td data-label="Dis%"><?php  echo round($disam,2);?></td>
+      <td data-label="Inv-Price"><?php  echo round($invprc,0);?></td>
+      <td data-label="Offer-Price"><?php  echo round($offprc,0);?></td>
+      <td data-label="Offer-Price"><?php  echo round($offless,0);?></td>
+      <td data-label="Last-Price"><?php  echo round($lprc,0);?></td>
+        <?php  }?>
     </tr>
-    <?php
+    <?php 
 }
 ?>
   </tbody>

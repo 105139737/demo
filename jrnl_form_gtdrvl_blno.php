@@ -1,11 +1,11 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
-$sl=$_REQUEST[sl];
-$pno=$_REQUEST[pno];
-$cid=$_REQUEST[cid];
-$blno=rawurldecode($_REQUEST[blno]);
-$brncd=$_REQUEST[brncd];if($brncd==""){$brncd1="";}else{$brncd1=" and brncd='$brncd'";}
+$sl=$_REQUEST['sl'];
+$pno=$_REQUEST['pno'] ?? "";
+$cid=$_REQUEST['cid'] ?? "";
+$blno=rawurldecode($_REQUEST['blno'] ?? "");
+$brncd=$_REQUEST['brncd'] ?? "";if($brncd==""){$brncd1="";}else{$brncd1=" and brncd='$brncd'";}
 if($cid!="")
 {
 	$cid1=" and (cid='$cid' or sid='$cid')";
@@ -40,4 +40,4 @@ $T=round($R16['amm'],2);
 }
 //$T=$t1-$t2;
 ?>
-<input type="text" name="dbal" id="dbal"  size="35" value="<?echo $T;?>" style="background :transparent; color : red;width:120px;font-weight:bold;" readonly>
+<input type="text" name="dbal" id="dbal"  size="35" value="<?php echo $T;?>" style="background :transparent; color : red;width:120px;font-weight:bold;" readonly>

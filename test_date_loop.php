@@ -1,4 +1,4 @@
-<?php
+<?php 
 $day=$_REQUEST['day'];
 $day="sunday";
 date_default_timezone_set("Asia/kolkata");

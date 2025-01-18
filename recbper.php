@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 //$today=date('Y-m-d');
@@ -8,7 +8,7 @@ $tod=$_REQUEST['dt'];
 $today=date('Y-m-d',strtotime($tod));
 
 
-
+$dt="";
 $data2= mysqli_query($conn,"select * from  main_billing where blno='$blno'")or die(mysqli_error($conn));
 while ($row2 = mysqli_fetch_array($data2))
 {
@@ -34,9 +34,9 @@ else
 }
 ?>
 <script>
-document.getElementById('day').value="<?php echo $day;?>";
-document.getElementById('rdis').value="<?php echo $prefnd;?>";
-document.getElementById('cdate').value="<?php echo $days;?>";
+document.getElementById('day').value="<?php  echo $day;?>";
+document.getElementById('rdis').value="<?php  echo $prefnd;?>";
+document.getElementById('cdate').value="<?php  echo $days;?>";
 if(document.getElementById('rdis').value>0)
 {
 	$('#disl').val('202');

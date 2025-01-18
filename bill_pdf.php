@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include("Numbers/Words.php");
@@ -12,10 +12,10 @@ $dt=date('d-m-Y');
 
 date_default_timezone_set('Asia/Kolkata');
 $cdt = date('Y-m-d');
-$fdt=rawurldecode($_REQUEST[fdt]);
-$tdt=rawurldecode($_REQUEST[tdt]);
+$fdt=rawurldecode($_REQUEST['fdt']);
+$tdt=rawurldecode($_REQUEST['tdt']);
 $invto11=rawurldecode($_REQUEST[invto]);
-$tp=rawurldecode($_REQUEST[tp]);
+$tp=rawurldecode($_REQUEST['tp'] ?? "");
 $typ="BUYER'S COPY";
 $vat=rawurldecode($_REQUEST[vat]);
 

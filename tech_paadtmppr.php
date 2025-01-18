@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 date_default_timezone_set('Asia/Kolkata');
@@ -49,11 +49,11 @@ if($err=="")
 }
 ?>
  <script>
- alert('<?=$err;?>');
+ alert('<?php  echo $err;?>');
 tmppr1();
 $('#pnm').trigger('chosen:open');
 </script>
 
-<?
+<?php 
 mysqli_close();
 ?>

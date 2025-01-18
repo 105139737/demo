@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include "header.php";
@@ -13,7 +13,7 @@ echo $sl=$_REQUEST['sl'];
 ?>
 <html>
 <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <style type="text/css"> 
@@ -83,8 +83,8 @@ cursor:pointer;
 		     <tr>
             <td  align="right" ><b>Customer Type :</b></td>
             <td  align="left">
-			<input type="text" class="form-control" id="tp"  name="tp" size="50" value="<?=$tp;?>">
-			<input type="hidden" class="form-control" id="sl"  name="sl" size="50" value="<?=$sl;?>">
+			<input type="text" class="form-control" id="tp"  name="tp" size="50" value="<?php  echo $tp;?>">
+			<input type="hidden" class="form-control" id="sl"  name="sl" size="50" value="<?php  echo $sl;?>">
 
             </td>
                <td colspan="2" align="left"  style="padding-right: 8px;">

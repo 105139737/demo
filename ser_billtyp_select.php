@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 include("function.php");
@@ -40,18 +40,19 @@ if($total!=0)
 
 
 </tr>
-<?
+<?php 
+$cnt=0;
 while($row=mysqli_fetch_array($get))
 {
 	$cnt++;
-	$ssl=$row['sl'];
-	$als=$row['als'];
-	$tp=$row['tp'];
-	$adrs=$row['adrs'];
-	$ssn=$row['ssn'];
-	$stat=$row['stat'];
-	$brncd=$row['brncd'];
-	$brand=$row['brand'];
+	$ssl=$row['sl'] ?? "";
+	$als=$row['als'] ?? "";
+	$tp=$row['tp'] ?? "";
+	$adrs=$row['adrs'] ?? "";
+	$ssn=$row['ssn'] ?? "";
+	$stat=$row['stat'] ?? "";
+	$brncd=$row['brncd'] ?? "";
+	$brand=$row['brand'] ?? "";
 	
 if($tp=='1')
 {
@@ -77,19 +78,19 @@ for($i=0;$i<count($rr);$i++)
 	}
 }		
 ?>
-<tr onclick="submit('<?=$ssl;?>')" style="cursor:pointer;">
-<td style="text-align:center;"><?=$cnt;?></td>
-<td style="text-align:left;"><b><?=$als;?></b></td>
-<td style="text-align:left;"><?=$ssn;?></td>
-<td style="text-align:left;"><?=$tps;?></td>
-<td style="text-align:left;display:none;"><?php echo $val;?></td>
+<tr onclick="submit('<?php  echo $ssl;?>')" style="cursor:pointer;">
+<td style="text-align:center;"><?php  echo $cnt;?></td>
+<td style="text-align:left;"><b><?php  echo $als;?></b></td>
+<td style="text-align:left;"><?php  echo $ssn;?></td>
+<td style="text-align:left;"><?php  echo $tps;?></td>
+<td style="text-align:left;display:none;"><?php  echo $val;?></td>
 
 </tr>
-<?															
+<?php 															
 }
 ?>
 </table>
-<?
+<?php 
 }
 else
 {
@@ -99,6 +100,6 @@ else
 	<td style="text-align:center;"><font size="4" color="red"><b>No Records Available</b></font></td>
 	</tr>
 	</table>
-	<?
+	<?php 
 }
 ?>

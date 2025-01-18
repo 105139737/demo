@@ -1,4 +1,4 @@
-<?php 
+<?php  
 $reqlevel = 3;
 include("membersonly.inc.php");
 $sper=$_POST['sper'];
@@ -41,17 +41,17 @@ mysqli_query($conn,"update main_sptarget set target_per='$target_per' where spid
 
 ?>
 	<script type="text/javascript" language="javascript">
-	alert('<?php echo $subcnt;?> Data Submitted Successfully !');
+	alert('<?php  echo $subcnt;?> Data Submitted Successfully !');
 	document.location="sper_target_setup.php";
 	</script>
-<?php
+<?php 
 }
 else{
 	?>
 	<script type="text/javascript" language="javascript">
-	alert('<?php echo $err;?>');
+	alert('<?php  echo $err;?>');
 	window.history.go(-1);
 	</script>
-	<?php 
+	<?php  
 }
 ?>

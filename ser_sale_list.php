@@ -1,8 +1,9 @@
-<?
+<?php 
 $reqlevel = 3; 
 
 include("membersonly.inc.php");
 include("function.php");
+$gst_no1="";
 $fdt=$_REQUEST['fdt'];
 $tdt=$_REQUEST['tdt'];
 $snm=rawurldecode($_REQUEST['snm']);
@@ -55,7 +56,7 @@ $dis1=0;
 			<td  align="center" ><b>Rate(After GST)</b></td>
 			<td  align="center" ><b>Net Payable</b></td>
 			</tr>
-			 <?
+			 <?php 
 		$sln=0;
 		$tota=0;
 $tq=0;
@@ -203,18 +204,18 @@ $hsn=$row['hsn'];
 		$asd++;
 	}
 		 ?>
-		<tr title="<?=$pcd." S Sl".$sl;?>">
-		<?if($asd==1){?>
-		<td  align="center"  ><?=$sln;?></td>
+		<tr title="<?php  echo $pcd." S Sl".$sl;?>">
+		<?php if($asd==1){?>
+		<td  align="center"  ><?php  echo $sln;?></td>
 		<td  align="center"  >
-		<a href="#" onclick="srv_sal_edit('<?php echo $blno;?>')"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+		<a href="#" onclick="srv_sal_edit('<?php  echo $blno;?>')"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
 		</td>
-		<td  align="center" ><?=$dt;?></td>
-		<td  align="center" ><a href="bill_new_gst_ser.php?blno=<?=rawurlencode($blno);?>" target="_blank"><?=$blno;?></a></td>
-		<td  align="left" ><?=$nm;?> <b><?=$invnm;?></b></td>
-		<td  align="center" ><?php echo $cust_typp;?></td>
-		<td  align="center" ><?=$gstin;?></td>
-		<?}
+		<td  align="center" ><?php  echo $dt;?></td>
+		<td  align="center" ><a href="bill_new_gst_ser.php?blno=<?php echo rawurlencode($blno);?>" target="_blank"><?php  echo $blno;?></a></td>
+		<td  align="left" ><?php  echo $nm;?> <b><?php  echo $invnm;?></b></td>
+		<td  align="center" ><?php  echo $cust_typp;?></td>
+		<td  align="center" ><?php  echo $gstin;?></td>
+		<?php }
 		else
 		{
 		?>
@@ -225,30 +226,30 @@ $hsn=$row['hsn'];
 		<td  align="left" ></td> 
 		<td  align="left" ></td> 
 		<td  align="left" ></td> 
-<?
+<?php 
 }
 ?>
 
-			<td  align="left" title="<?=$pcd;?>" ><a <? /*onclick="document.location='swip_bno.php?b1=<?=$blno;?>&b2=<?=$blno;?>'"*/ ?>><?=$pnm;?></a></td>
-			<td  align="center" ><?=$hsn;?></td>
-			<td  align="center" ><?=$betno;?></td>
-			<td  align="center" ><?=$pcs;?> <?=$unit_nm?></td>
-			<td  align="right" ><?=number_format($rate,2);?></td>
-			<td  align="right" ><?=number_format($total,2);?></td>
-			<td  align="center" ><?=$disp;?></td>
-			<td  align="right" ><?=number_format($disa,2);?></td>
-			<td  align="right" ><?=number_format($ttl,2);?></td>
-			<td  align="center" ><?=$cgst_rt;?></td>
-			<td  align="center" ><?=number_format($cgst_am,2);?></td>
-			<td  align="center" ><?=$sgst_rt;?></td>
-			<td  align="center" ><?=number_format($sgst_am,2);?></td>
-			<td  align="center" ><?=$igst_rt;?></td>
-			<td  align="center" ><?=number_format($igst_am,2);?></td>
-			<td  align="center" ><?=number_format($afgst,2);?></td>
-			<td  align="right" ><?=number_format($net_am,2);?></td>
+			<td  align="left" title="<?php  echo $pcd;?>" ><a <?php  /*onclick="document.location='swip_bno.php?b1=<?php  echo $blno;?>&b2=<?php  echo $blno;?>'"*/ ?>><?php  echo $pnm;?></a></td>
+			<td  align="center" ><?php  echo $hsn;?></td>
+			<td  align="center" ><?php  echo $betno;?></td>
+			<td  align="center" ><?php  echo $pcs;?> <?php  echo $unit_nm?></td>
+			<td  align="right" ><?php echo number_format($rate,2);?></td>
+			<td  align="right" ><?php echo number_format($total,2);?></td>
+			<td  align="center" ><?php  echo $disp;?></td>
+			<td  align="right" ><?php echo number_format($disa,2);?></td>
+			<td  align="right" ><?php echo number_format($ttl,2);?></td>
+			<td  align="center" ><?php  echo $cgst_rt;?></td>
+			<td  align="center" ><?php echo number_format($cgst_am,2);?></td>
+			<td  align="center" ><?php  echo $sgst_rt;?></td>
+			<td  align="center" ><?php echo number_format($sgst_am,2);?></td>
+			<td  align="center" ><?php  echo $igst_rt;?></td>
+			<td  align="center" ><?php echo number_format($igst_am,2);?></td>
+			<td  align="center" ><?php echo number_format($afgst,2);?></td>
+			<td  align="right" ><?php echo number_format($net_am,2);?></td>
 			</tr>	 
 
-	<?
+	<?php 
 
 
 $tamm=$ttl+$tamm;
@@ -264,18 +265,18 @@ $disa_am+=$disa;
 
 	<td align="center"><b></td>
 	<td></td>
-	<td  align="right" ><b><?=number_format($total_am,2);?></b></td>
+	<td  align="right" ><b><?php echo number_format($total_am,2);?></b></td>
 	<td  align="right" ><b></b></td>
-	<td  align="right" ><b><?=number_format($disa_am,2);?></b></td>
-	<td  align="right" ><b><?=number_format($tamm,2);?></b></td>
-	<td align="right" colspan="2"><b><?=number_format($cgst,2);?></b></td>
-	<td align="right" colspan="2"><b><?=number_format($sgst,2);?></b></td>
-	<td align="right" colspan="2"><b><?=number_format($igst,2);?></b></td>
+	<td  align="right" ><b><?php echo number_format($disa_am,2);?></b></td>
+	<td  align="right" ><b><?php echo number_format($tamm,2);?></b></td>
+	<td align="right" colspan="2"><b><?php echo number_format($cgst,2);?></b></td>
+	<td align="right" colspan="2"><b><?php echo number_format($sgst,2);?></b></td>
+	<td align="right" colspan="2"><b><?php echo number_format($igst,2);?></b></td>
 	<td  align="right" ><b></b></td>
-	<td  align="right" ><b><?=number_format($wgamm,2);?></b></td>
+	<td  align="right" ><b><?php echo number_format($wgamm,2);?></b></td>
 	
 	</tr>
-	<?
+	<?php 
 
 
 		}
@@ -297,12 +298,12 @@ $disa_am+=$disa;
 	<td></td>
 	<td></td>
 	<td></td>
-	<td align="right"><b><?=sprintf('%0.2f',$tamm1);?></b></td>
-	<td align="right" colspan="2"><b><?=number_format($cgst1,2);?></b></td>
-	<td align="right" colspan="2"><b><?=number_format($sgst1,2);?></b></td>
-	<td align="right" colspan="2"><b><?=number_format($igst1,2);?></b></td>
+	<td align="right"><b><?php echo sprintf('%0.2f',$tamm1);?></b></td>
+	<td align="right" colspan="2"><b><?php echo number_format($cgst1,2);?></b></td>
+	<td align="right" colspan="2"><b><?php echo number_format($sgst1,2);?></b></td>
+	<td align="right" colspan="2"><b><?php echo number_format($igst1,2);?></b></td>
 	<td  align="right" ><b></b></td>
-	<td align="right"><b><?=number_format($wgamm1,2);?></b></td>
+	<td align="right"><b><?php echo number_format($wgamm1,2);?></b></td>
 </tr>
 </table>
 

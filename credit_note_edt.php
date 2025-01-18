@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include "header.php";
@@ -72,7 +72,7 @@ $result21 = mysqli_query($conn,$query21)or die(mysqli_error($conn));
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
  <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <head>
@@ -407,13 +407,13 @@ setTimeout(function(){ temp(); }, 300);
 <input type="hidden" name="flnm" id="flnm" value="cust_credit_note.php" >
 <input type="hidden" name="proj" id="proj" value="NA" readonly>
 <input type="hidden" name="it" id="it" value="NA" readonly >
-<input type="hidden" name="blno1" id="blno1" value="<?echo $blno_ref;?>" readonly >
-<input type="hidden" name="vno" id="vno" value="<?echo $blno_ref;?>" readonly >
-<input type="hidden" name="blnon" id="blnon" value="<?echo $blnon;?>" readonly >
+<input type="hidden" name="blno1" id="blno1" value="<?php echo $blno_ref;?>" readonly >
+<input type="hidden" name="vno" id="vno" value="<?php echo $blno_ref;?>" readonly >
+<input type="hidden" name="blnon" id="blnon" value="<?php echo $blnon;?>" readonly >
 
 <input type="hidden" name="flnm1" id="flnm1" value="1" >
-<input type="hidden" name="btyp" id="btyp" value="<? echo $typ; ?>" >
-<input type="hidden" class="form-control"  value="<?php echo $bill_typ;?>" tabindex="1"  name="bsl" id="bsl" >              
+<input type="hidden" name="btyp" id="btyp" value="<?php  echo $typ; ?>" >
+<input type="hidden" class="form-control"  value="<?php  echo $bill_typ;?>" tabindex="1"  name="bsl" id="bsl" >              
 
  <div class="box box-success" >
 <table  width="860px" class="table table-hover table-striped table-bordered">
@@ -423,7 +423,7 @@ setTimeout(function(){ temp(); }, 300);
 <td align="right" width="15%"><font color="red">*</font><b>Branch :</b></td>
 <td align="left" width="35%">
 <select name="brncd" class="form-control" size="1" id="brncd"  onchange="get_blno();gtcrvlfi()" >
-<?
+<?php 
 if($user_current_level<0)
 {
 
@@ -442,15 +442,15 @@ while ($R = mysqli_fetch_array ($result))
 $slb=$R['sl'];
 $bnm=$R['bnm'];
 ?>
-<option value="<? echo $slb;?>" <?if($slb==$bcd){echo 'selected';}?>><? echo $bnm;?></option>
-<?
+<option value="<?php  echo $slb;?>" <?php if($slb==$bcd){echo 'selected';}?>><?php  echo $bnm;?></option>
+<?php 
 }
 ?>
 </select>
 </td>
 <td align="right" width="15%" ><font color="red">*</font><b>Date :</b></td>
 <td align="left" width="35%" >
-<input type="text" name="dt" id="dt" class="form-control" value="<? echo date('d-M-Y',strtotime($dt)); ?>" onchange="chk_dt('<?=date('d-M-Y')?>')">
+<input type="text" name="dt" id="dt" class="form-control" value="<?php  echo date('d-M-Y',strtotime($dt)); ?>" onchange="chk_dt('<?php echo date('d-M-Y')?>')">
 </td>   
   </tr>
    
@@ -465,7 +465,7 @@ $bnm=$R['bnm'];
 <select id="cid"  name="cid"   tabindex="2" class="form-control"  onchange="get_blno(),temp();">
 <option value="">---Select---</option>
 
-<?
+<?php 
 if($tp=='2'){$qury=" and find_in_set(brand,'$brand')>0 ";}
 $query="select * from main_cust  WHERE sl>0 and typ='$tp' $qury order by nm";
 $result = mysqli_query($conn,$query);
@@ -476,8 +476,8 @@ $spn=$R['nm'];
 $cont=$R['cont'];
 $addr=$R['addr'];
 ?>
-<option value="<? echo $sid;?>" <?if($cid==$sid){?> selected <? } ?> ><? echo $spn;?> - <? echo $cont; if($addr!=""){?> - - <? echo $addr; }?></option>
-<?
+<option value="<?php  echo $sid;?>" <?php if($cid==$sid){?> selected <?php  } ?> ><?php  echo $spn;?> - <?php  echo $cont; if($addr!=""){?> - - <?php  echo $addr; }?></option>
+<?php 
 }
 ?>
 </select>
@@ -490,13 +490,13 @@ $addr=$R['addr'];
     <td align="left" >
       <select  name="dldgr" id="dldgr" class="form-control"  onchange="gtcrvlfi()" required>
 							<option value="">-- Select --</option>
-							<?php 
+							<?php  
 							$get = mysqli_query($conn,"SELECT * FROM main_ledg where gcd='17'") or die(mysqli_error($conn));
 							while($row = mysqli_fetch_array($get))
 							{
 							?>
-								<option value="<?=$row['sl']?>"<?if($dldgr==$row['sl']){echo "selected";}?>><?=$row['nm']?></option>
-							<?php 
+								<option value="<?php  echo $row['sl']?>"<?php if($dldgr==$row['sl']){echo "selected";}?>><?php  echo $row['nm']?></option>
+							<?php  
 							} 
 							?>
 						</select>
@@ -529,13 +529,13 @@ $addr=$R['addr'];
     <td align="left" >
 	 <select  name="paymtd" id="paymtd" class="form-control">
 							<option value="">-- Select --</option>
-							<?php 
+							<?php  
 							$get = mysqli_query($conn,"SELECT * FROM ac_paymtd") or die(mysqli_error($conn));
 							while($row = mysqli_fetch_array($get))
 							{
 							?>
-								<option value="<?=$row['sl']?>" <?=$row['sl'] == '1' ? 'selected' : '' ?>><?=$row['mtd']?></option>
-							<?php 
+								<option value="<?php  echo $row['sl']?>" <?php  echo $row['sl'] == '1' ? 'selected' : '' ?>><?php  echo $row['mtd']?></option>
+							<?php  
 							} 
 							?>
 						</select>
@@ -549,7 +549,7 @@ $addr=$R['addr'];
     <td align="right" ><font color="red"><b>Total Credit Note Amount :</b></td>
     <td align="left" >
 
-	 <input  type="text" name="tamm" id="tamm" class="form-control" value="<?echo $tamm;?>" onblur="temp()">
+	 <input  type="text" name="tamm" id="tamm" class="form-control" value="<?php echo $tamm;?>" onblur="temp()">
 	</td>
 	<td align="right"><font color="red" size="3"><b>Rest Amount :</font></b></td>
 <td>
@@ -563,7 +563,7 @@ $addr=$R['addr'];
     <td align="left"  >
 	<select id="sman" name="sman" tabindex="1"  class="form-control">
 	<option value="">---Select---</option>
-	<?
+	<?php 
 		$queryss="select * from main_sale_per    WHERE sl>0  order by spid";
 		$resultss=mysqli_query($conn,$queryss);
 		while($rwss=mysqli_fetch_array($resultss))
@@ -571,8 +571,8 @@ $addr=$R['addr'];
 			$spid11=$rwss['spid'];
 			$spnm=$rwss['nm'];
 		?>
-			<option value="<?=$spid11;?>"<?if($spid11==$sman1){echo "selected";}?>><?=$spid11;?> --- <?=$spnm;?> <?if($rwss['mob']!=""){?>( <?=$rwss['mob'];?> )<?}?></option>
-			<?
+			<option value="<?php  echo $spid11;?>"<?php if($spid11==$sman1){echo "selected";}?>><?php  echo $spid11;?> --- <?php  echo $spnm;?> <?php if($rwss['mob']!=""){?>( <?php  echo $rwss['mob'];?> )<?php }?></option>
+			<?php 
 		}
 	?>
 	</select>
@@ -593,7 +593,7 @@ $addr=$R['addr'];
 	
 	<td align="right" style="padding-top:15px;" ><b>Narration :</b></td>
     <td align="left" >
-<input type="text" name="nrtn" id="nrtn" value="<?echo $nrtn;?>" class="form-control">
+<input type="text" name="nrtn" id="nrtn" value="<?php echo $nrtn;?>" class="form-control">
 	</td>   
   </tr>
   </table>
@@ -718,12 +718,12 @@ $addr=$R['addr'];
   no_results_text: "Oops, nothing found!",
   
   });
-<?
+<?php 
 if($cid!="")
 {
 ?>
 get_blno();
-<?	
+<?php 	
 }
 ?>
 </script>

@@ -1,4 +1,4 @@
-<?php
+<?php 
 require("config.php");
 function parseToXML($htmlStr)
 {
@@ -14,9 +14,9 @@ header("Content-type: text/xml");
 echo '<markers>';
 $tiamm=0;
 $teamm=0;
-$a=$_REQUEST[sl];
-$tdt=$_REQUEST[tdt];
-$fdt=$_REQUEST[fdt];
+$a=$_REQUEST['sl'];
+$tdt=$_REQUEST['tdt'];
+$fdt=$_REQUEST['fdt'];
 $fdt=date('Y-m-d', strtotime($fdt));
 $tdt=date('Y-m-d', strtotime($tdt));
 if($fdt=="")

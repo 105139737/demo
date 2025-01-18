@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 date_default_timezone_set('Asia/Kolkata');
@@ -7,22 +7,22 @@ $dt=date('d-m-Y');
 $sl=$_REQUEST['sl'];
 ?>
 <form name="form1" method="post" action="assign_technicians.php" id="form1" onsubmit="return check1()" enctype="multipart/form-data">
-<input type="hidden" name="sl" id="sl" value="<?=$sl;?>">
+<input type="hidden" name="sl" id="sl" value="<?php  echo $sl;?>">
 <table border="0" align="center" class="table table-hover table-striped table-bordered">
 <tr>
 <td style="text-align:right;padding-top:15px"><label>Technician Name:</label></td>
 <td>
 <select name="tech_id" id="tech_id" class="form-control" size="1">
 <Option value="">---Select---</option>
-	<?
+	<?php 
 		$data=mysqli_query($conn,"Select * from main_technician order by nm");
 		while($row=mysqli_fetch_array($data))
 		{
 			$tsl=$row['sl'];
 			$tnm=$row['nm'];
 			?>
-			<option value="<?=$tsl;?>"><?=$tnm;?></option>
-			<?
+			<option value="<?php  echo $tsl;?>"><?php  echo $tnm;?></option>
+			<?php 
 		}
 	?>
 	</select>
@@ -30,7 +30,7 @@ $sl=$_REQUEST['sl'];
 <td align="right" style="padding-top:17px" width="20%"><b>Godown :</b></td>
 <td align="left" width="30%">
 	<select name="branch" class="form-control" size="1" id="branch" tabindex="8">
-	<?
+	<?php 
 		if($user_current_level<0)
 		{
 			$data2=mysqli_query($conn,"Select * from main_branch order by bnm");
@@ -52,7 +52,7 @@ $sl=$_REQUEST['sl'];
 </tr>
 <tr>
 <td align="right" style="padding-top:15px"><font color="red">* </font><b>Date :</b></td>
-<td align="left"><input type="text" class="span2 form-control" name="dt" id="dt" size="20" value="<?=$dt;?>"></td>
+<td align="left"><input type="text" class="span2 form-control" name="dt" id="dt" size="20" value="<?php  echo $dt;?>"></td>
 <td align="right" style="padding-top:15px"><b>Remark :</b></td>
 <td align="left"><input type="text" class="span2 form-control" name="rmk" id="rmk" size="20"></td>
 </tr>
@@ -73,7 +73,7 @@ $sl=$_REQUEST['sl'];
 <div id="plst">
 	<select id="pnm"  name="pnm" class="form-control" onchange="showrt()">
 	<option value="">---Select---</option>
-	<?
+	<?php 
 		$result56 = mysqli_query($conn,"Select * from ".$DBprefix."parts");
 		while ($R56 = mysqli_fetch_array ($result56))
 		{
@@ -96,8 +96,8 @@ $sl=$_REQUEST['sl'];
 				$brand=$row1['brand'];
 			}
 			?>
-			<option value="<?=$psl?>"><?=$pnm?> - <?=$cnm?> - <?=$brand?></option>
-			<?
+			<option value="<?php  echo $psl?>"><?php  echo $pnm?> - <?php  echo $cnm?> - <?php  echo $brand?></option>
+			<?php 
 		}
 	?>
 	</select>

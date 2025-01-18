@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 include "header.php";
@@ -6,7 +6,7 @@ include "header.php";
 <html>
 <head>
         <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <style type="text/css"> 
@@ -82,7 +82,7 @@ document.location='free_prod_edit.php?sl='+sl;
         <div class="box box-success" >
       <table border="0"  class="table table-hover table-striped table-bordered">
 
-<tr>            <td  align="right" style="padding-top:17px"><b>Category :</b></td>            <td  align="left">		<select name="cat" class="form-control" size="1" id="cat" tabindex="8" >				<Option value="">---Select---</option><?$data1 = mysqli_query($conn,"Select * from main_catg order by cnm");		while ($row1 = mysqli_fetch_array($data1))	{	$sl=$row1['sl'];	$cnm=$row1['cnm'];	echo "<option value='".$sl."'>".$cnm."</option>";	}	 ?></select> </td>          <td  align="right" style="padding-top:17px"><b>Brand Name :</b></td> <td  align="left"><select name="bnm" class="form-control" size="1" id="bnm" tabindex="8"  >				<Option value="">---Select---</option><?$data2 = mysqli_query($conn,"Select * from main_brand order by brand");		while ($row1 = mysqli_fetch_array($data2))	{	$sl=$row1['sl'];	$brand=$row1['brand'];	echo "<option value='".$sl."'>".$brand."</option>";	}	 ?></select>            </td>     
+<tr>            <td  align="right" style="padding-top:17px"><b>Category :</b></td>            <td  align="left">		<select name="cat" class="form-control" size="1" id="cat" tabindex="8" >				<Option value="">---Select---</option><?php $data1 = mysqli_query($conn,"Select * from main_catg order by cnm");		while ($row1 = mysqli_fetch_array($data1))	{	$sl=$row1['sl'];	$cnm=$row1['cnm'];	echo "<option value='".$sl."'>".$cnm."</option>";	}	 ?></select> </td>          <td  align="right" style="padding-top:17px"><b>Brand Name :</b></td> <td  align="left"><select name="bnm" class="form-control" size="1" id="bnm" tabindex="8"  >				<Option value="">---Select---</option><?php $data2 = mysqli_query($conn,"Select * from main_brand order by brand");		while ($row1 = mysqli_fetch_array($data2))	{	$sl=$row1['sl'];	$brand=$row1['brand'];	echo "<option value='".$sl."'>".$brand."</option>";	}	 ?></select>            </td>     
 <td align="right" style="padding-top:15px"> 
 <font size="3">
 <b>Search :</b>

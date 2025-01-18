@@ -1,4 +1,4 @@
-<?PHP 
+<?php  
 $reqlevel = 3; 
 include("membersonly.inc.php");
 date_default_timezone_set('Asia/Kolkata');
@@ -34,16 +34,16 @@ if($err=="")
 		alert('Updated Successfully. Thank You...');
 		document.location="new_bank_list.php";
 		</script>
-		<?
+		<?php 
 }
 else
 {
 	?>
 	<script>
-	alert('<?php echo $err;?>');
+	alert('<?php  echo $err;?>');
 	history.go(-1);
 	</script>
-	<?
+	<?php 
 }
 
 ?>

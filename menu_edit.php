@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include "header.php";
@@ -17,7 +17,7 @@ while($row = mysqli_fetch_array($sql1))
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <div class="wrapper row-offcanvas row-offcanvas-left">
-<?
+<?php 
 include "left_bar.php";
 
 ?>
@@ -63,7 +63,7 @@ function check(evt)
                 </section>
 				   <section class="content">
 <form name="Form1" method="post" action="menu_edits.php" id="Form1">
-<input type="hidden" name="sls" id="sls" width="24%" value="<?php echo $sls;?>" class="form-control">
+<input type="hidden" name="sls" id="sls" width="24%" value="<?php  echo $sls;?>" class="form-control">
 <input type="hidden" name="flnm" id="flnm" value="income.php" >
  <div class="col-md-12" >
               <div class="box box-success box-solid">
@@ -79,7 +79,7 @@ function check(evt)
 	<b>Main Menu :</b> 
 	<select class="form-control" id="mm" name="mm" required>
 	<option value="">---SELECT---</option>
-	<?php
+	<?php 
 	$sql1 = mysqli_query($conn,"select * from main_mmenu where sl>0") or die(mysqli_error($conn));
 	while($row = mysqli_fetch_array($sql1))
 	{
@@ -87,28 +87,28 @@ function check(evt)
 	$nm = $row['nm'];
 	
 	?>
-	<option value="<?php echo $sld;?>" <?php if($sld == $msl){echo 'selected';}?>><?php echo $nm;?></option>	
-	<?
+	<option value="<?php  echo $sld;?>" <?php  if($sld == $msl){echo 'selected';}?>><?php  echo $nm;?></option>	
+	<?php 
 	}
 	?>
 	</select></td>	
     
     <td align="left" >
 	<b>Menu Name :</b>
-      <input type="text" name="mnm" id="mnm" width="24%" value="<?php echo $mnm;?>" class="form-control" required>
+      <input type="text" name="mnm" id="mnm" width="24%" value="<?php  echo $mnm;?>" class="form-control" required>
 	</td>
 	
     <td align="left">
 	<b>File Name :</b>
-      <input type="text" name="fnm" id="fnm" width="24%" value="<?php echo $fnm;?>" class="form-control" required>
+      <input type="text" name="fnm" id="fnm" width="24%" value="<?php  echo $fnm;?>" class="form-control" required>
 	</td>
     
     <td align="left" width="24%">
 	<b>New Tab :</b>
 	<select class="form-control" id="ntb" name="ntb" required>
 				<option value="">---SELECT---</option>
-				<option value="_blank"<?php if($ntb == "_blank"){echo 'selected';}?>>Yes</option>
-				<option value="" <?php if($ntb == ""){echo 'selected';}?>>No</option>
+				<option value="_blank"<?php  if($ntb == "_blank"){echo 'selected';}?>>Yes</option>
+				<option value="" <?php  if($ntb == ""){echo 'selected';}?>>No</option>
 				</select></td>	     	
   </tr>
   

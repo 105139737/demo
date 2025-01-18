@@ -1,13 +1,13 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 
-
+$match=0;
 ?>
 <div class="box box-success" style="overflow: scroll;">
 <font color="red" size="4">Miss Match Model : <span id="count">4</span></font>
 <table border="0" class="table table-hover table-striped table-bordered">
-<?
+<?php 
 $get=mysqli_query($conn,"select * from main_product_prc_temp where eby='$user_currently_loged'") or die(mysqli_error($conn));
 $rcnt=mysqli_num_rows($get);
 if($rcnt>0)
@@ -28,8 +28,9 @@ if($rcnt>0)
 <td><b>OFFERLESS%</b></td>
 <td><b>LastPrice</b></td>
 </tr>
-<?php
+<?php 
 $match=0;
+$cnt=0;
 while($row=mysqli_fetch_array($get))
 {
 	$cnt++;
@@ -53,20 +54,20 @@ while($row=mysqli_fetch_array($get))
 	}
 ?>
 <tr>
-<td style="text-align:center;"><?=$cnt;?></td>
-<td style="text-align:left;"><?=$pnm;?><font color="red"><?=$msg;?></font></td>
-<td style="text-align:left;"><?=$prc;?></td>
-<td style="text-align:left;"><?=$dis;?></td>
-<td style="text-align:left;"><?=$disam;?></td>
-<td style="text-align:left;"><?=$offprc;?></td>
-<td style="text-align:left;"><?=$offless;?></td>
-<td style="text-align:left;"><?=$lprc;?></td>
+<td style="text-align:center;"><?php  echo $cnt;?></td>
+<td style="text-align:left;"><?php  echo $pnm;?><font color="red"><?php  echo $msg;?></font></td>
+<td style="text-align:left;"><?php  echo $prc;?></td>
+<td style="text-align:left;"><?php  echo $dis;?></td>
+<td style="text-align:left;"><?php  echo $disam;?></td>
+<td style="text-align:left;"><?php  echo $offprc;?></td>
+<td style="text-align:left;"><?php  echo $offless;?></td>
+<td style="text-align:left;"><?php  echo $lprc;?></td>
 
 
 </tr>
 
 
-<?php
+<?php 
 }
 
 }
@@ -75,7 +76,7 @@ else
 	?>
 <tr><td align="center"><font color="red" size="4"><b>No Data Available.....</b></font></td></tr>	
 	
-	<?
+	<?php 
 }
 ?>
 
@@ -83,5 +84,5 @@ else
 </div>
 
 <script>
-	$("#count").html("<?php echo $match;?>");
+	$("#count").html("<?php  echo $match;?>");
 </script>

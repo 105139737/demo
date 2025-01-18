@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 
@@ -36,7 +36,7 @@ $c=0;
 	 <td style="text-align:right;font-weight:bold;">Closing Value (Rs.)</td>
 	 </tr>
 
-<?
+<?php 
 $TOT=0;
 $TOT2=0;
 $TOT1=0;
@@ -107,29 +107,29 @@ $TOT6=$TOT6+$slval;
 $TOT7=$TOT7+$clsval;
 ?>
 	 <tr>
-	 <td style="text-align:right;"><?=$c;?></td>
-	 <td style="text-align:right;" title="<?=$psl;?>"><?=$pnm1;?></td>
-	 <td style="text-align:right;"><?=$opst;?></td>
-	 <td style="text-align:right;"><?=$stin;?></td>
-	 <td style="text-align:right;"><?=$stout;?></td>
-	 <td style="text-align:right;"><?=$clsstk;?></td>
-	 <td style="text-align:right;"><?=sprintf("%.2f",$opval);?></td>
-	 <td style="text-align:right;"><?=sprintf("%.2f",$slval);?></td>
-	 <td style="text-align:right;"><?=sprintf("%.2f",$clsval);?></td>
+	 <td style="text-align:right;"><?php  echo $c;?></td>
+	 <td style="text-align:right;" title="<?php  echo $psl;?>"><?php  echo $pnm1;?></td>
+	 <td style="text-align:right;"><?php  echo $opst;?></td>
+	 <td style="text-align:right;"><?php  echo $stin;?></td>
+	 <td style="text-align:right;"><?php  echo $stout;?></td>
+	 <td style="text-align:right;"><?php  echo $clsstk;?></td>
+	 <td style="text-align:right;"><?php echo sprintf("%.2f",$opval);?></td>
+	 <td style="text-align:right;"><?php echo sprintf("%.2f",$slval);?></td>
+	 <td style="text-align:right;"><?php echo sprintf("%.2f",$clsval);?></td>
 	 </tr>
 
-<?	
+<?php 	
 
 }
 ?>
 	 <tr>
 	 <td style="text-align:right;font-weight:bold;color:red;" colspan="2"><font size="4">Total :</font></td>
-	 <td style="text-align:right;color:red;"><font size="3"><?=$TOT2;?></font></td>
-	 <td style="text-align:right;color:red;"><font size="3"><?=$TOT;?></font></td>
-	 <td style="text-align:right;color:red;"><font size="3"><?=$TOT1;?></font></td>
-	 <td style="text-align:right;color:red;"><font size="3"><?=$TOT4;?></font></td>
-	 <td style="text-align:right;color:red;"><font size="3"><?=sprintf("%.2f",$TOT5);?></font></td>
-	 <td style="text-align:right;color:red;"><font size="3"><?=sprintf("%.2f",$TOT6);?></font></td>
-	 <td style="text-align:right;color:red;"><font size="3"><?=sprintf("%.2f",$TOT7);?></font></td>
+	 <td style="text-align:right;color:red;"><font size="3"><?php  echo $TOT2;?></font></td>
+	 <td style="text-align:right;color:red;"><font size="3"><?php  echo $TOT;?></font></td>
+	 <td style="text-align:right;color:red;"><font size="3"><?php  echo $TOT1;?></font></td>
+	 <td style="text-align:right;color:red;"><font size="3"><?php  echo $TOT4;?></font></td>
+	 <td style="text-align:right;color:red;"><font size="3"><?php echo sprintf("%.2f",$TOT5);?></font></td>
+	 <td style="text-align:right;color:red;"><font size="3"><?php echo sprintf("%.2f",$TOT6);?></font></td>
+	 <td style="text-align:right;color:red;"><font size="3"><?php echo sprintf("%.2f",$TOT7);?></font></td>
 	 </tr>
 </table>	 

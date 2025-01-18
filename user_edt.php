@@ -1,8 +1,8 @@
-<?
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include "header.php";
-$sl=$_REQUEST[sl];
+$sl=$_REQUEST['sl'];
 date_default_timezone_set('Asia/Kolkata');
 $edt=date('Y-m-d');
 $m=date('m');
@@ -34,7 +34,7 @@ $userlevel=$row['userlevel'];
 }
 ?>
         <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <style type="text/css"> 
@@ -126,35 +126,35 @@ else
         <table border="0"  width="800px"  align="center" class="table table-hover table-striped table-bordered">
 	
         
-    <input type="hidden" value="<?=$sl;?>" name="sl" id="sl">    <input type="hidden" value="<?=$username;?>" name="sid" id="sid">
+    <input type="hidden" value="<?php  echo $sl;?>" name="sl" id="sl">    <input type="hidden" value="<?php  echo $username;?>" name="sid" id="sid">
 		
           <tr>
             <td align="right" >Name :</td>
             <td align="left" >
-            <input type="text" class="form-control" name="nm" id="nm" value="<?=$name;?>" size="20" placeholder="Enter User Name" ></td>
+            <input type="text" class="form-control" name="nm" id="nm" value="<?php  echo $name;?>" size="20" placeholder="Enter User Name" ></td>
          
          
             <td align="right" >Mobile :</td>
             <td align="left" >
-            <input type="text" name="mob" id="mob" class="form-control" value="<?=$mob;?>" size="20" placeholder="Enter Mobile"></td>
+            <input type="text" name="mob" id="mob" class="form-control" value="<?php  echo $mob;?>" size="20" placeholder="Enter Mobile"></td>
           </tr>
      <tr>
             <td align="right" >E-Mail :</td>
             <td align="left" >
-            <input type="text" name="email" id="email" class="form-control" value="<?=$mailadres;?>" size="20" placeholder="Enter E-Mail"></td>
+            <input type="text" name="email" id="email" class="form-control" value="<?php  echo $mailadres;?>" size="20" placeholder="Enter E-Mail"></td>
      
             <td align="right" >
 			Address :
 			</td>
             <td align="left" >
-			       <input type="text" name="addr" id="addr" value="<?=$addr;?>" class="form-control" size="20" placeholder="Enter Address"></td>
+			       <input type="text" name="addr" id="addr" value="<?php  echo $addr;?>" class="form-control" size="20" placeholder="Enter Address"></td>
      
 			</tr>
 <tr>
 <td align="right">Branch:</td>
 <td align="left">
 <select name="brncd" class="form-control" size="1" id="brncd">
-<?
+<?php 
 $query="Select * from main_branch";
 $result = mysqli_query($conn,$query);
 while ($R = mysqli_fetch_array ($result))
@@ -162,8 +162,8 @@ while ($R = mysqli_fetch_array ($result))
 	$sl=$R['sl'];
 	$bnm=$R['bnm'];
 	?>
-	<option value="<? echo $sl;?>"<?=$brncd==$sl ? 'selected' : ''?>><? echo $bnm;?></option>
-	<?
+	<option value="<?php  echo $sl;?>"<?php  echo $brncd==$sl ? 'selected' : ''?>><?php  echo $bnm;?></option>
+	<?php 
 }
 ?>
 </select>
@@ -171,7 +171,7 @@ while ($R = mysqli_fetch_array ($result))
 <td align="right" >Designation :</td>
 <td align="left">
 <select name="userlevel" class="form-control" size="1" id="userlevel"   >
-<?
+<?php 
 $query1="Select * from main_deg";
 $result1 = mysqli_query($conn,$query1);
 while ($R1 = mysqli_fetch_array ($result1))
@@ -179,8 +179,8 @@ while ($R1 = mysqli_fetch_array ($result1))
 $sl1=$R1['lvl'];
 $deg=$R1['deg'];
 ?>
-<option value="<? echo $sl1;?>"<?=$userlevel==$sl1 ? 'selected' : ''?>><? echo $deg;?></option>
-<?
+<option value="<?php  echo $sl1;?>"<?php  echo $userlevel==$sl1 ? 'selected' : ''?>><?php  echo $deg;?></option>
+<?php 
 }
 ?>
 </select>

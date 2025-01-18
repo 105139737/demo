@@ -1,4 +1,4 @@
-<?php
+<?php 
 
 /**
  * @author Onnet Solution
@@ -11,7 +11,7 @@ include("Numbers/Words.php");
 $sl=1;
 ?>
  <table border="0" width="100%" class="advancedtable">
- <?
+ <?php 
  $query100 = "SELECT * FROM main_ctemp where eby='$user_currently_loged' order by sl";
    $result100 = mysqli_query($conn,$query100);
 while ($R100 = mysqli_fetch_array ($result100))
@@ -61,21 +61,21 @@ $log=1;
 
 
 <tr class="odd">
-<td  align="left" width="20%"><b><?=$prnm;?></b></td>
-<td align="center" width="13%"><b><?=$betno;?></b></td>
-<td align="center" width="10%"><b><?=$expdt;?></b></td>
+<td  align="left" width="20%"><b><?php  echo $prnm;?></b></td>
+<td align="center" width="13%"><b><?php  echo $betno;?></b></td>
+<td align="center" width="10%"><b><?php  echo $expdt;?></b></td>
 
-<td align="center" width="10%" ><b><?=$qnt1;?></b></td>
-<td align="center" width="10%" ><b><?=$unt;?></b></td>
-<td align="center" width="10%" ><b><?=number_format($prc,2);?></b></td>
-<td align="center" width="10%" ><b><?=$unt;?></b></td>
-<td align="center" width="10%" ><b><?=number_format($ttl,2);?></b></td>
+<td align="center" width="10%" ><b><?php  echo $qnt1;?></b></td>
+<td align="center" width="10%" ><b><?php  echo $unt;?></b></td>
+<td align="center" width="10%" ><b><?php echo number_format($prc,2);?></b></td>
+<td align="center" width="10%" ><b><?php  echo $unt;?></b></td>
+<td align="center" width="10%" ><b><?php echo number_format($ttl,2);?></b></td>
 
-<td align="center" width="7%"><b><a onclick="if(confirm('Are you Sure?')){deltpr('<?=$tsl;?>')}"><font color="red">Delete</font></a> </b></td>
+<td align="center" width="7%"><b><a onclick="if(confirm('Are you Sure?')){deltpr('<?php  echo $tsl;?>')}"><font color="red">Delete</font></a> </b></td>
 
 
 </tr>
-<?}?>
+<?php }?>
 </table>
 <script>
 

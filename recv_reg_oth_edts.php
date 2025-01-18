@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 $edtm = date('d-m-Y h:i:s a', time());
@@ -21,7 +21,7 @@ $blno_ref = $_POST['blno_ref'];
 $spid = $_POST['spid'];
 
 set_time_limit(0);
-
+$err="";
 $edit_count = get_permission($dt, $recv_edt);
 if ($edit_count == 0) {
 	die('<b><center><font color="red" size="5">Please Check Your Input Date, Contact Administrator. Please Go Back Previous Page....</font></center></b>');
@@ -153,12 +153,12 @@ VALUES ('$blno1','$blno','$amm','$spid','$cid','$user_currently_loged','$brncd',
 		alert('Update Successfully. Thank You..!');
 		document.location = "final_cltn.php";
 	</script>
-<?
+<?php 
 } else {
 ?>
 	<script language="javascript">
-		alert('<?= $err; ?>');
+		alert('<?php echo  $err; ?>');
 		document.location = "final_cltn.php";
 	</script>
-<?
+<?php 
 }

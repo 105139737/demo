@@ -1,4 +1,4 @@
-<?PHP 
+<?php  
 $reqlevel = 0;
 include("membersonly.inc.php");?>
 <html>
@@ -42,7 +42,7 @@ include("membersonly.inc.php");?>
     <td>Branch Name</td><td>
 <select name="brn" id="brn">
 
-<?
+<?php 
 
  $query = "SELECT * FROM ".$DBprefix."branch order by bnm";
    $result = mysqli_query($conn,$query);

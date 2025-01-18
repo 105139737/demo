@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 //catch the sent data
@@ -16,7 +16,7 @@ include("membersonly.inc.php");
 alert('Please Fill All The Fields.');
 window.location.assign('profile.php');
 </script>
-<?	}
+<?php 	}
 	else
 	{
 	$c=0;
@@ -32,7 +32,7 @@ window.location.assign('profile.php');
 alert('Old Password Is Incorrect.');
 window.location.assign('profile.php');
 </script>
-<?}
+<?php }
 	else
 	{
 	if($npass1!=$npass2)
@@ -42,7 +42,7 @@ window.location.assign('profile.php');
 alert('New Password Mismatched.');
 window.location.assign('profile.php');
 </script>
-<?}
+<?php }
 else
 {
 $sql = "UPDATE main_signup set password='$npass1' where username='$user_currently_loged'";
@@ -52,7 +52,7 @@ $result = mysqli_query($conn,$sql);
 alert('Password Change Successfully. Thank You...');
 document.location = "logoff.php";
 </script>
-<?
+<?php 
 }}}
 ?>
 

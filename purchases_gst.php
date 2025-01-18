@@ -1,37 +1,38 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
-include("Numbers/Words.php");
+//include("Numbers/Words.php");
 $cdt=date('Y-m-d');
 $dttm=date('d-m-Y H:i:s a');
-$sup=$_POST[sup];
-$brncd=$_POST[brncd];
-$inv=$_POST[inv];
-$dt=$_POST[dt];
-$lcd=$_POST[lcd];
-$lfr=$_POST[lfr];
-$tamm=$_POST[tamm];
-$dldgr=$_POST[dldgr];
-$mdt=$_POST[mdt];
-$pamm=$_POST[pamm];
-$crfno=$_POST[crfno];
-$idt=$_POST[idt];
-$cbnm=$_POST[cbnm];
-$vat=$_POST[vat];
-$sttl=$_POST[sttl];
-$tdis=$_POST[tdis];
-$fst=$_POST[fst];
-$tst=$_POST[tst];
-$addr=$_POST[addr];
+$sup=$_POST['sup'] ?? "";
+$brncd=$_POST['brncd'] ?? "";
+$inv=$_POST['inv'] ?? "";
+$dt=$_POST['dt'] ?? "";
+$lcd=$_POST['lcd'] ?? "";
+$lfr=$_POST['lfr'] ?? "";
+$tamm=$_POST['tamm'] ?? 0;
+$dldgr=$_POST['dldgr'] ?? "";
+$mdt=$_POST['mdt'] ?? "";
+$pamm=$_POST['pamm'] ?? 0;
+$crfno=$_POST['crfno'] ?? "";
+$idt=$_POST['idt'] ?? "";
+$cbnm=$_POST['cbnm'] ?? "";
+$vat=$_POST['vat'] ?? 0;
+$vat1="";
+$sttl=$_POST['sttl'] ?? "";
+$tdis=$_POST['tdis'] ?? 0;
+$fst=$_POST['fst'] ?? "";
+$tst=$_POST['tst'] ?? "";
+$addr=$_POST['addr']?? "";
 
-$roff=$_POST[roff];
-$adl=$_POST['adl'];
-$adlv=$_POST['adlv'];
-$tamm2=$_POST['tamm2'];
-$remk=$_POST['remk'];
-$vstat=$_POST['vstat'];
-$tcs=$_POST['tcs'];
-$tcsam=$_POST['tcsam'];
+$roff=$_POST['roff'] ?? "";
+$adl=$_POST['adl'] ?? "";
+$adlv=$_POST['adlv'] ?? "";
+$tamm2=$_POST['tamm2'] ?? 0;
+$remk=$_POST['remk'] ?? "";
+$vstat=$_POST['vstat'] ?? "";
+$tcs=$_POST['tcs'] ?? 0;
+$tcsam=$_POST['tcsam'] ?? "";
 
 $paid=0;
 $due=0;
@@ -131,7 +132,7 @@ while($rows=mysqli_fetch_array($result51))
 $vnos=$rows['vno'];
 }	
 $vid1=substr($vnos,2,7);
-$vid1=$vid1+1;
+$vid1=(float)$vid1+1;
 $vnoc=str_pad($vid1, 7, '0', STR_PAD_LEFT);
 $vcno="SV".$vnoc;
 $count6=5;
@@ -297,16 +298,16 @@ $result2 = mysqli_query($conn,$query2)or die (mysqli_error($conn));
 alert('Submit Successfully. Thank You...');
 document.location="purchase-gst.php";
 </script>
-<?
+<?php 
 }
 
 else
 {
     ?>
 <Script language="JavaScript">
-alert('<? echo $err;?>');
+alert('<?php  echo $err;?>');
 window.history.go(-1);
 </script>
-<?
+<?php 
 }
 ?>

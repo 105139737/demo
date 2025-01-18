@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 include "header.php";
@@ -11,11 +11,11 @@ $brncd=$row1['bcd'];
 $dt=date('d-m-Y',strtotime($row1['dt']));
 $sid=$row1['sid'];
 $inv=$row1['inv'];
-$nrtn=$row1['nrtn'];
+$nrtn=$row1['nrtn']??"";
 
 $fst=$row1['fst'];
 $tst=$row1['tst'];
-$tmod=$row1['tmod'];
+$tmod=$row1['tmod']??"";
 $cbnm=$row1['cbnm'];
 $paid=$row1['paid'];
 $crdtp=$row1['crdtp'];
@@ -341,7 +341,7 @@ return true;
                 <!-- Main content -->
                 <section class="content">
                    <form method="post" name="form1" id="form1" action="purchase_retns.php">
-  <input type="hidden" name="blno" id="blno" value="<?php echo $blno;?>">  
+  <input type="hidden" name="blno" id="blno" value="<?php  echo $blno;?>">  
  <input type="hidden" id="chk" readonly="true" name="chk" value="0" >
   
 		<div class="box box-success" >
@@ -353,14 +353,14 @@ return true;
   <td colspan="3" > 
   
   <select id="sup" name="sup" tabindex="1"  class="form-control" onchange="gtid()" >
-	<?
+	<?php 
 		$query="select * from main_suppl  WHERE sl='$sid'";
 		$result=mysqli_query($conn,$query);
 		while($rw=mysqli_fetch_array($result))
 		{
 			?>
-			<option value="<?=$rw['sl'];?>"><?=$rw['spn'];?> <?if($rw['nm']!=""){?>( <?=$rw['nm'];?> )<?}?></option>
-			<?
+			<option value="<?php  echo $rw['sl'];?>"><?php  echo $rw['spn'];?> <?php if($rw['nm']!=""){?>( <?php  echo $rw['nm'];?> )<?php }?></option>
+			<?php 
 		}
 	?>
 	</select>
@@ -373,13 +373,13 @@ return true;
 
 <td >
 <div id="get_add">
- <input type="text"  class="form-control" tabindex="2"  style="font-weight: bold;" readonly id="addr" name="addr" value="<?php echo $addr;?> (<?php echo $gstin;?>)"  placeholder="Customer Address">
+ <input type="text"  class="form-control" tabindex="2"  style="font-weight: bold;" readonly id="addr" name="addr" value="<?php  echo $addr;?> (<?php  echo $gstin;?>)"  placeholder="Customer Address">
 </div>
  </td>
    <td align="right" style="padding-top:15px;"><b>Contact No. :</b></td>
 
 <td>
-<input type="text" id="mob" class="form-control" tabindex="3"  style="font-weight: bold;" readonly="true" name="mob" value="<?php echo $mob1;?>" size="35" placeholder="Customer Contact No.">
+<input type="text" id="mob" class="form-control" tabindex="3"  style="font-weight: bold;" readonly="true" name="mob" value="<?php  echo $mob1;?>" size="35" placeholder="Customer Contact No.">
  </td>
   </tr>
   <tr>
@@ -387,7 +387,7 @@ return true;
    <td align="right" style="padding-top:15px;"><b>E-Mail :</b></td>
 
 <td>
-<input type="text" id="mail" class="form-control" tabindex="4"  style="font-weight: bold;" readonly="true" name="mail" value="<?php echo $mail;?>"  size="35" placeholder="Customer E-Mail">
+<input type="text" id="mail" class="form-control" tabindex="4"  style="font-weight: bold;" readonly="true" name="mail" value="<?php  echo $mail;?>"  size="35" placeholder="Customer E-Mail">
  </td>
   <td align="right" style="padding-top:15px">
 <b>Branch : </b>
@@ -395,7 +395,7 @@ return true;
 <td align="left" >
 
 <select name="brncd" class="form-control" tabindex="5"  size="1" id="brncd" >
-<?
+<?php 
 
 $query="Select * from main_branch where sl='$brncd'";
 
@@ -406,8 +406,8 @@ $sl=$R['sl'];
 $bnm=$R['bnm'];
 
 ?>
-<option value="<? echo $sl;?>"><? echo $bnm;?></option>
-<?
+<option value="<?php  echo $sl;?>"><?php  echo $bnm;?></option>
+<?php 
 }
 ?>
 </select>
@@ -418,11 +418,11 @@ $bnm=$R['bnm'];
   <tr>
     <td align="right" style="padding-top:15px;"> <b>Invoice No. : </b></td>
   <td>
-  <input type="text" class="form-control" tabindex="6"  id="inv"  name="inv" value="<?php echo $inv;?>" readonly size="35" placeholder="Enter Invoice No...">
+  <input type="text" class="form-control" tabindex="6"  id="inv"  name="inv" value="<?php  echo $inv;?>" readonly size="35" placeholder="Enter Invoice No...">
   </td>
     <td align="right" style="padding-top:15px;"> <b>Date : </b></td>
   <td>
-  <input type="text" class="form-control"  id="dt" tabindex="7"  name="dt" value="<? echo date('d-m-Y');?>" size="35" placeholder="Enter Date">
+  <input type="text" class="form-control"  id="dt" tabindex="7"  name="dt" value="<?php  echo date('d-m-Y');?>" size="35" placeholder="Enter Date">
   </td>
 </tr>
   <tr>
@@ -431,14 +431,14 @@ $bnm=$R['bnm'];
   <div id="fst_div">
 <select id="fst" data-placeholder="Choose Your Supplier" name="fst"  class="form-control" onchange="get_gst()" >
 
-	<?
+	<?php 
 	$sql="SELECT * FROM main_state WHERE sl='$fst' ORDER BY sn";
 	$result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
 		while($row=mysqli_fetch_array($result))
 		{
 	?>
-    <option value="<?=$row['sl'];?>"<?if($row['sl']==$fst){echo 'selected';}?>><?=$row['sn'];?> - <?=$row['cd'];?></option>
-<?}?>
+    <option value="<?php  echo $row['sl'];?>"<?php if($row['sl']==$fst){echo 'selected';}?>><?php  echo $row['sn'];?> - <?php  echo $row['cd'];?></option>
+<?php }?>
 </select>
 </div>
   </td>
@@ -447,14 +447,14 @@ $bnm=$R['bnm'];
 <div id="tst_div">
 <select id="tst" data-placeholder="Choose Your Supplier" name="tst" class="form-control" onchange="get_gst()"  >
 
-	<?
+	<?php 
 	$sql="SELECT * FROM main_state WHERE  sl='$tst' ORDER BY sn";
 	$result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
 		while($row=mysqli_fetch_array($result))
 		{
 	?>
-    <option value="<?=$row['sl'];?>"<?if($row['sl']==$tst){echo 'selected';}?>><?=$row['sn'];?> - <?=$row['cd'];?></option>
-<?}?>
+    <option value="<?php  echo $row['sl'];?>"<?php if($row['sl']==$tst){echo 'selected';}?>><?php  echo $row['sn'];?> - <?php  echo $row['cd'];?></option>
+<?php }?>
 </select>
 </div>
   </td>
@@ -573,13 +573,13 @@ $bnm=$R['bnm'];
  <b>Ledger :</b>
 <div id="ledg">
  <select  name="remk" id="remk" tabindex="1"  class="form-control">
-		<?php 
+		<?php  
 		$gettt = mysqli_query($conn,"SELECT * FROM main_ledg WHERE sl='$remk'") or die(mysqli_error($conn));
 		while($rowww = mysqli_fetch_array($gettt))
 		{
 		?>
-		<option value="<?=$rowww['sl'];?>" <?php if($rowww['sl']==$ledg){?> selected <? } ?>><?=$rowww['nm']?></option>
-		<?php 
+		<option value="<?php  echo $rowww['sl'];?>"><?php  echo $rowww['nm']?></option>
+		<?php  
 		} 
 		?>
 		</select>
@@ -591,12 +591,12 @@ $bnm=$R['bnm'];
  <tr>
  <td>
 <select class="sc" id="adl" name="adl" onchange="t2()" tabindex="39">
-<?php if($adl=='+'){?><option value="+">Add(+)</option><? }  
-if($adl=='-'){?><option value="-">less(-)</option><?}?>
+<?php  if($adl=='+'){?><option value="+">Add(+)</option><?php  }  
+if($adl=='-'){?><option value="-">less(-)</option><?php }?>
 </select>
 </td>
 <td>
-<input type="text" class="form-control" onblur="t2()" id="adlv" tabindex="40" name="adlv" value="<?=$adlv;?>" readonly style="text-align:right;background-color:#f3f4f5;font-size:14pt;color:blue;" size="25" >
+<input type="text" class="form-control" onblur="t2()" id="adlv" tabindex="40" name="adlv" value="<?php  echo $adlv;?>" readonly style="text-align:right;background-color:#f3f4f5;font-size:14pt;color:blue;" size="25" >
 </td>
 </tr>
 </table>
@@ -620,7 +620,7 @@ if($adl=='-'){?><option value="-">less(-)</option><?}?>
 
 
  
-<input type="hidden" id="prid"  name="prid" value="<? echo $cid;?>">
+<input type="hidden" id="prid"  name="prid" value="<?php  echo $cid;?>">
 <input type="hidden" id="stk" >
 <input type="hidden" id="fls" >
 <div id="ps">

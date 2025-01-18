@@ -6,6 +6,7 @@ ini_set("memory_limit", "-1");
 set_time_limit(0);
 include("../config.php");
 include("../function.php");
+$sl=0;
 $fdt=$_REQUEST['fdt'];
 $tdt=$_REQUEST['tdt'];
 $snm=rawurldecode($_REQUEST['snm']);
@@ -220,6 +221,18 @@ if($bcd=='7')//KARIMPUR
 {
 //$nm='HINDUSTAN DISTRIBUTORS-MBO';
 $gtm='DUR2987';   
+}
+if($bcd=='8')//BARASAT
+{
+//$nm='HINDUSTAN DISTRIBUTORS-MBO';
+$gtm='DUR3647';   
+//$stcode="HIND";
+}
+if($bcd=='9')//BERHAMPORE
+{
+//$nm='HINDUSTAN DISTRIBUTORS-MBO';
+$gtm='DUR3663';   
+//$stcode="HIND";
 }
 $tslrt=0;
 $igst=0;

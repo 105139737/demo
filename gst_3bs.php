@@ -1,11 +1,11 @@
-<?
+<?php 
 $reqlevel = 3; 
 include("membersonly.inc.php");
-$mnth=$_REQUEST[mnth];
-$yr=$_REQUEST[yr];
-$typ=$_REQUEST[typ];
-$tdt=$_REQUEST[tdt];
-$fdt=$_REQUEST[fdt];
+$mnth=$_REQUEST['mnth'] ?? "";
+$yr=$_REQUEST['yr'] ?? "";
+$typ=$_REQUEST['typ'] ?? "";
+$tdt=$_REQUEST['tdt'] ?? "";
+$fdt=$_REQUEST['fdt'] ?? "";
 $fdt=date('Y-m-d', strtotime($fdt));
 $tdt=date('Y-m-d', strtotime($tdt));
 
@@ -24,13 +24,13 @@ header("Content-Disposition: attachment; filename=$file");
 GSTIN
 </td>
 <td>
-<b><?=$gstin;?></b>
+<b><?php  echo $gstin;?></b>
 </td>
 <td>
 Year
 </td>
 <td>
-<b><?=$yr;?></b>
+<b><?php  echo $yr;?></b>
 </td>
 </tr>
 <tr>
@@ -38,21 +38,22 @@ Year
 Legal name of the registered person
 </td>
 <td>
-<b><?=$comp_nm;?></b>
+<b><?php  echo $comp_nm;?></b>
 </td>
 <td>
 Month	
 </td>
 <td>
-<b><?=date('F', strtotime($fdt));?></b>
+<b><?php echo date('F', strtotime($fdt));?></b>
 </td>
 </tr>
 </table>
-<?
+<?php 
 $taxamm=0;
-$tcgst==0;
+$tcgst=0;
 $tsgst=0;
 $tigst=0;
+$tcgst=0;
 $data1= mysqli_query($conn,"select * from  main_billing where sl>0 and cstat='0'".$todts."order by dt")or die(mysqli_error($conn));
 while ($row1 = mysqli_fetch_array($data1))
 {
@@ -85,9 +86,10 @@ $tigst+=$row7['igst_am'];
 
 
 $taxamm_ret=0;
-$tcgst_ret==0;
+$tcgst_ret=0;
 $tsgst_ret=0;
 $tigst_ret=0;
+$tcgst_ret=0;
 $data13= mysqli_query($conn,"select * from  main_billing_ret where sl>0 ".$todts."order by dt")or die(mysqli_error($conn));
 while ($row1r = mysqli_fetch_array($data13))
 {
@@ -138,16 +140,16 @@ $tigst=$tigst-$tigst_ret;
 (a) Outward Taxable  supplies  (other than zero rated, nil rated and exempted)
 </td>
 <td align="right">
-<b><?=$taxamm;?></b>
+<b><?php  echo $taxamm;?></b>
 </td>
 <td align="right">
-<b><?=$tigst;?></b>
+<b><?php  echo $tigst;?></b>
 </td>
 <td align="right">
-<b><?=$tcgst;?></b>
+<b><?php  echo $tcgst;?></b>
 </td>
 <td align="right">
-<b><?=$tsgst;?></b>
+<b><?php  echo $tsgst;?></b>
 </td>
 <td>
 
@@ -174,26 +176,27 @@ $tigst=$tigst-$tigst_ret;
 <b>TOTAL</b>
 </td>
 <td align="right">
-<b><?=$taxamm;?></b>
+<b><?php  echo $taxamm;?></b>
 </td>
 <td align="right">
-<b><?=$tigst;?></b>
+<b><?php  echo $tigst;?></b>
 </td>
 <td align="right">
-<b><?=$tcgst;?></b>
+<b><?php  echo $tcgst;?></b>
 </td>
 <td align="right">
-<b><?=$tsgst;?></b>
+<b><?php  echo $tsgst;?></b>
 </td>
 <td>
 </td>
 </tr>
 </table>
-<?
+<?php 
 $taxamm1=0;
-$tcgst1==0;
+$tcgst1=0;
 $tsgst1=0;
 $tigst1=0;
+$tcgst1=0;
 $data12= mysqli_query($conn,"select * from  main_purchase where sl>0 ".$todts."order by dt")or die(mysqli_error($conn));
 while ($row13 = mysqli_fetch_array($data12))
 {
@@ -209,9 +212,10 @@ $tigst1+=$row133['igst_am'];
 }
 
 
-$tcgst1_ser==0;
+$tcgst1_ser=0;
 $tsgst1_ser=0;
 $tigst1_ser=0;
+$tcgst1_ser=0;
 $data12_ser= mysqli_query($conn,"select * from  main_ser_purchase where sl>0 ".$todts."order by dt")or die(mysqli_error($conn));
 while ($row13 = mysqli_fetch_array($data12_ser))
 {
@@ -228,9 +232,10 @@ $tigst1_ser+=$row133['igst_am'];
 
 
 
-$tcgst1_ret==0;
+$tcgst1_ret=0;
 $tsgst1_ret=0;
 $tigst1_ret=0;
+$tcgst1_ret=0;
 
 
 
@@ -311,13 +316,13 @@ $tigst1=($tigst1+$tigst1_ser)-$tigst1_ret;
 (5)   All other ITC
 </td>
 <td align="right">
-<b><?=$tigst1;?></b>
+<b><?php  echo $tigst1;?></b>
 </td>
 <td align="right">
-<b><?=$tcgst1;?></b>
+<b><?php  echo $tcgst1;?></b>
 </td>
 <td align="right">
-<b><?=$tsgst1;?></b>
+<b><?php  echo $tsgst1;?></b>
 </td>
 <td>
 <b></b>
@@ -328,13 +333,13 @@ $tigst1=($tigst1+$tigst1_ser)-$tigst1_ret;
 <b>(C) Net ITC Available (A)-(B)</b>
 </td>
 <td align="right">
-<b><?=$tigst1;?></b>
+<b><?php  echo $tigst1;?></b>
 </td>
 <td align="right">
-<b><?=$tcgst1;?></b>
+<b><?php  echo $tcgst1;?></b>
 </td>
 <td align="right">
-<b><?=$tsgst1;?></b>
+<b><?php  echo $tsgst1;?></b>
 </td>
 <td>
 <b></b>

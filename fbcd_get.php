@@ -1,9 +1,9 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 $sl=1;
 ?>
-<?
+<?php 
 $query100 = "SELECT * FROM ".$DBprefix."trntemp where eby='$user_currently_loged' order by sl";
 $result100 = mysqli_query($conn,$query100);
 while ($R100 = mysqli_fetch_array ($result100))
@@ -14,7 +14,7 @@ if($fbcd!="")
 {
 ?>
 <select name="fbcd" class="form-control" size="1" id="fbcd" tabindex="1" onchange="cbcd(),product()" >
-<?
+<?php 
 $query="Select * from main_godown where sl='$fbcd'";
 $result = mysqli_query($conn,$query);
 while ($R = mysqli_fetch_array ($result))
@@ -25,18 +25,18 @@ $gnm=$R['gnm'];
 
 
 ?>
-<option value="<? echo $sl;?>"><? echo $gnm;?></option>
-<?
+<option value="<?php  echo $sl;?>"><?php  echo $gnm;?></option>
+<?php 
 }
 ?>
 </select>
-<?	
+<?php 	
 }
 else
 {
 ?>
 <select name="fbcd" class="form-control" size="1" tabindex="1" id="fbcd" onchange="cbcd();product()" >
-<?
+<?php 
 $query="Select * from main_godown ";
 $result = mysqli_query($conn,$query);
 while ($R = mysqli_fetch_array ($result))
@@ -46,9 +46,9 @@ $bnm=$R['bnm'];
 $gnm=$R['gnm'];
 
 ?>
-<option value="<? echo $sl;?>"><? echo $gnm;?></option>
-<?
+<option value="<?php  echo $sl;?>"><?php  echo $gnm;?></option>
+<?php 
 }
 ?>
 </select>
-<?}?>
+<?php }?>

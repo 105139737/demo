@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 date_default_timezone_set('Asia/Kolkata');
@@ -21,7 +21,7 @@ if($cnm=="" or $brand=="" or $model=="")
 	alert('Please Fill All The Field');
 	history.go(-1);
 	</script>
-	<?
+	<?php 
 }
 else
 {
@@ -56,7 +56,7 @@ else
 		alert('Submitted Successfully. Thank You');
 		document.location="docket_call.php";
 		</script>
-		<?
+		<?php 
 	}
 	else
 	{
@@ -65,6 +65,6 @@ else
 		alert('Data Already Exists');
 		history.go(-1);
 		</script>
-		<?
+		<?php 
 	}
 }

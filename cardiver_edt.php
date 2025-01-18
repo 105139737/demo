@@ -1,8 +1,8 @@
-<?
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include "header.php";
-$sl=$_REQUEST[sl];
+$sl=$_REQUEST['sl'];
  $data= mysqli_query($conn,"select * from main_dirver where  sl='$sl'")or die(mysqli_error($conn));
  
 while ($row = mysqli_fetch_array($data))
@@ -21,7 +21,7 @@ $ltyp=$row['ltyp'];
 <html>
 <head>
         <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <style type="text/css"> 
@@ -151,7 +151,7 @@ document.forms["form1"].submit();
                           
  	<form method="post" action="cardiver_edts.php" id="form1"  name="form1" onsubmit="return check1()">
                               
-<input type="hidden" name="sl" id="sl" value="<?=$sl;?>">
+<input type="hidden" name="sl" id="sl" value="<?php  echo $sl;?>">
   <center>
         <div class="box box-success" >
     <table border="0"  width="860px" class="table table-hover table-striped table-bordered" >
@@ -162,38 +162,38 @@ document.forms["form1"].submit();
 <td align="right">
 Car No. : </td>
 <td>
-<input type="text" class="form-control" id="cno" name="cno" readonly="true" value="<?=$cno;?>" placeholder="Please Enter Car No." style="width:430px"></td>
+<input type="text" class="form-control" id="cno" name="cno" readonly="true" value="<?php  echo $cno;?>" placeholder="Please Enter Car No." style="width:430px"></td>
 
 <td align="right">
 Car Details : </td>
 <td>
-<input type="text" class="form-control" id="cdet"  name="cdet" value="<?=$cdet;?>" placeholder="Please Enter Car Details" style="width:430px"></td>
+<input type="text" class="form-control" id="cdet"  name="cdet" value="<?php  echo $cdet;?>" placeholder="Please Enter Car Details" style="width:430px"></td>
 </tr>
 <tr>
 <td align="right">
 Driver Name : 
 </td>
 <td>
-<input type="text" class="form-control" id="dnm"  name="dnm" value="<?=$dnm;?>" placeholder="Please Enter Driver Name" style="width:430px">
+<input type="text" class="form-control" id="dnm"  name="dnm" value="<?php  echo $dnm;?>" placeholder="Please Enter Driver Name" style="width:430px">
 </td>
 
 <td align="right">
 Address :</td>
 <td >
-<input type="text" class="form-control" id="addr"  name="addr" value="<?=$addr;?>" placeholder="Please Enter Address" style="width:430px"></td>
+<input type="text" class="form-control" id="addr"  name="addr" value="<?php  echo $addr;?>" placeholder="Please Enter Address" style="width:430px"></td>
 </tr>
 <tr>
 <td align="right">
 Mobile No. 1 :</td>
 <td>
-<input type="text" class="form-control" id="mob1" name="mob1" value="<?=$mob1;?>" placeholder="Please Enter Mobile No." style="width:430px" maxlength="11" onkeypress="return isNumber(event)">
+<input type="text" class="form-control" id="mob1" name="mob1" value="<?php  echo $mob1;?>" placeholder="Please Enter Mobile No." style="width:430px" maxlength="11" onkeypress="return isNumber(event)">
 </td>
 <td align="right">
 Mobile No. 2 :
 </td>
 
 <td>
-<input type="text" class="form-control" id="mob2" name="mob2" value="<?=$mob2;?>" placeholder="Please Enter Mobile /Land Line No."  style="width:430px" maxlength="11" onkeypress="return isNumber(event)">
+<input type="text" class="form-control" id="mob2" name="mob2" value="<?php  echo $mob2;?>" placeholder="Please Enter Mobile /Land Line No."  style="width:430px" maxlength="11" onkeypress="return isNumber(event)">
 </td>
 </tr>
 
@@ -201,14 +201,14 @@ Mobile No. 2 :
 <td align="right">
 Driving license No. :</td>
 <td>
-<input type="text" class="form-control" id="lno" name="lno" readonly="true" value="<?=$lno;?>" placeholder="Please Enter Driving license No." style="width:430px">
+<input type="text" class="form-control" id="lno" name="lno" readonly="true" value="<?php  echo $lno;?>" placeholder="Please Enter Driving license No." style="width:430px">
 </td>
 <td align="right">
 License Type :
 </td>
 
 <td>
-<input type="text" class="form-control" id="ltyp" name="ltyp" value="<?=$ltyp;?>" placeholder="Please Enter License Type "  style="width:430px" >
+<input type="text" class="form-control" id="ltyp" name="ltyp" value="<?php  echo $ltyp;?>" placeholder="Please Enter License Type "  style="width:430px" >
 </td>
 </tr>
 

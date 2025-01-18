@@ -1,4 +1,4 @@
-<?PHP
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 
@@ -45,7 +45,7 @@ function makeform($errormessage){
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 </head>
 
-<?PHP echo "<font color=\"#FF0000\"><strong>$errormessage</strong></font>";?>
+<?php  echo "<font color=\"#FF0000\"><strong>$errormessage</strong></font>";?>
 
 <form name="changepassword" method="post" action="changepass.php" id="changepassword">
 <input type="hidden" name="action" value="changepassword">
@@ -66,7 +66,7 @@ function makeform($errormessage){
    <td align="left"><input name="password2" class="form-control" type="password" id="password2" style="width:100px;height:18px;background-color:#FFFFFF;border-color:#BFDBFF;border-width:1px;border-style:solid;color:#006BF5;font-family:Verdana;font-size:11px;"></td>
 </tr>
 <tr>
-   <td colspan="2"><?php echo $error_message; ?></td>
+   <td colspan="2"><?php  echo $error_message; ?></td>
 </tr>
 <tr>
    <td>&nbsp;</td><td align="left" valign="bottom"><input type="submit" name="changepassword" value="Change Password" id="changepassword" style="color:#006BF5;background-color:#FFFFFF;border-color:#BFDBFF;border-width:1px;border-style:solid;font-family:Verdana;font-size:11px;width:150px;height:20px;"></td>
@@ -76,4 +76,4 @@ function makeform($errormessage){
 </div>
 </body>
 </html>
-<?php } ?>
+<?php  } ?>

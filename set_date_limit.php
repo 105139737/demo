@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 0;
 include("membersonly.inc.php");
 include "header.php";
@@ -8,7 +8,7 @@ include "header.php";
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
  <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <head>
@@ -85,7 +85,7 @@ $("#"+div).load("gisedts.php?sl="+sl+"&fn="+fn+"&fv="+encodeURI(fv)+"&div="+div+
  <div class="box box-success" >
 
 
-<?
+<?php 
 $sq=mysqli_query($conn,"select * from main_dt") or die (mysqli_error($conn));
 while($r=mysqli_fetch_array($sq))
 {
@@ -100,8 +100,8 @@ while($r=mysqli_fetch_array($sq))
 <label for="exampleInputEmail1" ><font size="6">Date Limit:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
 </td>
 <td align="left">
-<div id="dt<?=$sl1;?>" >
-<a href="#" onclick="sedt('<?echo $sl1;?>','dt','<?echo $dt;?>','dt<?=$sl1;?>','main_dt')"><b><font size="6" color="red"><?=$dt;?></font></b></a>
+<div id="dt<?php  echo $sl1;?>" >
+<a href="#" onclick="sedt('<?php echo $sl1;?>','dt','<?php echo $dt;?>','dt<?php  echo $sl1;?>','main_dt')"><b><font size="6" color="red"><?php  echo $dt;?></font></b></a>
 </div>
 </td>
 </tr>

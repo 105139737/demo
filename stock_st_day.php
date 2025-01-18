@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include "function.php";
@@ -9,7 +9,7 @@ $cy=date('Y');
 <html>
 <head>
 <div class="wrapper row-offcanvas row-offcanvas-left">
-<?
+<?php 
 include "left_bar.php";
 ?>
 <style type="text/css"> 
@@ -214,19 +214,19 @@ $("#prod_div").load("get_product_stk.php?scat="+scat+"&cat="+cat).fadeIn('fast')
 
 <td align="left" width="16%">
 <b>From Date : </b>
-<input type="text" id="fdt" name="fdt" value="<?=date('01-m-Y');?>" class="form-control" >
+<input type="text" id="fdt" name="fdt" value="<?php echo date('01-m-Y');?>" class="form-control" >
 
 </td>
 <td align="left" width="16%">
 <b>To Date : </b>
-<input type="text" id="tdt" name="tdt" value="<?=date('d-m-Y');?>" class="form-control" >
+<input type="text" id="tdt" name="tdt" value="<?php echo date('d-m-Y');?>" class="form-control" >
 
 </td>
 <td align="left" width="16%" >
 <b>Godown:</b>
 <select name="brncd" class="form-control" size="1" id="brncd" onchange="get_prod()"  >
 <option value="">---Select---</option>
-<?
+<?php 
 if($user_current_level<0)
 {
 $query="Select * from main_branch";
@@ -242,8 +242,8 @@ $sl=$R['sl'];
 $bnm=$R['bnm'];
 
 ?>
-<option value="<? echo $sl;?>"><? echo $bnm;?></option>
-<?
+<option value="<?php  echo $sl;?>"><?php  echo $bnm;?></option>
+<?php 
 }
 ?>
 </select>
@@ -253,7 +253,7 @@ $bnm=$R['bnm'];
 <b>Category :</b><br>
 <select name="scat" class="form-control" size="1" id="scat" tabindex="8" onchange="get_prod()">
 <Option value="">---All---</option>
-<?
+<?php 
 $data1 = mysqli_query($conn,"Select * from main_scat order by nm");
 while ($row1 = mysqli_fetch_array($data1))
 {
@@ -269,15 +269,15 @@ echo "<option value='".$sl."'>".$cnm."</option>";
 <div id="prod_div">
 <select name="prnm" class="form-control"  id="prnm"   >
 <option value="">---All---</option>
-<?
+<?php 
 $data1 = mysqli_query($conn,"Select * from main_product where typ='0' order by pnm");
 while ($row1 = mysqli_fetch_array($data1))
 	{
 	$sl=$row1['sl'];
 	$pnm=$row1['pnm'];
 ?>
-<Option value="<?=$sl;?>"><?=reformat($pnm);?></option>
-<?}?>
+<Option value="<?php  echo $sl;?>"><?php echo reformat($pnm);?></option>
+<?php }?>
 </select>
 </div>
 </td>

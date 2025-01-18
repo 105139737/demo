@@ -1,6 +1,11 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
+$cnt=0;
+$amm1=0;
+$tax1=0;
+$net1=0;
+$note_typ1="";
 
 $frmnm='';
 date_default_timezone_set('Asia/Kolkata');
@@ -71,7 +76,7 @@ if($note_typ!=''){$note_typ1=" and note_typ='$note_typ'";}
   <td align="right"><b><font color="#FFF"> Net Amount </font></b></td>
 
    </tr>
-  <?
+  <?php 
 
 $data = mysqli_query($conn,"SELECT * FROM  main_cdnr where sl>0".$GSTIN.$dtt.$sup1.$typ_nm1.$note_typ1);
 while ($row = mysqli_fetch_array($data))
@@ -95,9 +100,9 @@ $cnt++;
 		$tax=$row['tax'];
 		$net=$row['net'];
 		$refno=$row['refno'];
-		$cgst=$row['cgst'];
-		$sgst=$row['sgst'];
-		$igst=$row['igst'];
+		$cgst=$row['cgst'] ?? 0;
+		$sgst=$row['sgst'] ?? 0;
+		$igst=$row['igst'] ?? 0;
 		$invdt=date("d-m-Y", strtotime($invdt1));
 
 	/*$sql1="SELECT * FROM main_comp where sl='$sup'";
@@ -121,40 +126,40 @@ $net1+=$net;
   ?>
    <b> 
 <tr bgcolor="#e8ecf6" style="cursor:pointer;">
-<td align="center"><font color="#000"><?=$cnt;?></font><br>
-<a href="debit_note_edit.php?sl=<?=$ssl;?>"><i class="fa fa-edit" style="font-size:14px"></i></a> <br>
-<button class="btn btn-danger btn-xs" onclick="del_cdnr('<?=$refno;?>','<?=$typ;?>')"> Delete </button>
+<td align="center"><font color="#000"><?php  echo $cnt;?></font><br>
+<a href="debit_note_edit.php?sl=<?php  echo $ssl;?>"><i class="fa fa-edit" style="font-size:14px"></i></a> <br>
+<button class="btn btn-danger btn-xs" onclick="del_cdnr('<?php  echo $refno;?>','<?php  echo $typ;?>')"> Delete </button>
 </td>
-<td align="center"><font color="#000"><?=$refno;?></font></td>
-<td align="center"><font color="#000"><?=$sgstin;?></font></td>
-<td align="left"><font color="#000"><?=$name;?></font></td>
-<td align="center"><font color="#000"><?=$note_no;?></font></td>
-<td align="center"><font color="#000"><?=$dt;?></font></td>
-<td align="center"><font color="#000"><?=$inv;?></font></td>
-<td align="center"><font color="#000"><?=$invdt;?></font></td>
-<td align="center"><font color="#000"><?=$notetyp;?></font></td>
-<td align="center"><font color="#000"><?=$typ;?></font></td>
-<td align="center"><font color="#000"><?=$styp;?></font></td>
-<td align="center"><font color="#000"><?=$amm;?></font></td>
-<td align="center"><font color="#000"><?=$tax_rate;?></font></td>
-<td align="center"><font color="#000"><?=$tax;?></font></td>
-<td align="center"><font color="#000"><?=$cgst;?></font></td>
-<td align="center"><font color="#000"><?=$sgst;?></font></td>
-<td align="center"><font color="#000"><?=$igst;?></font></td>
-<td align="center"><font color="#000"><?=$net;?></font></td>
+<td align="center"><font color="#000"><?php  echo $refno;?></font></td>
+<td align="center"><font color="#000"><?php  echo $sgstin;?></font></td>
+<td align="left"><font color="#000"><?php  echo $name;?></font></td>
+<td align="center"><font color="#000"><?php  echo $note_no;?></font></td>
+<td align="center"><font color="#000"><?php  echo $dt;?></font></td>
+<td align="center"><font color="#000"><?php  echo $inv;?></font></td>
+<td align="center"><font color="#000"><?php  echo $invdt;?></font></td>
+<td align="center"><font color="#000"><?php  echo $notetyp;?></font></td>
+<td align="center"><font color="#000"><?php  echo $typ;?></font></td>
+<td align="center"><font color="#000"><?php  echo $styp;?></font></td>
+<td align="center"><font color="#000"><?php  echo $amm;?></font></td>
+<td align="center"><font color="#000"><?php  echo $tax_rate;?></font></td>
+<td align="center"><font color="#000"><?php  echo $tax;?></font></td>
+<td align="center"><font color="#000"><?php  echo $cgst;?></font></td>
+<td align="center"><font color="#000"><?php  echo $sgst;?></font></td>
+<td align="center"><font color="#000"><?php  echo $igst;?></font></td>
+<td align="center"><font color="#000"><?php  echo $net;?></font></td>
 </tr>
-<?php
+<?php 
 	}
 ?>
 <tr bgcolor="#e8ecf6" style="cursor:pointer;">
 <td align="right" colspan="11"><font size="3" color="#000"><b>Total :</b></font></td>
-<td align="center"><font color="#000"><?=$amm1;?></font></td>
+<td align="center"><font color="#000"><?php  echo $amm1;?></font></td>
 <td align="center"><font color="#000"></font></td>
-<td align="center"><font color="#000"><?=$tax1;?></font></td>
+<td align="center"><font color="#000"><?php  echo $tax1;?></font></td>
 <td align="center"><font color="#000"></font></td>
 <td align="center"><font color="#000"></font></td>
 <td align="center"><font color="#000"></font></td>
-<td align="center"><font color="#000"><?=$net1;?></font></td>
+<td align="center"><font color="#000"><?php  echo $net1;?></font></td>
 
 </tr>
   </table>

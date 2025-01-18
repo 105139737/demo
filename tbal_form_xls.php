@@ -1,15 +1,17 @@
-<?
+<?php 
 $reqlevel = 1; 
 include("membersonly.inc.php");
+$ledgnm=0;
+$var="";
 setlocale(LC_MONETARY, 'en_IN');
 set_time_limit(0);
-$fdt=$_REQUEST[fdt];
-$tdt=$_REQUEST[tdt];
-$ledg=$_REQUEST[ledg];
-$cust=$_REQUEST[cust];
-$sup=$_REQUEST[sup];
-$pno=$_REQUEST[proj];
-$brncd=$_REQUEST[brncd];if($brncd==""){$brncd1="";}else{$brncd1=" and brncd='$brncd'";}
+$fdt=$_REQUEST['fdt'] ?? "";
+$tdt=$_REQUEST['tdt'] ?? "";
+$ledg=$_REQUEST['ledg'] ?? "";
+$cust=$_REQUEST['cust'] ?? "";
+$sup=$_REQUEST['sup'] ?? "";
+$pno=$_REQUEST['proj'] ?? "";
+$brncd=$_REQUEST['brncd'] ?? "";if($brncd==""){$brncd1="";}else{$brncd1=" and brncd='$brncd'";}
 if($cust!=""){$cqw=" and cid='$cust'";}else{$cqw="";}
 if($sup!=""){$sqw=" and sid='$sup'";}else{$sqw="";}
 if($pno!="0"){$pno1=" and pno='$pno'";}else{$pno1="";}
@@ -19,10 +21,10 @@ header("Content-type: application/vnd.ms-excel");
 header("Content-Disposition: attachment; filename=$file"); 
 
 ?>
-<input type="hidden" id="ledg" name="ledg" size="5" value="<? echo $ledg; ?>" style="font-size: 12pt; text-align: left;color: #008000">
-<input type="hidden" id="fdt" name="fdt" size="5" value="<? echo $fdt; ?>" style="font-size: 12pt; text-align: left;color: #008000">
-<input type="hidden" id="tdt" name="tdt" size="5" value="<? echo $tdt; ?>" style="font-size: 12pt; text-align: left;color: #008000">
-<?
+<input type="hidden" id="ledg" name="ledg" size="5" value="<?php  echo $ledg; ?>" style="font-size: 12pt; text-align: left;color: #008000">
+<input type="hidden" id="fdt" name="fdt" size="5" value="<?php  echo $fdt; ?>" style="font-size: 12pt; text-align: left;color: #008000">
+<input type="hidden" id="tdt" name="tdt" size="5" value="<?php  echo $tdt; ?>" style="font-size: 12pt; text-align: left;color: #008000">
+<?php 
 
 $fdt=date('Y-m-d', strtotime($fdt));
 $tdt=date('Y-m-d', strtotime($tdt));
@@ -57,7 +59,7 @@ $amm=0;
 <td align="center" width="25%"> <font size="4">Particulars</td>
 <td align="center" width="15%"> <font size="4">Amount</td>
 </tr>
-<?
+<?php 
 $sl=1;
 
 $amm1=0;
@@ -68,7 +70,7 @@ $query = "SELECT sum(amm) as amm1 FROM main_drcr where dt between '1970-01-01' a
 $result = mysqli_query($conn,$query);
 while ($R = mysqli_fetch_array ($result))
 {
-$amm1=$R[amm1];
+$amm1=$R['amm1'];
 }
 $DR=$DR+$amm1;
 
@@ -100,14 +102,14 @@ if($amm1!=0)
 
 $f++;
 ?>
-<tr bgcolor="<? echo $clr; ?>">
+<tr bgcolor="<?php  echo $clr; ?>">
 <td align="center"  valign="top"> <font size="2" color="red">Prev.</font></td>
 
 <td align="center"  valign="top"> <font size="2" color="red"></font></td>
 <td align="left"  valign="top"> <font size="2" color="red">Prev.</font></td>
-<td align="right"  valign="top" > <font size="2" color="red"><b><?echo $amm1;?></b></font></td>
+<td align="right"  valign="top" > <font size="2" color="red"><b><?php echo $amm1;?></b></font></td>
 </tr>
-<?
+<?php 
 }
 $fdt1=date('Y-m-d', strtotime($fdt));
 $tdt1=date('Y-m-d', strtotime($tdt));
@@ -187,15 +189,15 @@ if($c!=0)
 					
 $f++;
 ?>
-<tr bgcolor="<? echo $clr; ?>">
-<td align="center"  valign="top"><a title="Code : <?echo $ff1;?>" style="cursor:pointer;"> <font size="2" color="<? echo $fclr; ?>"><?echo $dndt;?></font></td>
+<tr bgcolor="<?php  echo $clr; ?>">
+<td align="center"  valign="top"><a title="Code : <?php echo $ff1;?>" style="cursor:pointer;"> <font size="2" color="<?php  echo $fclr; ?>"><?php echo $dndt;?></font></td>
 
-<td align="center"  valign="top"> <font size="2" color="<? echo $fclr; ?>"><?echo $ehnm.$var1;?></font></td>
-<td align="center"  valign="top"> <font size="2" color="<? echo $fclr; ?>"><?echo $nrtn1;?></font></td>
-<td align="left"  valign="top"> <font size="2" color="<? echo $fclr; ?>">To. <?echo $ehnm;?></font></td>
-<td align="right"  valign="top"> <font size="2" color="<? echo $fclr; ?>"><b><?echo number_format($c,2);?></b></font></td>
+<td align="center"  valign="top"> <font size="2" color="<?php  echo $fclr; ?>"><?php echo $ehnm.$var1;?></font></td>
+<td align="center"  valign="top"> <font size="2" color="<?php  echo $fclr; ?>"><?php echo $nrtn1;?></font></td>
+<td align="left"  valign="top"> <font size="2" color="<?php  echo $fclr; ?>">To. <?php echo $ehnm;?></font></td>
+<td align="right"  valign="top"> <font size="2" color="<?php  echo $fclr; ?>"><b><?php echo number_format($c,2);?></b></font></td>
 </tr>
-<?
+<?php 
 $DR=$DR+$c;
 }
 }
@@ -216,7 +218,7 @@ $DR=$DR+$c;
 <td align="center" width="25%"> <font size="4">Particulars</td>
 <td align="center" width="15%"> <font size="4">Amount</td>
 </tr>
-<?
+<?php 
 $sl=1;
 
 $amm1=0;
@@ -227,7 +229,7 @@ $result = mysqli_query($conn,$query);
 
 while ($R = mysqli_fetch_array ($result))
 {
-$amm1=$R[amm1];
+$amm1=$R['amm1'] ?? "";
 }
 $CR=$CR+$amm1;
 
@@ -258,15 +260,15 @@ if($amm1!=0)
 							}
 $f++;
 ?>
-<tr bgcolor="<? echo $clr; ?>">
+<tr bgcolor="<?php  echo $clr; ?>">
 <td align="center"  valign="top"> <font size="2" color="red">Prev.</font></td>
 
 
 <td align="center"  valign="top"> <font size="2" color="red"></font></td>
 <td align="left"  valign="top"> <font size="2" color="red">Prev.</font></td>
-<td align="right"  valign="top" > <font size="2" color="red"><b><?echo $amm1;?></b></font></td>
+<td align="right"  valign="top" > <font size="2" color="red"><b><?php echo $amm1;?></b></font></td>
 </tr>
-<?
+<?php 
 }
 $fdt1=date('Y-m-d', strtotime($fdt));
 $tdt1=date('Y-m-d', strtotime($tdt));
@@ -347,15 +349,15 @@ if($c!=0)
 						
 $f++;
 ?>
-<tr bgcolor="<? echo $clr; ?>">
-<td align="center"  valign="top"><a title="Code : <?echo $ff1;?>" style="cursor:pointer;"> <font size="2" color="<? echo $fclr; ?>"><?echo $dndt;?></font></td>
+<tr bgcolor="<?php  echo $clr; ?>">
+<td align="center"  valign="top"><a title="Code : <?php echo $ff1;?>" style="cursor:pointer;"> <font size="2" color="<?php  echo $fclr; ?>"><?php echo $dndt;?></font></td>
 
-<td align="center"  valign="top"> <font size="2" color="<? echo $fclr; ?>"><?echo $ehnm.$var;?></font></td>
-<td align="center"  valign="top"> <font size="2" color="<? echo $fclr; ?>"><?echo $nrtn1;?></font></td>
-<td align="left"  valign="top"> <font size="2" color="<? echo $fclr; ?>">By. <?echo $ehnm;?></font></td>
-<td align="right"  valign="top"> <font size="2" color="<? echo $fclr; ?>"><b><?echo number_format($c,2);?></b></font></td>
+<td align="center"  valign="top"> <font size="2" color="<?php  echo $fclr; ?>"><?php echo $ehnm.$var;?></font></td>
+<td align="center"  valign="top"> <font size="2" color="<?php  echo $fclr; ?>"><?php echo $nrtn1;?></font></td>
+<td align="left"  valign="top"> <font size="2" color="<?php  echo $fclr; ?>">By. <?php echo $ehnm;?></font></td>
+<td align="right"  valign="top"> <font size="2" color="<?php  echo $fclr; ?>"><b><?php echo number_format($c,2);?></b></font></td>
 </tr>
-<?
+<?php 
 $CR=$CR+$c;
 }
 }
@@ -381,32 +383,32 @@ $TOT=$DR;
 </table>
 </td>
 </tr>
-<?
+<?php 
 if($DFrd==0)
 {
 ?>
 <tr class="odd">
 <td width="50%" align="left" colspan="4"> </td>
 <td width="37%" align="right" colspan="3"> <font size="4">By Balance c/d </font></td>
-<td width="13%" align="right"> <font size="4"><b><?echo number_format($CFrd,2);?></b></font></td>
+<td width="13%" align="right"> <font size="4"><b><?php echo number_format($CFrd,2);?></b></font></td>
 </tr>
-<?
+<?php 
 }
 else
 {
 ?>
 <tr class="odd">
 <td width="37%" align="right" colspan="3"> <font size="4">By Balance f/d </font></td>
-<td width="13%" align="right"> <font size="4"><b><?echo number_format($DFrd,2);?></b></font></td>
+<td width="13%" align="right"> <font size="4"><b><?php echo number_format($DFrd,2);?></b></font></td>
 <td width="50%" align="right" colspan="4"> </td>
 </tr>
-<?
+<?php 
 }
 ?>
 
 <tr class="odd">
-<td width="50%" align="right" colspan="4"> <font size="3" color="red"><?echo number_format($TOT,2);?></font></td>
-<td width="50%" align="right" colspan="4"> <font size="3" color="red"><?echo number_format($TOT,2);?></font></td>
+<td width="50%" align="right" colspan="4"> <font size="3" color="red"><?php echo number_format($TOT,2);?></font></td>
+<td width="50%" align="right" colspan="4"> <font size="3" color="red"><?php echo number_format($TOT,2);?></font></td>
 </tr>
 
 </table>

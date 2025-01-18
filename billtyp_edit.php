@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 include "header.php";
@@ -31,7 +31,7 @@ $countt=mysqli_num_rows($get1);
 
 ?>
         <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <style type="text/css"> 
@@ -127,20 +127,20 @@ return false;
 <body>
 <div class="box box-success">
 <form method="post" action="billtyp_edts.php" id="form1" name="form1">  
-<input type="hidden" class="form-control" name="ssl" id="ssl" value="<?php echo $ssl;?>">                  
+<input type="hidden" class="form-control" name="ssl" id="ssl" value="<?php  echo $ssl;?>">                  
 <table border="0" class="table table-hover table-striped table-bordered">
 
 <tr>
 <td align="left" >
 <b>Branch : </b>
 <select name="brncd" class="form-control" tabindex="1"  size="1" id="brncd" >
-<?
+<?php 
 if($user_current_level<0)
 {
 $query="Select * from main_branch";
 ?>
 <option value="">---Select---</option>
-<?
+<?php 
 }
 else
 {
@@ -153,8 +153,8 @@ $sl=$R['sl'];
 $bnm=$R['bnm'];
 
 ?>
-<option value="<? echo $sl;?>"<?php if($sl == $brncd){echo 'selected';}?>><? echo $bnm;?></option>
-<?
+<option value="<?php  echo $sl;?>"<?php  if($sl == $brncd){echo 'selected';}?>><?php  echo $bnm;?></option>
+<?php 
 }
 ?>
 </select>
@@ -162,7 +162,7 @@ $bnm=$R['bnm'];
 </td>
 <td  align="left">
 <b>Address :</b>
-<textarea class="form-control" name="adrs" id="adrs" required placeholder="Enter Address...."><?php echo $adrs;?></textarea>
+<textarea class="form-control" name="adrs" id="adrs" required placeholder="Enter Address...."><?php  echo $adrs;?></textarea>
 </td>
 </tr>
 <tr>
@@ -170,22 +170,22 @@ $bnm=$R['bnm'];
 <b>Type :</b>
 <select name="tp" id="tp" class="form-control" required>
 <option value="">--Select--</option>          		
-<option value="1"<?php if($tpa == '1'){echo 'selected';}?>>Retail</option>
-<option value="2"<?php if($tpa == '2'){echo 'selected';}?>>Wholesale</option>           		   
+<option value="1"<?php  if($tpa == '1'){echo 'selected';}?>>Retail</option>
+<option value="2"<?php  if($tpa == '2'){echo 'selected';}?>>Wholesale</option>           		   
 </select>
 </td>
 <td>
 <b>Brand : </b>
 <select name="brand[]" id="brand" class="form-control"  tabindex="1"  multiple>
-<?
+<?php 
 $dsql=mysqli_query($conn,"select * from main_catg where sl>0 and find_in_set(sl,'$brand')>0 order by sl") or die (mysqli_error($conn));
 while($erow=mysqli_fetch_array($dsql))
 {
 $bsl=$erow['sl'];
 $cnm=$erow['cnm'];
 ?>
-<option value="<?php echo $bsl;?>" selected><?php echo $cnm;?></option>
-<?
+<option value="<?php  echo $bsl;?>" selected><?php  echo $cnm;?></option>
+<?php 
 }
 $dsql1=mysqli_query($conn,"select * from main_catg where sl>0 and find_in_set(sl,'$brand')=0 order by sl") or die (mysqli_error($conn));
 while($erow1=mysqli_fetch_array($dsql1))
@@ -193,8 +193,8 @@ while($erow1=mysqli_fetch_array($dsql1))
 $bsl1=$erow1['sl'];
 $cnm1=$erow1['cnm'];
 ?>
-<option value="<?php echo $bsl1;?>"><?php echo $cnm1;?></option>
-<?
+<option value="<?php  echo $bsl1;?>"><?php  echo $cnm1;?></option>
+<?php 
 }
 ?>
 </select>
@@ -203,32 +203,32 @@ $cnm1=$erow1['cnm'];
 <tr>
 <td  align="left"  width="50%">
 <b>Alise :</b>
-<input type="text" class="form-control" name="als" id="als" <?php if($countt>0){?> readonly <? } ?> required value="<?php echo $als;?>" placeholder="Enter Alise....">
+<input type="text" class="form-control" name="als" id="als" <?php  if($countt>0){?> readonly <?php  } ?> required value="<?php  echo $als;?>" placeholder="Enter Alise....">
 </td>
 <td  align="left" width="50%">
 <b>Session :</b>
-<input type="text" class="form-control" name="ssn" required <?php if($countt>0){?> readonly <? } ?> value="<?php echo $ssn;?>" id="ssn" placeholder="Enter Session....">
+<input type="text" class="form-control" name="ssn" required <?php  if($countt>0){?> readonly <?php  } ?> value="<?php  echo $ssn;?>" id="ssn" placeholder="Enter Session....">
 </td>
 </tr>
 <tr>
 <td  align="left" width="50%">
 <b>Starting No. :</b>
-<input type="text" class="form-control" name="start_no" id="start_no" value="<?=$start_no;?>" required  tabindex="1"  onkeypress="return check(event)" placeholder="Enter Starting No. ....">
+<input type="text" class="form-control" name="start_no" id="start_no" value="<?php  echo $start_no;?>" required  tabindex="1"  onkeypress="return check(event)" placeholder="Enter Starting No. ....">
 </td>
 <td  align="left" width="50%">
 <b>Invoice Type :</b>
 <select name="inv_typ" id="inv_typ" class="form-control"  tabindex="1" required >
-<option value="0" <?php if($inv_typ == '0'){echo 'selected';}?>>Invoice</option>		
-<option value="1" <?php if($inv_typ == '1'){echo 'selected';}?>>Return</option>		
-<option value="2" <?php if($inv_typ == '2'){echo 'selected';}?>>Service</option>		
-<option value="33" <?php if($inv_typ == '33'){echo 'selected';}?>>Income</option>		
-<option value="44" <?php if($inv_typ == '44'){echo 'selected';}?>>Expense</option>		
-<option value="J01" <?php if($inv_typ == 'J01'){echo 'selected';}?>>Journal</option>		
-<option value="CN01" <?php if($inv_typ == 'CN01'){echo 'selected';}?>>Contra</option>		
-<option value="77" <?php if($inv_typ == '77'){echo 'selected';}?>>Customer Received</option>		
-<option value="88" <?php if($inv_typ == '88'){echo 'selected';}?>>Supplier Payment</option>		
-<option value="C01" <?php if($inv_typ == 'C01'){echo 'selected';}?>>Debit Note</option>		
-<option value="CC01" <?php if($inv_typ == 'CC01'){echo 'selected';}?>>Customer Credit Note</option>		
+<option value="0" <?php  if($inv_typ == '0'){echo 'selected';}?>>Invoice</option>		
+<option value="1" <?php  if($inv_typ == '1'){echo 'selected';}?>>Return</option>		
+<option value="2" <?php  if($inv_typ == '2'){echo 'selected';}?>>Service</option>		
+<option value="33" <?php  if($inv_typ == '33'){echo 'selected';}?>>Income</option>		
+<option value="44" <?php  if($inv_typ == '44'){echo 'selected';}?>>Expense</option>		
+<option value="J01" <?php  if($inv_typ == 'J01'){echo 'selected';}?>>Journal</option>		
+<option value="CN01" <?php  if($inv_typ == 'CN01'){echo 'selected';}?>>Contra</option>		
+<option value="77" <?php  if($inv_typ == '77'){echo 'selected';}?>>Customer Received</option>		
+<option value="88" <?php  if($inv_typ == '88'){echo 'selected';}?>>Supplier Payment</option>		
+<option value="C01" <?php  if($inv_typ == 'C01'){echo 'selected';}?>>Debit Note</option>		
+<option value="CC01" <?php  if($inv_typ == 'CC01'){echo 'selected';}?>>Customer Credit Note</option>		
 
 </select>
 </td>

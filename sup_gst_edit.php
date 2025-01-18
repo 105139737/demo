@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 include "header.php";
@@ -22,7 +22,7 @@ if($st==""){$st=1;}
 
         <div class="wrapper row-offcanvas row-offcanvas-left">
 
-            <?
+            <?php 
 
             include "left_bar.php";
 
@@ -132,14 +132,14 @@ $('#fst').val('1');
 <td align="left" width="" colspan="3">
     <select id="spnm" name="spnm" tabindex="1"  class="form-control" >
 	<option value="">---Select---</option>
-	<?
+	<?php 
 		$query="select * from main_suppl  WHERE sl>0 order by nm";
 		$result=mysqli_query($conn,$query);
 		while($rw=mysqli_fetch_array($result))
 		{
 			?>
-			<option value="<?=$rw['sl'];?>" <?if($sid==$rw['sl']){echo"selected";}?>><?=$rw['spn'];?> </option>
-			<?
+			<option value="<?php  echo $rw['sl'];?>" <?php if($sid==$rw['sl']){echo"selected";}?>><?php  echo $rw['spn'];?> </option>
+			<?php 
 		}
 	?>
 	</select>
@@ -148,13 +148,13 @@ $('#fst').val('1');
 <tr>
 <td align="right" style="padding-top:15px"> <font size="3"><b>GSTIN :</b></font></td>
 <td>
-<input type="text" class="form-control" id="gstin" name="gstin" value="<?=$gstin;?>" placeholder="GSTIN" onblur="gstinn()" >
-<input type="hidden" class="form-control" id="sl" name="sl" value="<?=$sl;?>"  >
+<input type="text" class="form-control" id="gstin" name="gstin" value="<?php  echo $gstin;?>" placeholder="GSTIN" onblur="gstinn()" >
+<input type="hidden" class="form-control" id="sl" name="sl" value="<?php  echo $sl;?>"  >
 </td>
 
 <td align="right" style="padding-top:15px"> <font size="3"><b>PAN :</b></font></td>
 <td>
-<input type="text" class="form-control" id="pan" name="pan" value="<?=$pan;?>" placeholder="PAN">
+<input type="text" class="form-control" id="pan" name="pan" value="<?php  echo $pan;?>" placeholder="PAN">
 </td>
 </tr>
 
@@ -162,20 +162,20 @@ $('#fst').val('1');
 <td align="right" style="padding-top:15px"><font size="3"><b>State : </b></font></td>
 <td>
 <select id="fst"  name="fst" class="form-control" >
-	<?
+	<?php 
 	$sql="SELECT * FROM main_state WHERE sl>0 ORDER BY sn";
 	$result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
 	while($row=mysqli_fetch_array($result))
 	{
 	?>
-    <option value="<?=$row['sl'];?>"<?if($row['sl']==$st){echo 'selected';}?>><?=$row['sn'];?> - <?=$row['cd'];?></option>
-	<?}?>
+    <option value="<?php  echo $row['sl'];?>"<?php if($row['sl']==$st){echo 'selected';}?>><?php  echo $row['sn'];?> - <?php  echo $row['cd'];?></option>
+	<?php }?>
 </select>
 
 </td>
 <td align="right"style="padding-top:15px"> <font size="3"><b>Address :</b></font></td>
 <td align="left" >
-<input type="text" class="form-control" id="addr" name="addr" value="<?=$addr;?>" placeholder="Address">
+<input type="text" class="form-control" id="addr" name="addr" value="<?php  echo $addr;?>" placeholder="Address">
 
 </td>
 <tr></tr>

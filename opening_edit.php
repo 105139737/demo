@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include "header.php";
@@ -10,7 +10,7 @@ $sl=base64_decode($_REQUEST['sl']);
 
 ?>
 <div class="wrapper row-offcanvas row-offcanvas-left">
-<?
+<?php 
 include "left_bar.php";
 ?>
 <style type="text/css"> 
@@ -194,7 +194,7 @@ return false;
                      <!-- /.box (chat box) -->
                             <!-- TO DO List -->
 							
-							<?
+							<?php 
 
 $data= mysqli_query($conn,"select * from main_stock where  sl='$sl'")or die(mysqli_error($conn));
  
@@ -281,7 +281,7 @@ if($unit=='bun'){$stock_in=($opst/$bgvlu);}
 <form method="post" action="opening_edts.php" id="form1" onSubmit="return check1()" name="form1">
 <center>
 <div class="box box-success" >
-<input type="hidden" value="<?=$slp?>" name="sl" id="sl">
+<input type="hidden" value="<?php  echo $slp?>" name="sl" id="sl">
 <table border="0"  width="800px"  align="center" class="table table-hover table-striped table-bordered">
 <tr>
 
@@ -289,7 +289,7 @@ if($unit=='bun'){$stock_in=($opst/$bgvlu);}
 <td align="left" width="33%"><b>Company :</b><br>
 <select id="cat" name="cat" class="form-control" onchange="get_cat()">
 <option value="">---Select---</option>
-<?
+<?php 
 
 $data1 = mysqli_query($conn,"Select * from main_catg order by cnm");
 
@@ -298,8 +298,8 @@ $data1 = mysqli_query($conn,"Select * from main_catg order by cnm");
 	$sl=$row1['sl'];
 	$cnm=$row1['cnm'];
 ?>
-<option value="<?=$sl;?>" <?if($cat==$sl){echo "selected";}?>><?=$cnm;?></option>
-	<?}?>
+<option value="<?php  echo $sl;?>" <?php if($cat==$sl){echo "selected";}?>><?php  echo $cnm;?></option>
+	<?php }?>
 </select>
 </td>
 
@@ -311,7 +311,7 @@ $data1 = mysqli_query($conn,"Select * from main_catg order by cnm");
 <div id="scat_div">
 <select id="scat" name="scat" class="form-control"  onchange="get_prod()">
 <option value="">---Select---</option>
-<?
+<?php 
 $data1 = mysqli_query($conn,"Select * from main_scat order by nm");
 
 		while ($row1 = mysqli_fetch_array($data1))
@@ -319,8 +319,8 @@ $data1 = mysqli_query($conn,"Select * from main_scat order by nm");
 	$sl=$row1['sl'];
 	$nm=$row1['nm'];
 ?>
-<Option value="<?=$sl;?>"<?if($scat==$sl){echo "selected";}?>><?=$nm;?></option>
-	<?}?>
+<Option value="<?php  echo $sl;?>"<?php if($scat==$sl){echo "selected";}?>><?php  echo $nm;?></option>
+	<?php }?>
 </select>
 </div>
 </td>
@@ -328,15 +328,15 @@ $data1 = mysqli_query($conn,"Select * from main_scat order by nm");
 <div id="prod_div">
 <select id="prnm" name="prnm" class="form-control" onchange="gtt_unt()">
 <option value="">---Select---</option>
-<?
+<?php 
 $data1 = mysqli_query($conn,"Select * from main_product order by pnm");
 while ($row1 = mysqli_fetch_array($data1))
 	{
 	$sl=$row1['sl'];
 	$pnm=$row1['pnm'];
 ?>
-<Option value="<?=$sl;?>" <?if($pcd==$sl){echo "selected";}?>><?=$pnm;?></option>
-<?}?>
+<Option value="<?php  echo $sl;?>" <?php if($pcd==$sl){echo "selected";}?>><?php  echo $pnm;?></option>
+<?php }?>
 </select>
 </div>
 </td>
@@ -344,7 +344,7 @@ while ($row1 = mysqli_fetch_array($data1))
 
 <td align="left" width="33%"><b>Unit :</b><br>
 <div id="g_unt">
-<?
+<?php 
 $geti8=mysqli_query($conn,"select * from main_unit where sl='$pcd'") or die(mysqli_error($conn));
 while($rowi8=mysqli_fetch_array($geti8))
 {
@@ -360,23 +360,23 @@ while($rowi8=mysqli_fetch_array($geti8))
 ?>
 <select id="unit" name="unit"  class="form-control" >
 <option value="">---Select---</option>
-<?if($sun!=''){?><option value="sun"<?if($unt=='sun'){echo 'selected';}?>><?=$sun;?></option><?}?>
-<?if($mun!=''){?><option value="mun"<?if($unt=='mun'){echo 'selected';}?>><?=$mun;?></option><?}?>
-<?if($bun!=''){?><option value="bun"<?if($unt=='bun'){echo 'selected';}?>><?=$bun;?></option><?}?>
+<?php if($sun!=''){?><option value="sun"<?php if($unt=='sun'){echo 'selected';}?>><?php  echo $sun;?></option><?php }?>
+<?php if($mun!=''){?><option value="mun"<?php if($unt=='mun'){echo 'selected';}?>><?php  echo $mun;?></option><?php }?>
+<?php if($bun!=''){?><option value="bun"<?php if($unt=='bun'){echo 'selected';}?>><?php  echo $bun;?></option><?php }?>
 </select>
-<input type="hidden" value="<?=$usl?>" name="usl" id="usl">
+<input type="hidden" value="<?php  echo $usl?>" name="usl" id="usl">
 
 </div>
 </td>
 
 
 <td align="left" width="33%"><b>Quantity :</b><br>
-<input type="text" name="qnty" id="qnty" class="form-control" value="<?=$stock_in;?>" size="20"  onkeypress="return check()" placeholder="Enter Quantity">
+<input type="text" name="qnty" id="qnty" class="form-control" value="<?php  echo $stock_in;?>" size="20"  onkeypress="return check()" placeholder="Enter Quantity">
 </td>
 
 
 <td align="left" width="33%"><b>Rate :</b><br>
-<input type="text" name="pret" id="pret" class="form-control" value="<?=$pret;?>" size="20" placeholder="Enter Rate">
+<input type="text" name="pret" id="pret" class="form-control" value="<?php  echo $pret;?>" size="20" placeholder="Enter Rate">
 </td>
 </tr>
 

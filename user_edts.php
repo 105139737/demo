@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include("Numbers/Words.php");
@@ -47,7 +47,7 @@ $err="Update Sucessfully. Thank You...";
 
 ?>
 <script language="javascript">
-alert('<?=$err;?>');
+alert('<?php  echo $err;?>');
 document.location='user_show.php';
 </script>
 

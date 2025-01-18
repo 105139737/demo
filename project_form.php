@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include "header.php";
@@ -8,7 +8,7 @@ include "header.php";
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
  <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <head>
@@ -155,7 +155,7 @@ $(document).ready(function()
 
 </div>
 
-<?
+<?php 
 $data= mysqli_query($conn,"SELECT * FROM main_project order by sl desc");
 
 ?>
@@ -177,7 +177,7 @@ $data= mysqli_query($conn,"SELECT * FROM main_project order by sl desc");
 		  </tr>
           </thead>
           <tbody>
-		<?
+		<?php 
 		$f=0;
 		while ($row = mysqli_fetch_array($data))
 		{
@@ -194,12 +194,12 @@ $data= mysqli_query($conn,"SELECT * FROM main_project order by sl desc");
 		}
 		$dt=date('d-M-Y', strtotime($dt));
 		?>
-  <tr class="<?echo $cls;?>" style="height: 20px;">
-  <td align="left" valign="top"><?echo $f;?></td>
-    <td align="left" valign="top"><?echo $pnm;?></td>
-	<td align="center" valign="top"><a href="project_form_edit.php?sl=<?=$sl;?>" title="Edit"><img src="images/edit.png" width="20"/></a></td>
+  <tr class="<?php echo $cls;?>" style="height: 20px;">
+  <td align="left" valign="top"><?php echo $f;?></td>
+    <td align="left" valign="top"><?php echo $pnm;?></td>
+	<td align="center" valign="top"><a href="project_form_edit.php?sl=<?php  echo $sl;?>" title="Edit"><img src="images/edit.png" width="20"/></a></td>
 	 </tr>
-  <?
+  <?php 
   }
   ?>
   </tbody>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3; 
 
 include("membersonly.inc.php");
@@ -6,26 +6,26 @@ include("function.php");
 $fdt=$_REQUEST['fdt'];
 $tdt=$_REQUEST['tdt'];
 $snm=rawurldecode($_REQUEST['snm']);
-$pr_nm=$_REQUEST['prnm'];
-$tp1=$_REQUEST['tp1'];
-$gst_no=$_REQUEST['gstin'];
-$godown=$_REQUEST['godown'];
-$brncd=$_REQUEST['brncd'];
-$stat=$_REQUEST['stat'];
-$cat=$_REQUEST['cat'];
-$scat=$_REQUEST['scat'];
-$sale_per=$_REQUEST['sale_per'];
-$delv=$_REQUEST['delv'];
-$einv_stat=$_REQUEST['einv_stat'];
-$custType=$_REQUEST['custType'];
-$blno=$_REQUEST['blno'];
+$pr_nm=$_REQUEST['prnm'] ?? "";
+$tp1=$_REQUEST['tp1'] ?? "";
+$gst_no=$_REQUEST['gstin'] ?? "";
+$godown=$_REQUEST['godown'] ?? "";
+$brncd=$_REQUEST['brncd'] ?? "";
+$stat=$_REQUEST['stat'] ?? "";
+$cat=$_REQUEST['cat'] ?? "";
+$scat=$_REQUEST['scat'] ?? "";
+$sale_per=$_REQUEST['sale_per'] ?? "";
+$delv=$_REQUEST['delv'] ?? "";
+$einv_stat=$_REQUEST['einv_stat'] ?? "";
+$custType=$_REQUEST['custType'] ?? "";
+$blno=$_REQUEST['blno'] ?? "";
 $jobLink=CreateNewJob('jobs/sale_xls.php',$user_currently_loged,'Day Wise Sale Details',$conn);
 ?>
 <script language="javascript">
 alert('Your request has been accepted. You will get you dwonload link in your home page in a few moments. Thank you...');
 window.history.go(-1);
 </script>
-<?php
+<?php 
 die('<b><center><font color="green" size="5">Your request has been accepted. You will get you dwonload link in your home page in a few moments. Thank you...</font></center></b>');
 if($blno!=""){$blno_scarch=" and blno like '%$blno%'";}else{$blno_scarch="";}
 
@@ -115,7 +115,7 @@ $dis1=0;
 			<td  align="center" ><b>Dis Am.</b></td>
 			<td  align="center" ><b>Net Payable</b></td>
 			</tr>
-			 <?
+			 <?php 
 		$sln=0;
 		$tota=0;
 $tq=0;
@@ -214,6 +214,24 @@ if($bcd=='7')//KARIMPUR
 {
 //$nm='HINDUSTAN DISTRIBUTORS-MBO';
 $gtm='DUR2987';   
+}
+if($bcd=='8')//BARASAT
+{
+
+$gtm='DUR3647';   
+$stcode="HIND";
+}
+if($bcd=='9')//BERHAMPORE
+{
+
+$gtm='DUR3663';   
+$stcode="HIND";
+}
+if($bcd=='10')//KANCHRAPARA
+{
+
+$gtm='DUR3688';   
+$stcode="HIND";
 }
 $tslrt=0;
 $igst=0;
@@ -320,60 +338,60 @@ $net_am=$net_am-$vall;
 	}
 	$sln++;
 		 ?>
-		<tr title="<?=$pcd." S Sl".$sl;?>">
-		<?if($asd==1){?>
-		<td  align="center"  ><?=$sln;?>
+		<tr title="<?php  echo $pcd." S Sl".$sl;?>">
+		<?php if($asd==1){?>
+		<td  align="center"  ><?php  echo $sln;?>
 		</td>
-		<td  align="center" ><?=$dt;?></td>
-		<td  align="center" ><?=$brncd_nm;?></td>
-		<td  align="center" ><?=$sale_per;?></td>
-		<td  align="center"  class="phone"><?=$blno;?></td>
-		<td  align="left" ><?echo $nm;if($invnm!=''){?> <b><?=$invnm;?></b><?php }?></td>
-		<td  align="left" ><?=$mob1;?></td>
-		<td  align="center" ><?php echo $cust_typp;?></td>
-		<td  align="center" ><?=$gstin;?></td>
-		<td  align="center" ><?=$gtm;?></td>
-		<?}
+		<td  align="center" ><?php  echo $dt;?></td>
+		<td  align="center" ><?php  echo $brncd_nm;?></td>
+		<td  align="center" ><?php  echo $sale_per;?></td>
+		<td  align="center"  class="phone"><?php  echo $blno;?></td>
+		<td  align="left" ><?php echo $nm;if($invnm!=''){?> <b><?php  echo $invnm;?></b><?php  }?></td>
+		<td  align="left" ><?php  echo $mob1;?></td>
+		<td  align="center" ><?php  echo $cust_typp;?></td>
+		<td  align="center" ><?php  echo $gstin;?></td>
+		<td  align="center" ><?php  echo $gtm;?></td>
+		<?php }
 		else
 		{
 		?>
-		<td  align="center"  ><?=$sln;?></td>		
-		<td  align="center" ><?=$dt;?></td>
-		<td  align="center" ><?=$brncd_nm;?></td>
-		<td  align="center" ><?=$sale_per;?></td>
-		<td  align="center" ><?=$blno;?></td>
-		<td  align="left" ><?=$nm;if($invnm!=''){?> <b><?=$invnm;?></b><?php }?></b></td>
-		<td  align="left" ><?=$mob1;?></td>
-		<td  align="center" ><?php echo $cust_typp;?></td>
-		<td  align="center" ><?=$gstin;?></td>
-		<td  align="center" ><?=$gtm;?></td>
-<?
+		<td  align="center"  ><?php  echo $sln;?></td>		
+		<td  align="center" ><?php  echo $dt;?></td>
+		<td  align="center" ><?php  echo $brncd_nm;?></td>
+		<td  align="center" ><?php  echo $sale_per;?></td>
+		<td  align="center" ><?php  echo $blno;?></td>
+		<td  align="left" ><?php  echo $nm;if($invnm!=''){?> <b><?php  echo $invnm;?></b><?php  }?></b></td>
+		<td  align="left" ><?php  echo $mob1;?></td>
+		<td  align="center" ><?php  echo $cust_typp;?></td>
+		<td  align="center" ><?php  echo $gstin;?></td>
+		<td  align="center" ><?php  echo $gtm;?></td>
+<?php 
 }
 ?>
-			<td  align="left" title="<?=$pcd;?>" ><?=$ean;?></td>
-			<td  align="left" title="<?=$pcd;?>" ><?=$cnm;?></td>
-			<td  align="left" title="<?=$pcd;?>" ><?=$scat_nm;?></td>
-			<td  align="left" title="<?=$pcd;?>" ><a <? /*onclick="document.location='swip_bno.php?b1=<?=$blno;?>&b2=<?=$blno;?>'"*/ ?>><?=$pnm;?></a></td>
-			<td  align="center" ><?=$hsn;?></td>
-			<td  align="center" class="phone"><?=$betno;?></td>
-			<td  align="center" ><?=$pcs;?> <?=$unit_nm?></td>
-			<td  align="right" ><?=number_format($rate,2);?></td>
-			<td  align="right" ><?=number_format($total,2);?></td>
-			<td  align="center" ><?=$disp;?></td>
-			<td  align="right" ><?=number_format($disa,2);?></td>
-			<td  align="right" ><?=number_format($ttl,2);?></td>
-			<td  align="center" ><?=$cgst_rt;?></td>
-			<td  align="center" ><?=number_format($cgst_am,2);?></td>
-			<td  align="center" ><?=$sgst_rt;?></td>
-			<td  align="center" ><?=number_format($sgst_am,2);?></td>
-			<td  align="center" ><?=$igst_rt;?></td>
-			<td  align="center" ><?=number_format($igst_am,2);?></td>
-			<td  align="center" ><?=number_format($afgst,2);?></td>
-			<td  align="right" ><?=number_format($vall,2);?></td>
-			<td  align="right" ><?=number_format($net_am,2);?></td>
+			<td  align="left" title="<?php  echo $pcd;?>" ><?php  echo $ean;?></td>
+			<td  align="left" title="<?php  echo $pcd;?>" ><?php  echo $cnm;?></td>
+			<td  align="left" title="<?php  echo $pcd;?>" ><?php  echo $scat_nm;?></td>
+			<td  align="left" title="<?php  echo $pcd;?>" ><a <?php  /*onclick="document.location='swip_bno.php?b1=<?php  echo $blno;?>&b2=<?php  echo $blno;?>'"*/ ?>><?php  echo $pnm;?></a></td>
+			<td  align="center" ><?php  echo $hsn;?></td>
+			<td  align="center" class="phone"><?php  echo $betno;?></td>
+			<td  align="center" ><?php  echo $pcs;?> <?php  echo $unit_nm?></td>
+			<td  align="right" ><?php echo number_format($rate,2);?></td>
+			<td  align="right" ><?php echo number_format($total,2);?></td>
+			<td  align="center" ><?php  echo $disp;?></td>
+			<td  align="right" ><?php echo number_format($disa,2);?></td>
+			<td  align="right" ><?php echo number_format($ttl,2);?></td>
+			<td  align="center" ><?php  echo $cgst_rt;?></td>
+			<td  align="center" ><?php echo number_format($cgst_am,2);?></td>
+			<td  align="center" ><?php  echo $sgst_rt;?></td>
+			<td  align="center" ><?php echo number_format($sgst_am,2);?></td>
+			<td  align="center" ><?php  echo $igst_rt;?></td>
+			<td  align="center" ><?php echo number_format($igst_am,2);?></td>
+			<td  align="center" ><?php echo number_format($afgst,2);?></td>
+			<td  align="right" ><?php echo number_format($vall,2);?></td>
+			<td  align="right" ><?php echo number_format($net_am,2);?></td>
 			</tr>	 
 
-	<?
+	<?php 
 
 
 $tamm=$ttl+$tamm;
@@ -391,18 +409,18 @@ $vall1+=$vall;
 
 	<td align="center"><b></td>
 	<td></td>
-	<td  align="right" ><b><?=number_format($total_am,2);?></b></td>
+	<td  align="right" ><b><?php echo number_format($total_am,2);?></b></td>
 	<td  align="right" ><b></b></td>
-	<td  align="right" ><b><?=number_format($disa_am,2);?></b></td>
-	<td  align="right" ><b><?=number_format($tamm,2);?></b></td>
-	<td align="right" colspan="2"><b><?=number_format($cgst,2);?></b></td>
-	<td align="right" colspan="2"><b><?=number_format($sgst,2);?></b></td>
-	<td align="right" colspan="2"><b><?=number_format($igst,2);?></b></td>
+	<td  align="right" ><b><?php echo number_format($disa_am,2);?></b></td>
+	<td  align="right" ><b><?php echo number_format($tamm,2);?></b></td>
+	<td align="right" colspan="2"><b><?php echo number_format($cgst,2);?></b></td>
+	<td align="right" colspan="2"><b><?php echo number_format($sgst,2);?></b></td>
+	<td align="right" colspan="2"><b><?php echo number_format($igst,2);?></b></td>
 	<td  align="right" ><b></b></td>
-	<td  align="right" ><b><?=number_format($wgamm,2);?></b></td>
+	<td  align="right" ><b><?php echo number_format($wgamm,2);?></b></td>
 	
 	</tr>
-	<?
+	<?php 
 
 
 		}
@@ -425,12 +443,12 @@ $vall1+=$vall;
 	<td></td>
 	<td></td>
 	<td></td>
-	<td align="right"><b><?=sprintf('%0.2f',$tamm1);?></b></td>
-	<td align="right" colspan="2"><b><?=number_format($cgst1,2);?></b></td>
-	<td align="right" colspan="2"><b><?=number_format($sgst1,2);?></b></td>
-	<td align="right" colspan="2"><b><?=number_format($igst1,2);?></b></td>
+	<td align="right"><b><?php echo sprintf('%0.2f',$tamm1);?></b></td>
+	<td align="right" colspan="2"><b><?php echo number_format($cgst1,2);?></b></td>
+	<td align="right" colspan="2"><b><?php echo number_format($sgst1,2);?></b></td>
+	<td align="right" colspan="2"><b><?php echo number_format($igst1,2);?></b></td>
 	<td  align="right" ><b></b></td>
-	<td  align="right" ><b><?=number_format($vall1,2);?></b></td>
-	<td align="right"><b><?=number_format($wgamm1,2);?></b></td>
+	<td  align="right" ><b><?php echo number_format($vall1,2);?></b></td>
+	<td align="right"><b><?php echo number_format($wgamm1,2);?></b></td>
 </tr>
 </table>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 include("function.php");
@@ -7,7 +7,7 @@ $all=$_REQUEST['all'];
 $tp1=$_REQUEST['tp1'];
 $brand1=$_REQUEST['brand1'];
 $brncd1=$_REQUEST['brncd1'];
-$rv1=$_REQUEST['rv'];
+$rv1=$_REQUEST['rv'] ?? "";
 $af="%".$all."%";
 if($all!=""){$all1=" and (als like '$af' or tp like '$af' or adrs like '$af' or ssn like '$af')";}else{$all1="";}
 $tp2="";
@@ -37,16 +37,17 @@ if($total!=0)
 <th style="text-align:center;" >Alise</th>
 <th style="text-align:center;" >Session</th>
 <th style="text-align:center;" >Type</th>
-<?
+<?php 
 if($rv1==1){
 ?>
 <th style="text-align:center;" width="10%">Receive Voucher</th>
-<?}?>
+<?php }?>
 <th style="text-align:center;" >Brand </th>
 
 
 </tr>
-<?
+<?php 
+$cnt=0;
 while($row=mysqli_fetch_array($get))
 {
 	$cnt++;
@@ -85,21 +86,21 @@ for($i=0;$i<count($rr);$i++)
 }		
 ?>
 <tr >
-<td style="text-align:left;cursor:pointer;" onclick="submit('<?=$ssl;?>')"><?=$cnt;?></td>
-<td style="text-align:left;cursor:pointer;" onclick="submit('<?=$ssl;?>')" ><b><?=$als;?></b></td>
-<td style="text-align:left;cursor:pointer;" onclick="submit('<?=$ssl;?>')"><?=$ssn;?></td>
-<td style="text-align:left;cursor:pointer;" onclick="submit('<?=$ssl;?>')"><?=$tps;?></td>
-<?
+<td style="text-align:left;cursor:pointer;" onclick="submit('<?php  echo $ssl;?>')"><?php  echo $cnt;?></td>
+<td style="text-align:left;cursor:pointer;" onclick="submit('<?php  echo $ssl;?>')" ><b><?php  echo $als;?></b></td>
+<td style="text-align:left;cursor:pointer;" onclick="submit('<?php  echo $ssl;?>')"><?php  echo $ssn;?></td>
+<td style="text-align:left;cursor:pointer;" onclick="submit('<?php  echo $ssl;?>')"><?php  echo $tps;?></td>
+<?php 
 if($rv1==1){
 ?>
 <td style="text-align:left;">
-<?
+<?php 
 if($tp=='1')
 {
 ?>
-<select id="tb" name="tb" class="form-control tb"  onchange="sedtt('<?echo $ssl;?>','rv',this.value,'main_billtype')">
+<select id="tb" name="tb" class="form-control tb"  onchange="sedtt('<?php echo $ssl;?>','rv',this.value,'main_billtype')">
 <option value="" >---- Select ----</option>
-<?
+<?php 
 $qr=mysqli_query($conn,"select * from main_billtype where inv_typ='77' and stat='0'") or die(mysqli_error($conn));
 while($R=mysqli_fetch_array($qr))
 {
@@ -122,22 +123,22 @@ while($R=mysqli_fetch_array($qr))
 
 ?>
 
-<option value="<?php echo $ssl1;?>" <?php echo $slct;?>><?php echo $als1.' - '.$ssn1.' - '.$tps1;?></option>
-<?	
+<option value="<?php  echo $ssl1;?>" <?php  echo $slct;?>><?php  echo $als1.' - '.$ssn1.' - '.$tps1;?></option>
+<?php 	
 }
 ?>
 </select>
-<?}?>
+<?php }?>
 </td>
-<?}?>
-<td style="text-align:left;"><? echo $val;?></td>
+<?php }?>
+<td style="text-align:left;"><?php  echo $val;?></td>
 
 </tr>
-<?															
+<?php 															
 }
 ?>
 </table>
-<?
+<?php 
 }
 else
 {
@@ -147,7 +148,7 @@ else
 	<td style="text-align:center;"><font size="4" color="red"><b>No Records Available</b></font></td>
 	</tr>
 	</table>
-	<?
+	<?php 
 }
 ?>
 

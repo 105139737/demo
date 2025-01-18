@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 include "header.php";
@@ -8,7 +8,7 @@ include "header.php";
 
         <div class="wrapper row-offcanvas row-offcanvas-left">
 
-            <?
+            <?php 
 
             include "left_bar.php";
 
@@ -107,13 +107,13 @@ document.location='c_update.php?sl='+sl;
 <td width="20%">
 <b>Branch:</b><br>
 <select name="brncd" class="form-control" size="1" id="brncd"   >
-<?
+<?php 
 if($user_current_level<0)
 {
 $query="Select * from main_branch";
 ?>
 <option value="">---Select---</option>
-<?
+<?php 
 }
 else
 {
@@ -126,8 +126,8 @@ $sl=$R['sl'];
 $bnm=$R['bnm'];
 
 ?>
-<option value="<? echo $sl;?>"><? echo $bnm;?></option>
-<?
+<option value="<?php  echo $sl;?>"><?php  echo $bnm;?></option>
+<?php 
 }
 ?>
 </select>
@@ -138,15 +138,15 @@ $bnm=$R['bnm'];
 <b>Brand : </b>
 <select name="brand" id="brand" class="form-control">
 <option value="">---All---</option>
-<?
+<?php 
 $dsql=mysqli_query($conn,"select * from main_catg order by sl") or die (mysqli_error($conn));
 while($erow=mysqli_fetch_array($dsql))
 {
 $bsl=$erow['sl'];
 $cnm=$erow['cnm'];
 ?>
-<option value="<?php echo $bsl;?>"><?php echo $cnm;?></option>
-<?
+<option value="<?php  echo $bsl;?>"><?php  echo $cnm;?></option>
+<?php 
 }
 ?>
 </select>
@@ -154,13 +154,13 @@ $cnm=$erow['cnm'];
 <td width="20%">
 <b>Type : </b>
 <select id="typ" name="typ" class="span2 form-control">
-<?
+<?php 
 $p=mysqli_query($conn,"select * from main_cus_typ order by sl desc") or die (mysqli_error($conn));
 while($rw2=mysqli_fetch_array($p))
 {
 ?>
-<option value="<?=$rw2['sl'];?>" ><?=$rw2['tp'];?></option>
-<?
+<option value="<?php  echo $rw2['sl'];?>" ><?php  echo $rw2['tp'];?></option>
+<?php 
 }
 ?>
 </select>
@@ -169,15 +169,15 @@ while($rw2=mysqli_fetch_array($p))
 <b>Sales Person : </b>
 <select name="sale_per" id="sale_per" class="form-control">
 <option value="">---All---</option>
-<?
+<?php 
 $dsql=mysqli_query($conn,"select * from main_sale_per order by sl") or die (mysqli_error($conn));
 while($erow=mysqli_fetch_array($dsql))
 {
 $bsl=$erow['sl'];
 $spid=$erow['spid'];
 ?>
-<option value="<?php echo $spid;?>"><?php echo $spid;?></option>
-<?
+<option value="<?php  echo $spid;?>"><?php  echo $spid;?></option>
+<?php 
 }
 ?>
 </select>

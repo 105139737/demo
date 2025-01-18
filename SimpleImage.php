@@ -1,4 +1,4 @@
-<?
+<?php 
 class SimpleImage {
  
    var $image;

@@ -1,7 +1,7 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
-$sl=$_REQUEST[sl];
+$sl=$_REQUEST['sl'];
 $fn=$_REQUEST['fn'];
 $fv=rawurldecode($_REQUEST['fv']);
 $div=$_REQUEST['div'];
@@ -15,7 +15,7 @@ if($acnt>1)
 alert('Please Check Vat');
 location.reload();
 </script>
-<?
+<?php 
 	}
 else
 {
@@ -27,7 +27,7 @@ if($fv=="")
 alert('Please Fill Up!!');
 location.reload();
 </script>
-<?
+<?php 
 }
 
 	else
@@ -47,7 +47,7 @@ location.reload();
 		alert('Duplicate Entry!!');
 		location.reload();
 		</script>
-		<?
+		<?php 
 	}
 	}}
 
@@ -70,4 +70,4 @@ $sql =mysqli_query($conn,"UPDATE  $tblnm set $fn='$fv' where sl='$sl'")or die(my
 }*/
 										
 ?>
-<a onclick="sedt('<?echo $sl;?>','<?=$fn;?>','<?echo $fv;?>','<?=$div;?>','<?=$tblnm;?>')"><b><font size="" color="red"><?=$fv;?></font></b></a>
+<a onclick="sedt('<?php echo $sl;?>','<?php  echo $fn;?>','<?php echo $fv;?>','<?php  echo $div;?>','<?php  echo $tblnm;?>')"><b><font size="" color="red"><?php  echo $fv;?></font></b></a>

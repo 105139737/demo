@@ -1,4 +1,4 @@
-<?PHP 
+<?php  
 $reqlevel = 3; 
 include("membersonly.inc.php");
 
@@ -27,6 +27,6 @@ $result6 = mysqli_query($conn,$query6)or die (mysqli_error($conn));
 
 <Script language="JavaScript">
 alert('Submitted Successfully. Thank You...');
-document.location="cust_ship.php?cid="+<?php echo $cid;?>;
+document.location="cust_ship.php?cid="+<?php  echo $cid;?>;
 </script>
 

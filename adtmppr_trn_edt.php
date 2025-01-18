@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 $pid=$_REQUEST['prnm'];
@@ -101,7 +101,7 @@ if($unit=='sun'){$stock_in=$qnty*$smvlu;$uval=$smvlu;}
 if($unit=='mun'){$stock_in=$qnty*$mdvlu;$uval=$mdvlu;}
 if($unit=='bun'){$stock_in=$qnty*$bgvlu;$uval=$bgvlu;}
 
-
+$ret=0;
 $query21 = "INSERT INTO ".$DBprefix."trndtl (fbcd,prsl,prnm,qty,blno,remk,refno,unit,usl,ret,rate,stk_rate,betno,uval) VALUES 
 ('$fbcd','$pid','$prnm','$qnty','$blno','$remk','$refno','$unit','$usl','$ret','$rate','$stk_rate','$betno','$uval')";
 $result21 = mysqli_query($conn,$query21)or die (mysqli_error($conn)); 
@@ -113,7 +113,7 @@ while ($R1 = mysqli_fetch_array ($result1))
 $trn_sl=$R1['sl'];
 }
 
-echo $query21 = "INSERT INTO ".$DBprefix."stock(pcd,bcd,dt,stout,nrtn,eby,dtm,stat,refno,tout,ret,rate,stk_rate,unit,usl,betno,uval,trn_sl) VALUES 
+$query21 = "INSERT INTO ".$DBprefix."stock(pcd,bcd,dt,stout,nrtn,eby,dtm,stat,refno,tout,ret,rate,stk_rate,unit,usl,betno,uval,trn_sl) VALUES 
 ('$pid','$fbcd','$dt','$stock_in','Transfer','$user_currently_loged','$edtm','0','$refno','$blno','$ret','$rate','$stk_rate','$unit','$usl','$betno','$uval','$trn_sl')";
 $result21 = mysqli_query($conn,$query21)or die (mysqli_error($conn)); 
 
@@ -124,16 +124,16 @@ temp();
 reset();
 $('#prnm').trigger('chosen:open');
 </script>
-<?
+<?php 
 }
 else
 {
 ?>
 <script>
-alert('<?=$err;?>');
+alert('<?php  echo $err;?>');
 temp();
 $('#prnm').trigger('chosen:open');
 </script>
-<?
+<?php 
 }
 ?>

@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include "header.php";
@@ -22,7 +22,7 @@ while($rw2=mysqli_fetch_array($result2))
 
 ?>
 <div class="wrapper row-offcanvas row-offcanvas-left">
-<?php
+<?php 
 include "left_bar.php";
 ?>
 <style type="text/css"> 
@@ -130,20 +130,20 @@ return false;
 			<!-- TO DO List -->
 
 <form method="post" action="discount_setup_edits.php" id="form1" onSubmit="return check1()" name="form1">
-<input type="hidden" id="sl" name="sl" value="<?php echo $sl;?>">
+<input type="hidden" id="sl" name="sl" value="<?php  echo $sl;?>">
 <center>
 <div class="box box-success" >
 <table border="0"  width="800px"  align="center" class="table table-hover table-striped table-bordered">
 <tr>
 <td align="left">Customer:
-	<input type="text" name="custid_" id="custid_" value="<?php echo $custid;?>" class="datalist form-control" list="datalist" onkeyup="datalist(this.value,'custid')">
+	<input type="text" name="custid_" id="custid_" value="<?php  echo $custid;?>" class="datalist form-control" list="datalist" onkeyup="datalist(this.value,'custid')">
 	<input type="hidden" name="custid" id="custid">
 </td>
 <td align="left" >Dayes:
-<input type="text" name="days" id=="days" value="<?php echo $days;?>" class="form-control" size="20" onkeypress="return check(event)" placeholder="Enter Dayes">
+<input type="text" name="days" id=="days" value="<?php  echo $days;?>" class="form-control" size="20" onkeypress="return check(event)" placeholder="Enter Dayes">
 </td>
 <td align="left">% Refundable:
-<input type="text" name="prefnd" id="prefnd" value="<?php echo $prefnd;?>" class="form-control" size="20" onkeypress="return check(event)" placeholder="Enter % Refundable">
+<input type="text" name="prefnd" id="prefnd" value="<?php  echo $prefnd;?>" class="form-control" size="20" onkeypress="return check(event)" placeholder="Enter % Refundable">
 </td>
 </tr>
  <tr>
@@ -177,7 +177,7 @@ return false;
 <!-- add new calendar event modal -->
 <script src="jquery-json-to-datalist.js"></script>
 <script>
-datalist('<?php echo $custid;?>','custid')
+datalist('<?php  echo $custid;?>','custid')
 
 function datalist(str,fld)
 {

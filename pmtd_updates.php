@@ -1,4 +1,4 @@
-<?PHP 
+<?php  
 $reqlevel = 3; 
 include("membersonly.inc.php");
 $dt=date('Y-m-d');
@@ -16,7 +16,7 @@ if($cntx>0)
 alert('Data Already Exist');
 window.history.go(-1);
 </script>
-<?	
+<?php 	
 }
 else
 {
@@ -27,6 +27,6 @@ $result6 = mysqli_query($conn,$query6)or die (mysqli_error($conn));
 alert('Update Successfully. Thank You...');
 document.location="pmtd_show.php";
 </script>
-<?
+<?php 
 }
 ?>

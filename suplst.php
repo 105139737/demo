@@ -1,4 +1,4 @@
-<?PHP $reqlevel = 3; include("membersonly.inc.php");
+<?php  $reqlevel = 3; include("membersonly.inc.php");
 $pt=$_REQUEST[pt];
 $fv=$_REQUEST[fv];
 if($pt=="addr"){
@@ -61,29 +61,29 @@ $c2='even';
 if ($user_current_level < 0){$ascd="<a href=\"supenq.php?cid=$d\" target=\"_blank\">".$d."</a>";}else{$ascd=$d;}
 
 ?>
-<tr class="<?=$c2;?>">
-<td style="text-align: center;"><? echo $sl; ?></td>
-<td><? echo $brnm; ?></td>
-<td><? echo $ascd; ?></td>
-<td><? echo $sp; ?></td>
-<td><? echo $a; ?></td>
-<td><? echo $b; ?></td>
-<td><? echo $c; ?></td>
-<td><? echo $ls; ?></td>
-<?
+<tr class="<?php  echo $c2;?>">
+<td style="text-align: center;"><?php  echo $sl; ?></td>
+<td><?php  echo $brnm; ?></td>
+<td><?php  echo $ascd; ?></td>
+<td><?php  echo $sp; ?></td>
+<td><?php  echo $a; ?></td>
+<td><?php  echo $b; ?></td>
+<td><?php  echo $c; ?></td>
+<td><?php  echo $ls; ?></td>
+<?php 
 if($e < 0){?>
-<td style="background: #FFF;text-align: right;"><font color="#039303"><strong><? echo $e; ?></strong></font></td>
-<?
+<td style="background: #FFF;text-align: right;"><font color="#039303"><strong><?php  echo $e; ?></strong></font></td>
+<?php 
 }
 else
 {
 ?>    
-<td style="background: #FFF;text-align: right;"><font color="#FF0000"><strong><? echo $e; ?></strong></font></td>
-<?
+<td style="background: #FFF;text-align: right;"><font color="#FF0000"><strong><?php  echo $e; ?></strong></font></td>
+<?php 
 }
 ?>
 </tr>
-<?
+<?php 
 $sl=$sl+1;
 }
 ?>

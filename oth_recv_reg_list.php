@@ -1,8 +1,8 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include "header.php";
-$brncd=$_REQUEST['brncd'];
+$brncd=$_REQUEST['brncd'] ?? "";
 
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
@@ -10,7 +10,7 @@ $brncd=$_REQUEST['brncd'];
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
  <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <head>
@@ -188,7 +188,7 @@ function sh(val)
 <font size="3"><b>Branch :</b></font><br>
 <select name="bcd" class="form-control" size="1" id="bcd" >
 <option value="">---ALL---</option>
-<?
+<?php 
 if($user_current_level<0)
 {
 $query1="Select * from main_branch";
@@ -203,8 +203,8 @@ while ($R1 = mysqli_fetch_array ($result1))
 $slb1=$R1['sl'];
 $bnm1=$R1['bnm'];
 ?>
-<option value="<? echo $slb1;?>"><? echo $bnm1;?></option>
-<?
+<option value="<?php  echo $slb1;?>"><?php  echo $bnm1;?></option>
+<?php 
 }
 ?>
 </select>
@@ -215,31 +215,31 @@ $bnm1=$R1['bnm'];
 <font size="3"><b>Customer :</b></font><br>
 <select id="custid" name="custid" tabindex="1"  class="form-control" >
 	<option value="">---ALL---</option>
-	<?
+	<?php 
 		$query2="select * from main_cust WHERE sl>0 order by nm";
 		$result2=mysqli_query($conn,$query2);
 		while($rw2=mysqli_fetch_array($result2))
 		{
 			?>
-			<option value="<?=$rw2['sl'];?>"><?=$rw2['nm'];?> --  <?=$rw2['cont'];?></option>
-			<?
+			<option value="<?php  echo $rw2['sl'];?>"><?php  echo $rw2['nm'];?> --  <?php  echo $rw2['cont'];?></option>
+			<?php 
 		}
 	?>
 </select>
 </td>
 <td align="left" width="10%">
 <font size="3"><b>From Date : </b></font>
-<input type="text" id="fdt" name="fdt" value="<?=date('01-M-Y');?>" class="form-control" >
+<input type="text" id="fdt" name="fdt" value="<?php echo date('01-M-Y');?>" class="form-control" >
 </td>
 <td align="left" width="10%">
 <font size="3"><b>To Date : </b></font>
-<input type="text" id="tdt" name="tdt" value="<?=date('d-M-Y');?>" class="form-control" >
+<input type="text" id="tdt" name="tdt" value="<?php echo date('d-M-Y');?>" class="form-control" >
 </td>
 <td align="left" width="20%">
 <font size="3"><b>Sales Person : </b></font>
 	<select id="slp" name="slp" tabindex="1"  class="form-control">
 	<option value="">---ALL---</option>
-	<?
+	<?php 
 		$queryss="select * from main_sale_per  WHERE sl>0 order by spid";
 		$resultss=mysqli_query($conn,$queryss);
 		while($rwss=mysqli_fetch_array($resultss))
@@ -247,8 +247,8 @@ $bnm1=$R1['bnm'];
 			$spid=$rwss['spid'];
 			$spnm=$rwss['nm'];
 		?>
-			<option value="<?=$spid;?>"><?=$spid;?></option>
-			<?
+			<option value="<?php  echo $spid;?>"><?php  echo $spid;?></option>
+			<?php 
 		}
 	?>
 	</select>

@@ -1,12 +1,12 @@
-<?php 
+<?php  
 $reqlevel = 3;
 include("membersonly.inc.php");
 $brncd=$_POST['brncd'];
-$bcd=$_POST['bcd'];
+$bcd=$_POST['bcd'] ?? "";
 $brand=$_POST['brand'];
 
 
-
+$err="";
 if($brncd=='' or $brand=='')
 {
 	$err="Please fill  !";
@@ -29,15 +29,15 @@ mysqli_query($conn,"insert into main_spl(brncd,brand)values('$brncd','$brand')")
 	alert('Submitted Successfully. Thank You ');
 	document.location="spl.php";
 	</script>
-<?php
+<?php 
 }
 else
 {
 	?>
 	<script type="text/javascript" language="javascript">
-	alert('<?php echo $err;?>');
+	alert('<?php  echo $err;?>');
 	window.history.go(-1);
 	</script>
-	<?php 
+	<?php  
 }
 ?>

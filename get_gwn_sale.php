@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 $prnm=$_REQUEST['prnm'];
@@ -10,6 +10,7 @@ while ($row= mysqli_fetch_array($datab))
 {
 $brand=$row['cat'];
 }
+$tsl="";
 $data11= mysqli_query($conn,"SELECT * FROM main_godown_tag where sl>0 and brncd='$brncd' and brand='$brand'") or die(mysqli_error($conn));
 while ($row11= mysqli_fetch_array($data11))
 {	
@@ -21,7 +22,7 @@ $gq="";
 
 ?>
 <select name="bcd" class="form-control" tabindex="10"  size="1" id="bcd" onchange="gtt_unt();get_betno('');">
-<?
+<?php 
 
 $geti=mysqli_query($conn,"select * from main_godown where stat=1 order by gnm") or die(mysqli_error($conn));
 
@@ -52,8 +53,8 @@ if($user_current_level < 0)
     }
 }
 ?>
-<option value="<?php echo $sl;?>"<?php if($sl==$tsl){echo 'selected';}  echo $disabled;?>><? echo $gnm;?>  (Stock : <?=$stck;?> )</option>
-<?
+<option value="<?php  echo $sl;?>"<?php  if($sl==$tsl){echo 'selected';}  echo $disabled;?>><?php  echo $gnm;?>  (Stock : <?php  echo $stck;?> )</option>
+<?php 
 
 
 }

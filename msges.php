@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
    $query = "SELECT * FROM  main_trns where stat='0' and tbcd='$branch_code'";
@@ -29,8 +29,8 @@ $result5 = mysqli_query($conn,$query5);
      <li>
 					<a href="#">
                          <i class="fa fa-envelope-o"></i>  
-						 <font  color="#f54c4d"><?=$bnm;?> (Transfer Quantity  <b><?=$sumqty;?> Pcs</b>)</font>
+						 <font  color="#f54c4d"><?php  echo $bnm;?> (Transfer Quantity  <b><?php  echo $sumqty;?> Pcs</b>)</font>
                         </a>
 						
                       </li>
-<?}?>
+<?php }?>

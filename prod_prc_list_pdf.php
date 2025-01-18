@@ -1,5 +1,5 @@
-<?
-$all=rawurldecode($_REQUEST[all]);
+<?php 
+$all=rawurldecode($_REQUEST['all']??"");
 
 ob_start();
     include('prod_prc_list_pdfs.php');

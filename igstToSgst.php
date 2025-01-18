@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3; 
 include("config.php");
 set_time_limit(0);
@@ -27,7 +27,7 @@ $qr=mysqli_query($conn,"update main_billdtls set tst='1',igst_rt='0',igst_am='0'
 }
 ?>
 <script>
-document.location='billing_edit.php?blno=<?php echo $blon;?>';
+document.location='billing_edit.php?blno=<?php  echo $blon;?>';
 </script>
-<?php
+<?php 
 }

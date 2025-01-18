@@ -1,4 +1,4 @@
-<?php
+<?php 
 
 
 
@@ -18,7 +18,7 @@ include("Numbers/Words.php");
 
 $a=$_REQUEST[tsl];
 
-$sl=$_REQUEST[sl];
+$sl=$_REQUEST['sl'];
 
 
 

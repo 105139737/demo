@@ -1,7 +1,7 @@
-<?php
+<?php 
 $reqlevel=3;
 include("membersonly.inc.php");
-$sl=$_REQUEST[sl];
+$sl=$_REQUEST['sl'];
 $prid=$_REQUEST[prid];
   	  $data1= mysqli_query($conn,"select * from main_product where sl='$prid'");
 while ($row1 = mysqli_fetch_array($data1))
@@ -18,7 +18,7 @@ while ($row2 = mysqli_fetch_array($data2))
 }
 ?>
 <select name="unt" size="1" id="unt" class="sc">
-<?
+<?php 
 $data2= mysqli_query($conn,"select * from main_unit where sl='$pkgunt'");
 while ($row2 = mysqli_fetch_array($data2))
 {
@@ -27,8 +27,8 @@ while ($row2 = mysqli_fetch_array($data2))
   $tunt=$row2['tunt'];
   $sl=$row2['sl'];
 ?>
-<option value="<? echo $sl;?>"><? echo $unitnm;?></option>
-<?
+<option value="<?php  echo $sl;?>"><?php  echo $unitnm;?></option>
+<?php 
 }
 ?>
 </select>

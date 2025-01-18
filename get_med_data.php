@@ -1,6 +1,6 @@
-<?
+<?php 
 include "config.php";
-$mnm=rawurldecode($_REQUEST[mnm]);
+$mnm=rawurldecode($_REQUEST['mnm']??"");
 $response = array();
 $response1 = array();
 

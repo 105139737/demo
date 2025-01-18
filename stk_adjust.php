@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include "header.php";
@@ -9,7 +9,7 @@ $cy=date('Y');
 <html>
 <head>
 <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <style type="text/css"> 
@@ -125,7 +125,7 @@ $("#g_gwn").load("get_gwn_adj.php?prnm="+prnm+"&brncd="+brncd).fadeIn('fast');
 <td width="30%" >
 <select name="cat" class="form-control" size="1" id="cat" tabindex="1" onchange="get_scat();get_prod()">
 <Option value="">---All---</option>
-<?
+<?php 
 $data1 = mysqli_query($conn,"Select * from main_catg order by cnm");
 while ($row1 = mysqli_fetch_array($data1))
 {
@@ -142,7 +142,7 @@ echo "<option value='".$sl."'>".$cnm."</option>";
 <div id="scatdiv">
 <select name="scat" class="form-control" size="1" id="scat" tabindex="1" onchange="get_prod()">
 <Option value="">---All---</option>
-<?
+<?php 
 $data2 = mysqli_query($conn,"Select * from main_scat order by nm");
 while ($row2 = mysqli_fetch_array($data2))
 {
@@ -171,7 +171,7 @@ echo "<option value='".$ssl."'>".$snm."</option>";
 <div id="g_gwn">
 <select name="brncd" class="form-control" size="1" id="brncd" required onchange="getstock()">
 <option value="">---Select---</option>
-<?
+<?php 
 
 $query="Select * from main_godown where sl>0 order by gnm";
 
@@ -181,8 +181,8 @@ while ($R = mysqli_fetch_array ($result))
 $sl=$R['sl'];
 $gnm=$R['gnm'];
 ?>
-<option value="<? echo $sl;?>"><? echo $gnm;?></option>
-<?
+<option value="<?php  echo $sl;?>"><?php  echo $gnm;?></option>
+<?php 
 }
 ?>
 </select>
@@ -242,7 +242,7 @@ $gnm=$R['gnm'];
 <tr>
 <td align="right"><b>Date  :</b></td>
 <td>
-<input type="text" name="dt" id="dt" value="<?=date('d-m-Y');?>" class="form-control" >
+<input type="text" name="dt" id="dt" value="<?php echo date('d-m-Y');?>" class="form-control" >
 </td>
 <td align="right"><b></b></td>
 <td>

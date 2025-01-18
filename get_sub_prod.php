@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 include "function.php";
@@ -6,7 +6,7 @@ $scatt=$_REQUEST[scatt];
 ?>
 <select id="prnm" name="prnm" class="form-control"  tabindex="1" onchange="get_betno('');gtt_unt();get_gstval();godown()">
 <option value="">---Select---</option>
-<?
+<?php 
 $data1 = mysqli_query($conn,"Select * from main_product where typ='0' and scat='$scatt'  order by pnm");
 while ($row1 = mysqli_fetch_array($data1))
 {
@@ -21,8 +21,8 @@ while ($row1 = mysqli_fetch_array($data1))
 	}	
 
 	?>
-	<Option value="<?=$sl;?>"><?=reformat($pnm);?> (Stock : <?=$stck;?> )</option>
-	<?
+	<Option value="<?php  echo $sl;?>"><?php echo reformat($pnm);?> (Stock : <?php  echo $stck;?> )</option>
+	<?php 
 }
 ?>
 </select>

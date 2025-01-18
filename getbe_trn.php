@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 $pcd=$_REQUEST['pcd'];
@@ -17,7 +17,7 @@ while($roww=mysqli_fetch_array($get))
 
 ?>
 <select name="sih" id="sih" class="sc1" style="width:100%" tabindex="1">
-<?
+<?php 
 $data1 = mysqli_query($conn,"SELECT * FROM main_stock WHERE pcd='$pcd' and bcd='$fbcd' group by refno order by dt,sl desc");
 while ($row1 = mysqli_fetch_array($data1))
 {
@@ -62,8 +62,8 @@ if($unit=='bun'){$stock_in=($stck/$bgvlu)." ".$bun;}
 	if($stck>0)	
 	{
 	?>
-	<option value="<?=$refno1?>"><?=$stock_in;?> -- P.Rate <?=$mrp;?> --- <?=$inv?> -- <?=$dt?></option>
-	<?
+	<option value="<?php  echo $refno1?>"><?php  echo $stock_in;?> -- P.Rate <?php  echo $mrp;?> --- <?php  echo $inv?> -- <?php  echo $dt?></option>
+	<?php 
 	}
 }
 	

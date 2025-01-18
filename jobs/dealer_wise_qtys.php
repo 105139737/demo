@@ -78,6 +78,8 @@ $catnm=$row13[$field];
 
 <?php 
 // ---------------------Retail Sale Detils------------------
+
+
 $data12= mysqli_query($conn,"SELECT * FROM main_branch where sl>0  order by bnm ") or die(mysqli_error($conn));
 while ($row12 = mysqli_fetch_array($data12))
 {
@@ -89,13 +91,13 @@ $bcd=$row12['sl'];
 <td><b><?php echo $nm;?></b></td>
 <td><b><?php echo $cont;?></b></td>
 <?php 
+
 $netamm1=0;
 $tamm1=0;
 $pcs1=0;
 $blno1="";
-
 $catsl="";
-$netamm=0;
+
 $data15= mysqli_query($conn,"SELECT * FROM $table_name where sl>0 and FIND_IN_SET(sl, '$scat')>0   order by $field  ") or die(mysqli_error($conn));
 while ($row15 = mysqli_fetch_array($data15))
 {
@@ -138,10 +140,7 @@ $cont=$row12['cont'];
 <td><b><?php echo $nm;?></b></td>
 <td><b><?php echo $cont;?></b></td>
 <?php 
-$netamm1=0;
-$tamm1=0;
-$pcs1=0;
-$blno1="";
+
 $cust=array();
 $data17= mysqli_query($conn,"SELECT * FROM main_cust where sl>0 and cont='$cont' and FIND_IN_SET(brand, '$brand')>0  ") or die(mysqli_error($conn));
 while ($row17 = mysqli_fetch_array($data17))
@@ -149,6 +148,11 @@ while ($row17 = mysqli_fetch_array($data17))
 $cust[]=$row17['sl'];
 }
 $cust=implode(",",$cust);
+
+$netamm1=0;
+$tamm1=0;
+$pcs1=0;
+$blno1="";
 
 $catsl="";
 $netamm=0;

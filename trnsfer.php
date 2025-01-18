@@ -1,16 +1,16 @@
-<?
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 include "header.php";
 include "function.php";
-
+$cid="";
 $cr_tm = date('H:i');
 $ndl_tm = strtotime("+30 minute", strtotime($cr_tm));
 $dl_tm = date('H:i', $ndl_tm);
 ?>
 <html>
 <div class="wrapper row-offcanvas row-offcanvas-left">
-	<?
+	<?php 
 	include "left_bar.php";
 	?>
 
@@ -205,13 +205,13 @@ $dl_tm = date('H:i', $ndl_tm);
 			<section class="content">
 				<form method="post" target="" name="form1" id="form1" action="transfers.php">
 					<div class="box box-success">
-						<font color="#00a65a">Godown :</font>
+						<font color="#00a65a"> Godown :</font>
 						<table border="0" width="860px" class="table table-hover table-striped table-bordered">
 							<tr>
-								<td align="right" style="padding-top:10px" width="5%">
-									<font size="4"><b>To :</b></font>
+								<td align="right" style="padding-top:10px" width="10%">
+									<font size="4"><b>To Godown :</b></font>
 								</td>
-								<td align="left" width="40%">
+								<td align="left" width="35%">
 									<div id="bb">
 										<select name="tbcd" class="form-control" size="1" tabindex="1" id="tbcd">
 											<option value="">---Select---</option>
@@ -223,7 +223,7 @@ $dl_tm = date('H:i', $ndl_tm);
 								</td>
 								<td align="left" hidden width="30%">
 									<div id="fbcd_div">
-										<?
+										<?php $fbcd="";
 										$query100 = "SELECT * FROM " . $DBprefix . "trntemp where eby='$user_currently_loged' order by sl";
 										$result100 = mysqli_query($conn, $query100);
 										while ($R100 = mysqli_fetch_array($result100)) {
@@ -232,7 +232,7 @@ $dl_tm = date('H:i', $ndl_tm);
 										if ($fbcd != "") {
 										?>
 											<select name="fbcd" class="form-control" size="1" id="fbcd" tabindex="1" onchange="cbcd(),product()">
-												<?
+												<?php 
 												$query = "Select * from main_godown where sl='$fbcd' and stat=1";
 												$result = mysqli_query($conn, $query);
 												while ($R = mysqli_fetch_array($result)) {
@@ -242,16 +242,16 @@ $dl_tm = date('H:i', $ndl_tm);
 
 
 												?>
-													<option value="<? echo $sl; ?>"><? echo $gnm; ?></option>
-												<?
+													<option value="<?php  echo $sl; ?>"><?php  echo $gnm; ?></option>
+												<?php 
 												}
 												?>
 											</select>
-										<?
+										<?php 
 										} else {
 										?>
 											<select name="fbcd" class="form-control" size="1" tabindex="1" id="fbcd" onchange="cbcd();product()">
-												<?
+												<?php 
 												$query = "Select * from main_godown where stat=1 ";
 												$result = mysqli_query($conn, $query);
 												while ($R = mysqli_fetch_array($result)) {
@@ -260,12 +260,12 @@ $dl_tm = date('H:i', $ndl_tm);
 													$gnm = $R['gnm'];
 
 												?>
-													<option value="<? echo $sl; ?>"><? echo $gnm; ?></option>
-												<?
+													<option value="<?php  echo $sl; ?>"><?php  echo $gnm; ?></option>
+												<?php 
 												}
 												?>
 											</select>
-										<? } ?>
+										<?php  } ?>
 									</div>
 								</td>
 								<td align="right" style="padding-top:10px" width="10%">
@@ -285,7 +285,7 @@ $dl_tm = date('H:i', $ndl_tm);
 
 									<select name="cat1" class="form-control" size="1" id="cat1" tabindex="1" onchange="get_scat();get_prod()">
 										<Option value="">---Brand---</option>
-										<?
+										<?php 
 										$data1 = mysqli_query($conn, "Select * from main_catg where stat='0' order by cnm");
 										while ($row1 = mysqli_fetch_array($data1)) {
 											$sl = $row1['sl'];
@@ -299,7 +299,7 @@ $dl_tm = date('H:i', $ndl_tm);
 									<div id="scatdiv">
 										<select name="scat1" class="form-control" size="1" id="scat1" tabindex="1" onchange="get_prod()">
 											<Option value="">---Category---</option>
-											<?
+											<?php 
 											$data2 = mysqli_query($conn, "Select * from main_scat where stat='0' order by nm");
 											while ($row2 = mysqli_fetch_array($data2)) {
 												$ssl = $row2['sl'];
@@ -319,7 +319,7 @@ $dl_tm = date('H:i', $ndl_tm);
 									<table border="0" width="100%" class="advancedtable">
 										<tr class="odd">
 											<td align="left" width="25%">Model: &nbsp; <input type="box" id="prnm3" onkeyup="get_prod_by_name()" name="prnm3" placeholder="Min 3 Digit Model Name "></b></td>
-											<td align="left" width="18%"><b>Godown</b></td>
+											<td align="left" width="18%"><b>From Godown</b></td>
 											<td align="left" width="8%"><b>Unit</b></td>
 											<td hidden align="center" width="15%"><b>Stock In Hand</b></td>
 											<td align="center" width="23%"><b>Serial No.</b></td>
@@ -346,15 +346,15 @@ $dl_tm = date('H:i', $ndl_tm);
 											<td align="left" width="18%">
 												<div id="g_gwn">
 													<select name="bcd" class="form-control" tabindex="10" size="1" id="bcd" onchange="gtt_unt();getb();get_betno();">
-														<?
+														<?php 
 														$query = "Select * from main_godown where stat=1";
 														$result = mysqli_query($conn, $query);
 														while ($R = mysqli_fetch_array($result)) {
 															$sl = $R['sl'];
 															$gnm = $R['gnm'];
 														?>
-															<option value="<? echo $sl; ?>"><? echo $gnm; ?></option>
-														<?
+															<option value="<?php  echo $sl; ?>"><?php  echo $gnm; ?></option>
+														<?php 
 														}
 														?>
 													</select>
@@ -408,7 +408,7 @@ $dl_tm = date('H:i', $ndl_tm);
 							</tr>
 						</table>
 
-						<input type="hidden" id="prid" name="prid" value="<? echo $cid; ?>">
+						<input type="hidden" id="prid" name="prid" value="<?php  echo $cid; ?>">
 						<input type="hidden" id="stk">
 						<input type="hidden" id="fls">
 				</form>

@@ -1,4 +1,4 @@
-<?PHP
+<?php 
 
 $reqlevel = 1;
 include("membersonly.inc.php");
@@ -33,7 +33,7 @@ a{
 </head>
 
 <body><p>&nbsp;</p>
-<?
+<?php 
 	$query5 = "SELECT * from ".$DBprefix."associate where uname='$idas'";
 	$result5 = mysqli_query($conn,$query5);
  	while($row5 = mysqli_fetch_array($result5)){
@@ -43,7 +43,7 @@ a{
 ?>
 
 <p align="center"><font size="5" color="#FF0000">
-Welcome <?PHP 
+Welcome <?php  
 
 echo $a."(".$idas.")"; ?></font>
 
@@ -54,7 +54,7 @@ echo $a."(".$idas.")"; ?></font>
 
 
 
-<?
+<?php 
 $tot=cdll($DBprefix,$idas,$tu);
 
         $tcn=explode("|", $tot);
@@ -74,9 +74,9 @@ $tot=cdll($DBprefix,$idas,$tu);
 	</div>
 
 <ul id="red" class="treeview-red">
-<li><span><font color="#000"><? echo strtoupper($idas);?></font></span>
+<li><span><font color="#000"><?php  echo strtoupper($idas);?></font></span>
 
-<? echo $tot;?> 
+<?php  echo $tot;?> 
  
  
  
@@ -88,7 +88,7 @@ $tot=cdll($DBprefix,$idas,$tu);
 
 
 
-<a href="asslp.php?ids=<?=$idas;?>" target="_blank">Print</a>
+<a href="asslp.php?ids=<?php  echo $idas;?>" target="_blank">Print</a>
 
 </body>
 </html>

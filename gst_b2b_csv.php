@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 0;
 include("membersonly.inc.php");
 $fdt=$_REQUEST['fdt'];
@@ -36,7 +36,7 @@ header('Content-type: application/csv');
 header('Content-Disposition: attachment; filename='.$filename);
 $header = str_replace('"', '', $header);
 
-fputs($fp, implode($header, ',')."\n");
+fputs($fp, implode(',',$header)."\n");
 $num_column = count($header);
 
 

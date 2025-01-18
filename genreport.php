@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("config.php");
 include("Numbers/Words.php");
@@ -11,7 +11,7 @@ $dt=date('d-m-Y');
 
 date_default_timezone_set('Asia/Kolkata');
 $cdt = date('Y-m-d');
-$blno=rawurldecode($_REQUEST[blno]);
+$blno=rawurldecode($_REQUEST['blno'] ?? "");
 $typ="BUYER'S COPY";
 $filenm=str_replace('/','',$blno);
     $file_name=$filenm.".pdf";

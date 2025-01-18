@@ -1,11 +1,11 @@
-<?
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 include "header.php";
 $fdt=date('Y-m-d');
 ?>
         <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <style type="text/css"> 
@@ -112,15 +112,15 @@ return false;
 			<td  align="left" width="30%">
 			<select name="brand" id="brand" class="form-control">
 			<option value="">--Select--</option>
-			<?
+			<?php 
 			$dsql=mysqli_query($conn,"select * from main_catg order by sl") or die (mysqli_error($conn));
 			while($erow=mysqli_fetch_array($dsql))
 			{
 				$bsl=$erow['sl'];
 				$cnm=$erow['cnm'];
 			?>
-			<option value="<?php echo $bsl;?>"><?php echo $cnm;?></option>
-			<?
+			<option value="<?php  echo $bsl;?>"><?php  echo $cnm;?></option>
+			<?php 
 			}
 			?>
 			</select>

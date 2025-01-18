@@ -1,4 +1,4 @@
-<?php
+<?php 
 
 /**
  * @author Onnet Solution
@@ -172,16 +172,16 @@ $result2 = mysqli_query($conn,$query2)or die (mysqli_error($conn));
 alert('Submit Successfully. Thank You...');
 document.location="purchase.php";
 </script>
-<?
+<?php 
 }
 
 else
 {
     ?>
 <Script language="JavaScript">
-alert('<? echo $err;?>');
+alert('<?php  echo $err;?>');
 window.history.go(-1);
 </script>
-<?
+<?php 
 }
 ?>

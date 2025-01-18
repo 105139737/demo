@@ -1,4 +1,4 @@
-<?php
+<?php 
 
 /**
  * @author Onnet Solution
@@ -109,7 +109,7 @@ if($err=="")
 temp();
   $('#prnm').trigger('chosen:open');
 </script>
-<?
+<?php 
 }
 else
 {

@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
  
@@ -9,11 +9,11 @@ $dt = date('d-M-Y');
 $cy=date('Y');
 $pnm=$_REQUEST[pnm];
 $dt=$_REQUEST[dt];
-$cat=$_REQUEST[cat];
+$cat=$_REQUEST['cat'] ?? "";
 $bnm=$_REQUEST[bnm];
 $sect=$_REQUEST[sect];
 
-$brncd=$_REQUEST[brncd];if($brncd==""){$brncd1="";}else{$brncd1=" and bcd='$brncd'";}
+$brncd=$_REQUEST['brncd'] ?? "";if($brncd==""){$brncd1="";}else{$brncd1=" and bcd='$brncd'";}
 $tdt=date('Y-m-d',strtotime($dt));
 $fdt=date('Y-m-d',strtotime($dt));
 
@@ -77,7 +77,7 @@ header("Content-Disposition: attachment; filename=$file");
 			</td>
 		
 		     </tr>
-<?
+<?php 
 
 $sl=$start;
 $c1='odd';
@@ -200,47 +200,47 @@ if($stout1==""){$stout1=0;}
 		   <tr  >
 		   
 		    <td  align="center" >
-			<?=$sln;?>
+			<?php  echo $sln;?>
 			</td>
-			 <td  align="left" title="<?=$pcd?>">
-		<?=$cnm;?> - <?=$brand;?> - <?=$variant;?>
+			 <td  align="left" title="<?php  echo $pcd?>">
+		<?php  echo $cnm;?> - <?php  echo $brand;?> - <?php  echo $variant;?>
 			</td>
 			 <td  align="center" >
-			<?echo $open1;?>
+			<?php echo $open1;?>
 			</td>
 			 <td  align="right" >
-			<?echo sprintf('%0.2f',$opval);?>
+			<?php echo sprintf('%0.2f',$opval);?>
 			</td>
             <td  align="center" >
-			<?=$stin1;?>
+			<?php  echo $stin1;?>
 			</td>
 			 <td  align="right" >
-			<?echo sprintf('%0.2f',$inval);?>
+			<?php echo sprintf('%0.2f',$inval);?>
 			</td>
 			 <td  align="center" >
-			<?=$str;?>
+			<?php  echo $str;?>
 			</td>
 			 <td  align="right" >
-			<?echo sprintf('%0.2f',$rval);?>
+			<?php echo sprintf('%0.2f',$rval);?>
 			</td>
 			 <td  align="center" >
-			<?=$stout1;?>
+			<?php  echo $stout1;?>
 			</td>
 			 <td  align="right" >
-			<?echo sprintf('%0.2f',$outval);?>
+			<?php echo sprintf('%0.2f',$outval);?>
 			</td>
 			<td  align="right" >
-			<?echo sprintf('%0.2f',$tots);?>
+			<?php echo sprintf('%0.2f',$tots);?>
 			</td>
 			
 			<td  align="center" >
-			<?=$stkf;?>
+			<?php  echo $stkf;?>
 			</td>
 			 <td  align="right" >
-			<?echo sprintf('%0.2f',$clval);?>
+			<?php echo sprintf('%0.2f',$clval);?>
 			</td>
 		     </tr>	 
-<?
+<?php 
 $stkf=0;
 $stout1=0;
 $stin1=0;
@@ -260,35 +260,35 @@ $Toutr1=$rval+$Toutr1;
 			
 			</td>
 			 <td  align="right" >
-			<b><font size="4"><?echo sprintf('%0.2f',$Top);?></font></b>
+			<b><font size="4"><?php echo sprintf('%0.2f',$Top);?></font></b>
 			</td>
             <td  align="center" >
 		
 			</td>
 			 <td  align="right" >
-			<b><font size="4"><?echo sprintf('%0.2f',$Tin);?></font></b>
+			<b><font size="4"><?php echo sprintf('%0.2f',$Tin);?></font></b>
 			</td>
 			<td  align="center" >
 		
 			</td>
 			 <td  align="right" >
-			<b><font size="4"><?echo sprintf('%0.2f',$Toutr1);?></font></b>
+			<b><font size="4"><?php echo sprintf('%0.2f',$Toutr1);?></font></b>
 			</td>
 			 <td  align="center" >
 		
 			</td>
 			 <td  align="right" >
-			<b><font size="4"><?echo sprintf('%0.2f',$Tout);?></font></b>
+			<b><font size="4"><?php echo sprintf('%0.2f',$Tout);?></font></b>
 			</td> 
 			<td  align="right" >
-			<b><font size="4"><?echo sprintf('%0.2f',$Tout1);?></b>
+			<b><font size="4"><?php echo sprintf('%0.2f',$Tout1);?></b>
 			</td>
 		
 			<td  align="center" >
 		
 			</td>
 			 <td  align="right" >
-			<b><font size="4"><?echo sprintf('%0.2f',$Tcl);?></font></b>
+			<b><font size="4"><?php echo sprintf('%0.2f',$Tcl);?></font></b>
 			</td>
 </tr>
 

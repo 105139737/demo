@@ -1,15 +1,15 @@
-<?
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include "header.php";
 include "function.php";
-$brncd=$_REQUEST['brncd'];
-$cid=$_REQUEST['cid'];
+$brncd=$_REQUEST['brncd']??"";
+$cid=$_REQUEST['cid']??"";
 $sa=date('d-m-Y');
 $saa="01-".date('m-y');
-$bill_typ=$_REQUEST['bsl'];
-$blno=$_REQUEST['blno'];
-
+$bill_typ=$_REQUEST['bsl']??"";
+$blno=$_REQUEST['blno']??"";
+$sln=0;
 $data1=mysqli_query($conn,"SELECT * FROM main_recv where blno='$blno'")or die(mysqli_error($conn));
 while($row1=mysqli_fetch_array($data1))
 {
@@ -24,7 +24,6 @@ $paymtd=$row1['paymtd'];
 $dldgr=$row1['dldgr'];
 $sman=$row1['spid'];
 $cid=$row1['cid'];
-$cstat=$row1['stat'];
 $bcd=$row1['bcd'];
 $bill_typ=$row1['bill_type'];
 }
@@ -60,7 +59,7 @@ if($tp==1 && strtoupper($user_currently_loged)!='ADMIN' && strtoupper($user_curr
 <html>
 <head>
         <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <style type="text/css"> 
@@ -344,10 +343,10 @@ function recallRamm()
 <form method="post" action="recv_reg_oth_edts.php" name="form1"  id="form1">
 <input type="hidden" name="proj" id="proj" value="NA" readonly>
 <input type="hidden" name="it" id="it" value="NA" readonly >
-<input type="hidden" name="btyp" id="btyp" value="<? echo $typ; ?>" >
-<input type="hidden" class="form-control"  value="<?php echo $bill_typ;?>" tabindex="1"  name="bsl" id="bsl" >              
+<input type="hidden" name="btyp" id="btyp" value="<?php  echo $typ; ?>" >
+<input type="hidden" class="form-control"  value="<?php  echo $bill_typ;?>" tabindex="1"  name="bsl" id="bsl" >              
 
-<input type="hidden" name="blno_ref" id="blno_ref" value="<?php echo $blno;?>" >
+<input type="hidden" name="blno_ref" id="blno_ref" value="<?php  echo $blno;?>" >
 
 <div class="box box-success" >
 <table border="0" width="860px"  class="table table-hover table-striped table-bordered">
@@ -355,7 +354,7 @@ function recallRamm()
 <td align="right" width="15%"><font color="red">*</font><b>Branch :</b></td>
 <td align="left" width="35%">
 <select name="brncd" class="form-control" size="1" id="brncd"  onchange="get_blno();gtcrvlfi();" >
-<?
+<?php 
 if($user_current_level<0)
 {
 $query="Select * from main_branch where sl='$brncds'";
@@ -370,15 +369,15 @@ while ($R = mysqli_fetch_array ($result))
 $slb=$R['sl'];
 $bnm=$R['bnm'];
 ?>
-<option value="<? echo $slb;?>" <?if($slb==$brncd){echo 'selected';}?>><? echo $bnm;?></option>
-<?
+<option value="<?php  echo $slb;?>" <?php if($slb==$brncd){echo 'selected';}?>><?php  echo $bnm;?></option>
+<?php 
 }
 ?>
 </select>
 </td>
 <td align="right" width="15%" ><font color="red">*</font><b>Date :</b></td>
 <td align="left" width="35%" >
-<input type="text" name="dt" id="dt" class="form-control" value="<? echo $dt; ?>" >
+<input type="text" name="dt" id="dt" class="form-control" value="<?php  echo $dt; ?>" >
 </td>   
 </tr>
 
@@ -387,11 +386,12 @@ $bnm=$R['bnm'];
 <td align="left" >
 
 <input type="hidden" value="4" id="cldgr" name="cldgr"/> 
-<input type="text" id="cs" name="cs" style="width:95%" value="" onkeyup="cust_srch('<?php echo $tp;?>','<?php echo $brand;?>')"  placeholder="Enter 3 Digit Name / 10 Digit Mobile No.">
+<input type="text" id="cs" name="cs" style="width:95%" value="" onkeyup="cust_srch('<?php  echo $tp;?>','<?php  echo $brand;?>')"  placeholder="Enter 3 Digit Name / 10 Digit Mobile No.">
 <div id="cust_src">
 <select id="cid"  name="cid"   tabindex="1" class="form-control"  onchange="get_blno();temp();">
 <option value="">---Select---</option>
-<?
+<?php 
+$qury="";
 if($tp=='2'){$qury=" and find_in_set(brand,'$brand')>0 ";}
 $query="select * from main_cust  WHERE sl>0 and typ='$tp' and sl='$cid' $qury order by nm";
 $result = mysqli_query($conn,$query);
@@ -402,8 +402,8 @@ $spn=$R['nm'];
 $cont=$R['cont'];
 $addr=$R['addr'];
 ?>
-<option value="<? echo $sid;?>" <?if($cid==$sid){?> selected <? } ?> ><? echo $spn;?>  - <? echo $cont;?></option>
-<?
+<option value="<?php  echo $sid;?>" <?php if($cid==$sid){?> selected <?php  } ?> ><?php  echo $spn;?>  - <?php  echo $cont;?></option>
+<?php 
 }
 ?>
 </select>
@@ -411,7 +411,7 @@ $addr=$R['addr'];
 </td>
 <td align="right" ><font color="red">*</font><b>Narration :</b></td>
 <td align="left"  >
-<input type="text" name="nrtn" id="nrtn" class="form-control" value="<? echo $nrtn; ?>">
+<input type="text" name="nrtn" id="nrtn" class="form-control" value="<?php  echo $nrtn; ?>">
 </td>
 </tr>
 <tr>
@@ -420,13 +420,13 @@ $addr=$R['addr'];
 <select  name="dldgr" id="dldgr" class="sc"  onchange="gtcrvlfi();getpay()">
 <option value="">-- Select --</option>
 
-<?php 
+<?php  
 $get = mysqli_query($conn,"SELECT * FROM main_ledg where gcd='1' or gcd='2' or sl='5' or sl='7' or sl='-1' or gcd='22'") or die(mysqli_error($conn));
 while($row = mysqli_fetch_array($get))
 {
 ?>
-<option value="<?=$row['sl']?>" <?=$row['sl'] == $dldgr ? 'selected' : '' ?>><?=$row['nm']?></option>
-<?php 
+<option value="<?php  echo $row['sl']?>" <?php  echo $row['sl'] == $dldgr ? 'selected' : '' ?>><?php  echo $row['nm']?></option>
+<?php  
 } 
 ?>
 </select>
@@ -435,13 +435,13 @@ while($row = mysqli_fetch_array($get))
 <td align="left" >
 <select  name="paymtd" id="paymtd" class="sc">
 <option value="">-- Select --</option>
-<?php 
+<?php  
 $get = mysqli_query($conn,"SELECT * FROM ac_paymtd") or die(mysqli_error($conn));
 while($row = mysqli_fetch_array($get))
 {
 ?>
-<option value="<?=$row['sl']?>" <?=$row['sl'] == $paymtd ? 'selected' : '' ?>><?=$row['mtd']?></option>
-<?php 
+<option value="<?php  echo $row['sl']?>" <?php  echo $row['sl'] == $paymtd ? 'selected' : '' ?>><?php  echo $row['mtd']?></option>
+<?php  
 } 
 ?>
 </select>
@@ -451,7 +451,7 @@ while($row = mysqli_fetch_array($get))
 <tr>
 <td align="right"><font color="red" size="3"><b>Total Received Amount :</font></b></td>
 <td>
-<input  type="text" name="tamm" id="tamm" class="form-control" value="<?=$tamm?>" onblur="temp()" onkeypress="return isNumber1(event)">
+<input  type="text" name="tamm" id="tamm" class="form-control" value="<?php  echo $tamm?>" onblur="temp()" onkeypress="return isNumber1(event)">
 </td> 
 <td align="right"><font color="red" size="3"><b> Ref. No. :</font></b></td>
 <td align="left" >
@@ -476,7 +476,7 @@ while($row = mysqli_fetch_array($get))
 <td>
 <select id="spid" name="spid" tabindex="1" class="sc1"  style="width:100%;">
 <option value="">---Select---</option>
-<?
+<?php 
 $queryss="select * from main_sale_per  WHERE sl>0 order by spid";
 $resultss=mysqli_query($conn,$queryss);
 while($rwss=mysqli_fetch_array($resultss))
@@ -484,8 +484,8 @@ while($rwss=mysqli_fetch_array($resultss))
 $spid=$rwss['spid'];
 $spnm=$rwss['nm'];
 ?>
-<option value="<?=$spid;?>"<?=$spid==$sman ? 'selected' : '' ?>><?=$spid;?></option>
-<?
+<option value="<?php  echo $spid;?>"<?php  echo $spid==$sman ? 'selected' : '' ?>><?php  echo $spid;?></option>
+<?php 
 }
 ?>
 </select>
@@ -543,26 +543,26 @@ $spnm=$rwss['nm'];
 <td>
 <select  name="disl" id="disl" class="form-control" style="width:98%;">
 <option value="">-- Select --</option>
-<?php 
+<?php  
 $get = mysqli_query($conn,"SELECT * FROM main_ledg where gcd='17'") or die(mysqli_error($conn));
 while($row = mysqli_fetch_array($get))
 {
 ?>
-<option value="<?=$row['sl']?>"><?=$row['nm']?></option>
-<?php 
+<option value="<?php  echo $row['sl']?>"><?php  echo $row['nm']?></option>
+<?php  
 } 
 ?>
 </select>
 </td>
 <td align="left">
-<input  type="text" name="damm" id="damm" <?php echo $discountReadOnly;?> class="sc" onkeypress="return isNumber1(event)">
+<input  type="text" name="damm" id="damm" <?php  echo $discountReadOnly;?> class="sc" onkeypress="return isNumber1(event)">
 </td>
 <td align="left">
 <input  type="text" name="remk" id="remk" class="sc" >
 <div style="display:none">
 <select id="sman" name="sman" tabindex="1" class="sc1"  style="width:100%;">
 <option value="">---Select---</option>
-<?
+<?php 
 $queryss="select * from main_sale_per  WHERE sl>0 order by spid";
 $resultss=mysqli_query($conn,$queryss);
 while($rwss=mysqli_fetch_array($resultss))
@@ -570,8 +570,8 @@ while($rwss=mysqli_fetch_array($resultss))
 $spid=$rwss['spid'];
 $spnm=$rwss['nm'];
 ?>
-<option value="<?=$spid;?>"><?=$spid;?></option>
-<?
+<option value="<?php  echo $spid;?>"><?php  echo $spid;?></option>
+<?php 
 }
 ?>
 </select>
@@ -593,9 +593,9 @@ $spnm=$rwss['nm'];
 <table class="table table-hover table-striped table-bordered">
 <tr>
 <td align="right">
-<?php if($edit_count>0){?>
+<?php  if($edit_count>0){?>
 <input type="button" class="btn btn-success" id="ss" name="" value="Submit"  tabindex="1" onclick="check()">
-<?php } ?>
+<?php  } ?>
 </td>
 </tr>
 </table>
@@ -658,21 +658,21 @@ $('#vv').load('get_v.php?cat='+cat+'&bnm='+bnm).fadeIn('fast');
   no_results_text: "Oops, nothing found!",
   
   });
-<?
+<?php 
 if($cid!="")
 {
 ?>
 get_blno();
-<?	
+<?php 	
 }
 ?>
-<?
+<?php 
 if($blno!='')
 {
 ?>
-get_app_val('<?=$blno;?>');
+get_app_val('<?php  echo $blno;?>');
 
-<?
+<?php 
 }
 ?>
 </script>

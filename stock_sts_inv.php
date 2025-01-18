@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 
@@ -51,7 +51,7 @@ if($pnmsl!=""){$pnm1=" and sl='$pnmsl'";}else{$pnm1="";	}
 			<b>Closing Stcok</b>
 			</td>
 			</tr>
-<?
+<?php 
 $cntt=0;
 $data= mysqli_query($conn,"select * from main_product where sl>0 $cat1 $pnm1  $brncd1")or die(mysqli_error($conn));
 while ($row = mysqli_fetch_array($data))
@@ -143,18 +143,18 @@ if($wzer=="0")
 	if($stck>0)	
 	{
 	?>
-	 <tr  title="<?=$pcd;?>">
-	<td  align="center" ><?=$cntt;?></td>
-	<td align="left"><?=$cnm;?></td>
-	<td align="left"><?=$snm;?></td>
-	<td align="left"><?=$pnm;?></td>
-	<td align="left" ><?=$refno1;?></td>
-	<td align="left" ><?=$rate;?></td>
-	<td align="left" ><?=$stock_in2;?></td>
-	<td align="left" ><?=$stock_in3;?></td>
-	<td align="left" ><?=$stock_in;?></td>
+	 <tr  title="<?php  echo $pcd;?>">
+	<td  align="center" ><?php  echo $cntt;?></td>
+	<td align="left"><?php  echo $cnm;?></td>
+	<td align="left"><?php  echo $snm;?></td>
+	<td align="left"><?php  echo $pnm;?></td>
+	<td align="left" ><?php  echo $refno1;?></td>
+	<td align="left" ><?php  echo $rate;?></td>
+	<td align="left" ><?php  echo $stock_in2;?></td>
+	<td align="left" ><?php  echo $stock_in3;?></td>
+	<td align="left" ><?php  echo $stock_in;?></td>
 		</tr>
-		<?
+		<?php 
 		
 	}
 	
@@ -163,18 +163,18 @@ if($wzer=="0")
 else
 {
 	?>
-	 <tr  title="<?=$pcd;?>">
-	<td  align="center" ><?=$cntt;?></td>
-	<td align="left"><?=$cnm;?></td>
-	<td align="left"><?=$snm;?></td>
-	<td align="left"><?=$pnm;?></td>
-	<td align="left" ><?=$refno1;?></td>
-	<td align="left" ><?=$rate;?></td>
-	<td align="left" ><?=$stock_in2;?></td>
-	<td align="left" ><?=$stock_in3;?></td>
-	<td align="left" ><?=$stock_in;?></td>
+	 <tr  title="<?php  echo $pcd;?>">
+	<td  align="center" ><?php  echo $cntt;?></td>
+	<td align="left"><?php  echo $cnm;?></td>
+	<td align="left"><?php  echo $snm;?></td>
+	<td align="left"><?php  echo $pnm;?></td>
+	<td align="left" ><?php  echo $refno1;?></td>
+	<td align="left" ><?php  echo $rate;?></td>
+	<td align="left" ><?php  echo $stock_in2;?></td>
+	<td align="left" ><?php  echo $stock_in3;?></td>
+	<td align="left" ><?php  echo $stock_in;?></td>
 		</tr>
-		<?
+		<?php 
 }
 	
 	

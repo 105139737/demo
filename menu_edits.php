@@ -1,4 +1,4 @@
-<?php
+<?php 
 include("membersonly.inc.php");
 
 	$sls = $_POST['sls'];
@@ -14,5 +14,5 @@ include("membersonly.inc.php");
 alert('Data Updated Successfully. Thank You...');
 document.location = "menu_entry.php";
 </script>
-<?
+<?php 
 ?>

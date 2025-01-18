@@ -1,13 +1,13 @@
-<?
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 $tiamm=0;
 $teamm=0;
-$brncd=$_REQUEST[brncd];if($brncd==""){$brncd1="";}else{$brncd1=" and brncd='$brncd'";}
-$tdt=$_REQUEST[tdt];
-$fdt=$_REQUEST[fdt];
-$proj=$_REQUEST[proj];
-$amm=$_REQUEST[amm];
+$brncd=$_REQUEST['brncd'] ?? "";if($brncd==""){$brncd1="";}else{$brncd1=" and brncd='$brncd'";}
+$tdt=$_REQUEST['tdt'] ?? "";
+$fdt=$_REQUEST['fdt'] ?? "";
+$proj=$_REQUEST['proj'] ?? "";
+$amm=$_REQUEST['amm'] ?? "";
 
 $jobLink=CreateNewJob('jobs/custenq1_exprt.php',$user_currently_loged,'Customer Summary',$conn);
 ?>
@@ -15,14 +15,14 @@ $jobLink=CreateNewJob('jobs/custenq1_exprt.php',$user_currently_loged,'Customer 
 alert('Your request has been accepted. You will get you dwonload link in your home page in a few moments. Thank you...');
 window.history.go(-1);
 </script>
-<?php
+<?php 
 die('<b><center><font color="green" size="5">Your request has been accepted. You will get you dwonload link in your home page in a few moments. Thank you...</font></center></b>');
 
 
 $file="Customer Summary".".xls";
 header("Content-type: application/vnd.ms-excel"); 
 header("Content-Disposition: attachment; filename=$file"); 
-$cat=$_REQUEST[cat];
+$cat=$_REQUEST['cat'] ?? "";
 $qury="";
 if($cat!='')
 {
@@ -61,7 +61,7 @@ if($qury!=""){$qury.=")";}
 <td width="10%" align="center"><span style="color:#000000;font-family:Arial;font-size:15px;"><strong>Due</strong></span></td>
 <td width="10%" align="center"><span style="color:#000000;font-family:Arial;font-size:15px;"><strong>Advance</strong></span></td>
 </tr>
-<?
+<?php 
 
 $i=0;
 $DTOT=0;
@@ -166,17 +166,17 @@ if($a!="")
 $i++;
 ?>
 <tr>
-<td align="center"><span style="color:#000000;font-family:Arial;font-size:15px;"><?=$i;?></span></td>
-<td align="center"><span style="color:#000000;font-family:Arial;font-size:15px;"><? echo get_branch_name($brncd);?></span></td>
+<td align="center"><span style="color:#000000;font-family:Arial;font-size:15px;"><?php  echo $i;?></span></td>
+<td align="center"><span style="color:#000000;font-family:Arial;font-size:15px;"><?php  echo get_branch_name($brncd);?></span></td>
 <td align="left"><span style="color:#000000;font-family:Arial;font-size:15px;">
-<? echo $snm;?>
+<?php  echo $snm;?>
 </span></td>
 
-<td align="right"><span style="color:#000000;font-family:Arial;font-size:15px;"><? echo number_format($due,2);?></span></td>
-<td align="right"><span style="color:#000000;font-family:Arial;font-size:15px;"><? echo number_format($adv,2);?></span></td>
+<td align="right"><span style="color:#000000;font-family:Arial;font-size:15px;"><?php  echo number_format($due,2);?></span></td>
+<td align="right"><span style="color:#000000;font-family:Arial;font-size:15px;"><?php  echo number_format($adv,2);?></span></td>
 </tr>
 
-<?
+<?php 
 }
 }
 }
@@ -187,8 +187,8 @@ $i++;
 <td ><span style="color:#000000;font-family:Arial;font-size:15px;"></span></td>
 <td ><span style="color:#000000;font-family:Arial;font-size:15px;"></span></td>
 
-<td align="right"><span style="color:#000000;font-family:Arial;font-size:17px;"><? echo number_format($DTOT,2);?></span></td>
-<td align="right"><span style="color:#000000;font-family:Arial;font-size:17px;"><? echo number_format($ATOT,2);?></span></td>
+<td align="right"><span style="color:#000000;font-family:Arial;font-size:17px;"><?php  echo number_format($DTOT,2);?></span></td>
+<td align="right"><span style="color:#000000;font-family:Arial;font-size:17px;"><?php  echo number_format($ATOT,2);?></span></td>
 </tr>
 </table>
 

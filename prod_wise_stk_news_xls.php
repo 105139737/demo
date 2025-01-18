@@ -1,21 +1,21 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 set_time_limit(0);
 date_default_timezone_set('Asia/Kolkata');
 $cy=date('Y');
 
-$pnm=$_POST['pnm'];
-$catsl=$_POST['cat'];
-$scatsl=$_POST['scat'];
-$dt=$_POST['dt'];
+$pnm=$_POST['pnm'] ?? "";
+$catsl=$_POST['cat'] ?? "";
+$scatsl=$_POST['scat'] ?? "";
+$dt=$_POST['dt'] ?? "";
 
 $cat1="";
 if($catsl!=""){$cat1=" and cat='$catsl'";}
 $scat1="";
 if($scatsl!=""){$scat1=" and scat='$scatsl'";}
 if($pnm!=""){$all1=" and sl='$pnm'";}else{$all1="";	}
-$dt=date('Y-m-d', strtotime($dt));
+//$dt=date('Y-m-d', strtotime($dt));
 
 $jobLink=CreateNewJob('jobs/prod_wise_stk_news_xls.php',$user_currently_loged,'Godown wise stock',$conn);
 ?>
@@ -23,7 +23,7 @@ $jobLink=CreateNewJob('jobs/prod_wise_stk_news_xls.php',$user_currently_loged,'G
 alert('Your request has been accepted. You will get you dwonload link in your home page in a few moments. Thank you...');
 window.history.go(-1);
 </script>
-<?php
+<?php 
 die('<b><center><font color="green" size="5">Your request has been accepted. You will get you dwonload link in your home page in a few moments. Thank you...</font></center></b>');
 
 
@@ -46,9 +46,10 @@ header("Content-Disposition: attachment; filename=$file");
 <td align="center"><b>BETHUA</b></td>
 <td align="center"><b>BURDWAN SHOWROOM</b></td>
 <td align="center"><b>KARIMPUR</b></td>
+<td align="center"><b>BARASAT</b></td>
 <td align="center"><b>BALANCE</b></td>
 </tr>
-<?php
+<?php 
 $cntc=0;
 $data=mysqli_query($conn,"select * from main_product where sl>0 and stat='0' and typ='0' $cat1  $scat1  $all1 order by pnm")or die(mysqli_error($conn));
 while($row=mysqli_fetch_array($data))
@@ -79,6 +80,8 @@ while($row=mysqli_fetch_array($data))
 	
 	$balance=0;
 	$gwn1=0;
+	$gwn3=0;
+	$gwn2=0;
 	$query="SELECT SUM(opst+stin-stout) AS stck1 FROM ".$DBprefix."stock WHERE pcd='$pcd' AND dt<='$dt' AND bcd='1'";
 	$result=mysqli_query($conn,$query);
 	while($R=mysqli_fetch_array($result))
@@ -160,6 +163,13 @@ while($row=mysqli_fetch_array($data))
 	{
 		$gwn11=$R['stck1'];
 	}
+	$gwn12=0;
+	$query="SELECT sum(opst+stin-stout) as stck1 from ".$DBprefix."stock where pcd='$pcd' and dt<='$dt' AND bcd='12'";
+	$result=mysqli_query($conn,$query);
+	while($R=mysqli_fetch_array($result))
+	{
+		$gwn12=$R['stck1'];
+	}
 	$balance=$gwn1+$gwn4+$gwn5+$gwn6+$gwn7+$gwn8+$gwn9+$gwn10+$gwn11;
 	
 	if($gwn1==''){$gwn1=0;}
@@ -173,25 +183,27 @@ while($row=mysqli_fetch_array($data))
 	if($gwn9==''){$gwn9=0;}
 	if($gwn10==''){$gwn10=0;}
 	if($gwn11==''){$gwn11=0;}
+	if($gwn12==''){$gwn12=0;}
 	?>
-	<tr title="<?=$pcd;?>, Stocksl :<?=$ssl;?>">
-	<td align="center"><?php echo $cntc;?></td>
-	<td align="left"><?php echo $cnm;?></td>
-	<td align="left"><?php echo $scat_nm;?></td>
-	<td align="left"><?php echo $p_cd;?></td>
-	<td align="left"><?php echo $nm;?></td>
-	<td align="center"><?php echo $gwn1;?></td>
-	<td align="center"><?php echo $gwn4;?></td>
-	<td align="center"><?php echo $gwn5;?></td>
-	<td align="center"><?php echo $gwn6;?></td>
-	<td align="center"><?php echo $gwn7;?></td>
-	<td align="center"><?php echo $gwn8;?></td>
-	<td align="center"><?php echo $gwn9;?></td>
-	<td align="center"><?php echo $gwn11;?></td>
-	<td align="center"><?php echo $balance;?></td>
+	<tr title="<?php  echo $pcd;?>, Stocksl :<?php  echo $ssl;?>">
+	<td align="center"><?php  echo $cntc;?></td>
+	<td align="left"><?php  echo $cnm;?></td>
+	<td align="left"><?php  echo $scat_nm;?></td>
+	<td align="left"><?php  echo $p_cd;?></td>
+	<td align="left"><?php  echo $nm;?></td>
+	<td align="center"><?php  echo $gwn1;?></td>
+	<td align="center"><?php  echo $gwn4;?></td>
+	<td align="center"><?php  echo $gwn5;?></td>
+	<td align="center"><?php  echo $gwn6;?></td>
+	<td align="center"><?php  echo $gwn7;?></td>
+	<td align="center"><?php  echo $gwn8;?></td>
+	<td align="center"><?php  echo $gwn9;?></td>
+	<td align="center"><?php  echo $gwn11;?></td>
+	<td align="center"><?php  echo $gwn12;?></td>
+	<td align="center"><?php  echo $balance;?></td>
 	</tr>	 
 
-	<?php
+	<?php 
 }
 ?>
 </table>

@@ -1,4 +1,4 @@
-<?php
+<?php 
 $day=$_REQUEST['day'];
 $cdt=date('Y-m-d');
 $dd=strtolower(date('l'));

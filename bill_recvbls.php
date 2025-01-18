@@ -1,4 +1,4 @@
-<?php 
+<?php  
 $reqlevel = 1;
 include("membersonly.inc.php");
 $fdt=date('Y-m-d');
@@ -24,7 +24,7 @@ if($brnch=="" || $sper=="" || $dt=="" || $brand=="" || $party=="" || $pamnt=="" 
 	alert("Fill all fields !!");
 	window.history.go(-1);
 	</script>
-	<?
+	<?php 
 }
 else
 {
@@ -38,7 +38,7 @@ else
 	alert("Data Already Exists !!");
 	window.history.go(-1);
 	</script>
-	<?
+	<?php 
 	}
 	else
 	{
@@ -80,7 +80,7 @@ $qr2=mysqli_query($conn,"INSERT INTO bills_receivable(BRAND,Date,Ref_No,Party_Na
 	alert("Submitted Successfully");
 	document.location="bill_recvbl.php";
 	</script>
-	<?
+	<?php 
 	}
 	
 }

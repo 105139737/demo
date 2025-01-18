@@ -1,4 +1,4 @@
-<?
+<?php 
 $lat=$_REQUEST[lat];
 $lng=$_REQUEST[lng];
 $nm=rawurldecode($_REQUEST[nm]);
@@ -15,9 +15,9 @@ $nm=rawurldecode($_REQUEST[nm]);
 <style>#gmap_canvas img{max-width:none!important;background:none!important}</style>
 <a class="google-map-code" href="#" id="get-map-data">frameworks</a></div>
 <script type="text/javascript"> 
-function init_map(){var myOptions = {zoom:15,center:new google.maps.LatLng(<?=$lat?>,<?=$lng?>),mapTypeId: google.maps.MapTypeId.ROADMAP};map = new google.maps.Map(document.getElementById("gmap_canvas"), myOptions);
-marker = new google.maps.Marker({map: map,position: new google.maps.LatLng(<?=$lat?>,<?=$lng?>)});
-infowindow = new google.maps.InfoWindow({content:"<b><?=$nm;?></b>" });google.maps.event.addListener(marker, "click", function(){infowindow.open(map,marker);});infowindow.open(map,marker);}google.maps.event.addDomListener(window, 'load', init_map);</script>
+function init_map(){var myOptions = {zoom:15,center:new google.maps.LatLng(<?php  echo $lat?>,<?php  echo $lng?>),mapTypeId: google.maps.MapTypeId.ROADMAP};map = new google.maps.Map(document.getElementById("gmap_canvas"), myOptions);
+marker = new google.maps.Marker({map: map,position: new google.maps.LatLng(<?php  echo $lat?>,<?php  echo $lng?>)});
+infowindow = new google.maps.InfoWindow({content:"<b><?php  echo $nm;?></b>" });google.maps.event.addListener(marker, "click", function(){infowindow.open(map,marker);});infowindow.open(map,marker);}google.maps.event.addDomListener(window, 'load', init_map);</script>
 
 </body>
 </html>

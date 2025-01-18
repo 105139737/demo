@@ -1,11 +1,11 @@
-<?
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 include "header.php";
 $saa="01-".date('m-Y');
 ?>
         <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <style type="text/css"> 
@@ -129,15 +129,15 @@ pagnt(pno);
 <td  align="left" width="35%">
 <select name="spid" class="form-control" size="1" id="spid" tabindex="8"  required>
 <Option value="">---Select---</option>
-<?
+<?php 
 $data1 = mysqli_query($conn,"Select * from main_sale_per order by spid");
 while ($row1 = mysqli_fetch_array($data1))
 {
 $sl=$row1['sl'];
 $spid=$row1['spid'];
 ?>
-<Option value="<?=$spid;?>"><?=$spid;?></option>
-<?}?>
+<Option value="<?php  echo $spid;?>"><?php  echo $spid;?></option>
+<?php }?>
 </select>
 </td>
 
@@ -146,11 +146,11 @@ $spid=$row1['spid'];
 
 <td align="right" style="padding-top:15px;" ><b>From Date :</b></td>
 <td  align="left">
-<input type="text" id="fdt" name="fdt" value="<?php echo $saa;?>" class="form-control"  readonly  required> 
+<input type="text" id="fdt" name="fdt" value="<?php  echo $saa;?>" class="form-control"  readonly  required> 
 </td>
 <td align="right" style="padding-top:15px;" ><b>To Date :</b></td>
 <td  align="left">
-<input type="text" id="tdt" name="tdt" class="form-control" value="<?echo date('d-m-Y');?>"  readonly  required> 
+<input type="text" id="tdt" name="tdt" class="form-control" value="<?php echo date('d-m-Y');?>"  readonly  required> 
 </td>				
 </tr>
 <tr>

@@ -1,8 +1,8 @@
-<?php
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 include "header.php";
-$brncd=$_REQUEST['brncd'];
+$brncd=$_REQUEST['brncd'] ?? "";
 
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
@@ -11,7 +11,7 @@ $brncd=$_REQUEST['brncd'];
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 <div class="wrapper row-offcanvas row-offcanvas-left">
-		<?
+		<?php 
 		include "left_bar.php";
 		?>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -174,7 +174,7 @@ input.sc {
 <td align="right"><font color="red">*</font><b>Branch:</b></td>
 <td align="left">
 <select name="brncd" class="form-control" size="1" id="brncd" style="width:380px;" onchange="title1();show()">
-<?
+<?php 
 if($user_current_level<0)
 {
 $query="Select * from main_branch";
@@ -190,8 +190,8 @@ $slb=$R['sl'];
 $bnm=$R['bnm'];
 
 ?>
-<option value="<? echo $slb;?>" <?if($slb==$brncd){echo 'selected';}?>><? echo $bnm;?></option>
-<?
+<option value="<?php  echo $slb;?>" <?php if($slb==$brncd){echo 'selected';}?>><?php  echo $bnm;?></option>
+<?php 
 }
 ?>
 </select>
@@ -201,13 +201,13 @@ $bnm=$R['bnm'];
 <select  name="proj" id="proj"  class="form-control" style="width:380px;" onchange="si(this.value)">
 
 <option value="0">NA</option>
-<?php 
+<?php  
 $get1 = mysqli_query($conn,"SELECT * FROM main_project") or die(mysqli_error($conn));
 while($row1 = mysqli_fetch_array($get1))
 {
 ?>
-<option value="<?=$row1['sl']?>"><?=$row1['nm']?></option>
-<?php 
+<option value="<?php  echo $row1['sl']?>"><?php  echo $row1['nm']?></option>
+<?php  
 } 
 ?>
 </select>
@@ -224,13 +224,13 @@ while($row1 = mysqli_fetch_array($get1))
     <td align="left" width="40%">
     <select  name="ldgr" id="ldgr"  class="form-control" style="width:380px;" onchange="si(this.value);show()">
 							<option value="">-- Select --</option>
-							<?php 
+							<?php  
 							$get = mysqli_query($conn,"SELECT * FROM main_ledg where sl!='-1' and sl!='4'") or die(mysqli_error($conn));
 							while($row = mysqli_fetch_array($get))
 							{
 							?>
-								<option value="<?=$row['sl']?>" <?=$row['sl'] == $rowpages['pcd'] ? 'selected' : '' ?>><?=$row['nm']?></option>
-							<?php 
+								<option value="<?php  echo $row['sl']?>" ><?php  echo $row['nm']?></option>
+							<?php  
 							} 
 							?>
 						</select>

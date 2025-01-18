@@ -1,30 +1,31 @@
-<?php
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
-$prnm=$_REQUEST[prnm];
-$unit=$_REQUEST[unit];
-$usl=$_REQUEST[usl];
-$qnty=$_REQUEST[qnty];
-$mrp=$_REQUEST[mrp];
-$total=$_REQUEST[total];
-$disp=$_REQUEST[disp];
-$disa=$_REQUEST[disa];
-$ldis=$_REQUEST[ldis];
-$ldisa=$_REQUEST[ldisa];
-$lttl=$_REQUEST[lttl];
-$fst=$_REQUEST[fst];
-$tst=$_REQUEST[tst];
-$cgst_rt=$_REQUEST[cgst_rt];
-$sgst_rt=$_REQUEST[sgst_rt];
-$igst_rt=$_REQUEST[igst_rt];
-$cgst_am=$_REQUEST[cgst_am];
-$sgst_am=$_REQUEST[sgst_am];
-$igst_am=$_REQUEST[igst_am];
-$net_am=$_REQUEST[net_amm];
-$bcd=$_REQUEST[bcd];
-$rate=$_REQUEST[rate];
-$betno=$_REQUEST[betno];
-$tsl=$_REQUEST[tsl];
+$prnm=$_REQUEST['prnm']??"";
+$unit=$_REQUEST['unit']??"";
+$usl=$_REQUEST['usl']??"";
+$qnty=$_REQUEST['qnty']??0;
+$mrp=$_REQUEST['mrp']??0;
+$total=$_REQUEST['total']??0;
+$disp=$_REQUEST['disp']??0;
+$disa=$_REQUEST['disa']??0;
+$ldis=$_REQUEST['ldis']??0;
+$ldisa=$_REQUEST['ldisa']??0;
+$lttl=$_REQUEST['lttl']??0;
+$fst=$_REQUEST['fst']??"";
+$tst=$_REQUEST['tst']??"";
+$cgst_rt=$_REQUEST['cgst_rt']??0;
+$sgst_rt=$_REQUEST['sgst_rt']??0;
+$igst_rt=$_REQUEST['igst_rt']??0;
+$cgst_am=$_REQUEST['cgst_am']??0;
+$sgst_am=$_REQUEST['sgst_am']??0;
+$igst_am=$_REQUEST['igst_am']??0;
+$net_am=$_REQUEST['net_amm']??0;
+$bcd=$_REQUEST['bcd']??"";
+$rate=$_REQUEST['rate']??"";
+$betno=$_REQUEST['betno']??"";
+$tsl=$_REQUEST['tsl']??"";
+$ssl="";
 if($tsl!=""){$ssl=" and sl!='$tsl'";}
 
 $err="";
@@ -68,7 +69,7 @@ $result21 = mysqli_query($conn,$query21)or die (mysqli_error($conn));
 $('.upd').html('<input type="button" value="ADD" onclick="add()" style="padding:2px;width:100%" class="btn btn-info">');
 reset();
 </script>
-<?
+<?php 
 }
 ?>
 <script>
@@ -76,15 +77,15 @@ tmppr1();
 $('#cat').trigger('chosen:open');
 reset();
 </script>
-<?
+<?php 
 }
 else
 {
 ?>
 <script>
-alert('<?=$err;?>');
+alert('<?php  echo $err;?>');
 tmppr1();
 </script>
-<?	
+<?php 	
 }
 ?>

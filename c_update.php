@@ -1,9 +1,9 @@
-<?
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include "header.php";
 
-$sl=base64_decode($_REQUEST[sl]);
+$sl=base64_decode($_REQUEST['sl']);
 
 $data= mysqli_query($conn,"select * from main_cust where sl='$sl'")or die(mysqli_error($conn));
 while ($row = mysqli_fetch_array($data))
@@ -44,7 +44,7 @@ if($fst==''){$fst=1;}
 <html>
 <head>
         <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <style type="text/css"> 
@@ -187,41 +187,41 @@ document.forms["form1"].submit();
  
 
 <form method="post" action="c_updates.php" id="form1"  name="form1" onsubmit="return check1()">
-<input type="hidden" id="sl" name="sl" value="<?=$sl;?>">
+<input type="hidden" id="sl" name="sl" value="<?php  echo $sl;?>">
 <center>
 <div class="box box-success" >
 <table width="860px" class="table table-hover table-striped table-bordered">
 <tr>
 <td width="50%">
 <b>Customer Name :</b>
-<input type="text" id="cnm" name="cnm" value="<?=$cnm;?>" class="form-control" placeholder="Please Enter Customer Name">
+<input type="text" id="cnm" name="cnm" value="<?php  echo $cnm;?>" class="form-control" placeholder="Please Enter Customer Name">
 </td>
 
 <td align="left"  width="50%">
 <b>Printing Name :</b>
-<input type="text" id="nmp" name="nmp" value="<?=$nmp;?>" class="form-control" placeholder="Please Enter Printing Name">
+<input type="text" id="nmp" name="nmp" value="<?php  echo $nmp;?>" class="form-control" placeholder="Please Enter Printing Name">
 </td>	
 
 </tr>
 <tr>
 <td>
 <b>Mobile No. :</b>
-<input type="text" class="form-control" id="mob" name="mob" value="<?=$cont;?>" onkeypress="return isNumber(event)" maxlength="10" placeholder="Please Enter Mobile No.">
+<input type="text" class="form-control" id="mob" name="mob" value="<?php  echo $cont;?>" onkeypress="return isNumber(event)" maxlength="10" placeholder="Please Enter Mobile No.">
 </td>
 <td>
 <b>Pin :</b>
-<input type="text" class="form-control" id="pin" name="pin" value="<?=$pin;?>" placeholder="Please Enter Pin" onkeypress="return isNumber(event)" maxlength="6">
+<input type="text" class="form-control" id="pin" name="pin" value="<?php  echo $pin;?>" placeholder="Please Enter Pin" onkeypress="return isNumber(event)" maxlength="6">
 </td>
 </tr>
 
 <tr>
 <td>
 <b>Town/ City :</b>
-<input type="text" class="form-control" id="town" name="town" value="<?=$town;?>" placeholder="Please Enter Town/ City">
+<input type="text" class="form-control" id="town" name="town" value="<?php  echo $town;?>" placeholder="Please Enter Town/ City">
 </td>
 <td>
 <b>Distance :</b>
-<input type="text" class="form-control" id="distn" name="distn" value="<?=$distn;?>" placeholder="Please Enter Distance">
+<input type="text" class="form-control" id="distn" name="distn" value="<?php  echo $distn;?>" placeholder="Please Enter Distance">
 </td>
 </tr>
 <tr>
@@ -230,20 +230,20 @@ document.forms["form1"].submit();
 <select id="brand"  name="brand" class="form-control" >
 <option value="" >---Select---</option>
 
-	<?
+	<?php 
 	$sq="SELECT * FROM main_catg WHERE sl>0 ORDER BY sl";
 	$res = mysqli_query($conn,$sq) or die(mysqli_error($conn));
 	while($ro=mysqli_fetch_array($res))
 	{
 	?>
-    <option value="<?=$ro['sl'];?>" <?if($brand==$ro['sl']){?> selected <? } ?>><?=$ro['cnm'];?></option>
-	<?}?>
+    <option value="<?php  echo $ro['sl'];?>" <?php if($brand==$ro['sl']){?> selected <?php  } ?>><?php  echo $ro['cnm'];?></option>
+	<?php }?>
 </select>
 </td>
 
 <td>
 <b>E-Mail ID :</b>
-<input type="text" class="form-control" id="email" name="email" value="<?=$mail;?>" placeholder="Please Enter E-Mail">
+<input type="text" class="form-control" id="email" name="email" value="<?php  echo $mail;?>" placeholder="Please Enter E-Mail">
 </td>
 
 </tr>
@@ -253,41 +253,41 @@ document.forms["form1"].submit();
 <tr>
 <td>
 <b>GSTIN :</b>
-<input type="text" class="form-control" id="gstin" name="gstin" onblur="gstinn()"  value="<?=$gstin;?>" placeholder="Please Enter GSTIN">
+<input type="text" class="form-control" id="gstin" name="gstin" onblur="gstinn()"  value="<?php  echo $gstin;?>" placeholder="Please Enter GSTIN">
 </td>
 <td>
 <b>PAN No :</b>
-<input type="text" class="form-control" id="pan" name="pan" value="<?=$pan;?>" placeholder="Please Enter PAN No">
+<input type="text" class="form-control" id="pan" name="pan" value="<?php  echo $pan;?>" placeholder="Please Enter PAN No">
 </td>
 </tr>
 <tr>
 <td>
 <b>GSTIN Applicable Date : </b>
-<input type="text" class="form-control" id="gstdt" name="gstdt" value="<?=$gstdt;?>" placeholder="Enter GSTIN Applicable Date">
+<input type="text" class="form-control" id="gstdt" name="gstdt" value="<?php  echo $gstdt;?>" placeholder="Enter GSTIN Applicable Date">
 </td>
 <td width="30%">
 <b>Aadhaar No.:</b>
-<input type="text" id="vat_no" name="vat_no" value="<?=$vat_no;?>" class="form-control" placeholder="Please Enter Vat No." onkeypress="return isNumber(event)">
+<input type="text" id="vat_no" name="vat_no" value="<?php  echo $vat_no;?>" class="form-control" placeholder="Please Enter Vat No." onkeypress="return isNumber(event)">
 </td>       
 </tr>
 <tr>
 <td align="left">
 <b>State : </b>
 <select id="fst"  name="fst" class="form-control" >
-	<?
+	<?php 
 	$sql="SELECT * FROM main_state WHERE sl>0 ORDER BY sn";
 	$result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
 	while($row=mysqli_fetch_array($result))
 	{
 	?>
-    <option value="<?=$row['sl'];?>"<?if($row['sl']==$fst){echo 'selected';}?>><?=$row['sn'];?> - <?=$row['cd'];?></option>
-	<?}?>
+    <option value="<?php  echo $row['sl'];?>"<?php if($row['sl']==$fst){echo 'selected';}?>><?php  echo $row['sn'];?> - <?php  echo $row['cd'];?></option>
+	<?php }?>
 </select>
 
 </td>
 <td >
 <b>Address :</b>
-<input type="text" class="form-control" id="addr" name="addr" value="<?=$addr;?>" placeholder="Please Enter Address">
+<input type="text" class="form-control" id="addr" name="addr" value="<?php  echo $addr;?>" placeholder="Please Enter Address">
 </td>
 </tr>
 <tr>
@@ -295,26 +295,26 @@ document.forms["form1"].submit();
 <b>Branch : </b>
 <select name="sale_per" id="sale_per" class="form-control" style="display:none">
 <option value="">---Select---</option>
-<?
+<?php 
 $dsql=mysqli_query($conn,"select * from main_sale_per order by sl") or die (mysqli_error($conn));
 while($erow=mysqli_fetch_array($dsql))
 {
 $bsl=$erow['sl'];
 $spid=$erow['spid'];
 ?>
-<option value="<?php echo $spid;?>"<?if($spid==$sale_per){echo 'selected';}?>><?php echo $spid;?></option>
-<?
+<option value="<?php  echo $spid;?>"<?php if($spid==$sale_per){echo 'selected';}?>><?php  echo $spid;?></option>
+<?php 
 }
 ?>
 </select>
 <select name="brncd" class="form-control" size="1" id="brncd"   >
-<?
+<?php 
 if($user_current_level<0)
 {
 $query="Select * from main_branch";
 ?>
 <option value="">---Select---</option>
-<?
+<?php 
 }
 else
 {
@@ -327,8 +327,8 @@ $sl=$R['sl'];
 $bnm=$R['bnm'];
 
 ?>
-<option value="<? echo $sl;?>"<?if($brncd==$sl){echo 'selected';}?>><? echo $bnm;?></option>
-<?
+<option value="<?php  echo $sl;?>"<?php if($brncd==$sl){echo 'selected';}?>><?php  echo $bnm;?></option>
+<?php 
 }
 ?>
 </select>
@@ -337,13 +337,13 @@ $bnm=$R['bnm'];
 <b>Type : </b>
 
 <select id="ctyp" name="ctyp" class="form-control">
-<?
+<?php 
 $p=mysqli_query($conn,"select * from main_cus_typ order by sl desc") or die (mysqli_error($conn));
 while($rw2=mysqli_fetch_array($p))
 {
 ?>
-<option value="<?=$rw2['sl'];?>" <?if($typ==$rw2['sl']){echo 'selected';}?>><?=$rw2['tp'];?></option>
-<?
+<option value="<?php  echo $rw2['sl'];?>" <?php if($typ==$rw2['sl']){echo 'selected';}?>><?php  echo $rw2['tp'];?></option>
+<?php 
 }
 ?>
 </select>
@@ -352,11 +352,11 @@ while($rw2=mysqli_fetch_array($p))
 <tr>
 <td >
 <b>Credit Limit :</b>
-<input type="text" class="form-control" id="credit_limit" name="credit_limit" value="<?=$credit_limit;?>" placeholder="Please Enter Credit Limit">
+<input type="text" class="form-control" id="credit_limit" name="credit_limit" value="<?php  echo $credit_limit;?>" placeholder="Please Enter Credit Limit">
 </td>        
 <td>
 <b>GTM Code : </b>
-<input type="text" class="form-control" value="<?=$gtm;?>"  id="gtm" name="gtm" placeholder="Enter GTM Code">
+<input type="text" class="form-control" value="<?php  echo $gtm;?>"  id="gtm" name="gtm" placeholder="Enter GTM Code">
 </td>
 </tr>
 <tr>
@@ -364,8 +364,8 @@ while($rw2=mysqli_fetch_array($p))
 <b>Is Finance : </b>
 <select id="isfin" name="isfin" class="span2 form-control">
 
-<option value="0" <?if($isfin==0){echo 'selected';}?> >No</option>
-<option value="1" <?if($isfin==1){echo 'selected';}?> >Yes</option>
+<option value="0" <?php if($isfin==0){echo 'selected';}?> >No</option>
+<option value="1" <?php if($isfin==1){echo 'selected';}?> >Yes</option>
 
 </select>
 </td> 

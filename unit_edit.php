@@ -1,8 +1,8 @@
-<?
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include "header.php";
-$sl=$_REQUEST[sl];
+$sl=$_REQUEST['sl'];
 
 $data= mysqli_query($conn,"select * from  main_unit where sl='$sl'")or die(mysqli_error($conn));
 while ($row = mysqli_fetch_array($data))
@@ -15,7 +15,7 @@ $tunt=$row['tunt'];
 ?>
 <html>
 <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <head>
@@ -125,7 +125,7 @@ $("#expdt").inputmask("yyyy-mm-dd", {"placeholder": "yyyy-mm-dd"});
 								
 
 
-<input type="hidden" name="sl" id="sl" value="<?=$sl;?>">
+<input type="hidden" name="sl" id="sl" value="<?php  echo $sl;?>">
   <center>
         <div class="box box-success" >
  <table border="0"  width="800px" class="table table-hover table-striped table-bordered" >
@@ -133,26 +133,26 @@ $("#expdt").inputmask("yyyy-mm-dd", {"placeholder": "yyyy-mm-dd"});
 		     <tr>
             <td  align="right" style="padding-top:17px">Unit Name :</td>
             <td  align="left">
-			<input type="text" class="form-control" id="unm"  name="unm" value="<?=$unitnm;?>" size="50" placeholder="Enter Unit Name">
+			<input type="text" class="form-control" id="unm"  name="unm" value="<?php  echo $unitnm;?>" size="50" placeholder="Enter Unit Name">
 
             </td>
        
             <td  align="right" style="padding-top:17px">Package Unit :</td>
             <td  align="left">
-		<input type="text" class="form-control" id="pun"  name="pun" value="<?=$pkgunt;?>" size="50" placeholder="Enter Package Unit">
+		<input type="text" class="form-control" id="pun"  name="pun" value="<?php  echo $pkgunt;?>" size="50" placeholder="Enter Package Unit">
 
             </td>
           </tr>
 		   <tr>
             <td  align="right" style="padding-top:17px">Small Unit :</td>
             <td  align="left">
-		<input type="text" class="form-control" id="sunt"  name="sunt" value="<?=$untpkg;?>" size="50" placeholder="Enter Small Unit">
+		<input type="text" class="form-control" id="sunt"  name="sunt" value="<?php  echo $untpkg;?>" size="50" placeholder="Enter Small Unit">
 
             </td>
          
             <td  align="right" style="padding-top:17px">Unit/Package :</td>
             <td  align="left">
-		<input type="text" class="form-control" id="unp"  name="unp" value="<?=$tunt;?>" size="50" placeholder="Enter Unit/Package">
+		<input type="text" class="form-control" id="unp"  name="unp" value="<?php  echo $tunt;?>" size="50" placeholder="Enter Unit/Package">
 
             </td>
           </tr>

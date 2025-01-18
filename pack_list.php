@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3; 
 
 include("membersonly.inc.php");
@@ -14,7 +14,7 @@ else
 {
 $a2='';
 }
-$psl=$_REQUEST[psl];
+$psl=$_REQUEST['psl'] ?? "";
 if($psl==""){
 	$psl1="";
 	}
@@ -30,7 +30,7 @@ if($psl==""){
 <td  align="center" width="6%"><b>Product Name</b></td>
 <td  align="center" width="6%" ><b>Pack</b></td>		
 </tr>
-<?
+<?php 
 $cnt=0;
 $data= mysqli_query($conn,"select * from  main_pack where sl>0 ".$a2.$psl1) or die(mysqli_error($conn));
 while ($row1 = mysqli_fetch_array($data))
@@ -49,16 +49,16 @@ while ($row1 = mysqli_fetch_array($data))
 	}
 ?>		 
 <tr>			
-<td  align="center" ><?=$cnt;?></td>
-<td  align="left" ><?=$pname;?>
+<td  align="center" ><?php  echo $cnt;?></td>
+<td  align="left" ><?php  echo $pname;?>
 </td>
 <td  align="center" >
-<div id="pack<?=$sl;?>">
-<a href="#" onclick="sedt('<?echo $sl;?>','pack','<?echo $pack;?>','pack<?=$sl;?>')"><b><?=$pack;?></b></a>
+<div id="pack<?php  echo $sl;?>">
+<a href="#" onclick="sedt('<?php echo $sl;?>','pack','<?php echo $pack;?>','pack<?php  echo $sl;?>')"><b><?php  echo $pack;?></b></a>
 </div>
 </td>
 </tr>	 			 				 
-<?
+<?php 
 }
 ?>
 </tr>

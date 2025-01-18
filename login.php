@@ -1,12 +1,11 @@
-<?PHP
+<?php 
 
 // retrieve the submitted values
 
-$username1 = $_POST["username"];
+$username1 = $_POST["username"] ?? "";
+$password1 = $_POST["password"]  ?? "";
 
-$password1 = $_POST["password"];
-
-$rememberMe = $_POST["rememberMe"];
+$rememberMe = $_POST["rememberMe"] ?? "";
 $SIP=$_SERVER [ 'REMOTE_ADDR' ];
 $ctm=time()+41400;
 
@@ -641,7 +640,7 @@ form:after {
 <div class="container">
 	<section id="content">
 		    <form name="form1" method="post" action="login.php">
-	<?PHP
+	<?php 
 
 if ($errormessage != ""){
 
@@ -649,11 +648,11 @@ if ($errormessage != ""){
 
 <script language="javascript">
 
-alert('<? echo $errormessage;?>');
+alert('<?php  echo $errormessage;?>');
 
 </script>
 
-<?
+<?php 
 
 
 
@@ -676,4 +675,4 @@ alert('<? echo $errormessage;?>');
 </div><!-- container -->
 </body>
 </html>
-<?php } ?>
+<?php  } ?>

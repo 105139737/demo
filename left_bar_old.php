@@ -3,7 +3,7 @@
         <div class="user-panel">
         	<div class="pull-left image"></div>
             <div class="pull-left info">
-                <p>Hello, <?=$user_nm;?></p>
+                <p>Hello, <?php  echo $user_nm;?></p>
                 <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
         </div>
@@ -18,7 +18,7 @@
                     <i class="fa fa-cogs"></i> <span>Setup</span> <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-<?
+<?php 
 if($user_current_level<0)
 {
 /*echo "<li><a href=\"cus_typ.php\" ><i class=\"fa fa-circle\"></i>Customer Type</a></li>";*/
@@ -55,7 +55,7 @@ echo "<li><a href=\"gst.php\" ><i class=\"fa fa-circle\"></i>GST Setup</a></li>"
 <li class="treeview">
 	<a href="#"><i class="fa fa-edit"></i><span>View & Edit</span><i class="fa fa-angle-left pull-right"></i></a>
 	<ul class="treeview-menu">
-	<?
+	<?php 
 	
 		echo "<li><a href=\"prod_list.php\" ><i class=\"fa fa-circle\"></i>Model</a></li>";
 		echo "<li><a href=\"prod_import.php\" ><i class=\"fa fa-circle\"></i>Model Rate Import</a></li>";
@@ -83,7 +83,7 @@ echo "<li><a href=\"gst.php\" ><i class=\"fa fa-circle\"></i>GST Setup</a></li>"
 <i class="fa fa-angle-left pull-right"></i>
 </a>
 <ul class="treeview-menu">
-<?
+<?php 
 if($user_current_level<0)
 {
 	
@@ -129,7 +129,7 @@ echo "<li><a href=\"sale_return.php\" ><i class=\"fa fa-circle\"></i>Sale Invoic
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-											<?
+											<?php 
 
 
 
@@ -198,7 +198,7 @@ echo "<li><a href=\"stock_st1.php\" ><i class=\"fa fa-circle\"></i>Stock Stateme
 <i class="fa fa-angle-left pull-right"></i>
 </a>
 <ul class="treeview-menu">
-<?
+<?php 
 echo "<li><a href=\"gst_b2b.php\" ><i class=\"fa fa-circle\"></i>GSTR-1 B2B Report</a></li>";
 echo "<li><a href=\"gst_b2cl.php\" ><i class=\"fa fa-circle\"></i>GSTR-1 B2CL Report</a></li>";
 echo "<li><a href=\"gst_b2cs.php\" ><i class=\"fa fa-circle\"></i>GSTR-1 B2CS Report</a></li>";
@@ -222,7 +222,7 @@ echo "<li><a href=\"gstr1_doc.php\" ><i class=\"fa fa-circle\"></i>GSTR-1 Docs <
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-	<?
+	<?php 
 	echo "<li><a href=\"acgrp_form.php\" ><i class=\"fa fa-circle\"></i>Account Group</a></li>";
 echo "<li><a href=\"acldgr_form.php\" ><i class=\"fa fa-circle\"></i>Ledger Head</a></li>";
 echo "<li><a href=\"paymtd.php\" ><i class=\"fa fa-circle\"></i>Payment Method</a></li>";
@@ -271,7 +271,7 @@ echo "<li><a href=\"app_cltn.php\" ><i class=\"fa fa-circle\"></i>App Collection
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-	<?
+	<?php 
 	echo "<li > <a href=\"acledr.php\" target=\"\"><i class=\"fa fa-circle\"></i>Ledger A/C</a></li>";
   echo "<li><a href=\"inex_form.php\" target=\"\"><i class=\"fa fa-circle\"></i>Income & Expenditure A/c</a></li>";
    echo "<li><a href=\"blst_form.php\" target=\"\"><i class=\"fa fa-circle\"></i>Balance Sheet</a></li>";
@@ -292,7 +292,7 @@ echo "<li><a href=\"app_cltn.php\" ><i class=\"fa fa-circle\"></i>App Collection
 		
 							</ul>
     </li>  
-	<?
+	<?php 
 		if ($user_current_level < 0){
 	?>
 	
@@ -303,7 +303,7 @@ echo "<li><a href=\"app_cltn.php\" ><i class=\"fa fa-circle\"></i>App Collection
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-	<?
+	<?php 
 
 	echo "<li > <a href=\"user.php\" target=\"\"><i class=\"fa fa-user\"></i>New User</a></li>";
 	echo "<li > <a href=\"user_show.php\" target=\"\"><i class=\"fa fa-users\"></i>User List</a></li>";
@@ -322,7 +322,7 @@ echo "<li><a href=\"app_cltn.php\" ><i class=\"fa fa-circle\"></i>App Collection
     </li> 
 
 		  
-		<?}?>
+		<?php }?>
  		  
 			</ul>			
                 </section>

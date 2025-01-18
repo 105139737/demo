@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include "header.php";
@@ -18,7 +18,7 @@ $linkGen=$row['linkGen'];
 <html>
 <head>
         <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <style type="text/css"> 
@@ -95,7 +95,7 @@ window.open(`prices_xls.php?tp=${tp}&cat=${cat}`,"_blank");
 
 <form method="post" action="due_bals_xls.php" name="form1"  id="form1"> 
 <div class="box box-success" >
-    <input type="hidden" id="url" value="<?php echo "http://" . $_SERVER['SERVER_NAME'] ;?>/demo/">
+    <input type="hidden" id="url" value="<?php  echo "http://" . $_SERVER['SERVER_NAME'] ;?>/demo/">
 <table border="0" width="860px"  class="table table-hover table-striped table-bordered">
 <thead>
 
@@ -104,7 +104,7 @@ window.open(`prices_xls.php?tp=${tp}&cat=${cat}`,"_blank");
 <b>Brand</b><br>
 
 <select  class="form-control" size="1" id="cat" tabindex="1" multiple name="cat[]">
-<?
+<?php 
 $data1 = mysqli_query($conn,"Select * from main_catg where stat='0' order by cnm");
 while ($row1 = mysqli_fetch_array($data1))
 {
@@ -131,7 +131,7 @@ echo "<option value='".$sl."'>".$cnm."</option>";
 </tr>
 </thead>
 
-<input type="hidden" id="linkGen" name="linkGen" value="<?php echo $linkGen?>">
+<input type="hidden" id="linkGen" name="linkGen" value="<?php  echo $linkGen?>">
 
 </table>
 <div id="datalink" style="overflow-x:auto;">

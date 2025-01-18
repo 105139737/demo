@@ -1,4 +1,4 @@
-<?php
+<?php 
 require("../config.php");
 $fdt=$_REQUEST['fdt'];
 $tdt=$_REQUEST['tdt'];
@@ -39,19 +39,19 @@ $spid_array1=implode(',',$spid_array);
 ?>
 
 <div style="overflow-x:auto;">
-<b><h5>SECONDARY TGT VS ACH-MTD (<?php echo date('d-M-Y', strtotime($fdt))?> To <?php echo date('d-M-Y', strtotime($tdt))?>)</h5></b>
+<b><h5>SECONDARY TGT VS ACH-MTD (<?php  echo date('d-M-Y', strtotime($fdt))?> To <?php  echo date('d-M-Y', strtotime($tdt))?>)</h5></b>
 <table width="100%" border="1" style="border-collapse:collapse; border: 1px solid black;font-size:.600em">
 <tr>
 <th>Sales Person</th>
 
-<?php 
+<?php  
 $data13= mysqli_query($conn,"SELECT * FROM main_scat where sl>0 and FIND_IN_SET(sl, '$cat_array1')>0 $brand1 order by sl ") or die(mysqli_error($conn));
 while ($row13 = mysqli_fetch_array($data13))
 {
 $catnm=$row13['nm'];
 ?>
-<th colspan="3" style="text-align:center;"><b><?php echo $catnm;?></b></th>
-<?php }?>
+<th colspan="3" style="text-align:center;"><b><?php  echo $catnm;?></b></th>
+<?php  }?>
 <th></th>
 <th></th>
 <th></th>
@@ -59,7 +59,7 @@ $catnm=$row13['nm'];
 
 <tr>
 <td></td>
-<?php 
+<?php  
 $i=0;
 $data13= mysqli_query($conn,"SELECT * FROM main_scat where sl>0 and FIND_IN_SET(sl, '$cat_array1')>0 $brand1 order by sl") or die(mysqli_error($conn));
 while ($row13 = mysqli_fetch_array($data13))
@@ -68,7 +68,7 @@ while ($row13 = mysqli_fetch_array($data13))
 <td><b>TGT</b></td>
 <td><b>ACH</b></td>
 <td><b>ACH%</b></td>
-<?php 
+<?php  
 $i=$i+3;
 }?>
 <td><b>TGT</b></td>
@@ -78,7 +78,7 @@ $i=$i+3;
 </tr>
 
 
-<?php 
+<?php  
 
 $data12= mysqli_query($conn,"SELECT * FROM main_sale_per where sl>0 and FIND_IN_SET(spid, '$spid_array1')>0 order by sl ") or die(mysqli_error($conn));
 while ($row12 = mysqli_fetch_array($data12))
@@ -86,8 +86,8 @@ while ($row12 = mysqli_fetch_array($data12))
 $spid=$row12['spid'];
 ?>
 <tr>
-<td><b><?php echo $spid;?></b></td>
-<?php 
+<td><b><?php  echo $spid;?></b></td>
+<?php  
 $netamm1t=0;
 $blno1="";
 $blno=array();
@@ -130,10 +130,10 @@ while ($row15 = mysqli_fetch_array($data15))
 		
 	
 ?>
-<td><?php echo $tgt;?></td>
-<td><?php echo $ach;?></td>
-<td><?php echo $achper;?> %</td>
-<?php 
+<td><?php  echo $tgt;?></td>
+<td><?php  echo $ach;?></td>
+<td><?php  echo $achper;?> %</td>
+<?php  
 $netamm=$netamm+$netamm1;
 }
 $target=0;
@@ -148,22 +148,22 @@ $sachp=round($netamm*100/$starget,2);
 $sachp=0;
 }
 ?>
-<td align="right"><?php echo $starget;?></td>
-<td align="right"><?php echo $netamm;?></td>
-<td align="right"><?php echo $sachp;?></td>
+<td align="right"><?php  echo $starget;?></td>
+<td align="right"><?php  echo $netamm;?></td>
+<td align="right"><?php  echo $sachp;?></td>
 </tr>
-<?php
+<?php 
 $netamm1t+=$netamm;
  }?>
 <tr>
-<td colspan="<?php echo $i+1;?>" align="right">
+<td colspan="<?php  echo $i+1;?>" align="right">
 <b>Total : </b>
 
 </td>
 <td>
 </td>
 <td align="right">
-<b><?php echo $netamm1t;?></b>
+<b><?php  echo $netamm1t;?></b>
 </td>
 <td>
 </td>
@@ -171,7 +171,7 @@ $netamm1t+=$netamm;
 </table>
 </div>
 
-<?php
+<?php 
 $spid_array=array('');
 $data161= mysqli_query($conn,"SELECT * FROM main_sp_target where sl>0 and target>0  and spid='$unm'") or die(mysqli_error($conn));
 while ($row161 = mysqli_fetch_array($data161))
@@ -203,7 +203,7 @@ $var=" and FIND_IN_SET(spid, '$spid_array2')";
 <th ><b>ACH</b></th>
 <th><b>ACH%</b></th>
 </tr>
-<?php 
+<?php  
 
 $netamm=0;
 $data121= mysqli_query($conn,"SELECT * FROM main_sale_per where sl>0 and FIND_IN_SET(spid, '$spid_array1')>0 $var order by sl") or die(mysqli_error($conn));
@@ -212,8 +212,8 @@ while ($row12 = mysqli_fetch_array($data121))
 $spid=$row12['spid'];
 ?>
 <tr>
-<td><b><?php echo $spid;?></b></td>
-<?php 
+<td><b><?php  echo $spid;?></b></td>
+<?php  
 
 
 		$target=0;
@@ -243,11 +243,11 @@ $spid=$row12['spid'];
 		
 	
 ?>
-<td><?php echo $target;?></td>
-<td align="right"><?php echo $netamm1;?></td>
-<td><?php echo $achper1;?> %</td>
+<td><?php  echo $target;?></td>
+<td align="right"><?php  echo $netamm1;?></td>
+<td><?php  echo $achper1;?> %</td>
 </tr>
-<?php 
+<?php  
 $netamm+=$netamm1;
 }?>
 <tr>
@@ -256,7 +256,7 @@ $netamm+=$netamm1;
 
 </td>
 <td align="right">
-<b><?php echo $netamm;?></b>
+<b><?php  echo $netamm;?></b>
 </td>
 <td >
 

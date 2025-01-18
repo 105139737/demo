@@ -1,4 +1,4 @@
-<?
+<?php 
 set_time_limit(0);
 $BackupFolder="backup";	if(!is_dir($BackupFolder)){mkdir($BackupFolder);}
 $BackupSubFolder="backup/files";	if(!is_dir($BackupSubFolder)){mkdir($BackupSubFolder);}
@@ -34,5 +34,5 @@ break;
 ?>
 <script>
 alert("Downloading...");
-//document.location='<?php echo $zipn;?>';
+//document.location='<?php  echo $zipn;?>';
 </script>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include "header.php";
@@ -6,7 +6,7 @@ include "header.php";
 <html>
 <head>
         <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <style type="text/css"> 
@@ -87,7 +87,7 @@ select.sc {
                           
 							
 							
-								 <?
+								 <?php 
 				 
 				 
   $aa=0;
@@ -145,7 +145,7 @@ $nn[]=$pname;
 		
 
 				
-                  <?
+                  <?php 
 				  for($i=0;$i<$aa;$i++)
 				  {
 				    $m=$i+1;

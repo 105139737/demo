@@ -1,4 +1,4 @@
-<?PHP 
+<?php  
 $reqlevel = 3; 
 include("membersonly.inc.php");
 date_default_timezone_set('Asia/Kolkata');
@@ -27,6 +27,7 @@ $credit_limit=$_POST['credit_limit'];
 $gtm=$_POST['gtm'];
 $isfin=$_POST['isfin'];
 $err='';
+$gstdt=null;
 if($gstdt1=="" or $gstdt1=="01-01-1970")
 {
 	$gstdt1="";
@@ -93,17 +94,17 @@ while ($R9 = mysqli_fetch_array ($result9))
 		alert('Update Successfully. Thank You...');
 		document.location="c_show.php";
 		</script>
-		<?
+		<?php 
 
 }
 else
 {
 		?>
 		<script>
-		alert('<?=$err;?>');
+		alert('<?php  echo $err;?>');
 		history.go(-1);
 		</script>
-		<?
+		<?php 
 }
 
 ?>

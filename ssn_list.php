@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 include "header.php";
@@ -7,7 +7,7 @@ include "header.php";
 <html>
 <head>
 	<div class="wrapper row-offcanvas row-offcanvas-left">
-	<?
+	<?php 
 	include "left_bar.php";
 	?>
 
@@ -55,7 +55,7 @@ cursor:pointer;
 <th style="text-align:center; width: 45%;">From Date</th>
 <th style="text-align:center; width: 45%;">To Date</th>
 </tr>
-<?
+<?php 
 $dsql=mysqli_query($conn,"select * from main_ssn")or die(mysqli_error($conn));
 while($drow=mysqli_fetch_array($dsql))
 {
@@ -67,15 +67,15 @@ $fdt=date('d-m-Y',strtotime($fdt));
 $tdt=date('d-m-Y',strtotime($tdt));
 
 ?>
-<tr bgcolor="<?=$color;?>">
+<tr bgcolor="<?php  echo $color;?>">
 <td style="text-align:center;">
-<?=$sl;?><br>
-<a href="ssn_list_edit.php?sl=<?=$gsl;?>" title="Click to Update"><i class="fa fa-pencil-square-o"></i></a> 
+<?php  echo $sl;?><br>
+<a href="ssn_list_edit.php?sl=<?php  echo $gsl;?>" title="Click to Update"><i class="fa fa-pencil-square-o"></i></a> 
 </td>
-<td style="text-align:left;"><?=$fdt;?></td>
-<td style="text-align:left;"><?=$tdt;?></td>
+<td style="text-align:left;"><?php  echo $fdt;?></td>
+<td style="text-align:left;"><?php  echo $tdt;?></td>
 </tr>
-<?															
+<?php 															
 }
 ?>
 </table>

@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 $edtm = date('d-m-Y h:i:s a', time());
@@ -174,16 +174,16 @@ $sms=send_sms($cust_cont,$message,'1');
 ?>
 <script language="javascript">
 alert('Added Successfully. Thank You..!');
-document.location = "cust_credit_note.php?bsl=<?php echo $bsl;?>&dt=<?php echo $dt;?>";
+document.location = "cust_credit_note.php?bsl=<?php  echo $bsl;?>&dt=<?php  echo $dt;?>";
 </script>
-<?	
+<?php 	
 }
 else
 {
 ?>
 <script language="javascript">
-alert('<?=$err;?>');
-document.location = "cust_credit_note.php?bsl=<?php echo $bsl;?>&dt=<?php echo $dt;?>";
+alert('<?php  echo $err;?>');
+document.location = "cust_credit_note.php?bsl=<?php  echo $bsl;?>&dt=<?php  echo $dt;?>";
 </script>
-<?	
+<?php 	
 }

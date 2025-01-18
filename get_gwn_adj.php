@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 $prnm=$_REQUEST['prnm'];
@@ -6,7 +6,7 @@ $brncd=$_REQUEST['brncd'];
 if($brncd==""){$brncd=1;}
 ?>
 <select name="brncd" class="form-control" tabindex="10"  size="1" id="brncd" onchange="getstock()">
-<?
+<?php 
 $geti=mysqli_query($conn,"select * from main_godown where sl>0 order by gnm") or die(mysqli_error($conn));
 while($rowi=mysqli_fetch_array($geti))
 {
@@ -22,12 +22,12 @@ $stck=$R4['stck1'];
 }	
 if($stck==''){$stck=0;}
 ?>
-<option value="<? echo $sl;?>"<?php if($brncd==$sl){echo "selected";}?>><? echo $gnm;?>  (Stock : <?=$stck;?> )</option>
-<?
+<option value="<?php  echo $sl;?>"<?php  if($brncd==$sl){echo "selected";}?>><?php  echo $gnm;?>  (Stock : <?php  echo $stck;?> )</option>
+<?php 
 }
 ?>
 </select>
-<?
+<?php 
 
 /*
 $stk_rate=0;
@@ -54,12 +54,12 @@ $rate=$rate_array[1];
 ?>
 
 <script>
-document.getElementById('rate').value='<?=$rate;?>';
-document.getElementById('stk_rate').value='<?=$stk_rate;?>';
+document.getElementById('rate').value='<?php  echo $rate;?>';
+document.getElementById('stk_rate').value='<?php  echo $stk_rate;?>';
 getstock();
 $('#brncd').chosen({
 no_results_text: "Oops, nothing found!",
 });	
-document.getElementById('brncd').value="<?php echo $brncd;?>";
+document.getElementById('brncd').value="<?php  echo $brncd;?>";
 $('#brncd').trigger("chosen:updated");
 </script>

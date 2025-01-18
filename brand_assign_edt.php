@@ -1,8 +1,8 @@
-<?
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 include "header.php";
-$slp=$_REQUEST[tm];
+$slp=$_REQUEST['tm']??"";
 
 $data= mysqli_query($conn,"select * from  main_slp_brnd where sl='$slp'")or die(mysqli_error($conn));
 while ($row = mysqli_fetch_array($data))
@@ -13,7 +13,7 @@ $catsl=$row['catsl'];
 } 
 ?>
         <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <style type="text/css"> 
@@ -77,7 +77,7 @@ cursor:pointer;
 <form method="post" action="brand_assigns_edt.php" id="form1" onSubmit="return check1()" name="form1">                    
 <table border="0" class="table table-hover table-striped table-bordered" >
 
-	<input type="hidden" value="<?echo $x;?>" name="sl" id="sl" class="form-control"  readonly >
+	<input type="hidden" value="<?php echo $x;?>" name="sl" id="sl" class="form-control"  readonly >
 
 
             <tr>
@@ -86,7 +86,7 @@ cursor:pointer;
             <td  align="left" width="35%">
             <select name="slp" class="form-control" size="1" id="slp" tabindex="8"  required >
 <Option value="">---Select---</option>
-<?
+<?php 
 $data1 = mysqli_query($conn,"Select * from main_sale_per order by spid");
 
 		while ($row1 = mysqli_fetch_array($data1))
@@ -94,8 +94,8 @@ $data1 = mysqli_query($conn,"Select * from main_sale_per order by spid");
 	$sl=$row1['sl'];
 	$spid=$row1['spid'];
 ?>
-<Option value="<?=$spid;?>" <?if($spsl==$spid){echo 'Selected';}?>><?=$spid;?></option>
-	<?}?>
+<Option value="<?php  echo $spid;?>" <?php if($spsl==$spid){echo 'Selected';}?>><?php  echo $spid;?></option>
+	<?php }?>
 </select>
 			</td>
 			
@@ -106,7 +106,7 @@ $data1 = mysqli_query($conn,"Select * from main_sale_per order by spid");
             <td  align="left" width="">
             <select name="cat[]" multiple class="form-control" size="1" id="cat" tabindex="8" >
 			<Option value="ALL">ALL</option>
-<?
+<?php 
 $data13 = mysqli_query($conn,"Select * from main_catg where sl>0 and find_in_set(sl,'$catsl')>0 ");
 
 		while ($row13 = mysqli_fetch_array($data13))
@@ -114,17 +114,17 @@ $data13 = mysqli_query($conn,"Select * from main_catg where sl>0 and find_in_set
 	$sl3=$row13['sl'];
 	$cnm=$row13['cnm'];
 ?>
-<Option value="<?=$sl3;?>" selected ><?=$cnm;?></option>
-	<?}?>
-	<?
+<Option value="<?php  echo $sl3;?>" selected ><?php  echo $cnm;?></option>
+	<?php }?>
+	<?php 
 $data2 = mysqli_query($conn,"Select * from main_catg where sl>0 and find_in_set(sl,'$catsl')=0 ");
 while ($row1 = mysqli_fetch_array($data2))
 {
 $sl3=$row1['sl'];
 $cnm=$row1['cnm'];
 ?>
-<option value="<?=$sl3;?>"><?=$cnm;?></option>
-<?
+<option value="<?php  echo $sl3;?>"><?php  echo $cnm;?></option>
+<?php 
 }?>	
 	
 	

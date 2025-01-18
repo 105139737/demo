@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 date_default_timezone_set('Asia/Kolkata');
@@ -30,9 +30,9 @@ else
 	$ftdt="";
 }
 
-$pno=rawurldecode($_REQUEST['pno']);
+$pno=rawurldecode($_REQUEST['pno'] ?? "");
 
-$ps=rawurldecode($_REQUEST['ps']);
+$ps=rawurldecode($_REQUEST['ps'] ?? "");
 if($ps=="")
 {
 $ps=30;
@@ -55,11 +55,11 @@ if($total!=0)
 ?>
 <br>
 <div align="left">
-<input type="text" name="ps" id="ps" value="<?=$ps;?>" size="7" onblur="pagnt1(this.value)" style="width:50px;">
+<input type="text" name="ps" id="ps" value="<?php  echo $ps;?>" size="7" onblur="pagnt1(this.value)" style="width:50px;">
 </div>
 <div class="box box-success">
 <table class="table table-hover table-striped table-bordered" style="width:100%;" align="center">
-<tr><td colspan="6" align="center"><font color="#dd4f43" size="4"><b>Total <?=$rcntttl;?></b></font></td></tr>
+<tr><td colspan="6" align="center"><font color="#dd4f43" size="4"><b>Total <?php  echo $rcntttl;?></b></font></td></tr>
 <tr>
 <td style="text-align:center"><font size="2" color="#109e59"><b>Sl No.</b></font></td>
 <td style="text-align:center"><font size="2" color="#109e59"><b>Call Details</b></font></td>
@@ -68,7 +68,7 @@ if($total!=0)
 <td style="text-align:center"><font size="2" color="#109e59"><b>Remark</b></font></td>
 <td style="text-align:center"><font size="2" color="#109e59"><b>Action</b></font></td>
 </tr>
-<?
+<?php 
 while($row=mysqli_fetch_array($get))
 {
 	//call_id	tech_id	cnm	cmob	addr	brand	model	serial_no	call_type	remark	parts	edt	edtm	eby	stat
@@ -109,33 +109,33 @@ while($row=mysqli_fetch_array($get))
 	
 ?>
 <tr>
-<td style="text-align:center;"><?=$c;?></td>
+<td style="text-align:center;"><?php  echo $c;?></td>
 <td style="text-align:left;">
-<b>Call ID: </b><?=$call_id;?><br>
-<b>Call Type: </b><?=$call_type;?><br>
-<b>Call Date: </b><?=date('d-m-Y',strtotime($cdt));?>
+<b>Call ID: </b><?php  echo $call_id;?><br>
+<b>Call Type: </b><?php  echo $call_type;?><br>
+<b>Call Date: </b><?php echo date('d-m-Y',strtotime($cdt));?>
 </td>
 <td style="text-align:left;">
-<b>Name: </b><?=$cnm;?><br>
-<b>Address: </b><?=$addr;?><br>
-<b>Mobile: </b><?=$cmob;?>
+<b>Name: </b><?php  echo $cnm;?><br>
+<b>Address: </b><?php  echo $addr;?><br>
+<b>Mobile: </b><?php  echo $cmob;?>
 </td>
 <td style="text-align:left;">
-<b>Brand: </b><?=$brand;?><br>
-<b>Model: </b><?=$model;?><br>
-<b>Serial No.: </b><?=$serial_no;?>
+<b>Brand: </b><?php  echo $brand;?><br>
+<b>Model: </b><?php  echo $model;?><br>
+<b>Serial No.: </b><?php  echo $serial_no;?>
 </td>
-<td style="text-align:center"><?=$remark;?></td>
+<td style="text-align:center"><?php  echo $remark;?></td>
 <td style="text-align:center">
-<button type="button" class="btn btn-info" onclick="astntcn('<?=$sl;?>')">Assign to Technician</button>
+<button type="button" class="btn btn-info" onclick="astntcn('<?php  echo $sl;?>')">Assign to Technician</button>
 </td>
 </tr>
-<?															
+<?php 															
 }
 ?>
 </table>
 </div>
-<?
+<?php 
 $tp=$rcnt/$ps;
 if(($rcnt%$ps)>0)
 {
@@ -170,7 +170,7 @@ echo "Showing ".($start+1)." to ".($cnt1)." of ".$rcnt." entries".$flt;
     <table border="0" style="width:10%">
         <tr>
             <td>
-            <input type="text" size="10" id="pgn" name="pgn" value="<?=$pno;?>" style="text-align:center; width:50px;">
+            <input type="text" size="10" id="pgn" name="pgn" value="<?php  echo $pno;?>" style="text-align:center; width:50px;">
             </td><td>
             <input type="button" value="Go" onclick="pagnt1()">
             </td>
@@ -179,9 +179,9 @@ echo "Showing ".($start+1)." to ".($cnt1)." of ".$rcnt." entries".$flt;
 
 
                             <ul class="pagination pagination-sm inline">
-							<li <? if($pno==1){ echo "class=\"disabled\"";}?>><a onclick="pagnt('1')"><i class="icon-circle-arrow-left"></i>First</a></li>
-                            <li <? if($pno==1){ echo "class=\"disabled\"";}?>><a onclick="pagnt('<?echo $prev;?>')"><i class="icon-circle-arrow-left"></i>Previous</a></li>
-                            <?
+							<li <?php  if($pno==1){ echo "class=\"disabled\"";}?>><a onclick="pagnt('1')"><i class="icon-circle-arrow-left"></i>First</a></li>
+                            <li <?php  if($pno==1){ echo "class=\"disabled\"";}?>><a onclick="pagnt('<?php echo $prev;?>')"><i class="icon-circle-arrow-left"></i>Previous</a></li>
+                            <?php 
                             
                             if($tp<=5)
                             {
@@ -189,8 +189,8 @@ echo "Showing ".($start+1)." to ".($cnt1)." of ".$rcnt." entries".$flt;
                               while($n<=$tp)
                               {
                                 ?>
-                             <li <? if($pno==$n){ echo "class=\"active\"";}?>><a onclick="pagnt('<?echo $n;?>')"><?echo $n;?></a></li>   
-                                <?
+                             <li <?php  if($pno==$n){ echo "class=\"active\"";}?>><a onclick="pagnt('<?php echo $n;?>')"><?php echo $n;?></a></li>   
+                                <?php 
                                 $n+=1;
                               }  
                             }
@@ -202,8 +202,8 @@ echo "Showing ".($start+1)." to ".($cnt1)." of ".$rcnt." entries".$flt;
                                   while($n<=5)
                               {
                                 ?>
-                             <li <? if($pno==$n){ echo "class=\"active\"";}?>><a onclick="pagnt('<?echo $n;?>')"><?echo $n;?></a></li>   
-                                <?
+                             <li <?php  if($pno==$n){ echo "class=\"active\"";}?>><a onclick="pagnt('<?php echo $n;?>')"><?php echo $n;?></a></li>   
+                                <?php 
                                 $n+=1;
                               }     
                                 }
@@ -213,8 +213,8 @@ echo "Showing ".($start+1)." to ".($cnt1)." of ".$rcnt." entries".$flt;
                                     while($n<=5)
                               {
                                 ?>
-                             <li <? if($pno==$n){ echo "class=\"active\"";}?>><a onclick="pagnt('<?echo $n;?>')"><?echo $n;?></a></li>   
-                                <?
+                             <li <?php  if($pno==$n){ echo "class=\"active\"";}?>><a onclick="pagnt('<?php echo $n;?>')"><?php echo $n;?></a></li>   
+                                <?php 
                                 $n+=1;
                               }   
                                 }
@@ -224,8 +224,8 @@ echo "Showing ".($start+1)." to ".($cnt1)." of ".$rcnt." entries".$flt;
                                  while($n<=$pno+2)
                               {
                                 ?>
-                             <li <? if($pno==$n){ echo "class=\"active\"";}?>><a onclick="pagnt('<?echo $n;?>')"><?echo $n;?></a></li>   
-                                <?
+                             <li <?php  if($pno==$n){ echo "class=\"active\"";}?>><a onclick="pagnt('<?php echo $n;?>')"><?php echo $n;?></a></li>   
+                                <?php 
                                 $n+=1;
                               }     
                                 }
@@ -234,12 +234,12 @@ echo "Showing ".($start+1)." to ".($cnt1)." of ".$rcnt." entries".$flt;
                                 
                             }
                             ?>
-                            <li <? if($pno==$tp){ echo "class=\"disabled\"";}?>><a onclick="pagnt('<?echo $next;?>')">Next<i class="icon-circle-arrow-right"></i></a></li>
-                            <li <? if($pno==$tp){ echo "class=\"disabled\"";}?>><a onclick="pagnt('<?echo $tp;?>')">Last<i class="icon-circle-arrow-right"></i></a></li>
+                            <li <?php  if($pno==$tp){ echo "class=\"disabled\"";}?>><a onclick="pagnt('<?php echo $next;?>')">Next<i class="icon-circle-arrow-right"></i></a></li>
+                            <li <?php  if($pno==$tp){ echo "class=\"disabled\"";}?>><a onclick="pagnt('<?php echo $tp;?>')">Last<i class="icon-circle-arrow-right"></i></a></li>
                             </ul>
                             </div>
 </center>
-<?
+<?php 
 }
 else
 {
@@ -249,6 +249,6 @@ else
 <td style="text-align:center;"><font size="4" color="red"><b>No Records Available</b></font></td>
 </tr>
 </table>
-<?
+<?php 
 }
 ?>

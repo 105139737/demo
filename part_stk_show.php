@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 include "header.php";
@@ -6,7 +6,7 @@ include "header.php";
 <html>
 <head>
         <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <style type="text/css"> 
@@ -123,7 +123,7 @@ $('#compose-modal').modal('show');
 <select id="pnm" style="width:100%;" name="pnm" class="form-control" >
 		<option value="">---All---</option>
 
-		<?
+		<?php 
 
    $result56 = mysqli_query($conn,"Select * from ".$DBprefix."parts");
 while ($R56 = mysqli_fetch_array ($result56))
@@ -147,8 +147,8 @@ $brand=$row1['brand'];
 
 ?>
 
-<option value="<?=$psl?>"><?=$pnm?> - <?=$cnm?> - <?=$brand?></option>
-<?}?>
+<option value="<?php  echo $psl?>"><?php  echo $pnm?> - <?php  echo $cnm?> - <?php  echo $brand?></option>
+<?php }?>
 			</select>
 			
 </td>
@@ -158,12 +158,12 @@ $brand=$row1['brand'];
 <td align="left" width="30%" >
 
     <select name="brncd" class="form-control" size="1" id="brncd"   >
-<?
+<?php 
 if($user_current_level<0)
 {
 	?>
 	<option value="">---ALL---</option>
-	<?
+	<?php 
 }
 if($user_current_level<0)
 {
@@ -180,8 +180,8 @@ $sl=$R['sl'];
 $bnm=$R['bnm'];
 
 ?>
-<option value="<? echo $sl;?>"><? echo $bnm;?></option>
-<?
+<option value="<?php  echo $sl;?>"><?php  echo $bnm;?></option>
+<?php 
 }
 ?>
 </select>

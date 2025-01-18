@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 $err="";
@@ -25,15 +25,15 @@ $result=mysqli_query($conn,"update main_appmenu set nm='$nm' where sl='$sl'");
 alert("Update Successfully....");
 document.location="menu_setup.php";
 </script>
-<?php
+<?php 
 }
 else
 {
 ?>
 <script>
-alert('<?php echo $err;?>');
+alert('<?php  echo $err;?>');
 window.history.go(-1);
 </script>
-<?php
+<?php 
 }
 ?>

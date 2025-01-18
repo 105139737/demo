@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 $edt=date('Y-m-d');
@@ -27,15 +27,15 @@ $qr2=mysqli_query($conn,"delete from main_product where sl='$sl'") or die (mysql
 <script>
 get_list();	
 </script>
-<? 
+<?php  
 }
 else
 {
 ?>
 <script>
-alert("<?php echo $err; ?>");
+alert("<?php  echo $err; ?>");
 get_list();	
 </script>
-<? 
+<?php  
 }	
 ?>

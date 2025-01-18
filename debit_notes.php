@@ -1,10 +1,10 @@
-<?
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include "header.php";
 date_default_timezone_set('Asia/Kolkata');
 $dttm=date('d-m-Y H:i:s a');
-$sl=$_POST['sl'];
+$sl=$_POST['sl']??"";
 $sup=$_POST['sup'];
 $sgstin=$_POST['sgstin'];
 $name=$_POST['name'];
@@ -15,7 +15,7 @@ $invdt=$_POST['invdt'];
 $note_typ=$_POST['note_typ'];
 $amm=$_POST['amm'];
 $styp=$_POST['styp'];
-$edt=$_POST['edt'];
+$edt=$_POST['edt']??"";
 $typ=$_POST['typ'];
 $tax_rate=$_POST['tax_rate'];
 $tax=$_POST['tax'];
@@ -61,7 +61,7 @@ while($rows=mysqli_fetch_array($result51))
 	$vnos=$rows['vno'];
 }
 $vid1=substr($vnos,2,7);
-$vid1=$vid1+1;
+$vid1=(float)$vid1+1;
 $vnoc=str_pad($vid1, 7, '0', STR_PAD_LEFT);
 
 $vno="SV".$vnoc;
@@ -162,6 +162,6 @@ $err="Submit Successfully. Thank You...";
 }
 ?>
 <Script language="JavaScript">
-alert('<?=$err;?>');
+alert('<?php  echo $err;?>');
 document.location="debit_note.php";
 </script>

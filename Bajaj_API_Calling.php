@@ -1,4 +1,4 @@
-<?
+<?php 
 function callAPIB($method, $url, $data,$force_refresh=true){
 
 

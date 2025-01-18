@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 
@@ -15,7 +15,7 @@ date_default_timezone_set('Asia/Kolkata');
 ?>
 <table  width="100%" class="advancedtable"  >
 
-<?php
+<?php 
 $cnt=0;
 $select=mysqli_query($conn,"select B1.* from main_billing B1 INNER JOIN main_billing_edt_log B2 ON B1.blno=B2.blno where B1.sl>0".$blno_scarch.$todts.$brncd1);
 while($row=mysqli_fetch_array($select))
@@ -115,7 +115,7 @@ $statcd=$GBi['cd'];
 }
 ?>
 <tr bgcolor="#fd6a2a">
-<td colspan="26"><font size="5" color="#FFF">Current Bill Details : <?echo $blno;?></font></td>
+<td colspan="26"><font size="5" color="#FFF">Current Bill Details : <?php echo $blno;?></font></td>
 </tr>		
 			<tr bgcolor="#e8ecf6">
 			<td  align="center" ><b>Date</b></td>
@@ -134,22 +134,22 @@ $statcd=$GBi['cd'];
 			<td  align="center" ><b>Time</b></td>
 			</tr>
 	<tr bgcolor="">			
-			<td  align="center" ><b><?echo date('d-m-Y',strtotime($dt));?></b></td>
-			<td  align="center" ><b><?echo $bnm;?></b></td>
-			<td  align="center" ><b><?=$nm;?> <b><?=$invnm;?></b></b></td>
-			<td  align="center" ><b><?echo $statnm;?></b></td>
-			<td  align="left"><b><?echo $amm;?></b></td>
-			<td  align="center"><b><?echo $tamm;?></b></td>
-			<td  align="center" ><b><?echo $gstam;?></b></td>
-			<td  align="center" ><b><?echo $tcsam;?></b></td>
-			<td  align="center" ><b><?echo $roff;?></b></td>
-			<td  align="center" ><b><?echo $damm;?></b></td>
-			<td  align="center" ><b><?echo $payam;?></b></td>
-			<td  align="center" ><b><?echo $paid;?></b></td>
-			<td  align="center" ><b><?echo $eby;?></b></td>
-			<td  align="center" ><b><?echo $pdts;?></b></td>
+			<td  align="center" ><b><?php echo date('d-m-Y',strtotime($dt));?></b></td>
+			<td  align="center" ><b><?php echo $bnm;?></b></td>
+			<td  align="center" ><b><?php  echo $nm;?> <b><?php  echo $invnm;?></b></b></td>
+			<td  align="center" ><b><?php echo $statnm;?></b></td>
+			<td  align="left"><b><?php echo $amm;?></b></td>
+			<td  align="center"><b><?php echo $tamm;?></b></td>
+			<td  align="center" ><b><?php echo $gstam;?></b></td>
+			<td  align="center" ><b><?php echo $tcsam;?></b></td>
+			<td  align="center" ><b><?php echo $roff;?></b></td>
+			<td  align="center" ><b><?php echo $damm;?></b></td>
+			<td  align="center" ><b><?php echo $payam;?></b></td>
+			<td  align="center" ><b><?php echo $paid;?></b></td>
+			<td  align="center" ><b><?php echo $eby;?></b></td>
+			<td  align="center" ><b><?php echo $pdts;?></b></td>
 			</tr>
-	<?
+	<?php 
 	$pbill="";
 	$sbill="";	
 	$rbill="";
@@ -161,7 +161,7 @@ $statcd=$GBi['cd'];
 ?>
 
 <tr bgcolor="#b9b9b9">
-<td colspan="26"><font size="5" color="#FFF">Edit Bill Details : <?php echo $blno?></font></td>
+<td colspan="26"><font size="5" color="#FFF">Edit Bill Details : <?php  echo $blno?></font></td>
 </tr>		
 			<tr bgcolor="#e8ecf6">
 			<td  align="center" ><b>Date</b></td>
@@ -179,77 +179,77 @@ $statcd=$GBi['cd'];
 			<td  align="center" ><b>By</b></td>
 			<td  align="center" ><b>Time</b></td>
 			</tr>
-<?
+<?php 
 $cnt=0;
 $select1=mysqli_query($conn,"select * from main_billing_edt_log  where blno='$blno'");
 while($row=mysqli_fetch_array($select1))
 {
-$sl=$row['sl'];
-$refsl=$row['refsl'];
-$bill_typ=$row['bill_typ'];
-$als=$row['als'];
-$tp=$row['tp'];
-$adrs=$row['adrs'];
-$ssn=$row['ssn'];
-$start_no=$row['start_no'];
-$blno=$row['blno'];
-$bill_no=$row['bill_no'];
-$fst=$row['fst'];
-$tst=$row['tst'];
-$gst=$row['gst'];
-$cid=$row['cid'];
-$invto=$row['invto'];
-$ship=$row['ship'];
-$amm=$row['amm'];
-$tamm=$row['tamm'];
-$gstam=$row['gstam'];
-$tcs=$row['tcs'];
-$tcsam=$row['tcsam'];
-$roff=$row['roff'];
-$payam=$row['payam'];
-$tpoint=$row['tpoint'];
-$paid=$row['paid'];
-$due=$row['due'];
-$dldgr=$row['dldgr'];
-$crdtp=$row['crdtp'];
-$crfno=$row['crfno'];
-$cbnm=$row['cbnm'];
-$dt=$row['dt'];
-$ddt=$row['ddt'];
-$edt=$row['edt'];
-$pdts=$row['pdts'];
-$vat=$row['vat'];
-$vatamm=$row['vatamm'];
-$car=$row['car'];
-$dis=$row['dis'];
-$bcd=$row['bcd'];
-$tmod=$row['tmod'];
-$psup=$row['psup'];
-$vno=$row['vno'];
-$lpd=$row['lpd'];
-$dur_mnth=$row['dur_mnth'];
-$no_servc=$row['no_servc'];
-$sfno=$row['sfno'];
-$dpay=$row['dpay'];
-$finam=$row['finam'];
-$emiam=$row['emiam'];
-$emi_mnth=$row['emi_mnth'];
-$cust_typ=$row['cust_typ'];
-$sale_per=$row['sale_per'];
-$gstin=$row['gstin'];
-$eby=$row['eby'];
-$rstat=$row['rstat'];
-$cstat=$row['cstat'];
-$cu=$row['cu'];
-$order_no=$row['order_no'];
-$rv=$row['rv'];
-$blno1=$row['blno1'];
-$disl=$row['disl'];
-$dstat=$row['dstat'];
-$remk=$row['remk'];
-$damm=$row['damm'];
-$blnon=$row['blnon'];
-$download=$row['download'];
+$sl=$row['sl'] ?? "";
+$refsl=$row['refsl'] ?? "";
+$bill_typ=$row['bill_typ'] ?? "";
+$als=$row['als'] ?? "";
+$tp=$row['tp'] ?? "";
+$adrs=$row['adrs'] ?? "";
+$ssn=$row['ssn'] ?? "";
+$start_no=$row['start_no'] ?? "";
+$blno=$row['blno'] ?? "";
+$bill_no=$row['bill_no'] ?? 0;
+$fst=$row['fst'] ?? "";
+$tst=$row['tst'] ?? "";
+$gst=$row['gst'] ?? "";
+$cid=$row['cid'] ?? "";
+$invto=$row['invto'] ?? "";
+$ship=$row['ship'] ?? "";
+$amm=$row['amm'] ?? "";
+$tamm=$row['tamm'] ?? "";
+$gstam=$row['gstam'] ?? "";
+$tcs=$row['tcs'] ?? "";
+$tcsam=$row['tcsam'] ?? "";
+$roff=$row['roff'] ?? "";
+$payam=$row['payam'] ?? "";
+$tpoint=$row['tpoint'] ?? "";
+$paid=$row['paid'] ?? "";
+$due=$row['due'] ?? "";
+$dldgr=$row['dldgr'] ?? "";
+$crdtp=$row['crdtp'] ?? "";
+$crfno=$row['crfno'] ?? "";
+$cbnm=$row['cbnm'] ?? "";
+$dt=$row['dt'] ?? "";
+$ddt=$row['ddt'] ?? "";
+$edt=$row['edt'] ?? "";
+$pdts=$row['pdts'] ?? "";
+$vat=$row['vat'] ?? "";
+$vatamm=$row['vatamm'] ?? "";
+$car=$row['car'] ?? "";
+$dis=$row['dis'] ?? "";
+$bcd=$row['bcd'] ?? "";
+$tmod=$row['tmod'] ?? "";
+$psup=$row['psup'] ?? "";
+$vno=$row['vno'] ?? "";
+$lpd=$row['lpd'] ?? "";
+$dur_mnth=$row['dur_mnth'] ?? "";
+$no_servc=$row['no_servc'] ?? "";
+$sfno=$row['sfno'] ?? "";
+$dpay=$row['dpay'] ?? "";
+$finam=$row['finam'] ?? "";
+$emiam=$row['emiam'] ?? "";
+$emi_mnth=$row['emi_mnth'] ?? "";
+$cust_typ=$row['cust_typ'] ?? "";
+$sale_per=$row['sale_per'] ?? "";
+$gstin=$row['gstin'] ?? "";
+$eby=$row['eby'] ?? "";
+$rstat=$row['rstat'] ?? "";
+$cstat=$row['cstat'] ?? "";
+$cu=$row['cu'] ?? "";
+$order_no=$row['order_no'] ?? "";
+$rv=$row['rv'] ?? "";
+$blno1=$row['blno1'] ?? "";
+$disl=$row['disl'] ?? "";
+$dstat=$row['dstat'] ?? "";
+$remk=$row['remk'] ?? "";
+$damm=$row['damm'] ?? "";
+$blnon=$row['blnon'] ?? "";
+$download=$row['download'] ?? "";
 
 $query="Select * from main_branch where sl='$bcd'";
 $result = mysqli_query($conn,$query);
@@ -280,22 +280,22 @@ $statcd=$GBi['cd'];
 ?>
 
 	<tr bgcolor="">			
-			<td  align="center" ><b><?echo date('d-m-Y',strtotime($dt));?></b></td>
-			<td  align="center" ><b><?echo $bnm;?></b></td>
-			<td  align="center" ><b><?=$nm;?> <b><?=$invnm;?></b></b></td>
-			<td  align="center" ><b><?echo $statnm;?></b></td>
-			<td  align="left"><b><?echo $amm;?></b></td>
-			<td  align="center"><b><?echo $tamm;?></b></td>
-			<td  align="center" ><b><?echo $gstam;?></b></td>
-			<td  align="center" ><b><?echo $tcsam;?></b></td>
-			<td  align="center" ><b><?echo $roff;?></b></td>
-			<td  align="center" ><b><?echo $damm;?></b></td>
-			<td  align="center" ><b><?echo $payam;?></b></td>
-			<td  align="center" ><b><?echo $paid;?></b></td>
-			<td  align="center" ><b><?echo $eby;?></b></td>
-			<td  align="center" ><b><?echo $pdts;?></b></td>
+			<td  align="center" ><b><?php echo date('d-m-Y',strtotime($dt));?></b></td>
+			<td  align="center" ><b><?php echo $bnm;?></b></td>
+			<td  align="center" ><b><?php  echo $nm;?> <b><?php  echo $invnm;?></b></b></td>
+			<td  align="center" ><b><?php echo $statnm;?></b></td>
+			<td  align="left"><b><?php echo $amm;?></b></td>
+			<td  align="center"><b><?php echo $tamm;?></b></td>
+			<td  align="center" ><b><?php echo $gstam;?></b></td>
+			<td  align="center" ><b><?php echo $tcsam;?></b></td>
+			<td  align="center" ><b><?php echo $roff;?></b></td>
+			<td  align="center" ><b><?php echo $damm;?></b></td>
+			<td  align="center" ><b><?php echo $payam;?></b></td>
+			<td  align="center" ><b><?php echo $paid;?></b></td>
+			<td  align="center" ><b><?php echo $eby;?></b></td>
+			<td  align="center" ><b><?php echo $pdts;?></b></td>
 			</tr>
-	<?
+	<?php 
 	$pbill="";
 	$sbill="";	
 	$rbill="";

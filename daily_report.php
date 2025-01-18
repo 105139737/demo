@@ -1,4 +1,4 @@
-<?php 
+<?php  
 $reqlevel = 1;
 include("membersonly.inc.php");
 include "header.php";
@@ -12,7 +12,7 @@ $fdt="01-04-".$fy;
 
         <div class="wrapper row-offcanvas row-offcanvas-left">
  
-            <?php 
+            <?php  
             include "left_bar.php";
             ?>
 
@@ -371,11 +371,11 @@ function suggest(inputString){
         <tr >
     <td align="right" width="20%"><font color="red">*</font>From :</td>
     <td align="left" width="30%">
-	<input type="text" name="fdt" class="form-control" id="fdt" value="<? echo date('01-m-Y'); ?>">
+	<input type="text" name="fdt" class="form-control" id="fdt" value="<?php  echo date('01-m-Y'); ?>">
 	</td>
 	<td align="right" width="20%"><font color="red">*</font>To :</td>
     <td align="left" width="30%">
-	<input type="text" name="tdt" class="form-control" id="tdt" value="<? echo date('d-m-Y'); ?>">
+	<input type="text" name="tdt" class="form-control" id="tdt" value="<?php  echo date('d-m-Y'); ?>">
     </td>   
   </tr>
   <tr >
@@ -387,7 +387,7 @@ function suggest(inputString){
 
 
 <option value="">---ALL---</option>
-<?
+<?php 
 $query="Select * from main_branch";
  $result = mysqli_query($conn,$query);
 while ($R = mysqli_fetch_array ($result))
@@ -396,8 +396,8 @@ $slb=$R['sl'];
 $bnm=$R['bnm'];
 
 ?>
-<option value="<? echo $slb;?>"><? echo $bnm;?></option>
-<?
+<option value="<?php  echo $slb;?>"><?php  echo $bnm;?></option>
+<?php 
 }
 ?>
 </select>

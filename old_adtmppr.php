@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 $prnm=$_REQUEST['prnm'];
@@ -143,7 +143,7 @@ $('#prnm').val('');
 reset();
 
 </script>
-<?
+<?php 
 }
 else
 {
@@ -154,9 +154,9 @@ if($err!='')
 {
 ?>
 <script>
-alert('<?=$err;?>');
+alert('<?php  echo $err;?>');
 temp();
 </script>
-<?
+<?php 
 }
 ?>

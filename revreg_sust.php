@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 $str=rawurldecode($_REQUEST['str']);
@@ -26,5 +26,5 @@ $qury=rawurldecode($_REQUEST['qury']);
 	echo $myJSON;
 ?>
 <script>
-alert('<?php echo $qury;?>');
+alert('<?php  echo $qury;?>');
 </script>

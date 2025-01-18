@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 include "header.php";
@@ -14,7 +14,7 @@ $dt=$row['dt'];
 }
 ?>
         <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <style type="text/css"> 
@@ -87,35 +87,35 @@ $('#dt').val(str);
 <body onload="show()">
 <div class="box box-success " >
 <form method="post" action="task_assign_edts.php" id="form1" onSubmit="return check1()" name="form1">                    
-<input type="hidden" id="sl" name="sl" value="<?php echo $sl;?>"> 
+<input type="hidden" id="sl" name="sl" value="<?php  echo $sl;?>"> 
 <table border="0" class="table table-hover table-striped table-bordered" >
 <tr>
 <td align="right" style="padding-top:15px;" width="15%"><b>Sales Person :</b></td>
 <td  align="left" width="35%">
 <select name="spid" class="form-control" size="1" id="spid" tabindex="8"  required onchange="getcust()">
 
-<?
+<?php 
 $data1 = mysqli_query($conn,"Select * from main_sale_per where spid='$spid' order by spid");
 while ($row1 = mysqli_fetch_array($data1))
 {
 $sl=$row1['sl'];
 $spidd=$row1['spid'];
 ?>
-<Option value="<?=$spidd;?>" <?if($spidd==$spid){echo 'Selected';}?>><?=$spidd;?></option>
-<?}?>
+<Option value="<?php  echo $spidd;?>" <?php if($spidd==$spid){echo 'Selected';}?>><?php  echo $spidd;?></option>
+<?php }?>
 </select>
 </td>
 <td align="right" style="padding-top:15px;"  width="15%"><b>Day :</b></td>
 <td  align="left" width="35%">
 <select id="day" name="day" class="form-control"  onchange="getday()" required> 
 <option value="">----Select----</option>       
-<option value="sunday" <?if($day=='sunday'){echo 'Selected';}?>>Sunday</option>       
-<option value="monday" <?if($day=='monday'){echo 'Selected';}?>>Monday</option>       
-<option value="tuesday" <?if($day=='tuesday'){echo 'Selected';}?>>Tuesday</option>       
-<option value="wednesday" <?if($day=='wednesday'){echo 'Selected';}?>>Wednesday</option>       
-<option value="thursday" <?if($day=='thursday'){echo 'Selected';}?>>Thursday</option>       
-<option value="friday" <?if($day=='friday'){echo 'Selected';}?>>Friday</option>       
-<option value="saturday" <?if($day=='saturday'){echo 'Selected';}?>>Saterday</option>       
+<option value="sunday" <?php if($day=='sunday'){echo 'Selected';}?>>Sunday</option>       
+<option value="monday" <?php if($day=='monday'){echo 'Selected';}?>>Monday</option>       
+<option value="tuesday" <?php if($day=='tuesday'){echo 'Selected';}?>>Tuesday</option>       
+<option value="wednesday" <?php if($day=='wednesday'){echo 'Selected';}?>>Wednesday</option>       
+<option value="thursday" <?php if($day=='thursday'){echo 'Selected';}?>>Thursday</option>       
+<option value="friday" <?php if($day=='friday'){echo 'Selected';}?>>Friday</option>       
+<option value="saturday" <?php if($day=='saturday'){echo 'Selected';}?>>Saterday</option>       
 </select>
 </td>
 </tr>
@@ -123,30 +123,30 @@ $spidd=$row1['spid'];
 <td align="right" width="11%" style="padding-top:15px;" ><b>Customer :</b></td>
 <td  align="left" width=""><div id="custdv">
 <select name="cust[]" multiple class="form-control" size="1" id="cust" tabindex="8" >
-<?
+<?php 
 $data13 = mysqli_query($conn,"Select * from main_cust where sl>0 and find_in_set(sl,'$catsl')>0 ");
 while ($row13 = mysqli_fetch_array($data13))
 {
 $sl3=$row13['sl'];
 $cnm=$row13['nm'];
 ?>
-<Option value="<?=$sl3;?>" selected ><?=$cnm;?></option>
-<?}?>
-<?
-$data2 = mysqli_query($conn,"Select * from main_cust where sl>0 and find_in_set(sl,'$catsl')=0 ");
+<Option value="<?php  echo $sl3;?>" selected ><?php  echo $cnm;?></option>
+<?php }?>
+<?php 
+$data2 = mysqli_query($conn,"Select * from main_cust where sl>0 and find_in_set(sl,'$catsl')=0 and typ='2'");
 while ($row1 = mysqli_fetch_array($data2))
 {
 $sl3=$row1['sl'];
 $cnm=$row1['nm'];
 ?>
-<option value="<?=$sl3;?>"><?=$cnm;?></option>
-<?
+<option value="<?php  echo $sl3;?>"><?php  echo $cnm;?></option>
+<?php 
 }?>	
 </select>
 </div></td>
 <td align="right" style="padding-top:15px;" ><b>Date :</b></td>
 <td  align="left">
-<input type="text" id="dt" name="dt" value="<?php echo $dt;?>" class="form-control" readonly required> 
+<input type="text" id="dt" name="dt" value="<?php  echo $dt;?>" class="form-control" readonly required> 
 </td>			
 </tr>
 <tr>

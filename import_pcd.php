@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3; 
 include("membersonly.inc.php");
 $result = mysqli_query($conn,"SELECT * FROM main_product where pcd IS NULL order by sl ");

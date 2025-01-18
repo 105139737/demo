@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 $prnm=$_REQUEST['prnm'];
@@ -27,7 +27,8 @@ $tsl=$_REQUEST['tsl'];
 $blno=rawurldecode($_REQUEST['blno']);
 $bill_typ=$_REQUEST['bill_typ'];
 $stk=$_REQUEST['stk'];
-
+$err="";
+$blno_stk="";
 if($tsl!=""){$ssl=" and sl!='$tsl'"; $blno_stk=" and sbill!='$blno'";}else{$ssl="";}
 if($lttl=='' or $prnm=='')
 {
@@ -57,13 +58,13 @@ $cat=$row['cat'];
 
 
 $stck=0;
-echo $query4="Select sum(opst+stin-stout) as stck1 from ".$DBprefix."stock where pcd='$prnm' and bcd='$bcd' $blno_stk";
+ $query4="Select sum(opst+stin-stout) as stck1 from ".$DBprefix."stock where pcd='$prnm' and bcd='$bcd' $blno_stk";
 $result4 = mysqli_query($conn,$query4);
 while ($R4 = mysqli_fetch_array ($result4))
 {
 $stck=$R4['stck1'];
 }
-
+//die();
 
 $get=mysqli_query($conn,"select * from ".$DBprefix."unit where cat='$prnm'") or die(mysqli_error($conn));
 while($roww=mysqli_fetch_array($get))
@@ -126,27 +127,43 @@ $rate=$net_am/$pcs;
 
 if($tsl=="")
 {
-$query21 = "INSERT INTO main_billdtls_edt (total,disp,disa,cat,scat,prsl,unit,pcs,prc,ttl,eby,fst,tst,cgst_rt,sgst_rt,igst_rt,cgst_am,sgst_am,igst_am,net_am,refno,usl,bcd,betno,blno,bill_typ,tamm,rate)
-VALUES ('$total','$disp','$disa','$cat','$scat','$prnm','$unit','$pcs','$prc','$lttl','$user_currently_loged','$fst','$tst','$cgst_rt','$sgst_rt','$igst_rt','$cgst_am','$sgst_am','$igst_am','$net_am','$refno','$usl','$bcd','$betno','$blno','$bill_typ','$tamm','$rate')";
+$sdt=null;
+if(!empty($betno)){
+$sdt=date('Y-m-d');
+}
+$query21 = "INSERT INTO main_billdtls_edt (total,disp,disa,cat,scat,prsl,unit,pcs,prc,ttl,eby,fst,tst,cgst_rt,sgst_rt,igst_rt,cgst_am,sgst_am,igst_am,net_am,refno,usl,bcd,betno,blno,bill_typ,tamm,rate,sdt)
+VALUES ('$total','$disp','$disa','$cat','$scat','$prnm','$unit','$pcs','$prc','$lttl','$user_currently_loged','$fst','$tst','$cgst_rt','$sgst_rt','$igst_rt','$cgst_am','$sgst_am','$igst_am','$net_am','$refno','$usl','$bcd','$betno','$blno','$bill_typ','$tamm','$rate','$sdt')";
 $result21 = mysqli_query($conn,$query21)or die(mysqli_error($conn));	
 }
 else
 {
+$betno_old="";
+$query_s="Select * from main_billdtls_edt where sl='$tsl'";
+$result_s = mysqli_query($conn,$query_s);
+while ($Rs = mysqli_fetch_array ($result_s))
+{
+$betno_old=$Rs['betno'];
+}
+
 $query21 = "UPDATE main_billdtls_edt SET total='$total',disp='$disp',disa='$disa',cat='$cat',scat='$scat',prsl='$prnm',
 unit='$unit',pcs='$pcs',prc='$prc',ttl='$lttl',eby='$user_currently_loged',fst='$fst',tst='$tst',cgst_rt='$cgst_rt',
 sgst_rt='$sgst_rt',igst_rt='$igst_rt',cgst_am='$cgst_am',sgst_am='$sgst_am',igst_am='$igst_am',net_am='$net_am',
 refno='$refno',usl='$usl',bcd='$bcd',betno='$betno',tamm='$tamm',rate='$rate' WHERE sl='$tsl'";
 $result21 = mysqli_query($conn,$query21)or die(mysqli_error($conn));		
+if($betno_old!=$betno && !empty($betno)){
+$sdt=date('Y-m-d');
+$query21 = "UPDATE main_billdtls_edt SET sdt='$sdt',sync_stat=0 WHERE sl='$tsl'";
+$result2 = mysqli_query($conn,$query21)or die(mysqli_error($conn));
 
-$query21 = "UPDATE main_billdtls_edt SET betno='$betno' WHERE sl='$tsl'";
-//$result21 = mysqli_query($conn,$query21)or die(mysqli_error($conn));		
+$datasy= mysqli_query($conn,"UPDATE lg_sync set stat=1 where blno='$blno' and prsl='$prnm' and betno='$betno'")or die(mysqli_error($conn));
+}
 ?>
 <script>
 $('.upd').html('<input type="button" value="Add" onclick="add1()" style="padding:2px;width:100%" class="btn btn-primary">');
 		$('#prnm').prop('disabled', false).trigger("chosen:updated");
 		$('#bcd').prop('disabled', false).trigger("chosen:updated");
 </script>
-<?
+<?php 
 
 }
 ?>
@@ -155,7 +172,7 @@ temp();
 //$('#prnm').trigger('chosen:open');
 reset();
 </script>
-<?
+<?php 
 }
 else
 {
@@ -164,6 +181,7 @@ else
 //$err="Please Check  Quantity....";		
 ?>
 <script>
+console.log("---------- : <?php echo $stck ."/".$chk_stk?>");
 if (confirm("Please Check  Quantity, Are Sure To Sale ?")) 
 {	
 add1('1');
@@ -173,7 +191,7 @@ else
 temp();
 }
 </script>
-<?
+<?php 
 
 }
 }
@@ -181,9 +199,9 @@ if($err!='')
 {
 ?>
 <script>
-alert('<?=$err;?>');
+alert('<?php  echo $err;?>');
 temp();
 </script>
-<?
+<?php 
 }
 ?>

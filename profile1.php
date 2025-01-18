@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 include "header.php";
@@ -8,7 +8,7 @@ $saa=date('Y-m')."-"."01";
 <html>
 <head>
         <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <style type="text/css"> 
@@ -141,9 +141,9 @@ $("#tdt").inputmask("yyyy-mm-dd", {"placeholder": "yyyy-mm-dd"});
      <table border="0" width="860px" class="table table-hover table-striped table-bordered">
 <thead>
 <tr style="background-color:#2396d6;" >
-<td>Form Date &nbsp &nbsp: &nbsp &nbsp <input type="text" id="fdt" name="fdt" size="40" value="<?echo $saa;?>" placeholder="Please Enter From Date" > </td>
+<td>Form Date &nbsp &nbsp: &nbsp &nbsp <input type="text" id="fdt" name="fdt" size="40" value="<?php echo $saa;?>" placeholder="Please Enter From Date" > </td>
 <td>To Date &nbsp &nbsp: &nbsp &nbsp
-<input type="text" id="tdt" name="tdt" size="40" value="<?echo $sa;?>" placeholder="Please Enter To Date"></td>
+<input type="text" id="tdt" name="tdt" size="40" value="<?php echo $sa;?>" placeholder="Please Enter To Date"></td>
 
 
 </tr>

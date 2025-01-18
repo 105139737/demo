@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 include "header.php";
@@ -8,7 +8,7 @@ $dl_tm=date('H:i', $ndl_tm);
 ?>
 <html>
         <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <head>
@@ -392,14 +392,14 @@ document.getElementById('lttl').value=qnty*prc;
   <select id="custnm" name="custnm" tabindex="1"  class="form-control" onchange="gtid()" >
 	<option value="">---Select---</option>
 	<option value="Add">---Add New Customer---</option>
-	<?
+	<?php 
 		$query="select * from main_cust  WHERE sl>0 order by nm";
 		$result=mysqli_query($conn,$query);
 		while($rw=mysqli_fetch_array($result))
 		{
 			?>
-			<option value="<?=$rw['sl'];?>"><?=$rw['nm'];?> <?if($rw['cont']!=""){?>( <?=$rw['cont'];?> )<?}?></option>
-			<?
+			<option value="<?php  echo $rw['sl'];?>"><?php  echo $rw['nm'];?> <?php if($rw['cont']!=""){?>( <?php  echo $rw['cont'];?> )<?php }?></option>
+			<?php 
 		}
 	?>
 	</select>
@@ -447,7 +447,7 @@ document.getElementById('lttl').value=qnty*prc;
 <td align="left" >
 
 <select name="brncd" class="form-control" tabindex="2" size="1" id="brncd" onchange="getb()"  >
-<?
+<?php 
 if($user_current_level<0)
 {
 $query="Select * from main_branch";
@@ -463,8 +463,8 @@ $sl=$R['sl'];
 $bnm=$R['bnm'];
 
 ?>
-<option value="<? echo $sl;?>"><? echo $bnm;?></option>
-<?
+<option value="<?php  echo $sl;?>"><?php  echo $bnm;?></option>
+<?php 
 }
 ?>
 </select>
@@ -472,7 +472,7 @@ $bnm=$R['bnm'];
 </td>
     <td align="right" style="padding-top:15px;"> <b>Date : </b></td>
   <td>
-  <input type="text" class="form-control"  id="dt"  name="dt" value="<? echo date('d-m-Y');?>" tabindex="3" size="35" placeholder="Enter Date">
+  <input type="text" class="form-control"  id="dt"  name="dt" value="<?php  echo date('d-m-Y');?>" tabindex="3" size="35" placeholder="Enter Date">
   </td>
 </tr>
 
@@ -499,7 +499,7 @@ $bnm=$R['bnm'];
 <td > 
 <input type="text" id="prnm" name="prnm" class="sc" list="browsers" tabindex="4">
 <datalist id="browsers">
-<?
+<?php 
  $query3="Select * from ".$DBprefix."bildtls_oth group by prnm";
 $result3 = mysqli_query($conn,$query3);
   while ($R3 = mysqli_fetch_array ($result3))

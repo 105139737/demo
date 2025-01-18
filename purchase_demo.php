@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 include "header.php";
@@ -9,7 +9,7 @@ $dl_tm=date('H:i', $ndl_tm);
 <html>
 <head>
         <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 			
@@ -396,7 +396,7 @@ $('#ps').load('npents.php?cat='+cat+'&pnm='+pnm+'&tech='+tech+'&co='+co+'&ops='+
 </td>
  
   <td align="right"> Date: </td>
-  <td> <input type="text" class="form-control" id="ddt"  name="ddt" value="<? echo date('d-m-Y');?>" tabindex="1"  placeholder="Enter Date"></td>
+  <td> <input type="text" class="form-control" id="ddt"  name="ddt" value="<?php  echo date('d-m-Y');?>" tabindex="1"  placeholder="Enter Date"></td>
   
   <td align="right">Delivery: </td>
   <td>
@@ -456,7 +456,7 @@ $('#ps').load('npents.php?cat='+cat+'&pnm='+pnm+'&tech='+tech+'&co='+co+'&ops='+
 </thead>
 <tr>
 <td align="center"> 
-<input type="text" class="form-control" id="prnm" autocomplete="off" name="prnm" value="<? echo $b;?>" tabindex="6" size="25" onkeyup="sfdtl(event)" placeholder ="Enter Particulars Name">
+<input type="text" class="form-control" id="prnm" autocomplete="off" name="prnm" value="<?php  echo $b;?>" tabindex="6" size="25" onkeyup="sfdtl(event)" placeholder ="Enter Particulars Name">
 <a onclick="openOfferslDialog('','');"> New Product</a>
 </td>
 
@@ -533,7 +533,7 @@ Loding.....<br>
 <td> Payment Mode: </td>
 <td><select name="Combobox2" size="1" class="sc1" id="Combobox2" tabindex="10" onchange="pmod(this.value)">
 
-<?
+<?php 
 $data2 = mysqli_query($conn,"select * from ac_paymtd ");
 
 		while ($row2 = mysqli_fetch_array($data2))
@@ -553,7 +553,7 @@ $data2 = mysqli_query($conn,"select * from ac_paymtd ");
  <td>
  <div id="xxx">
 <select name="bnm" size="1" id="bnm" tabindex="12" class="sc1">
-<?
+<?php 
 $data1 = mysqli_query($conn,"select * from main_ledg where gcd='16'");
 echo "<option value=''>Select</option>";
 		while ($row1 = mysqli_fetch_array($data1))
@@ -603,7 +603,7 @@ Date:
 </td>
 </tr>
 </table>
-<input type="hidden" id="prid"  name="prid" value="<? echo $cid;?>">
+<input type="hidden" id="prid"  name="prid" value="<?php  echo $cid;?>">
 <input type="hidden" id="stk" >
 <input type="hidden" id="fls" >
 <div id="ps">

@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include "header.php";
@@ -6,7 +6,7 @@ $year=date('Y');
 ?>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) --> 
         <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
             <!-- Right side column. Contains the navbar and content of the page -->
@@ -43,13 +43,13 @@ $year=date('Y');
 			 <td  align="left" >
 <select id="yr" data-placeholder="Choose Report Month" name="yr" class="form-control" tabindex="2" onchange="handleSelect(this.value)"  >
 <option value="">Select</option>
-<?
+<?php 
 for($i=2017;$i<=2017; $i++)
 {
 ?>
-<option value="<?=$i;?>"><?=$i;?></option>
+<option value="<?php  echo $i;?>"><?php  echo $i;?></option>
 
-<?
+<?php 
 }	
 ?>
 </select>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include "header.php";
@@ -9,7 +9,7 @@ $cy=date('Y');
 <html>
 <head>
         <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <style type="text/css"> 
@@ -59,7 +59,7 @@ $('#sgh').load('prod_upload_pdf_list.php?ttl='+encodeURIComponent(ttl)).fadeIn('
 <tr>
 <td  align="left" width="20%"><font color="red">*</font><b>Brand :</b><br/>
 <select name="cat" class="form-control" size="1" id="cat" required style="width:300px;">
-<?
+<?php 
 $data1 = mysqli_query($conn,"Select * from main_catg order by cnm");
 while ($row1 = mysqli_fetch_array($data1))
 {
@@ -73,7 +73,7 @@ echo "<option value='".$sl."'>".$cnm."</option>";
 <td  align="left" width="20%"><font color="red">*</font><b>Type :</b>
 <select name="typ" class="form-control" size="1" id="typ" required>
 <Option value="">---Select---</option>
-<?
+<?php 
 $data11 = mysqli_query($conn,"Select * from main_cus_typ");
 while ($row11 = mysqli_fetch_array($data11))
 {

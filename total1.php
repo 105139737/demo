@@ -1,4 +1,4 @@
-<?php
+<?php 
 
 /**
  * @author Onnet Solution
@@ -19,4 +19,4 @@ $pprc1=$R1['pprc1'];
 }
 
 ?>
-<input type="text" name="mrp" id="mrp"  class="form-control" style="background-color:#f3f4f5;text-align:right" readonly="true"  value="<?=sprintf('%0.2f', $gttl);?>" >
+<input type="text" name="mrp" id="mrp"  class="form-control" style="background-color:#f3f4f5;text-align:right" readonly="true"  value="<?php echo sprintf('%0.2f', $gttl);?>" >

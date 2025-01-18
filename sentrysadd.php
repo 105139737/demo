@@ -1,4 +1,4 @@
-<?PHP 
+<?php  
 $reqlevel = 3; 
 include("membersonly.inc.php");
 $dt=date('Y-m-d');
@@ -85,20 +85,20 @@ $sl=$R111['sl'];
 ?>
 <Script language="JavaScript">
 $('#compose-modal').modal('hide');
-$('#custnm').append('<option value="<?=$sl;?>"><?=$nm;?> <?if($mob!=""){?>( <?=$mob;?> )<?}?></option>');
+$('#custnm').append('<option value="<?php  echo $sl;?>"><?php  echo $nm;?> <?php if($mob!=""){?>( <?php  echo $mob;?> )<?php }?></option>');
 $('#custnm').trigger('chosen:updated');
-document.getElementById('custnm').value='<?=$sl;?>';
+document.getElementById('custnm').value='<?php  echo $sl;?>';
 $('#custnm').trigger('chosen:updated');
 gtid();
 </script>
-<?
+<?php 
 }
 else
 {
 ?>
 <Script language="JavaScript">
-alert('<? echo $err;?>');
+alert('<?php  echo $err;?>');
 </script>
-<?
+<?php 
 }
 ?>

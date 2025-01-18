@@ -1,4 +1,4 @@
-<?php
+<?php 
 
 /**
  * @author Nirmal
@@ -21,7 +21,7 @@ $result = mysqli_query($conn,"SHOW COLUMNS FROM ".$DBprefix.$tnm);
 }
 ?>
 <select name="fld" id="fld" size="1" style="font-family: Times New Roman; font-size: 18pt">
-<?
+<?php 
 
 while ($R = mysqli_fetch_array ($result))
 {
@@ -34,11 +34,11 @@ while ($R = mysqli_fetch_array ($result))
 $x=$R['Field'];
 }
 ?>
-<option value="<? echo $x;?>"><? echo $x;?></option>
-<?
+<option value="<?php  echo $x;?>"><?php  echo $x;?></option>
+<?php 
 }
 ?>
 </select>
-<?
+<?php 
 }
 ?>

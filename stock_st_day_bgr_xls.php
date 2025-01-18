@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 
@@ -37,12 +37,12 @@ header("Content-Disposition: attachment; filename=$file");
 <tr>
 <td align="center" colspan="16"><b>
 <b>Day Wise Stock(Landing Rate Wise)</b><br>
-<font style="font-size:18px;font-family:Century"><b><?=$comp_nm;?> - <?=$branchnm;?></b></font><br/>
-<font style="font-size:13px;font-family:Century"><?=$comp_addr;?><br>
-Phone : <?=$cont;?>
+<font style="font-size:18px;font-family:Century"><b><?php  echo $comp_nm;?> - <?php  echo $branchnm;?></b></font><br/>
+<font style="font-size:13px;font-family:Century"><?php  echo $comp_addr;?><br>
+Phone : <?php  echo $cont;?>
 </font><br/>
-<font style="font-size:13px;">GSTIN NO. : <?=$gstin?></font><br>
-<font style="font-size:14px;"><b>Statement From : <?=date('d-m-Y', strtotime($fdt));?></b> To <b><?=date('d-m-Y', strtotime($tdt));?></b></font>
+<font style="font-size:13px;">GSTIN NO. : <?php  echo $gstin?></font><br>
+<font style="font-size:14px;"><b>Statement From : <?php echo date('d-m-Y', strtotime($fdt));?></b> To <b><?php echo date('d-m-Y', strtotime($tdt));?></b></font>
 
 </b></td>
 </tr>
@@ -65,7 +65,7 @@ Phone : <?=$cont;?>
 <td  align="center"><b>Rate</b></td>
 <td  align="center"><b>Closing Amount</b></td>
 </tr>
-<?
+<?php 
 $cntt=0;
 $pt=0;
 $st=0;
@@ -146,26 +146,26 @@ $ttoal=$close_stk*$crate;
 $PL=(($stotal+$ttoal)-($ptotal+$optotal));
 
 ?>
-<tr  title="<?=$pcd;?>">
-<td  align="center" ><?=$cntt;?></td>
-<td align="left"><?=$cnm;?></td>
-<td align="left"><?=$snm;?></td>
-<td align="left"><?=$pnm;?></td>
-<td align="center"><?=$opst;?> PCS</td>
-<td align="right" ><?=number_format(round($orate,4),4);?></td>
-<td align="right" ><?=number_format(round($optotal,2),2);?></td>
+<tr  title="<?php  echo $pcd;?>">
+<td  align="center" ><?php  echo $cntt;?></td>
+<td align="left"><?php  echo $cnm;?></td>
+<td align="left"><?php  echo $snm;?></td>
+<td align="left"><?php  echo $pnm;?></td>
+<td align="center"><?php  echo $opst;?> PCS</td>
+<td align="right" ><?php echo number_format(round($orate,4),4);?></td>
+<td align="right" ><?php echo number_format(round($optotal,2),2);?></td>
 
-<td align="center"><?=$pur;?> PCS</td>
-<td align="right" ><?=number_format(round($prate,4),4);?></td>
-<td align="right" ><?=number_format(round($ptotal,2),2);?></td>
-<td align="center" ><?=$sale;?> PCS</td>
-<td align="right" ><?=number_format(round($srate,4),4);?></td>
-<td align="right" ><?=number_format(round($stotal,2),2);?></td>
-<td align="center" ><?=$close_stk;?> PCS</td>
-<td align="right" ><?=number_format(round($crate,4),4);?></td>
-<td align="right" ><?=number_format(round($ttoal,2),2);?></td>
+<td align="center"><?php  echo $pur;?> PCS</td>
+<td align="right" ><?php echo number_format(round($prate,4),4);?></td>
+<td align="right" ><?php echo number_format(round($ptotal,2),2);?></td>
+<td align="center" ><?php  echo $sale;?> PCS</td>
+<td align="right" ><?php echo number_format(round($srate,4),4);?></td>
+<td align="right" ><?php echo number_format(round($stotal,2),2);?></td>
+<td align="center" ><?php  echo $close_stk;?> PCS</td>
+<td align="right" ><?php echo number_format(round($crate,4),4);?></td>
+<td align="right" ><?php echo number_format(round($ttoal,2),2);?></td>
 </tr>
-	<?
+	<?php 
 $pt+=$ptotal;
 $st+=$stotal;
 $ct+=$ttoal;
@@ -174,20 +174,20 @@ $ot+=$optotal;
 }
 }
 	?>
-<tr  title="<?=$pcd;?>">
+<tr  title="<?php  echo $pcd;?>">
 <td  align="right" colspan="5"><b>Total : </b></td>
 
 <td align="right" ></td>
-<td align="right" ><b><?=number_format(round($ot,2),2);?></b></td>
+<td align="right" ><b><?php echo number_format(round($ot,2),2);?></b></td>
 <td align="right" ></td>
 <td align="center" ></td>
-<td align="right" ><b><?=number_format(round($pt,2),2);?></b></td>
+<td align="right" ><b><?php echo number_format(round($pt,2),2);?></b></td>
 <td align="right" ></td>
 <td align="center" ></td>
-<td align="right" ><b><?=number_format(round($st,2),2);?></b></td>
+<td align="right" ><b><?php echo number_format(round($st,2),2);?></b></td>
 
 <td align="right" ></td>
 <td align="right" ></td>
-<td align="right" ><b><?=round($ct,2);?></b></td>
+<td align="right" ><b><?php echo round($ct,2);?></b></td>
 </tr>
 </table>

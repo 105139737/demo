@@ -1,11 +1,11 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include("Numbers/Words.php");
-$blno=rawurldecode($_REQUEST[blno]);
-$disl=($_REQUEST[disl]);
-$damm=($_REQUEST[damm]);
-
+$blno=rawurldecode($_REQUEST['blno'] ?? "");
+$disl=($_REQUEST['disl']??"");
+$damm=($_REQUEST['damm']??"");
+$iamm=0;
 $query111 = "SELECT * FROM ".$DBprefix."billing where blno='$blno'";
 $result111 = mysqli_query($conn,$query111)or die (mysqli_error($conn));
 while ($R111 = mysqli_fetch_array ($result111))
@@ -45,9 +45,9 @@ if($sl_count>0 and $tp=='1')
     
 ?>
 <script>
-window.open('bill_recv_print.php?blno=<?php echo rawurlencode($blno);?>', '_blank');
+window.open('bill_recv_print.php?blno=<?php  echo rawurlencode($blno);?>', '_blank');
 </script>
-<?
+<?php 
  
  die("<center><font color='red' size='5'><b>Please Enter Product Sl. No.</b></font></center>");   
 }
@@ -58,9 +58,9 @@ if($bfl==0)
 {
 ?>
 <script>
-window.open('bill_recv_print.php?blno=<?php echo rawurlencode($blno);?>', '_blank');
+window.open('bill_recv_print.php?blno=<?php  echo rawurlencode($blno);?>', '_blank');
 </script>
-<?    
+<?php     
 die("<center><font color='red' size='5'><b>Please Verify Financer End </b></font></center>");    
 }
 }
@@ -95,7 +95,7 @@ if($psup=="")
 ?>
 <html>
 <head>
-<title><?php echo $bill_no;?></title>
+<title><?php  echo $bill_no;?></title>
 <style>
 .tb
 {
@@ -145,7 +145,7 @@ function blprnt(){
 </script>
 
 
-<?
+<?php 
    for($CNT=0;$CNT<2;$CNT++){
 
    if($CNT==0){$cp="Orginal Buyer's Copy";}
@@ -162,10 +162,10 @@ while($GB=mysqli_fetch_array($gbt))
 $sf_nmp=$GB['nmp'];
 }
 	?>
-<div style="<?=$csss;?>">
+<div style="<?php  echo $csss;?>">
 
 <center>
-<div  width="100%"><br><font size="10" color="red"><b><?php echo $comp_nm;?></b></font></div><br>
+<div  width="100%"><br><font size="10" color="red"><b><?php  echo $comp_nm;?></b></font></div><br>
 <font style="font-size:20px;"><b>TAX INVOICE</b></font>
 </center>
 <table align="center" style="border-collapse:collapse; border: 1px solid black; text-align:center;width:800px">
@@ -177,11 +177,11 @@ $sf_nmp=$GB['nmp'];
 <tr>
 <td style="text-align:center; border: 1px solid black; width:70%;">
 
-<font style="font-size:18px;"><?=$adrs;?></font><br/>
-<font style="font-size:14px;">GSTIN/UIN : <?=$gstin?></font>
+<font style="font-size:18px;"><?php  echo $adrs;?></font><br/>
+<font style="font-size:14px;">GSTIN/UIN : <?php  echo $gstin?></font>
 </td>
 <td style="border: 1px solid black; width:15%;text-align:center">
-<?=$cp;?>
+<?php  echo $cp;?>
 </td>
 </tr>
 </table>
@@ -198,29 +198,29 @@ $sf_nmp=$GB['nmp'];
 <td style="text-align:left; border: 1px solid black; width:50%;">
 <table style="width:100%;">
 <tr>
-<td style="width:30%;"><font size="2">Invoice No. </font><span style="float:right"><font size="2">:</font><span></td><td><font size="2"><?=$blno;?></font></td>
+<td style="width:30%;"><font size="2">Invoice No. </font><span style="float:right"><font size="2">:</font><span></td><td><font size="2"><?php  echo $blno;?></font></td>
 </tr>
 <tr>
-<td><font size="2">Invoice Date </font><span style="float:right"><font size="2">:</font></span></td><td><font size="2"><?=$invdt;?></font></td>
+<td><font size="2">Invoice Date </font><span style="float:right"><font size="2">:</font></span></td><td><font size="2"><?php  echo $invdt;?></font></td>
 </tr>
-<?
+<?php 
 if($sfno!='')
 {
 ?>
 <tr>
-<td><font size="2">Ref.\SF </font><span style="float:right"><font size="2">:</font></span></td><td><font size="2"><?=$sfno;?></font><?php if($dono!=''){?>
-, <font size="2">Do No. : </font><font size="2"><?=$dono;?></font><?php }?>
+<td><font size="2">Ref.\SF </font><span style="float:right"><font size="2">:</font></span></td><td><font size="2"><?php  echo $sfno;?></font><?php  if($dono!=''){?>
+, <font size="2">Do No. : </font><font size="2"><?php  echo $dono;?></font><?php  }?>
 </td>
 </tr>
-<?
+<?php 
 if($sf_nmp!='')
 {
 ?>
 <tr>
-<td><font size="2">Financer Name</font><span style="float:right"><font size="2">:</font></span></td><td><font size="2"><?=$sf_nmp;?></font>
+<td><font size="2">Financer Name</font><span style="float:right"><font size="2">:</font></span></td><td><font size="2"><?php  echo $sf_nmp;?></font>
 </td>
 </tr>
-<?
+<?php 
 }
 }
 
@@ -230,13 +230,13 @@ if($sf_nmp!='')
 <td style="text-align:left; border: 1px solid black; width:50%;">
 <table style="width:100%;">
 <tr>
-<td style="width:45%;"><font size="2">Transportation Mode </font><span style="float:right"><font size="2">:</font></span></td><td><font size="2"><?echo $tmode;?></font></td>
+<td style="width:45%;"><font size="2">Transportation Mode </font><span style="float:right"><font size="2">:</font></span></td><td><font size="2"><?php echo $tmode;?></font></td>
 </tr>
 <tr>
-<td><font size="2">Vehicle Number </font><span style="float:right"><font size="2">:</font></span></td><td><font size="2"><?echo $vno;?></font></td>
+<td><font size="2">Vehicle Number </font><span style="float:right"><font size="2">:</font></span></td><td><font size="2"><?php echo $vno;?></font></td>
 </tr>
 <tr>
-<td><font size="2">Place of Supply </font><span style="float:right"><font size="2">:</font></span></td><td><font size="2"><?echo $psup;?></font></td>
+<td><font size="2">Place of Supply </font><span style="float:right"><font size="2">:</font></span></td><td><font size="2"><?php echo $psup;?></font></td>
 </tr>
 </table>
 </td>
@@ -249,7 +249,7 @@ if($sf_nmp!='')
 <tr>
 <td>
 
-<?
+<?php 
 if($invto!='')
 {
 $cid=$invto;	
@@ -265,10 +265,7 @@ while($GB=mysqli_fetch_array($gbt))
 $bto=$GB['nm'];
 $nmp=$GB['nmp'];
 $baddr=$GB['addr'];
-$baddr1=$GB['addr1'];
-$baddr2=$GB['addr2'];
 $bmob=$GB['cont'];
-$bvat=$GB['vatno'];
 $bpan=$GB['pan'];
 }
 if($nmp!='')
@@ -287,54 +284,51 @@ $bto=$nmp;
 <td style="text-align:left; border: 1px solid black; width:50%;">
 <table style="width:100%;">
 <tr>
-<td style="width:20%;"><font size="2">Name </font><span style="float:right"><font size="2">:</font></span></td><td colspan="3"><font size="2"><b><?=$bto;?></b></font></td>
+<td style="width:20%;"><font size="2">Name </font><span style="float:right"><font size="2">:</font></span></td><td colspan="3"><font size="2"><b><?php  echo $bto;?></b></font></td>
 </tr>
 <tr>
 <td style="text-align:left;vertical-align:top;"><font size="2">Address </font><span style="float:right"><font size="2">:</font></span></td>
-<td colspan="3"><font size="2"><?=$baddr;?>
+<td colspan="3"><font size="2"><?php  echo $baddr;?>
 </font>
 </td>
 </tr>
-<?
+<?php 
 if($bmob!="")
 {
 
 	?>
 	<tr>
 	<td><font size="2">Mobile </font><span style="float:right"><font size="2">:</font></span></td>
-	<td colspan="3"><font size="2"><?echo $bmob;?></font></td>
+	<td colspan="3"><font size="2"><?php echo $bmob;?></font></td>
 	</tr>
-<?}
+<?php }
 ?>
 <tr>
-<td><font size="2">GSTIN </font><span style="float:right"><font size="2">:</font></span></td><td ><font size="2"><?=$bgstin;?></font></td>
+<td><font size="2">GSTIN </font><span style="float:right"><font size="2">:</font></span></td><td ><font size="2"><?php  echo $bgstin;?></font></td>
 <td  colspan="2" align="right">
-<font size="2">State : <?=$statnm;?></font>
+<font size="2">State : <?php  echo $statnm;?></font>
 </td>
 </tr>
 <tr>
-<td><font size="2">PAN </font><span style="float:right"><font size="2">:</font></span></td><td><font size="2"><?=$bpan;?></font></td>
-<td colspan="2" align="right"><font size="2">State Code : <?=$statcd;?></font></td>
+<td><font size="2">PAN </font><span style="float:right"><font size="2">:</font></span></td><td><font size="2"><?php  echo $bpan;?></font></td>
+<td colspan="2" align="right"><font size="2">State Code : <?php  echo $statcd;?></font></td>
 </tr>
 </table>
 </td>
 <td style="text-align:left; border: 1px solid black; width:50%;" valign="top">
-<?
+<?php 
 
 
 
-$gbt1=mysqli_query($conn,"select * from main_cust where sl='$cid1'")or die (mysqli_error($conn));
-while($GB=mysqli_fetch_array($gbt1))
-{
-$bto=$GB['nm'];
-$nmp=$GB['nmp'];
-$baddr=$GB['addr'];
-$baddr1=$GB['addr1'];
-$baddr2=$GB['addr2'];
-$bmob=$GB['cont'];
-$bvat=$GB['vatno'];
-$bpan=$GB['pan'];
-}
+// $gbt1=mysqli_query($conn,"select * from main_cust where sl='$cid1'")or die (mysqli_error($conn));
+// while($GB=mysqli_fetch_array($gbt1))
+// {
+// $bto=$GB['nm'];
+// $nmp=$GB['nmp'];
+// $baddr=$GB['addr'];
+// $bmob=$GB['cont'];
+// $bpan=$GB['pan'];
+// }
 if($nmp!='')
 {
 $bto=$nmp;	
@@ -344,30 +338,30 @@ $bto=$nmp;
 
 <table style="width:100%;">
 <tr>
-<td style="width:20%;"><font size="2">Name </font><span style="float:right"><font size="2">:</font></span></td><td colspan="3"><font size="2"><b><?=$sale_nm;?></b></font></td>
+<td style="width:20%;"><font size="2">Name </font><span style="float:right"><font size="2">:</font></span></td><td colspan="3"><font size="2"><b><?php  echo $sale_nm;?></b></font></td>
 </tr>
 <tr>
 <td style="text-align:left;vertical-align:top;"><font size="2">Mobile </font><span style="float:right"><font size="2">:</font></span></td>
-<td colspan="3"><font size="2"><?=$sale_mob;?>
+<td colspan="3"><font size="2"><?php  echo $sale_mob;?>
 </font>
 </td>
 </tr>
-<?
+<?php 
 ?>
 
-<?
+<?php 
 ?>
-<?/*
+<?php /*
 <tr>
-<td><font size="2">GSTIN </font><span style="float:right"><font size="2">:</font></span></td><td ><font size="2"><?=$bgstin;?></font>
+<td><font size="2">GSTIN </font><span style="float:right"><font size="2">:</font></span></td><td ><font size="2"><?php  echo $bgstin;?></font>
 </td>
 <td colspan="2" align="right">
-<font size="2">State : <?=$statnm;?></font>
+<font size="2">State : <?php  echo $statnm;?></font>
 </td>
 </tr>
 <tr>
-<td><font size="2">PAN </font><span style="float:right"><font size="2">:</font></span></td><td><font size="2"><?=$bpan;?></font></td>
-<td colspan="2" align="right"><font size="2">State Code : <?=$statcd;?></font></td>
+<td><font size="2">PAN </font><span style="float:right"><font size="2">:</font></span></td><td><font size="2"><?php  echo $bpan;?></font></td>
+<td colspan="2" align="right"><font size="2">State Code : <?php  echo $statcd;?></font></td>
 </tr>
 */?>
 </table></td>
@@ -399,7 +393,7 @@ $bto=$nmp;
 </tr>
 
 
-<?
+<?php 
 $height="365";
 $sln=0;
 $pcs1=0;
@@ -521,27 +515,27 @@ $height=$height-20;
 }
 ?>
 <tr id="tdb">
-<td style="text-align:center; width:2%;" valign="top"><font size="2"><?=$sln;?></font></td>
-<td style="text-align:left;" valign="top" ><font size="2"><?=$pnm2;?>
-<?=$betno1;?><br>
-<?/*Godown -  <?=get_branch_name_godown($bcd);*/?> 
+<td style="text-align:center; width:2%;" valign="top"><font size="2"><?php  echo $sln;?></font></td>
+<td style="text-align:left;" valign="top" ><font size="2"><?php  echo $pnm2;?>
+<?php  echo $betno1;?><br>
+<?php /*Godown -  <?php echo get_branch_name_godown($bcd);*/?> 
 </font></td>
-<td style="text-align:center; " valign="top"><font size="2"><?=$hsn;?></font></td>
-<td style="text-align:center; width:8%;" valign="top"><font size="2"><?=$stock_in;?></font></td>
+<td style="text-align:center; " valign="top"><font size="2"><?php  echo $hsn;?></font></td>
+<td style="text-align:center; width:8%;" valign="top"><font size="2"><?php  echo $stock_in;?></font></td>
 
-<td style="text-align:right; " valign="top"><font size="2"><?=number_format($rate,2);?></font></td>
-<td style="text-align:right; " valign="top"><font size="2"><?=number_format($total,2);?></font></td>
-<td style="text-align:right; " valign="top" ><font size="2"><?=number_format($disp,2);?></font></td>
-<td style="text-align:right; " valign="top"><font size="2"><?=number_format($disa,2);?></font></td>
-<td style="text-align:right; " valign="top" ><font size="2"><?=number_format($ttl,2);?></font></td>
-<td style="text-align:right; " valign="top" ><font size="2"><?=$pgstr;?>%</font></td>
-<td style="text-align:right; " valign="top"><font size="2"><?=number_format($pgst,2);?></font></td>
-<td style="text-align:right; " valign="top"><font size="2"><?=number_format($net_am,2);?></font></td>
+<td style="text-align:right; " valign="top"><font size="2"><?php echo number_format($rate,2);?></font></td>
+<td style="text-align:right; " valign="top"><font size="2"><?php echo number_format($total,2);?></font></td>
+<td style="text-align:right; " valign="top" ><font size="2"><?php echo number_format($disp,2);?></font></td>
+<td style="text-align:right; " valign="top"><font size="2"><?php echo number_format($disa,2);?></font></td>
+<td style="text-align:right; " valign="top" ><font size="2"><?php echo number_format($ttl,2);?></font></td>
+<td style="text-align:right; " valign="top" ><font size="2"><?php  echo $pgstr;?>%</font></td>
+<td style="text-align:right; " valign="top"><font size="2"><?php echo number_format($pgst,2);?></font></td>
+<td style="text-align:right; " valign="top"><font size="2"><?php echo number_format($net_am,2);?></font></td>
 
 
 
 </tr>
-<?
+<?php 
 $total_amm+=$total;
 $disa_amm+=$disa;
 $gttl=$gttl+$ttl;
@@ -559,7 +553,7 @@ $roff=round($rgttl-$gttl2,2);
 
 
 ?>
-<tr style="height:<?=$height;?>px;">
+<tr style="height:<?php  echo $height;?>px;">
 <td style="text-align:center;"><font size="2">&nbsp;</font></td>
 <td style="text-align:center;"><font size="2">&nbsp;</font></td>
 <td style="text-align:center;"><font size="2">&nbsp;</font></td>
@@ -576,80 +570,80 @@ $roff=round($rgttl-$gttl2,2);
 </tr>
 <tr bgcolor="#e4e4e4">
 <td colspan="3" style="text-align:center; border: 1px solid black;"><font size="2">Sub Total</font></td>
-<td style="text-align:center; border: 1px solid black;"><font size="2"><?=$total_qty;?></font></td>
+<td style="text-align:center; border: 1px solid black;"><font size="2"><?php  echo $total_qty;?></font></td>
 <td style="text-align:right; border: 1px solid black;"><font size="2"></font></td>
-<td style="text-align:right; border: 1px solid black;"><font size="2"><?=number_format($total_amm,2);?></font></td>
+<td style="text-align:right; border: 1px solid black;"><font size="2"><?php echo number_format($total_amm,2);?></font></td>
 <td style="text-align:right; border: 1px solid black;"><font size="2"></font></td>
-<td style="text-align:right; border: 1px solid black;"><font size="2"><?=number_format($disa_amm,2);?></font></td>
-<td style="text-align:right; border: 1px solid black;"><font size="2"><?=number_format($gttl,2);?></font></td>
+<td style="text-align:right; border: 1px solid black;"><font size="2"><?php echo number_format($disa_amm,2);?></font></td>
+<td style="text-align:right; border: 1px solid black;"><font size="2"><?php echo number_format($gttl,2);?></font></td>
 <td style="text-align:right; border: 1px solid black;"><font size="2"></font></td>
-<td style="text-align:right; border: 1px solid black;"><font size="2"><?=number_format(round($tgst,2),2);?></font></td>
-<td  style="text-align:right; border: 1px solid black;" colspan=""><font size="2"><?=number_format($gttl+$tgst,2);?></font></td>
+<td style="text-align:right; border: 1px solid black;"><font size="2"><?php echo number_format(round($tgst,2),2);?></font></td>
+<td  style="text-align:right; border: 1px solid black;" colspan=""><font size="2"><?php echo number_format($gttl+$tgst,2);?></font></td>
 </tr>
 
 
 <tr bgcolor="#e4e4e4">
-<td colspan="5" style="text-align:center; border: 1px solid black;"><font size="2">Invoice Value (In Words) : <b> <? $nw = new Numbers_Words();$aiw=$nw->toWords(round($rgttl));echo $aiw;?> only</font></b></td>
+<td colspan="5" style="text-align:center; border: 1px solid black;"><font size="2">Invoice Value (In Words) : <b> <?php  $nw = new Numbers_Words();$aiw=$nw->toWords(round($rgttl));echo $aiw;?> only</font></b></td>
 <td colspan="5" style="text-align:right; border: 1px solid black;"><font size="2">Total Amount Before Tax</font></td>
-<td colspan="2" style="text-align:right; border: 1px solid black;" colspan=""><font size="2"><?=number_format(round($gttl,2),2);?></font></td>
+<td colspan="2" style="text-align:right; border: 1px solid black;" colspan=""><font size="2"><?php echo number_format(round($gttl,2),2);?></font></td>
 </tr>
 <tr>
 <td colspan="5" rowspan="5" style="text-align:left; border: 1px solid black;"><font size="2">
-<font size="2">Bank Details&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font size="3">: <?=$comp_nm;?> :</font>
+<font size="2">Bank Details&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font size="3">: <?php  echo $comp_nm;?> :</font>
 <table width="100%">
 
 
 
 <tr>
 <td><font size="2"><b>Bank Name</b></font></td>
-<td class="tdr"><font size="2">: <?=$acnm1;?></font></td>
+<td class="tdr"><font size="2">: <?php  echo $acnm1;?></font></td>
 <td><font size="2"><b>Bank Name</b></font></td>
-<td><font size="2">: <?=$acnm2;?></font></td>
+<td><font size="2">: <?php  echo $acnm2;?></font></td>
 </tr>
 <tr>
 <td><font size="2"><b>A/C No.</b></font></td>
-<td class="tdr"><font size="2">: <b><?=$ac1;?></b></font></td>
+<td class="tdr"><font size="2">: <b><?php  echo $ac1;?></b></font></td>
 <td><font size="2"><b>A/C No.</b></font></td>
-<td><font size="2">: <b><?=$ac2;?></b></font></td>
+<td><font size="2">: <b><?php  echo $ac2;?></b></font></td>
 </tr>
 <tr>
 <td><font size="2"><b>IFSC</b></font></td>
-<td class="tdr"><font size="2">: <b><?=$ifsc1;?></b></font></td>
+<td class="tdr"><font size="2">: <b><?php  echo $ifsc1;?></b></font></td>
 <td><font size="2"><b>IFSC</b></font></td>
-<td><font size="2">: <b><?=$ifsc2;?></b></font></td>
+<td><font size="2">: <b><?php  echo $ifsc2;?></b></font></td>
 </tr>
 <tr>
 <td><font size="2"><b>Branch</b></font></td>
-<td class="tdr"><font size="2">: <?=$branch1;?></font></td>
+<td class="tdr"><font size="2">: <?php  echo $branch1;?></font></td>
 <td><font size="2"><b>Branch</b></font></td>
-<td><font size="2">: <?=$branch2;?></font></td>
+<td><font size="2">: <?php  echo $branch2;?></font></td>
 </tr>
 </table>
 </td>
 <td colspan="5" style="text-align:right; border: 1px solid black;"><font size="2">Add : CGST </font></td>
-<td colspan="2" style="text-align:right; border: 1px solid black;"><font size="2"><?=number_format(round($cgst_am1,2),2);?></font></td>
+<td colspan="2" style="text-align:right; border: 1px solid black;"><font size="2"><?php echo number_format(round($cgst_am1,2),2);?></font></td>
 </tr>
 <tr>
 
 <td colspan="5" style="text-align:right; border: 1px solid black;"><font size="2">Add : SGST </font></td>
-<td colspan="2" style="text-align:right; border: 1px solid black;"><font size="2"><?=number_format(round($sgst_am1,2),2);?></font></td>
+<td colspan="2" style="text-align:right; border: 1px solid black;"><font size="2"><?php echo number_format(round($sgst_am1,2),2);?></font></td>
 </tr>
 
 <tr>
 
 <td colspan="5" style="text-align:right; border: 1px solid black;"><font size="2">Add : IGST </font></td>
-<td colspan="2" style="text-align:right; border: 1px solid black;"><font size="2"><?=number_format(round($igst_am1,2),2);?></font></td>
+<td colspan="2" style="text-align:right; border: 1px solid black;"><font size="2"><?php echo number_format(round($igst_am1,2),2);?></font></td>
 </tr>
 
 <tr>
 
 <td colspan="5" style="text-align:right; border: 1px solid black;"><font size="2">Tax Amount : GST</font></td>
-<td colspan="2" style="text-align:right; border: 1px solid black;"><font size="2"><?=number_format(round($tgst,2),2);?></font></td>
+<td colspan="2" style="text-align:right; border: 1px solid black;"><font size="2"><?php echo number_format(round($tgst,2),2);?></font></td>
 </tr>
 <tr bgcolor="#e4e4e4">
 
 <td colspan="5" style="text-align:right; border: 1px solid black;"><font size="2">Total</font></td>
-<td colspan="2" style="text-align:right; border: 1px solid black;"><font size="2"><?=number_format(round($gttl2,2),2);?></font></td>
+<td colspan="2" style="text-align:right; border: 1px solid black;"><font size="2"><?php echo number_format(round($gttl2,2),2);?></font></td>
 </tr>
 
 <tr>
@@ -665,24 +659,24 @@ Term and Conditions :-<br>
 
 </td>
 <td colspan="5" style="text-align:right; border: 1px solid black;"><font size="2">ROUND OFF</font></td>
-<td colspan="2" style="text-align:right; border: 1px solid black;"><?
+<td colspan="2" style="text-align:right; border: 1px solid black;"><?php 
 if($roff==""){$roff=0;}
 if($damm==""){$damm=0;}
 
 ?>
-<font size="2" ><?=$roff;?></font></td>
+<font size="2" ><?php  echo $roff;?></font></td>
 </tr>
 <tr>
-<td colspan="5" style="text-align:right; border: 1px solid black;"><font size="2"><?if($damm>0){echo $dislam;}?></font></td>
+<td colspan="5" style="text-align:right; border: 1px solid black;"><font size="2"><?php if($damm>0){echo $dislam;}?></font></td>
 <td colspan="2" style="text-align:right; border: 1px solid black;">
-<font size="2" ><?if($damm>0){echo number_format($damm,2);}?></font></td>
+<font size="2" ><?php if($damm>0){echo number_format($damm,2);}?></font></td>
 </tr>
 <tr>
 
 
 
 <td colspan="5" bgcolor="#e4e4e4" style="text-align:right; border: 1px solid black;"><font size="2">Net Payable</font></td>
-<td colspan="2" style="text-align:right; border: 1px solid black;" bgcolor="#e4e4e4"><font size="2"><?=number_format($rgttl-$damm,2);?></font></td>
+<td colspan="2" style="text-align:right; border: 1px solid black;" bgcolor="#e4e4e4"><font size="2"><?php echo number_format($rgttl-$damm,2);?></font></td>
 </tr>
 <tr>
 
@@ -696,7 +690,7 @@ if($damm==""){$damm=0;}
 <tr>
 <td colspan="5"   valign="top">
 
-<?
+<?php 
 if($emiam>0)
 {
 ?>
@@ -722,7 +716,7 @@ Customer Signatory
 <td>
 <table width="100%">
 <tr align="center" >
-<td><font style="font-size:14px;"><b>For, <?=$comp_nm;?></b></font></td>
+<td><font style="font-size:14px;"><b>For, <?php  echo $comp_nm;?></b></font></td>
 </tr>
 <tr >
 <td ></td>
@@ -737,7 +731,7 @@ Authorised Signatory
 </td>
 </tr>
 </table>
-<?}
+<?php }
 else
 {
 ?>
@@ -756,11 +750,11 @@ Customer Signatory
 </td>
 </tr>
 </table>
-<?}?>
+<?php }?>
 </td>
 <td colspan="7"   valign="top">
 
-<?
+<?php 
 if($emiam>0)
 {
 ?>
@@ -775,7 +769,7 @@ if($emiam>0)
 Down Payment : 
 </td>
 <td style="border-collapse:collapse; border: 1px solid black;" width="50%">
-<?=$dpay?>
+<?php  echo $dpay?>
 </td>
 </tr>
 <tr>
@@ -783,7 +777,7 @@ Down Payment :
 Finance Amount :
 </td>
 <td style="border-collapse:collapse; border: 1px solid black;">
-<?=$finam?>
+<?php  echo $finam?>
 </td>
 </tr>
 <tr>
@@ -791,7 +785,7 @@ Finance Amount :
 EMI Amount : 
 </td>
 <td style="border-collapse:collapse; border: 1px solid black;">
-<?=$emiam?>
+<?php  echo $emiam?>
 </td>
 </tr>
 <tr>
@@ -799,18 +793,18 @@ EMI Amount :
 EMI Month : 
 </td>
 <td style="border-collapse:collapse; border: 1px solid black;">
-<?=$emi_mnth?>
+<?php  echo $emi_mnth?>
 </td>
 </tr>
 </table>
-<?}
+<?php }
 else
 {
 
 ?>
 <table width="100%">
 <tr align="center" >
-<td><font style="font-size:14px;"><b>For, <?=$comp_nm;?></b></font></td>
+<td><font style="font-size:14px;"><b>For, <?php  echo $comp_nm;?></b></font></td>
 </tr>
 <tr >
 <td ></td>
@@ -823,7 +817,7 @@ Authorised Signatory
 </tr>
 </table>
 
-<?}?>
+<?php }?>
 </td>
 </tr>
 
@@ -837,11 +831,11 @@ Authorised Signatory
 <table align="center" style="width:800px">
 <tr>
 <td>
-<font style="font-size:14px;"><b>Note : </b><?php echo $mr;?></font>
+<font style="font-size:14px;"><b>Note : </b><?php  echo $mr;?></font>
 </td>
 </tr>
 </table>
-   </div><?}?>
+   </div><?php }?>
 
 </body>
 </html>

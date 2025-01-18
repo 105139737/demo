@@ -1,4 +1,4 @@
-<?PHP 
+<?php  
 $reqlevel = 1;
 include("membersonly.inc.php");
 $a=$_REQUEST['unm'];

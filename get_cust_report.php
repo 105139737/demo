@@ -1,10 +1,10 @@
-<?
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 $brand=$_REQUEST['brand'];
 ?>
 <select name="cust[]"  class="form-control" size="1" id="cust" multiple tabindex="8"  >
-<?
+<?php 
 
 $query="select * from main_cust WHERE sl>0 and brncd='1' and  FIND_IN_SET(brand, '$brand')>0 order by nm";
 $result=mysqli_query($conn,$query);
@@ -12,8 +12,8 @@ while($rw=mysqli_fetch_array($result))
 {
 			
 ?>
-<option value="<?=$rw['cont'];?>"><?=$rw['nm'];?> <?if($rw['cont']!=""){?>( <?=$rw['cont'];?> )<?}?> </option>
-<?
+<option value="<?php  echo $rw['cont'];?>"><?php  echo $rw['nm'];?> <?php if($rw['cont']!=""){?>( <?php  echo $rw['cont'];?> )<?php }?> </option>
+<?php 
 }
 ?>				
 

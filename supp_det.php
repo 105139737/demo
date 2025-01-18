@@ -1,7 +1,7 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
-$sid=$_REQUEST[sl];
+$sid=$_REQUEST['sl'];
 
 date_default_timezone_set('Asia/Kolkata');
 $datad= mysqli_query($conn,"select * from main_suppl where sid='$sid'")or die(mysqli_error($conn));
@@ -23,7 +23,7 @@ $mob1=$rowd['mob1'];
             <td  align="right" width="50%" ><font size="3"><b>Company :</b></font></td>
             <td  align="left">
 			
-<font size="3"><b><?echo $spn;?></b></font>
+<font size="3"><b><?php echo $spn;?></b></font>
             </td>
           </tr>
 	  </table>
@@ -62,7 +62,7 @@ $mob1=$rowd['mob1'];
 			<b>Amount</b>
 			</td>
 		     </tr>
-			 <?
+			 <?php 
 		$sln=0;
 		$tota=0;
 			 $data1= mysqli_query($conn,"select * from main_purchase where sid='$sid'")or die(mysqli_error($conn));
@@ -129,39 +129,39 @@ $ppt1=$ppt+$vat1;
 			 ?>
 		   <tr>
 		    <td  align="center" >
-			<?=$sln;?>
+			<?php  echo $sln;?>
 			</td>
 			 <td  align="center" >
-			<?=$ddt;?>
+			<?php  echo $ddt;?>
 			</td>
 			<td  align="center" >
-			<?=$inv;?>
+			<?php  echo $inv;?>
 			</td>
             
 			<td  align="center" >
-			<?=$co;?>
+			<?php  echo $co;?>
 			</td>
 			<td  align="center" >
-			<?=$pname;?>
+			<?php  echo $pname;?>
 			</td>
 			<td  align="center" >
-			<b><?=$pty1;?></b>/<?=$punt;?>
+			<b><?php  echo $pty1;?></b>/<?php  echo $punt;?>
 			</td>
 			<td  align="center" >
-			<?=$prc;?>
+			<?php  echo $prc;?>
 			</td>
 			<td  align="center" >
-			<?=$pprc;?>
+			<?php  echo $pprc;?>
 			</td>
 			<td  align="center" >
-			<?=$vat;?>
+			<?php  echo $vat;?>
 			</td>
 			<td  align="right" >
-			<?=number_format($ppt1,2);?>
+			<?php echo number_format($ppt1,2);?>
 			</td>
 		     </tr>	 
 			 
-<?
+<?php 
 $tota=$ppt1+$tota;
 
 }}?>
@@ -170,7 +170,7 @@ $tota=$ppt1+$tota;
 <b>Total</b>
 </td>
 <td align="right">
-<b><?=number_format($tota,2);?></b>
+<b><?php echo number_format($tota,2);?></b>
 </td>
 
 	  </table>

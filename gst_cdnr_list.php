@@ -1,6 +1,9 @@
-<?
+<?php 
 $reqlevel = 3; 
 include("membersonly.inc.php");
+$tiamm=0;
+$ttcgst=0;
+$ttsgst=0;
 $fdt=$_REQUEST['fdt'];
 $tdt=$_REQUEST['tdt'];
 $tdt=$_REQUEST['tdt'];
@@ -37,12 +40,11 @@ if($fdt!="" and $tdt!=""){$todts=" and dt between '$fdt' and '$tdt'";}else{$todt
 
 
 		</tr>
-			 <?
+			 <?php 
 		$sln=0;
 		$tamm1=0;
 
-
-$data1= mysqli_query($conn,"select * from  main_billing_ret where sl>0 and gstin!='' and cstat='0'".$todts.$snm1."order by dt")or die(mysqli_error($conn));
+$data1= mysqli_query($conn,"select * from  main_billing_ret where sl>0 and (gstin!='' or gstin is null ) and (cstat='0' or cstat is null)".$todts.$snm1."order by dt")or die(mysqli_error($conn));
 while ($row1 = mysqli_fetch_array($data1))
 {
 
@@ -118,30 +120,30 @@ $tttamm=0;
 		$igst_rt=$row['igst_rt'];   
 			
 		$tiamm+=$net_am;
-		$tttamm+=$amm;
+		$tttamm=$amm;
 		$ttcgst+=$tcgst;
 		$ttsgst+=$tsgst; 
-		$ttto+=$net_am;
+		$ttto=$net_am;
 		
-	}
+	
  ?>
 <tr>
 
 
-<td  align="center"  ><?=$sln;?></td>
-<td  align="center"  ><?=$gstin;?></td>
-<td  align="left"  ><?=$refno;?></td>
-<td  align="left"  ><?=$invdt;?></td>
-<td  align="left"  ><?=$blno;?></td>
-<td  align="center"  ><?=$dt;?></td>
+<td  align="center"  ><?php  echo $sln;?></td>
+<td  align="center"  ><?php  echo $gstin;?></td>
+<td  align="left"  ><?php  echo $refno;?></td>
+<td  align="left"  ><?php  echo $invdt;?></td>
+<td  align="left"  ><?php  echo $blno;?></td>
+<td  align="center"  ><?php  echo $dt;?></td>
 <td  align="center"  >C</td>
 
 
-<td  align="left"  ><?=$statcd.'-'.$statnm;?></td>
-<td  align="left"  ><?=$ttto;?></td>
+<td  align="left"  ><?php  echo $statcd.'-'.$statnm;?></td>
+<td  align="left"  ><?php  echo $ttto;?></td>
 <td  align="center"  ></td>
-<td  align="center"  ><?=$cgst_rt+$sgst_rt+$igst_rt;?></td>
-<td  align="center"  ><?=$tttamm;?></td>
+<td  align="center"  ><?php  echo $cgst_rt+$sgst_rt+$igst_rt;?></td>
+<td  align="center"  ><?php  echo $tttamm;?></td>
 <td  align="center"  ></td>
 
 <td  align="center"  >N</td>
@@ -156,9 +158,9 @@ $tttamm=0;
 
 
 </tr>
-<?
+<?php 
 }
-
+}
 
 ?>
 </table>

@@ -1,4 +1,4 @@
-<?php
+<?php 
 
 
 $query2 = "INSERT INTO ch(ftm,ttm) VALUES ('$ftm','$ttm')";

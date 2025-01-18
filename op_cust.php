@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 include "header.php";
@@ -11,7 +11,7 @@ $dsl=$_REQUEST['sl'];
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
  <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -179,7 +179,7 @@ input.sc {
 <td align="left" width="40%">
 <font color="red">*</font><b>Branch :</b>
 <select name="brncd" class="form-control" size="1" id="brncd"  onchange="title1();show()">
-<?
+<?php 
 if($user_current_level<0)
 {
 $query="Select * from main_branch";
@@ -195,8 +195,8 @@ $slb=$R['sl'];
 $bnm=$R['bnm'];
 
 ?>
-<option value="<? echo $slb;?>" <?if($slb==$brncd){echo 'selected';}?>><? echo $bnm;?></option>
-<?
+<option value="<?php  echo $slb;?>" <?php if($slb==$brncd){echo 'selected';}?>><?php  echo $bnm;?></option>
+<?php 
 }
 ?>
 </select>
@@ -205,14 +205,14 @@ $bnm=$R['bnm'];
 <font color="red">*</font><b>Customer :</b><br>
 <select id="cust"  name="cust"  tabindex="1"  onchange="show()"  class="form-control" >
 <option value="">---Select---</option>
-<?
+<?php 
 $query6="select * from  main_cust order by nm ";
 $result5 = mysqli_query($conn,$query6);
 while($row=mysqli_fetch_array($result5))
 {
 ?>
-<option value="<?=$row['sl'];?>"><?=$row['nm'];?> ( <?=$row['cont']?> ) - <?=$row['addr']?></option>
-<?}?>
+<option value="<?php  echo $row['sl'];?>"><?php  echo $row['nm'];?> ( <?php  echo $row['cont']?> ) - <?php  echo $row['addr']?></option>
+<?php }?>
 </select>
 </td>
 
@@ -278,14 +278,14 @@ while($row=mysqli_fetch_array($result5))
   });
 
   </script>
-  <?
+  <?php 
   if($dsl!='')
 {
 ?>
 <script>
-sfdtl4('<?=$dsl;?>');
+sfdtl4('<?php  echo $dsl;?>');
 </script>
-<?	
+<?php 	
 }
 ?>
 </div>

@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 date_default_timezone_set('Asia/Kolkata');
@@ -6,11 +6,11 @@ $dt = date('d-M-Y');
  
 $cy=date('Y');
 $pnm=$_REQUEST[pnm];
-$fdt=$_REQUEST[fdt];
-$tdt=$_REQUEST[tdt];
-$cat=$_REQUEST[cat];
-$scat=$_REQUEST[scat];
-$brncd=$_REQUEST[brncd];
+$fdt=$_REQUEST['fdt'];
+$tdt=$_REQUEST['tdt'];
+$cat=$_REQUEST['cat'] ?? "";
+$scat=$_REQUEST['scat'] ?? "";
+$brncd=$_REQUEST['brncd'] ?? "";
 $xls=$_REQUEST[xls];
 if($brncd==""){$brncd1="";}else{$brncd1=" and bcd='$brncd'";}
 $tdt=date('Y-m-d',strtotime($tdt));
@@ -39,12 +39,12 @@ $branchnm=$Rs['bnm'];
 <tr>
 <td align="center" colspan="16"><b>
 <b>Day Wise Stock(MRP Wise)</b><br>
-<font style="font-size:18px;font-family:Century"><b><?=$comp_nm;?> - <?=$branchnm;?></b></font><br/>
-<font style="font-size:13px;font-family:Century"><?=$comp_addr;?><br>
-Phone : <?=$cont;?>
+<font style="font-size:18px;font-family:Century"><b><?php  echo $comp_nm;?> - <?php  echo $branchnm;?></b></font><br/>
+<font style="font-size:13px;font-family:Century"><?php  echo $comp_addr;?><br>
+Phone : <?php  echo $cont;?>
 </font><br/>
-<font style="font-size:13px;">GSTIN NO. : <?=$gstin?></font><br>
-<font style="font-size:14px;"><b>Statement From : <?=date('d-m-Y', strtotime($fdt));?></b> To <b><?=date('d-m-Y', strtotime($tdt));?></b></font>
+<font style="font-size:13px;">GSTIN NO. : <?php  echo $gstin?></font><br>
+<font style="font-size:14px;"><b>Statement From : <?php echo date('d-m-Y', strtotime($fdt));?></b> To <b><?php echo date('d-m-Y', strtotime($tdt));?></b></font>
 
 </b></td>
 </tr>
@@ -67,7 +67,7 @@ Phone : <?=$cont;?>
 <td  align="center" ><b>Rate</b></td>
 <td  align="center" ><b>Closing Amount</b></td>
 </tr>
-<?
+<?php 
 $sl=$start;
 $c1='odd';
 $c3=0;
@@ -196,24 +196,24 @@ $s_val=$stock_out*$rate;
 $cls_val=$stock_close*$rate;
 			 ?>
 <tr>
-<td  align="center" ><?=$sln;?></td>
-<td align="left"><?=$cnm;?></td>
-<td align="left"><?=$snm;?></td>
-<td  align="left" title="<?=$pcd?>"><?=$nm;?></td>
-<td  align="center" ><? echo $stock_op;?></td>
-<td  align="right"><? echo number_format($rate,2);?></td>
-<td  align="right" ><? echo number_format($op_val,2);?></td>
-<td  align="center" ><? echo $stock_in;?></td>
-<td  align="right"><? echo number_format($rate,2);?></td>
-<td  align="right" ><? echo number_format($pur_val,2);?></td>
-<td  align="center" ><? echo $stock_out;?></td>
-<td  align="right"><? echo number_format($rate,2);?></td>
-<td  align="right" ><? echo number_format($s_val,2);?></td>
-<td  align="center" ><?=$stock_close;?></td>
-<td  align="right"><? echo number_format($rate,2);?></td>
-<td  align="right" ><?=number_format($cls_val,2);?></td>
+<td  align="center" ><?php  echo $sln;?></td>
+<td align="left"><?php  echo $cnm;?></td>
+<td align="left"><?php  echo $snm;?></td>
+<td  align="left" title="<?php  echo $pcd?>"><?php  echo $nm;?></td>
+<td  align="center" ><?php  echo $stock_op;?></td>
+<td  align="right"><?php  echo number_format($rate,2);?></td>
+<td  align="right" ><?php  echo number_format($op_val,2);?></td>
+<td  align="center" ><?php  echo $stock_in;?></td>
+<td  align="right"><?php  echo number_format($rate,2);?></td>
+<td  align="right" ><?php  echo number_format($pur_val,2);?></td>
+<td  align="center" ><?php  echo $stock_out;?></td>
+<td  align="right"><?php  echo number_format($rate,2);?></td>
+<td  align="right" ><?php  echo number_format($s_val,2);?></td>
+<td  align="center" ><?php  echo $stock_close;?></td>
+<td  align="right"><?php  echo number_format($rate,2);?></td>
+<td  align="right" ><?php echo number_format($cls_val,2);?></td>
 </tr>	 
-<?
+<?php 
 $T_op_val=$op_val+$T_op_val;
 $T_pur_val=$pur_val+$T_pur_val;
 $T_s_val=$s_val+$T_s_val;
@@ -226,16 +226,16 @@ $T_cls_val=$cls_val+$T_cls_val;
 ?>
 <tr>
 <td colspan="6" align="right" ><b>Total : </b></td>
-<td  align="right" ><b><?=$T_op_val;?></b></td>
+<td  align="right" ><b><?php  echo $T_op_val;?></b></td>
 <td  align="right" ></td>
 <td  align="right" ></td>
-<td  align="right" ><b><?=$T_pur_val;?></b></td>
+<td  align="right" ><b><?php  echo $T_pur_val;?></b></td>
 <td  align="right" ></td>
 <td  align="right" ></td>
-<td  align="right" ><b><?=$T_s_val;?></b></td>
+<td  align="right" ><b><?php  echo $T_s_val;?></b></td>
 <td  align="right" ></td>
 <td  align="right" ></td>
-<td  align="right" ><b><?=$T_cls_val;?></b></td>
+<td  align="right" ><b><?php  echo $T_cls_val;?></b></td>
 
 </tr>		
 	  </table>

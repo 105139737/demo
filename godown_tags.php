@@ -1,4 +1,4 @@
-<?php 
+<?php  
 $reqlevel = 3;
 include("membersonly.inc.php");
 $brncd=$_POST['brncd'];
@@ -29,15 +29,15 @@ mysqli_query($conn,"insert into main_godown_tag(brncd,bcd,brand)values('$brncd',
 	alert('Submitted Successfully. Thank You ');
 	document.location="godown_tag.php";
 	</script>
-<?php
+<?php 
 }
 else
 {
 	?>
 	<script type="text/javascript" language="javascript">
-	alert('<?php echo $err;?>');
+	alert('<?php  echo $err;?>');
 	window.history.go(-1);
 	</script>
-	<?php 
+	<?php  
 }
 ?>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include "header.php";
@@ -8,7 +8,7 @@ $saa="01-".date('m-y');
 <html>
 <head>
         <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <style type="text/css"> 
@@ -136,17 +136,17 @@ function gcat()
 <tr>
 <td align="left" width="25%">
 <b>Form:</b><br>
-<input type="text" id="fdt" name="fdt" size="20" value="<?echo $saa;?>" class="form-control" placeholder="Please Enter From Date" > 
+<input type="text" id="fdt" name="fdt" size="20" value="<?php echo $saa;?>" class="form-control" placeholder="Please Enter From Date" > 
 </td>
 <td align="left" width="25%">
 <b>To:</b><br>
-<input type="text" id="tdt" name="tdt" size="20" value="<?echo $sa;?>"class="form-control" placeholder="Please Enter To Date">
+<input type="text" id="tdt" name="tdt" size="20" value="<?php echo $sa;?>"class="form-control" placeholder="Please Enter To Date">
 </td>
 <td align="left" width="25%">
 <b>Customer:</b><br>
 <select name="snm" class="form-control"  id="snm"   >
 <option value="">---All---</option>
-<?
+<?php 
 $query="Select * from  main_cust order by nm";
    $result = mysqli_query($conn,$query);
 while ($R = mysqli_fetch_array ($result))
@@ -155,8 +155,8 @@ $sid=$R['sl'];
 $nm=$R['nm'];
 $cont=$R['cont'];
 ?>
-<option value="<? echo $sid;?>"><? echo $nm;?> - <? echo $cont;?></option>
-<?
+<option value="<?php  echo $sid;?>"><?php  echo $nm;?> - <?php  echo $cont;?></option>
+<?php 
 }
 ?>
 </select>
@@ -164,7 +164,7 @@ $cont=$R['cont'];
 <td align="left" width="25%" >
 <b>Branch:</b><br>
 <select name="brncd" class="form-control" size="1" id="brncd"   >
-<?
+<?php 
 if($user_current_level<0)
 {
 	
@@ -184,8 +184,8 @@ $sl=$R['sl'];
 $bnm=$R['bnm'];
 
 ?>
-<option value="<? echo $sl;?>"><? echo $bnm;?></option>
-<?
+<option value="<?php  echo $sl;?>"><?php  echo $bnm;?></option>
+<?php 
 }
 ?>
 </select>
@@ -198,7 +198,7 @@ $bnm=$R['bnm'];
 <div id="gcat">
 <select name="cat" class="form-control" size="1" id="cat" tabindex="8" onchange="getv()">
 <Option value="">---All---</option>
-<?
+<?php 
 
 $data1 = mysqli_query($conn,"Select * from main_catg order by cnm");
 
@@ -219,7 +219,7 @@ $data1 = mysqli_query($conn,"Select * from main_catg order by cnm");
 <b>Brand Name :</b><br>
 <select name="bnm" class="form-control" size="1" id="bnm" tabindex="8"  onchange="getv()" >
 				<Option value="">---All---</option>
-<?
+<?php 
 
 $data2 = mysqli_query($conn,"Select * from main_brand order by brand");
 
@@ -240,7 +240,7 @@ $data2 = mysqli_query($conn,"Select * from main_brand order by brand");
 <div id="vv">
 <select name="pnm" class="form-control"  id="pnm"   >
 <option value="">---All---</option>
-<?
+<?php 
 $query6="select * from  ".$DBprefix."product order by pnm";
 			$result5 = mysqli_query($conn,$query6);
 			while($row=mysqli_fetch_array($result5))
@@ -264,8 +264,8 @@ while ($row1 = mysqli_fetch_array($data2))
 $brand=$row1['brand'];
 }
 ?>
-<option value="<? echo $psll;?>"><? echo $cnm;?> - <? echo $brand;?> - <?=$variant;?></option>
-<?
+<option value="<?php  echo $psll;?>"><?php  echo $cnm;?> - <?php  echo $brand;?> - <?php  echo $variant;?></option>
+<?php 
 }
 ?>
 </select>

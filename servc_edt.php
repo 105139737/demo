@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include "header.php";
@@ -49,7 +49,7 @@ while($row=mysqli_fetch_array($get))
 <html>
 <head>
         <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <style type="text/css"> 
@@ -173,8 +173,8 @@ $("#hsndiv").load("get_hsn.php?scat="+scat).fadeIn('fast');
 
 <form name="f" method="post" action="servc_edts.php">
 
-<input type="hidden" id="sl" name="sl" value="<?echo $ssl;?>">
-<input type="hidden" name="gsl" id="gsl" value="<?echo $gsl;?>">
+<input type="hidden" id="sl" name="sl" value="<?php echo $ssl;?>">
+<input type="hidden" name="gsl" id="gsl" value="<?php echo $gsl;?>">
      <center>
 <div class="box box-success">
 <table border="0"  class="table table-hover table-striped table-bordered" >
@@ -183,7 +183,7 @@ $("#hsndiv").load("get_hsn.php?scat="+scat).fadeIn('fast');
 	<td  align="left" width="30%" style="display:none;">
 	<select name="cat" class="form-control" size="1" id="cat" tabindex="8" onchange="get_scat(this.value)">
 	<Option value="">---Select---</option>
-	<?
+	<?php 
 	$data1 = mysqli_query($conn,"Select * from main_catg order by cnm");
 	while ($row1 = mysqli_fetch_array($data1))
 	{
@@ -200,15 +200,15 @@ $("#hsndiv").load("get_hsn.php?scat="+scat).fadeIn('fast');
 	<div id="catdiv">
 	<select name="scat" class="form-control" size="1" id="scat" tabindex="8" onchange="get_igst()">
 	<Option value="">---Select---</option>
-	<?
+	<?php 
 	$data1=mysqli_query($conn,"Select * from main_scat order by nm");
 	while($row1=mysqli_fetch_array($data1))
 	{
 		$sc_sl=$row1['sl'];
 		$sc_nm=$row1['nm'];
 		?>
-		<Option value="<?=$sc_sl;?>"><?=$sc_nm;?></option>
-		<?
+		<Option value="<?php  echo $sc_sl;?>"><?php  echo $sc_nm;?></option>
+		<?php 
 	}
 	?>
 	</select>
@@ -219,7 +219,7 @@ $("#hsndiv").load("get_hsn.php?scat="+scat).fadeIn('fast');
 <tr>
 	<td  align="right" style="padding-top:17px"><font color="red">*</font><b>Service Name :</b></td>
 	<td  align="left" colspan="">
-	<input type="text" class="form-control" id="pnm"  name="pnm" value="<?=$pnm;?>"  placeholder="Enter Service Name... "  required>
+	<input type="text" class="form-control" id="pnm"  name="pnm" value="<?php  echo $pnm;?>"  placeholder="Enter Service Name... "  required>
 	</td>
 	<td  align="right" style="padding-top:17px" hidden><b> Sale Rate</b> :</td>
 	<td  align="left" hidden>
@@ -229,7 +229,7 @@ $("#hsndiv").load("get_hsn.php?scat="+scat).fadeIn('fast');
 	<td align="right" style="padding-top:15px;"><b>HSN:</b></td>
 	<td align="left">
 	<div id="hsndiv">
-	<input type="text" name="hsn" id="hsn" class="form-control"  value="<?=$hsn;?>" placeholder="Enter HSN">
+	<input type="text" name="hsn" id="hsn" class="form-control"  value="<?php  echo $hsn;?>" placeholder="Enter HSN">
 	</div>
 	</td>
 
@@ -287,7 +287,7 @@ $("#hsndiv").load("get_hsn.php?scat="+scat).fadeIn('fast');
 	<td  align="right" style="padding-top:15px"><font color="red">*</font><b>I-GST :</b></td>
 	<td  align="left">
 	<div id="igdiv">
-	<input type="text" class="form-control" id="igst" value="<?php echo $igst;?>" name="igst" onkeypress="return isNumber(event)" placeholder="Enter IGST" required>
+	<input type="text" class="form-control" id="igst" value="<?php  echo $igst;?>" name="igst" onkeypress="return isNumber(event)" placeholder="Enter IGST" required>
 	</div>
 	</td>
 
@@ -299,11 +299,11 @@ $("#hsndiv").load("get_hsn.php?scat="+scat).fadeIn('fast');
 <tr style="display:none;">
 	<td  align="right" style="padding-top:15px"><font color="red">*</font><b>S-GST :</b></td>
 	<td  align="left">
-	<input type="text" class="form-control" id="sgst"  name="sgst" value="<?php echo $sgst;?>" placeholder="Enter SGST" required>
+	<input type="text" class="form-control" id="sgst"  name="sgst" value="<?php  echo $sgst;?>" placeholder="Enter SGST" required>
 	</td>
 	<td  align="right" style="padding-top:15px"><font color="red">*</font><b>C-GST :</b></td>
 	<td  align="left">
-	<input type="text" class="form-control" id="cgst" name="cgst" value="<?php echo $cgst;?>" placeholder="Enter CGST" required>
+	<input type="text" class="form-control" id="cgst" name="cgst" value="<?php  echo $cgst;?>" placeholder="Enter CGST" required>
 	</td>
 
 </tr>
@@ -311,11 +311,11 @@ $("#hsndiv").load("get_hsn.php?scat="+scat).fadeIn('fast');
 <tr style="display:none;">
 <td  align="right" style="padding-top:15px"><font color="red">*</font><b>From Date :</b></td>
 <td  align="left">
-<input type="text" class="form-control" id="fdt" name="fdt" value="<?php echo $fdt;?>" readonly >
+<input type="text" class="form-control" id="fdt" name="fdt" value="<?php  echo $fdt;?>" readonly >
 </td>
 <td  align="right" style="padding-top:15px"><font color="red">*</font><b>To Date :</b></td>
 <td  align="left">
-<input type="text" class="form-control" id="tdt"  name="tdt" value="<?php echo $tdt;?>"  readonly>
+<input type="text" class="form-control" id="tdt"  name="tdt" value="<?php  echo $tdt;?>"  readonly>
 </td>
 
 </tr>

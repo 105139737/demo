@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 include "header.php";
@@ -7,7 +7,7 @@ $cid=$_REQUEST['cid'];
 <html>
 <head>
     <div class="wrapper row-offcanvas row-offcanvas-left">
-        <?
+        <?php 
             include "left_bar.php";
             ?>
         <style type="text/css">
@@ -79,15 +79,15 @@ $cid=$_REQUEST['cid'];
                                 </td>
                                 <td align="left" width="" colspan="3">
                                     <select id="cid" name="cid" tabindex="1" required class="form-control">
-<?
+<?php 
 		$query="select * from main_cust  WHERE sl='$cid' order by nm";
 		$result=mysqli_query($conn,$query);
 		while($rw=mysqli_fetch_array($result))
 		{
 			?>
-			<option value="<?=$rw['sl'];?>" <?if($sid==$rw['sl']){echo"selected";}?>
-			><?=$rw['nm'];?> </option>
-			<?
+			<option value="<?php  echo $rw['sl'];?>" <?php if($sid==$rw['sl']){echo"selected";}?>
+			><?php  echo $rw['nm'];?> </option>
+			<?php 
 		}
 ?>
                                     </select>

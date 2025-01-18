@@ -1,4 +1,4 @@
-<?php 
+<?php  
 $reqlevel = 1;
 include("membersonly.inc.php");
 $brand=$_REQUEST['brand'];
@@ -9,7 +9,7 @@ if($brand==""){$brand1="";}else{$brand1=" and cat='$brand'"; $brand2=" and brand
 
 $fdt=$_REQUEST['fdt'];
 $tdt=$_REQUEST['tdt'];
-$sper=$_REQUEST['sper'];
+$sper=$_REQUEST['sper'] ?? "";
 $spid=$_REQUEST['spid'];
 $yr=$_REQUEST['yr'];
 $mnth=$_REQUEST['mnth'];
@@ -54,7 +54,7 @@ $data13= mysqli_query($conn,"update main_billing set cu='1' where blno='$blno'  
 }
 
 
-$file="Target_$pmonth_To_$month.xls";
+$file="Target_".$pmonth."_To_".$month.".xls";
 header("Content-type: application/vnd.ms-excel"); 
 header("Content-Disposition: attachment; filename=$file");
 ?>
@@ -64,41 +64,41 @@ header("Content-Disposition: attachment; filename=$file");
 <th rowspan="2">SALESMAN</th>
 <th rowspan="2">SUBDEALERS NAME</th>
 
-<?php 
+<?php  
 $data13= mysqli_query($conn,"SELECT * FROM main_scat where sl>0 and FIND_IN_SET(sl, '$cat_array1')>0 $brand1 order by sl ") or die(mysqli_error($conn));
 while ($row13 = mysqli_fetch_array($data13))
 {
 $catnm=$row13['nm'];
 ?>
-<th colspan="3" style="text-align:center;"><b><?php echo $catnm;?></b></th>
-<?php }?>
+<th colspan="3" style="text-align:center;"><b><?php  echo $catnm;?></b></th>
+<?php  }?>
 <th colspan="3" style="text-align:center;"><b>TOT BILL VALUE</b></th>
 <th colspan="3" style="text-align:center;"><b>TOT COLLECTION</b></th>
 </tr>
 <tr>
-<?php 
+<?php  
 $i=0;
 $data13= mysqli_query($conn,"SELECT * FROM main_scat where sl>0 and FIND_IN_SET(sl, '$cat_array1')>0 $brand1 order by sl") or die(mysqli_error($conn));
 while ($row13 = mysqli_fetch_array($data13))
 {
 	
 ?>
-<td><b><?php echo $pmonth;?></b></td>
-<td><b><?php echo $month;?></b></td>
+<td><b><?php  echo $pmonth;?></b></td>
+<td><b><?php  echo $month;?></b></td>
 <td><b>ACH</b></td>
-<?php 
+<?php  
 $i=$i+3;
 }?>
-<td><b><?php echo $pmonth;?></b></td>
-<td><b><?php echo $month;?></b></td>
+<td><b><?php  echo $pmonth;?></b></td>
+<td><b><?php  echo $month;?></b></td>
 <td><b>ACH</b></td>
 
-<td><b><?php echo $pmonth;?></b></td>
-<td><b><?php echo $month;?></b></td>
+<td><b><?php  echo $pmonth;?></b></td>
+<td><b><?php  echo $month;?></b></td>
 <td><b>ACH</b></td>
 
 </tr>
-<?
+<?php 
 
 $data12= mysqli_query($conn,"SELECT * FROM main_cust_asgn where sl>0 and FIND_IN_SET(spid, '$spid_array1')>0 and spid!='' order by spid ") or die(mysqli_error($conn));
 while ($row12 = mysqli_fetch_array($data12))
@@ -114,9 +114,9 @@ $cust_sl=$row13['sl'];
 
 ?>
 <tr>
-<td><?php echo $spid;?></td>
-<td><?php echo $cust_nm;?></td>
-<?php 
+<td><?php  echo $spid;?></td>
+<td><?php  echo $cust_nm;?></td>
+<?php  
 $i=0;
 $this_netamm1=0;
 $pnetamm1=0;
@@ -151,20 +151,20 @@ $target_per=$row16['target_per'];
 }
 $this_month=$pqty+(($pqty*$target_per)/100);
 ?>
-<td><b><?php echo $pqty;?></b></td>
-<td><b><?php echo $this_month;?></b></td>
-<td><b><?php echo $qty;?></b></td>
-<?php 
+<td><b><?php  echo $pqty;?></b></td>
+<td><b><?php  echo $this_month;?></b></td>
+<td><b><?php  echo $qty;?></b></td>
+<?php  
 $pnetamm1+=$pnetamm;
 $this_netamm1+=$this_netamm;
 $i=$i+3;
 }
 $this_val=$pnetamm1+(($pnetamm1*$target_per)/100);
 ?>
-<td><b><?php echo $pnetamm1;?></b></td>
-<td><b><?php echo $this_val;?></b></td>
-<td><b><?php echo $this_netamm1;?></b></td>
-<?
+<td><b><?php  echo $pnetamm1;?></b></td>
+<td><b><?php  echo $this_val;?></b></td>
+<td><b><?php  echo $this_netamm1;?></b></td>
+<?php 
 $p_coll=0;
 $data184= mysqli_query($conn,"SELECT sum(amm) as tamm FROM main_drcr where sl>0 and typ='77' and (cldgr='4' or cldgr='7') and dldgr!='5' and dldgr!='7' and cid='$cust_sl' and  dt like '$pdt%'") or die(mysqli_error($conn));
 while ($row18 = mysqli_fetch_array($data184))
@@ -179,13 +179,13 @@ $coll=$row18['tamm'];
 }
 $this_col=$p_coll+(($p_coll*$target_per)/100);
 ?>
-<td><b><?php echo $p_coll;?></b></td>
-<td><b><?php echo $this_col;?></b></td>
-<td><b><?php echo $coll;?></b></td>
+<td><b><?php  echo $p_coll;?></b></td>
+<td><b><?php  echo $this_col;?></b></td>
+<td><b><?php  echo $coll;?></b></td>
 
 </tr>
 
-<?
+<?php 
 }
 }
 ?>

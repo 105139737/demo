@@ -1,11 +1,11 @@
-<?php
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 include "header.php";
 ?>
 <html>
         <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <head>
@@ -46,9 +46,9 @@ border: 1px solid #000;
 <table border="0" width="100%">
 <tr>
 <td  align="center" colspan="2">
-<font size="7"><b><?=$comp_nm;?></b></font>
+<font size="7"><b><?php  echo $comp_nm;?></b></font>
 <br>
-<font size="4"><b><?=$comp_addr;?></b></font>
+<font size="4"><b><?php  echo $comp_addr;?></b></font>
 </td>
 </tr>
 <tr>
@@ -57,20 +57,20 @@ border: 1px solid #000;
 </td>
 <td  align="center">
     <font size="3"> <b><a href="bill_typ.php?rv=1" ><u>Back</u></a> || </b></font>
-<font size="3"> <b><a href="bill_new_gst.php?blno=<?=rawurlencode($blno);?>" target="_blank"><font color="red"><u>Without Header Print</u></font></a> || </b></font>
-<font size="3"> <b><a href="bill_new_gst.php?blno=<?=rawurlencode($blno);?>&typ=1" target="_blank"><font color="red"><u>With Header Print</u></font></a></b></font>
+<font size="3"> <b><a href="bill_new_gst.php?blno=<?php echo rawurlencode($blno);?>" target="_blank"><font color="red"><u>Without Header Print</u></font></a> || </b></font>
+<font size="3"> <b><a href="bill_new_gst.php?blno=<?php echo rawurlencode($blno);?>&typ=1" target="_blank"><font color="red"><u>With Header Print</u></font></a></b></font>
 </td>
 </tr>
 
 <tr>
 <td align="center"  colspan="2" >
-<a href="javascript:sms('<?=$blno;?>')"><font size="3" color="blue"> <b><u>Send SMS</u></b></font></a>
+<a href="javascript:sms('<?php  echo $blno;?>')"><font size="3" color="blue"> <b><u>Send SMS</u></b></font></a>
 </td>
 </tr>
 
 <tr>
 <td  align="center"  colspan="2">
-<font size="3" color="red"> <b> Bill No. : <?=$blno;?></b></font>
+<font size="3" color="red"> <b> Bill No. : <?php  echo $blno;?></b></font>
 </td>
 </tr>
 </table>

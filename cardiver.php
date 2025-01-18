@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include "header.php";
@@ -6,7 +6,7 @@ include "header.php";
 <html>
 <head>
         <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <style type="text/css"> 
@@ -160,14 +160,14 @@ Car No. : </td>
 	<input type="text"  list="browsers" id="cno" class="form-control" name="cno" value="" style="width:430px" tabindex="1" placeholder="Car No.">
 	    
   <datalist id="browsers">
-	<?
+	<?php 
 	$data1= mysqli_query($conn,"select * from main_dirver group by cno")or die(mysqli_error($conn));
 while ($row1 = mysqli_fetch_array($data1))
 {
 	$cno=$row1['cno'];
 	?>
-  <option value="<?=$cno;?>"/>
-<?
+  <option value="<?php  echo $cno;?>"/>
+<?php 
 }
 ?>
 

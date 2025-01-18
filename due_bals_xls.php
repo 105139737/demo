@@ -1,9 +1,10 @@
-<?php
+<?php 
 $reqlevel = 3; 
 include("membersonly.inc.php");
 set_time_limit(0);
 
 include("function.php");
+$refsl="";
 $fdt=$_REQUEST['fdt'];
 $tdt=$_REQUEST['tdt'];
 $snm=$_REQUEST['snm'];
@@ -158,7 +159,7 @@ $jobLink=CreateNewJob('jobs/due_bals_xls.php',$user_currently_loged,'Due List',$
 alert('Your request has been accepted. You will get you dwonload link in your home page in a few moments. Thank you...');
 window.history.go(-1);
 </script>
-<?php
+<?php 
 die('<b><center><font color="green" size="5">Your request has been accepted. You will get you dwonload link in your home page in a few moments. Thank you...</font></center></b>');
 $broder="border='1'";
 }
@@ -245,8 +246,8 @@ $ALLTOD=$ALLTOD+$over_duen;
 
 
 /* 
-$pno=$_REQUEST['pno'];
-$ps=$_REQUEST['ps'];
+$pno=$_REQUEST['pno'] ?? "";
+$ps=$_REQUEST['ps'] ?? "";
 if($ps==""){$ps=40;}
 if($pno==""){$pno=1;}
 $start=($pno-1)*$ps;
@@ -262,13 +263,13 @@ $count=mysqli_num_rows($data11);
 ?>
 
 
-<?if($val=='1')
+<?php if($val=='1')
 {?>
 <table  width="100%" border='1' >
 <thead>
 	<tr bgcolor="#e8ecf6">
 	<td align="left" valign="top" colspan="9"><font size="2" >
-	<b>  <?=$bto."</b><br>".$baddr."<br>";
+	<b>  <?php  echo $bto."</b><br>".$baddr."<br>";
 	if($bmob!="")
 	{
 	echo "Mob : ".$bmob;
@@ -276,10 +277,10 @@ $count=mysqli_num_rows($data11);
 	?>
 	</font></td>
 	</tr>
-<?}
+<?php }
 else {?>
-<table  width="100%" <?=$broder;?> class="advancedtable"  >
-<?}?>
+<table  width="100%" <?php  echo $broder;?> class="advancedtable"  >
+<?php }?>
 	<tr bgcolor="#e8ecf6">
 	<td  align="center" ><b>Sl</b></td>
 	<td  align="center"><b>BRAND</b></td>
@@ -293,7 +294,7 @@ else {?>
 	</tr>	
 </thead>
 <tbody>
-<?
+<?php 
 $tot=0;
 $tot_over_due=0;
 $tot_bill_amm=0;
@@ -419,19 +420,19 @@ $slno++;
 
 		
 <tr>
-<td  align="center" ><b><?=$slno;?></b></td>
-<td  align="left"><b><?=$als;?></b></td>
-<td  align="center"><b><?=$bill_dt;?></b></td>
+<td  align="center" ><b><?php  echo $slno;?></b></td>
+<td  align="left"><b><?php  echo $als;?></b></td>
+<td  align="center"><b><?php  echo $bill_dt;?></b></td>
 
-<td  align="left" ><a onclick="vwdtl('<?=$blno;?>')" title="Click Here To View "><b><?=$blno;?></b></a></td>
-<td  align="left" ><b><?=$nm;?>  <?=$invnm;?> <?=$sfno;?></b></td>
-<td  align="right" ><b><?=$bill_amm;?></b></td>
-<td  align="right" ><b><?=round($T,2);?></b></td>
-<td  align="center" ><b><?=$over_due;?></b></td>
+<td  align="left" ><a onclick="vwdtl('<?php  echo $blno;?>')" title="Click Here To View "><b><?php  echo $blno;?></b></a></td>
+<td  align="left" ><b><?php  echo $nm;?>  <?php  echo $invnm;?> <?php  echo $sfno;?></b></td>
+<td  align="right" ><b><?php  echo $bill_amm;?></b></td>
+<td  align="right" ><b><?php echo round($T,2);?></b></td>
+<td  align="center" ><b><?php  echo $over_due;?></b></td>
 
-<td  align="left" ><b><?=$sale_per;?></b></td>
+<td  align="left" ><b><?php  echo $sale_per;?></b></td>
 </tr>
-<?
+<?php 
 $tot+=$T;
 $tot_over_due+=$over_due;
 $tot_bill_amm+=$bill_amm;
@@ -441,19 +442,19 @@ if($due_stat=="0")
 ?>	
 	
 <tr>
-<td  align="center" ><b><?=$slno;?></b></td>
-<td  align="left"><b><?=$als;?></b></td>
-<td  align="center"><b><?=$bill_dt;?></b></td>
+<td  align="center" ><b><?php  echo $slno;?></b></td>
+<td  align="left"><b><?php  echo $als;?></b></td>
+<td  align="center"><b><?php  echo $bill_dt;?></b></td>
 
-<td  align="left" ><a onclick="vwdtl('<?=$blno;?>')" title="Click Here To View "><b><?=$blno;?></b></a></td>
-<td  align="left" ><b><?=$nm;?> <?=$invnm;?> <?=$sfno;?></b></td>
-<td  align="right" ><b><?=$bill_amm;?></b></td>
-<td  align="right" ><b><?=round($T,2);?></b></td>
-<td  align="center" ><b><?=$over_due;?></b></td>
+<td  align="left" ><a onclick="vwdtl('<?php  echo $blno;?>')" title="Click Here To View "><b><?php  echo $blno;?></b></a></td>
+<td  align="left" ><b><?php  echo $nm;?> <?php  echo $invnm;?> <?php  echo $sfno;?></b></td>
+<td  align="right" ><b><?php  echo $bill_amm;?></b></td>
+<td  align="right" ><b><?php echo round($T,2);?></b></td>
+<td  align="center" ><b><?php  echo $over_due;?></b></td>
 
-<td  align="left" ><b><?=$sale_per;?></b></td>
+<td  align="left" ><b><?php  echo $sale_per;?></b></td>
 </tr>
-<?	
+<?php 	
 $tot+=$T;
 $tot_over_due+=$over_due;
 $tot_bill_amm+=$bill_amm;
@@ -473,13 +474,13 @@ $qr=mysqli_query($conn,"update main_drcr set paid='0' where cbill='$blno'") or d
 </tbody>
 <tr bgcolor="#faf9e0">
 <td  align="right" colspan="5"><b>Total : - </b></td>
-<td  align="right" ><b><?=round($tot_bill_amm,2);?></b></td>
-<td  align="right" ><b><?=round($tot,2);?></b></td>
+<td  align="right" ><b><?php echo round($tot_bill_amm,2);?></b></td>
+<td  align="right" ><b><?php echo round($tot,2);?></b></td>
 <td  align="center" ><b></b></td>
 <td></td>
 </tr>
 
-<?
+<?php 
 /*
 $gtotal=0;
 $gbilltotal=0;
@@ -527,8 +528,8 @@ $gbilltotal+=$bill_amm;
 ?>
 <tr bgcolor="#e8ecf6">
 <td  align="right" colspan="5"><b>Grand Total : - </b></td>
-<td  align="right" ><b><?=round($gbilltotal,2);?></b></td>
-<td  align="right" ><b><?=round($gtotal,2);?></b></td>
+<td  align="right" ><b><?php echo round($gbilltotal,2);?></b></td>
+<td  align="right" ><b><?php echo round($gtotal,2);?></b></td>
 <td  align="center" ><b></b></td>
 <td></td>
 </tr>

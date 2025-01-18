@@ -1,12 +1,12 @@
-<?
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include "function.php";
 
-$cat=$_REQUEST[cat];
-$scat=$_REQUEST[scat];
-$psl=$_REQUEST[psl];
-$prnm3=rawurldecode($_REQUEST[prnm3]);
+$cat=$_REQUEST['cat'] ?? "";
+$scat=$_REQUEST['scat'] ?? "";
+$psl=$_REQUEST['psl'] ?? "";
+$prnm3=rawurldecode($_REQUEST['prnm3']?? "");
 $cat1="";
 $scat1="";
 $prnm31="";
@@ -17,7 +17,7 @@ if($prnm3!=""){$prnm31=" and (pnm like '%$prnm3%' or pcd like '%$prnm3%')";}
 <select id="prnm" name="prnm" tabindex="9"  onchange="get_gstval();godown()" style="width:100%">
 <option value="">---Select---</option>
 <option value="Add">---Add New---</option>
-<?php
+<?php 
 
 $data1 = mysqli_query($conn,"Select * from main_product where typ='0' and stat='0' $cat1 $scat1 $prnm31 order by pnm ");
 while ($row1 = mysqli_fetch_array($data1))
@@ -35,8 +35,8 @@ $stck=0;
 	
 	*/
 ?>
-<Option value="<?=$sl;?>"<?if($psl==$sl){echo 'selected';}?>><?=reformat($pcd." ".$pnm);?></option>
-<?}?>
+<Option value="<?php  echo $sl;?>"<?php if($psl==$sl){echo 'selected';}?>><?php echo reformat($pcd." ".$pnm);?></option>
+<?php }?>
 </select>
 
 

@@ -1,11 +1,11 @@
-<?
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include "header.php";
 ?>
 <html>
 <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <head>
@@ -107,7 +107,7 @@ select.sc {
             <td  align="left">
 			<select name="psl" id="psl" class="form-control" style="width:430px" >
           <option value="">---Select---</option>
-<?
+<?php 
 
 	
 $q1="SELECT * FROM main_product ";
@@ -123,8 +123,8 @@ while ($M=mysqli_fetch_array($r1))
 if($oi==0)
 {
 	?>
-	<option value="<?=$sl;?>"><?=$pname;?></option>
-	<?
+	<option value="<?php  echo $sl;?>"><?php  echo $pname;?></option>
+	<?php 
 
 }
 }

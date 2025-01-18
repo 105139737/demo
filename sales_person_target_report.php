@@ -1,4 +1,4 @@
-<?php 
+<?php  
 $reqlevel = 1;
 include("membersonly.inc.php");
 include "header.php";
@@ -12,7 +12,7 @@ $fdt="01-04-".$fy;
 
         <div class="wrapper row-offcanvas row-offcanvas-left">
  
-            <?php 
+            <?php  
             include "left_bar.php";
             ?>
 
@@ -346,11 +346,11 @@ window.open('sales_person_target_report_brek.php', '_blank');
         <tr >
     <td align="right" width="20%"><font color="red">*</font><b>From :</b></td>
     <td align="left" width="30%">
-	<input type="text" name="fdt" class="form-control" id="fdt" value="<? echo date('01-m-Y');?>">
+	<input type="text" name="fdt" class="form-control" id="fdt" value="<?php  echo date('01-m-Y');?>">
 	</td>
 	<td align="right" width="20%"><font color="red">*</font><b>To :</b></td>
     <td align="left" width="30%">
-	<input type="text" name="tdt" class="form-control" id="tdt" value="<? echo date('d-m-Y'); ?>">
+	<input type="text" name="tdt" class="form-control" id="tdt" value="<?php  echo date('d-m-Y'); ?>">
     </td>   
   </tr>
   <tr>
@@ -362,15 +362,15 @@ window.open('sales_person_target_report_brek.php', '_blank');
 				<div id="branddiv">
 					<select name="brand"  class="form-control" size="1" id="brand" tabindex="8"  >
 					<option value="">---ALL---</option>
-					<?php
+					<?php 
 					$data13 = mysqli_query($conn,"Select * from main_catg where sl>0 ");
 					while ($row13 = mysqli_fetch_array($data13))
 					{
 					$sl3=$row13['sl'];
 					$cnm=$row13['cnm'];
 					?>
-					<option value="<?php echo $sl3;?>"  ><?php echo $cnm;?></option>
-					<?php 
+					<option value="<?php  echo $sl3;?>"  ><?php  echo $cnm;?></option>
+					<?php  
 					}
 					?>
 					</select>

@@ -1,11 +1,11 @@
-<?
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
-$sl=$_REQUEST[sl];
+$sl=$_REQUEST['sl'];
 
 ?>
 
-<?
+<?php 
 
  $query3="Select * from ".$DBprefix."stock where sl='$sl'";
 $result3 = mysqli_query($conn,$query3);
@@ -19,4 +19,4 @@ $expdt=date('d-m-Y', strtotime($expdt));
 }
 
 ?>
-<input type="text" class="sc1" id="expdt"  name="expdt" value="<?=$expdt;?>" readonly="true"  size="12">
+<input type="text" class="sc1" id="expdt"  name="expdt" value="<?php  echo $expdt;?>" readonly="true"  size="12">

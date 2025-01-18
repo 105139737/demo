@@ -1,10 +1,10 @@
-<?
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 include "header.php";
 ?>
         <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <style type="text/css"> 
@@ -104,29 +104,29 @@ $('#sgh').load('credit_limits.php?cust_sl='+cust_sl+'&credit_limit='+credit_limi
 <td  align="left" width="35%">
 <select name="spid" class="form-control" size="1" id="spid" tabindex="8"  required onchange="show()">
 <Option value="">---Select---</option>
-<?
+<?php 
 $data1 = mysqli_query($conn,"Select * from main_sale_per order by spid");
 while ($row1 = mysqli_fetch_array($data1))
 {
 $sl=$row1['sl'];
 $spid=$row1['spid'];
 ?>
-<Option value="<?=$spid;?>"><?=$spid;?></option>
-<?}?>
+<Option value="<?php  echo $spid;?>"><?php  echo $spid;?></option>
+<?php }?>
 </select>
 </td>
 <td align="right" width="11%" style="padding-top:15px;" ><b>Customer :</b></td>
 <td  align="left" width="">
 <select name="cust[]" multiple class="form-control" size="1" id="cust" tabindex="8"  required>
-<?
-$data13 = mysqli_query($conn,"Select * from main_cust");
+<?php 
+$data13 = mysqli_query($conn,"Select * from main_cust where typ='2'");
 while ($row13 = mysqli_fetch_array($data13))
 {
 $sl3=$row13['sl'];
 $cnm=$row13['nm'];
 ?>
-<Option value="<?=$sl3;?>"><?=$cnm;?></option>
-<?}?>
+<Option value="<?php  echo $sl3;?>"><?php  echo $cnm;?></option>
+<?php }?>
 </select>
 </td>			
 </tr>

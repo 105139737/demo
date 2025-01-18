@@ -1,4 +1,4 @@
-<?php
+<?php 
 include 'config.php';
 /*
 note:
@@ -16,7 +16,7 @@ $a="%".$input."%";
 	$len = strlen($input);
 		header("Content-Type: text/xml");
 
-		echo "<?xml version=\"1.0\" encoding=\"utf-8\" ?><results>";
+		echo "<?php xml version=\"1.0\" encoding=\"utf-8\" ?><results>";
         $query = "SELECT * FROM ".$DBprefix."suppl where (tp='Creditors' or tp='Both') and (nm like '$a'||spn like '$a'||mob1 like '$a'||mob2 like '$a'||spn like '$a')";
    $result = mysqli_query($conn,$query);
 while ($R = mysqli_fetch_array ($result))

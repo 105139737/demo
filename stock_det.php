@@ -1,8 +1,8 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
-$sid=$_REQUEST[sl];
-$brncd=$_REQUEST[brncd];
+$sid=$_REQUEST['sl'];
+$brncd=$_REQUEST['brncd'] ?? "";
 if($brncd=="")
 {
 $brncd1="";
@@ -27,7 +27,7 @@ $cnm=$row['cnm'];
             <td  align="right" width="50%" ><font size="3"><b>Category :</b></font></td>
             <td  align="left">
 			
-<font size="3"><b><?echo $cnm;?></b></font>
+<font size="3"><b><?php echo $cnm;?></b></font>
             </td>
           </tr>
 	  </table>
@@ -62,7 +62,7 @@ $cnm=$row['cnm'];
 			<b>Stock Value</b>
 			</td>
 		     </tr>
-			 <?
+			 <?php 
 	$sln=0;	
 $to1=0;	
 
@@ -151,36 +151,36 @@ $sv=$stkf*$ret1;
 			 ?>
 		   <tr>
 		    <td  align="center" >
-			<?=$sln;?>
+			<?php  echo $sln;?>
 			</td>
 			 <td  align="center" >
-			<?=$pname;?>
+			<?php  echo $pname;?>
 			</td>
             <td  align="center" >
-			<?=$co;?>
+			<?php  echo $co;?>
 			</td>
 			 <td  align="center" >
-			<?=$punt;?>
+			<?php  echo $punt;?>
 			</td>
 			<td  align="center" >
-		<?=$open1;?>
+		<?php  echo $open1;?>
 			</td>
 			<td  align="center" >
-		<?=$stin1;?>
+		<?php  echo $stin1;?>
 			</td>
 			<td  align="center" >
-		<?=$stout1;?>
+		<?php  echo $stout1;?>
 			</td>
 			<td  align="center" >
-		<?=$stkf;?>
+		<?php  echo $stkf;?>
 			</td>
 		
 			<td   align="right" >
-		<?=number_format($sv,2);?>
+		<?php echo number_format($sv,2);?>
 			</td>
 		
 		     </tr>	 
-<?
+<?php 
 $to1=$sv+$to1;
 $stkf=0;
 $stout1=0;
@@ -192,7 +192,7 @@ $open1=0;
 <b>Total Value </b>
 </td>
 <td align="right" >
-<b><?=number_format($to1,2);?></b>
+<b><?php echo number_format($to1,2);?></b>
 </td>
 </tr>
 

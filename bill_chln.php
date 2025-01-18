@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include "header.php";
@@ -9,7 +9,7 @@ $saa="01-".date('m-Y');
 <html>
 <head>
         <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <style type="text/css"> 
@@ -165,19 +165,19 @@ function del(sl)
 <td align="left" width="16%" >
 <b>Form:</b><br>
 
-<input type="text" id="fdt" name="fdt" size="13" value="<?echo $saa;?>" class="form-control" placeholder="Please Enter From Date" > </td>
+<input type="text" id="fdt" name="fdt" size="13" value="<?php echo $saa;?>" class="form-control" placeholder="Please Enter From Date" > </td>
 
 <td align="left" width="16%"  >
 <b>To:</b>
 <br>
-<input type="text" id="tdt" name="tdt" size="13" value="<?echo $tdt;?>" class="form-control" placeholder="Please Enter To Date">
+<input type="text" id="tdt" name="tdt" size="13" value="<?php echo $tdt;?>" class="form-control" placeholder="Please Enter To Date">
 </td>
 
 <td align="left" width="16%"  >
 <b>To Godown :</b>
 <br>
 <select name="bcd" class="form-control" tabindex="10"  size="1" id="bcd" required>
-<?
+<?php 
 $geti=mysqli_query($conn,"select * from main_godown order by gnm") or die(mysqli_error($conn));
 while($rowi=mysqli_fetch_array($geti))
 {
@@ -189,8 +189,8 @@ $count=mysqli_num_rows($datag);
 if($count>0)
 {
 ?>
-<option value="<? echo $sl;?>"><? echo $gnm;?> </option>
-<?
+<option value="<?php  echo $sl;?>"><?php  echo $gnm;?> </option>
+<?php 
 }
 
 }

@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 5;
 include("membersonly.inc.php");
 include "header.php";
@@ -6,7 +6,7 @@ include "header.php";
 <html>
 <head>
         <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <style type="text/css"> 
@@ -108,7 +108,7 @@ Tp
           </th>
 		  </tr>
 		</thead>
-<?
+<?php 
 
 $sl=$start;
 $c1='odd';
@@ -145,29 +145,29 @@ $sln++;
   
 ?>
 
-	<tr class="<?=$c1;?>">
+	<tr class="<?php  echo $c1;?>">
 	
 	<td align="center">
-	<b><?=$slno;?></b>
+	<b><?php  echo $slno;?></b>
 	</td>
 	<td align="center" >
-	<b><?=$spn;?></b>
+	<b><?php  echo $spn;?></b>
 	</td>
 	
 	<td align="center" width="">
-	<b><?=$addr;?></b>
+	<b><?php  echo $addr;?></b>
 	</td>
 	<td align="center" width="">
-	<b><?=$mob1;?></b>
+	<b><?php  echo $mob1;?></b>
 	</td>
 	<td align="center" width="">
-	<b><?=$mob2;?></b>
+	<b><?php  echo $mob2;?></b>
 	</td>
 	<td align="center" width="">
-	<b><?=$tp;?></b>
+	<b><?php  echo $tp;?></b>
 	</td>
 </tr>
-<?}}}
+<?php }}}
 
 ?>	
 

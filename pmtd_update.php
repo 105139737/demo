@@ -1,9 +1,9 @@
-<?
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include "header.php";
 
-$sl=base64_decode($_REQUEST[sl]);
+$sl=base64_decode($_REQUEST['sl']);
 $data= mysqli_query($conn,"select * from ac_paymtd where sl='$sl'")or die(mysqli_error($conn));
 while ($row = mysqli_fetch_array($data))
 {
@@ -13,7 +13,7 @@ $mtd=$row['mtd'];
 <html>
 <head>
         <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <style type="text/css"> 
@@ -107,14 +107,14 @@ document.forms["form1"].submit();
 
 <HR> 	
 <form method="post" action="pmtd_updates.php" id="form1"  name="form1" onsubmit="return check1()">
-<input type="hidden" name="sl" id="sl" value="<?=$sl;?>">
+<input type="hidden" name="sl" id="sl" value="<?php  echo $sl;?>">
 <center>
 <div class="box box-success" >
 <table border="0"  width="860px" class="table table-hover table-striped table-bordered" >
 <tr>
 <td align="right" width="30%">Method : </td>
 <td align="left" width="50%">
-<input type="text" class="form-control" id="mtd" name="mtd" value="<?=$mtd;?>" placeholder="Please Enter Method" style="width:420px">
+<input type="text" class="form-control" id="mtd" name="mtd" value="<?php  echo $mtd;?>" placeholder="Please Enter Method" style="width:420px">
 </td>
 <td align="left" align="20%">
 <input type="submit" class="btn btn-primary" id="Button1" name="" value="Update">

@@ -1,4 +1,4 @@
-<?php 
+<?php  
 $reqlevel = 1;
 include("membersonly.inc.php");
 include "header.php";
@@ -12,7 +12,7 @@ $fdt="01-04-".$fy;
 
         <div class="wrapper row-offcanvas row-offcanvas-left">
  
-            <?php 
+            <?php  
             include "left_bar.php";
             ?>
 
@@ -305,7 +305,7 @@ $('#show').load('godown_tag_list.php?brncd='+brncd+'&bcd='+bcd).fadeIn('fast');
 	<td align="left"  width="33%"><b>Branch : </b>
 	<select name="brncd" class="form-control" tabindex="1" id="brncd"  onchange="show()" required>
 	    <Option value=""  >---Select---</option>
-	<?
+	<?php 
 	
 	$query="Select * from main_branch where sl>0";
    $result = mysqli_query($conn,$query);
@@ -315,8 +315,8 @@ $('#show').load('godown_tag_list.php?brncd='+brncd+'&bcd='+bcd).fadeIn('fast');
 	$bnm=$R['bnm'];
 
 	?>
-	<option value="<? echo $sl;?>"><? echo $bnm;?></option>
-	<?
+	<option value="<?php  echo $sl;?>"><?php  echo $bnm;?></option>
+	<?php 
 	}
 	?>
 	</select>
@@ -324,15 +324,15 @@ $('#show').load('godown_tag_list.php?brncd='+brncd+'&bcd='+bcd).fadeIn('fast');
 <td align="left" width="20%"><font color="red">*</font><label>Brand :</label>
 <select name="brand"  class="form-control" size="1" id="brand" tabindex="8"  >
 <Option value=""  >---Select---</option>
-<?php
+<?php 
 $data13 = mysqli_query($conn,"Select * from main_catg where sl>0 ");
 while ($row13 = mysqli_fetch_array($data13))
 {
 $sl3=$row13['sl'];
 $cnm=$row13['cnm'];
 ?>
-<Option value="<?=$sl3;?>"  ><?=$cnm;?></option>
-<?php 
+<Option value="<?php  echo $sl3;?>"  ><?php  echo $cnm;?></option>
+<?php  
 }
 ?>
 </select>
@@ -341,7 +341,7 @@ $cnm=$row13['cnm'];
  <font color="red">*</font><label>Godown :</label>
 <select name="bcd" class="form-control" tabindex="10"  size="1" id="bcd" required onchange="show()">
      <Option value=""  >---Select---</option>
-<?
+<?php 
 $geti=mysqli_query($conn,"select * from main_godown order by sl") or die(mysqli_error($conn));
 while($rowi=mysqli_fetch_array($geti))
 {
@@ -350,8 +350,8 @@ $gnm=$rowi['gnm'];
 $bnm=$rowi['bnm'];
 
 ?>
-<option value="<? echo $sl;?>"><? echo $gnm;?></option>
-<?
+<option value="<?php  echo $sl;?>"><?php  echo $gnm;?></option>
+<?php 
 }
 ?>
 </select>

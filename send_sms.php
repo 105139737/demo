@@ -1,4 +1,4 @@
-<?php
+<?php 
 
 function send_sms($mob1,$message,$messagetype=1)
 {

@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include "header.php";
@@ -15,7 +15,7 @@ while($row = mysqli_fetch_array($sql1))
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <div class="wrapper row-offcanvas row-offcanvas-left">
-<? 
+<?php  
 include "left_bar.php";
 
 ?>
@@ -53,7 +53,7 @@ function sh()
                 </section>
 				   <section class="content">
 <form name="Form1" method="post" action="main_m_edits.php" id="Form1">
-<input type="hidden" name="sls" id="sls" value="<?php echo $sls;?>">
+<input type="hidden" name="sls" id="sls" value="<?php  echo $sls;?>">
  <div class="col-md-12" >
               <div class="box box-success box-solid">
                 <div class="box-header with-border">
@@ -66,7 +66,7 @@ function sh()
 <tr>
 <td  align="left" >
 <b>Main Menu:</b>
-<input type="text" class="form-control" name="nm" id="nm" value="<?php echo $nm;?>"  size="40">
+<input type="text" class="form-control" name="nm" id="nm" value="<?php  echo $nm;?>"  size="40">
 </td>
 </tr>
 <tr>

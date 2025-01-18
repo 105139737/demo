@@ -1,4 +1,4 @@
-<?
+<?php 
 
 ob_start();
     include('stock_closing_xlsm.php');

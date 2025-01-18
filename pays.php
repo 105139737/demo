@@ -1,4 +1,4 @@
-<?php
+<?php 
 
 /**
  * @author Onnet Solution
@@ -50,5 +50,5 @@ $result21 = mysqli_query($conn,$query21);
 alert('Submit Sucessfully.');
 document.location='pay.php';
 </script>
-<?
+<?php 
 

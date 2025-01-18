@@ -1,4 +1,4 @@
-<?php 
+<?php  
 $reqlevel = 1;
 include("membersonly.inc.php");
 include "header.php";
@@ -12,7 +12,7 @@ $fdt="01-04-".$fy;
 
         <div class="wrapper row-offcanvas row-offcanvas-left">
  
-            <?php 
+            <?php  
             include "left_bar.php";
             ?>
 
@@ -305,14 +305,14 @@ $('#show').load('supplier_tag_list.php?sup='+sup).fadeIn('fast');
   
 <select name="sup" class="form-control" size="1" id="sup"  onchange="show()">
 <option value="">---Select---</option>
-<?
+<?php 
 $query="select * from main_suppl  WHERE sl>0 order by nm";
 $result=mysqli_query($conn,$query);
 while($rw=mysqli_fetch_array($result))
 {
 ?>
-<option value="<?=$rw['sl'];?>"><?=$rw['spn'];?> <?if($rw['nm']!=""){?>( <?=$rw['nm'];?> )<?}?></option>
-<?
+<option value="<?php  echo $rw['sl'];?>"><?php  echo $rw['spn'];?> <?php if($rw['nm']!=""){?>( <?php  echo $rw['nm'];?> )<?php }?></option>
+<?php 
 }
 ?>
 </select>
@@ -321,15 +321,15 @@ while($rw=mysqli_fetch_array($result))
 	  <td align="left" style="width:35%;"><font color="red">*</font><label>Brand :</label>
 	<select name="brand[]"  class="form-control" size="1" id="brand" tabindex="8" multiple >
 	
-	<?php
+	<?php 
 	$data13 = mysqli_query($conn,"Select * from main_catg where sl>0 ");
 	while ($row13 = mysqli_fetch_array($data13))
 	{
 	$sl3=$row13['sl'];
 	$cnm=$row13['cnm'];
 	?>
-	<Option value="<?=$sl3;?>"  ><?=$cnm;?></option>
-	<?php 
+	<Option value="<?php  echo $sl3;?>"  ><?php  echo $cnm;?></option>
+	<?php  
 	}
 	?>
 	</select>

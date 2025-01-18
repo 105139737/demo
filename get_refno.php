@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 $dt=$_REQUEST['dt'];
@@ -33,4 +33,4 @@ $result5 = mysqli_query($conn,$query5);
 $count6=mysqli_num_rows($result5);
 }
 ?>
-<input type="text" name="refno" id="refno" class="form-control" value="<?=$refno;?>" readonly required>
+<input type="text" name="refno" id="refno" class="form-control" value="<?php  echo $refno;?>" readonly required>

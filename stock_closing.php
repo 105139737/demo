@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 include "header.php";
@@ -7,7 +7,7 @@ $cy=date('Y');
 <html>
 <head>
         <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <style type="text/css"> 
@@ -104,7 +104,7 @@ function exp()
 <td align="left">
 <select name="pnm" class="form-control"  id="pnm" style="width:300px"  >
 <option value="">All</option>
-<?
+<?php 
 $query="Select * from  main_product order by pname";
    $result = mysqli_query($conn,$query);
 while ($R = mysqli_fetch_array ($result))
@@ -112,8 +112,8 @@ while ($R = mysqli_fetch_array ($result))
 $sl=$R['sl'];
 $pname=$R['pname'];
 ?>
-<option value="<? echo $sl;?>"><? echo $pname;?></option>
-<?
+<option value="<?php  echo $sl;?>"><?php  echo $pname;?></option>
+<?php 
 }
 ?>
 </select>

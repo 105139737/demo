@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include "header.php";
@@ -8,7 +8,7 @@ $saa="01-".date('m-y');
 <html>
 <head>
         <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <style type="text/css"> 
@@ -138,13 +138,13 @@ $("#tdt").inputmask("dd-mm-yyyy", {"placeholder": "dd-mm-yyyy"});
 <td align="right" style="padding-top:15px" width="8%">
 <b>Form </b>
 <td align="left"  width="12%">
-<input type="text" id="fdt" name="fdt" size="20" value="<?echo $saa;?>" class="form-control" placeholder="Please Enter From Date" > </td>
+<input type="text" id="fdt" name="fdt" size="20" value="<?php echo $saa;?>" class="form-control" placeholder="Please Enter From Date" > </td>
 
 <td align="right" style="padding-top:15px"  width="5%">
 <b>To </b>
 </td>
 <td align="left"  width="12%">
-<input type="text" id="tdt" name="tdt" size="20" value="<?echo $sa;?>"class="form-control" placeholder="Please Enter To Date">
+<input type="text" id="tdt" name="tdt" size="20" value="<?php echo $sa;?>"class="form-control" placeholder="Please Enter To Date">
 </td>
 
 <td align="right" style="padding-top:15px"  width="11%"> 
@@ -154,7 +154,7 @@ $("#tdt").inputmask("dd-mm-yyyy", {"placeholder": "dd-mm-yyyy"});
 
 <select id="pnm" name="pnm" class="form-control" >
 		<option value="">---Select---</option>
-		<?
+		<?php 
 			$query6="select * from  ".$DBprefix."product order by pnm";
 			$result5 = mysqli_query($conn,$query6);
 			while($row=mysqli_fetch_array($result5))
@@ -176,8 +176,8 @@ while ($row1 = mysqli_fetch_array($data2))
 $brand=$row1['brand'];
 }
 				?>
-			<option value="<?=$row['sl'];?>"><?=$pnm;?> - <?=$cnm;?> - <?=$brand;?> - <?=$mnm;?></option>
-				<?
+			<option value="<?php  echo $row['sl'];?>"><?php  echo $pnm;?> - <?php  echo $cnm;?> - <?php  echo $brand;?> - <?php  echo $mnm;?></option>
+				<?php 
 				}
 				?>
 			</select>
@@ -188,12 +188,12 @@ $brand=$row1['brand'];
 <td align="left"  width="15%" >
 
     <select name="brncd" class="form-control" size="1" id="brncd"   >
-<?
+<?php 
 if($user_current_level<0)
 {
 	?>
 	<option value="">---ALL---</option>
-	<?
+	<?php 
 }
 if($user_current_level<0)
 {
@@ -210,8 +210,8 @@ $sl=$R['sl'];
 $bnm=$R['bnm'];
 
 ?>
-<option value="<? echo $sl;?>"><? echo $bnm;?></option>
-<?
+<option value="<?php  echo $sl;?>"><?php  echo $bnm;?></option>
+<?php 
 }
 ?>
 </select>

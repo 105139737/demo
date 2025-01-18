@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 include "header.php";
@@ -8,7 +8,7 @@ include "header.php";
 
         <div class="wrapper row-offcanvas row-offcanvas-left">
 
-            <?
+            <?php 
 
             include "left_bar.php";
 
@@ -103,13 +103,13 @@ function act(sl,val)
 <td align="right" style="padding-top:15px;font-weight:bold;">Branch : </td>
 <td>
 <select name="brncd" class="form-control"  tabindex="1"   size="1" id="brncd" >
-<?
+<?php 
 if($user_current_level<0)
 {
 $query="Select * from main_branch";
 ?>
 <option value="">---ALL---</option>
-<?
+<?php 
 }
 else
 {
@@ -122,8 +122,8 @@ $sl=$R['sl'];
 $bnm=$R['bnm'];
 
 ?>
-<option value="<? echo $sl;?>"><? echo $bnm;?></option>
-<?
+<option value="<?php  echo $sl;?>"><?php  echo $bnm;?></option>
+<?php 
 }
 ?>
 </select>

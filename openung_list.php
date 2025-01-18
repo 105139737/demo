@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 
@@ -33,7 +33,7 @@ $all1="";
 
 
 </tr>
-<?
+<?php 
 
 $total=0;
 $sln=0;
@@ -122,25 +122,25 @@ $sll=base64_encode($x);
 
 ?>
 <tr  >
-<td  align="center" style="cursor:pointer" onclick="edit('<?=$sll;?>')" >
-<?	if($user_current_level<0)
+<td  align="center" style="cursor:pointer" onclick="edit('<?php  echo $sll;?>')" >
+<?php 	if($user_current_level<0)
 {?><i class="fa fa-pencil-square-o"></i>
-<?}?>
+<?php }?>
 </td>
-<td align="center"><? echo $sln;?></td>
-<td align="center"><? echo $cnm;?></td>
-<td align="center"><? echo $scat_nm;?></td>
-<td align="center"><? echo $pname;?></td>
-<td align="center"><? echo $unit_nm;?></td>
-<td align="center"><? echo $stock_in;?></td>
-<td align="right"><? echo $pret;?></td>
-<td align="right"><? echo $value;?></td>
+<td align="center"><?php  echo $sln;?></td>
+<td align="center"><?php  echo $cnm;?></td>
+<td align="center"><?php  echo $scat_nm;?></td>
+<td align="center"><?php  echo $pname;?></td>
+<td align="center"><?php  echo $unit_nm;?></td>
+<td align="center"><?php  echo $stock_in;?></td>
+<td align="right"><?php  echo $pret;?></td>
+<td align="right"><?php  echo $value;?></td>
 </tr>	 
-<?
+<?php 
 }
 ?>
 <tr>
 <td align="center" colspan="8"><font color="red" size="4"><b>Total :</b></font></td>
-<td align="right" ><font color="red" size="4"><b><? echo $total;?></b></font></td>
+<td align="right" ><font color="red" size="4"><b><?php  echo $total;?></b></font></td>
 </tr>	 
 </table>

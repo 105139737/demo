@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 include("Numbers/Words.php");
@@ -529,11 +529,11 @@ function blprnt(){
 <div id="wb_Shape2" style="position:absolute;left:347px;top:14px;width:340px;height:227px;z-index:23;">
 <img src="images/img0001.gif" id="Shape2" alt="" style="border-width:0;width:340px;height:227px;"></div>
 <div id="wb_Text31" style="position:absolute;left:363px;top:36px;width:200px;height:16px;z-index:24;text-align:left;">
-<span style="color:#000000;font-family:Arial;font-size:13px;">Invoice No : &nbsp &nbsp<?echo $bill;?></span></div>
+<span style="color:#000000;font-family:Arial;font-size:13px;">Invoice No : &nbsp &nbsp<?php echo $bill;?></span></div>
 <div id="wb_Text32" style="position:absolute;left:570px;top:35px;width:200px;height:32px;z-index:25;text-align:left;">
-<span style="color:#000000;font-family:Arial;font-size:13px;">Date :  &nbsp<?echo $dt;?></span></div>
+<span style="color:#000000;font-family:Arial;font-size:13px;">Date :  &nbsp<?php echo $dt;?></span></div>
 <div id="wb_Text33" style="position:absolute;left:363px;top:65px;width:200px;height:16px;z-index:26;text-align:left;">
-<span style="color:#000000;font-family:Arial;font-size:13px;">D.C.No./Dt. &nbsp &nbsp<?echo $pdt;?></span></div>
+<span style="color:#000000;font-family:Arial;font-size:13px;">D.C.No./Dt. &nbsp &nbsp<?php echo $pdt;?></span></div>
 <div id="wb_Text34" style="position:absolute;left:362px;top:91px;width:62px;height:16px;z-index:27;text-align:left;">
 <span style="color:#000000;font-family:Arial;font-size:13px;">Order No.</span></div>
 <div id="wb_Text35" style="position:absolute;left:362px;top:112px;width:97px;height:32px;z-index:28;text-align:left;">
@@ -590,7 +590,7 @@ function blprnt(){
 <div><span style="color:#000000;font-family:Arial;font-size:15px;">Rs.</span></div>
 </td>
 </tr>
-<?
+<?php 
 $csl=1;
  $query100 = "SELECT * FROM ".$DBprefix."billdtls where blno='$bill' order by bsl";
    $result100 = mysqli_query($conn,$query100);
@@ -648,25 +648,25 @@ $aiw=$nw->toWords($gttl);
 
 <tr>
 <td style="background-color:transparent;border:1px #C0C0C0 solid;text-align:left;vertical-align:top;width:64px;height:350px;">
-&nbsp;<b><? echo $ctsl;?></b></td>
+&nbsp;<b><?php  echo $ctsl;?></b></td>
 <td style="background-color:transparent;border:1px #C0C0C0 solid;text-align:left;vertical-align:top;width:64px;height:350px;">
-&nbsp;<b><? echo $pnm;?></b></td>
+&nbsp;<b><?php  echo $pnm;?></b></td>
 <td style="background-color:transparent;border:1px #C0C0C0 solid;text-align:left;vertical-align:top;width:64px;height:350px;">
-&nbsp;<b><? echo $tech1;?></b></td>
+&nbsp;<b><?php  echo $tech1;?></b></td>
 <td style="background-color:transparent;border:1px #C0C0C0 solid;text-align:left;vertical-align:top;width:64px;height:350px;">
-&nbsp;<b><? echo $co1;?></b></td>
-<td style="background-color:transparent;border:1px #C0C0C0 solid;text-align:left;vertical-align:top;width:64px;height:350px;">
-&nbsp;</td>
+&nbsp;<b><?php  echo $co1;?></b></td>
 <td style="background-color:transparent;border:1px #C0C0C0 solid;text-align:left;vertical-align:top;width:64px;height:350px;">
 &nbsp;</td>
 <td style="background-color:transparent;border:1px #C0C0C0 solid;text-align:left;vertical-align:top;width:64px;height:350px;">
 &nbsp;</td>
 <td style="background-color:transparent;border:1px #C0C0C0 solid;text-align:left;vertical-align:top;width:64px;height:350px;">
-&nbsp;<b><? echo $cqnt;?></b></td>
+&nbsp;</td>
 <td style="background-color:transparent;border:1px #C0C0C0 solid;text-align:left;vertical-align:top;width:64px;height:350px;">
-&nbsp;<b><? echo $ctpr;?></b></td>
+&nbsp;<b><?php  echo $cqnt;?></b></td>
+<td style="background-color:transparent;border:1px #C0C0C0 solid;text-align:left;vertical-align:top;width:64px;height:350px;">
+&nbsp;<b><?php  echo $ctpr;?></b></td>
 <td style="background-color:transparent;border:1px #C0C0C0 solid;text-align:left;vertical-align:top;height:350px;">
-&nbsp;<b><? echo $cttl;?></b></td>
+&nbsp;<b><?php  echo $cttl;?></b></td>
 </tr>
 
 </table>
@@ -697,11 +697,11 @@ $aiw=$nw->toWords($gttl);
 <div id="wb_Shape6" style="position:absolute;left:412px;top:923px;width:276px;height:28px;z-index:44;">
 <img src="images/img0007.gif" id="Shape6" alt="" style="border-width:0;width:276px;height:28px;"></div>
 <div id="wb_Text38" style="position:absolute;left:416px;top:928px;width:450px;height:16px;z-index:45;text-align:left;">
-<span style="color:#000000;font-family:Arial;font-size:13px;">Grand Total &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp<?echo $gttl;?>.00 </span></div>
+<span style="color:#000000;font-family:Arial;font-size:13px;">Grand Total &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp<?php echo $gttl;?>.00 </span></div>
 <div id="wb_Shape8" style="position:absolute;left:11px;top:952px;width:678px;height:28px;z-index:46;">
 <img src="images/img0008.gif" id="Shape8" alt="" style="border-width:0;width:678px;height:28px;"></div>
 <div id="wb_Text39" style="position:absolute;left:21px;top:958px;width:500px;height:16px;z-index:47;text-align:left;">
-<span style="color:#000000;font-family:Arial;font-size:13px;">Rupees: &nbsp <?echo $aiw;?> only </span></div>
+<span style="color:#000000;font-family:Arial;font-size:13px;">Rupees: &nbsp <?php echo $aiw;?> only </span></div>
 <div id="wb_Text40" style="position:absolute;left:22px;top:981px;width:60px;height:16px;z-index:48;text-align:left;">
 <span style="color:#000000;font-family:Arial;font-size:13px;">E.&amp; O.E.</span></div>
 <div id="wb_Text41" style="position:absolute;left:424px;top:979px;width:250px;height:16px;z-index:49;text-align:left;">

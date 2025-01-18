@@ -1,8 +1,9 @@
-<?
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 $query100 = "SELECT * FROM ".$DBprefix."slt where eby='$user_currently_loged' order by sl";
 $result100 = mysqli_query($conn,$query100);
+$fst="";
 while ($R100 = mysqli_fetch_array ($result100))
 {
 $fst=$R100['fst'];	
@@ -12,14 +13,14 @@ if($fst!=""){$fst1=" and sl='$fst'";}
 ?>
 <select id="fst" data-placeholder="Choose Your Supplier" name="fst" class="form-control" onchange="get_gst()" >
 
-	<?
+	<?php 
 	$sql="SELECT * FROM main_state WHERE sl>0 $fst1 ORDER BY sn";
 	$result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
 		while($row=mysqli_fetch_array($result))
 		{
 	?>
-    <option value="<?=$row['sl'];?>"<?if($row['sl']=='1'){echo 'selected';}?>><?=$row['sn'];?> - <?=$row['cd'];?></option>
-<?}?>
+    <option value="<?php  echo $row['sl'];?>"<?php if($row['sl']=='1'){echo 'selected';}?>><?php  echo $row['sn'];?> - <?php  echo $row['cd'];?></option>
+<?php }?>
 </select>
 <script>
   $('#fst').chosen({

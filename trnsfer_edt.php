@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 include "function.php";
@@ -20,7 +20,7 @@ while ($R111 = mysqli_fetch_array($result111)) {
 ?>
 <html>
 <div class="wrapper row-offcanvas row-offcanvas-left">
-	<?
+	<?php 
 	include "left_bar.php";
 	?>
 
@@ -325,7 +325,7 @@ while ($R111 = mysqli_fetch_array($result111)) {
 			<section class="content-header">
 				<h1 align="center">
 					Stock Transfer
-					<small> <? echo $blno; ?> </small>
+					<small> <?php  echo $blno; ?> </small>
 				</h1>
 				<ol class="breadcrumb">
 					<li><a href="index.php"><i class="fa fa-home"></i> Home</a></li>
@@ -358,7 +358,7 @@ while ($R111 = mysqli_fetch_array($result111)) {
 
 
 
-					<input type="hidden" name="blno" id="blno" value="<?= $blno; ?>">
+					<input type="hidden" name="blno" id="blno" value="<?php echo  $blno; ?>">
 					<div class="box box-success">
 						<font color="#00a65a">Godown :</font>
 						<table border="0" width="860px" class="table table-hover table-striped table-bordered">
@@ -369,7 +369,7 @@ while ($R111 = mysqli_fetch_array($result111)) {
 									<font size="4"><b>From :</b></font>
 								</td>
 								<td align="left" hidden>
-									<?
+									<?php 
 									$query100 = "SELECT * FROM main_trndtl where blno='$blno' order by sl";
 									$result100 = mysqli_query($conn, $query100);
 									while ($R100 = mysqli_fetch_array($result100)) {
@@ -379,7 +379,7 @@ while ($R111 = mysqli_fetch_array($result111)) {
 
 									?>
 										<select name="fbcd" class="form-control" size="1" id="fbcd" style="width:300px" onchange="cbcd()">
-											<?
+											<?php 
 
 											$query = "Select * from main_godown where sl='$fbcd' and stat=1";
 											$result = mysqli_query($conn, $query);
@@ -387,17 +387,17 @@ while ($R111 = mysqli_fetch_array($result111)) {
 												$sl = $R['sl'];
 												$bnm = $R['gnm'];
 											?>
-												<option value="<? echo $sl; ?>"><? echo $bnm; ?></option>
-											<?
+												<option value="<?php  echo $sl; ?>"><?php  echo $bnm; ?></option>
+											<?php 
 											}
 											?>
 										</select>
-									<?
+									<?php 
 									} else {
 
 									?>
 										<select name="fbcd" class="form-control" size="1" id="fbcd" style="width:300px" onchange="cbcd()">
-											<?
+											<?php 
 
 											$query = "Select * from main_godown where stat=1";
 											$result = mysqli_query($conn, $query);
@@ -405,12 +405,12 @@ while ($R111 = mysqli_fetch_array($result111)) {
 												$sl = $R['sl'];
 												$bnm = $R['gnm'];
 											?>
-												<option value="<? echo $sl; ?>"><? echo $bnm; ?></option>
-											<?
+												<option value="<?php  echo $sl; ?>"><?php  echo $bnm; ?></option>
+											<?php 
 											}
 											?>
 										</select>
-									<? } ?>
+									<?php  } ?>
 								</td>
 								<td align="right" style="padding-top:10px">
 									<font size="4"><b>To :</b></font>
@@ -419,15 +419,15 @@ while ($R111 = mysqli_fetch_array($result111)) {
 									<div id="bb">
 										<select name="tbcd" class="form-control" size="1" id="tbcd">
 
-											<?
+											<?php 
 											$query = "Select * from main_godown where sl='$tbcd'";
 											$result = mysqli_query($conn, $query);
 											while ($R = mysqli_fetch_array($result)) {
 												$sl = $R['sl'];
 												$bnm = $R['gnm'];
 											?>
-												<option value="<? echo $sl; ?>" <?= $sl == $tbcd ? 'selected' : '' ?>><? echo $bnm; ?></option>
-											<?
+												<option value="<?php  echo $sl; ?>" <?php echo  $sl == $tbcd ? 'selected' : '' ?>><?php  echo $bnm; ?></option>
+											<?php 
 											}
 											?>
 										</select>
@@ -437,13 +437,13 @@ while ($R111 = mysqli_fetch_array($result111)) {
 									<font size="4"><b>Distance :</b></font>
 								</td>
 								<td align="left" width="35%">
-									<input type="text" id="transDistance" name="transDistance" value="<?echo $transDistance;?>" class="form-control">
+									<input type="text" id="transDistance" name="transDistance" value="<?php echo $transDistance;?>" class="form-control">
 								</td>
 							</tr>
 						</table>
 					</div>
 					<input type="hidden" id="tsl" name="tsl" value="">
-					<input type="hidden" id="dt" name="dt" value="<?= $dt; ?>">
+					<input type="hidden" id="dt" name="dt" value="<?php echo  $dt; ?>">
 
 					<div class="box box-success">
 						<table>
@@ -452,7 +452,7 @@ while ($R111 = mysqli_fetch_array($result111)) {
 
 									<select name="cat1" class="form-control" size="1" id="cat1" tabindex="1" onchange="get_scat();get_prod()">
 										<Option value="">---Brand---</option>
-										<?
+										<?php 
 										$data1 = mysqli_query($conn, "Select * from main_catg where stat='0' order by cnm");
 										while ($row1 = mysqli_fetch_array($data1)) {
 											$sl = $row1['sl'];
@@ -466,7 +466,7 @@ while ($R111 = mysqli_fetch_array($result111)) {
 									<div id="scatdiv">
 										<select name="scat1" class="form-control" size="1" id="scat1" tabindex="1" onchange="get_prod()">
 											<Option value="">---Category---</option>
-											<?
+											<?php 
 											$data2 = mysqli_query($conn, "Select * from main_scat where stat='0' order by nm");
 											while ($row2 = mysqli_fetch_array($data2)) {
 												$ssl = $row2['sl'];
@@ -513,7 +513,7 @@ while ($R111 = mysqli_fetch_array($result111)) {
 											<td align="left" width="18%">
 												<div id="g_gwn">
 													<select name="bcd" class="form-control" tabindex="10" size="1" id="bcd" onchange="gtt_unt();getb();get_betno();">
-														<?
+														<?php 
 														$query = "Select * from main_godown where stat=1";
 														$result = mysqli_query($conn, $query);
 														while ($R = mysqli_fetch_array($result)) {
@@ -527,8 +527,8 @@ while ($R111 = mysqli_fetch_array($result111)) {
 																}
 																}
 														?>
-															<option value="<? echo $sl; ?>" <?php echo $stat;?>><? echo $gnm; ?></option>
-														<?
+															<option value="<?php  echo $sl; ?>" <?php  echo $stat;?>><?php  echo $gnm; ?></option>
+														<?php 
 														}
 														?>
 													</select>
@@ -594,7 +594,7 @@ while ($R111 = mysqli_fetch_array($result111)) {
 
 						</table>
 
-						<input type="hidden" id="prid" name="prid" value="<? echo $cid; ?>">
+						<input type="hidden" id="prid" name="prid" value="">
 						<input type="hidden" id="stk">
 						<input type="hidden" id="fls">
 				</form>

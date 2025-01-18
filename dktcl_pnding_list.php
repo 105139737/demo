@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 include "header.php";
@@ -10,7 +10,7 @@ $tdt=date('d-m-Y');
 <html>
 <head>
         <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 		
@@ -211,11 +211,11 @@ function showrt()
 <tr>
 <td style="text-align:right;"><b>From:</b></td>
 <td style="text-align:left;">
-<input type="text" name="fdt" class="form-control" id="fdt" value="<?=$fdt;?>" readonly>
+<input type="text" name="fdt" class="form-control" id="fdt" value="<?php  echo $fdt;?>" readonly>
 </td>
 <td style="text-align:right;"><b>To:</b></td>
 <td style="text-align:left;">
-<input type="text" name="tdt" class="form-control" id="tdt" value="<?=$tdt;?>" readonly>
+<input type="text" name="tdt" class="form-control" id="tdt" value="<?php  echo $tdt;?>" readonly>
 </td>
 <td style="text-align:right;"><label>Search :</label></td>
 <td>

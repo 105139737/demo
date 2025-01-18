@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 
@@ -15,7 +15,7 @@ $cid=$_REQUEST['cid'];
 <th >Default</font></th>
 
 </tr>
-<?
+<?php 
 $sl=0;
 $sln=0;
 
@@ -31,15 +31,15 @@ if($is_default=='1'){$is_default1="Yes";}
 $sln++;
 ?>
 <tr  >
-<td  align="center" style="cursor:pointer" onclick="edit('<?=$x;?>','<?=$addr;?>','<?=$mob;?>')" >
+<td  align="center" style="cursor:pointer" onclick="edit('<?php  echo $x;?>','<?php  echo $addr;?>','<?php  echo $mob;?>')" >
 <i class="fa fa-pencil-square-o"></i>
 </td>
-<td align="center"><? echo $sln;?></td>
-<td align="center"><? echo $addr;?></td>
-<td align="center"><? echo $mob;?></td>
-<td align="center"><? echo $is_default1;?></td>
+<td align="center"><?php  echo $sln;?></td>
+<td align="center"><?php  echo $addr;?></td>
+<td align="center"><?php  echo $mob;?></td>
+<td align="center"><?php  echo $is_default1;?></td>
 </tr>	 
-<?
+<?php 
 }
 ?>
 </table>

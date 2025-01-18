@@ -1,11 +1,11 @@
-<?
+<?php 
 $reqlevel=1;
 include("membersonly.inc.php");
 
 $gcd=$_REQUEST['cc'];
 $dt=$_REQUEST['dt'];
 $dt1=$_REQUEST['dt1'];
-$pno=$_REQUEST['pno'];
+$pno=$_REQUEST['pno'] ?? "";
 
 
 if($pno!="0")
@@ -26,7 +26,7 @@ if($pno==0)
 ?>
 <table border="1" cellspacing="0" width="100%" id="AutoNumber2" background="images/inactive-header.png">
           <tr>
-            <td align="right" colspan="5"><a href="#" onclick="show3('<? echo $gcd;?>','','','')"><font size="3" color="red"><b>Close ( x )</b></font></a></td>
+            <td align="right" colspan="5"><a href="#" onclick="show3('<?php  echo $gcd;?>','','','')"><font size="3" color="red"><b>Close ( x )</b></font></a></td>
 			</tr>
 		  <tr>
             <td  align="center" ><font size="2" >Date</font></td>
@@ -37,7 +37,7 @@ if($pno==0)
 		 </tr>
 
 
-<?
+<?php 
 $query33 = "SELECT * FROM main_drcr where cldgr='$gcd' and".$qry."";
 $result33 = mysqli_query($conn,$query33);
 while ($R = mysqli_fetch_array ($result33))
@@ -65,15 +65,15 @@ while ($R = mysqli_fetch_array ($result33))
 		}
 ?>
 		<tr>		
-			<td  align="center" ><font size="2" color="black"><?echo $gdt;?></font></td>
-			<td  align="center" ><font size="2" color="black"><?echo $gpno;?></font></td>
-            <td  align="center" ><font size="2" color="black"><?echo $gnrtn;?></font></td>
-			<td  align="center" ><font size="2" color="black"><?echo $ldgr;?></font></td>
-			<td  align="center" ><font size="3" color="black"><?echo $gamm;?></font></td>
+			<td  align="center" ><font size="2" color="black"><?php echo $gdt;?></font></td>
+			<td  align="center" ><font size="2" color="black"><?php echo $gpno;?></font></td>
+            <td  align="center" ><font size="2" color="black"><?php echo $gnrtn;?></font></td>
+			<td  align="center" ><font size="2" color="black"><?php echo $ldgr;?></font></td>
+			<td  align="center" ><font size="3" color="black"><?php echo $gamm;?></font></td>
 		 </tr>
 
 
-<?
+<?php 
 	}}
 
 
@@ -84,7 +84,7 @@ else
 ?>
 <table border="1" cellspacing="0" width="100%" id="AutoNumber2" background="images/inactive-header.png">
           <tr>
-            <td align="right" colspan="5"><a href="#" onclick="show3('<? echo $gcd;?>','','','')"><font size="3" color="red">Close ( x )</font></a></td>
+            <td align="right" colspan="5"><a href="#" onclick="show3('<?php  echo $gcd;?>','','','')"><font size="3" color="red">Close ( x )</font></a></td>
 			</tr>
 		  <tr>
             <td  align="center" ><font size="2">Date</font></td>
@@ -94,7 +94,7 @@ else
 		 </tr>
 
 
-<?
+<?php 
 $query33 = "SELECT * FROM main_drcr where cldgr='$gcd' and".$qry."";
 $result33 = mysqli_query($conn,$query33);
 
@@ -124,14 +124,14 @@ $result33 = mysqli_query($conn,$query33);
 		}
 ?>
 <tr>
-            <td  align="center" ><font size="2" color="black"><?echo $gdt;?></font></td>
-			<td  align="center" ><font size="2" color="black"><?echo $gnrtn;?></font></td>
-			<td  align="center" ><font size="2" color="black"><?echo $gdldgr;?></font></td>
-			<td  align="center" ><font size="3" color="black"><?echo $gamm;?></font></td>
+            <td  align="center" ><font size="2" color="black"><?php echo $gdt;?></font></td>
+			<td  align="center" ><font size="2" color="black"><?php echo $gnrtn;?></font></td>
+			<td  align="center" ><font size="2" color="black"><?php echo $gdldgr;?></font></td>
+			<td  align="center" ><font size="3" color="black"><?php echo $gamm;?></font></td>
 		 </tr>
 
 
-<?
+<?php 
 				
 		}
 }}}?>

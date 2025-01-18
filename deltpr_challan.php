@@ -1,4 +1,4 @@
-<?php
+<?php 
 
 /**
  * @author Onnet Solution
@@ -8,7 +8,7 @@ $reqlevel = 1;
 include("membersonly.inc.php");
 include("Numbers/Words.php");
 
-$sl=$_REQUEST[sl];
+$sl=$_REQUEST['sl'];
 
 $query2 = "DELETE FROM  main_ctemp WHERE sl='$sl'";
 $result2 = mysqli_query($conn,$query2);

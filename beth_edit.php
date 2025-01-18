@@ -1,8 +1,8 @@
-<?
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 include "header.php";
-$sl=$_REQUEST[sl];
+$sl=$_REQUEST['sl'];
 $data= mysqli_query($conn,"select * from   main_stock where sl='$sl'")or die(mysqli_error($conn));
  
 while ($row = mysqli_fetch_array($data))
@@ -28,7 +28,7 @@ $pname=$row1['pname'];
 <html>
 <head>
         <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <style type="text/css"> 
@@ -185,19 +185,19 @@ function get(cat,tech,csl)
                               
 							
 								
-<input type="hidden" value="<?=$sl;?>" name="sl" id="sl">
+<input type="hidden" value="<?php  echo $sl;?>" name="sl" id="sl">
 
 
   <center>
         <div class="box box-success" >
-		<input type="hidden" name="csl" id="csl" value="<?=$csl;?>">
+		<input type="hidden" name="csl" id="csl" value="<?php  echo $csl;?>">
 		<table border="0"  width="800px" class="table table-hover table-striped table-bordered" >
 		
 		     <tr>
                
             <td  align="right" style="padding-top:17px">Product Name :</td>
             <td  align="left">
-		<input type="text" class="form-control" id="Editbox2"  name="pnm" value="<?=$pname;?>" size="50" placeholder="Enter Product Name">
+		<input type="text" class="form-control" id="Editbox2"  name="pnm" value="<?php  echo $pname;?>" size="50" placeholder="Enter Product Name">
 
             </td>
 			  <td  align="right" style="padding-top:17px"></td>
@@ -211,12 +211,12 @@ function get(cat,tech,csl)
         
             <td  align="right" style="padding-top:17px">Batch No. :</td>
             <td  align="left">
-<input type="text" class="form-control" id="betno"  name="betno" value="<?=$betno;?>" size="50" placeholder="Enter Batch No.">
+<input type="text" class="form-control" id="betno"  name="betno" value="<?php  echo $betno;?>" size="50" placeholder="Enter Batch No.">
 
             </td>
 			            <td  align="right" style="padding-top:17px">Expiry Date :</td>
             <td  align="left">
-<input type="text" class="form-control" id="expdt"  name="expdt" value="<?=$expdt;?>" size="50" placeholder="Enter Expiry Date">
+<input type="text" class="form-control" id="expdt"  name="expdt" value="<?php  echo $expdt;?>" size="50" placeholder="Enter Expiry Date">
 
             </td>
           </tr>

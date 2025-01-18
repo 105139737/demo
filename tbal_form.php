@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 0;
 include("membersonly.inc.php");
 $fy=date('Y');
@@ -128,7 +128,7 @@ a
 <link href="style.css" rel="stylesheet" type="text/css" />
 <link rel="shortcut icon" href="favicon.ico"/>
 </head>
-<?
+<?php 
 $query31 = "SELECT * FROM main_drcr";
 $result31 = mysqli_query($conn,$query31);
 $cnt = mysqli_num_rows($result31);
@@ -150,11 +150,11 @@ $vno=str_pad($cnt,10,"0",STR_PAD_LEFT);
   <tr class="odd">
     <td align="right" width="20%"><font color="red">*</font>From :</td>
     <td align="left" width="30%">
-	<input type="text" name="fdt" id="fdt" value="<? echo $fdt;?>" readonly>
+	<input type="text" name="fdt" id="fdt" value="<?php  echo $fdt;?>" readonly>
 	</td>
 	<td align="right" width="20%"><font color="red">*</font>To :</td>
     <td align="left" width="30%">
-	<input type="text" name="tdt" id="tdt" value="<? echo date('Y-m-d'); ?>" readonly>
+	<input type="text" name="tdt" id="tdt" value="<?php  echo date('Y-m-d'); ?>" readonly>
 	</td>   
   </tr>
   
@@ -163,13 +163,13 @@ $vno=str_pad($cnt,10,"0",STR_PAD_LEFT);
     <td align="left" width="30%">
 	 <select id="ledg" name="ledg" onchange="ldgdtls()" style="width:280px">
 							<option value="">-- Select --</option>
-							<?php 
+							<?php  
 							$get = mysqli_query($conn,"SELECT * FROM  main_ledg ") or die(mysqli_error($conn));
 							while($row = mysqli_fetch_array($get))
 							{
 							?>
-								<option value="<?=$row['sl']?>" <?=$row['sl'] == $rowpages['pcd'] ? 'selected' : '' ?>><?=$row['nm']?></option>
-							<?php 
+								<option value="<?php  echo $row['sl']?>" <?php  echo $row['sl'] == $rowpages['pcd'] ? 'selected' : '' ?>><?php  echo $row['nm']?></option>
+							<?php  
 							} 
 							?>
 						</select>

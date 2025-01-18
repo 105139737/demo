@@ -1,4 +1,4 @@
-<?php 
+<?php  
 include("membersonly.inc.php");
 $sl=$_REQUEST['sl'];
 $edtm = date('d-m-Y h:i:s a', time());

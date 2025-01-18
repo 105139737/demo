@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 0;
 include("membersonly.inc.php");
 include('SimpleImage.php');
@@ -18,7 +18,7 @@ if($nm==""||$cnt==""||$adrs=="")
 	alert("Blank Entry.....");
 	window.history.go(-1);
 	</script>
-	<?
+	<?php 
 }
 else
 {
@@ -47,7 +47,7 @@ else
 		alert("Submit Successfully.....");
 		window.location='tecn_entr.php';
 		</script>
-		<?
+		<?php 
 	}
 	else
 	{
@@ -56,7 +56,7 @@ else
 		alert("Duplicate Entry.....");
 		window.history.go(-1);
 		</script>
-		<?
+		<?php 
 	}
 }
 ?>

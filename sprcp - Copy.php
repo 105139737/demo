@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 $dt=date('Y-m-d');
@@ -17,7 +17,7 @@ the returned xml has the following structure
 ?>
 <table width="100%">
 
-<?
+<?php 
 $a=$_REQUEST[prnm];
    $query = "SELECT * FROM ".$DBprefix."product where pname like '%$a%' limit 0,6";
    $result = mysqli_query($conn,$query);
@@ -87,16 +87,16 @@ if($stkub!=0 or $stkus!=0)
 <tr>
 
 <td>
-<a href="#" onclick="get('<?=$b?>','<?=$pcd;?>','<?=$ret?>','<?=$upkg?>','<?=$punt;?>','<?=$ptu;?>','<?=$expdt;?>','<?=$betno;?>')">
-<font size="3"> <?=$b;?> </font>
-<br><?=$stcku;?>
-<br><?=$bet;?>
+<a href="#" onclick="get('<?php  echo $b?>','<?php  echo $pcd;?>','<?php  echo $ret?>','<?php  echo $upkg?>','<?php  echo $punt;?>','<?php  echo $ptu;?>','<?php  echo $expdt;?>','<?php  echo $betno;?>')">
+<font size="3"> <?php  echo $b;?> </font>
+<br><?php  echo $stcku;?>
+<br><?php  echo $bet;?>
 </a>
 <hr>
 </td>
 
 </tr>
-<?
+<?php 
 }
 }
 

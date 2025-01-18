@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 date_default_timezone_set('Asia/Kolkata');
@@ -93,16 +93,16 @@ $sql=mysqli_query($conn,"update main_billtype set tp='$tp',adrs='$adrs',brncd='$
 alert('Update Successfully.');
 document.location="billtyp_ntry.php";
 </script>
-<?
+<?php 
 }
 else
 {
 ?>
 <script>
-alert('<?=$err;?>');
+alert('<?php  echo $err;?>');
 history.go(-1);
 </script>
-<?
+<?php 
 }
 
 ?>

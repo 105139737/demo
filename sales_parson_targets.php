@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 
@@ -37,4 +37,4 @@ $starget=$_POST['s'.$sl];
 alert('Submitted Successfully. Thank You');
 document.location="sales_parson_target.php";
 </script>
-<?
+<?php 

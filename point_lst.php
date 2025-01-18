@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 $pcd=$_REQUEST['pcd'];
@@ -31,7 +31,7 @@ echo " <table border='0'  class='table table-hover table-striped table-bordered'
 		Edit
         </td>
     </tr>
-<?
+<?php 
 $c="";
 while($r=mysqli_fetch_array($qr))
 {
@@ -47,21 +47,21 @@ while($r=mysqli_fetch_array($qr))
 ?>
     <tr>
         <td style="text-align:center;">
-		<?=$c;?>
+		<?php  echo $c;?>
         </td>
         <td style="text-align:left;">
-		<?=$pnm;?>
+		<?php  echo $pnm;?>
         </td>
         <td style="text-align:center;">
-		<?=$point;?>
+		<?php  echo $point;?>
         </td> 
-		<td style="text-align:center;"><a href="point_edt.php?sl=<?=$sl;?>">
+		<td style="text-align:center;"><a href="point_edt.php?sl=<?php  echo $sl;?>">
 		<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
         </td>
     </tr>
 
-<?
+<?php 
 }
 ?>	
  </table>
-	<? } ?>
+	<?php  } ?>

@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 date_default_timezone_set('Asia/Kolkata');
@@ -24,7 +24,7 @@ if($dt1=="" or $brncd=="" or $cldgr=="" or $cid=="" or $nrtn=="")
 	alert('Please Fill All The Field');
 	history.go(-1);
 	</script>
-	<?
+	<?php 
 }
 else
 {	
@@ -93,6 +93,6 @@ $sms=send_sms($mob,$message,'1');
 			alert('Submitted Successfully. Thank You');
 			document.location="customer_fine.php";
 			</script>
-			<?
+			<?php 
 }
 ?>

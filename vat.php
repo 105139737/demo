@@ -1,4 +1,4 @@
-<?php
+<?php 
 
 /**
  * @author Onnet Solution
@@ -42,7 +42,7 @@ $prc1=$prc/$ptu;
 
 ?>
 
-<?
+<?php 
 
 
 $sl+=1;

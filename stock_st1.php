@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 include "header.php";
@@ -18,7 +18,7 @@ $to=date('d-m-Y', strtotime($tto));
 <html>
 <head>
         <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <style type="text/css"> 
@@ -154,13 +154,13 @@ function exp()
 <td align="right" style="padding-top:15px">
 <b>From : </b>
 <td align="left">
-<input type="text" id="fdt" name="fdt" value="<?=$frm;?>" class="form-control" placeholder="From Date.."></td>
+<input type="text" id="fdt" name="fdt" value="<?php  echo $frm;?>" class="form-control" placeholder="From Date.."></td>
 <td align="right" style="padding-top:15px">
 <b>To : </b>
 </td>
 <td align="left">
 
-<input type="text" id="tdt" name="tdt" value="<?=$to;?>" class="form-control" placeholder="To Date.."></td>
+<input type="text" id="tdt" name="tdt" value="<?php  echo $to;?>" class="form-control" placeholder="To Date.."></td>
 </td>
 <td align="right" style="padding-top:15px">
 <b>Product Name : </b>
@@ -168,7 +168,7 @@ function exp()
 <td align="left">
 <select name="pnm" class="form-control"  id="pnm" style="width:200px"  >
 <option value="">All</option>
-<?
+<?php 
 $query="Select * from  main_product order by pnm";
    $result = mysqli_query($conn,$query);
 while ($R = mysqli_fetch_array ($result))
@@ -177,8 +177,8 @@ $sl=$R['sl'];
 $pname=$R['pnm'];
 $mnm=$R['mnm'];
 ?>
-<option value="<? echo $sl;?>"><? echo $pname;?> - <? echo $mnm;?></option>
-<?
+<option value="<?php  echo $sl;?>"><?php  echo $pname;?> - <?php  echo $mnm;?></option>
+<?php 
 }
 ?>
 </select>
@@ -190,12 +190,12 @@ $mnm=$R['mnm'];
 <td align="left" >
 
     <select name="brncd" class="form-control" size="1" id="brncd"   >
-<?
+<?php 
 if($user_current_level<0)
 {
 	?>
 	<option value="">---ALL---</option>
-	<?
+	<?php 
 }
 if($user_current_level<0)
 {
@@ -212,8 +212,8 @@ $sl=$R['sl'];
 $bnm=$R['bnm'];
 
 ?>
-<option value="<? echo $sl;?>"><? echo $bnm;?></option>
-<?
+<option value="<?php  echo $sl;?>"><?php  echo $bnm;?></option>
+<?php 
 }
 ?>
 </select>

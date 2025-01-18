@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 $dt=date('Y-m-d');
@@ -17,7 +17,7 @@ the returned xml has the following structure
 ?>
 <table width="100%">
 
-<?
+<?php 
 $a=$_REQUEST[prnm];
    $query = "SELECT * FROM ".$DBprefix."product where pname like '%$a%' limit 0,6";
    $result = mysqli_query($conn,$query);
@@ -91,17 +91,17 @@ $stcku="Stock : ".$stkub.", ".$stkus.",Rate/".$upkg.":".$ret;
 ?>
 <tr>
 
-<td style="cursor:pointer" onclick="get('<?=$b?>','<?=$pcd;?>','<?=$ret?>','<?=$upkg?>','<?=$punt;?>','<?=$ptu;?>','<?=$expdt;?>','<?=$betno;?>','<?=$puntsl;?>')">
+<td style="cursor:pointer" onclick="get('<?php  echo $b?>','<?php  echo $pcd;?>','<?php  echo $ret?>','<?php  echo $upkg?>','<?php  echo $punt;?>','<?php  echo $ptu;?>','<?php  echo $expdt;?>','<?php  echo $betno;?>','<?php  echo $puntsl;?>')">
 <a href="#" >
-<font size="3"> <?=$b;?> </font>
-<br><?=$stcku;?>
-<br><?=$bet;?>
+<font size="3"> <?php  echo $b;?> </font>
+<br><?php  echo $stcku;?>
+<br><?php  echo $bet;?>
 </a>
 <hr>
 </td>
 
 </tr>
-<?
+<?php 
 
 }
 

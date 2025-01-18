@@ -1,10 +1,10 @@
-<?
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include "header.php";
 date_default_timezone_set('Asia/Kolkata');
 $tdt = date('d-m-Y');
-$fdt3 = date('Y');
+$fdt3 = date('Y') ?? "";
 $m = date('m');
 $fdt="01-04-".$fdt3;
 
@@ -23,7 +23,7 @@ $fdt="01-04-".$fdt1;
 ?>
 <html>
  <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <head>
@@ -184,7 +184,7 @@ $('#refno_div').load('get_refno.php?dt='+dt).fadeIn('fast');
                 </section>
                  <section class="content">
  					
-<?
+<?php 
 $dt=date('Y-m-d');
 $m=date('m', strtotime($dt));
 $y=date('y', strtotime($dt));;
@@ -228,26 +228,26 @@ $count6=mysqli_num_rows($result5);
 <br>
 <select id="sup" data-placeholder="Choose Your Supplier" name="sup"  class="form-control" tabindex="2" style="width:100%" onchange="get_gst()">
 <option value="">---Select---</option>
-<?
+<?php 
 $sql1="SELECT * FROM main_suppl ORDER BY spn";
 $result1 = mysqli_query($conn,$sql1) or die(mysqli_error($conn));
 while($row1=mysqli_fetch_array($result1))
 {
 ?>
-<option value="<?=$row1['sl'];?>"><?=$row1['spn'];?></option>
-<?
+<option value="<?php  echo $row1['sl'];?>"><?php  echo $row1['spn'];?></option>
+<?php 
 }
 ?>
 </select>
 </td>
 <td align="left" width="33%">
 <b>From  :</b>
-<input type="text" name="fdt" id="fdt" class="form-control" value="<?=$fdt;?>" >
+<input type="text" name="fdt" id="fdt" class="form-control" value="<?php  echo $fdt;?>" >
 </td>
 
 <td align="left" width="33%">
 <b>To  :</b>
-<input type="text" name="tdt" id="tdt" class="form-control" value="<?=$tdt;?>" >
+<input type="text" name="tdt" id="tdt" class="form-control" value="<?php  echo $tdt;?>" >
 </td>
 </tr>
 <tr>
@@ -270,7 +270,7 @@ while($row1=mysqli_fetch_array($result1))
 <tr>
 <td align="left">
 <b>Note Date  :</b>
-<input type="text" name="dt" id="dt" class="form-control" value="<?=date('d-m-Y');?>" required onchange="get_refno()">
+<input type="text" name="dt" id="dt" class="form-control" value="<?php echo date('d-m-Y');?>" required onchange="get_refno()">
 </td>
 <td align="left" >
 <b>Invoice No.  :</b>
@@ -289,7 +289,7 @@ while($row1=mysqli_fetch_array($result1))
 <td style="display:none;">
 <b>Refno :</b>
 <div id="refno_div">
-<input type="text" name="refno" id="refno" class="form-control" value="<?=$refno;?>" readonly required>
+<input type="text" name="refno" id="refno" class="form-control" value="<?php  echo $refno;?>" readonly required>
 </div>
 </td>
 <td width="100%">

@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include "header.php";
@@ -16,7 +16,7 @@ $typ=$row['inv_typ'];
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <head>
@@ -314,7 +314,7 @@ if (input.files && input.files[0]) {
 <link href="style.css" rel="stylesheet" type="text/css" />
 <link rel="shortcut icon" href="favicon.ico"/>
 </head>
-<?
+<?php 
 /*$query51="select * from ".$DBprefix."drcr order by vno";
 $result51 = mysqli_query($conn,$query51);
 while($rows=mysqli_fetch_array($result51))
@@ -351,8 +351,8 @@ $count6=mysqli_num_rows($result5);
 				   <section class="content">
 <form name="Form1" method="post" action="jrnl_forms.php" id="Form1" enctype="multipart/form-data">
 <input type="hidden" name="flnm1" id="flnm1" value="1" >
-<input type="hidden" name="btyp" id="btyp" value="<? echo $typ; ?>" >
-<input type="hidden" class="form-control"  value="<?php echo $bill_typ;?>" tabindex="1"  name="bsl" id="bsl" >              
+<input type="hidden" name="btyp" id="btyp" value="<?php  echo $typ; ?>" >
+<input type="hidden" class="form-control"  value="<?php  echo $bill_typ;?>" tabindex="1"  name="bsl" id="bsl" >              
 
 
  <select  name="it" id="it" class="form-control" style="display:none">
@@ -363,13 +363,13 @@ $count6=mysqli_num_rows($result5);
 <select  name="proj" id="proj" class="form-control" style="display:none">
 
 <option value="0"> NA </option>
-<?php 
+<?php  
 $get = mysqli_query($conn,"SELECT * FROM main_project") or die(mysqli_error($conn));
 while($row = mysqli_fetch_array($get))
 {
 ?>
-<option value="<?=$row['sl']?>"><?=$row['nm']?></option>
-<?php 
+<option value="<?php  echo $row['sl']?>"><?php  echo $row['nm']?></option>
+<?php  
 } 
 ?>
 </select>
@@ -383,12 +383,12 @@ while($row = mysqli_fetch_array($get))
   <tr>
     <td align="right" width="10%"><font color="red">*</font>Date :</td>
     <td align="left" width="40%">
-	<input type="text" name="dt" id="dt" class="form-control"  value="<? echo date('d-M-Y'); ?>" onchange="chk_dt('<?=date('d-M-Y')?>')">
+	<input type="text" name="dt" id="dt" class="form-control"  value="<?php  echo date('d-M-Y'); ?>" onchange="chk_dt('<?php echo date('d-M-Y')?>')">
 	</td>
 	<td align="right" width="10%"><font color="red">*</font>Branch:</td>
     <td align="left" width="40%">
     <select name="brncd" class="form-control" size="1" id="brncd"  onchange="gtcrvl1();gtdrvl()" >
-<?
+<?php 
 if($user_current_level<0)
 {
 $query="Select * from main_branch where sl='$brncds'";
@@ -404,8 +404,8 @@ $slb=$R['sl'];
 $bnm=$R['bnm'];
 
 ?>
-<option value="<? echo $slb;?>" <?if($slb==$brncd){echo 'selected';}?>><? echo $bnm;?></option>
-<?
+<option value="<?php  echo $slb;?>" ><?php  echo $bnm;?></option>
+<?php 
 }
 ?>
 </select> 
@@ -430,13 +430,13 @@ $bnm=$R['bnm'];
 	<div id="cldgr_div">
 	 <select  name="cldgr" id="cldgr" class="sc" onchange="gtcrvl1(),sia(this.value),show_div(this.value)">
 							<option value="">-- Select --</option>
-							<?php 
+							<?php  
 							$get = mysqli_query($conn,"SELECT * FROM main_ledg where gcd!='3'  and gcd!='5' and  sl>0 and sl!=4  order by nm") or die(mysqli_error($conn));
 							while($row = mysqli_fetch_array($get))
 							{
 							?>
-								<option value="<?=$row['sl']?>" <?=$row['sl'] == $rowpages['pcd'] ? 'selected' : '' ?>><?=$row['nm']?></option>
-							<?php 
+								<option value="<?php  echo $row['sl']?>" ><?php  echo $row['nm']?></option>
+							<?php  
 							} 
 							?>
 	</select>
@@ -447,13 +447,13 @@ $bnm=$R['bnm'];
 	<div id="dldgr_div">
       <select  name="dldgr" id="dldgr" class="sc" onchange="gtdrvl(),sia1(this.value),show_div1(this.value)">
 							<option value="">-- Select --</option>
-							<?php 
+							<?php  
 							$get = mysqli_query($conn,"SELECT * FROM main_ledg where gcd!='3' and gcd!='4' and gcd!='5' and sl>0 and sl!=4 order by nm") or die(mysqli_error($conn));
 							while($row = mysqli_fetch_array($get))
 							{
 							?>
-								<option value="<?=$row['sl']?>" <?=$row['sl'] == $rowpages['pcd'] ? 'selected' : '' ?>><?=$row['nm']?></option>
-							<?php 
+								<option value="<?php  echo $row['sl']?>" ><?php  echo $row['nm']?></option>
+							<?php  
 							} 
 							?>
 	</select>
@@ -512,13 +512,13 @@ $bnm=$R['bnm'];
     <td align="left" >
 	 <select  name="paymtd" id="paymtd" class="form-control">
 							<option value="">-- Select --</option>
-							<?php 
+							<?php  
 							$get = mysqli_query($conn,"SELECT * FROM ac_paymtd") or die(mysqli_error($conn));
 							while($row = mysqli_fetch_array($get))
 							{
 							?>
-								<option value="<?=$row['sl']?>" <?=$row['sl'] == $rowpages['pcd'] ? 'selected' : '' ?>><?=$row['mtd']?></option>
-							<?php 
+								<option value="<?php  echo $row['sl']?>" ><?php  echo $row['mtd']?></option>
+							<?php  
 							} 
 							?>
 						</select>
@@ -583,13 +583,13 @@ $bnm=$R['bnm'];
 <b>Ledger Head :</b<br>
 <select id="ledg" name="ledg" class="form-control"  >
 <option value="">-- Select --</option>
-<?php 
+<?php  
 $get = mysqli_query($conn,"SELECT * FROM main_ledg where gcd!='3' and gcd!='4' and gcd!='5' and gcd!='6' and sl>0 order by nm") or die(mysqli_error($conn));
 while($row = mysqli_fetch_array($get))
 {
 ?>
-<option value="<?=$row['sl']?>" <?=$row['sl'] == $rowpages['pcd'] ? 'selected' : '' ?>><?=$row['nm']?></option>
-<?php 
+<option value="<?php  echo $row['sl']?>" ><?php  echo $row['nm']?></option>
+<?php  
 } 
 ?>
 </select>
@@ -599,13 +599,13 @@ while($row = mysqli_fetch_array($get))
 <b>Supplier  :</b><br>
 <select id="sids" name="sids" class="form-control"  >
 <option value="">-- Select --</option>
-<?php 
+<?php  
 $get = mysqli_query($conn,"SELECT * FROM main_suppl where  sl>0 order by spn") or die(mysqli_error($conn));
 while($row = mysqli_fetch_array($get))
 {
 ?>
-<option value="<?=$row['sl']?>" ><?=$row['spn']?></option>
-<?php 
+<option value="<?php  echo $row['sl']?>" ><?php  echo $row['spn']?></option>
+<?php  
 } 
 ?>
 </select>

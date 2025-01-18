@@ -1,4 +1,4 @@
-<?php
+<?php 
 include("membersonly.inc.php");
 include("Numbers/Words.php");
 
@@ -51,16 +51,17 @@ while($GB=mysqli_fetch_array($gbt))
 $bto=$GB['nm'];
 $nmp=$GB['nmp'];
 $baddr=$GB['addr'];
-$baddr1=$GB['addr1'];
-$baddr2=$GB['addr2'];
+$baddr1=$GB['addr1']??"";
+$baddr2=$GB['addr2']??"";
 $bmob=$GB['cont'];
-$bvat=$GB['vatno'];
+$bvat=$GB['vatno']??"";
 $bpan=$GB['pan'];
 }
 if($nmp!='')
 {
 $bto=$nmp;	
 }
+$mtd="";
 	$data3= mysqli_query($conn,"SELECT * FROM ac_paymtd where sl='$crdtp'");
 		while ($row3=mysqli_fetch_array($data3))
 		{
@@ -101,6 +102,8 @@ while ($row12 = mysqli_fetch_array($data12))
     if($cnm1==""){$cnm1=$cnm;}else{$cnm1.=", ".$cnm;}
 
 }
+$sale_nm="";
+$sale_mob="";
 $gbit1=mysqli_query($conn,"select * from main_sale_per where spid='$sale_per'") or die (mysqli_error($conn));
 while($GBi1=mysqli_fetch_array($gbit1))
 {
@@ -112,7 +115,7 @@ $sale_mob=$GBi1['mob'];
 <html>
 <head>
 <meta charset=utf-8 />
-<title><?php echo $mtd;?> Receipt</title>
+<title><?php  echo $mtd;?> Receipt</title>
 <script type="text/javascript">
 function blprint()
 {
@@ -125,7 +128,7 @@ function blprint()
 </script>
 </head>
 <body onload="blprint()">
-<?
+<?php 
    for($CNT=0;$CNT<1;$CNT++){
 
    if($CNT==0){$cp="Orginal Buyer's Copy";}
@@ -137,7 +140,7 @@ function blprint()
 	   $csss="page-break-after:always";
    }
 	?>
-<div style="<?=$csss;?>">
+<div style="<?php  echo $csss;?>">
 <br>
 <br>
 <br>
@@ -148,9 +151,9 @@ function blprint()
 <table align="center" style="border-collapse:collapse; width:920px; border: 1px solid black;">
 <tr>
     <td style="text-align:center; background-color:#f2f2f2; padding:5px 0 5px 0; border-bottom:1px solid #000;">
-    <b style="font-family:Verdana, Geneva, sans-serif; font-size:25px;"><?=$comp_nm;?></b><br />
-   <font style="font-size:16px;"><?=$adrs;?></font><br/>
-<font style="font-size:13px;">GSTIN/UIN : <?=$gstin?></font>
+    <b style="font-family:Verdana, Geneva, sans-serif; font-size:25px;"><?php  echo $comp_nm;?></b><br />
+   <font style="font-size:16px;"><?php  echo $adrs;?></font><br/>
+<font style="font-size:13px;">GSTIN/UIN : <?php  echo $gstin?></font>
     </td>
 </tr>
 <tr>
@@ -165,28 +168,28 @@ function blprint()
         <table border="1" width="100%" style="border-collapse:collapse; border:1px solid #000000;">
              <tr>
             <td ><font size="2"><b>Mr/Mrs :</b> </font></td>
-            <td ><b><font size="2"><?php echo $bto;?>, <?php echo $baddr;?></font></b> </td>
+            <td ><b><font size="2"><?php  echo $bto;?>, <?php  echo $baddr;?></font></b> </td>
         </tr>
            <tr>
             <td ><font size="2"><b>Mobile :</b> </font></td>
-            <td ><b><font size="2"><?php echo $bmob;?></font></b> </td>
+            <td ><b><font size="2"><?php  echo $bmob;?></font></b> </td>
         </tr>
      
      <tr>
             <td ><font size="2"><b>Against Bill No. :</b> </font></td>
-            <td ><b><font size="2"><?php echo $blno;?> </font></b> </td>
+            <td ><b><font size="2"><?php  echo $blno;?> </font></b> </td>
         </tr>
          <tr>
             <td ><font size="2"><b>Dated :</b> </font></td>
-            <td ><b><font size="2"><?php echo $invdt;?> </font></b> </td>
+            <td ><b><font size="2"><?php  echo $invdt;?> </font></b> </td>
         </tr>
         <tr>
             <td ><font size="2"><b>Brand :</b> </font></td>
-            <td ><b><font size="2"><?php echo $cnm1;?> </font></b> </td>
+            <td ><b><font size="2"><?php  echo $cnm1;?> </font></b> </td>
         </tr>
           <tr>
             <td ><font size="2"><b>Model :</b> </font></td>
-            <td ><b><font size="2"><?php echo $pnm1;?> </font></b> </td>
+            <td ><b><font size="2"><?php  echo $pnm1;?> </font></b> </td>
         </tr>
      
     
@@ -196,7 +199,7 @@ function blprint()
         </tr>
 		<tr>
             <td ><font size="2"><b>Sales Person :</b> </font></td>
-            <td ><b><font size="2"><?php echo $sale_nm;?>, <?php echo $sale_mob;?></font></b> </td>
+            <td ><b><font size="2"><?php  echo $sale_nm;?>, <?php  echo $sale_mob;?></font></b> </td>
         </tr>
 
         </table>
@@ -208,7 +211,7 @@ function blprint()
         <table width="100%" style="border: 0px solid #000000;">
         <tr>
             <td style="text-align:left; width:80%;"><br />_____________________ <br />Customer Signature</td>
-            <td style="text-align:center; width:20%; padding-bottom:5px;"><br><img src="stmp/<?php echo $brnc;?>.png" width="72" height="70"><br />_____________________ <br />Authorized Signature</td>
+            <td style="text-align:center; width:20%; padding-bottom:5px;"><br><img src="stmp/<?php  echo $brnc;?>.png" width="72" height="70"><br />_____________________ <br />Authorized Signature</td>
         </tr>
         </table>
         <b></b>
@@ -216,6 +219,6 @@ function blprint()
 </tr>
 </table>
    </div>
-   <?php }?>
+   <?php  }?>
 </body>
 </html>

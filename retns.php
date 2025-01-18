@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3; 
 
 include("membersonly.inc.php");
@@ -43,7 +43,7 @@ $pnm1="";
 			</td>
 			 
 		     </tr>
-			 <?
+			 <?php 
 		$sln=0;
 		$tota=0;
 $tq=0;
@@ -85,23 +85,23 @@ $mob1=$rowd['mob1'];
 			 ?>
 		   <tr>
 		   <td  align="center"  >
-			<a href="#" onclick="retn('<?=$blno;?>')" title="Return"><i class="fa fa-times"></i><br>Return</a>
+			<a href="#" onclick="retn('<?php  echo $blno;?>')" title="Return"><i class="fa fa-times"></i><br>Return</a>
 			</td>
 		    <td  align="center"  >
-			<?=$sln;?>
+			<?php  echo $sln;?>
 			</td>
 			 <td  align="center" >
-			<?=$edt;?>
+			<?php  echo $edt;?>
 			</td>
 			<td  align="center" >
-				<a href="#" onclick="view('<?=$blno;?>')" title="Print"><i class="fa fa-print"></i><br><?=$blno;?></a>
+				<a href="#" onclick="view('<?php  echo $blno;?>')" title="Print"><i class="fa fa-print"></i><br><?php  echo $blno;?></a>
 			</td>
             <td  align="left" >
-			<?=$spn;?>
+			<?php  echo $spn;?>
 			</td>
 		     </tr>	 
 			 
-<?
+<?php 
 }?>
 
 

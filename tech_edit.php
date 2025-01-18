@@ -1,8 +1,8 @@
-<?
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 include "header.php";
-$sl=$_REQUEST[sl];
+$sl=$_REQUEST['sl'];
 
 $query3 = "SELECT * FROM ".$DBprefix."catg where sl='$sl'";
 $result3 = mysqli_query($conn,$query3);
@@ -14,7 +14,7 @@ $hsn=$R['hsn'];
 }
 ?>
         <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <style type="text/css"> 
@@ -80,12 +80,12 @@ cursor:pointer;
 <div class="box-body">
 <body >
 <table border="0"  width="700px"  class="table table-hover table-striped table-bordered" >
-<input type="hidden" name="sl" id="sl" value="<?=$sl;?>">
+<input type="hidden" name="sl" id="sl" value="<?php  echo $sl;?>">
 
             <tr>
 		    <td align="right" width="20%"><b>Brand :</b></td>
             <td  align="left" width="50%">
-            <input type="text" class="form-control" name="cat" value="<?=$cnm;?>" id="cat"  size="40" placeholder="Enter  Company...">
+            <input type="text" class="form-control" name="cat" value="<?php  echo $cnm;?>" id="cat"  size="40" placeholder="Enter  Company...">
 			</td>
 			<td  colspan=""  align="left" style="padding-right: 5px;">
              <input type="submit" class="btn btn-success" value="Update" name="B1" >
@@ -93,37 +93,37 @@ cursor:pointer;
 			
 			<!--<td align="right" width="20%"><b>HSN ACS :</b></td>
             <td  align="left" width="30%">
-            <input type="text" class="form-control" name="hsn" value="<?=$hsn;?>" id="hsn"  size="40" placeholder="Enter  HSN ACS...">
+            <input type="text" class="form-control" name="hsn" value="<?php  echo $hsn;?>" id="hsn"  size="40" placeholder="Enter  HSN ACS...">
 			</td>
 			</tr>
 			<tr>
             <td align="right" width="20%" style="padding-top:15px;" ><b>Small Unit :</b></td>
             <td  align="left" width="30%">
-            <input type="text" class="form-control" name="sun" id="sun" value="<?=$sun1;?>" size="40" placeholder="Enter Small Unit....">
+            <input type="text" class="form-control" name="sun" id="sun" value="<?php  echo $sun1;?>" size="40" placeholder="Enter Small Unit....">
 			</td>
 			<td align="right" width="20%" style="padding-top:15px;" ><b>Small Value :</b></td>
             <td  align="left" width="30%">
-            <input type="text" class="form-control" name="smvlu" id="smvlu" value="<?=$smvlu1;?>" size="40" readonly placeholder="Enter Small Value....">
+            <input type="text" class="form-control" name="smvlu" id="smvlu" value="<?php  echo $smvlu1;?>" size="40" readonly placeholder="Enter Small Value....">
 			</td>
 			</tr>
 			<tr>
             <td align="right" width="20%" style="padding-top:15px;" ><b>Midle Unit :</b></td>
             <td  align="left" width="30%">
-            <input type="text" class="form-control" name="mun" id="mun" value="<?=$mun1;?>" size="40" placeholder="Enter Midle Unit....">
+            <input type="text" class="form-control" name="mun" id="mun" value="<?php  echo $mun1;?>" size="40" placeholder="Enter Midle Unit....">
 			</td>
             <td align="right" width="20%" style="padding-top:15px;" ><b>Midle Value :</b></td>
             <td  align="left" width="30%">
-            <input type="text" class="form-control" name="mdvlu" id="mdvlu" value="<?=$mdvlu1;?>" size="40" placeholder="Enter Midle Value....">
+            <input type="text" class="form-control" name="mdvlu" id="mdvlu" value="<?php  echo $mdvlu1;?>" size="40" placeholder="Enter Midle Value....">
 			</td>
 			</tr>
 			<tr>
 			<td align="right" width="20%" style="padding-top:15px;" ><b>Big Unit :</b></td>
             <td  align="left" width="30%">
-            <input type="text" class="form-control" name="bun" id="bun" value="<?=$bun1;?>" size="40" placeholder="Enter Big Unit....">
+            <input type="text" class="form-control" name="bun" id="bun" value="<?php  echo $bun1;?>" size="40" placeholder="Enter Big Unit....">
 			</td>
 			<td align="right" width="20%" style="padding-top:15px;" ><b>Big Value :</b></td>
             <td  align="left" width="30%">
-            <input type="text" class="form-control" name="bgvlu" id="bgvlu" value="<?=$bgvlu1;?>" size="40" placeholder="Enter Big Value....">
+            <input type="text" class="form-control" name="bgvlu" id="bgvlu" value="<?php  echo $bgvlu1;?>" size="40" placeholder="Enter Big Value....">
 			</td>
 			</tr>
     

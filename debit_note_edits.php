@@ -1,27 +1,28 @@
-<?
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include "header.php";
+$vno="";
 date_default_timezone_set('Asia/Kolkata');
 $dttm=date('d-m-Y H:i:s a');
-$sl=$_POST['sl'];
-$sup=$_POST['sup'];
-$sgstin=$_POST['sgstin'];
-$name=$_POST['name'];
-$note_no=$_POST['note_no'];
-$dt=$_POST['dt'];
-$inv=$_POST['inv'];
-$invdt=$_POST['invdt'];
-$note_typ=$_POST['note_typ'];
-$amm=$_POST['amm'];
-$styp=$_POST['styp'];
-$edt=$_POST['edt'];
-$typ=$_POST['typ'];
-$tax_rate=$_POST['tax_rate'];
-$tax=$_POST['tax'];
-$net=$_POST['net'];
-$refno=$_POST['refno'];
-$dsl=$_POST['dsl'];
+$sl=$_POST['sl'] ?? "";
+$sup=$_POST['sup'] ?? "";
+$sgstin=$_POST['sgstin'] ?? "";
+$name=$_POST['name'] ?? "";
+$note_no=$_POST['note_no'] ?? "";
+$dt=$_POST['dt'] ?? "";
+$inv=$_POST['inv'] ?? "";
+$invdt=$_POST['invdt'] ?? "";
+$note_typ=$_POST['note_typ'] ?? "";
+$amm=$_POST['amm'] ?? "";
+$styp=$_POST['styp'] ?? "";
+$edt=$_POST['edt'] ?? "";
+$typ=$_POST['typ'] ?? "";
+$tax_rate=$_POST['tax_rate'] ?? "";
+$tax=$_POST['tax'] ?? "";
+$net=$_POST['net'] ?? "";
+$refno=$_POST['refno'] ?? "";
+$dsl=$_POST['dsl'] ?? "";
 	
 $err="";
 if($sup==''){$err="Please Select Supplier ...";}
@@ -136,6 +137,6 @@ $err="Update Successfully. Thank You...";
 }
 ?>
 <Script language="JavaScript">
-alert('<?=$err;?>');
-document.location="credit_note_gst_list.php";
+alert('<?php  echo $err;?>');
+//document.location="credit_note_gst_list.php";
 </script>

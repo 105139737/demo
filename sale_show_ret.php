@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include "header.php";
@@ -10,7 +10,7 @@ $saa="01-".date('m-Y');
 <html>
 <head>
         <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <style type="text/css"> 
@@ -190,9 +190,9 @@ $(".valchal").datepicker(jQueryDatePicker2Opts);
 <thead>
 <tr>
 <td align="left" width="25%"><b>Form:</b><br>
-<input type="text" id="fdt" name="fdt" size="13" value="<?echo $saa;?>" class="form-control" placeholder="Please Enter From Date" > </td>
+<input type="text" id="fdt" name="fdt" size="13" value="<?php echo $saa;?>" class="form-control" placeholder="Please Enter From Date" > </td>
 <td align="left" width="25%"><b>To:</b><br>
-<input type="text" id="tdt" name="tdt" size="13" value="<?echo $sa;?>" class="form-control" placeholder="Please Enter To Date">
+<input type="text" id="tdt" name="tdt" size="13" value="<?php echo $sa;?>" class="form-control" placeholder="Please Enter To Date">
 </td>
 <td align="left"  width="25%" ><b>Customer:</b><br>
 <input class="form-control" type="text" name="cust_nm" autocomplete="off" id="cust_nm" size="40" onkeyup="if(this.value==''){$('#snm').val('');}" onfocus="this.select()">
@@ -200,13 +200,13 @@ $(".valchal").datepicker(jQueryDatePicker2Opts);
 </td>
 <td align="left" width="25%" ><b>Branch:</b><br>
 <select name="brncd" class="form-control" size="1" id="brncd"   >
-<?
+<?php 
 if($user_current_level<0)
 {
 $query="Select * from main_branch";
 ?>
 <option value="">---ALL---</option>	
-<?
+<?php 
 }
 else
 {
@@ -219,8 +219,8 @@ $sl=$R['sl'];
 $bnm=$R['bnm'];
 
 ?>
-<option value="<? echo $sl;?>"><? echo $bnm;?></option>
-<?
+<option value="<?php  echo $sl;?>"><?php  echo $bnm;?></option>
+<?php 
 }
 ?>
 </select>
@@ -232,7 +232,7 @@ $bnm=$R['bnm'];
 	<td  align="left" ><font color="red">*</font><b>Brand :</b>
 	<select name="cat" class="form-control" size="1" id="cat" tabindex="8" onchange="get_cat()" required >
 	<Option value="">---Select---</option>
-	<?
+	<?php 
 	$data1 = mysqli_query($conn,"Select * from main_catg order by cnm");
 	while ($row1 = mysqli_fetch_array($data1))
 	{
@@ -248,7 +248,7 @@ $bnm=$R['bnm'];
 	<div id="gcat">
 <select name="scat" class="form-control" size="1" id="scat" tabindex="8" onchange="get_prod()">
 <Option value="">---All---</option>
-<?/*
+<?php /*
 $data1 = mysqli_query($conn,"Select * from main_scat order by nm");
 while ($row1 = mysqli_fetch_array($data1))
 {
@@ -265,7 +265,7 @@ echo "<option value='".$sl."'>".$cnm."</option>";
 <div id="prod_div">
 <select id="prnm" name="prnm" style="width:100%" class="form-control">
 <option value="">---Select---</option>
-<?/*
+<?php /*
 $data1 = mysqli_query($conn,"Select * from main_product where typ='0' order by pnm");
 while ($row1 = mysqli_fetch_array($data1))
 	{
@@ -273,8 +273,8 @@ while ($row1 = mysqli_fetch_array($data1))
 	$pnm=$row1['pnm'];
 	$pcd=$row1['pcd'];
 ?>
-<Option value="<?=$sl;?>"><?=reformat($pcd." ".$pnm);?></option>
-<?}*/?>
+<Option value="<?php  echo $sl;?>"><?php echo reformat($pcd." ".$pnm);?></option>
+<?php }*/?>
 </select>
 </div>
 </td>
@@ -299,7 +299,7 @@ while ($row1 = mysqli_fetch_array($data1))
 <td align="left"><b>Godown:</b>
 <select name="godown" class="form-control" size="1" id="godown" >
 <Option value="">---Select---</option>
-<?
+<?php 
 $query="Select * from main_godown";
 $result = mysqli_query($conn,$query);
 while ($R = mysqli_fetch_array ($result))
@@ -308,8 +308,8 @@ $sl=$R['sl'];
 $gnm=$R['gnm'];
 
 ?>
-<option value="<? echo $sl;?>"><? echo $gnm;?></option>
-<?
+<option value="<?php  echo $sl;?>"><?php  echo $gnm;?></option>
+<?php 
 }
 ?>
 </select>
@@ -318,7 +318,7 @@ $gnm=$R['gnm'];
 <td align="left"><b>Sales Person :</b>
 <select id="sale_per" name="sale_per" tabindex="1"  class="form-control">
 <option value="">---Select---</option>
-<?
+<?php 
 $queryss="select * from main_sale_per  WHERE sl>0 order by spid";
 $resultss=mysqli_query($conn,$queryss);
 while($rwss=mysqli_fetch_array($resultss))
@@ -326,8 +326,8 @@ while($rwss=mysqli_fetch_array($resultss))
 $spid=$rwss['spid'];
 $spnm=$rwss['nm'];
 ?>
-<option value="<?=$spid;?>" ><?=$spid?> <?=$spnm;?> <?if($rwss['mob']!=""){?>( <?=$rwss['mob'];?> )<?}?></option>
-<?
+<option value="<?php  echo $spid;?>" ><?php  echo $spid?> <?php  echo $spnm;?> <?php if($rwss['mob']!=""){?>( <?php  echo $rwss['mob'];?> )<?php }?></option>
+<?php 
 }
 ?>
 </select>

@@ -1,9 +1,9 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include("Numbers/Words.php");
-$sl=$_REQUEST[sl];
-$blno=rawurldecode($_REQUEST[blno]);
+$sl=$_REQUEST['sl'];
+$blno=rawurldecode($_REQUEST['blno'] ?? "");
 
 $query111 = "SELECT * FROM ".$DBprefix."drcr where sl='$blno'";
 $result111 = mysqli_query($conn,$query111)or die (mysqli_error($conn));
@@ -76,17 +76,17 @@ while($wr1=mysqli_fetch_array($queryss))
     <td>
     <table style="border-collapse:collapse; border: 1px solid black; width:100%;">
         <tr>
-          <td rowspan="4" style="width:40%;"><font size="+1"><b><?php echo $cnm;?></b></font> </td>
-          <td style="width:60%;"><b><?php echo $cnm;?> Pvt. Ltd. ,</b></td>
+          <td rowspan="4" style="width:40%;"><font size="+1"><b><?php  echo $cnm;?></b></font> </td>
+          <td style="width:60%;"><b><?php  echo $cnm;?> Pvt. Ltd. ,</b></td>
         </tr>
         <tr>
-          <td><?php echo $cnm;?> Pvt. Ltd. ,</td>
+          <td><?php  echo $cnm;?> Pvt. Ltd. ,</td>
         </tr>
         <tr>
-        <td>PAN No. : AADCP9391B,  GSTIN No: <?php echo $cgstin;?></td>
+        <td>PAN No. : AADCP9391B,  GSTIN No: <?php  echo $cgstin;?></td>
       </tr>
       <tr>
-        <td><?php echo $caddr;?></td>
+        <td><?php  echo $caddr;?></td>
       </tr>
     </table>
     <table style="text-align:center;border-collapse:collapse; border-bottom: 1px solid black;border-left:1px solid black;border-right:1px solid black;" width="100%">
@@ -102,13 +102,13 @@ while($wr1=mysqli_fetch_array($queryss))
           <td style="width:25%;"><b>Acc Doc No</b></td>
       </tr>    
 	  <tr>
-          <td style="width:25%;"><b><?php echo date('d-m-Y',strtotime($dt));?></b></td>
-          <td style="width:25%;"><b><?php echo $blnon;?></b></td>
-          <td style="width:25%;"><b><?php echo date('d-m-Y',strtotime($dt));?></b></td>
+          <td style="width:25%;"><b><?php  echo date('d-m-Y',strtotime($dt));?></b></td>
+          <td style="width:25%;"><b><?php  echo $blnon;?></b></td>
+          <td style="width:25%;"><b><?php  echo date('d-m-Y',strtotime($dt));?></b></td>
           <td style="width:25%;"><b>Acc Doc No</b></td>
       </tr>
     </table>
-    <?php
+    <?php 
 
     if($invto!='')
     {
@@ -138,33 +138,33 @@ while($wr1=mysqli_fetch_array($queryss))
 
         <tr>
         <td style="width:20%;">Name <span style="float:right"><font size="2">:</font></span></td>
-        <td colspan="3" style="text-align:left;vertical-align:top;"><font size="2"><b><?=$custnm;?></b></font></td>
+        <td colspan="3" style="text-align:left;vertical-align:top;"><font size="2"><b><?php  echo $custnm;?></b></font></td>
         </tr>
         <tr>
         <td style="text-align:center;vertical-align:top;">Address <span style="float:right"><font size="2">:</font></span></td>
-        <td colspan="3" style="text-align:left;vertical-align:top;"><font size="2"><?=$custaddr;?>
+        <td colspan="3" style="text-align:left;vertical-align:top;"><font size="2"><?php  echo $custaddr;?>
         </font>
         </td>
         </tr>
-        <?
+        <?php 
         if($custmob!="")
         {
 
         	?>
         	<tr>
         	<td>Mobile <span style="float:right"><font size="2">:</font></span></td>
-        	<td colspan="3" style="text-align:left;vertical-align:top;"><?echo $custmob;?></td>
+        	<td colspan="3" style="text-align:left;vertical-align:top;"><?php echo $custmob;?></td>
         	</tr>
-        <?}
+        <?php }
         ?>
         <tr>
-        <td>GSTIN <span style="float:right"><font size="2">:</font></span></td><td ><font size="2"><?=$custgstin;?></font></td>
+        <td>GSTIN <span style="float:right"><font size="2">:</font></span></td><td ><font size="2"><?php  echo $custgstin;?></font></td>
         <td  colspan="2" align="right">
         State : N.A
         </td>
         </tr>
         <tr>
-        <td>PAN <span style="float:right"><font size="2">:</font></span></td><td><font size="2"><?php echo $custpan;?></font></td>
+        <td>PAN <span style="float:right"><font size="2">:</font></span></td><td><font size="2"><?php  echo $custpan;?></font></td>
         <td colspan="2" align="right">State Code : N.A</td>
         </tr>
 
@@ -188,7 +188,7 @@ while($wr1=mysqli_fetch_array($queryss))
           </td>
           <td><b>Invoice Value</b></td>
       </tr>
-		<?php 
+		<?php  
 		$getamnt = mysqli_query($conn,"SELECT sum(amm) as netamnt FROM ".$DBprefix."drcr where cbill='$blno'")or die (mysqli_error($conn));
 		while ($ftm = mysqli_fetch_array ($getamnt))
 		{
@@ -200,9 +200,9 @@ while($wr1=mysqli_fetch_array($queryss))
 	  
       <tr>
           <td >1</td>
-          <td ><?php echo $blnon;?></td>
+          <td ><?php  echo $blnon;?></td>
           <td >1</td>
-          <td ><?php echo $amm;?></td>
+          <td ><?php  echo $amm;?></td>
           <td >
               <table width="100%" style="text-align:center;border-collapse:collapse;">
               <tr>
@@ -211,7 +211,7 @@ while($wr1=mysqli_fetch_array($queryss))
             </tr>
             </table>
           </td>
-          <td><?php echo $amm;?></td>
+          <td><?php  echo $amm;?></td>
       </tr>
 
 
@@ -219,7 +219,7 @@ while($wr1=mysqli_fetch_array($queryss))
       <tr>
           <td colspan="2"><b>Total</b></td>
           <td ></td>
-          <td ><?php echo $netamnt;?></td>
+          <td ><?php  echo $netamnt;?></td>
           <td >
               <table width="100%"  style="text-align:center;border-collapse:collapse; ">
               <tr>
@@ -228,7 +228,7 @@ while($wr1=mysqli_fetch_array($queryss))
             </tr>
             </table>
           </td>
-          <td><?php echo $netamnt;?></td>
+          <td><?php  echo $netamnt;?></td>
       </tr>
 
       <tr>
@@ -249,7 +249,7 @@ while($wr1=mysqli_fetch_array($queryss))
             <td align="center">0.00</td>
             </tr>
             <tr>
-            <td align="center"><?php echo $amm;?></td>
+            <td align="center"><?php  echo $amm;?></td>
             </tr>
           </table>
           </td>
@@ -258,7 +258,7 @@ while($wr1=mysqli_fetch_array($queryss))
     </table>
     <table width="100%"  style="text-align:center;border-collapse:collapse; border-bottom:  1px solid black;border-left:1px solid black;border-right:1px solid black;">
     <tr>
-    <td align="left" style="vertical-align:top;width:65%; border-right: 1px solid black;"><b>Amount in Words</b> : <? $nw = new Numbers_Words();$aiw=$nw->toWords(round($amm));echo $aiw;?> only</td>
+    <td align="left" style="vertical-align:top;width:65%; border-right: 1px solid black;"><b>Amount in Words</b> : <?php  $nw = new Numbers_Words();$aiw=$nw->toWords(round($amm));echo $aiw;?> only</td>
     <td align="center"> For HINDUSTHAN DISTRIBUTOR PVT. LTD<br/><br/><br/><br/>
       (Authorized Signatory)
     </td>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3; 
 include("membersonly.inc.php");
 include "function.php";
@@ -11,7 +11,7 @@ $catsl=$_REQUEST['cat'];
 $scatsl=$_REQUEST['scat'];
 $prnm=$_REQUEST['prnm'];
 $godown=$_REQUEST['godown'];
-$vstat=$_REQUEST['vstat'];
+$vstat=$_REQUEST['vstat']??"";
 $pstat=$_REQUEST['pstat'];
 
 if($pstat==""){$pstat1="";}else{$pstat1=" and pstat='$pstat'";}
@@ -109,7 +109,7 @@ $(document).ready(function(){
 	<td  align="center" ><b>OLD-LastPrice</b></td>
 	<td  align="center" ><b>LastPrice</b></td>
 	</tr>
-	<?
+	<?php 
 $sln=0;
 $sln1=0;
 //echo "select *,sum(qty) as qty from  main_purchasedet where sl>0  $catsl $scatsl1 $prnm1 $godown1 $todt $snm1 $pstat1 group by prsl,mrp,sup";
@@ -165,35 +165,35 @@ $oldlprc=$row['lprc'];
 }
 $sln1++;
 	?>
-	<tr title="<?php echo $sl;?>">	
-	<td align="left" ><b><font size="1" ><?=$dt;?></font></b></td>
-	<td  align="left" ><b><font size="1" ><?=$spn;?></font></b><br/>
-    <b><font size="1" color="red"><?=$inv;?></font></b></td>
-	<td  align="left" ><b><?=$pnm;?></b> </td>
-	<td  align="right" ><?=$qty;?></td>	
+	<tr title="<?php  echo $sl;?>">	
+	<td align="left" ><b><font size="1" ><?php  echo $dt;?></font></b></td>
+	<td  align="left" ><b><font size="1" ><?php  echo $spn;?></font></b><br/>
+    <b><font size="1" color="red"><?php  echo $inv;?></font></b></td>
+	<td  align="left" ><b><?php  echo $pnm;?></b> </td>
+	<td  align="right" ><?php  echo $qty;?></td>	
 	<td  align="center">    
-	<input type="checkbox" value="<?=$sl?>" checked id="sl<?=$sl?>" name="sl[]">
-	<input type="hidden"  value="<?=$pnm;?>"  size="5" id="pnm<?php echo $sl?>" name="pnm<?php echo $sl?>">
+	<input type="checkbox" value="<?php  echo $sl?>" checked id="sl<?php  echo $sl?>" name="sl[]">
+	<input type="hidden"  value="<?php  echo $pnm;?>"  size="5" id="pnm<?php  echo $sl?>" name="pnm<?php  echo $sl?>">
 	</td>
-	<td  align="right" ><input type="text"  value="<?=round($rate,2);?>" onblur="cal('<?php echo $sl?>')" size="5" id="rate<?php echo $sl?>" name="rate<?php echo $sl?>"></td>
-	<td  align="right" ><input type="text" size="2" onblur="cal('<?php echo $sl?>')" id="dp<?php echo $sl?>" name="dp<?php echo $sl?>"></td>
-	<td  align="right" ><input type="text" size="5" id="dnlc<?php echo $sl?>" readonly name="dnlc<?php echo $sl?>"></td>
-	<td  align="right" ><input type="text" size="5" id="olddnlc<?php echo $sl?>" readonly name="olddnlc<?php echo $sl?>" value="<?php echo $olddnlc;?>" style="background-color : #F1F692;"></td>
-	<td  align="right" ><input type="text" size="5" id="pldnlc<?php echo $sl?>" readonly name="pldnlc<?php echo $sl?>"></td>
-	<td  align="right" ><input type="text" size="2" onblur="cal('<?php echo $sl?>')" id="dpdisp<?php echo $sl?>" name="dpdisp<?php echo $sl?>"></td>
-	<td  align="right" ><input type="text" size="3" id="dpdisam<?php echo $sl?>" readonly name="dpdisam<?php echo $sl?>"></td>
-	<td  align="right" ><input type="text" size="3" id="invprc<?php echo $sl?>" readonly name="invprc<?php echo $sl?>"></td>
-	<td  align="right" ><input type="text" size="2" onblur="cal('<?php echo $sl?>')" id="rprft<?php echo $sl?>" name="rprft<?php echo $sl?>"></td>
-	<td  align="right" ><input type="text" size="3" id="retoff<?php echo $sl?>" readonly name="retoff<?php echo $sl?>"></td>
-	<td  align="right" ><input type="text" size="3" id="offprc<?php echo $sl?>" readonly name="offprc<?php echo $sl?>"></td>
-	<td  align="right" ><input type="text" size="2" onblur="cal('<?php echo $sl?>')" id="offless<?php echo $sl?>" name="offless<?php echo $sl?>"></td>
-	<td  align="right" ><input type="text" size="3" id="oldlprc<?php echo $sl?>" readonly name="oldlprclprc<?php echo $sl?>" value="<?php echo $oldlprc;?>" style="background-color : #F1F692;"></td>
-	<td  align="right" ><input type="text" size="3" id="lprc<?php echo $sl?>" readonly name="lprc<?php echo $sl?>"></td>
+	<td  align="right" ><input type="text"  value="<?php echo round($rate,2);?>" onblur="cal('<?php  echo $sl?>')" size="5" id="rate<?php  echo $sl?>" name="rate<?php  echo $sl?>"></td>
+	<td  align="right" ><input type="text" size="2" onblur="cal('<?php  echo $sl?>')" id="dp<?php  echo $sl?>" name="dp<?php  echo $sl?>"></td>
+	<td  align="right" ><input type="text" size="5" id="dnlc<?php  echo $sl?>" readonly name="dnlc<?php  echo $sl?>"></td>
+	<td  align="right" ><input type="text" size="5" id="olddnlc<?php  echo $sl?>" readonly name="olddnlc<?php  echo $sl?>" value="<?php  echo $olddnlc;?>" style="background-color : #F1F692;"></td>
+	<td  align="right" ><input type="text" size="5" id="pldnlc<?php  echo $sl?>" readonly name="pldnlc<?php  echo $sl?>"></td>
+	<td  align="right" ><input type="text" size="2" onblur="cal('<?php  echo $sl?>')" id="dpdisp<?php  echo $sl?>" name="dpdisp<?php  echo $sl?>"></td>
+	<td  align="right" ><input type="text" size="3" id="dpdisam<?php  echo $sl?>" readonly name="dpdisam<?php  echo $sl?>"></td>
+	<td  align="right" ><input type="text" size="3" id="invprc<?php  echo $sl?>" readonly name="invprc<?php  echo $sl?>"></td>
+	<td  align="right" ><input type="text" size="2" onblur="cal('<?php  echo $sl?>')" id="rprft<?php  echo $sl?>" name="rprft<?php  echo $sl?>"></td>
+	<td  align="right" ><input type="text" size="3" id="retoff<?php  echo $sl?>" readonly name="retoff<?php  echo $sl?>"></td>
+	<td  align="right" ><input type="text" size="3" id="offprc<?php  echo $sl?>" readonly name="offprc<?php  echo $sl?>"></td>
+	<td  align="right" ><input type="text" size="2" onblur="cal('<?php  echo $sl?>')" id="offless<?php  echo $sl?>" name="offless<?php  echo $sl?>"></td>
+	<td  align="right" ><input type="text" size="3" id="oldlprc<?php  echo $sl?>" readonly name="oldlprclprc<?php  echo $sl?>" value="<?php  echo $oldlprc;?>" style="background-color : #F1F692;"></td>
+	<td  align="right" ><input type="text" size="3" id="lprc<?php  echo $sl?>" readonly name="lprc<?php  echo $sl?>"></td>
 	</tr>
 	<script>
-	 cal('<?php echo $sl?>');
+	 cal('<?php  echo $sl?>');
 	</script>
-<?php if($sln1==15){?>
+<?php  if($sln1==15){?>
 	<tr  bgcolor="#e8ecf6">	
 	<td  align="center" ><b>Date</b></td>	
 	<td  align="center" ><b>CompanyName</b></td>	
@@ -215,7 +215,7 @@ $sln1++;
 	<td  align="center" ><b>OLD-LastPrice</b></td>
 	<td  align="center" ><b>LastPrice</b></td>
 	</tr>
-<?
+<?php 
 $sln1=0;
 }
 

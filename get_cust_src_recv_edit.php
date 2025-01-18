@@ -1,14 +1,14 @@
-<?
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
-$cs=rawurldecode($_REQUEST[cs]);
-$tp=rawurldecode($_REQUEST[tp]);
-$brand=rawurldecode($_REQUEST[brand]);
+$cs=rawurldecode($_REQUEST['cs'] ?? "");
+$tp=rawurldecode($_REQUEST['tp'] ?? "");
+$brand=rawurldecode($_REQUEST['brand'] ?? "");
 ?>
 	<select id="cid" name="cid" tabindex="1"  class="form-control" onchange="get_blno();temp();"  >
 	<option value="">---Select---</option>
 	<option value="Add">---Add New Customer---</option>
-	<?
+	<?php 
 	$qury2=" and (nm like '%$cs%' or cont like '%$cs%')";
 	if($tp=='2'){$qury=" and find_in_set(brand,'$brand')>0 ";}
 		$query="select * from main_cust WHERE sl>0 and typ='$tp'  and stat='0' $qury2 $qury order by nm limit 0,10";
@@ -20,8 +20,8 @@ $brand=rawurldecode($_REQUEST[brand]);
 			$cont=$R['cont'];
 			$addr=$R['addr'];			
 			?>
-			<option value="<? echo $sid;?>" <?if($cid==$sid){?> selected <? } ?> ><? echo $spn;?>  - <? echo $cont;?></option>
-			<?
+			<option value="<?php  echo $sid;?>" ><?php  echo $spn;?>  - <?php  echo $cont;?></option>
+			<?php 
 		}
 	?>
 	</select>

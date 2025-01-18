@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 $edt=date('y-m-d');
@@ -75,6 +75,6 @@ $msg = 'Data added Successfully...Thank You! ';
   
 ?>
 <script>
-alert('<?=$msg;?>');
+alert('<?php  echo $msg;?>');
 document.location="prod_import.php";
 </script>

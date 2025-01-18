@@ -1,14 +1,15 @@
-<?
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 include "header.php";
+$sid="";
 ?>
 <html>
 <head>
 
         <div class="wrapper row-offcanvas row-offcanvas-left">
 
-            <?
+            <?php 
 
             include "left_bar.php";
 
@@ -141,14 +142,14 @@ $('#fst').val('1');
 <td align="left" width="" colspan="3">
     <select id="spnm" name="spnm" tabindex="1"  class="form-control" >
 	<option value="">---Select---</option>
-	<?
+	<?php 
 		$query="select * from main_suppl  WHERE sl>0 order by nm";
 		$result=mysqli_query($conn,$query);
 		while($rw=mysqli_fetch_array($result))
 		{
 			?>
-			<option value="<?=$rw['sl'];?>" <?if($sid==$rw['sl']){echo"selected";}?>><?=$rw['spn'];?> </option>
-			<?
+			<option value="<?php  echo $rw['sl'];?>" <?php if($sid==$rw['sl']){echo"selected";}?>><?php  echo $rw['spn'];?> </option>
+			<?php 
 		}
 	?>
 	</select>
@@ -170,14 +171,14 @@ $('#fst').val('1');
 <td align="right" style="padding-top:15px"><font size="3"><b>State : </b></font></td>
 <td>
 <select id="fst"  name="fst" class="form-control" >
-	<?
+	<?php 
 	$sql="SELECT * FROM main_state WHERE sl>0 ORDER BY sn";
 	$result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
 	while($row=mysqli_fetch_array($result))
 	{
 	?>
-    <option value="<?=$row['sl'];?>"<?if($row['sl']=='1'){echo 'selected';}?>><?=$row['sn'];?> - <?=$row['cd'];?></option>
-	<?}?>
+    <option value="<?php  echo $row['sl'];?>"<?php if($row['sl']=='1'){echo 'selected';}?>><?php  echo $row['sn'];?> - <?php  echo $row['cd'];?></option>
+	<?php }?>
 </select>
 
 </td>
@@ -208,14 +209,14 @@ $('#fst').val('1');
 <td align="left" width="30%">
     <select id="sup" name="sup" tabindex="1"  class="form-control" >
 	<option value="">---Select---</option>
-	<?
+	<?php 
 		$query="select * from main_suppl  WHERE sl>0 order by nm";
 		$result=mysqli_query($conn,$query);
 		while($rw=mysqli_fetch_array($result))
 		{
 			?>
-			<option value="<?=$rw['sl'];?>" <?if($sid==$rw['sl']){echo"selected";}?>><?=$rw['spn'];?> </option>
-			<?
+			<option value="<?php  echo $rw['sl'];?>" <?php if($sid==$rw['sl']){echo"selected";}?>><?php  echo $rw['spn'];?> </option>
+			<?php 
 		}
 	?>
 	</select>

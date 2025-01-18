@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel=3; 
 include("membersonly.inc.php");
 include("function.php");
@@ -42,8 +42,9 @@ $todts=" and dt between '$fdt' and '$tdt'";}else{$todts="";}
 <td align="center"><b>HSN Code</b></td>
 <td align="center"><b>Quantity</b></td>
 </tr>
-<?
+<?php 
 $sln=0;
+$tpcss=0;
 //echo "SELECT * FROM main_order where sl>0 $cid1 $salper1 $brncd1 $todts $stat1 ORDER BY sl";
 $data1=mysqli_query($conn,"SELECT * FROM main_order where sl>0 $cid1 $salper1 $brncd1 $todts $stat1 $vstat1 ORDER BY sl")or die(mysqli_error($conn));
 while($row1=mysqli_fetch_array($data1))
@@ -99,6 +100,7 @@ if($cstat=='0'){$cstat1="Pending";}elseif($cstat=='1'){$cstat1="Done";}elseif($c
 			$mdvlu=$roww['mdvlu'];
 			$bgvlu=$roww['bgvlu'];
 		}
+		$unit_nm="";
 		if($unit=='sun'){$unit_nm=$sun;}
 		if($unit=='mun'){$unit_nm=$mun;}
 		if($unit=='bun'){$unit_nm=$bun;}
@@ -133,27 +135,27 @@ if($cstat=='0'){$cstat1="Pending";}elseif($cstat=='1'){$cstat1="Done";}elseif($c
 	if($blno==$blno1){$asd++;}	
 ?>
 <tr>
-<?php
+<?php 
 if($asd==1)
 {
 	?>
-	<td align="center"><?=$sln;?></td>
+	<td align="center"><?php  echo $sln;?></td>
 	<td align="center">
-	<?
+	<?php 
 	if($cstat==0)
 	{
 	?>
-	<a href="javascript:del('<?=$blno;?>');"><font color="red"><b>Cancel</b></font></a>
-	<a href="order_edt.php?blno=<?=$blno;?>" target="_blank"><font color="blue">Edit</font></a>
+	<a href="javascript:del('<?php  echo $blno;?>');"><font color="red"><b>Cancel</b></font></a>
+	<a href="order_edt.php?blno=<?php  echo $blno;?>" target="_blank"><font color="blue">Edit</font></a>
 	
-		<?
+		<?php 
 		if($vstat==0)
 		{
-		 ?><a onclick="act('<? echo $blno;?>','1')"><font color="blue">Verify</font></a><?
+		 ?><a onclick="act('<?php  echo $blno;?>','1')"><font color="blue">Verify</font></a><?php 
 		}
 		if($vstat==1)
 		{
-		 ?><font color="green"><b>Verified</b></font><?
+		 ?><font color="green"><b>Verified</b></font><?php 
 		}
 	
 	}
@@ -166,27 +168,27 @@ if($asd==1)
 	
 	
 	</td>
-	<td align="center"><?php echo $cstat1;?></td>
-	<td align="center"><?php echo $dt;?></td>
-	<td align="center"><?php echo $sale_per;?></td>
-	<?
+	<td align="center"><?php  echo $cstat1;?></td>
+	<td align="center"><?php  echo $dt;?></td>
+	<td align="center"><?php  echo $sale_per;?></td>
+	<?php 
 	if($cstat==0)
 	{
 	?>
-	<td align="center"><a href="#" onclick="view('<?=$blno;?>')" ><?=$blno;?></a></td>
-	<?
+	<td align="center"><a href="#" onclick="view('<?php  echo $blno;?>')" ><?php  echo $blno;?></a></td>
+	<?php 
 	}
 	else
 	{
 	?>
-	<td align="center"><?=$blno;?></td>	
-	<?
+	<td align="center"><?php  echo $blno;?></td>	
+	<?php 
 	}
 	?>
 	
-	<td align="left"><?php echo $nm;?><b><?php echo $cust_nm;?></b></td>
-	<td align="center"><?php echo $bnm;?></td>
-	<?
+	<td align="left"><b><?php  echo $cust_nm;?></b></td>
+	<td align="center"><?php  echo $bnm;?></td>
+	<?php 
 }
 else
 {
@@ -199,15 +201,15 @@ else
 	<td></td>
 	<td></td>
 	<td></td>
-	<?
+	<?php 
 }
 ?>
-<td align="center"><?php echo $gnm;?></td>
-<td align="left" title="<?=$pcd;?>"><?=$pnm;?></td>
-<td align="center"><?php echo $hsn;?></td>
-<td align="center"><?php echo "$pcs $unit_nm";?></td>
+<td align="center"><?php  echo $gnm;?></td>
+<td align="left" title="<?php  echo $pcd;?>"><?php  echo $pnm;?></td>
+<td align="center"><?php  echo $hsn;?></td>
+<td align="center"><?php  echo "$pcs $unit_nm";?></td>
 </tr>
-<?
+<?php 
 }
 if($pcss!=0)
 {
@@ -217,9 +219,9 @@ if($pcss!=0)
 	<td></td>
 	<td></td>
 
-	<td align="center"><b><?php echo $pcss;?></b></td>
+	<td align="center"><b><?php  echo $pcss;?></b></td>
 	</tr>
-	<?
+	<?php 
 }
 	$tpcss=$tpcss+$pcss;
 }
@@ -229,6 +231,6 @@ if($pcss!=0)
 <td></td>
 <td></td>
 
-<td align="center"><b><?php echo $tpcss;?></b></td>
+<td align="center"><b><?php  echo $tpcss;?></b></td>
 </tr>
 </table>

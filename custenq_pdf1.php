@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 date_default_timezone_set('Asia/Kolkata');
@@ -8,9 +8,9 @@ $edt = date('d/m/Y h:i:s a', time());
 ob_start();
 $tiamm=0;
 $teamm=0;
-$a=$_REQUEST[sl];
-$tdt=$_REQUEST[tdt];
-$fdt=$_REQUEST[fdt];
+$a=$_REQUEST['sl'];
+$tdt=$_REQUEST['tdt'];
+$fdt=$_REQUEST['fdt'];
 if($fdt=="")
 {
     if(date('m')>3){

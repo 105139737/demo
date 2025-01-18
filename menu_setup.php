@@ -1,4 +1,4 @@
-<?PHP
+<?php 
 $reqlevel=1;
 include("membersonly.inc.php");
 include "header.php";
@@ -22,7 +22,7 @@ $('#sgh').load('menu_setup_list.php').fadeIn('fast');
 </script>
 </head>
 <div class="wrapper row-offcanvas row-offcanvas-left">
-	<?php
+	<?php 
 	include "left_bar.php";
 	?>
 <body onload="show()">

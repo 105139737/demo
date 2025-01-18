@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include "header.php";
@@ -10,7 +10,7 @@ $saa="01-".date('m-Y');
 <html>
 <head>
         <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <style type="text/css"> 
@@ -132,14 +132,14 @@ $("#tdt").datepicker(jQueryDatePicker2Opts);
 <thead>
 <tr>
 <td align="left" width="25%"><b>Form:</b><br>
-<input type="text" id="fdt" name="fdt" size="13" value="<?echo $saa;?>" class="form-control" placeholder="Please Enter From Date" > </td>
+<input type="text" id="fdt" name="fdt" size="13" value="<?php echo $saa;?>" class="form-control" placeholder="Please Enter From Date" > </td>
 <td align="left" width="25%"><b>To:</b><br>
-<input type="text" id="tdt" name="tdt" size="13" value="<?echo $sa;?>" class="form-control" placeholder="Please Enter To Date">
+<input type="text" id="tdt" name="tdt" size="13" value="<?php echo $sa;?>" class="form-control" placeholder="Please Enter To Date">
 </td>
 <td align="left"  width="25%" ><b>Customer:</b><br>
 <select name="snm" class="form-control"  id="snm">
 <option value="">---All---</option>
-<?
+<?php 
 $query="Select * from  main_cust order by nm";
    $result = mysqli_query($conn,$query);
 while ($R = mysqli_fetch_array ($result))
@@ -148,21 +148,21 @@ $sid=$R['sl'];
 $nm=$R['nm'];
 $cont=$R['cont'];
 ?>
-<option value="<? echo $sid;?>"><? echo $nm;?> - <? echo $cont;?></option>
-<?
+<option value="<?php  echo $sid;?>"><?php  echo $nm;?> - <?php  echo $cont;?></option>
+<?php 
 }
 ?>
 </select>
 </td>
 <td align="left" width="25%" ><b>Branch:</b><br>
 <select name="brncd" class="form-control" size="1" id="brncd"   >
-<?
+<?php 
 if($user_current_level<0)
 {
 $query="Select * from main_branch";
 ?>
 <option value="">---All---</option>
-<?
+<?php 
 }
 else
 {
@@ -175,8 +175,8 @@ $sl=$R['sl'];
 $bnm=$R['bnm'];
 
 ?>
-<option value="<? echo $sl;?>"><? echo $bnm;?></option>
-<?
+<option value="<?php  echo $sl;?>"><?php  echo $bnm;?></option>
+<?php 
 }
 ?>
 </select>
@@ -187,15 +187,15 @@ $bnm=$R['bnm'];
 <td align="left"><b>Service :</b><br>
 <select id="prnm" name="prnm" style="width:100%" class="form-control">
 <option value="">---Select---</option>
-<?
+<?php 
 $data1 = mysqli_query($conn,"Select * from main_product where typ='0' order by pnm");
 while ($row1 = mysqli_fetch_array($data1))
 	{
 	$sl=$row1['sl'];
 	$pnm=$row1['pnm'];
 ?>
-<Option value="<?=$sl;?>"><?=reformat($pnm);?></option>
-<?}?>
+<Option value="<?php  echo $sl;?>"><?php echo reformat($pnm);?></option>
+<?php }?>
 </select>
 </td>
 <td  align="left">
@@ -218,7 +218,7 @@ while ($row1 = mysqli_fetch_array($data1))
 <select name="godown" class="form-control" size="1" id="godown" >
 <Option value="">---Select---</option>
 
-<?
+<?php 
 if($user_current_level<0)
 {
 $query="Select * from main_branch";
@@ -234,8 +234,8 @@ $sl=$R['sl'];
 $bnm=$R['bnm'];
 
 ?>
-<option value="<? echo $sl;?>"><? echo $bnm;?></option>
-<?
+<option value="<?php  echo $sl;?>"><?php  echo $bnm;?></option>
+<?php 
 }
 ?>
 </select>

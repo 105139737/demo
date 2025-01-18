@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 include "header.php";
@@ -7,7 +7,7 @@ include "header.php";
 <html>
 <head>
 	<div class="wrapper row-offcanvas row-offcanvas-left">
-	<?
+	<?php 
 	include "left_bar.php";
 	?>
 
@@ -87,15 +87,15 @@ $('#div_list').load('product_to_del.php?sl='+sl).fadeIn('fast');
     <b>Brand :</b><br>
 	<select name="cat" id="cat" class="form-control" onchange="get_scat();get_list()">
 	<Option value="">--- Select ---</option>
-	<?
+	<?php 
 	$get=mysqli_query($conn,"Select * from main_catg order by cnm");
 	while($row=mysqli_fetch_array($get))
 	{
 		$csl=$row['sl'];
 		$cnm=$row['cnm'];
 		?>
-		<option value="<?echo $csl;?>"><?echo $cnm;?></option>
-		<?
+		<option value="<?php echo $csl;?>"><?php echo $cnm;?></option>
+		<?php 
 	}
 	?>
 	</select>
@@ -105,15 +105,15 @@ $('#div_list').load('product_to_del.php?sl='+sl).fadeIn('fast');
 <div id="div_scat">
 	<select name="scat" class="form-control" size="1" id="scat" tabindex="8" >
 	<Option value="">--- Select ---</option>
-	<?
+	<?php 
 	$data1=mysqli_query($conn,"Select * from main_scat order by nm");
 	while($row1=mysqli_fetch_array($data1))
 	{
 		$sc_sl=$row1['sl'];
 		$sc_nm=$row1['nm'];
 		?>
-		<Option value="<?=$sc_sl;?>"><?=$sc_nm;?></option>
-		<?
+		<Option value="<?php  echo $sc_sl;?>"><?php  echo $sc_nm;?></option>
+		<?php 
 	}
 	?>
 	</select>
@@ -134,15 +134,15 @@ $('#div_list').load('product_to_del.php?sl='+sl).fadeIn('fast');
     <b>Brand :</b><br>
 	<select name="tcat" id="tcat" class="form-control" onchange="tget_scat()">
 	<Option value="">--- Select ---</option>
-	<?
+	<?php 
 	$get=mysqli_query($conn,"Select * from main_catg order by cnm");
 	while($row=mysqli_fetch_array($get))
 	{
 		$csl=$row['sl'];
 		$cnm=$row['cnm'];
 		?>
-		<option value="<?echo $csl;?>"><?echo $cnm;?></option>
-		<?
+		<option value="<?php echo $csl;?>"><?php echo $cnm;?></option>
+		<?php 
 	}
 	?>
 	</select>
@@ -152,15 +152,15 @@ $('#div_list').load('product_to_del.php?sl='+sl).fadeIn('fast');
 <div id="tdiv_scat">
 	<select name="tscat" class="form-control" size="1" id="tscat" tabindex="8" >
 	<Option value="">--- Select ---</option>
-	<?
+	<?php 
 	$data1=mysqli_query($conn,"Select * from main_scat order by nm");
 	while($row1=mysqli_fetch_array($data1))
 	{
 		$sc_sl=$row1['sl'];
 		$sc_nm=$row1['nm'];
 		?>
-		<Option value="<?=$sc_sl;?>"><?=$sc_nm;?></option>
-		<?
+		<Option value="<?php  echo $sc_sl;?>"><?php  echo $sc_nm;?></option>
+		<?php 
 	}
 	?>
 	</select>

@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 date_default_timezone_set('Asia/Kolkata');
@@ -25,7 +25,7 @@ if($dt1=="" or $brncd=="" or $cldgr=="" or $cid=="" or $nrtn=="")
 	alert('Please Fill All The Field');
 	history.go(-1);
 	</script>
-	<?
+	<?php 
 }
 else
 {	
@@ -74,7 +74,7 @@ $qr=mysqli_query($conn,"update main_drcr set paid='0' where cbill='$cbill'") or 
 			alert('Update Successfully. Thank You');
 			document.location="customer_fine.php";
 			</script>
-			<?
+			<?php 
 	}	
 }
 ?>

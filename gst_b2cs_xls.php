@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3; 
 include("membersonly.inc.php");
 $fdt=$_REQUEST['fdt'];
@@ -26,7 +26,7 @@ $ttsgst=0;
             <td  align="right"><b>CESS Amount</b></td>
 </tr>
 
-<?
+<?php 
 //echo $tdt;
 $tcgst=0;
 $tsgst=0;
@@ -55,11 +55,11 @@ $ttsgst+=$tsgst;
 <tr class="even">
             <td  align="right" colspan="2">Other than E-Commerce</td>
             <td  align="right" colspan="2">19-West Bengal</td>
-            <td  align="right"><?=$cgst_rt+$sgst_rt?>%</td>
-            <td  align="right"><?=number_format($tttamm,2);?></td>
+            <td  align="right"><?php  echo $cgst_rt+$sgst_rt?>%</td>
+            <td  align="right"><?php echo number_format($tttamm,2);?></td>
             <td  align="right">0.00</td>
 </tr>
-<?
+<?php 
 }
 ?>
 </table>

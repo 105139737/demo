@@ -1,14 +1,14 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
-$sl=$_REQUEST[sl];
-$pno=$_REQUEST[pno];
-$cid=$_REQUEST[cid];
-$blno=rawurldecode($_REQUEST[blno]);
-$brncd=$_REQUEST[brncd];
-$ramm=$_REQUEST[ramm];
-$blno_ref=$_REQUEST[blno_ref];
-$today=$_REQUEST['dt'];
+$sl=$_REQUEST['sl'];
+$pno=$_REQUEST['pno'] ?? "";
+$cid=$_REQUEST['cid'] ?? "";
+$blno=rawurldecode($_REQUEST['blno'] ?? "");
+$brncd=$_REQUEST['brncd'] ?? "";
+$ramm=$_REQUEST['ramm']??0;
+$blno_ref=$_REQUEST['blno_ref']??"";
+$today=$_REQUEST['dt']??date('Y-m-d');
 //$today=date('Y-m-d');
 $today=date('Y-m-d',strtotime($today));
 if($brncd==""){$brncd1="";}else{$brncd1=" and brncd='$brncd'";}
@@ -20,13 +20,13 @@ else
 {
 $cid1="";
 }
-
+$damm=0;
 $dld=" and dldgr='$sl'";
 $cld=" and cldgr='$sl'";
 $blno_ref1="";
 if($blno_ref!="")	
 {
-$blno_ref1=" and blno!='$blno_ref'";
+$blno_ref1=" and (blno!='$blno_ref' or blno is null or blno='')";
 }
 $T=0;
 $t1=0;
@@ -43,6 +43,7 @@ while ($row1 = mysqli_fetch_array($data1))
 $t2 = round($row1['t2'],2);
 }
 $T=round($t1-$t2,2);*/
+//echo "SELECT  (SUM(IF(dldgr='$sl', amm, 0)) - SUM(IF(cldgr='$sl', amm, 0))) AS amm FROM main_drcr where stat='1' and cbill='$blno'".$cid1.$brncd1.$blno_ref1;
 $result416 = mysqli_query($conn,"SELECT  (SUM(IF(dldgr='$sl', amm, 0)) - SUM(IF(cldgr='$sl', amm, 0))) AS amm FROM main_drcr where stat='1' and cbill='$blno'".$cid1.$brncd1.$blno_ref1)or die(mysqli_error($conn));
 while ($R16 = mysqli_fetch_array ($result416))
 {
@@ -50,11 +51,11 @@ $T=round($R16['amm'],2);
 }
 $due_amm=round($T,2);
 ?>
-<input type="text" name="cal_dbal" id="cal_dbal" value="<?echo $T;?>" class="sc" style="background :transparent; color : red;font-weight:bold;" readonly>
-<?
+<input type="text" name="cal_dbal" id="cal_dbal" value="<?php echo $T;?>" class="sc" style="background :transparent; color : red;font-weight:bold;" readonly>
+<?php 
 
 
-
+$dt="1990-01-01";
 $data2= mysqli_query($conn,"select * from  main_billing where blno='$blno'")or die(mysqli_error($conn));
 while ($row2 = mysqli_fetch_array($data2))
 {
@@ -111,6 +112,6 @@ if($T<0)
 
 ?>
 <script>
-document.getElementById('amm').value='<?=$T;?>';
-document.getElementById('damm').value='<?=$damm;?>';
+document.getElementById('amm').value='<?php  echo $T;?>';
+document.getElementById('damm').value='<?php  echo $damm;?>';
 </script>

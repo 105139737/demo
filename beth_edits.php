@@ -1,4 +1,4 @@
-<?php
+<?php 
 
 /**
  * @author Nirmal Biswas
@@ -76,4 +76,4 @@ $result = mysqli_query($conn,$sql1)or die(mysqli_error($conn))or die (mysqli_err
 alert('Batch No./Expiry Date Update Completed. Thank You.....');
 document.location="beth_show.php";
 </script>
-<?  
+<?php   

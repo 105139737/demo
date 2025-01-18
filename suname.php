@@ -1,4 +1,4 @@
-<?php
+<?php 
 include('config.php');
     $id = $_REQUEST['cid'];
 	$query = "SELECT * from ".$DBprefix."suppl where sl='$id'";

@@ -1,9 +1,9 @@
-<?php
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 $pid=$_REQUEST[prnm];
 $qnt=$_REQUEST[qty];
-$brncd=$_REQUEST[brncd];
+$brncd=$_REQUEST['brncd'] ?? "";
 
 
 $err="";
@@ -67,20 +67,20 @@ $('#prnm').trigger('chosen:open');
 
 </script>
 
-<?
+<?php 
 
 }
 else
 {
 ?>
 <script>
-alert('<?=$err;?>');
+alert('<?php  echo $err;?>');
 temp();
 
   $('#prnm').trigger('chosen:open');
 
 </script>
-<?
+<?php 
 }
 
 ?>

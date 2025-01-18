@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3; 
 
 include("membersonly.inc.php");
@@ -6,7 +6,7 @@ $fdt=$_REQUEST['fdt'];
 $tdt=$_REQUEST['tdt'];
 $snm=rawurldecode($_REQUEST['snm']);
 $pnm=rawurldecode($_REQUEST['pnm']);
-$brncd=$_REQUEST[brncd];if($brncd==""){$brncd1="";}else{$brncd1=" and bcd='$brncd'";}
+$brncd=$_REQUEST['brncd'] ?? "";if($brncd==""){$brncd1="";}else{$brncd1=" and bcd='$brncd'";}
 $fdt=date('Y-m-d', strtotime($fdt));
 $tdt=date('Y-m-d', strtotime($tdt));
 
@@ -56,7 +56,7 @@ $dis1=0;
 			
 		
 		     </tr>
-			 <?
+			 <?php 
 		$sln=0;
 		$tota=0;
 $tq=0;
@@ -130,21 +130,21 @@ $brand=$row1['brand'];
 		$asd++;
 	}
  ?>
-		   <tr title="<?=$pcd." S Sl".$sl;?>">
-		   <?if($asd==1){?>
+		   <tr title="<?php  echo $pcd." S Sl".$sl;?>">
+		   <?php if($asd==1){?>
 		    <td  align="center"  >
-			<?=$sln;?>
+			<?php  echo $sln;?>
 			</td>
 			 <td  align="center" >
-			<?=$dt;?>
+			<?php  echo $dt;?>
 			</td>
 			<td  align="center" >
-				<a href="ord_billing.php?blno=<?=rawurlencode($blno);?>" ><?=$blno;?></a>
+				<a href="ord_billing.php?blno=<?php echo rawurlencode($blno);?>" ><?php  echo $blno;?></a>
 			</td>
             <td  align="left" >
-			<?=$nm;?>
+			<?php  echo $nm;?>
 			</td>
-		   <?}
+		   <?php }
 		   else
 		   {
 			?>
@@ -161,16 +161,16 @@ $brand=$row1['brand'];
 		
 			</td> 
 			
-		   <?
+		   <?php 
 		   }
 		   ?>
 		   
-			<td  align="left" title="<?=$pcd;?>" >
-			<?=$pnm;?> - <?=$cnm;?> - <?=$brand;?> - <?=$mnm;?>
+			<td  align="left" title="<?php  echo $pcd;?>" >
+			<?php  echo $pnm;?> - <?php  echo $cnm;?> - <?php  echo $brand;?> - <?php  echo $mnm;?>
 			</td>
 		
 			<td  align="center" >
-			<b><?=$pty1;?></b>
+			<b><?php  echo $pty1;?></b>
 			</td>
 			
 		
@@ -179,7 +179,7 @@ $brand=$row1['brand'];
 		
 		     </tr>	 
 			 
-<?
+<?php 
 $qtyt=$pty1+$qtyt;
 
 $tq=$pty1+$tq;
@@ -195,12 +195,12 @@ if($qtyt!=0)
 <td align="center">
 <font size="3">
 <b>
-<?=$qtyt;?>
+<?php  echo $qtyt;?>
 </b>
 </font>
 </td>
 </tr>
-<?
+<?php 
 }
 }?>
 <tr>
@@ -209,7 +209,7 @@ if($qtyt!=0)
 </td>
 <td align="center">
 <b>
-<?=$tq;?>
+<?php  echo $tq;?>
 </b>
 </td>
 

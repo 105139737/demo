@@ -1,11 +1,11 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 
 $sl=0;
 ?>
  <table border="0" width="100%" class="advancedtable">
-<?
+<?php 
 
    $result100 = mysqli_query($conn,"SELECT * FROM main_partemp where eby='$user_currently_loged' order by sl");
    $cnt= mysqli_num_rows($result100);
@@ -47,20 +47,20 @@ $brand=$row1['brand'];
 
 ?>
 <tr class="odd">
-<td  align="center" width="15%"><b><?=$pnm;?> - <?=$cnm;?> - <?=$brand;?></b></td>
-<td align="center" width="15%" ><b><?=$betno;?></b></td>
-<td align="center" width="12%" ><b><?=$qnty;?></b></td>
-<td align="center" width="12%" ><b><?=$prate;?></b></td>
-<td align="center" width="12%" ><b><?=$iwa;?></b></td>
-<td align="center" width="12%" ><b><?=$owa;?></b></td>
-<td align="center" width="12%" ><b><?=$ttl;?></b></td>
+<td  align="center" width="15%"><b><?php  echo $pnm;?> - <?php  echo $cnm;?> - <?php  echo $brand;?></b></td>
+<td align="center" width="15%" ><b><?php  echo $betno;?></b></td>
+<td align="center" width="12%" ><b><?php  echo $qnty;?></b></td>
+<td align="center" width="12%" ><b><?php  echo $prate;?></b></td>
+<td align="center" width="12%" ><b><?php  echo $iwa;?></b></td>
+<td align="center" width="12%" ><b><?php  echo $owa;?></b></td>
+<td align="center" width="12%" ><b><?php  echo $ttl;?></b></td>
 
 
-<td align="center" width="10%"><b><a onclick="if(confirm('Are you Sure?')){deltpr('<?=$tsl;?>')}"><font color="red">Delete</font></a> </b></td>
+<td align="center" width="10%"><b><a onclick="if(confirm('Are you Sure?')){deltpr('<?php  echo $tsl;?>')}"><font color="red">Delete</font></a> </b></td>
 
 
 </tr>
-<?}?>
+<?php }?>
 </table>
 <script>
 t();

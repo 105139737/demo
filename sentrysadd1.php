@@ -1,4 +1,4 @@
-<?PHP 
+<?php  
 $reqlevel = 3; 
 include("membersonly.inc.php");
 $dt=date('Y-m-d');
@@ -7,7 +7,7 @@ $nm=rawurldecode($_REQUEST['nm']);
 $addr=rawurldecode($_REQUEST['addr']);
 $email=rawurldecode($_REQUEST['email']);
 $mob=rawurldecode($_REQUEST['mob1']);
-$ctyp=rawurldecode($_REQUEST['ctyp']);
+$ctyp=rawurldecode($_REQUEST['ctyp']??"");
 $gstin_no=rawurldecode($_REQUEST['gstin_no']);
 $cust_typ=rawurldecode($_REQUEST['cust_typ']);
 $gstdt1=rawurldecode($_REQUEST['gstdt']);
@@ -18,7 +18,7 @@ $pin=rawurldecode($_REQUEST['pin']);
 $town=rawurldecode($_REQUEST['town']);
 $distn=rawurldecode($_REQUEST['distn']);
 $brncd=rawurldecode($_REQUEST['brncd']);
-
+$state=1;
 $pan=substr($gstin_no,2,10);	
 $st=substr($gstin_no,0,2);
 if($gstin=="")
@@ -34,14 +34,7 @@ $result = mysqli_query($conn,$query);
    $state=$Rs['sl']; 
 }
 }
-if($dob!='')
-{
-$dob=date('Y-m-d', strtotime($dob));
-}
-if($doa!='')
-{
-$doa=date('Y-m-d', strtotime($doa));
-}
+
 $err="";
 if($nm=='')
 {
@@ -97,20 +90,20 @@ $sl=$R111['sl'];
 ?>
 <Script language="JavaScript">
 $('#compose-modal1').modal('hide');
-$('#invto').append('<option value="<?=$sl;?>"><?=$nm;?> <?if($mob!=""){?>( <?=$mob;?> )<?}?></option>');
+$('#invto').append('<option value="<?php  echo $sl;?>"><?php  echo $nm;?> <?php if($mob!=""){?>( <?php  echo $mob;?> )<?php }?></option>');
 $('#invto').trigger('chosen:updated');
-document.getElementById('invto').value='<?=$sl;?>';
+document.getElementById('invto').value='<?php  echo $sl;?>';
 $('#invto').trigger('chosen:updated');
 adnew();
 </script>
-<?
+<?php 
 }
 else
 {
 ?>
 <Script language="JavaScript">
-alert("<? echo $err;?>");
+alert("<?php  echo $err;?>");
 </script>
-<?
+<?php 
 }
 ?>

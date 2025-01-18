@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include "header.php";
@@ -9,7 +9,7 @@ $cy=date('Y');
 <html>
 <head>
         <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <style type="text/css"> 
@@ -138,7 +138,7 @@ $("#title").load("brncd_name.php?brncd="+brncd).fadeIn('fast');
 <select name="brncd" class="form-control" size="1" id="brncd" onchange="title1()"  >
 <option value="">---Select---</option>
 
-<?
+<?php 
 if($user_current_level<0)
 {
 $query="Select * from main_branch";
@@ -154,8 +154,8 @@ $sl=$R['sl'];
 $bnm=$R['bnm'];
 
 ?>
-<option value="<? echo $sl;?>"><? echo $bnm;?></option>
-<?
+<option value="<?php  echo $sl;?>"><?php  echo $bnm;?></option>
+<?php 
 }
 ?>
 </select>
@@ -165,7 +165,7 @@ $bnm=$R['bnm'];
 <b>Category :</b><br>
 <select name="cat" class="form-control" size="1" id="cat" tabindex="8" onchange="get_prod()">
 <Option value="">---All---</option>
-<?
+<?php 
 $data1 = mysqli_query($conn,"Select * from main_scat order by nm");
 while ($row1 = mysqli_fetch_array($data1))
 {
@@ -181,15 +181,15 @@ echo "<option value='".$sl."'>".$cnm."</option>";
 <div id="prod_div">
 <select name="prnm" class="form-control"  id="prnm">
 <option value="">---All---</option>
-<?
+<?php 
 $data1 = mysqli_query($conn,"Select * from main_product  where typ='0' order by pnm");
 while ($row1 = mysqli_fetch_array($data1))
 	{
 	$sl=$row1['sl'];
 	$pnm=$row1['pnm'];
 ?>
-<Option value="<?=$sl;?>"><?=reformat($pnm);?></option>
-<?}?>
+<Option value="<?php  echo $sl;?>"><?php echo reformat($pnm);?></option>
+<?php }?>
 </select>
 </div>
 </td>

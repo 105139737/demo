@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3; 
 include("membersonly.inc.php");
 $fdt=$_REQUEST['fdt'];
@@ -22,7 +22,7 @@ if($fdt!="" and $tdt!=""){$todt=" and dt between '$fdt' and '$tdt'";}else{$todt=
 	<td  align="center" ><font color="#fff"><b>ADD/LESS Value</b></font></td>
 	<td  align="center" ><font color="#fff"><b>Pay Amount</b></font></td>
 	</tr>
-<?
+<?php 
 $sln=0;
 $tota1=0;
 $fttl1=0;
@@ -72,22 +72,27 @@ $mob1=$rowd['mob1'];
 $totgst=0;
 $totgstam=0;
 $QQ=mysqli_query($conn,"SELECT sum(cgst_rt+sgst_rt+igst_rt) as totgst,sum(cgst_am+sgst_am+igst_am) as totgstam FROM main_purchasedet where blno='$blno'");
+$catsl1="";
+$scatsl1="";
+$prnm1="";
+$godown1="";
+$ssln="";
 while ($SS = mysqli_fetch_array($QQ))
 {
 $totgst=$SS['totgst'];
 $totgstam=$SS['totgstam'];
 }
 ?>
-<tr  style="cursor:pointer;" onclick="document.getElementById('inv').value='<?=$pbill;?>';document.getElementById('invdt').value='<?=$edt;?>';">
-<td  align="center" colspan="3"><b><?=$edt;?></b></td>
-<td  align="center" colspan="3" title="<?php echo $blno;?>"><span class="badge bg-green"><font size="3"><b><?=$pbill;?></b></font></span></td>
-<td  align="left" colspan="4"><b><?=$spn;?> </b></td>
+<tr  style="cursor:pointer;" onclick="document.getElementById('inv').value='<?php  echo $pbill;?>';document.getElementById('invdt').value='<?php  echo $edt;?>';">
+<td  align="center" colspan="3"><b><?php  echo $edt;?></b></td>
+<td  align="center" colspan="3" title="<?php  echo $blno;?>"><span class="badge bg-green"><font size="3"><b><?php  echo $pbill;?></b></font></span></td>
+<td  align="left" colspan="4"><b><?php  echo $spn;?> </b></td>
 <td  align="center"><b><span id="tot_tamm"></span></b></td>
-<td  align="center" hidden><b><?=$totgst;?> %</b></td>
-<td  align="right" colspan="6"><b><?=$totgstam;?></b></td>
-<td  align="right" ><b><?=$sttl;?></b></td>
-<td  align="right" ><b><font color="red" size="4"><?=$adl;?></font>  <?=$adlv;?></b></td>
-<td  align="right" ><b><?=$tmm2;?></b></td>
+<td  align="center" hidden><b><?php  echo $totgst;?> %</b></td>
+<td  align="right" colspan="6"><b><?php  echo $totgstam;?></b></td>
+<td  align="right" ><b><?php  echo $sttl;?></b></td>
+<td  align="right" ><b><font color="red" size="4"><?php  echo $adl;?></font>  <?php  echo $adlv;?></b></td>
+<td  align="right" ><b><?php  echo $tmm2;?></b></td>
 </tr>
 	<tr bgcolor="#e8ecf6">
 	<td  align="center" ><b>Sl</b></td>
@@ -111,7 +116,7 @@ $totgstam=$SS['totgstam'];
 	<td  align="center" ><b>A/L Amount</b></td>
 	<td  align="center" ><b>Net Amount</b></td>
 	</tr>
-<?
+<?php 
 $tcgst_am=0;
 $tsgst_am=0;
 $tigst_am=0;
@@ -171,6 +176,7 @@ if($unit=='bun'){$unit_nm=$bun;}
 $pnm="";
 $query6="select * from  ".$DBprefix."product where sl='$pcd'";
 $result5 = mysqli_query($conn,$query6);
+$asd="";
 while($row=mysqli_fetch_array($result5))
 {
 $pnm=$row['pnm'];
@@ -190,30 +196,30 @@ if($blno1==$blno)
 	?>
 	<tr>
 
-	<td  align="left" ><b><?=$ssln;?></b></td>
-	<td  align="left" ><b><?=$pnm;?></b></td>
-	<td  align="center" ><?=$hsn;?></td>
-	<td  align="center" ><?=$betno;?></td>
-	<td  align="center" ><?=$qty;?></td>
-	<td  align="left" ><?=$unit_nm;?></td>
-	<td  align="right" ><?=round($mrp,2);?></td>
-	<td  align="right" ><?=round($total,2);?></td>
+	<td  align="left" ><b><?php  echo $ssln;?></b></td>
+	<td  align="left" ><b><?php  echo $pnm;?></b></td>
+	<td  align="center" ><?php  echo $hsn;?></td>
+	<td  align="center" ><?php  echo $betno;?></td>
+	<td  align="center" ><?php  echo $qty;?></td>
+	<td  align="left" ><?php  echo $unit_nm;?></td>
+	<td  align="right" ><?php echo round($mrp,2);?></td>
+	<td  align="right" ><?php echo round($total,2);?></td>
 
-	<td  align="center" ><?=$disp?></td>				
-	<td  align="right" ><?=round($dis,2);?></td>
-	<td  align="center" ><?=$amm;?></td>
-	<td  align="center" ><?=$cgst_rt;?></td>
-	<td  align="center" ><?=round($cgst_am,2);?></td>
-	<td  align="center" ><?=$sgst_rt;?></td>
-	<td  align="center" ><?=round($sgst_am,2);?></td>
-	<td  align="center" ><?=$igst_rt;?></td>
-	<td  align="center" ><?=$igst_am;?></td>
-	<td  align="right" ><?=round($net_am,2);?></td>
+	<td  align="center" ><?php  echo $disp?></td>				
+	<td  align="right" ><?php echo round($dis,2);?></td>
+	<td  align="center" ><?php  echo $amm;?></td>
+	<td  align="center" ><?php  echo $cgst_rt;?></td>
+	<td  align="center" ><?php echo round($cgst_am,2);?></td>
+	<td  align="center" ><?php  echo $sgst_rt;?></td>
+	<td  align="center" ><?php echo round($sgst_am,2);?></td>
+	<td  align="center" ><?php  echo $igst_rt;?></td>
+	<td  align="center" ><?php  echo $igst_am;?></td>
+	<td  align="right" ><?php echo round($net_am,2);?></td>
 	<td  align="right" ></td>
 	<td  align="right" ></td>
 	</tr>	 
 			 
-<?
+<?php 
 $tot_tamm+=$amm;
 }
 
@@ -221,5 +227,5 @@ $tot_tamm+=$amm;
 ?>
 </table>
 <script>
- $('#tot_tamm').html(<?echo $tot_tamm;?>);
+ $('#tot_tamm').html(<?php echo $tot_tamm;?>);
  </script>

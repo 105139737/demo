@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include "header.php";
@@ -10,7 +10,7 @@ $saa="01-".date('m-Y');
 <html>
 <head>
         <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <style type="text/css"> 
@@ -183,9 +183,9 @@ $("#tdt").datepicker(jQueryDatePicker2Opts);
 <thead>
 <tr>
 <td align="left" width="25%"><b>Form:</b><br>
-<input type="text" id="fdt" name="fdt" size="13" value="<?echo $sa;?>" class="form-control" placeholder="Please Enter From Date" > </td>
+<input type="text" id="fdt" name="fdt" size="13" value="<?php echo $sa;?>" class="form-control" placeholder="Please Enter From Date" > </td>
 <td align="left" width="25%"><b>To:</b><br>
-<input type="text" id="tdt" name="tdt" size="13" value="<?echo $sa;?>" class="form-control" placeholder="Please Enter To Date">
+<input type="text" id="tdt" name="tdt" size="13" value="<?php echo $sa;?>" class="form-control" placeholder="Please Enter To Date">
 </td>
 <td align="left"  width="25%" ><b>Customer:</b><br>
 
@@ -196,13 +196,13 @@ $("#tdt").datepicker(jQueryDatePicker2Opts);
 </td>
 <td align="left" width="25%" ><b>Branch:</b><br>
 <select name="brncd" class="form-control" size="1" id="brncd"   >
-<?
+<?php 
 if($user_current_level<0)
 {
 $query="Select * from main_branch";
 ?>
 <option value="">---All---</option>
-<?
+<?php 
 }
 else
 {
@@ -215,8 +215,8 @@ $sl=$R['sl'];
 $bnm=$R['bnm'];
 
 ?>
-<option value="<? echo $sl;?>"><? echo $bnm;?></option>
-<?
+<option value="<?php  echo $sl;?>"><?php  echo $bnm;?></option>
+<?php 
 }
 ?>
 </select>
@@ -244,7 +244,7 @@ $bnm=$R['bnm'];
 <td align="left"><b>Sales Person :</b>
 <select id="sale_per" name="sale_per" tabindex="1"  class="form-control">
 <option value="">---Select---</option>
-<?
+<?php 
 $queryss="select * from main_sale_per  WHERE sl>0 order by spid";
 $resultss=mysqli_query($conn,$queryss);
 while($rwss=mysqli_fetch_array($resultss))
@@ -252,8 +252,8 @@ while($rwss=mysqli_fetch_array($resultss))
 $spid=$rwss['spid'];
 $spnm=$rwss['nm'];
 ?>
-<option value="<?=$spid;?>" ><?=$spid?> <?=$spnm;?> <?if($rwss['mob']!=""){?>( <?=$rwss['mob'];?> )<?}?></option>
-<?
+<option value="<?php  echo $spid;?>" ><?php  echo $spid?> <?php  echo $spnm;?> <?php if($rwss['mob']!=""){?>( <?php  echo $rwss['mob'];?> )<?php }?></option>
+<?php 
 }
 ?>
 </select>
@@ -273,7 +273,7 @@ $spnm=$rwss['nm'];
 <b>ALS :</b>
 <select name="btyp[]" class="form-control" size="1" id="btyp"  multiple >
 
-<?
+<?php 
 $btyp=array();
 $query="Select * from main_billtype where inv_typ='0' group by als";
 $result = mysqli_query($conn,$query);
@@ -282,8 +282,8 @@ while ($R = mysqli_fetch_array ($result))
 $als=$R['als'];
 
 ?>
-<option value="<? echo $als;?>"><? echo $als;?></option>
-<?
+<option value="<?php  echo $als;?>"><?php  echo $als;?></option>
+<?php 
 }
 ?>
 </select>

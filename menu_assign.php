@@ -1,4 +1,4 @@
-<?PHP
+<?php 
 $reqlevel=1;
 include("membersonly.inc.php");
 include "header.php";
@@ -23,7 +23,7 @@ $('#sgh').load('menu_assign_list.php?username='+username).fadeIn('fast');
 </script>
 </head>
 <div class="wrapper row-offcanvas row-offcanvas-left">
-	<?php
+	<?php 
 	include "left_bar.php";
 	?>
 <body onload="show()">
@@ -52,7 +52,7 @@ $('#sgh').load('menu_assign_list.php?username='+username).fadeIn('fast');
 <td width="40%">
 	<select class="form-control" name="username" id="username" onchange="show()">
 	<option value="">---Select---</option>
-	<?php
+	<?php 
 		$select=mysqli_query($conn,"SELECT * FROM main_signup ORDER BY sl") or die(mysqli_error($conn));;
 		while($r1=mysqli_fetch_array($select))   
 		{
@@ -60,7 +60,7 @@ $('#sgh').load('menu_assign_list.php?username='+username).fadeIn('fast');
 			$username=$r1['username'];
 			$name=$r1['name'];
 			?>
-			<option value="<?=$username;?>"><?=$username;?> - ( <?=$name?> )</option><?php
+			<option value="<?php  echo $username;?>"><?php  echo $username;?> - ( <?php  echo $name?> )</option><?php 
 		}
 	?>
 	</select>
@@ -69,13 +69,13 @@ $('#sgh').load('menu_assign_list.php?username='+username).fadeIn('fast');
 <td width="40%" >
 	<select  name="nm[]" id="nm" class="form-control" multiple>
 	<option value=""></option>
-	<?php
+	<?php 
 		$select=mysqli_query($conn,"SELECT * FROM main_appmenu ORDER BY sl") or die(mysqli_error($conn));;
 		while($r1=mysqli_fetch_array($select))   
 		{
 			$sl=$r1['sl'];
 			$nm=$r1['nm'];
-			?><option value="<?=$sl;?>"><?=$nm;?></option><?php
+			?><option value="<?php  echo $sl;?>"><?php  echo $nm;?></option><?php 
 		}
 	?>
 	</select>

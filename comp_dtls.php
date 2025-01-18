@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include "header.php";
@@ -11,8 +11,8 @@ $cnm=$row1['cnm'];
  $cont=$row1['cont']; 
  $comp_vat=$row1['vat'];
  $comp_cst=$row1['cst']; 
- $comp_lst=$row1['lst']; 
- $comp_lst=$row1['lst']; 
+ $comp_lst=$row1['lst'] ?? ""; 
+ $comp_lst=$row1['lst'] ?? ""; 
  $gstin=$row1['gstin'];
  $branch1=$row1['branch1'];
  $branch2=$row1['branch2'];
@@ -28,7 +28,7 @@ $cnm=$row1['cnm'];
 ?>
 <html>
 <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <head>
@@ -93,28 +93,28 @@ select.sc {
 <tr>
 <td  align="right" width="20%"><b>Company Name :</b></td>
 <td  align="left">
-<div id="c_nm<?=$sl;?>">
-<a  onclick="sedt('<?echo $sl;?>','cnm','<?echo $cnm;?>','c_nm<?=$sl;?>','main_cnm')"><b><? echo $cnm;?></font></b></a>
+<div id="c_nm<?php  echo $sl;?>">
+<a  onclick="sedt('<?php echo $sl;?>','cnm','<?php echo $cnm;?>','c_nm<?php  echo $sl;?>','main_cnm')"><b><?php  echo $cnm;?></font></b></a>
  </div> 
 </td>
 <td  align="right"><b>Contact Number :</b></td>
 <td  align="left">
-<div id="cont<?=$sl;?>">
-<a  onclick="sedt('<?echo $sl;?>','cont','<?echo $cont;?>','cont<?=$sl;?>','main_cnm')"><b><? echo $cont;?></font></b></a>
+<div id="cont<?php  echo $sl;?>">
+<a  onclick="sedt('<?php echo $sl;?>','cont','<?php echo $cont;?>','cont<?php  echo $sl;?>','main_cnm')"><b><?php  echo $cont;?></font></b></a>
  </div> 
 </td>
 </tr>
 <tr>
 <td  align="right"><b>Company Address :</b></td>
 <td  align="left" >
-<div id="addr<?=$sl;?>">
-<a  onclick="sedt('<?echo $sl;?>','addr','<?echo $addr;?>','addr<?=$sl;?>','main_cnm')"><b><? echo $addr;?></font></b></a>
+<div id="addr<?php  echo $sl;?>">
+<a  onclick="sedt('<?php echo $sl;?>','addr','<?php echo $addr;?>','addr<?php  echo $sl;?>','main_cnm')"><b><?php  echo $addr;?></font></b></a>
  </div> 
 </td>
 <td  align="right"><b>GSTIN :</b></td>
 <td  align="left">
-<div id="gstin<?=$sl;?>">
-<a  onclick="sedt('<?echo $sl;?>','gstin','<?echo $gstin;?>','gstin<?=$sl;?>','main_cnm')"><b><? echo $gstin;?></font></b></a>
+<div id="gstin<?php  echo $sl;?>">
+<a  onclick="sedt('<?php echo $sl;?>','gstin','<?php echo $gstin;?>','gstin<?php  echo $sl;?>','main_cnm')"><b><?php  echo $gstin;?></font></b></a>
  </div> 
 </td>
 </tr>
@@ -125,56 +125,56 @@ select.sc {
 <tr>
 <td  align="right" width="20%"><b>Branch Name :</b></td>
 <td  align="left">
-<div id="branch1<?=$sl;?>">
-<a  onclick="sedt('<?echo $sl;?>','branch1','<?echo $branch1;?>','branch1<?=$sl;?>','main_cnm')"><b><?if($branch1!='') { echo $branch1;}else{echo "N/A";}?></font></b></a>
+<div id="branch1<?php  echo $sl;?>">
+<a  onclick="sedt('<?php echo $sl;?>','branch1','<?php echo $branch1;?>','branch1<?php  echo $sl;?>','main_cnm')"><b><?php if($branch1!='') { echo $branch1;}else{echo "N/A";}?></font></b></a>
  </div> 
 </td>
 <td  align="right"><b>Branch Name :</b></td>
 <td  align="left">
-<div id="branch2<?=$sl;?>">
-<a  onclick="sedt('<?echo $sl;?>','branch2','<?echo $branch2;?>','branch2<?=$sl;?>','main_cnm')"><b><? if($branch2!='') { echo $branch2;}else{echo "N/A";}?></font></b></a>
+<div id="branch2<?php  echo $sl;?>">
+<a  onclick="sedt('<?php echo $sl;?>','branch2','<?php echo $branch2;?>','branch2<?php  echo $sl;?>','main_cnm')"><b><?php  if($branch2!='') { echo $branch2;}else{echo "N/A";}?></font></b></a>
  </div> 
 </td>
 </tr>
 <tr>
 <td  align="right" width="20%"><b>IFSC :</b></td>
 <td  align="left" >
-<div id="ifsc1<?=$sl;?>">
-<a  onclick="sedt('<?echo $sl;?>','ifsc1','<?echo $ifsc1;?>','ifsc1<?=$sl;?>','main_cnm')"><b><? if($ifsc1!='') { echo $ifsc1;}else{echo "N/A";}?></font></b></a>
+<div id="ifsc1<?php  echo $sl;?>">
+<a  onclick="sedt('<?php echo $sl;?>','ifsc1','<?php echo $ifsc1;?>','ifsc1<?php  echo $sl;?>','main_cnm')"><b><?php  if($ifsc1!='') { echo $ifsc1;}else{echo "N/A";}?></font></b></a>
  </div> 
 </td>
 <td  align="right"><b>IFSC :</b></td>
 <td  align="left">
-<div id="ifsc2<?=$sl;?>">
-<a  onclick="sedt('<?echo $sl;?>','ifsc2','<?echo $ifsc2;?>','ifsc2<?=$sl;?>','main_cnm')"><b><? if($ifsc2!='') { echo $ifsc2;}else{echo "N/A";}?></font></b></a>
+<div id="ifsc2<?php  echo $sl;?>">
+<a  onclick="sedt('<?php echo $sl;?>','ifsc2','<?php echo $ifsc2;?>','ifsc2<?php  echo $sl;?>','main_cnm')"><b><?php  if($ifsc2!='') { echo $ifsc2;}else{echo "N/A";}?></font></b></a>
  </div> 
 </td>
 </tr>
 <tr>
 <td  align="right" width="20%"><b>A/C Number :</b></td>
 <td  align="left" >
-<div id="ac1<?=$sl;?>">
-<a  onclick="sedt('<?echo $sl;?>','ac1','<?echo $ac1;?>','ac1<?=$sl;?>','main_cnm')"><b><? if($ac1!=''){echo $ac1;}else{echo "N/A";}?></font></b></a>
+<div id="ac1<?php  echo $sl;?>">
+<a  onclick="sedt('<?php echo $sl;?>','ac1','<?php echo $ac1;?>','ac1<?php  echo $sl;?>','main_cnm')"><b><?php  if($ac1!=''){echo $ac1;}else{echo "N/A";}?></font></b></a>
  </div> 
 </td>
 <td  align="right"><b>A/C Number :</b></td>
 <td  align="left">
-<div id="ac2<?=$sl;?>">
-<a  onclick="sedt('<?echo $sl;?>','ac2','<?echo $ac2;?>','ac2<?=$sl;?>','main_cnm')"><b><? if($ac2!=''){echo $ac2;}else{echo "N/A";}?></font></b></a>
+<div id="ac2<?php  echo $sl;?>">
+<a  onclick="sedt('<?php echo $sl;?>','ac2','<?php echo $ac2;?>','ac2<?php  echo $sl;?>','main_cnm')"><b><?php  if($ac2!=''){echo $ac2;}else{echo "N/A";}?></font></b></a>
  </div> 
 </td>
 </tr>
 <tr>
 <td  align="right" width="20%"><b>Bank Name :</b></td>
 <td  align="left" >
-<div id="acnm1<?=$sl;?>">
-<a  onclick="sedt('<?echo $sl;?>','acnm1','<?echo $acnm1;?>','acnm1<?=$sl;?>','main_cnm')"><b><? if($acnm1!=''){echo $acnm1;}else{echo "N/A";}?></font></b></a>
+<div id="acnm1<?php  echo $sl;?>">
+<a  onclick="sedt('<?php echo $sl;?>','acnm1','<?php echo $acnm1;?>','acnm1<?php  echo $sl;?>','main_cnm')"><b><?php  if($acnm1!=''){echo $acnm1;}else{echo "N/A";}?></font></b></a>
  </div> 
 </td>
 <td  align="right"><b>Bank Name :</b></td>
 <td  align="left">
-<div id="acnm2<?=$sl;?>">
-<a  onclick="sedt('<?echo $sl;?>','acnm2','<?echo $acnm2;?>','acnm2<?=$sl;?>','main_cnm')"><b><? if($acnm2!=''){echo $acnm2;}else{echo "N/A";}?></font></b></a>
+<div id="acnm2<?php  echo $sl;?>">
+<a  onclick="sedt('<?php echo $sl;?>','acnm2','<?php echo $acnm2;?>','acnm2<?php  echo $sl;?>','main_cnm')"><b><?php  if($acnm2!=''){echo $acnm2;}else{echo "N/A";}?></font></b></a>
  </div> 
 </td>
 </tr>

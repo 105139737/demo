@@ -1,4 +1,4 @@
-<?php
+<?php 
 
 /**
  * @author Onnet Solution
@@ -18,7 +18,7 @@ $f=$_REQUEST[Combobox1];
 $g=$_REQUEST[bnm];
 $h=$_REQUEST[Combobox2];
 $caddr=$_REQUEST[addr];
-$bsl=$_REQUEST[sl];
+$bsl=$_REQUEST['sl'];
 $cbnm=$_REQUEST[cbnm];
 $sprs=$_REQUEST[sprs];
 $pamm=$_REQUEST[pamm];
@@ -531,13 +531,13 @@ Invoice No. :
 </table>
 
 <div id="wb_Text2" style="position:absolute;left:10px;top:75px;width:330px;height:17px;text-align:center;z-index:4;">
-<span style="color:#000000;font-family:Arial;font-size:15px;"><strong><em>Prop: <? echo $pnm;?></em></strong></span></div>
+<span style="color:#000000;font-family:Arial;font-size:15px;"><strong><em>Prop: <?php  echo $pnm;?></em></strong></span></div>
 <div id="wb_Text3" style="position:absolute;left:10px;top:95px;width:330px;height:16px;text-align:center;z-index:5;">
-<span style="color:#000000;font-family:Arial;font-size:13px;"><? echo $branch_address;?></span></div>
+<span style="color:#000000;font-family:Arial;font-size:13px;"><?php  echo $branch_address;?></span></div>
 <div id="wb_Text4" style="position:absolute;left:10px;top:127px;width:330px;height:16px;text-align:center;z-index:6;">
-<span style="color:#000000;font-family:Arial;font-size:13px;"><? echo $branch_phone;?></span></div>
+<span style="color:#000000;font-family:Arial;font-size:13px;"><?php  echo $branch_phone;?></span></div>
 <div id="wb_Text5" style="position:absolute;left:10px;top:126px;width:330px;height:16px;text-align:center;z-index:7;">
-<span style="color:#000000;font-family:Arial;font-size:14px;"><? echo $wbst;?></span></div>
+<span style="color:#000000;font-family:Arial;font-size:14px;"><?php  echo $wbst;?></span></div>
 <hr id="Line1" style="margin:0;padding:0;position:absolute;left:10px;top:145px;width:330px;height:2px;z-index:8;">
 <div id="wb_Text6" style="position:absolute;left:10px;top:147px;width:330px;height:16px;text-align:center;z-index:10;">
 <span style="color:#000000;font-family:Arial;font-size:13px;">TANGAIL SHAREE MANUFACTURER &amp; SELLER</span></div>
@@ -545,17 +545,17 @@ Invoice No. :
 
 <div id="Layer1" style="position:absolute;text-align:left;left:10px;top:170px;width:330px;height:20px;z-index:1;" title="">
 <div id="wb_Text8" style="position:absolute;left:6px;top:2px;width:141px;height:16px;z-index:0;text-align:left;">
-<span style="color:#000000;font-family:Arial;font-size:13px;">T.L. No. <? echo $tlno;?></span></div>
+<span style="color:#000000;font-family:Arial;font-size:13px;">T.L. No. <?php  echo $tlno;?></span></div>
 <div id="wb_Textbl" style="position:absolute;left:0px;top:2px;width:330px;height:16px;z-index:0;text-align:center;">
 <span style="color:#000000;font-family:Arial;font-size:13px;"><strong></strong></span></div>
 <div id="wb_Text7" style="position:absolute;left:197px;top:2px;width:125px;height:16px;text-align:right;z-index:9;">
-<span style="color:#000000;font-family:Arial;font-size:13px;">Date : <? echo date('d-m-Y', strtotime($dt));?></span></div>
+<span style="color:#000000;font-family:Arial;font-size:13px;">Date : <?php  echo date('d-m-Y', strtotime($dt));?></span></div>
 </div>
 
 <div id="wb_Text9" style="position:absolute;left:10px;top:194px;width:330px;height:15px;z-index:12;text-align:left;">
-<span style="color:#000000;font-family:'Times New Roman';font-size:13px;"><em>Name: <? echo $b;?></em></span></div>
+<span style="color:#000000;font-family:'Times New Roman';font-size:13px;"><em>Name: <?php  echo $b;?></em></span></div>
 <div id="wb_Text10" style="position:absolute;left:10px;top:210px;width:330px;height:15px;z-index:13;text-align:left;">
-<span style="color:#000000;font-family:'Times New Roman';font-size:13px;"><em>Address: <? echo $caddr;?></em></span></div>
+<span style="color:#000000;font-family:'Times New Roman';font-size:13px;"><em>Address: <?php  echo $caddr;?></em></span></div>
 
 <table style="position:absolute;left:10px;top:250px;width:331px;height:458px;z-index:14;" cellpadding="0" cellspacing="1" id="Table1">
 <tr>
@@ -573,7 +573,7 @@ Invoice No. :
 </td>
 </tr>
 
-<?
+<?php 
 $csl=1;
  $query100 = "SELECT * FROM ".$DBprefix."billdtls where blno='$blno' order by bsl";
    $result100 = mysqli_query($conn,$query100);
@@ -615,14 +615,14 @@ $aiw=$nw->toWords($gttl);
 
 <tr>
 <td style="background-color:transparent;border:1px #000000 solid;text-align:center;vertical-align:top;width:32px;height:375px;border-bottom: 0px;">
-<span style="color:#000000;font-family:Arial;font-size:13px;"><? echo $ctsl;?></span></td>
+<span style="color:#000000;font-family:Arial;font-size:13px;"><?php  echo $ctsl;?></span></td>
 <td style="background-color:transparent;border:1px #000000 solid;text-align:right;vertical-align:top;width:158px;height:375px;border-bottom: 0px;">
-<span style="color:#000000;font-family:Arial;font-size:13px;"><? echo $ctpr;?></span></td>
+<span style="color:#000000;font-family:Arial;font-size:13px;"><?php  echo $ctpr;?></span></td>
 <td style="background-color:transparent;border:1px #000000 solid;text-align:center;vertical-align:top;width:42px;height:375px;border-bottom: 0px;">
-<div><span style="color:#000000;font-family:Arial;font-size:13px;"> <? echo $cqnt;?></span></div>
+<div><span style="color:#000000;font-family:Arial;font-size:13px;"> <?php  echo $cqnt;?></span></div>
 </td>
 <td style="background-color:transparent;border:1px #000000 solid;text-align:right;vertical-align:top;height:375px;border-bottom: 0px;">
-<div><span style="color:#000000;font-family:Arial;font-size:13px;"> <? echo $cttl;?></span></div>
+<div><span style="color:#000000;font-family:Arial;font-size:13px;"> <?php  echo $cttl;?></span></div>
 </td>
 </tr>
 
@@ -630,12 +630,12 @@ $aiw=$nw->toWords($gttl);
 
 <tr>
 <td colspan="2" style="background-color:transparent;border:1px #000000 solid;vertical-align:top;height:18px;">
-<div><span style="color:#000000;font-family:Arial;font-size:8px;text-align: left;">&nbsp;&nbsp;<? echo $sprsf;?></span><span style="color:#000000;font-family:Arial;font-size:13px;text-align: right;width: 50px;padding-left: 100px;"><strong>&nbsp;&nbsp; <? echo $tdsp;?>&nbsp; </strong></span></div>
+<div><span style="color:#000000;font-family:Arial;font-size:8px;text-align: left;">&nbsp;&nbsp;<?php  echo $sprsf;?></span><span style="color:#000000;font-family:Arial;font-size:13px;text-align: right;width: 50px;padding-left: 100px;"><strong>&nbsp;&nbsp; <?php  echo $tdsp;?>&nbsp; </strong></span></div>
 </td>
 <td style="background-color:transparent;border:1px #000000 solid;text-align:center;vertical-align:top;height:18px;">
-<span style="color:#000000;font-family:Arial;font-size:13px;"><strong><? echo $qttl;?> </strong></span></td>
+<span style="color:#000000;font-family:Arial;font-size:13px;"><strong><?php  echo $qttl;?> </strong></span></td>
 <td style="background-color:transparent;border:1px #000000 solid;text-align:right;vertical-align:top;height:18px;">
-<span style="color:#000000;font-family:Arial;font-size:13px;"><strong><? echo number_format($gttl,2);?> </strong></span></td>
+<span style="color:#000000;font-family:Arial;font-size:13px;"><strong><?php  echo number_format($gttl,2);?> </strong></span></td>
 </tr>
 
 
@@ -646,7 +646,7 @@ $aiw=$nw->toWords($gttl);
 
 
 <div id="wb_Text11" style="position:absolute;left:10px;top:762px;width:330px;height:16px;z-index:15;text-align:justify;">
-<span style="color:#000000;font-family:Arial;font-size:13px;">In Words: Rupees <? echo $aiw;?> Only</span></div>
+<span style="color:#000000;font-family:Arial;font-size:13px;">In Words: Rupees <?php  echo $aiw;?> Only</span></div>
 <div id="wb_Text12" style="position:absolute;left:283px;top:795px;width:57px;height:16px;z-index:16;text-align:left;">
 <span style="color:#000000;font-family:Arial;font-size:13px;">E &amp; O.E.</span></div>
 <div id="wb_Text13" style="position:absolute;left:10px;top:825px;width:140px;height:19px;z-index:17;text-align:left;">
@@ -658,23 +658,23 @@ $aiw=$nw->toWords($gttl);
 
 
 <div id="wb_Text16" style="position:absolute;left:10px;top:4px;width:151px;height:16px;z-index:20;text-align:left;">
-<span style="color:#000000;font-family:Arial;font-size:13px;">Bill No.:<? echo $blno;?></span></div>
+<span style="color:#000000;font-family:Arial;font-size:13px;">Bill No.:<?php  echo $blno;?></span></div>
 
 </div>
 </body>
 </html>
 
-<?
+<?php 
 /*
 }
 else
 {
     ?>
 <Script language="JavaScript">
-alert('<? echo $err;?>');
+alert('<?php  echo $err;?>');
 window.history.go(-1);
 </script>
-<?
+<?php 
 }
 */
 ?>

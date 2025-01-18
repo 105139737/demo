@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 date_default_timezone_set('Asia/Kolkata');
@@ -55,7 +55,7 @@ $err="Submitted Successfully....";
 }
 ?>
 <script>
-alert("<?echo $err;?>");
+alert("<?php echo $err;?>");
 document.location="task_assign.php";
 </script>
-<?
+<?php 

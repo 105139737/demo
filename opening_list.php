@@ -1,7 +1,8 @@
-<?
+<?php 
 $reqlevel = 3; 
 include("membersonly.inc.php");
 include "function.php";
+$tqty=0;
 
 $fdt=$_REQUEST['fdt'];
 $tdt=$_REQUEST['tdt'];
@@ -24,7 +25,7 @@ if($ptyp==""){$ptyp1="";}else{$ptyp1=" and app='$ptyp'";}
 if($brncd==""){$brncd1="";}else{$brncd1=" and bcd='$brncd'";}
 if($catsl==""){$catsl1="";}else{$catsl1=" and cat='$catsl'";}
 if($scatsl==""){$scatsl1="";}else{$scatsl1=" and scat='$scatsl'";}
-if($prnm==""){$prnm1="";}else{$prnm1=" and prsl='$prnm'";}
+if($prnm==""){$prnm1="";}else{$prnm1=" and sl='$prnm'";}
 if($godown==""){$godown1="";}else{$godown1=" and bcd='$godown'";}
 $fdt=date('Y-m-d', strtotime($fdt));
 $tdt=date('Y-m-d', strtotime($tdt));
@@ -70,7 +71,7 @@ $bqr.=")";
 	<td  align="center" ><b>Unit</b></td>
 	<td  align="center" ><b>Rate</b></td>
 	</tr>
-	<?
+	<?php 
 	$sln=0;
 	$tota1=0;
 	$fttl1=0;
@@ -249,20 +250,20 @@ if($blno1==$blno)
 
 
 	?>
-	<tr bgcolor="<?php echo $color;?>" title="<?php echo $pcd;?>">
-	<?
+	<tr bgcolor="<?php  echo $color;?>" title="<?php  echo $pcd;?>">
+	<?php 
 	if($log==1)
 	{
 	?>
-	<td  align="center"  ><!--<a href="#" onclick="edit('<?//=$blno;?>')"><i class="fa fa-pencil-square-o"></i></a>-->
-	<a href="#" onclick="if(confirm('Are you sure to delete....')){dlt('<?=$blno;?>')}"><i class="fa fa-trash-o" style="color:red;"></i></a>
+	<td  align="center"  ><!--<a href="#" onclick="edit('<?php //=$blno;?>')"><i class="fa fa-pencil-square-o"></i></a>-->
+	<a href="#" onclick="if(confirm('Are you sure to delete....')){dlt('<?php  echo $blno;?>')}"><i class="fa fa-trash-o" style="color:red;"></i></a>
 	</td>
-	<td  align="center" ><?=$sln;?></td>
-	<td  align="center" ><?=$edt;?></td>
-	<td  align="center" ><?=$blno;?></td>
-	<td  align="left" ><font color="red"><b><?=$gnm;?></b></font></td>
-	<td  align="center" ><?=$gstinn;?></td>
-	<?
+	<td  align="center" ><?php  echo $sln;?></td>
+	<td  align="center" ><?php  echo $edt;?></td>
+	<td  align="center" ><?php  echo $blno;?></td>
+	<td  align="left" ><font color="red"><b><?php  echo $gnm;?></b></font></td>
+	<td  align="center" ><?php  echo $gstinn;?></td>
+	<?php 
 	}
 	else
 	{
@@ -271,23 +272,23 @@ if($blno1==$blno)
 	<td  align="center" ></td>
 	<td  align="center" ></td>
 	<td  align="center" ></td>
-	<td  align="left" ><font color="red"><b><?=$gnm;?></b></font></td>
+	<td  align="left" ><font color="red"><b><?php  echo $gnm;?></b></font></td>
 	<td  align="center" ></td>
-	<?				
+	<?php 				
 	}
 	?>
-	<td  align="left" ><b><?php echo $product_code;?> ---- <?=$pnm;?> --- <font color="red">Current Stock :  <?php echo $stk_qty;?></font></b></td>
-	<td  align="center" ><?=$hsn;?></td>
-	<td  align="center" ><?=$betno;?></td>
-	<td  align="center" ><a onclick="del_dtl('<?php echo $dtl_sl?>')"><font color="blue"><b>Delete</b></font></a></td>
-	<td  align="center" ><?=$qty;?></td>
-	<td  align="left" ><?=$unit_nm;?></td>
+	<td  align="left" ><b><?php  echo $product_code;?> ---- <?php  echo $pnm;?> --- <font color="red">Current Stock :  <?php  echo $stk_qty;?></font></b></td>
+	<td  align="center" ><?php  echo $hsn;?></td>
+	<td  align="center" ><?php  echo $betno;?></td>
+	<td  align="center" ><a onclick="del_dtl('<?php  echo $dtl_sl?>')"><font color="blue"><b>Delete</b></font></a></td>
+	<td  align="center" ><?php  echo $qty;?></td>
+	<td  align="left" ><?php  echo $unit_nm;?></td>
 
-	<td  align="right" ><?=round($rate,2);?></td>
+	<td  align="right" ><?php echo round($rate,2);?></td>
 	
 	</tr>	 
 			 
-<?
+<?php 
 $tota=$total+$tota;
 $ttqty+=$qty;
 $wgamm=$net_am+$wgamm;
@@ -346,7 +347,7 @@ $dis111=$dis111+$ldisa1;
 	<td  align="center" ></td>
 	<td  align="center" ></td>
 	</tr>
-<?
+<?php 
 $Ttamm2+=$with_adl_tamm2;
 $ADls+=$adl.$adlv;
 
@@ -355,7 +356,7 @@ $ADls+=$adl.$adlv;
 <tr>
 <td colspan="10" align="right"><b>Grand Total :</b></td>
 
-<td align="center"><?=$tqty;?></td>
+<td align="center"><?php  echo $tqty;?></td>
 
 <td  align="right" ><font color="red"><b></b></font></td>
 <td  align="right" ><font color="red"><b></b></font></td>

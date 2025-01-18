@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3; 
 include("membersonly.inc.php");
 $fdt=$_REQUEST['fdt'];
@@ -31,7 +31,7 @@ header("Content-Disposition: attachment; filename=$file");
 			
 
 		</tr>
-			 <?
+			 <?php 
 		$sln=0;
 		$tamm1=0;
 
@@ -74,21 +74,21 @@ $statcd=$GBi['cd'];
 
  ?>
 <tr>
-<td  align="center"  ><?=$sln;?></td>
-<td  align="center" ><?=$gstin;?></td>
-<td  align="center" ><?=$nm;?></td>
-<td  align="center" ><?=$blno;?></td>
-<td  align="center" ><?=$dt;?></td>
-<td  align="center" ><?=$statcd.'-'.$statnm;?></td>
-<td  align="right" style="padding-right: 2%;" ><?=sprintf('%0.2f',$tamm);?></td>
+<td  align="center"  ><?php  echo $sln;?></td>
+<td  align="center" ><?php  echo $gstin;?></td>
+<td  align="center" ><?php  echo $nm;?></td>
+<td  align="center" ><?php  echo $blno;?></td>
+<td  align="center" ><?php  echo $dt;?></td>
+<td  align="center" ><?php  echo $statcd.'-'.$statnm;?></td>
+<td  align="right" style="padding-right: 2%;" ><?php echo sprintf('%0.2f',$tamm);?></td>
 <td  align="center" ></td>
 
 
 </tr>
-<?}?>
+<?php }?>
 	<tr bgcolor="#e8ecf6">
 			<td  align="right" colspan="6" ><b>Total : </b></td>
-			<td  align="right" style="padding-right: 2%;" ><b><?=sprintf('%0.2f',$tamm1);?></b></td>
+			<td  align="right" style="padding-right: 2%;" ><b><?php echo sprintf('%0.2f',$tamm1);?></b></td>
 			<td  align="center" ></td>
 
 

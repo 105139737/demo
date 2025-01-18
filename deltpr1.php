@@ -1,6 +1,6 @@
-<?php
+<?php 
 $reqlevel = 1;
-include("membersonly.inc.php");$a=$_REQUEST[sl];$query2 = "DELETE FROM ".$DBprefix."ptemp WHERE sl='$a'";
+include("membersonly.inc.php");$a=$_REQUEST['sl'];$query2 = "DELETE FROM ".$DBprefix."ptemp WHERE sl='$a'";
 $result2 = mysqli_query($conn,$query2);
 
 ?>

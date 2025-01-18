@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 
@@ -32,7 +32,7 @@ $cgst=($igst/2);
 $sgst=$cgst;
 $fdt=date('Y-m-d',strtotime($_POST['fdt']));
 $tdt=date('Y-m-d',strtotime($_POST['tdt']));
-$unit=$_POST['unit'];
+$unit=$_POST['unit']??"";
 
 $sret="0";
 $mret="0";
@@ -81,7 +81,7 @@ mysqli_query($conn,"update main_unit set sun='$sun',mun='$mun',bun='$bun',smvlu=
 	alert('Update Successfully. Thank You');
 	document.location="prod_list.php";
 	</script>
-	<?
+	<?php 
 }
 else
 {
@@ -90,16 +90,16 @@ else
 	alert('Data Already Exists');
 	history.go(-1);
 	</script>
-	<?
+	<?php 
 }
 }
 else
 {
 	?>
 	<script>
-	alert('<?=$err;?>');
+	alert('<?php  echo $err;?>');
 	history.go(-1);
 	</script>
-	<?	
+	<?php 	
 }
 ?>

@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 include("Numbers/Words.php");
@@ -65,7 +65,7 @@ $vid1=substr($vnos,2,7);
 $count6=5;
 while($count6>0)
 {
-	$vid1=$vid1+1;
+	$vid1=(int)$vid1+1;
 	$vnoc=str_pad($vid1, 7, '0', STR_PAD_LEFT);
 	$blno="QUO".$vnoc;
 	$query5="select * from main_quo where blno='$blno'";
@@ -133,7 +133,7 @@ $aiw=$nw->toWords($gttl);
 ?>
 <html>
         <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <head>
@@ -174,9 +174,9 @@ border: 1px solid #000;
 <table border="0" width="677px">
 <tr>
 <td  align="center" colspan="2">
-<font size="7"><b><?=$comp_nm;?></b></font>
+<font size="7"><b><?php  echo $comp_nm;?></b></font>
 <br>
-<font size="4"><b><?=$comp_addr;?></b></font>
+<font size="4"><b><?php  echo $comp_addr;?></b></font>
 </td>
 </tr>
 <tr>
@@ -184,14 +184,14 @@ border: 1px solid #000;
 <font size="5"> <b><a href="quotation.php" ><u>Back</u></a></b></font>
 </td>
 <td  align="left">
-<font size="5"> <b><a href="quo_bill_new.php?blno=<?=rawurlencode($blno);?>" target="_blank"><font color="red"><u>Print</u></font></a></b></font>
+<font size="5"> <b><a href="quo_bill_new.php?blno=<?php echo rawurlencode($blno);?>" target="_blank"><font color="red"><u>Print</u></font></a></b></font>
 </td>
 </tr>
 
 
 <tr>
 <td  align="center"  colspan="2">
-<font size="4" color="red"> <b> Bill No. : <?=$blno;?></b></font>
+<font size="4" color="red"> <b> Bill No. : <?php  echo $blno;?></b></font>
 </td>
 </tr>
 </table>
@@ -202,15 +202,15 @@ border: 1px solid #000;
 </div>
 </html>
 
-<?
+<?php 
 }
 else
 {
 ?>
 <Script language="JavaScript">
-alert("<? echo $err;?>");
+alert("<?php  echo $err;?>");
 document.location="quotation.php";
 </script>
-<?
+<?php 
 }
 ?>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include "header.php";
@@ -6,7 +6,7 @@ include "header.php";
 <html>
 <head>
 	<div class="wrapper row-offcanvas row-offcanvas-left">
-		<?
+		<?php 
 		include "left_bar.php";
 		?>
 <style type="text/css"> 
@@ -159,13 +159,13 @@ function isNumber(evt)
 <td align="right">Branch : </td>
 <td>
 <select name="brncd" class="form-control"  tabindex="1"   size="1" id="brncd" required>
-<?
+<?php 
 if($user_current_level<0)
 {
 $query="Select * from main_branch";
 ?>
 <option value="">---ALL---</option>
-<?
+<?php 
 }
 else
 {
@@ -178,8 +178,8 @@ $sl=$R['sl'];
 $bnm=$R['bnm'];
 
 ?>
-<option value="<? echo $sl;?>"><? echo $bnm;?></option>
-<?
+<option value="<?php  echo $sl;?>"><?php  echo $bnm;?></option>
+<?php 
 }
 ?>
 </select>

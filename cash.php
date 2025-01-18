@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include "header.php";
@@ -23,7 +23,7 @@ $fdt1=$fdt3;
 ?>
 <html>
  <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <head>
@@ -184,12 +184,12 @@ select.rf {
 		  <tr class="odd">
             <td  align="right" >From :</td>
             <td  align="left" >
-			<input type="text" class="sc" id="fdt" size="20" name="fdt" value="<?echo $fdt;?>" tabindex="1" placeholder="">
+			<input type="text" class="sc" id="fdt" size="20" name="fdt" value="<?php echo $fdt;?>" tabindex="1" placeholder="">
             </td>
        
             <td  align="right" >To :</td>
             <td  align="left">
-		<input type="text" class="sc" id="tdt" size="20" name="tdt" value="<?echo date('d-m-Y');?>" tabindex="1" placeholder="">
+		<input type="text" class="sc" id="tdt" size="20" name="tdt" value="<?php echo date('d-m-Y');?>" tabindex="1" placeholder="">
 
             </td>
 	
@@ -200,7 +200,7 @@ select.rf {
 
 <select name="snm" class="form-control"  id="snm"   >
 <option value="">---All---</option>
-<?
+<?php 
 $query="Select * from  main_suppl where tp='Debtors' or tp='Both' order by spn";
    $result = mysqli_query($conn,$query);
 while ($R = mysqli_fetch_array ($result))
@@ -208,8 +208,8 @@ while ($R = mysqli_fetch_array ($result))
 $sid=$R['sl'];
 $spn=$R['spn'];
 ?>
-<option value="<? echo $sid;?>"><? echo $spn;?></option>
-<?
+<option value="<?php  echo $sid;?>"><?php  echo $spn;?></option>
+<?php 
 }
 ?>
 </select>
@@ -221,12 +221,12 @@ $spn=$R['spn'];
 <td align="left" >
 
     <select name="brncd" class="form-control" size="1" id="brncd"   >
-<?
+<?php 
 if($user_current_level<0)
 {
 	?>
 	<option value="">---ALL---</option>
-	<?
+	<?php 
 }
 if($user_current_level<0)
 {
@@ -243,8 +243,8 @@ $sl=$R['sl'];
 $bnm=$R['bnm'];
 
 ?>
-<option value="<? echo $sl;?>"><? echo $bnm;?></option>
-<?
+<option value="<?php  echo $sl;?>"><?php  echo $bnm;?></option>
+<?php 
 }
 ?>
 </select>

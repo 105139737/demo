@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 include "header.php";
@@ -6,7 +6,7 @@ include "header.php";
 <html>
 <head>
         <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <style type="text/css"> 
@@ -124,15 +124,15 @@ document.location='beth_edit.php?sl='+sl;
 <td align="left">
 <select id="all" name="all" class="sc1"  tabindex="2"  style="width:300px" onchange="gett(this.value)" >
 		<option value="">---Select---</option>
-		<?
+		<?php 
 			$query6="select * from  ".$DBprefix."product order by pname";
 			$result5 = mysqli_query($conn,$query6);
 			while($row=mysqli_fetch_array($result5))
 			{
 				
 				?>
-			<option value="<?=$row['sl'];?>"><?=$row['pname'];?></option>
-			<?}?>
+			<option value="<?php  echo $row['sl'];?>"><?php  echo $row['pname'];?></option>
+			<?php }?>
 			</select>
 </td>
 </tr>

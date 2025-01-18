@@ -1,4 +1,4 @@
-<?PHP
+<?php 
 $reqlevel=1;
 include("membersonly.inc.php");
 include "header.php";
@@ -23,7 +23,7 @@ $('#show').load('roll_assign_list.php?uid='+uid).fadeIn('fast');
 </script>
 </head>
 <div class="wrapper row-offcanvas row-offcanvas-left">
-	<?php
+	<?php 
 	include "left_bar.php";
 	?>
 <body onload="show()">
@@ -53,7 +53,7 @@ $('#show').load('roll_assign_list.php?uid='+uid).fadeIn('fast');
 <b>USER:</b>
 <select class="form-control" id="uid" name="uid" required onchange="show()">
 <option value="">---Select---</option>
-<?php
+<?php 
 $sql1 = mysqli_query($conn,"select * from main_signup where sl>0") or die(mysqli_error($conn));
 while($row = mysqli_fetch_array($sql1))
 {
@@ -61,8 +61,8 @@ $sls = $row['sl'];
 $username = $row['username'];
 $name = $row['name'];
 ?>
-<option value="<?php echo $username;?>"><?php echo $username;?> - <?=$name?></option>	
-<?
+<option value="<?php  echo $username;?>"><?php  echo $username;?> - <?php  echo $name?></option>	
+<?php 
 }
 ?>
 </select>

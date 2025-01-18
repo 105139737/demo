@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 $dt=date('Y-m-d');
@@ -17,7 +17,7 @@ the returned xml has the following structure
 ?>
 <table width="100%">
 
-<?
+<?php 
 $a=$_REQUEST[prnm];
 $a1="%".$a."%";
      $query = "SELECT * FROM main_catg where cnm like '$a1' limit 0,10";
@@ -33,16 +33,16 @@ $sl=$R['sl'];
 
 <tr>
 
-<td onclick="get('<?=$cnm?>','<?=$tnm?>','<?=$sl?>')" style="cursor:pointer;">
-<font size="3"> <?=$cnm;?> </font><br>
-<font size="1"> <?=$tnm;?> </font>
+<td onclick="get('<?php  echo $cnm?>','<?php  echo $tnm?>','<?php  echo $sl?>')" style="cursor:pointer;">
+<font size="3"> <?php  echo $cnm;?> </font><br>
+<font size="1"> <?php  echo $tnm;?> </font>
 <hr>
 </td>
 
 
 </tr>
 
-<?
+<?php 
 
 }
 

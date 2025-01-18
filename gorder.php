@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 include "header.php";
@@ -8,7 +8,7 @@ $dl_tm=date('H:i', $ndl_tm);
 ?>
 <html>
         <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <head>
@@ -297,7 +297,7 @@ function cbcd()
             <td align="right" style="padding-top:10px" ><font size="4" ><b>Request :</b></font></td>
             <td align="left" >
 			
-	<?if($user_current_level<0)
+	<?php if($user_current_level<0)
 {
 			 $query100 = "SELECT * FROM ".$DBprefix."trntemp where eby='$user_currently_loged' order by sl";
    $result100 = mysqli_query($conn,$query100);
@@ -310,7 +310,7 @@ if($fbcd!="")
 	
 			?>
     <select name="fbcd" class="form-control" size="1" id="fbcd" style="width:300px" onchange="cbcd()" >
-<?
+<?php 
 
 $query="Select * from main_branch where sl='$fbcd'";
    $result = mysqli_query($conn,$query);
@@ -319,19 +319,19 @@ while ($R = mysqli_fetch_array ($result))
 $sl=$R['sl'];
 $bnm=$R['bnm'];
 ?>
-<option value="<? echo $sl;?>"><? echo $bnm;?></option>
-<?
+<option value="<?php  echo $sl;?>"><?php  echo $bnm;?></option>
+<?php 
 }
 ?>
 </select>
-<?	
+<?php 	
 }
 else
 {
 
 			?>
     <select name="fbcd" class="form-control" size="1" id="fbcd" style="width:300px" onchange="cbcd()" >
-<?
+<?php 
 
 $query="Select * from main_branch";
    $result = mysqli_query($conn,$query);
@@ -340,26 +340,26 @@ while ($R = mysqli_fetch_array ($result))
 $sl=$R['sl'];
 $bnm=$R['bnm'];
 ?>
-<option value="<? echo $sl;?>"><? echo $bnm;?></option>
-<?
+<option value="<?php  echo $sl;?>"><?php  echo $bnm;?></option>
+<?php 
 }
 ?>
 </select>
-<?}
+<?php }
 }?>		
 			
 			
 			
 			
 			
-<?
+<?php 
 if($user_current_level>0)
 {		
 ?>		
 			
 
     <select name="fbcd" class="form-control" size="1" id="fbcd" style="width:300px"  >
-<?
+<?php 
 
 $query="Select * from main_branch where sl!='$branch_cnt'";
 	
@@ -370,16 +370,16 @@ while ($R = mysqli_fetch_array ($result))
 $sl=$R['sl'];
 $bnm=$R['bnm'];
 ?>
-<option value="<? echo $sl;?>"><? echo $bnm;?></option>
-<?
+<option value="<?php  echo $sl;?>"><?php  echo $bnm;?></option>
+<?php 
 }
 ?>
 </select>
-<?}?>
+<?php }?>
 	</td>
 	            <td align="right" style="padding-top:10px" ><font size="4" ><b>Godown :</b></font></td>
             <td align="left" >
-				<?if($user_current_level<0)
+				<?php if($user_current_level<0)
 {?>
 					<div id="bb">
     <select name="tbcd" class="form-control" size="1" id="tbcd" style="width:300px"  >
@@ -388,11 +388,11 @@ $bnm=$R['bnm'];
 
 </select>
 </div>	
-<?}?>			
+<?php }?>			
 			
 			
 			
-	<?
+	<?php 
 if($user_current_level>0)
 {		
 ?>		
@@ -400,7 +400,7 @@ if($user_current_level>0)
     <select name="tbcd" class="form-control" size="1" id="tbcd" style="width:300px"  >
 
   
-<?
+<?php 
 $query7="Select * from main_branch where sl='$branch_cnt'";
 
 
@@ -410,12 +410,12 @@ while ($R7 = mysqli_fetch_array ($result7))
 $sl7=$R7['sl'];
 $bnm7=$R7['bnm'];
 ?>
-<option value="<? echo $sl7;?>"><? echo $bnm7;?></option>
-<?
+<option value="<?php  echo $sl7;?>"><?php  echo $bnm7;?></option>
+<?php 
 }
 ?>
 </select>
-<?}?>
+<?php }?>
 
 	</td>
 </tr>
@@ -445,7 +445,7 @@ $bnm7=$R7['bnm'];
 
 <select id="prnm" name="prnm" class="sc1"  tabindex="2"    >
 		<option value="">---Select---</option>
-		<?
+		<?php 
 			$query6="select * from  ".$DBprefix."product order by pnm";
 			$result5 = mysqli_query($conn,$query6);
 			while($row=mysqli_fetch_array($result5))
@@ -467,8 +467,8 @@ while ($row1 = mysqli_fetch_array($data2))
 $brand=$row1['brand'];
 }
 				?>
-			<option value="<?=$row['sl'];?>"><?=$pnm;?> - <?=$cnm;?> - <?=$brand;?> - <?=$mnm;?></option>
-				<?
+			<option value="<?php  echo $row['sl'];?>"><?php  echo $pnm;?> - <?php  echo $cnm;?> - <?php  echo $brand;?> - <?php  echo $mnm;?></option>
+				<?php 
 				}
 				?>
 			</select>
@@ -512,7 +512,7 @@ $brand=$row1['brand'];
 
 </table>
 
-<input type="hidden" id="prid"  name="prid" value="<? echo $cid;?>">
+<input type="hidden" id="prid"  name="prid" value="<?php  echo $cid;?>">
 <input type="hidden" id="stk" >
 <input type="hidden" id="fls" >
 </form>

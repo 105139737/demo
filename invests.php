@@ -1,4 +1,4 @@
-<?php 
+<?php  
 $reqlevel = 1;
 include("membersonly.inc.php");
 $brand=$_REQUEST['brand'];
@@ -31,7 +31,7 @@ $brand1=implode(',',$brand1);
 </tr>
 
 
-<?php 
+<?php  
 $data13 = mysqli_query($conn,"Select * from main_catg where sl>0 and FIND_IN_SET(sl, '$brand1')>0 ");
 while ($row13 = mysqli_fetch_array($data13))
 {
@@ -107,13 +107,13 @@ $T=round($t2-$t1,2);
 $D=($value+round($bal,2))-$T;
 ?>
 <tr>
-<td><b><?php echo $cnm;?></b></td>
-<td align="right" title="<?php echo $close_stk;?> @ <?php echo $rate;?>"><b><?php echo $value;?></b></td>
-<td><b><?php echo round($bal,2);?></b></td>
-<td><b><?php echo $T;?></b></td>
-<td><b><?php echo $D;?></b></td>
+<td><b><?php  echo $cnm;?></b></td>
+<td align="right" title="<?php  echo $close_stk;?> @ <?php  echo $rate;?>"><b><?php  echo $value;?></b></td>
+<td><b><?php  echo round($bal,2);?></b></td>
+<td><b><?php  echo $T;?></b></td>
+<td><b><?php  echo $D;?></b></td>
 </tr>
-<?php 
+<?php  
 }?>
 </table>
 </div>

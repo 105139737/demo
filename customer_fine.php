@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include "header.php";
@@ -8,7 +8,7 @@ include "header.php";
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
  <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <head>
@@ -222,18 +222,18 @@ $('#blno_div_edt').load('get_blno_ref_edt.php?sl='+sl+'&cid='+cid+'&brncd='+brnc
 
     <td align="left" width="50%" >
     <font color="red">*</font>Date :
-	<input type="text" name="dt" class="form-control" id="dt" value="<? echo date('d-M-Y'); ?>" onchange="chk_dt('<?=date('d-M-Y')?>')"> 
+	<input type="text" name="dt" class="form-control" id="dt" value="<?php  echo date('d-M-Y'); ?>" onchange="chk_dt('<?php echo date('d-M-Y')?>')"> 
 	</td>
   
 <td align="left" width="50%" >	
 <font color="red">*</font>Branch  :					
 <select name="brncd" class="form-control" size="1" id="brncd"  onchange="gtcrvl1();get_blno();" >
-<?
+<?php 
 if($user_current_level<0)
 {
 ?>
 
-<?
+<?php 
 }
 if($user_current_level<0)
 {
@@ -250,8 +250,8 @@ $slb=$R['sl'];
 $bnm=$R['bnm'];
 
 ?>
-<option value="<? echo $slb;?>"><? echo $bnm;?></option>
-<?
+<option value="<?php  echo $slb;?>"><?php  echo $bnm;?></option>
+<?php 
 }
 ?>
 </select>
@@ -263,13 +263,13 @@ $bnm=$R['bnm'];
     <font color="red">*</font>Income Head :
 		<select  name="cldgr" id="cldgr" class="form-control" onchange="gtcrvl1()"  >
 		<option value="">-- Select --</option>
-		<?php 
+		<?php  
 		$get = mysqli_query($conn,"SELECT * FROM main_ledg where gcd='3' or gcd='4'") or die(mysqli_error($conn));
 		while($row = mysqli_fetch_array($get))
 		{
 		?>
-			<option value="<?=$row['sl']?>" <?=$row['sl'] == $rowpages['pcd'] ? 'selected' : '' ?>><?=$row['nm']?></option>
-		<?php 
+			<option value="<?php  echo $row['sl']?>" ><?php  echo $row['nm']?></option>
+		<?php  
 		} 
 		?>
 		</select>
@@ -285,7 +285,7 @@ $bnm=$R['bnm'];
 <div id="cust_src">
 <select id="cid"  name="cid"   tabindex="2" class="form-control" ><!--onchange="get_blno()"-->
 <option value="">---Select---</option>
-<?php /*
+<?php  /*
 $query="select * from main_cust  WHERE sl>0 order by nm";
 $result = mysqli_query($conn,$query);
 while ($R = mysqli_fetch_array ($result))
@@ -295,8 +295,8 @@ $spn=$R['nm'];
 $cont=$R['cont'];
 $addr=$R['addr'];
 ?>
-<option value="<? echo $sid;?>" <?if($cid==$sid){?> selected <? } ?> ><? echo $spn;?>  - <? echo $cont;?></option>
-<?
+<option value="<?php  echo $sid;?>" <?php if($cid==$sid){?> selected <?php  } ?> ><?php  echo $spn;?>  - <?php  echo $cont;?></option>
+<?php 
 }*/
 ?>
 </select>
@@ -362,12 +362,12 @@ $addr=$R['addr'];
 <td align="left" width="20%">
 <font size="3"><b>Branch :</b></font><br>
 <select name="bcd" class="form-control" size="1" id="bcd" >
-<?
+<?php 
 if($user_current_level<0)
 {
 ?>
 <option value="">---ALL---</option>
-<?
+<?php 
 }
 if($user_current_level<0)
 {
@@ -383,8 +383,8 @@ while ($R1 = mysqli_fetch_array ($result1))
 $slb1=$R1['sl'];
 $bnm1=$R1['bnm'];
 ?>
-<option value="<? echo $slb1;?>"><? echo $bnm1;?></option>
-<?
+<option value="<?php  echo $slb1;?>"><?php  echo $bnm1;?></option>
+<?php 
 }
 ?>
 </select>
@@ -397,14 +397,14 @@ $bnm1=$R1['bnm'];
 <div id="cust_src1">
 <select id="custid" name="custid" tabindex="1"  class="form-control" >
 	<option value="">---ALL---</option>
-	<?php /*
+	<?php  /*
 		$query2="select * from main_cust WHERE sl>0 and typ='2' order by nm";
 		$result2=mysqli_query($conn,$query2);
 		while($rw2=mysqli_fetch_array($result2))
 		{
 			?>
-			<option value="<?=$rw2['sl'];?>"><?=$rw2['nm'];?> --  <?=$rw2['cont'];?></option>
-			<?
+			<option value="<?php  echo $rw2['sl'];?>"><?php  echo $rw2['nm'];?> --  <?php  echo $rw2['cont'];?></option>
+			<?php 
 		}*/
 	?>
 </select>
@@ -412,11 +412,11 @@ $bnm1=$R1['bnm'];
 </td>
 <td align="left" width="15%">
 <font size="3"><b>From Date : </b></font>
-<input type="text" id="fdt" name="fdt" value="<?=date('01-M-Y');?>" class="form-control" >
+<input type="text" id="fdt" name="fdt" value="<?php echo date('01-M-Y');?>" class="form-control" >
 </td>
 <td align="left" width="15%">
 <font size="3"><b>To Date : </b></font>
-<input type="text" id="tdt" name="tdt" value="<?=date('d-M-Y');?>" class="form-control" >
+<input type="text" id="tdt" name="tdt" value="<?php echo date('d-M-Y');?>" class="form-control" >
 </td>
 <td align="left" width="10%"><br>
 <input type="button" value=" Show " class="btn btn-primary" onclick="sh()">

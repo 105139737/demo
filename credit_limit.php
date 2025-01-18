@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3; 
 include("membersonly.inc.php");
 $sl=$_REQUEST['sl'];
@@ -9,13 +9,13 @@ $credit_limit=$row['credit_limit'];
 $nm=$row['nm'];  
 }
 ?>
-<input type="hidden" class="form-control" id="cust_sl" name="cust_sl" value="<?=$sl;?>" >
+<input type="hidden" class="form-control" id="cust_sl" name="cust_sl" value="<?php  echo $sl;?>" >
 <div class="box box-success" >
 <table border="0" class="table table-hover table-striped table-bordered" >
 <tr>
 <td align="left"  >
-<b>Credit Limit : <font color="blue" size="3"><?=$nm?></font></b>
-<input type="text" class="form-control" id="credit_limit" name="credit_limit" value="<?=$credit_limit;?>" onfocus="this.select();" placeholder="Please Enter Credit Limit">
+<b>Credit Limit : <font color="blue" size="3"><?php  echo $nm?></font></b>
+<input type="text" class="form-control" id="credit_limit" name="credit_limit" value="<?php  echo $credit_limit;?>" onfocus="this.select();" placeholder="Please Enter Credit Limit">
 </td>
 </tr>
 <tr>

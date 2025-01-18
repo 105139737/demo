@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 
@@ -9,7 +9,7 @@ $dt = date('d-M-Y');
 $cy=date('Y');
 ?>
 <ul id="red" class="treeview-red">
-<?
+<?php 
 $data= mysqli_query($conn,"select * from  main_stock where sl>0 and bcd='$branch_code' group by pcd")or die(mysqli_error($conn));
 while ($row = mysqli_fetch_array($data))
 {
@@ -58,10 +58,10 @@ $c1='odd';
 }
   $sl++; 
 ?>
-<li><?=$b;?></li>
+<li><?php  echo $b;?></li>
 <ul>
 
-<?
+<?php 
 $query3="Select * from ".$DBprefix."stock where pcd='$pcd' and bcd='$branch_code' group by betno order by expdt";
 $result3 = mysqli_query($conn,$query3);
   while ($R3 = mysqli_fetch_array ($result3))
@@ -78,17 +78,17 @@ $result4 = mysqli_query($conn,$query4);
 $stck=$R4['stck1'];
 }
 ?>
-<li><?=$stck?></li>
+<li><?php  echo $stck?></li>
 
-<?	
+<?php 	
 }
 ?>
 </ul>
-<?
+<?php 
 }
 ?>	
 
 </ul>
-<?
+<?php 
 
 							

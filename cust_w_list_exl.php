@@ -1,7 +1,9 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include("function.php");
+$brand1="";
+$brncd1="";
 
 $frmnm='';
 date_default_timezone_set('Asia/Kolkata');
@@ -62,9 +64,9 @@ header("Content-Disposition: attachment; filename=$file");
 <th>Sales Person</th>
 
 </tr>
-<?
+<?php 
 $sln=0;
-$data=mysqli_query($conn,"select * from main_cust where  sl>0 and typ='2' $all1 $brand1 $typ1 $sale_per1 $brncd1 order by nm")or die(mysqli_error($conn));
+$data=mysqli_query($conn,"select * from main_cust where  sl>0 and typ='2' $all1 $brand1 $typ1 $sale_per1 $brncd1 order by sl desc")or die(mysqli_error($conn));
 while($row=mysqli_fetch_array($data))
 {
 	$x=$row['sl'];
@@ -97,6 +99,7 @@ while($row=mysqli_fetch_array($data))
 	$gstdt=date('d-m-Y',strtotime($gstdt1));
 	}
 	$brandnm="";
+	$sl=0;
 	$sq="SELECT * FROM main_catg WHERE sl='$brand'";
 	$res = mysqli_query($conn,$sq) or die(mysqli_error($conn));
 	while($ro=mysqli_fetch_array($res))
@@ -128,17 +131,17 @@ $brncd_nm=get_value('main_branch','sl',$brncd,'bnm','');
 $sale_per_nm=get_value('main_sale_per','spid',$sale_per,'nm','');
 ?>
 <tr>
-<td align="center"><? echo $sln;?></td>
-<td align="left"><? echo $brandnm;?></td>
-<td align="left"><? echo $nm;?></td>
-<td align="left"><? echo $cont;?></td>
-<td align="left"><? echo $addr;?></td>
-<td align="left"><? echo $gstin;?></td>
-<td align="left"><? echo $gtm;?></td>
-<td align="left"><? echo $sale_per_nm;?></td>
+<td align="center"><?php  echo $sln;?></td>
+<td align="left"><?php  echo $brandnm;?></td>
+<td align="left"><?php  echo $nm;?></td>
+<td align="left"><?php  echo $cont;?></td>
+<td align="left"><?php  echo $addr;?></td>
+<td align="left"><?php  echo $gstin;?></td>
+<td align="left"><?php  echo $gtm;?></td>
+<td align="left"><?php  echo $sale_per_nm;?></td>
 
 </tr>	 
-<?
+<?php 
 }
 ?>
 </table>

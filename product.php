@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 ?>
@@ -80,7 +80,7 @@ function cat(cnm)
             <td  align="right" >Packaging Unit :</td>
             <td  align="left" >
 <select name="uni" class="form-control" size="1" id="uni"   >
-<?
+<?php 
 $query="Select * from ".$DBprefix."unit order by sl";
    $result = mysqli_query($conn,$query);
 while ($R = mysqli_fetch_array ($result))
@@ -88,8 +88,8 @@ while ($R = mysqli_fetch_array ($result))
 $cid=$R['sl'];
 $b=$R['unitnm'];
 ?>
-<option value="<? echo $cid;?>"><? echo $b;?></option>
-<?
+<option value="<?php  echo $cid;?>"><?php  echo $b;?></option>
+<?php 
 echo $cid;
 }
 ?>

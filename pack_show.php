@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 include "header.php";
@@ -6,7 +6,7 @@ include "header.php";
 <html>
 <head>
         <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <style type="text/css"> 
@@ -106,7 +106,7 @@ $("#"+div).load("pedts.php?sl="+sl+"&fn="+fn+"&fv="+encodeURI(fv)+"&div="+div).f
 
 <select name="psl" class="form-control" size="1" id="psl" style="width:400px"   >
 <option value="">--Select--</option>
-<?
+<?php 
 $query="Select * from main_product order by sl";
 $result = mysqli_query($conn,$query);
 while ($R = mysqli_fetch_array ($result))
@@ -115,8 +115,8 @@ $sl=$R['sl'];
 $pname=$R['pname'];
 
 ?>
-<option value="<? echo $sl;?>"><? echo $pname;?></option>
-<?
+<option value="<?php  echo $sl;?>"><?php  echo $pname;?></option>
+<?php 
 }
 ?>
 </select>

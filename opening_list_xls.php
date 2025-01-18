@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3; 
 
 include("membersonly.inc.php");
@@ -43,8 +43,14 @@ if($snm!=""){$snm1=" and sid='$snm'";}else{$snm1="";}
 $file="Opening Details (".$fdt." To ".$tdt.".xls";
 header("Content-type: application/vnd.ms-excel"); 
 header("Content-Disposition: attachment; filename=$file"); 
+/*.num {
+  mso-number-format:General;
+}
+.text{
+  mso-number-format:"\@";/*force text*/
+/*}*/
 ?>
-<style> .numb{ mso-number-format:\@; } </style>
+<style> .numb{ mso-number-format:"\@";/*force text*/ } </style>
 <table  class="advancedtable" width="100%" border="1">
 	<tr bgcolor="#e8ecf6">
 	<td  align="center" ><b>Action</b></td>
@@ -60,7 +66,7 @@ header("Content-Disposition: attachment; filename=$file");
 	<td  align="center" ><b>Unit</b></td>
 	<td  align="center" ><b>Rate</b></td>
 	</tr>
-	<?
+	<?php 
 	$sln=0;
 	$tota1=0;
 	$fttl1=0;
@@ -240,19 +246,19 @@ $result51=mysqli_query($conn,$query61);
 $countt=mysqli_num_rows($result51);
 	?>
 	<tr>
-	<?
+	<?php 
 /* 	if($log==1)
 	{ */
 	?>
-	<td  align="center"  ><!--<a href="#" onclick="edit('<?//=$blno;?>')"><i class="fa fa-pencil-square-o"></i></a>-->
-	<a href="#" onclick="if(confirm('Are you sure to delete....')){dlt('<?=$blno;?>')}"><i class="fa fa-trash-o" style="color:red;"></i></a>
+	<td  align="center"  ><!--<a href="#" onclick="edit('<?php //=$blno;?>')"><i class="fa fa-pencil-square-o"></i></a>-->
+	<a href="#" onclick="if(confirm('Are you sure to delete....')){dlt('<?php  echo $blno;?>')}"><i class="fa fa-trash-o" style="color:red;"></i></a>
 	</td>
-	<td  align="center" ><?=$sln;?></td>
-	<td  align="center" ><?=$edt;?></td>
-	<td  align="center" ><?=$blno;?></td>
-	<td  align="left" ><a href="purchase_retn.php?blno=<?=$blno;?>" target="_BLANK"><font color="red"><b><?=$gnm;?></b></font></a></td>
-	<td  align="center" ><?=$gstinn;?></td>
-	<?
+	<td  align="center" ><?php  echo $sln;?></td>
+	<td  align="center" ><?php  echo $edt;?></td>
+	<td  align="center" ><?php  echo $blno;?></td>
+	<td  align="left" ><a href="purchase_retn.php?blno=<?php  echo $blno;?>" target="_BLANK"><font color="red"><b><?php  echo $gnm;?></b></font></a></td>
+	<td  align="center" ><?php  echo $gstinn;?></td>
+	<?php 
 /* 	}
 	else
 	{
@@ -263,19 +269,19 @@ $countt=mysqli_num_rows($result51);
 	<td  align="center" ></td>
 	<td  align="center" ></td>
 	<td  align="center" ></td>
-	<?				
+	<?php 				
 	}*/
 	?> 
-	<td  align="left" ><b><?=$pnm;?></b></td>
-	<td  align="center" ><?=$hsn;?></td>
-	<td  align="center" class="numb"><?=$betno;?></td>
-	<td  align="center" ><?=$qty;?></td>
-	<td  align="left" ><?=$unit_nm;?></td>
+	<td  align="left" ><b><?php  echo $pnm;?></b></td>
+	<td  align="center" ><?php  echo $hsn;?></td>
+	<td  align="center" class="numb"><?php  echo $betno;?></td>
+	<td  align="center" ><?php  echo $qty;?></td>
+	<td  align="left" ><?php  echo $unit_nm;?></td>
 
-	<td  align="right" ><?=round($rate,2);?></td>
+	<td  align="right" ><?php echo round($rate,2);?></td>
 	</tr>	 
 			 
-<?
+<?php 
 $tota=$total+$tota;
 $ttqty+=$qty;
 $wgamm=$net_am+$wgamm;
@@ -328,7 +334,7 @@ $dis111=$dis111+$ldisa1;
 	
 ?>
 
-<?
+<?php 
 $Ttamm2+=$with_adl_tamm2;
 $ADls+=$adl.$adlv;
 
@@ -337,7 +343,7 @@ $ADls+=$adl.$adlv;
 <tr>
 <td colspan="9" align="right"><b>Grand Total :</b></td>
 
-<td align="center"><?=$tqty;?></td>
+<td align="center"><?php  echo $tqty;?></td>
 <td  align="right" ><font color="red"><b></b></font></td>
 <td  align="right" ><font color="red"><b></b></font></td>
 </tr>

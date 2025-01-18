@@ -1,4 +1,4 @@
-<?php
+<?php 
 /**
  * @author Nirmal Biswas
  * @copyright 2013
@@ -15,7 +15,7 @@ include("membersonly.inc.php");
         <th width="35%"><font size="4" color="#FFFF66">Product Name</font></th>
         <th width="10%"><font size="4" color="#FFFF66">Unit</font></th>
           </tr></thead>
-<?
+<?php 
 $c5='even';
 $query3="select * from ".$DBprefix."product where sts=1 limit 0,29";
 $result3 = mysqli_query($conn,$query3);
@@ -55,14 +55,14 @@ elseif($c5=='odd')
 $c5='even';
 }
 ?>
-         <tr class="<?=$c5;?>">
-            <td align="center"><? echo $x;?></td>
-            <td align="center"><? echo $m;?></td>
-            <td align="center"><? echo $c;?></td>
-            <td align="center"><? echo $p;?></td>
-            <td align="center"><? echo $un;?></td>
+         <tr class="<?php  echo $c5;?>">
+            <td align="center"><?php  echo $x;?></td>
+            <td align="center"><?php  echo $m;?></td>
+            <td align="center"><?php  echo $c;?></td>
+            <td align="center"><?php  echo $p;?></td>
+            <td align="center"><?php  echo $un;?></td>
           </tr>
-<?
+<?php 
 }
 ?>
           </table>

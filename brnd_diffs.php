@@ -1,14 +1,17 @@
-<?php 
+<?php  
 $reqlevel = 1;
 include("membersonly.inc.php");
+$dt=0;
+$bcd="";
+$brnd_sl="";
 
 set_time_limit(0);
 
-$brncd=$_REQUEST[brncd];if($brncd==""){$brncd1="";}else{$brncd1=" and brncd='$brncd'";$bcd=" and bcd='$brncd'";}
-$fdt=$_REQUEST[fdt];
-$tdt=$_REQUEST[tdt];
-$brand=$_REQUEST[brand];
-$xls=$_REQUEST[xls];
+$brncd=$_REQUEST['brncd'] ?? "";if($brncd==""){$brncd1="";}else{$brncd1=" and brncd='$brncd'";$bcd=" and bcd='$brncd'";}
+$fdt=$_REQUEST['fdt'] ?? "";
+$tdt=$_REQUEST['tdt'] ?? "";
+$brand=$_REQUEST['brand'] ?? "";
+$xls=$_REQUEST['xls'] ?? "";
 if($brand==""){$brand1="";}else{$brand1=" and brand='$brand'";$brnd_sl=" and sl='$brand'";}
 
 if($fdt=="" or $tdt=="")
@@ -44,12 +47,12 @@ header("Content-Disposition: attachment; filename=$file");
 }
 ?>
 
-<table <?php if($xls!='1'){?> width="100%"<?php }?> border="1">
+<table <?php  if($xls!='1'){?> width="100%"<?php  }?> border="1">
 
 <tr>
 <th colspan="6" align="left" >
 <font color="#000000" size="3">
-Report 1 <?echo $dt?> As On  <?echo $fdt?> to <?echo $tdt?>
+Report 1 <?php echo $dt?> As On  <?php echo $fdt?> to <?php echo $tdt?>
 </font>
 </th>
 </tr>
@@ -77,7 +80,7 @@ Report 1 <?echo $dt?> As On  <?echo $fdt?> to <?echo $tdt?>
   </td>
 </tr>  
 
-<?php 
+<?php  
  
 $bslar=array();
 $da1= mysqli_query($conn,"SELECT * FROM main_billtype where sl>0 and inv_typ='0' and tp='1' $ssn1  $brncd1 ");
@@ -146,6 +149,11 @@ $catsl=$row1['sl'];
 		
 $sup_due=0;
 $paid_to_sup=0;
+$Mtotamnt1=0;
+$Mtotamnt2=0;
+$Mtotamnt3=0;
+$tdiff=0;
+$tsup_due=0;
 $data8= mysqli_query($conn,"SELECT * FROM main_supplier_tag where sl>0 and find_in_set('$catsl',brand)>0 ");
 while ($row8 = mysqli_fetch_array($data8))
 {	
@@ -171,21 +179,21 @@ $t2 = $row1['t2'];
 }
 $sup_due+=round($t2-$t1,2);		
 }		
-if($amnt1>0){$amnt1=$amnt1-(($amnt1*7)/100);}
-if($amnt2>0){$amnt2=$amnt2-(($amnt2*7)/100);}
+if($amnt1>0){$amnt1=$amnt1-(($amnt1*9)/100);}
+if($amnt2>0){$amnt2=$amnt2-(($amnt2*9)/100);}
 
 $diff=round(($amnt1+$amnt2)-$paid_to_sup,2);
 ?>
 
 <tr>
-  <td ><?php echo $cnm1;?></td>
-  <td align="right"><?php echo $amnt1;?></td>  
-  <td align="right"><?php echo $amnt2;?></td>  
-  <td align="right"><?php echo $paid_to_sup;?></td>
-  <td align="right"><?php echo $diff;?></td>
-  <td align="right"><?php echo $sup_due;?></td>
+  <td ><?php  echo $cnm1;?></td>
+  <td align="right"><?php  echo $amnt1;?></td>  
+  <td align="right"><?php  echo $amnt2;?></td>  
+  <td align="right"><?php  echo $paid_to_sup;?></td>
+  <td align="right"><?php  echo $diff;?></td>
+  <td align="right"><?php  echo $sup_due;?></td>
 </tr>  
-<?php 
+<?php  
  $Mtotamnt1=$Mtotamnt1+$amnt1;
  $Mtotamnt2=$Mtotamnt2+$amnt2;
  $Mtotamnt3=$Mtotamnt3+$paid_to_sup;
@@ -195,10 +203,10 @@ $diff=round(($amnt1+$amnt2)-$paid_to_sup,2);
 ?>
 <tr>
 <td align="right">Total:</td>
-<td align="right"><?php echo $Mtotamnt1;?></td>
-<td align="right"><?php echo $Mtotamnt2;?></td>
-<td align="right"><?php echo $Mtotamnt3;?></td>
-<td align="right"><?php echo $tdiff;?></td>
-<td align="right"><?php echo $tsup_due;?></td>
+<td align="right"><?php  echo $Mtotamnt1;?></td>
+<td align="right"><?php  echo $Mtotamnt2;?></td>
+<td align="right"><?php  echo $Mtotamnt3;?></td>
+<td align="right"><?php  echo $tdiff;?></td>
+<td align="right"><?php  echo $tsup_due;?></td>
 </tr>
 </table>

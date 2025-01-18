@@ -1,12 +1,12 @@
-<?
+<?php 
 $reqlevel=1;
 include("membersonly.inc.php");
 set_time_limit(0);
 $pno='0';
-$dt=$_REQUEST[fdt];
-$dt1=$_REQUEST[fdt];
-$pno=$_REQUEST[pno];
-$brncd=$_REQUEST[brncd];
+$dt=$_REQUEST['fdt'];
+$dt1=$_REQUEST['fdt'];
+$pno=$_REQUEST['pno'] ?? "";
+$brncd=$_REQUEST['brncd'] ?? "";
 if($brncd==""){$brncd1="";}else{$brncd1=" and brncd='$brncd'";}
 
 if($dt=="" or $dt1=="")
@@ -41,7 +41,7 @@ ob_start();
 <table style="width: 100%;" border="1">
           <tr style="height: 30px;">
           <td colspan="4" align="center"><font>
-         Day Book of <? echo $wrknm; ?><br> As On <?echo $dt?></font>
+         Day Book of <?php  echo $wrknm; ?><br> As On <?php echo $dt?></font>
           </td>
 		  </tr>
     
@@ -53,7 +53,7 @@ ob_start();
 <tr class="odd">
   <td style="width: 50%;" valign="top">
 <table border="0"  width="100%">			
-<?
+<?php 
 $gtot1=0;
 $cnt7=0;
 $data32= mysqli_query($conn,"SELECT * FROM main_group where  pcd='7'");
@@ -64,10 +64,10 @@ while ($row32 = mysqli_fetch_array($data32))
 	?>
 <tr >
        
-            <td align="left" colspan="3"><font size="3" color="#000"><b><u><? echo $gnm; ?> :</u></b></font></td>
+            <td align="left" colspan="3"><font size="3" color="#000"><b><u><?php  echo $gnm; ?> :</u></b></font></td>
 
 </tr>	
-	<?
+	<?php 
 		$gtot2=0;
 		$data33= mysqli_query($conn,"SELECT * FROM main_ledg where gcd='$gcd'");
 		while ($row33 = mysqli_fetch_array($data33))
@@ -100,8 +100,8 @@ if($gtot3!=0)
  <tr >
        
             <td align="left" colspan="3" width="100%"><b>
-			<font size="3" color="red"><? echo $gnm; ?></font> : 
-			<font size="3" color="red"><font size="3" color="#000">  Rs </font><? echo number_format($gtot3,2); ?></font></b>
+			<font size="3" color="red"><?php  echo $gnm; ?></font> : 
+			<font size="3" color="red"><font size="3" color="#000">  Rs </font><?php  echo number_format($gtot3,2); ?></font></b>
 			</td>
 			
 			
@@ -116,7 +116,7 @@ if($gtot3!=0)
 		 </tr>
 
 
-<?
+<?php 
 $ccc='';
 if($ldgr==-2)
 {
@@ -177,13 +177,13 @@ if($gamm!=0)
 /*?>
 <tr >
             
-			<td  align="left" ><font size="2" color="#000"><?echo $gnrtn;?></font></td>
-			<td  align="left" ><font size="2" color="#000"><? echo $gdldgr;?><?echo $cnm;?></font></td>
-			<td  align="right" ><font size="3" ><?echo $gamm;?></font></td>
+			<td  align="left" ><font size="2" color="#000"><?php echo $gnrtn;?></font></td>
+			<td  align="left" ><font size="2" color="#000"><?php  echo $gdldgr;?><?php echo $cnm;?></font></td>
+			<td  align="right" ><font size="3" ><?php echo $gamm;?></font></td>
 		 </tr>
 
 
-<?*/
+<?php */
 				
 		}
 }		
@@ -193,9 +193,9 @@ if($gamm!=0)
 }
 ?>
  <tr >
-       <td align="right" colspan="3"><font size="3" color="#000"><font size="3" color="#000">  Rs </font><? echo number_format($gtot2,2); ?></font></td>	
+       <td align="right" colspan="3"><font size="3" color="#000"><font size="3" color="#000">  Rs </font><?php  echo number_format($gtot2,2); ?></font></td>	
 </tr>
-<?
+<?php 
 $gtot1=$gtot1+$gtot2;
 }
 ?>
@@ -204,15 +204,15 @@ $gtot1=$gtot1+$gtot2;
 <td align="right" colspan="3" width="100%"><font size="1" color="#000"><B> __________ </B></font></td>
 </tr>
 <tr >
-<? $IT=$gtot1;?>
-<td align="right" colspan="3" width="100%"><font size="4" color="#000"><B>  Rs <? echo number_format($gtot1,2); ?></B></font></td>
+<?php  $IT=$gtot1;?>
+<td align="right" colspan="3" width="100%"><font size="4" color="#000"><B>  Rs <?php  echo number_format($gtot1,2); ?></B></font></td>
 </tr>
   </table>
   </td>
   <td style="width: 100%;" valign="top">
 
 <table border="0"  width="100%">			
-<?
+<?php 
 $gtot1=0;
 $data32= mysqli_query($conn,"SELECT * FROM main_group where  pcd='8'");
 while ($row32 = mysqli_fetch_array($data32))
@@ -223,10 +223,10 @@ while ($row32 = mysqli_fetch_array($data32))
 		?>
 <tr >
        
-            <td align="left" colspan="3"><font size="3" color="#000"><b><u><? echo $gnm; ?> :</u></b></font></td>
+            <td align="left" colspan="3"><font size="3" color="#000"><b><u><?php  echo $gnm; ?> :</u></b></font></td>
 
 </tr>	
-	<?
+	<?php 
 $gtot2=0;
 		$data33= mysqli_query($conn,"SELECT * FROM main_ledg where gcd='$gcd'");
 		while ($row33 = mysqli_fetch_array($data33))
@@ -256,8 +256,8 @@ if($gtot3!=0)
  <tr >
        
             <td align="left" colspan="3" width="100%"><b>
-			<font size="3" color="red"><? echo $gnm; ?></font> : 
-			<font size="3" color="red"> Rs <? echo number_format($gtot3,2); ?></font></b>
+			<font size="3" color="red"><?php  echo $gnm; ?></font> : 
+			<font size="3" color="red"> Rs <?php  echo number_format($gtot3,2); ?></font></b>
 			</td>
 		
 			
@@ -273,7 +273,7 @@ if($gtot3!=0)
 		 </tr>
 
 
-<?
+<?php 
 $ccc='';
 if($ldgr==-3)
 {
@@ -318,13 +318,13 @@ while ($R = mysqli_fetch_array ($result33))
 ?>
 <tr >
            
-			<td  align="left" ><font size="2" color="#000"><?echo $gnrtn;?></font></td>
-			<td  align="left" ><font size="2" color="#000"><?echo $gdldgr;?><?echo $spn;?><?echo $cnm;?></font></td>
-			<td  align="right" ><font size="3" color="#000"><?echo $gamm;?></font></td>
+			<td  align="left" ><font size="2" color="#000"><?php echo $gnrtn;?></font></td>
+			<td  align="left" ><font size="2" color="#000"><?php echo $gdldgr;?><?php echo $spn;?><?php echo $cnm;?></font></td>
+			<td  align="right" ><font size="3" color="#000"><?php echo $gamm;?></font></td>
 		 </tr>
 
 
-<?
+<?php 
 				
 		}
 }
@@ -334,10 +334,10 @@ while ($R = mysqli_fetch_array ($result33))
  <tr >
        
            
-			<td align="right" colspan="3"><font size="3" color="#000"><font size="3" color="#000">  Rs </font><? echo number_format($gtot2,2); ?></font></td>
+			<td align="right" colspan="3"><font size="3" color="#000"><font size="3" color="#000">  Rs </font><?php  echo number_format($gtot2,2); ?></font></td>
 		
 </tr>
-<?
+<?php 
 $gtot1=$gtot1+$gtot2;
 }
 ?>
@@ -346,14 +346,14 @@ $gtot1=$gtot1+$gtot2;
 <td align="right" colspan="3"><font size="1" color="#000"><B> __________ </B></font></td>
 </tr>
 <tr >
-<? 
+<?php  
 $ET=$gtot1;?>
-<td align="right" colspan="3"><font size="4" color="#000"><B>  Rs <? echo number_format($gtot1,2); ?></B></font></td>
+<td align="right" colspan="3"><font size="4" color="#000"><B>  Rs <?php  echo number_format($gtot1,2); ?></B></font></td>
 </tr>
   </table>
   </td>
   </tr>
- <?$T=$IT-$ET;
+ <?php $T=$IT-$ET;
    if($T>=0)
    {
    $msg="Excess of Income over Expenditure";
@@ -362,22 +362,22 @@ $ET=$gtot1;?>
    <td align="left">
    
   </td>
-  <td align="right"><font size="3" color="#000"><? echo $msg; ?></font>
-  <font size="3" color="#000"><B> Rs <? echo number_format($T,2); ?></B></font>
+  <td align="right"><font size="3" color="#000"><?php  echo $msg; ?></font>
+  <font size="3" color="#000"><B> Rs <?php  echo number_format($T,2); ?></B></font>
   </td>
   
   </tr>
   <tr class="even">
   <td align="right">
-   <font size="4" color="#000"><B> Rs <? echo number_format($IT,2); ?></B></font>
+   <font size="4" color="#000"><B> Rs <?php  echo number_format($IT,2); ?></B></font>
   </td>
   <td align="right">
-  <font size="4" color="#000"><B> Rs <? echo number_format($T+$ET,2); ?></B></font>
+  <font size="4" color="#000"><B> Rs <?php  echo number_format($T+$ET,2); ?></B></font>
   </td>
   
   </tr>
    
-   <?
+   <?php 
    }
    else
    { $T=$T*-1;
@@ -385,8 +385,8 @@ $ET=$gtot1;?>
 	?>
 	<tr class="odd">
 	
-  <td align="right"><font size="3" color="#000"><? echo $msg; ?></font>
-  <font size="3" color="#000"><B>  Rs <? echo number_format($T,2); ?></B></font>
+  <td align="right"><font size="3" color="#000"><?php  echo $msg; ?></font>
+  <font size="3" color="#000"><B>  Rs <?php  echo number_format($T,2); ?></B></font>
   </td>
   <td align="left">
   
@@ -394,20 +394,20 @@ $ET=$gtot1;?>
   </tr>
   <tr class="even">
    <td align="right">
-   <font size="4" color="#000"><B> Rs <? echo number_format($T+$IT,2); ?></B></font>
+   <font size="4" color="#000"><B> Rs <?php  echo number_format($T+$IT,2); ?></B></font>
   </td>
   <td align="right">
-  <font size="4" color="#000"><B> Rs <? echo number_format($ET,2); ?></B></font>
+  <font size="4" color="#000"><B> Rs <?php  echo number_format($ET,2); ?></B></font>
   </td>
  
   </tr>
 	
-	<?
+	<?php 
    }
  ?>
 </table>
   </page>
-<?
+<?php 
 $file='Day Book of '.$dt3;
 		$content = ob_get_clean();
     // convert in PDF

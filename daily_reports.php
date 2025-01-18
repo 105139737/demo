@@ -1,12 +1,12 @@
-<?php 
+<?php  
 $reqlevel = 1;
 include("membersonly.inc.php");
 
 set_time_limit(0);
 
-$brncd=$_REQUEST[brncd];if($brncd==""){$brncd1="";}else{$brncd1=" and brncd='$brncd'";$bcd=" and bcd='$brncd'";}
-$fdt=$_REQUEST[fdt];
-$tdt=$_REQUEST[tdt];
+$brncd=$_REQUEST['brncd'] ?? "";if($brncd==""){$brncd1="";}else{$brncd1=" and brncd='$brncd'";$bcd=" and bcd='$brncd'";}
+$fdt=$_REQUEST['fdt'];
+$tdt=$_REQUEST['tdt'];
 
 if($fdt=="" or $tdt=="")
 { 
@@ -40,7 +40,7 @@ $ssn1=" and ssn like '$ssn'";
 <tr>
 <th colspan="5" align="left" >
 <font color="#000000" size="3">
-Report 1 <?echo $dt?> As On  <?echo $fdt?> to <?echo $tdt?>
+Report 1 <?php echo $dt?> As On  <?php echo $fdt?> to <?php echo $tdt?>
 </font>
 </th>
 </tr>
@@ -64,7 +64,7 @@ Report 1 <?echo $dt?> As On  <?echo $fdt?> to <?echo $tdt?>
   </td>
 </tr>  
 
-<?php 
+<?php  
  
 $bslar=array();
 $da1= mysqli_query($conn,"SELECT * FROM main_billtype where sl>0 and inv_typ='0' and tp='1' $ssn1  $brncd1");
@@ -135,13 +135,13 @@ $TotAmnt=$amnt1+$amnt2;
 ?>
 
 <tr>
-  <td ><?php echo $cnm1;?></td>
-  <td align="right"><?php echo $dis_sale;?></td>  
-  <td align="right"><?php echo $amnt1;?></td>  
-  <td align="right"><?php echo $amnt2;?></td>  
-  <td align="right"><?php echo $TotAmnt;?></td>
+  <td ><?php  echo $cnm1;?></td>
+  <td align="right"><?php  echo $dis_sale;?></td>  
+  <td align="right"><?php  echo $amnt1;?></td>  
+  <td align="right"><?php  echo $amnt2;?></td>  
+  <td align="right"><?php  echo $TotAmnt;?></td>
 </tr>  
-<?php 
+<?php  
  $Mtotamnt1=$Mtotamnt1+$amnt1;
  $Mtotamnt2=$Mtotamnt2+$amnt2;
  $Mtotamnt3=$Mtotamnt3+$TotAmnt;
@@ -150,10 +150,10 @@ $TotAmnt=$amnt1+$amnt2;
 ?>
 <tr>
 <td align="right">Total:</td>
-<td align="right"><?php echo $tdis_sale;?></td>
-<td align="right"><?php echo $Mtotamnt1;?></td>
-<td align="right"><?php echo $Mtotamnt2;?></td>
-<td align="right"><?php echo $Mtotamnt3;?></td>
+<td align="right"><?php  echo $tdis_sale;?></td>
+<td align="right"><?php  echo $Mtotamnt1;?></td>
+<td align="right"><?php  echo $Mtotamnt2;?></td>
+<td align="right"><?php  echo $Mtotamnt3;?></td>
 </tr>
 </table><br/>
 
@@ -164,7 +164,7 @@ $TotAmnt=$amnt1+$amnt2;
 <tr>
 <th colspan="3" align="left" >
 <font color="#000000" size="3">
-Report 2 <?php echo $dt?> As On  <?php echo $fdt?> to <?php echo $tdt?>
+Report 2 <?php  echo $dt?> As On  <?php  echo $fdt?> to <?php  echo $tdt?>
 </font>
 </th>
 </tr>
@@ -182,7 +182,7 @@ Report 2 <?php echo $dt?> As On  <?php echo $fdt?> to <?php echo $tdt?>
 
 </tr>  
 
-<?php 
+<?php  
 $TT=0;
 $data8= mysqli_query($conn,"SELECT * FROM main_suppl where sl>0");
 while ($row8 = mysqli_fetch_array($data8))
@@ -215,20 +215,20 @@ $T=round($t2-$t1,2);
 ?>
 
 <tr>
-  <td ><?php echo $supnm;?></td>
-  <td align="right"><?php echo $amnt4;?></td>  
+  <td ><?php  echo $supnm;?></td>
+  <td align="right"><?php  echo $amnt4;?></td>  
   
-  <td align="right"><?php echo $T;?></td>  
+  <td align="right"><?php  echo $T;?></td>  
 
 </tr>  
-<?php 
+<?php  
 $Mtotamnt4=$Mtotamnt4+$amnt4;
 $TT+=$T;
 }
 ?>
 <tr>
 <td align="right">Total:</td>
-<td align="right"><?php echo $Mtotamnt4;?></td>
-<td align="right"><?php echo $TT;?></td>
+<td align="right"><?php  echo $Mtotamnt4;?></td>
+<td align="right"><?php  echo $TT;?></td>
 </tr>
 </table>

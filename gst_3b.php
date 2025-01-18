@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include "header.php";
@@ -9,7 +9,7 @@ $sa=date('d-m-Y');
 <html>
 <head>
         <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <style type="text/css"> 
@@ -109,7 +109,7 @@ $("#tdt").inputmask("dd-mm-yyyy", {"placeholder": "dd-mm-yyyy"});
 	<form method="post" action="#" name="form1" onsubmit="return check1()" id="form1">
                               
 <div class="box box-success" >
-<?
+<?php 
 
 ?>
 <table border="0" width="860px"  class="table table-hover table-striped table-bordered">
@@ -118,12 +118,12 @@ $("#tdt").inputmask("dd-mm-yyyy", {"placeholder": "dd-mm-yyyy"});
 
 <td align="left" width="25%">
 <b>Form : </b>
-<input type="text" id="fdt" name="fdt" value="<?echo $saa;?>" class="form-control" placeholder="Please Enter From Date" > 
+<input type="text" id="fdt" name="fdt" value="<?php echo $saa;?>" class="form-control" placeholder="Please Enter From Date" > 
 </td>
 
 <td align="left" width="25%" >
 <b>To : </b>
-<input type="text" id="tdt" name="tdt" value="<?echo $sa;?>"class="form-control" placeholder="Please Enter To Date">
+<input type="text" id="tdt" name="tdt" value="<?php echo $sa;?>"class="form-control" placeholder="Please Enter To Date">
 </td>
 
 

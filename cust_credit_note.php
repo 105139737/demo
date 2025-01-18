@@ -1,13 +1,13 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include "header.php";
-$brncd=$_REQUEST['brncd'];
-$cid=$_REQUEST['cid'];
-$bill_typ=$_REQUEST['bsl'];
-$dldgr=$_REQUEST['dldgr'];
-$dt=$_REQUEST['dt'];
-$pcat=$_REQUEST['pcat'];
+$brncd=$_REQUEST['brncd'] ?? "";
+$cid=$_REQUEST['cid'] ?? "";
+$bill_typ=$_REQUEST['bsl'] ?? "";
+$dldgr=$_REQUEST['dldgr'] ?? "";
+$dt=$_REQUEST['dt'] ?? "";
+$pcat=$_REQUEST['pcat'] ?? "";
 
 $get=mysqli_query($conn,"select * from main_billtype where sl='$bill_typ'") or die(mysqli_error($conn));
 while($row=mysqli_fetch_array($get))
@@ -24,7 +24,7 @@ set_time_limit(0);
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <div class="wrapper row-offcanvas row-offcanvas-left">
-<?
+<?php 
 include "left_bar.php";
 ?>
 <head>
@@ -128,7 +128,7 @@ $(document).ready(function()
       changeYear: true,
       showButtonPanel: false,
       showAnim: 'show',
-	  minDate: '<?php echo $rng_dt;?>'
+	  minDate: '<?php  echo $rng_dt;?>'
    };
    $(".dt").datepicker(jQueryDatePicker1Opts);
    $("#fdt").datepicker(jQueryDatePicker1Opts);
@@ -383,9 +383,9 @@ function recallRamm()
 <input type="hidden" name="it" id="it" value="NA" readonly >
 
 <input type="hidden" name="flnm1" id="flnm1" value="1" >
-<input type="hidden" name="btyp" id="btyp" value="<? echo $typ; ?>" >
-<input type="hidden" name="tp" id="tp" value="<? echo $tp; ?>" >
-<input type="hidden" class="form-control"  value="<?php echo $bill_typ;?>" tabindex="1"  name="bsl" id="bsl" >              
+<input type="hidden" name="btyp" id="btyp" value="<?php  echo $typ; ?>" >
+<input type="hidden" name="tp" id="tp" value="<?php  echo $tp; ?>" >
+<input type="hidden" class="form-control"  value="<?php  echo $bill_typ;?>" tabindex="1"  name="bsl" id="bsl" >              
 
  <div class="box box-success" >
 <table  width="860px" class="table table-hover table-striped table-bordered">
@@ -395,7 +395,7 @@ function recallRamm()
 <td align="left" width="50%">
 <font color="red">*</font><b>Branch :</b>
 <select name="brncd" class="form-control" size="1" id="brncd"  onchange="get_blno();" >
-<?
+<?php 
 if($user_current_level<0)
 {
 
@@ -414,26 +414,26 @@ while ($R = mysqli_fetch_array ($result))
 $slb=$R['sl'];
 $bnm=$R['bnm'];
 ?>
-<option value="<? echo $slb;?>" <?if($slb==$brncd){echo 'selected';}?>><? echo $bnm;?></option>
-<?
+<option value="<?php  echo $slb;?>" <?php if($slb==$brncd){echo 'selected';}?>><?php  echo $bnm;?></option>
+<?php 
 }
 ?>
 </select>
 </td>
 <td align="left" width="50%" >
 <font color="red">*</font><b>Date :</b>
-<?php if($user_current_level<0){?>
-<input type="text" name="dt" id="dt" class="form-control dt" value="<?php if($dt==""){echo date('d-m-Y');}else{echo $dt;}?>" >
-	<?php }else{ ?>
+<?php  if($user_current_level<0){?>
+<input type="text" name="dt" id="dt" class="form-control dt" value="<?php  if($dt==""){echo date('d-m-Y');}else{echo $dt;}?>" >
+	<?php  }else{ ?>
 
-	<input type="text" name="dt" id="dt" class="form-control" readonly value="<?php if($dt==""){echo date('d-m-Y');}else{echo $dt;}?>" >
-	<?php } ?>
+	<input type="text" name="dt" id="dt" class="form-control" readonly value="<?php  if($dt==""){echo date('d-m-Y');}else{echo $dt;}?>" >
+	<?php  } ?>
 
 </td>   
   </tr>
-      <input type="hidden" name="vno" class="form-control" id="vno" value="<?echo $vno;?>" readonly style="background :transparent; color : red;">
+      <input type="hidden" name="vno" class="form-control" id="vno" value="" readonly style="background :transparent; color : red;">
 
-<?php
+<?php 
 //if($tp=='2'){$qury=" and find_in_set(brand,'$brand')>0 ";}
 $query=" and typ='$tp' ";
 ?> 
@@ -445,15 +445,15 @@ $query=" and typ='$tp' ";
 				<font color="red">*</font><b>Brand :</b>
 				<select name="cat" class="form-control" size="1" id="cat" tabindex="1">
 				<Option value="">---Select---</option>
-				<?
+				<?php 
 				$data1 = mysqli_query($conn,"Select * from main_catg where stat='0' and find_in_set(sl,'$brand')>0 order by cnm");
 				while ($row1 = mysqli_fetch_array($data1))
 				{
 				$sl=$row1['sl'];
 				$cnm=$row1['cnm'];
 				?>				
-				<option value="<?php echo $sl;?>" <?if($sl==$pcat){?> selected <? } ?>><?php echo $cnm;?></option>
-				<?php
+				<option value="<?php  echo $sl;?>" <?php if($sl==$pcat){?> selected <?php  } ?>><?php  echo $cnm;?></option>
+				<?php 
 				}
 				?>
 				</select>
@@ -461,12 +461,12 @@ $query=" and typ='$tp' ";
 			<td width="60%">
 				<font color="red">*</font><b>Customer :</b>
 				<input type="hidden" value="4" id="cldgr" name="cldgr"/> 
-				<input type="text" id="cs" name="cs" size="40" value="" onkeyup="get_cust('cust_src',this.value,'cid','get_total_due','cs',`<?php echo $query;?>`,'')"  placeholder="Enter 3 Digit Name / 10 Digit Mobile No.">
+				<input type="text" id="cs" name="cs" size="40" value="" onkeyup="get_cust('cust_src',this.value,'cid','get_total_due','cs',`<?php  echo $query;?>`,'')"  placeholder="Enter 3 Digit Name / 10 Digit Mobile No.">
 				<div id="cust_src">
 				<select id="cid"  name="cid"   tabindex="2" class="form-control"  onchange="get_total_due();">
 				<option value="">---Select---</option>
 
-				<?php
+				<?php 
 				/*
 				if($tp=='2'){$qury=" and find_in_set(brand,'$brand')>0 ";}
 				$query="select * from main_cust  WHERE sl>0 and typ='$tp' $qury order by nm";
@@ -478,8 +478,8 @@ $query=" and typ='$tp' ";
 				$cont=$R['cont'];
 				$addr=$R['addr'];
 				?>
-				<option value="<? echo $sid;?>" <?if($cid==$sid){?> selected <? } ?> ><? echo $spn;?></option>
-				<?
+				<option value="<?php  echo $sid;?>" <?php if($cid==$sid){?> selected <?php  } ?> ><?php  echo $spn;?></option>
+				<?php 
 				}*/
 				?>
 				</select>
@@ -493,13 +493,13 @@ $query=" and typ='$tp' ";
 	<font color="red">*</font><b>Ledger Name :</b>
       <select  name="dldgr" id="dldgr" class="form-control" >
 							<option value="">-- Select --</option>
-							<?php 
+							<?php  
 							$get = mysqli_query($conn,"SELECT * FROM main_ledg where (gcd='17' or sl='140' or sl='217')") or die(mysqli_error($conn));
 							while($row = mysqli_fetch_array($get))
 							{
 							?>
-								<option value="<?=$row['sl']?>" <?if($row['sl']==$dldgr){?> selected <? } ?>><?=$row['nm']?></option>
-							<?php 
+								<option value="<?php  echo $row['sl']?>" <?php if($row['sl']==$dldgr){?> selected <?php  } ?>><?php  echo $row['nm']?></option>
+							<?php  
 							} 
 							?>
 						</select>
@@ -539,13 +539,13 @@ $query=" and typ='$tp' ";
     <td align="left" >
 	 <select  name="paymtd" id="paymtd" class="form-control">
 							<option value="">-- Select --</option>
-							<?php 
+							<?php  
 							$get = mysqli_query($conn,"SELECT * FROM ac_paymtd") or die(mysqli_error($conn));
 							while($row = mysqli_fetch_array($get))
 							{
 							?>
-								<option value="<?=$row['sl']?>" <?=$row['sl'] == '1' ? 'selected' : '' ?>><?=$row['mtd']?></option>
-							<?php 
+								<option value="<?php  echo $row['sl']?>" <?php  echo $row['sl'] == '1' ? 'selected' : '' ?>><?php  echo $row['mtd']?></option>
+							<?php  
 							} 
 							?>
 						</select>
@@ -562,7 +562,7 @@ $query=" and typ='$tp' ";
 	<font color="red">*</font><b>Sales Person :</b>
 	<select id="sman" name="sman" tabindex="1"  class="form-control">
 	<option value="">---Select---</option>
-	<?
+	<?php 
 		$queryss="select * from main_sale_per  WHERE sl>0 order by spid";
 		$resultss=mysqli_query($conn,$queryss);
 		while($rwss=mysqli_fetch_array($resultss))
@@ -570,8 +570,8 @@ $query=" and typ='$tp' ";
 			$spid=$rwss['spid'];
 			$spnm=$rwss['nm'];
 		?>
-			<option value="<?=$spid;?>"><?=$spid;?></option>
-			<?
+			<option value="<?php  echo $spid;?>"><?php  echo $spid;?></option>
+			<?php 
 		}
 	?>
 	</select>
@@ -655,7 +655,7 @@ $query=" and typ='$tp' ";
 <td align="left" width="20%">
 <font size="3"><b>Branch :</b></font><br>
 <select name="bcd" class="form-control" size="1" id="bcd" >
-<?
+<?php 
 if($user_current_level<0)
 {
 $query1="Select * from main_branch where sl='$brncds'";
@@ -670,8 +670,8 @@ while ($R1 = mysqli_fetch_array ($result1))
 $slb1=$R1['sl'];
 $bnm1=$R1['bnm'];
 ?>
-<option value="<? echo $slb1;?>"><? echo $bnm1;?></option>
-<?
+<option value="<?php  echo $slb1;?>"><?php  echo $bnm1;?></option>
+<?php 
 }
 ?>
 </select>
@@ -680,11 +680,11 @@ $bnm1=$R1['bnm'];
 
 <td align="left" width="25%">
 <font size="3"><b>Customer :</b></font>
-<input type="text" id="cs1" name="cs1" size="40" value="" onkeyup="get_cust_by_cs('cust_src_search',this.value,'custid','','cs1',`<?php echo $query;?>`)"  placeholder="Enter 3 Digit Name / 10 Digit Mobile No.">
+<input type="text" id="cs1" name="cs1" size="40" value="" onkeyup="get_cust_by_cs('cust_src_search',this.value,'custid','','cs1',`<?php  echo $query;?>`)"  placeholder="Enter 3 Digit Name / 10 Digit Mobile No.">
 <div id="cust_src_search">
 <select id="custid" name="custid" tabindex="1"  class="form-control" >
 	<option value="">---ALL---</option>
-	<?
+	<?php 
 if($tp=='2'){$qury=" and find_in_set(brand,'$brand')>0 ";}
 /*
 $query2="select * from main_cust  WHERE sl>0 and typ='$tp' $qury order by nm";
@@ -693,8 +693,8 @@ $result2=mysqli_query($conn,$query2);
 while($rw2=mysqli_fetch_array($result2))
 {
 ?>
-<option value="<?=$rw2['sl'];?>"><?=$rw2['nm'];?> --  <?=$rw2['cont'];?></option>
-<?
+<option value="<?php  echo $rw2['sl'];?>"><?php  echo $rw2['nm'];?> --  <?php  echo $rw2['cont'];?></option>
+<?php 
 }*/
 	?>
 </select>
@@ -702,17 +702,17 @@ while($rw2=mysqli_fetch_array($result2))
 </td>
 <td align="left" width="15%">
 <font size="3"><b>From Date : </b></font>
-<input type="text" id="fdt" name="fdt" value="<?//=date('01-M-Y');?>" readonly class="form-control" >
+<input type="text" id="fdt" name="fdt" value="<?php //=date('01-M-Y');?>" readonly class="form-control" >
 </td>
 <td align="left" width="15%">
 <font size="3"><b>To Date : </b></font>
-<input type="text" id="tdt" name="tdt" value="<?//=date('d-M-Y');?>" readonly class="form-control" >
+<input type="text" id="tdt" name="tdt" value="<?php //=date('d-M-Y');?>" readonly class="form-control" >
 </td>
 <td align="left" width="25%">
 <font size="3"><b>Sales Person : </b></font>
 	<select id="slp" name="slp" tabindex="1"  class="form-control">
 	<option value="">---ALL---</option>
-	<?
+	<?php 
 		$queryss="select * from main_sale_per  WHERE sl>0 order by spid";
 		$resultss=mysqli_query($conn,$queryss);
 		while($rwss=mysqli_fetch_array($resultss))
@@ -720,8 +720,8 @@ while($rw2=mysqli_fetch_array($result2))
 			$spid=$rwss['spid'];
 			$spnm=$rwss['nm'];
 		?>
-			<option value="<?=$spid;?>"><?=$spid;?></option>
-			<?
+			<option value="<?php  echo $spid;?>"><?php  echo $spid;?></option>
+			<?php 
 		}
 	?>
 	</select>
@@ -795,12 +795,12 @@ while($rw2=mysqli_fetch_array($result2))
   no_results_text: "Oops, nothing found!",
   
   });
-<?
+<?php 
 if($cid!="")
 {
 ?>
 get_blno();
-<?	
+<?php 	
 }
 ?>
 

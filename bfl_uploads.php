@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include('SimpleImage.php');
@@ -72,6 +72,6 @@ $data1= mysqli_query($conn,"update main_billing set bfl_upload='1' where blno='$
 }		
 ?>
 <script language="javascript">
-alert('<?=$err;?>');
+alert('<?php  echo $err;?>');
 history.go(-1);
 </script>

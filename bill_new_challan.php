@@ -1,8 +1,8 @@
-<?
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 include("Numbers/Words.php");
-$blno=rawurldecode($_REQUEST[blno]);
+$blno=rawurldecode($_REQUEST['blno'] ?? "");
 
 ?>
 <html>
@@ -62,7 +62,7 @@ function blprnt(){
 	  <center>						
 							
 <form method="post" action="centrys.php" name="form1"  id="form1">
-<?    
+<?php     
 $csl=1;
 $sln=0;
  $query111 = "SELECT * FROM main_chnl where blno='$blno'";
@@ -127,15 +127,15 @@ $aiw=$nw->toWords($gttl1);
 	
 
 <div class="bg" >
-	<font size="7"><b><?=$comp_nm;?></b></font>
+	<font size="7"><b><?php  echo $comp_nm;?></b></font>
 	</div>
 	
 <table border="0" width="677px">
 <tr>
 <td  align="center">
-<font size="7"><b><?=$comp_nm;?></b></font>
+<font size="7"><b><?php  echo $comp_nm;?></b></font>
 <br>
-<font size="4"><b><?=$comp_addr;?></b></font>
+<font size="4"><b><?php  echo $comp_addr;?></b></font>
 </td>
 </tr>
 <tr>
@@ -149,11 +149,11 @@ $aiw=$nw->toWords($gttl1);
 <tr>
 <td valign="top" width="50%" height="130px"  rowspan="2" style="padding-left:5px;cellpadding:5px;font-family: Arial, Helvetica, sans-serif;">
 Name & Address :-<br><br>
-<b><font size="3"><?=$cnm;?></font><br><br>
-<font size="2"><?=$caddr;?><br><br>
-Contact No. <?=$cnt;?><br><br>
-<?if($fid!=""){?>
-Fertilizer ID : <?=$fid;}?>
+<b><font size="3"><?php  echo $cnm;?></font><br><br>
+<font size="2"><?php  echo $caddr;?><br><br>
+Contact No. <?php  echo $cnt;?><br><br>
+<?php if($fid!=""){?>
+Fertilizer ID : <?php  echo $fid;}?>
 
 </b>
 
@@ -162,11 +162,11 @@ Fertilizer ID : <?=$fid;}?>
 
 </td>
 <td width="50%" valign="top" style="padding-left:5px;height:30px;font-family: Arial, Helvetica, sans-serif;" >
-<b>Invoice No : <?=$blno;?></b> <span style="padding-left:5px;font-family: Arial, Helvetica, sans-serif;"><b>Date : <?=$edt;?></b></span>
+<b>Invoice No : <?php  echo $blno;?></b> <span style="padding-left:5px;font-family: Arial, Helvetica, sans-serif;"><b>Date : <?php  echo $edt;?></b></span>
 <tr>
 <td valign="middle" style="padding-left:5px; font-family: Arial, Helvetica, sans-serif;">
 <b>
-Vat No. <?=$comp_plicno;?>
+Vat No. <?php  echo $comp_plicno;?>
 
 
 </b>
@@ -207,7 +207,7 @@ QTY
 </td>
 
 </tr>	
-<?
+<?php 
 $sln=0;
  $query100 = "SELECT * FROM main_chnldtl where blno='$blno' and qty>0 order by sl";
    $result100 = mysqli_query($conn,$query100);
@@ -285,30 +285,30 @@ $aaa+=1;
 <tr   style="line-height: 14px;" >	
 
 <td align="left" style="font-family: Arial, Helvetica, sans-serif;" >
-<?=$sln;?>
+<?php  echo $sln;?>
 </td>
 <td align="left" style="font-family: Arial, Helvetica, sans-serif;" >
-<?=$prnm;?>
+<?php  echo $prnm;?>
 </td>
 <td align="left" style="font-family: Arial, Helvetica, sans-serif;">
-<?=$tech;?>
+<?php  echo $tech;?>
 </td>
 <td align="left" style="font-family: Arial, Helvetica, sans-serif;">
-<?=$co;?>
+<?php  echo $co;?>
 </td>
 
 <td align="left" style="font-family: Arial, Helvetica, sans-serif;">
-<?=$betno;?>
+<?php  echo $betno;?>
 </td>
 <td align="left" style="font-family: Arial, Helvetica, sans-serif;">
-<?=$expdt;?>
+<?php  echo $expdt;?>
 </td>
 <td align="right" style="font-family: Arial, Helvetica, sans-serif;">
-<?=$qnty;?>
+<?php  echo $qnty;?>
 </td>
 
 </tr>
-<?
+<?php 
 }
 ?>
 </table>

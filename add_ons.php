@@ -1,4 +1,4 @@
-<?php
+<?php 
 include("membersonly.inc.php");
 $edt = date('Y-m-d');	
 $edtm = date('d-m-Y h:i:s a');	
@@ -96,19 +96,19 @@ if($err=="")
 	}
 ?>
 <script language="javascript">
-alert('<? echo $msg;?>');
-document.location = "<? echo $pg;?>";
+alert('<?php  echo $msg;?>');
+document.location = "<?php  echo $pg;?>";
 </script>
-<?
+<?php 
 }
 else
 {
 ?>
 <script language="javascript">
-alert('<?php echo $err;?>');
+alert('<?php  echo $err;?>');
 window.history.go(-1);
 </script>
-<?	
+<?php 	
 }
 ?>
 

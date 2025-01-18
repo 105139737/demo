@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include "header.php";
@@ -112,7 +112,7 @@ $saa="01-".date('m-Y');
 
 <select  class="form-control" size="1" id="cat" tabindex="1"  name="cat">
 <option value="">---ALL---</option>
-<?
+<?php 
 $data1 = mysqli_query($conn,"Select * from main_catg where stat='0' order by cnm");
 while ($row1 = mysqli_fetch_array($data1))
 {
@@ -125,13 +125,13 @@ echo "<option value='".$sl."'>".$cnm."</option>";
                                     </td> 
                                     <td align="left" width="25%">
                                         <b>Form : </b>
-                                        <input type="text" id="fdt" name="fdt" value="<?echo $saa;?>"
+                                        <input type="text" id="fdt" name="fdt" value="<?php echo $saa;?>"
                                             class="form-control" placeholder="Please Enter From Date">
                                     </td>
 
                                     <td align="left" width="25%">
                                         <b>To : </b>
-                                        <input type="text" id="tdt" name="tdt" value="<?echo $sa;?>"
+                                        <input type="text" id="tdt" name="tdt" value="<?php echo $sa;?>"
                                             class="form-control" placeholder="Please Enter To Date">
                                     </td>
 

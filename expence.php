@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 include "header.php";
@@ -6,7 +6,7 @@ include "header.php";
 <html>
 <head>
         <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <style type="text/css"> 
@@ -165,7 +165,7 @@ $("#dt").inputmask("dd-mm-yyyy", {"placeholder": "dd-mm-yyyy"});
 		  <tr>
 		  	 <td  align="right">Date :</td>
             <td  align="left">
-		<input type="text" id="dt" class="form-control"  name="dt" value="" onblur="show()" onchange="chk_dt('<?=date('d-M-Y')?>')" style="width:430px" placeholder ="Please Enter Date">
+		<input type="text" id="dt" class="form-control"  name="dt" value="" onblur="show()" onchange="chk_dt('<?php echo date('d-M-Y')?>')" style="width:430px" placeholder ="Please Enter Date">
 
 		     
             </td>
@@ -197,15 +197,15 @@ $("#dt").inputmask("dd-mm-yyyy", {"placeholder": "dd-mm-yyyy"});
 			     <td  align="right">Pay Mode :</td>
             <td  align="left">
 		<select name="pmode"  id="pmode" class="sc" >
-		<?
+		<?php 
 		$bank=mysqli_query($conn,"select * from  main_ledg where gcd='1' or gcd='16'");
 		while($row=mysqli_fetch_array($bank))
 		{
 		
 
 		?>
-    <option value="<?=$row['sl'];?>"><?=$row['nm'];?></option>
-<?}?>
+    <option value="<?php  echo $row['sl'];?>"><?php  echo $row['nm'];?></option>
+<?php }?>
 </select>
 
             </td>

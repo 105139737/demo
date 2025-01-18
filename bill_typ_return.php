@@ -1,12 +1,12 @@
-<?
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 include "header.php";
 $fdt=date('Y-m-d');
-$blno=$_REQUEST[blno];
+$blno=$_REQUEST['blno'] ?? "";
 ?>
         <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <style type="text/css"> 
@@ -59,7 +59,7 @@ document.forms["form1"].submit();
 
 <form method="post" action="sale_retn.php" id="form1" name="form1" target="_BLANK">      
 <input type="hidden" class="form-control"  tabindex="1"  name="bsl" id="bsl" >              
-<input type="hidden" class="form-control" value="<?=$blno;?>"  tabindex="1"  name="blno" id="blno" >              
+<input type="hidden" class="form-control" value="<?php  echo $blno;?>"  tabindex="1"  name="blno" id="blno" >              
 <div class="box box-success" >
 <table border="0" class="table table-hover table-striped table-bordered">
 <tr>
@@ -75,15 +75,15 @@ document.forms["form1"].submit();
 <b>Brand : </b>
 <select name="brand1" id="brand1" class="form-control"  tabindex="1"  >
 <option value="">---ALL---</option>
-<?
+<?php 
 $dsql=mysqli_query($conn,"select * from main_catg order by sl") or die (mysqli_error($conn));
 while($erow=mysqli_fetch_array($dsql))
 {
 $bsl=$erow['sl'];
 $cnm=$erow['cnm'];
 ?>
-<option value="<?php echo $bsl;?>"><?php echo $cnm;?></option>
-<?
+<option value="<?php  echo $bsl;?>"><?php  echo $cnm;?></option>
+<?php 
 }
 ?>
 </select>
@@ -91,13 +91,13 @@ $cnm=$erow['cnm'];
 <td align="left" >
 <b>Branch : </b>
 <select name="brncd1" class="form-control"  tabindex="1"   size="1" id="brncd1" >
-<?
+<?php 
 if($user_current_level<0)
 {
 $query="Select * from main_branch";
 ?>
 <option value="">---ALL---</option>
-<?
+<?php 
 }
 else
 {
@@ -110,8 +110,8 @@ $sl=$R['sl'];
 $bnm=$R['bnm'];
 
 ?>
-<option value="<? echo $sl;?>"><? echo $bnm;?></option>
-<?
+<option value="<?php  echo $sl;?>"><?php  echo $bnm;?></option>
+<?php 
 }
 ?>
 </select>

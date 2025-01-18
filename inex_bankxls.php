@@ -1,13 +1,13 @@
-<?
+<?php 
 $reqlevel=1;
 include("membersonly.inc.php");
 set_time_limit(0);
 
 
-$brncd=$_REQUEST[brncd];if($brncd==""){$brncd1="";}else{$brncd1=" and brncd='$brncd'";}
-$fdt=$_REQUEST[fdt];
-$tdt=$_REQUEST[tdt];
-$pno1=$_REQUEST[pno]; 
+$brncd=$_REQUEST['brncd'] ?? "";if($brncd==""){$brncd1="";}else{$brncd1=" and brncd='$brncd'";}
+$fdt=$_REQUEST['fdt'] ?? "";
+$tdt=$_REQUEST['tdt'] ?? "";
+$pno1=$_REQUEST['pno'] ?? ""; 
 if($pno1!='')
 {$pno=" and pno='$pno1' $brncd1";}else{$pno=" $brncd1";}
 
@@ -35,7 +35,7 @@ $jobLink=CreateNewJob('jobs/inex_bankxls.php',$user_currently_loged,'Bank Accoun
 alert('Your request has been accepted. You will get you dwonload link in your home page in a few moments. Thank you...');
 window.history.go(-1);
 </script>
-<?php
+<?php 
 die('<b><center><font color="green" size="5">Your request has been accepted. You will get you dwonload link in your home page in a few moments. Thank you...</font></center></b>');
 
 
@@ -49,12 +49,12 @@ header("Content-Disposition: attachment; filename=$file");
 <tr  >
 <th colspan="2" align="left" >
 <font color="#000000" size="3">
-Cash A/c Details <?echo $dt?> As On  <?echo $fdt?> to <?echo $tdt?>
+Cash A/c Details <?php echo $dt?> As On  <?php echo $fdt?> to <?php echo $tdt?>
 </font>
 </th>
 </tr>
 
-<?
+<?php 
 	$data33= mysqli_query($conn,"SELECT * FROM main_ledg where gcd='1'");
 		while ($row33 = mysqli_fetch_array($data33))
 		{
@@ -75,7 +75,7 @@ $op=$damm-$camm;
 ?>
 	<tr bgcolor="#00a65a">
 	<td align="left" colspan="2" width="100%">
-	<font color="#FFF" size="3"><?=$lnm;?>  <b> Op Bal <?=$op;?></b></font>
+	<font color="#FFF" size="3"><?php  echo $lnm;?>  <b> Op Bal <?php  echo $op;?></b></font>
 	</td>
 	</tr>
 <tr >
@@ -87,7 +87,7 @@ $op=$damm-$camm;
   </td>
 </tr>  
 
-<?
+<?php 
 
 
 $ctotal=0;
@@ -96,7 +96,7 @@ $ctotal=0;
 
   <td  valign="top" width="50%">
 	  <table width="100%" class="advancedtable"  border="1" cellspacing="0">
-  <?
+  <?php 
   $result1 = mysqli_query($conn,"SELECT sum(amm) as tot,cldgr,sl FROM main_drcr where dldgr='$ledgr' $pno $qry1 group by cldgr ");
 while ($R1 = mysqli_fetch_array ($result1))
 {
@@ -111,16 +111,16 @@ $rd=$R1['sl'];
 		$lnm2=$row2['nm'];
 		}
   ?>
-  <tr id="t<?=$rd;?>" bgcolor="#ffce42">
+  <tr id="t<?php  echo $rd;?>" bgcolor="#ffce42">
   <td align="left" width="70%">
   
-  <b><span id="my<?=$rd;?>"><a onclick="getdet('<?=$rd1;?>','<?=$rd;?>','<?=$lnm2?>','1','dldgr','<?=base64_encode($pno.$qry1);?>','<?=$ledgr;?>','cldgr')"><i  class="fa fa-plus-square" ></i> <? echo $lnm2;?></a> </b></span>
-   <?
+  <b><span id="my<?php  echo $rd;?>"><a onclick="getdet('<?php  echo $rd1;?>','<?php  echo $rd;?>','<?php  echo $lnm2?>','1','dldgr','<?php echo base64_encode($pno.$qry1);?>','<?php  echo $ledgr;?>','cldgr')"><i  class="fa fa-plus-square" ></i> <?php  echo $lnm2;?></a> </b></span>
+   <?php 
 
   ?>
   </td>
   <td align="right" width="30%">
-  <b><?
+  <b><?php 
  echo sprintf('%0.2f', $ctot);
   ?></b>
   </td>
@@ -137,7 +137,7 @@ $rd=$R1['sl'];
 		 </tr>
 
 
-<?
+<?php 
 $tot=0;
 $query33 = "SELECT * FROM main_drcr where dldgr='$ledgr' and cldgr='$rd1' $pno $qry1";
 
@@ -191,15 +191,15 @@ while ($R = mysqli_fetch_array ($result33))
 		$gdt=date('d-m-Y', strtotime($gdt));
 ?>
 		<tr>		
-			<td  align="center" ><font size="2" color="black"><?echo $gdt;?></font></td>
+			<td  align="center" ><font size="2" color="black"><?php echo $gdt;?></font></td>
 			
-            <td  align="left" ><font size="2" color="black"><?echo $gnrtn;?></font></td>
+            <td  align="left" ><font size="2" color="black"><?php echo $gnrtn;?></font></td>
 		
-			<td  align="right" ><font  color="black"><?echo sprintf('%0.2f', $gamm);?></font></td>
+			<td  align="right" ><font  color="black"><?php echo sprintf('%0.2f', $gamm);?></font></td>
 		 </tr>
 
 
-<?
+<?php 
 	$tot=$tot+$gamm;
 	}}
 ?>
@@ -208,13 +208,13 @@ while ($R = mysqli_fetch_array ($result33))
 Total : 
 </td>
 <td align="right">
-<font size="3"><b><?echo sprintf('%0.2f', $tot);?></b></font>
+<font size="3"><b><?php echo sprintf('%0.2f', $tot);?></b></font>
 </td>
 </tr>
 </table>
 </td>
 </tr>
-<?
+<?php 
 $ctotal=$ctotal+$ctot;
 }
 ?>
@@ -223,7 +223,7 @@ $ctotal=$ctotal+$ctot;
     <td  align="right" valign="top" width="50%">
  
     <table width="100%" class="advancedtable" border="1" cellspacing="0">
-  <?
+  <?php 
   $dtotal=0;
   $result = mysqli_query($conn,"SELECT sum(amm) as tot,dldgr,sl FROM main_drcr where cldgr='$ledgr' $pno $qry1 group by dldgr");
 while ($R = mysqli_fetch_array ($result))
@@ -239,13 +239,13 @@ $rd=$R['sl'];
 		$lnm1=$row1['nm'];
 		}
   ?>
-  <tr id="t<?=$rd;?>" bgcolor="#ffce42">
+  <tr id="t<?php  echo $rd;?>" bgcolor="#ffce42">
   <td align="left" width="70%">
-    <b><span id="my<?=$rd;?>"><a onclick="getdet('<?=$rd1;?>','<?=$rd;?>','<?=$lnm1?>','1','cldgr','<?=base64_encode($pno.$qry1);?>','<?=$ledgr;?>','dldgr')"><i  class="fa fa-plus-square" ></i> <?  echo $lnm1;?></a> </b></span>
+    <b><span id="my<?php  echo $rd;?>"><a onclick="getdet('<?php  echo $rd1;?>','<?php  echo $rd;?>','<?php  echo $lnm1?>','1','cldgr','<?php echo base64_encode($pno.$qry1);?>','<?php  echo $ledgr;?>','dldgr')"><i  class="fa fa-plus-square" ></i> <?php   echo $lnm1;?></a> </b></span>
 
   </td>
   <td align="right" width="30%">
-  <b><?
+  <b><?php 
  echo sprintf('%0.2f', $dtot);
   ?></b>
   </td>
@@ -262,7 +262,7 @@ $rd=$R['sl'];
 		 </tr>
 
 
-<?
+<?php 
 $tot=0;
 $query33 = "SELECT * FROM main_drcr where cldgr='$ledgr' and dldgr='$rd1' $pno $qry1";
 
@@ -316,15 +316,15 @@ while ($R = mysqli_fetch_array ($result33))
 		$gdt=date('d-m-Y', strtotime($gdt));
 ?>
 		<tr>		
-			<td  align="center" ><font size="2" color="black"><?echo $gdt;?></font></td>
+			<td  align="center" ><font size="2" color="black"><?php echo $gdt;?></font></td>
 			
-            <td  align="left" ><font size="2" color="black"><?echo $gnrtn;?></font></td>
+            <td  align="left" ><font size="2" color="black"><?php echo $gnrtn;?></font></td>
 		
-			<td  align="right" ><font  color="black"><?echo sprintf('%0.2f', $gamm);?></font></td>
+			<td  align="right" ><font  color="black"><?php echo sprintf('%0.2f', $gamm);?></font></td>
 		 </tr>
 
 
-<?
+<?php 
 	$tot=$tot+$gamm;
 	}}
 ?>
@@ -333,13 +333,13 @@ while ($R = mysqli_fetch_array ($result33))
 Total : 
 </td>
 <td align="right">
-<font size="3"><b><?echo sprintf('%0.2f', $tot);?></b></font>
+<font size="3"><b><?php echo sprintf('%0.2f', $tot);?></b></font>
 </td>
 </tr>
 </table>
 </td>
 </tr>
-<?
+<?php 
  $dtotal=$dtotal+$dtot;
 }
 $cc=$op+($ctotal-$dtotal);
@@ -349,20 +349,20 @@ $cc=$op+($ctotal-$dtotal);
 </tr>
 <tr >
 <td align="right">
-<font size="3" color="red">Total Bal : <?=sprintf('%0.2f', $ctotal);?></font>
+<font size="3" color="red">Total Bal : <?php echo sprintf('%0.2f', $ctotal);?></font>
 </td>
 <td align="right" color="red">
-<font size="3" color="red">Total Bal : <?=sprintf('%0.2f', $dtotal);?></font>
+<font size="3" color="red">Total Bal : <?php echo sprintf('%0.2f', $dtotal);?></font>
 </td>
 </tr>
 <tr bgcolor="#e2edfa">
 <td align="Center" colspan="2">
-<font size="4" color="#000000"><b>Current Bal : <?=sprintf('%0.2f', $cc);?></b></font>
+<font size="4" color="#000000"><b>Current Bal : <?php echo sprintf('%0.2f', $cc);?></b></font>
 </td>
 
 </tr>
 
-<?
+<?php 
 		
 		}
 	

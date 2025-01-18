@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 3;
 set_time_limit(0);
 include("membersonly.inc.php");
@@ -8,7 +8,7 @@ date_default_timezone_set('Asia/Kolkata');
 $dt = date('d-M-Y');
 
 $cy=date('Y');
-$all=rawurldecode($_REQUEST[all]);
+$all=rawurldecode($_REQUEST['all']??"");
 $al="%".$all."%";
 if($all!="")
 {
@@ -55,7 +55,7 @@ border-collapse: collapse;
 </tr>
 </thead>
 <tbody>
-<?
+<?php 
 $sl=$start;
 $sln=0;
 $data=mysqli_query($conn,"select * from main_product_prc where  sl>0 $all1 order by sl")or die(mysqli_error($conn));
@@ -72,15 +72,15 @@ while($row=mysqli_fetch_array($data))
 	$sl++; 
 ?>
 <tr>
-<td align="center"><? echo $sl;?></td>
-<td align="left"><? echo $brand;?></td>
-<td align="left"><? echo $cat;?></td>
-<td align="left"><? echo $modelno;?></td>
-<td align="right"><? echo $prc;?></td>
-<td align="right"><? echo $dis;?></td>
-<td align="right"><? echo $disam;?></td>
+<td align="center"><?php  echo $sl;?></td>
+<td align="left"><?php  echo $brand;?></td>
+<td align="left"><?php  echo $cat;?></td>
+<td align="left"><?php  echo $modelno;?></td>
+<td align="right"><?php  echo $prc;?></td>
+<td align="right"><?php  echo $dis;?></td>
+<td align="right"><?php  echo $disam;?></td>
 </tr>	 
-<?
+<?php 
 }
 ?>
 </tbody>

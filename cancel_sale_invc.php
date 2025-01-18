@@ -1,4 +1,4 @@
-<?php 
+<?php  
 include("membersonly.inc.php");
 $billno=rawurldecode($_REQUEST['billno']);
 $edtm = date('d-m-Y h:i:s a', time());
@@ -47,7 +47,7 @@ mysqli_query($conn,"UPDATE main_drcr SET cbill='',nrtn='Bill Cancel ( $billno )'
 
 
 */
-
+$blno="";
 if($billno!='')
 {
 $data1= mysqli_query($conn,"select * from  main_drcr where cbill='$billno' AND cldgr='4' AND pay='1' and typ='CC01'")or die(mysqli_error($conn));

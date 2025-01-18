@@ -1,13 +1,26 @@
-<?
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include "header.php";
+$note_no=0;
+$invdt=0;
+$sgstin=0;
+$name=0;
+$inv=0;
+$typ="";
+$sup="";
+$notetyp="";
+$net=0;
+$amm=0;
+$tax_rate=0;
+$tax=0;
+$styp="";
 date_default_timezone_set('Asia/Kolkata');
 $tdt = date('d-m-Y');
 $fdt3 = date('Y');
 $m = date('m');
 $fdt="01-04-".$fdt3;
-$ssl=$_REQUEST['sl'];
+$ssl=$_REQUEST['sl'] ?? "";
 /**/
 $data = mysqli_query($conn,"SELECT * FROM  main_cdnr where sl='$ssl'");
 while ($row = mysqli_fetch_array($data))
@@ -47,7 +60,7 @@ $fdt="01-04-".$fdt1;
 ?>
 <html>
  <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <head>
@@ -211,8 +224,8 @@ $('#refno_div').load('get_refno.php?dt='+dt).fadeIn('fast');
 					
 					
 <form name="form1" id="form1" method="post" action="debit_note_edits.php" onsubmit="return check()">
-<input type="hidden" id="sl" name="sl" value="<?=$ssl;?>">
-<input type="hidden" name="dsl" value="<?=$dsl;?>">
+<input type="hidden" id="sl" name="sl" value="<?php  echo $ssl;?>">
+<input type="hidden" name="dsl" value="<?php  echo $dsl;?>">
 <div class="box box-success" >
 
 <table class="table table-hover table-striped table-bordered" >
@@ -222,14 +235,14 @@ $('#refno_div').load('get_refno.php?dt='+dt).fadeIn('fast');
 <br>
 <select id="sup" data-placeholder="Choose Your Supplier" name="sup"  class="form-control" tabindex="2" style="width:100%" onchange="get_gst()">
 <option value="">---Select---</option>
-<?
+<?php 
 $sql1="SELECT * FROM main_suppl ORDER BY spn";
 $result1 = mysqli_query($conn,$sql1) or die(mysqli_error($conn));
 while($row1=mysqli_fetch_array($result1))
 {
 ?>
-<option value="<?=$row1['sl'];?>" <?if($sup==$row1['sl']){echo "selected";}?>><?=$row1['spn'];?></option>
-<?
+<option value="<?php  echo $row1['sl'];?>" <?php if($sup==$row1['sl']){echo "selected";}?>><?php  echo $row1['spn'];?></option>
+<?php 
 }
 ?>
 </select>
@@ -238,34 +251,34 @@ while($row1=mysqli_fetch_array($result1))
 <td align="left">
 <b>GSTIN  :</b>
 <div id="gst_div">
-<input type="text" name="sgstin" id="sgstin" class="form-control" value="<?=$sgstin;?>" required>
+<input type="text" name="sgstin" id="sgstin" class="form-control" value="<?php  echo $sgstin;?>" required>
 </div>
 
 </td>
 <td align="left" >
 <b>Name  :</b>
-<input type="text" name="name" id="name" class="form-control" value="<?=$name;?>" required>
+<input type="text" name="name" id="name" class="form-control" value="<?php  echo $name;?>" required>
 </td>
 </tr>
 <tr>
 <td align="left" >
 <b>Note No.  :</b>
-<input type="text" name="note_no" id="note_no" class="form-control" value="<?=$note_no;?>" required>
+<input type="text" name="note_no" id="note_no" class="form-control" value="<?php  echo $note_no;?>" required>
 </td>
 
 <td align="left">
 <b>Note Date  :</b>
-<input type="text" name="dt" id="dt" class="form-control" value="<?=$dt;?>" required >
+<input type="text" name="dt" id="dt" class="form-control" value="<?php  echo $dt;?>" required >
 </td>
 <td align="left" >
 <b>Invoice No.  :</b>
-<input type="text" name="inv" id="inv" class="form-control" value="<?=$inv;?>" required>
+<input type="text" name="inv" id="inv" class="form-control" value="<?php  echo $inv;?>" required>
 </td>
 </tr>
 <tr>
 <td align="left" >
 <b>Invoice Date  :</b>
-<input type="text" name="invdt" id="invdt" class="form-control" value="<?=$invdt;?>" required>
+<input type="text" name="invdt" id="invdt" class="form-control" value="<?php  echo $invdt;?>" required>
 </td>
 
 <td align="left">
@@ -274,15 +287,15 @@ while($row1=mysqli_fetch_array($result1))
 <td style="display:none;">
 <b>Refno :</b>
 <div id="refno_div"></div>
-<input type="text" name="refno" id="refno" class="form-control" value="<?=$refno;?>" readonly required>
+<input type="text" name="refno" id="refno" class="form-control" value="<?php  echo $refno;?>" readonly required>
 
 </td>
 <td width="100%">
 <b>Note Type  :</b>
 <select name="note_typ"  id="note_typ"  class="form-control"  required>
 <option value="" >---Select---</option>
-<option value="C" <?if($notetyp=='C'){echo "selected";}?>>Credit</option>
-<option value="D" <?if($notetyp=='D'){echo "selected";}?>>Debit</option>
+<option value="C" <?php if($notetyp=='C'){echo "selected";}?>>Credit</option>
+<option value="D" <?php if($notetyp=='D'){echo "selected";}?>>Debit</option>
 </select>
 </td>
 </tr>
@@ -291,12 +304,12 @@ while($row1=mysqli_fetch_array($result1))
 <td align="left" >
 <b>Type  :</b>
 <select id="typ" name="typ"  class="form-control" tabindex="2" >
-<option value="Cash-Discount"<?if($typ=='Cash-Discount'){echo "selected";}?>>Cash-Discount</option>
-<option value="Rate-Difference"<?if($typ=='Rate-Difference'){echo "selected";}?>>Rate-Difference</option>
-<option value="Scheme"<?if($typ=='Scheme'){echo "selected";}?>>Scheme</option>
-<option value="Breakage"<?if($typ=='Breakage'){echo "selected";}?>>Breakage</option>
-<option value="Shortage"<?if($typ=='Shortage'){echo "selected";}?>>Shortage</option>
-<option value="Return"<?if($typ=='Return'){echo "selected";}?>>Return</option>
+<option value="Cash-Discount"<?php if($typ=='Cash-Discount'){echo "selected";}?>>Cash-Discount</option>
+<option value="Rate-Difference"<?php if($typ=='Rate-Difference'){echo "selected";}?>>Rate-Difference</option>
+<option value="Scheme"<?php if($typ=='Scheme'){echo "selected";}?>>Scheme</option>
+<option value="Breakage"<?php if($typ=='Breakage'){echo "selected";}?>>Breakage</option>
+<option value="Shortage"<?php if($typ=='Shortage'){echo "selected";}?>>Shortage</option>
+<option value="Return"<?php if($typ=='Return'){echo "selected";}?>>Return</option>
 </select>
 </td>
 </tr>
@@ -305,26 +318,26 @@ while($row1=mysqli_fetch_array($result1))
 <b>Supply Type  :</b>
 <select name="styp"  id="styp"  class="form-control"  required>
 <option value="" >---Select---</option>
-<option value="Inter-State" <?if($styp==Inter-State){echo "selected";}?>>Inter-State</option>
-<option value="Intra-State" <?if($styp==Inter-State){echo "selected";}?>>Intra-State</option>
+<option value="Inter-State" <?php if($styp=='Inter-State'){echo "selected";}?>>Inter-State</option>
+<option value="Intra-State" <?php if($styp=='Inter-State'){echo "selected";}?>>Intra-State</option>
 
 </select>
 </td>
 
 <td align="left" >
 <b>Note Value (Taxable Value ) :</b>
-<input type="text" name="amm" id="amm" class="form-control" value="<?=$amm;?>" onblur="cal()" required onkeypress="return isNumber(event)">
+<input type="text" name="amm" id="amm" class="form-control" value="<?php  echo $amm;?>" onblur="cal()" required onkeypress="return isNumber(event)">
 </td>
 <td align="left">
 <table width="100%">
 <tr>
 <td width="50%">
 <b>Tax Rate(%) :</b>
-<input type="text" name="tax_rate" id="tax_rate" class="form-control" value="<?=$tax_rate;?>" onkeypress="return isNumber(event)">
+<input type="text" name="tax_rate" id="tax_rate" class="form-control" value="<?php  echo $tax_rate;?>" onkeypress="return isNumber(event)">
 </td>
 <td  width="50%">
 <b>Tax Amount :</b>
-<input type="text" name="tax" id="tax" class="form-control" value="<?=$tax;?>" onblur="cal()" required onkeypress="return isNumber(event)">
+<input type="text" name="tax" id="tax" class="form-control" value="<?php  echo $tax;?>" onblur="cal()" required onkeypress="return isNumber(event)">
 </td>
 </tr>
 </table>
@@ -334,7 +347,7 @@ while($row1=mysqli_fetch_array($result1))
 <tr>
 <td align="left" >
 <b>Net Amount :</b>
-<input type="text" name="net" id="net" class="form-control" value="<?=$net;?>" onblur="cal()" required onkeypress="return isNumber(event)">
+<input type="text" name="net" id="net" class="form-control" value="<?php  echo $net;?>" onblur="cal()" required onkeypress="return isNumber(event)">
 </td>
 </tr>
 

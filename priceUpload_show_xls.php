@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3; 
 include("membersonly.inc.php");
 
@@ -31,7 +31,7 @@ header("Content-Disposition: attachment; filename=$file");
 	<td  align="center" ><b>OFFERLESS%</b></td>
 	<td  align="center" ><b>LastPrice</b></td>
 	</tr>
-	<?
+	<?php 
 $sln=0;
 $sln1=0;
 $data= mysqli_query($conn,"select * from  main_priceupload where edtm='$edtm' $catsl1 order by sl")or die(mysqli_error($conn));
@@ -84,24 +84,24 @@ while ($row = mysqli_fetch_array($data))
 $sln++;
 	?>
 	<tr>	
-	<td align="left" ><b><font ><?=$pdt;?></font></b></td>
-	<td align="left" ><b><font  ><?=$inv;?></font></b></td>
-	<td  align="left" ><b><font  ><?=$spn;?></font></b></td>
-	<td  align="left" ><b><?=$pnm;?></b> </td>
-	<td  align="right" ><?=round($rate,2);?></td>
-	<td  align="right" ><?=round($dp,2);?></td>
-	<td  align="right" ><?=round($dnlc,2);?></td>
-	<td  align="right" ><?=round($pldnlc,2);?></td>
-	<td  align="right" ><?=round($dpdisp,2);?></td>
-	<td  align="right" ><?=round($dpdisam,2);?></td>
-	<td  align="right" ><?=round($invprc,2);?></td>
-	<td  align="right" ><?=round($rprft,2);?></td>
-	<td  align="right" ><?=round($retoff,2);?></td>
-	<td  align="right" ><?=round($offprc,2);?></td>
-	<td  align="right" ><?=round($offless,2);?></td>
-	<td  align="right" ><?=round($lprc,2);?></td>
+	<td align="left" ><b><font ><?php  echo $pdt;?></font></b></td>
+	<td align="left" ><b><font  ><?php  echo $inv;?></font></b></td>
+	<td  align="left" ><b><font  ><?php  echo $spn;?></font></b></td>
+	<td  align="left" ><b><?php  echo $pnm;?></b> </td>
+	<td  align="right" ><?php echo round($rate,2);?></td>
+	<td  align="right" ><?php echo round($dp,2);?></td>
+	<td  align="right" ><?php echo round($dnlc,2);?></td>
+	<td  align="right" ><?php echo round($pldnlc,2);?></td>
+	<td  align="right" ><?php echo round($dpdisp,2);?></td>
+	<td  align="right" ><?php echo round($dpdisam,2);?></td>
+	<td  align="right" ><?php echo round($invprc,2);?></td>
+	<td  align="right" ><?php echo round($rprft,2);?></td>
+	<td  align="right" ><?php echo round($retoff,2);?></td>
+	<td  align="right" ><?php echo round($offprc,2);?></td>
+	<td  align="right" ><?php echo round($offless,2);?></td>
+	<td  align="right" ><?php echo round($lprc,2);?></td>
 	</tr>
-<?
+<?php 
 }
 ?>
 </table>

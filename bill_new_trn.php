@@ -1,8 +1,8 @@
-<?
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 include("Numbers/Words.php");
-$blno=rawurldecode($_REQUEST[blno]);
+$blno=rawurldecode($_REQUEST['blno']??"");
 
 ?>
 <html>
@@ -62,7 +62,7 @@ function blprnt(){
 	  <center>						
 							
 <form method="post" action="centrys.php" name="form1"  id="form1">
-<?    
+<?php     
 $csl=1;
 $sln=0;
  $query111 = "SELECT * FROM main_trns where blno='$blno'";
@@ -86,7 +86,7 @@ while ($row = mysqli_fetch_array($data))
 {
 $bnm=$row['gnm'];
 $addr=$row['addr'];
-$bcnt=$row['bcnt'];
+//$bcnt=$row['bcnt'];
 }
 
 $data= mysqli_query($conn,"select * from main_godown where  sl='$tbcd'")or die(mysqli_error($conn)); 
@@ -94,7 +94,7 @@ while ($row = mysqli_fetch_array($data))
 {
 $tbnm=$row['gnm'];
 $taddr=$row['addr'];
-$tbcnt=$row['bcnt'];
+//$tbcnt=$row['bcnt'];
 }
 
 ?>
@@ -102,17 +102,17 @@ $tbcnt=$row['bcnt'];
 	
 
 <div class="bg" >
-	<font size="6"><b><?=$comp_nm;?></b></font>
+	<font size="6"><b><?php  echo $comp_nm;?></b></font>
 	</div>
 	
 <table border="0" width="677px">
 <tr>
 <td  align="center">
-<font size="5"><b><?=$comp_nm;?></b></font>
+<font size="5"><b><?php  echo $comp_nm;?></b></font>
 <br>
-<font size="4"><b><?=$comp_addr;?></b></font>
+<font size="4"><b><?php  echo $comp_addr;?></b></font>
 <br>
-<font size="4"><b>Mob. <?=$cont;?></b></font>
+<font size="4"><b>Mob. <?php  echo $cont;?></b></font>
 </td>
 </tr>
 <tr>
@@ -127,8 +127,8 @@ $tbcnt=$row['bcnt'];
 <td valign="top" width="50%" height="130px"  rowspan="2" style="padding-left:5px;cellpadding:5px;font-family: Arial, Helvetica, sans-serif;">
 <b>To :- </b><br>
 Godown Name & Address :-<br><br>
-<b><font size="2"><?=$tbnm;?></font><br>
-<font size="2"><?=$taddr;?>
+<b><font size="2"><?php  echo $tbnm;?></font><br>
+<font size="2"><?php  echo $taddr;?>
 </b>
 
 </font>
@@ -136,7 +136,7 @@ Godown Name & Address :-<br><br>
 
 </td>
 <td width="50%" valign="top" style="padding-left:5px;height:30px;font-family: Arial, Helvetica, sans-serif;" >
-<b>Trn. No. :<font size="2"> <?=$blno;?></b> <span style="padding-left:5px;font-family: Arial, Helvetica, sans-serif;"><b>Date : <?=$dt;?></b></span></font>
+<b>Trn. No. :<font size="2"> <?php  echo $blno;?></b> <span style="padding-left:5px;font-family: Arial, Helvetica, sans-serif;"><b>Date : <?php  echo $dt;?></b></span></font>
 <tr>
 <td valign="middle" style="padding-left:5px; font-family: Arial, Helvetica, sans-serif;">
 
@@ -173,18 +173,17 @@ Godown Name & Address :-<br><br>
 </td>
 
 </tr>	
-<?
+<?php 
 $sln=0;
  $query100 = "SELECT * FROM main_trndtl where blno='$blno' and qty>0 order by sl";
    $result100 = mysqli_query($conn,$query100);
 while ($R100 = mysqli_fetch_array ($result100))
 {
-    $brmk="";
-$csl=$R100['bsl'];   
+//$brmk="";
 $prsl=$R100['prsl'];    
 $prnm=$R100['prnm'];
 $qnty=$R100['qty'];
-$brmk=$R100['rmk'];
+//$brmk=$R100['rmk'];
 $betno=$R100['betno'];
 $fbcd1=$R100['fbcd'];
 
@@ -196,8 +195,6 @@ while($row=mysqli_fetch_array($result5))
 {
 $pnm=$row['pnm'];
 $cat=$row['cat'];
-$bnm=$row['bnm'];
-$mnm=$row['mnm'];
 $pcd=$row['pcd'];
 }
 $fbnm="";
@@ -211,23 +208,23 @@ $fbnm=$row['gnm'];
 <tr   style="line-height: 14px;" >	
 
 <td align="left" style="font-family: Arial, Helvetica, sans-serif;" >
-<font size="2"><?=$sln;?>.</font>
+<font size="2"><?php  echo $sln;?>.</font>
 </td>
 <td align="left" style="font-family: Arial, Helvetica, sans-serif;" >
-<font size="2"><?php echo $fbnm;?> </font>
+<font size="2"><?php  echo $fbnm;?> </font>
 </td>
 <td align="left" style="font-family: Arial, Helvetica, sans-serif;" >
-<font size="2"><?=$pnm;?> - <?php echo $pcd;?> </font>
+<font size="2"><?php  echo $pnm;?> - <?php  echo $pcd;?> </font>
 </td>
 <td align="left" style="font-family: Arial, Helvetica, sans-serif;" >
-<font size="2"><?=$betno;?> </font>
+<font size="2"><?php  echo $betno;?> </font>
 </td>
 <td align="right" style="font-family: Arial, Helvetica, sans-serif;">
-<font size="2"><?=$qnty;?></font>
+<font size="2"><?php  echo $qnty;?></font>
 </td>
 
 </tr>
-<?
+<?php 
 }
 ?>
 </table>
@@ -239,7 +236,7 @@ $fbnm=$row['gnm'];
 <tr>
 <td valign="top" width="50%" align="center" height="60px" valign="top" style="padding-left:5px;cellpadding:5px;font-family: Arial, Helvetica, sans-serif;">
 <br>
-<img src="stmp/<?php echo $brncd;?>.png" width="72" height="70">
+<img src="stmp/<?php  echo $brncd;?>.png" width="72" height="70">
 <br>
 ----------------------------<br>
 <b>Receiver From </b><br>

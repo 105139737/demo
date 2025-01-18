@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 $cid=$_REQUEST['cid'];
@@ -7,7 +7,7 @@ $tamm=$_REQUEST['tamm'];
 $blno_ref=$_REQUEST['blno_ref'];
 ?>
 <table border="0" width="100%" class="advancedtable">
-<?
+<?php 
 $total_am=0;
 $sln=0;
 $query100 = "SELECT * FROM main_recv_reg_temp where eby='$user_currently_loged' and cid='$cid' and brncd='$brncd' and app_ref='$blno_ref' order by sl";
@@ -49,16 +49,16 @@ $total_am+=$amm;
 ?>
 
 <tr class="even">
-<td  align="left" width="3%" ><b><?=$sln;?>.</b></td>
-<td  align="left" width="20%" ><b><?=$blno;?></b></td>
+<td  align="left" width="3%" ><b><?php  echo $sln;?>.</b></td>
+<td  align="left" width="20%" ><b><?php  echo $blno;?></b></td>
 <td  align="left" width="12%" ><b></b></td>
-<td align="left" width="12%"><b><?=round($amm,2);?></b></td>
-<td align="left" width="20%"><b><?=$dislam;?></b></td>
-<td align="left" width="12%"><b><?=round($damm,2);?></b></td>
-<td align="left" width="12%"><b><?=$remk;?></b></td>
-<td align="center" width="5%"><b><a onclick="if(confirm('Are you Sure?')){deltpr('<?=$tsl;?>')}"><font color="red">Delete</font></a> </b></td>
+<td align="left" width="12%"><b><?php echo round($amm,2);?></b></td>
+<td align="left" width="20%"><b><?php  echo $dislam;?></b></td>
+<td align="left" width="12%"><b><?php echo round($damm,2);?></b></td>
+<td align="left" width="12%"><b><?php  echo $remk;?></b></td>
+<td align="center" width="5%"><b><a onclick="if(confirm('Are you Sure?')){deltpr('<?php  echo $tsl;?>')}"><font color="red">Delete</font></a> </b></td>
 </tr>
-<?}
+<?php }
 $ramm=0;
 if($tamm>0)
 {
@@ -73,9 +73,9 @@ $blno_ref=$R100['app_ref'];
 ?>
 </table>
 <script>
-document.getElementById('ramm').value='<?=$ramm;?>';
+document.getElementById('ramm').value='<?php  echo $ramm;?>';
 
-//document.getElementById('blno_ref').value="<?=$blno_ref;?>";
+//document.getElementById('blno_ref').value="<?php  echo $blno_ref;?>";
 //get_blno();
 </script>
 

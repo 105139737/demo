@@ -1,4 +1,4 @@
-<?php 
+<?php  
 $reqlevel = 1;
 include("membersonly.inc.php");
 set_time_limit(0);
@@ -16,7 +16,7 @@ if($sup==""){$sup1="";}else{$sup1=" and sup='$sup'";}
 <th><b>Supplier</b></th>
 <th><b>Barnd</b></th>
 </tr>
-<?php
+<?php 
 $cnt=0;
 $data11= mysqli_query($conn,"SELECT * FROM main_supplier_tag where sl>0 $sup1");
 while ($row11= mysqli_fetch_array($data11))
@@ -44,11 +44,11 @@ $slno++;
 
 ?>
 <tr>
-<td><?php echo $cnt;?></td>
-<td><?php echo $nm;?></td>
-<td><?php echo $cnm;?></td>
+<td><?php  echo $cnt;?></td>
+<td><?php  echo $nm;?></td>
+<td><?php  echo $cnm;?></td>
 </tr>
-<?php }?>
+<?php  }?>
 </table>
 
 

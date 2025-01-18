@@ -1,7 +1,8 @@
-<?php
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
-$username=$_REQUEST['username'];
+$username=$_REQUEST['username'] ?? "";
+$username1="";
 if($username!=""){$username1=" and username='$username'";}
 ?>
 <table class="table table-hover table-striped table-bordered">	
@@ -11,10 +12,11 @@ if($username!=""){$username1=" and username='$username'";}
 <td class="hdng" align="center">Menu Name</td>
 <td class="hdng"  align="center">Action</td>
 </tr>
-<?php 
+<?php  
 
 $data=mysqli_query($conn,"select * from main_approll where sl>0 $username1")or die(mysqli_error($conn));
 $rcntttl=mysqli_num_rows($data);
+$sln="";
 while($row=mysqli_fetch_array($data))
 {
 	$sln++;
@@ -42,14 +44,14 @@ $name=$r1['name'];
 
 ?>
 <tr>
-<td align="center" class="hdng"><?php echo $sln;?></td>
-<td align="left" class="hdng"><?php echo $username;?> (<?=$name;?>)</td>
-<td align="left" class="hdng"><?php echo $nm2?></td>
+<td align="center" class="hdng"><?php  echo $sln;?></td>
+<td align="left" class="hdng"><?php  echo $username;?> (<?php  echo $name;?>)</td>
+<td align="left" class="hdng"><?php  echo $nm2?></td>
 <td align="center" style="cursor:pointer;" class="hdng">
-<a href="menu_assign_edit.php?sl=<?=$sl;?>"><i class="fa fa-pencil-square-o" title="Click to Update"></i></a>
+<a href="menu_assign_edit.php?sl=<?php  echo $sl;?>"><i class="fa fa-pencil-square-o" title="Click to Update"></i></a>
 </td>
 </tr>	 
-<?php
+<?php 
 }
 ?>
 </table>					

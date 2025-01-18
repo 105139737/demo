@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 
@@ -12,7 +12,7 @@ if($fdt=="" and $tdt=="")
 	alert("Please fill all Field.....");
 	window.history.go(-1);
 	</script>
-	<?
+	<?php 
 }
 else
 {
@@ -25,5 +25,5 @@ else
 	alert("Update Successfully.....");
 	window.location="ssn_update.php";
 	</script>
-	<?
+	<?php 
 }

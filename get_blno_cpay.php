@@ -1,10 +1,10 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
-$sl=$_REQUEST[sl];
-$pno=$_REQUEST[pno];
- $cid=$_REQUEST[cid];
-$brncd=$_REQUEST[brncd];if($brncd==""){$brncd1="";}else{$brncd1=" and brncd='$brncd'";}
+$sl=$_REQUEST['sl'];
+$pno=$_REQUEST['pno'] ?? "";
+ $cid=$_REQUEST['cid'] ?? "";
+$brncd=$_REQUEST['brncd'] ?? "";if($brncd==""){$brncd1="";}else{$brncd1=" and brncd='$brncd'";}
 if($cid!="")
 {
 $cid1=" and cid='$cid' ";
@@ -18,7 +18,7 @@ $cld=" and cldgr='$sl'";
 ?>
 <select id="blno"  name="blno"   tabindex="2" class="form-control"  onchange="gtcrvlfi()">
 <!--<option value="Opening">Opening</option>-->
-<?
+<?php 
 
 $data2= mysqli_query($conn,"select * from  main_billing where bcd='$brncd' and invto='$cid'")or die(mysqli_error($conn));
 while ($row2 = mysqli_fetch_array($data2))
@@ -53,15 +53,15 @@ $T=$t1-$t2;
 */
 
 ?>
-<option value="<?=$blno?>"><?=$blno?> <?=$nm;?> <?=$sfno;?> Due Am. : <?=round($T,2)?>/- (Date : <?=$dt;?>) </option>
-<?
+<option value="<?php  echo $blno?>"><?php  echo $blno?> <?php  echo $nm;?> <?php  echo $sfno;?> Due Am. : <?php echo round($T,2)?>/- (Date : <?php  echo $dt;?>) </option>
+<?php 
 
 
 ?>
 
-<?}?>
+<?php }?>
 
-<?
+<?php 
 $data11= mysqli_query($conn,"select * from  main_addon where brncd='$brncd' and cid='$cid'")or die(mysqli_error($conn));
 while ($row1 = mysqli_fetch_array($data11))
 {
@@ -85,13 +85,13 @@ $T=$t1-$t2;
 if($T>0)
 {
 ?>
-<option value="<?=$blno?>"><?=$blno?> (Date : <?=$dt;?>)</option>
-<?
+<option value="<?php  echo $blno?>"><?php  echo $blno?> (Date : <?php  echo $dt;?>)</option>
+<?php 
 }
 
 ?>
 
-<?}?>
+<?php }?>
 </select>
 <script type="text/javascript">
    $('#blno').chosen({

@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 0;
 include("membersonly.inc.php");
 $fdt=$_REQUEST['fdt'];
@@ -26,7 +26,7 @@ $datas[3]="";
 $datas[4]="";
 fputcsv($fp, $datas);
 }
-fputs($fp, implode($header, ',')."\n");
+fputs($fp, implode(',',$header)."\n");
 
 $num_column = count($header);
 

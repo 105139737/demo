@@ -1,20 +1,20 @@
-<?
+<?php 
 $reqlevel = 3; 
 include("membersonly.inc.php");
 include("function.php");
-$fdt=$_REQUEST['fdt'];
-$tdt=$_REQUEST['tdt'];
-$snm=$_REQUEST['snm'];
-$brncd=$_REQUEST['brncd'];
-$sman=$_REQUEST['sman'];
-$val=$_REQUEST['val'];
-$dt=$_REQUEST['dt'];
-$dt_show=$_REQUEST['dt'];
-$invto=$_REQUEST['invto'];
-$order_by=$_REQUEST['order_by'];
-$cat=$_REQUEST['cat'];
+$fdt=$_REQUEST['fdt'] ?? "";
+$tdt=$_REQUEST['tdt'] ?? "";
+$snm=$_REQUEST['snm'] ?? "";
+$brncd=$_REQUEST['brncd'] ?? "";
+$sman=$_REQUEST['sman'] ?? "";
+$val=$_REQUEST['val'] ?? "";
+$dt=$_REQUEST['dt'] ?? "";
+$dt_show=$_REQUEST['dt'] ?? "";
+$invto=$_REQUEST['invto'] ?? "";
+$order_by=$_REQUEST['order_by'] ?? "";
+$cat=$_REQUEST['cat'] ?? "";
 
-$btyp=rawurldecode($_REQUEST['btyp']);
+$btyp=rawurldecode($_REQUEST['btyp'] ?? "");
 $btyp=str_replace("@","'",$btyp);
 $refsl=$_REQUEST['refsl'];
 $blno=rawurldecode($_REQUEST['blno']);if($blno!=""){$blno1=" and cbill like '%$blno%' ";}else{$blno1="";}
@@ -119,8 +119,8 @@ table {
 <thead>
 	<tr bgcolor="#e8ecf6">
 	<td align="left" valign="top" colspan="9"><font size="2" >
-	<font size="3"><b>Due List Up To <?=$dt_show;?></b></font><br>
-	  <?=$bto."<br>".$baddr."<br>";
+	<font size="3"><b>Due List Up To <?php  echo $dt_show;?></b></font><br>
+	  <?php  echo $bto."<br>".$baddr."<br>";
 	if($bmob!="")
 	{
 	echo "Mob : ".$bmob;
@@ -141,7 +141,7 @@ table {
 	</tr>	
 </thead>
 <tbody>
-<?
+<?php 
 $tot=0;
 $tot_over_due=0;
 $tot_bill_amm=0;
@@ -255,19 +255,19 @@ if($T!=0 and $due_stat=="1")
 
 		
 <tr>
-<td  align="center" ><?=$slno;?></td>
-<td  align="left"><?=$als;?></td>
-<td  align="center"><?=$bill_dt;?></td>
+<td  align="center" ><?php  echo $slno;?></td>
+<td  align="left"><?php  echo $als;?></td>
+<td  align="center"><?php  echo $bill_dt;?></td>
 
-<td  align="left" ><a onclick="vwdtl('<?=$blno;?>')" title="Click Here To View "><?=$blno;?></a></td>
-<td  align="left" ><?=$nm;?> <?=$invnm;?> <?=$sfno;?></td>
-<td  align="right" ><?=$bill_amm;?></td>
-<td  align="right" ><?=round($T,2);?></td>
-<td  align="center" ><?=$over_due;?></td>
+<td  align="left" ><a onclick="vwdtl('<?php  echo $blno;?>')" title="Click Here To View "><?php  echo $blno;?></a></td>
+<td  align="left" ><?php  echo $nm;?> <?php  echo $invnm;?> <?php  echo $sfno;?></td>
+<td  align="right" ><?php  echo $bill_amm;?></td>
+<td  align="right" ><?php echo round($T,2);?></td>
+<td  align="center" ><?php  echo $over_due;?></td>
 
-<td  align="center" ><?=$sale_per;?></td>
+<td  align="center" ><?php  echo $sale_per;?></td>
 </tr>
-<?
+<?php 
 $tot+=$T;
 $tot_over_due+=$over_due;
 $tot_bill_amm+=$bill_amm;
@@ -276,19 +276,19 @@ if($due_stat=="0")
 {
 ?>
 <tr>
-<td  align="center" ><b><?=$slno;?></b></td>
-<td  align="left"><b><?=$als;?></b></td>
-<td  align="center"><b><?=$bill_dt;?></b></td>
+<td  align="center" ><b><?php  echo $slno;?></b></td>
+<td  align="left"><b><?php  echo $als;?></b></td>
+<td  align="center"><b><?php  echo $bill_dt;?></b></td>
 
-<td  align="left" ><a onclick="vwdtl('<?=$blno;?>')" title="Click Here To View "><b><?=$blno;?></b></a></td>
-<td  align="left" ><b><?=$nm;?> <?=$invnm;?> <?=$sfno;?></b></td>
-<td  align="right" ><b><?=$bill_amm;?></b></td>
-<td  align="right" ><b><?=round($T,2);?></b></td>
-<td  align="center" ><b><?=$over_due;?></b></td>
+<td  align="left" ><a onclick="vwdtl('<?php  echo $blno;?>')" title="Click Here To View "><b><?php  echo $blno;?></b></a></td>
+<td  align="left" ><b><?php  echo $nm;?> <?php  echo $invnm;?> <?php  echo $sfno;?></b></td>
+<td  align="right" ><b><?php  echo $bill_amm;?></b></td>
+<td  align="right" ><b><?php echo round($T,2);?></b></td>
+<td  align="center" ><b><?php  echo $over_due;?></b></td>
 
-<td  align="left" ><b><?=$sale_per;?></b></td>
+<td  align="left" ><b><?php  echo $sale_per;?></b></td>
 </tr>
-<?	
+<?php 	
 $tot+=$T;
 $tot_over_due+=$over_due;
 $tot_bill_amm+=$bill_amm;
@@ -299,8 +299,8 @@ $tot_bill_amm+=$bill_amm;
 </tbody>
 <tr bgcolor="#faf9e0">
 <td  align="right" colspan="5">Total : - </td>
-<td  align="right" ><?=round($tot_bill_amm,2);?></td>
-<td  align="right" ><?=round($tot,2);?></td>
+<td  align="right" ><?php echo round($tot_bill_amm,2);?></td>
+<td  align="right" ><?php echo round($tot,2);?></td>
 <td  align="center" ></td>
 <td></td>
 </tr>

@@ -1,10 +1,10 @@
-<?
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 $cat1=$_REQUEST['cat1'];
 $scat1=$_REQUEST['scat1'];
 ?>
-<input type="hidden" name="sscat" id="sscat" value="<?php echo $scat1;?>">
+<input type="hidden" name="sscat" id="sscat" value="<?php  echo $scat1;?>">
 
 <div class="box box-success">
 <table border="0"  class="table table-hover table-striped table-bordered" >
@@ -13,15 +13,15 @@ $scat1=$_REQUEST['scat1'];
 	<td  align="left" width="30%">
 	<select name="cat" class="form-control" size="1" id="cat" tabindex="8" onchange="get_scat(this.value)" required >
 	<Option value="">---Select---</option>
-	<?
+	<?php 
 	$data1 = mysqli_query($conn,"Select * from main_catg order by cnm");
 	while ($row1 = mysqli_fetch_array($data1))
 	{
 	$sl=$row1['sl'];
 	$cnm=$row1['cnm'];
 	?>
-	<option value="<?php echo $sl;?>" <?php if($cat1==$sl){?> selected <? } ?>><?php echo $cnm;?></option>
-	<?
+	<option value="<?php  echo $sl;?>" <?php  if($cat1==$sl){?> selected <?php  } ?>><?php  echo $cnm;?></option>
+	<?php 
 	}
 	?>
 	</select>
@@ -33,15 +33,15 @@ $scat1=$_REQUEST['scat1'];
 	<div id="catdiv">
 	<select name="scat" class="form-control" size="1" id="scat" tabindex="8" onchange="get_igst()">
 	<Option value="">---Select---</option>
-	<?
+	<?php 
 	$data12=mysqli_query($conn,"Select * from main_scat order by nm");
 	while($row12=mysqli_fetch_array($data12))
 	{
 		$sc_sl=$row12['sl'];
 		$sc_nm=$row12['nm'];
 		?>
-		<option value="<?php echo $sc_sl;?>" <?php if($scat1 ==$sc_sl){?> selected <? } ?>><?php echo $sc_nm;?></option>
-		<?
+		<option value="<?php  echo $sc_sl;?>" <?php  if($scat1 ==$sc_sl){?> selected <?php  } ?>><?php  echo $sc_nm;?></option>
+		<?php 
 	}
 	?>
 	</select>
@@ -159,7 +159,7 @@ $scat1=$_REQUEST['scat1'];
 
 </div> 
 <script type="text/javascript" language="javascript">
-get_scat('<?php echo $cat1;?>')
+get_scat('<?php  echo $cat1;?>')
 function get_scat(brnd)  
 {
 var sscat=document.getElementById('sscat').value;

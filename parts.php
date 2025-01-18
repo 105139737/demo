@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include "header.php";
@@ -6,7 +6,7 @@ include "header.php";
 <html>
 <head>
         <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <style type="text/css"> 
@@ -161,7 +161,7 @@ return false;
             <td  align="left">
 		<select name="cat" class="form-control" size="1" id="cat" tabindex="8"  required>
 				<Option value="">---Select---</option>
-<?
+<?php 
 
 $data1 = mysqli_query($conn,"Select * from main_catg order by cnm");
 
@@ -182,7 +182,7 @@ $data1 = mysqli_query($conn,"Select * from main_catg order by cnm");
             <td  align="left">
 		<select name="bnm" class="form-control" size="1" id="bnm" tabindex="8"  required>
 				<Option value="">---Select---</option>
-<?
+<?php 
 
 $data2 = mysqli_query($conn,"Select * from main_brand order by brand");
 

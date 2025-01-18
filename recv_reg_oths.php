@@ -1,6 +1,11 @@
-<?php
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
+$err="";
+$type="";
+$invto="";
+$cust_nm="";
+$cust_cont="";
 $edtm = date('d-m-Y h:i:s a', time());
 $edtmm = date('Y-m-d h:i:s a');
 $edt=date('Y-m-d');	
@@ -105,7 +110,7 @@ $vnos=$rows['vno'];
 }	
 
 $vid1=substr($vnos,2,7);
-	$vid1=$vid1+1;
+	$vid1=(float)$vid1+1;
 	$vnoc=str_pad($vid1, 7, '0', STR_PAD_LEFT);
 	$vcno="SV".$vnoc;	
 $count6=5;
@@ -315,16 +320,16 @@ $sms=send_sms($mob,$message,'1');
 ?>
 <script language="javascript">
 alert('Added Successfully. Thank You..!');
-document.location = "recv_reg_oth.php?bsl=<?php echo $bsl;?>&dt=<?php echo $dt;?>&brncd1=<?php echo $brncd;?>";
+document.location = "recv_reg_oth.php?bsl=<?php  echo $bsl;?>&dt=<?php  echo $dt;?>&brncd1=<?php  echo $brncd;?>";
 </script>
-<?	
+<?php 	
 }
 else
 {
 ?>
 <script language="javascript">
-alert('<?=$err;?>');
-document.location = "recv_reg_oth.php?bsl=<?php echo $bsl;?>&dt=<?php echo $dt;?>&brncd1=<?php echo $brncd;?>";
+alert('<?php  echo $err;?>');
+document.location = "recv_reg_oth.php?bsl=<?php  echo $bsl;?>&dt=<?php  echo $dt;?>&brncd1=<?php  echo $brncd;?>";
 </script>
-<?	
+<?php 	
 }

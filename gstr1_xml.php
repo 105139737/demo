@@ -1,4 +1,4 @@
-<?php
+<?php 
 require("config.php");
 $mnth=$_REQUEST['mnth'];
 $yr=$_REQUEST['yr'];

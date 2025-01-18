@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 include "header.php";
@@ -6,7 +6,8 @@ include "function.php";
 
 $order_no=$_REQUEST['blno'];
 $bill_typ=$_REQUEST['bsl'];
-
+$sale_per="";
+$cid="";
 if($order_no!="")
 {
 
@@ -789,7 +790,7 @@ document.forms["form1"].submit();
 function godown()
 {
 prnm=document.getElementById('prnm').value;	
-$("#g_gwn").load("get_gwn_sale.php?prnm="+prnm).fadeIn('fast');	
+$("#g_gwn").load("get_gwn_sale_inv_formate.php?prnm="+prnm).fadeIn('fast');	
 }
 
 
@@ -870,9 +871,9 @@ $("#cust_src1").load("get_cust_src1.php?cs="+cs+"&tp="+tp).fadeIn('fast');
                           
 <form method="post" target="" name="form1" id="form1"  action="billings-gst_dup.php">
 
-<input type="hidden" class="form-control" value="<?=$bill_typ;?>"  tabindex="1"  name="bill_typ" id="bill_typ" >  							
-<input type="hidden" class="form-control" value="<?=$brand;?>"  tabindex="1"  name="brnd" id="brnd" >  							
-<input type="hidden" class="form-control" value="<?=$order_no;?>"  tabindex="1"  name="order_no" id="order_no" >  							
+<input type="hidden" class="form-control" value="<?php  echo $bill_typ;?>"  tabindex="1"  name="bill_typ" id="bill_typ" >  							
+<input type="hidden" class="form-control" value="<?php  echo $brand;?>"  tabindex="1"  name="brnd" id="brnd" >  							
+<input type="hidden" class="form-control" value="<?php  echo $order_no;?>"  tabindex="1"  name="order_no" id="order_no" >  							
 <input type="hidden" class="form-control" value=""  tabindex="1"  name="prc1" id="prc1" >  							
 
 <div class="box box-success" >
@@ -880,11 +881,11 @@ $("#cust_src1").load("get_cust_src1.php?cs="+cs+"&tp="+tp).fadeIn('fast');
  <table border="0" width="860px" class="table table-hover table-striped table-bordered">
   <tr>
   <td align="left" style="padding-top:15px;" width="35%"><b>Ledger Name : </b>
-  <input type="text" id="cs" name="cs" value="cash" onkeyup="cust_srch('<?php echo $tp;?>')" placeholder=" Enter 3 Digit Name / 10 Digit Mobile No.">
+  <input type="text" id="cs" name="cs" value="cash" onkeyup="cust_srch('<?php  echo $tp;?>')" placeholder=" Enter 3 Digit Name / 10 Digit Mobile No.">
   <div id="cust_src">
 <select id="custnm" name="custnm" tabindex="1" class="form-control" onchange="gtid()">
 <option value="">---Select---</option>
-	<?php
+	<?php 
 	/*if($tp=='2'){$qury=" and find_in_set(brand,'$brand')>0 ";}
 	//$query="select * from main_cust  WHERE sl>0 and typ='$tp' $qury $qury1 order by nm";
 	$query="select * from main_cust  WHERE sl>0 and brncd='$brncd' $qury order by nm";
@@ -893,8 +894,8 @@ $("#cust_src1").load("get_cust_src1.php?cs="+cs+"&tp="+tp).fadeIn('fast');
 	{
 		$typ1=$rw['typ'];				
 		?>
-		<option value="<?=$rw['sl'];?>" <?if($cid==$rw['sl']){?> selected <?}?>><?=$rw['nm'];?> <?if($rw['cont']!=""){?>( <?=$rw['cont'];?> )<?}?> </option>
-		<?
+		<option value="<?php  echo $rw['sl'];?>" <?php if($cid==$rw['sl']){?> selected <?php }?>><?php  echo $rw['nm'];?> <?php if($rw['cont']!=""){?>( <?php  echo $rw['cont'];?> )<?php }?> </option>
+		<?php 
 	}*/
 	?>
 	</select>
@@ -905,20 +906,20 @@ $("#cust_src1").load("get_cust_src1.php?cs="+cs+"&tp="+tp).fadeIn('fast');
 	<input type="text" id="mob" class="form-control" style="font-weight: bold;" readonly="true" name="mob" value=""  tabindex="1" size="35" placeholder="Customer Contact No.">
 	</td>
 	<td align="left" style="padding-top:15px;" width="35%" ><b>Customer Name: </b>
-	<input type="text" id="cs1" name="cs1" size="40" value="" onkeyup="cust_srch1('<?php echo $tp;?>')"  placeholder="Enter 3 Digit Name / 10 Digit Mobile No.">
+	<input type="text" id="cs1" name="cs1" size="40" value="" onkeyup="cust_srch1('<?php  echo $tp;?>')"  placeholder="Enter 3 Digit Name / 10 Digit Mobile No.">
 	<div id="cust_src1">
 	<select id="invto" name="invto" tabindex="1"  class="form-control"  onchange="adnew()" >
 	<option value="">---Select---</option>
 	<option value="Add">---Add New Customer---</option>
-	<?
+	<?php 
 		/*$query="select * from main_cust WHERE sl>0 and typ='$tp'  order by nm";
 		$result=mysqli_query($conn,$query);
 		while($rw=mysqli_fetch_array($result))
 		{
 		$typ1=$rw['typ'];				
 			?>
-			<option value="<?=$rw['sl'];?>"><?=$rw['nm'];?> <?if($rw['cont']!=""){?>( <?=$rw['cont'];?> )<?}?> </option>
-			<?
+			<option value="<?php  echo $rw['sl'];?>"><?php  echo $rw['nm'];?> <?php if($rw['cont']!=""){?>( <?php  echo $rw['cont'];?> )<?php }?> </option>
+			<?php 
 		}*/
 	?>
 	</select>
@@ -928,7 +929,7 @@ $("#cust_src1").load("get_cust_src1.php?cs="+cs+"&tp="+tp).fadeIn('fast');
 	
 	<td align="left" style="padding-top:15px"><b>Branch : </b>
 	<select name="brncd" class="form-control" tabindex="1" id="brncd"  >
-	<?
+	<?php 
 	
 	$query="Select * from main_branch where sl='$brncd'";
    $result = mysqli_query($conn,$query);
@@ -938,8 +939,8 @@ $("#cust_src1").load("get_cust_src1.php?cs="+cs+"&tp="+tp).fadeIn('fast');
 	$bnm=$R['bnm'];
 
 	?>
-	<option value="<? echo $sl;?>"><? echo $bnm;?></option>
-	<?
+	<option value="<?php  echo $sl;?>"><?php  echo $bnm;?></option>
+	<?php 
 	}
 	?>
 	</select>
@@ -958,17 +959,17 @@ $("#cust_src1").load("get_cust_src1.php?cs="+cs+"&tp="+tp).fadeIn('fast');
 <tr>
 
 	<td align="left" style="padding-top:15px;"> <b>Date : </b>
-	<input type="text" class="form-control"  id="dt"  name="dt" value="<? echo date('d-m-Y');?>" tabindex="1" size="35" placeholder="Enter Date">
+	<input type="text" class="form-control"  id="dt"  name="dt" value="<?php  echo date('d-m-Y');?>" tabindex="1" size="35" placeholder="Enter Date">
 	</td>
 	<td align="left" style="padding-top:15px;"> <b>Bill Type : </b>
 	<select id="cust_typ" name="cust_typ" class="form-control" onchange="get_prc()" tabindex="1">
-	<?
+	<?php 
 	$p=mysqli_query($conn,"select * from main_cus_typ where sl='$tp'") or die (mysqli_error($conn));
 	while($rw2=mysqli_fetch_array($p))
 	{
 	?>
-	<option value="<?=$rw2['sl'];?>" <?if($tp==$rw2['sl']){echo 'selected';}?>><?=$rw2['tp'];?></option>
-	<?
+	<option value="<?php  echo $rw2['sl'];?>" <?php if($tp==$rw2['sl']){echo 'selected';}?>><?php  echo $rw2['tp'];?></option>
+	<?php 
 	}
 	?>
 	</select>
@@ -976,14 +977,14 @@ $("#cust_src1").load("get_cust_src1.php?cs="+cs+"&tp="+tp).fadeIn('fast');
 	
 	
 	</td>
-<?
+<?php 
 if($tp!=1)
 {
 ?>	
 	<td align="left" style="padding-top:15px;"><b>Transportation Mode : </b>
 	<input type="text"  class="form-control" style="font-weight: bold;" id="tmod" name="tmod" value="" tabindex="1" >
 	</td>
-<?}
+<?php }
 else
 {
 	
@@ -996,14 +997,14 @@ else
 	<div id="fst_div">
 	<select id="fst" data-placeholder="Choose Your Supplier" name="fst"  tabindex="1" class="form-control" onchange="get_gst()" >
 
-	<?
+	<?php 
 	$sql="SELECT * FROM main_state WHERE sl>0 ORDER BY sn";
 	$result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
 	while($row=mysqli_fetch_array($result))
 	{
 	?>
-	<option value="<?=$row['sl'];?>"<?if($row['sl']=='1'){echo 'selected';}?>><?=$row['sn'];?> - <?=$row['cd'];?></option>
-	<?}?>
+	<option value="<?php  echo $row['sl'];?>"<?php if($row['sl']=='1'){echo 'selected';}?>><?php  echo $row['sn'];?> - <?php  echo $row['cd'];?></option>
+	<?php }?>
 	</select>
 	</div>
 	</td>
@@ -1011,19 +1012,19 @@ else
 	<div id="tst_div">
 	<select id="tst" data-placeholder="Choose Your Supplier" name="tst"  tabindex="1" class="form-control" onchange="get_gst()"  >
 
-	<?
+	<?php 
 	$sql="SELECT * FROM main_state WHERE sl>0 ORDER BY sn";
 	$result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
 	while($row=mysqli_fetch_array($result))
 	{
 	?>
-	<option value="<?=$row['sl'];?>"<?if($row['sl']=='1'){echo 'selected';}?>><?=$row['sn'];?> - <?=$row['cd'];?></option>
-	<?}?>
+	<option value="<?php  echo $row['sl'];?>"<?php if($row['sl']=='1'){echo 'selected';}?>><?php  echo $row['sn'];?> - <?php  echo $row['cd'];?></option>
+	<?php }?>
 	</select>
 	</div>
 	</td>
 </tr>
-<?
+<?php 
 if($tp!=1)
 {
 ?>
@@ -1039,9 +1040,9 @@ if($tp!=1)
 	<input type="text"  class="form-control" style="font-weight: bold;" id="lpd" name="lpd" value="" tabindex="1" onkeypress="return isNumber(event)">
 	</td>
 </tr>
-<?}?>
+<?php }?>
 <tr>
-<?
+<?php 
 if($tp!=2)
 {
 ?>
@@ -1051,12 +1052,12 @@ if($tp!=2)
 	<td align="left" style="padding-top:15px;"><b>Month Duration</b>
 	<input type="text"  onkeypress="return isNumber(event)" maxlength="4" class="form-control" style="font-weight: bold;" onkeypress="return isNumber(event)" id="dur_mnth" name="dur_mnth">
 	</td>
-<?}?>
+<?php }?>
 
 <td align="left" style="padding-top:15px;" width="35%"><b>Sales Person :</b>
 <select id="sale_per" name="sale_per" tabindex="1"  class="form-control">
 <option value="">---Select---</option>
-<?
+<?php 
 $queryss="select * from main_sale_per  WHERE sl>0 order by spid";
 $resultss=mysqli_query($conn,$queryss);
 while($rwss=mysqli_fetch_array($resultss))
@@ -1064,25 +1065,25 @@ while($rwss=mysqli_fetch_array($resultss))
 $spid=$rwss['spid'];
 $spnm=$rwss['nm'];
 ?>
-<option value="<?=$spid;?>" <?if($sale_per==$spid){echo 'selected';}?>><?=$spid?></option>
-<?
+<option value="<?php  echo $spid;?>" <?php if($sale_per==$spid){echo 'selected';}?>><?php  echo $spid?></option>
+<?php 
 }
 ?>
 </select>
 
 </td>
-<?
+<?php 
 if($tp==2)
 {
 ?>
 <td></td>
 <td></td>
-<?}?> 
+<?php }?> 
 </tr>
 <tr>
 <td align="left" style="padding-top:15px;">
 <b>Invoice No. : </b>
-<input type="text"  class="form-control" style="font-weight: bold;" id="invno" name="invno" value="<?php echo $blno;?>" tabindex="1" >
+<input type="text"  class="form-control" style="font-weight: bold;" id="invno" name="invno" value="<?php  echo $blno;?>" tabindex="1" >
 </td>
 </tr>
 
@@ -1097,7 +1098,7 @@ if($tp==2)
 
 <select name="cat1" class="form-control" size="1" id="cat1" tabindex="1" onchange="get_scat();get_prod()">
 <Option value="">---Brand---</option>
-<?
+<?php 
 $data1 = mysqli_query($conn,"Select * from main_catg where stat='0' and find_in_set(sl,'$brand')>0 order by cnm");
 while ($row1 = mysqli_fetch_array($data1))
 {
@@ -1112,7 +1113,7 @@ echo "<option value='".$sl."' selected>".$cnm."</option>";
 <div id="scatdiv">
 <select name="scat1" class="form-control" size="1" id="scat1" tabindex="1" onchange="get_prod()">
 <Option value="">---Category---</option>
-<?
+<?php 
 $data2 = mysqli_query($conn,"Select * from main_scat where stat='0' and find_in_set(cat,'$brand')>0 order by nm");
 while ($row2 = mysqli_fetch_array($data2))
 {
@@ -1175,7 +1176,7 @@ echo "<option value='".$ssl."'>".$snm."</option>";
 <td align="left" >
 <div id="g_gwn">
 <select name="bcd" class="form-control" tabindex="10"  size="1" id="bcd" onchange="gtt_unt()">
-<?
+<?php 
 $geti=mysqli_query($conn,"select * from main_godown order by sl") or die(mysqli_error($conn));
 while($rowi=mysqli_fetch_array($geti))
 {
@@ -1184,8 +1185,8 @@ $gnm=$rowi['gnm'];
 $bnm=$rowi['bnm'];
 
 ?>
-<option value="<? echo $sl;?>"><? echo $gnm;?></option>
-<?
+<option value="<?php  echo $sl;?>"><?php  echo $gnm;?></option>
+<?php 
 }
 ?>
 </select>
@@ -1308,7 +1309,7 @@ $bnm=$rowi['bnm'];
 </div>
 
 <div class="box box-success" >
-<?
+<?php 
 if($tp!=2)
 {
 ?>
@@ -1318,13 +1319,13 @@ if($tp!=2)
 <td align="left" >
 <font color="red">*</font><b>Cash Or Bank Ac. :</b>
 <select  name="dldgr" id="dldgr"   class="form-control"  tabindex="1">
-<?php 
+<?php  
 $get = mysqli_query($conn,"SELECT * FROM main_ledg where gcd='1' or gcd='2'") or die(mysqli_error($conn));
 while($row = mysqli_fetch_array($get))
 {
 ?>
-<option value="<?=$row['sl']?>"<?=$row['sl'] == '3' ? 'selected' : '' ?>><?=$row['nm']?></option>
-<?php 
+<option value="<?php  echo $row['sl']?>"<?php  echo $row['sl'] == '3' ? 'selected' : '' ?>><?php  echo $row['nm']?></option>
+<?php  
 } 
 ?>
 </select>
@@ -1332,7 +1333,7 @@ while($row = mysqli_fetch_array($get))
 
 <td><b>Payment Mode: </b>
 <select name="mdt" size="1" id="mdt" tabindex="1" onchange="pmod(this.value)" class="form-control">
-<?
+<?php 
 $data2 = mysqli_query($conn,"select * from ac_paymtd ");
 
 while ($row2 = mysqli_fetch_array($data2))
@@ -1394,7 +1395,7 @@ echo "<option value='".$msl."'>".$mtd."</option>";
 </td>
 </tr>
 </table>
-<?}
+<?php }
 else
 {
 ?>
@@ -1405,11 +1406,11 @@ else
 </td>
 </tr>
 </table>
-<?
+<?php 
 	
 }
 ?>
-<input type="hidden" id="prid"  name="prid" value="<? echo $cid;?>">
+<input type="hidden" id="prid"  name="prid" value="<?php  echo $cid;?>">
 <input type="hidden" id="stk" >
 <input type="hidden" id="fls" >
 

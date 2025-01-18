@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 date_default_timezone_set('Asia/Kolkata');
@@ -6,7 +6,7 @@ $edt=date('y-m-d');
 $edtm=date('y-m-d H:i:s a');
 
 $sl=$_POST['sl'];
-$bnm=$_POST['bnm'];
+$bnm=$_POST['bnm'] ?? "";
 $gnm=$_POST['gnm'];
 $addr=$_POST['addr'];
 $dist=$_POST['dist'];
@@ -18,7 +18,7 @@ if($gnm=="")
 	alert('Please Fill All The Field');
 	history.go(-1);
 	</script>
-	<?
+	<?php 
 }
 else
 {
@@ -36,7 +36,7 @@ else
 			alert('Submitted Successfully. Thank You');
 			document.location="godown.php";
 			</script>
-			<?
+			<?php 
 	}
 	else
 	{
@@ -45,7 +45,7 @@ else
 			alert('Data Already Exists');
 			history.go(-1);
 			</script>
-			<?
+			<?php 
 	}
 	}
 	else
@@ -61,7 +61,7 @@ else
 			alert('Update Successfully. Thank You');
 			document.location="godown.php";
 			</script>
-			<?
+			<?php 
 	}
 	else
 	{
@@ -70,7 +70,7 @@ else
 			alert('Data Already Exists');
 			history.go(-1);
 			</script>
-			<?
+			<?php 
 	}
 		
 		

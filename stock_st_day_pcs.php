@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 
@@ -8,11 +8,11 @@ $dt = date('d-M-Y');
  
 $cy=date('Y');
 $pnm=$_REQUEST[pnm];
-$fdt=$_REQUEST[fdt];
-$tdt=$_REQUEST[tdt];
-$cat=$_REQUEST[cat];
-$scat=$_REQUEST[scat];
-$brncd=$_REQUEST[brncd];
+$fdt=$_REQUEST['fdt'];
+$tdt=$_REQUEST['tdt'];
+$cat=$_REQUEST['cat'] ?? "";
+$scat=$_REQUEST['scat'] ?? "";
+$brncd=$_REQUEST['brncd'] ?? "";
 if($brncd==""){$brncd1="";}else{$brncd1=" and bcd='$brncd'";}
 $tdt=date('Y-m-d',strtotime($tdt));
 $fdt=date('Y-m-d',strtotime($fdt));
@@ -37,7 +37,7 @@ if($pnm!=""){$all1=" and sl='$pnm'";}else{$all1="";	}
 <td  align="center" ><b>Sale</b></td>
 <td  align="center" ><b>Closing Stcok</b></td>
 </tr>
-<?
+<?php 
 $sl=$start;
 $c1='odd';
 $c3=0;
@@ -144,16 +144,16 @@ $value=$stck*$rate;
 $tval+=$value;
 			 ?>
 <tr>
-<td  align="center" ><?=$sln;?></td>
-<td align="left"><?=$cnm;?></td>
-<td align="left"><?=$snm;?></td>
-<td  align="left" title="<?=$pcd?>"><?=$nm;?></td>
-<td  align="center"><?echo $stock_op;?></td>
-<td  align="center"><?=$stock_in;?></td>
-<td  align="center"><?=$stock_out;?></td>
-<td  align="center"><?=$stock_close;?></td>
+<td  align="center" ><?php  echo $sln;?></td>
+<td align="left"><?php  echo $cnm;?></td>
+<td align="left"><?php  echo $snm;?></td>
+<td  align="left" title="<?php  echo $pcd?>"><?php  echo $nm;?></td>
+<td  align="center"><?php echo $stock_op;?></td>
+<td  align="center"><?php  echo $stock_in;?></td>
+<td  align="center"><?php  echo $stock_out;?></td>
+<td  align="center"><?php  echo $stock_close;?></td>
 </tr>	 
-<?
+<?php 
 
 }
 ?>

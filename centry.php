@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 1;
 include("membersonly.inc.php");
 include "header.php";
@@ -6,7 +6,7 @@ include "header.php";
 <html>
 <head>
         <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <style type="text/css"> 
@@ -220,11 +220,11 @@ Branch Name:
 <td>
 <select name="from"  id="from" class="sc" >
 
-<?
+<?php 
 if ($user_current_level < 0)
 {
 ?>
-<?
+<?php 
 $query="Select * from main_branch";
 
    $result = mysqli_query($conn,$query);
@@ -233,17 +233,17 @@ while ($R = mysqli_fetch_array ($result))
 $sl=$R['sl'];
 $bnm=$R['bnm'];
 ?>
-<option value="<? echo $sl;?>"><? echo $bnm;?></option>
-<?
+<option value="<?php  echo $sl;?>"><?php  echo $bnm;?></option>
+<?php 
 }
 ?>
-<?	
+<?php 	
 }
 else
 {
 ?>
-<option value="<? echo $branch_sl;?>"><? echo $branch_nm;?></option>
-<?
+<option value="<?php  echo $branch_sl;?>"><?php  echo $branch_nm;?></option>
+<?php 
 }
 ?>
 </select>

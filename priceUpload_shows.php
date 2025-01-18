@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3; 
 include("membersonly.inc.php");
 include "function.php";
@@ -19,7 +19,7 @@ if($fdt!="" and $tdt!=""){$todt=" and dt between '$fdt' and '$tdt'";}else{$todt=
 	<td  align="center" ><b>Export</b></td>	
 	
 	</tr>
-	<?
+	<?php 
 $sln=0;
 $sln1=0;
 $data= mysqli_query($conn,"select * from  main_priceupload where sl>0 $todt  group by edtm")or die(mysqli_error($conn));
@@ -31,12 +31,12 @@ $edtm=$row['edtm'];
 $sln1++;
 	?>
 	<tr>	
-	<td align="center" ><b><font ><?=$sln1;?></font></b></td>
-	<td  align="left" ><b><font ><?=$edtm;?></font></b></td>
-	<td  align="center" ><b><a  href="priceUpload_show_xls.php?edtm=<?php echo $edtm;?>&cat=<?php echo $cat;?>" >Export To Excel</a></b> </td>
+	<td align="center" ><b><font ><?php  echo $sln1;?></font></b></td>
+	<td  align="left" ><b><font ><?php  echo $edtm;?></font></b></td>
+	<td  align="center" ><b><a  href="priceUpload_show_xls.php?edtm=<?php  echo $edtm;?>&cat=<?php  echo $cat;?>" >Export To Excel</a></b> </td>
 	</tr>
 	
-<?
+<?php 
 }
 ?>
 </table>

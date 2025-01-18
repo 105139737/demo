@@ -1,15 +1,15 @@
-<?php
+<?php 
 $reqlevel = 0;
 include("membersonly.inc.php");
 include "header.php";
-$csl=$_REQUEST[csl];
+$csl=$_REQUEST['csl'];
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
  <div class="wrapper row-offcanvas row-offcanvas-left">
-            <?
+            <?php 
             include "left_bar.php";
             ?>
 <head>
@@ -135,7 +135,7 @@ $(document).ready(function()
  <div class="box box-success" >
 <form name="Form1" method="post" action="crdt_notes.php" id="Form1">
 
-<?
+<?php 
  $data= mysqli_query($conn,"SELECT * FROM main_drcr where sl='$csl'")or die(mysqli_error($conn));
  
 	
@@ -161,25 +161,25 @@ $(document).ready(function()
 
 
 
-<input type="hidden" name="vno" id="vno" class="form-control" value="<?=$vno;?>">
-<input type="hidden" class="form-control"  value="<?php echo $bill_typ;?>" tabindex="1"  name="bsl" id="bsl" >              
+<input type="hidden" name="vno" id="vno" class="form-control" value="<?php  echo $vno;?>">
+<input type="hidden" class="form-control"  value="<?php  echo $bill_typ;?>" tabindex="1"  name="bsl" id="bsl" >              
 
 <table  width="860px" class="table table-hover table-striped table-bordered">
 
   <tr >
     <td align="right" width="20%" style="padding-top:15px"><font color="red">*</font><b>Date :</b></td>
     <td align="left" width="30%" >
-	<input type="text" name="dt" id="dt" value="<?=$dt;?>" class="form-control">
+	<input type="text" name="dt" id="dt" value="<?php  echo $dt;?>" class="form-control">
 	</td>
         <td align="right" style="padding-top:15px" ><font color="red">*</font><b>Branch :</b></td>
     <td align="left" >
  	<select name="brncd" class="form-control" size="1" id="brncd"  onchange="sh();" >
-<?
+<?php 
 if($user_current_level<0)
 {
 	?>
 	<option value="">---ALL---</option>
-	<?
+	<?php 
 }
 if($user_current_level<0)
 {
@@ -195,8 +195,8 @@ while ($R = mysqli_fetch_array ($result))
 $slb=$R['sl'];
 $bnm=$R['bnm'];
 ?>
-<option value="<?=$slb;?>"<? if($slb==$brncd){echo 'selected';}?>><?=$bnm;?></option>
-<?
+<option value="<?php  echo $slb;?>"<?php  if($slb==$brncd){echo 'selected';}?>><?php  echo $bnm;?></option>
+<?php 
 }
 ?>
 </select>
@@ -211,7 +211,7 @@ $bnm=$R['bnm'];
 							<input type="hidden" value="35" id="cldgr" name="cldgr"/> 
 		<select id="sid"  name="sid"  tabindex="2" class="form-control"  >
 		<option value="">---Select---</option>
-	<?
+	<?php 
 $query="Select * from  main_suppl order by spn";
    $result = mysqli_query($conn,$query);
 while ($R = mysqli_fetch_array ($result))
@@ -219,8 +219,8 @@ while ($R = mysqli_fetch_array ($result))
 $sid=$R['sl'];
 $spn=$R['spn'];
 ?>
-<option value="<? echo $sid;?>" <? if($sid==$sid1){echo 'selected';}?>><? echo $spn;?></option>
-<?
+<option value="<?php  echo $sid;?>" <?php  if($sid==$sid1){echo 'selected';}?>><?php  echo $spn;?></option>
+<?php 
 }
 ?>
 			</select>
@@ -228,18 +228,18 @@ $spn=$R['spn'];
 	</td>
 	<td align="right" style="padding-top:15px"><font color="red">*</font><b>Credit Note No. :</b></td>
     <td align="left" >
-    <input type="text" name="cno" id="cno" value="<?=$mtddtl;?>" class="form-control" />
+    <input type="text" name="cno" id="cno" value="<?php  echo $mtddtl;?>" class="form-control" />
 	</td>   
   </tr>
   
   <tr >
     <td align="right" style="padding-top:15px"><font color="red">*</font><b>Ammount :</b></td>
-    <td align="left" ><input type="text" name="amm" id="amm"  value="<?=$amm;?>"size="35" class="form-control" ></td>
+    <td align="left" ><input type="text" name="amm" id="amm"  value="<?php  echo $amm;?>"size="35" class="form-control" ></td>
 
     <td align="right" style="padding-top:15px"><b>Remark :</b></td>
     <td align="left"  colspan="3" >
-	<input type="text" name="nrtn" id="nrtn" value="<?=$nrtn;?>" class="form-control">
-	<input type="hidden" name="sl" id="sl" value="<?=$sl1;?>" class="form-control" readonly>
+	<input type="text" name="nrtn" id="nrtn" value="<?php  echo $nrtn;?>" class="form-control">
+	<input type="hidden" name="sl" id="sl" value="<?php  echo $sl1;?>" class="form-control" readonly>
 	</td>
   </tr>
   <tr >

@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3; 
 
 include("membersonly.inc.php");
@@ -54,7 +54,7 @@ $dis1=0;
 			
 		
 		     </tr>
-			 <?
+			 <?php 
 		$sln=0;
 		$tota=0;
 $tq=0;
@@ -114,21 +114,21 @@ $ttlpnt=$ttlpnt+$point;
 		$asd++;
 	}
  ?>
-		   <tr title="<?=$pcd." S Sl".$sl;?>">
-		   <?if($asd==1){?>
+		   <tr title="<?php  echo $pcd." S Sl".$sl;?>">
+		   <?php if($asd==1){?>
 		    <td  align="center"  >
-			<?=$sln;?>
+			<?php  echo $sln;?>
 			</td>
 			 <td  align="center" >
-			<?=$dt;?>
+			<?php  echo $dt;?>
 			</td>
 			<td  align="center" >
-				<a href="#" onclick="view('<?=$blno;?>')" title="Print"><?=$blno;?></a>
+				<a href="#" onclick="view('<?php  echo $blno;?>')" title="Print"><?php  echo $blno;?></a>
 			</td>
             <td  align="left" >
-			<?=$nm;?>
+			<?php  echo $nm;?>
 			</td>
-		   <?}
+		   <?php }
 		   else
 		   {
 			?>
@@ -145,24 +145,24 @@ $ttlpnt=$ttlpnt+$point;
 		
 			</td> 
 			
-		   <?
+		   <?php 
 		   }
 		   ?>
 		   
-			<td  align="left" title="<?=$pcd;?>" >
-			<?=$pcd;?>
+			<td  align="left" title="<?php  echo $pcd;?>" >
+			<?php  echo $pcd;?>
 			</td>
 			<td  align="center" >
-			<b><?=$point;?></b>
+			<b><?php  echo $point;?></b>
 			</td>
 			<td  align="center" >
-			<b><?=$pty1;?></b>
+			<b><?php  echo $pty1;?></b>
 			</td>
 			<td  align="center" >
-			<?=$prc;?>
+			<?php  echo $prc;?>
 			</td>
 			<td  align="center" >
-			<?=$ttl;?>
+			<?php  echo $ttl;?>
 			</td>
 			<td  align="center" >
 			
@@ -173,7 +173,7 @@ $ttlpnt=$ttlpnt+$point;
 		
 		     </tr>	 
 			 
-<?
+<?php 
 $qtyt=$pty1+$qtyt;
 $tamm=$ttl+$tamm;
 $tq=$pty1+$tq;
@@ -186,12 +186,12 @@ if($qtyt!=0)
 <td colspan="5" align="right">
 <b>Total</b>
 </td><td colspan="" align="center">
-<b><?=$ttlpnt;?></b>
+<b><?php  echo $ttlpnt;?></b>
 </td>
 <td align="center">
 <font size="3">
 <b>
-<?=$qtyt;?>
+<?php  echo $qtyt;?>
 </b>
 </font>
 </td>
@@ -199,7 +199,7 @@ if($qtyt!=0)
 </td>
 <td align="center">
 <font size="3">
-<b><?=$tamm;?></b>
+<b><?php  echo $tamm;?></b>
 </font>
 </td>
 
@@ -207,14 +207,14 @@ if($qtyt!=0)
 <td align="right">
 <font size="3" color="red">
 <b>
-<?=sprintf('%0.2f', $tamm+$car+$vatamm-$dis);?>
+<?php echo sprintf('%0.2f', $tamm+$car+$vatamm-$dis);?>
 
 </b>
 </font>
 </td>
 
 </tr>
-<?
+<?php 
 
 
 }
@@ -230,25 +230,25 @@ $gttlpnt=$gttlpnt+$ttlpnt;
 <b>Total</b>
 </td>
 <td  align="center">
-<b><?=$gttlpnt;?></b>
+<b><?php  echo $gttlpnt;?></b>
 </td>
 
 <td align="center">
 <b>
-<?=$tq;?>
+<?php  echo $tq;?>
 </b>
 </td>
 <td>
 </td>
 <td align="center">
 <b>
-<?=$tamm1;?>
+<?php  echo $tamm1;?>
 </b>
 </td>
 <td  align="right" >
 		<font size="3" color="red">
 <b>
-<?=sprintf('%0.2f', $tamm1+$car1+$vatamm1-$dis1);?>
+<?php echo sprintf('%0.2f', $tamm1+$car1+$vatamm1-$dis1);?>
 
 </b>
 </font>

@@ -1,4 +1,4 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 date_default_timezone_set('Asia/Kolkata');
@@ -57,23 +57,23 @@ if($mobid!="")
 	<tr><td colspan="5" style="text-align:center"><font size="4" color="#109e59"><b>Customer Details</b></font></td></tr>
 	<tr>
 	<td style="text-align:left;">
-	<b>Name: </b><?=$cnm;?><br>
-	<b>Address: </b><?=$addr;?><br>
-	<b>Mobile: </b><?=$cmob;?>
+	<b>Name: </b><?php  echo $cnm;?><br>
+	<b>Address: </b><?php  echo $addr;?><br>
+	<b>Mobile: </b><?php  echo $cmob;?>
 	</td>
 	<td style="text-align:left;">
-	<b>Brand: </b><?=$brand;?><br>
-	<b>Model: </b><?=$model;?><br>
-	<b>Serial No.: </b><?=$serial_no;?>
+	<b>Brand: </b><?php  echo $brand;?><br>
+	<b>Model: </b><?php  echo $model;?><br>
+	<b>Serial No.: </b><?php  echo $serial_no;?>
 	</td>
 	<td style="text-align:left;">
-	<b>Call ID: </b><?=$call_id;?><br>
-	<b>Call Type: </b><?=$call_type;?>
+	<b>Call ID: </b><?php  echo $call_id;?><br>
+	<b>Call Type: </b><?php  echo $call_type;?>
 	</td>
 	</tr>
 	</table>
 	
-	<?															
+	<?php 															
 		}
 		?>
 
@@ -87,7 +87,7 @@ if($mobid!="")
 <td style="text-align:center"><font size="2" color="#109e59"><b>Remark</b></font></td>
 
 </tr>
-		<?
+		<?php 
 		$getdtl=mysqli_query($conn,"select * from main_call_dtls where callid='$call_id'") or die(mysqli_error($conn));
 		$rcntdtl=mysqli_num_rows($getdtl);
 		while($rowdtl=mysqli_fetch_array($getdtl))
@@ -124,18 +124,18 @@ if($mobid!="")
 			?>
 
 <tr>
-<td style="text-align:center"><?=date('d-m-Y', strtotime($dtledt));?></td>
-<td style="text-align:center"><?=$dtlstatus;?></td>
-<td style="text-align:center"><?=$tchnm;?></td>
-<td style="text-align:center"><?=$dtlparts;?></td>
-<td style="text-align:center"><?=$dtlremark;?></td>
+<td style="text-align:center"><?php echo date('d-m-Y', strtotime($dtledt));?></td>
+<td style="text-align:center"><?php  echo $dtlstatus;?></td>
+<td style="text-align:center"><?php  echo $tchnm;?></td>
+<td style="text-align:center"><?php  echo $dtlparts;?></td>
+<td style="text-align:center"><?php  echo $dtlremark;?></td>
 </tr>
-			<?
+			<?php 
 		}
 ?>
 </table>
 </div>
-<?
+<?php 
 	}
 	else
 	{
@@ -145,7 +145,7 @@ if($mobid!="")
 	<td style="text-align:center;"><font size="4" color="red"><b>Please Enter Valid Mobile No or Call ID</b></font></td>
 	</tr>
 	</table>
-	<?
+	<?php 
 	}
 }
 else
@@ -156,6 +156,6 @@ else
 	<td style="text-align:center;"><font size="4" color="red"><b>Please Enter a Mobile No or Call ID</b></font></td>
 	</tr>
 	</table>
-	<?
+	<?php 
 }
 ?>

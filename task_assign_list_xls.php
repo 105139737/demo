@@ -1,26 +1,29 @@
-<?php
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
+
+$yr=$_REQUEST['yr'];
+$fdt=$yr.'-01-01';
+$tdt=$yr.'-12-31';
+$data= mysqli_query($conn,"select * from main_task where sl IN 
+( SELECT MAX(sl) FROM main_task group by spid,day ) and `dt` BETWEEN '$fdt' AND '$tdt' ORDER BY `main_task`.`spid` ASC")or die(mysqli_error($conn));
 $file="task_assign_list.xls";
 header("Content-type: application/vnd.ms-excel"); 
 header("Content-Disposition: attachment; filename=$file"); 
-
-$data= mysqli_query($conn,"select * from  main_task where sl IN (
-    SELECT MAX(sl)
-    FROM main_task
-	group by spid,day
-)  order by spid")or die(mysqli_error($conn));
 ?>
 <table  border="1"  >
 
 <tr>
+<th style="text-align:left">Brand</font></th>
 <th style="text-align:left">Customer Name</font></th>
+<th style="text-align:left">Current Sales Person ID</font></th>
+<th style="text-align:left">Current Sales Person Name</font></th>
 <th style="text-align:left">Sales Person ID</font></th>
 <th style="text-align:left">Sales Person Name</font></th>
 <th style="text-align:left">Days</font></th>
 
 </tr>
-<?
+<?php 
 while ($row = mysqli_fetch_array($data))
 {
 $x=$row['sl'];
@@ -64,16 +67,36 @@ while ($row1 = mysqli_fetch_array($data1))
 	$csl=$csl." <br/> ".$cnt.") ".$cnm;
 	}
 	
-
-
+$brand=$row13['brand'];
+$cnm="";
+$data15 = mysqli_query($conn,"Select * from main_catg where sl='$brand'");
+while ($row135 = mysqli_fetch_array($data15))
+{
+	$cnm=$row135['cnm'];
+}
+$current_spid="";
+$current_spid_name="";
+$data155 = mysqli_query($conn,"Select * from main_cust_asgn where FIND_IN_SET('$cust_sl',cust) and typ='0' order by sl desc limit 0,1");
+while ($row135 = mysqli_fetch_array($data155))
+{
+	$current_spid=$row135['spid'];
+	$data122 = mysqli_query($conn,"Select * from main_sale_per where spid='$current_spid'");
+    while ($row12 = mysqli_fetch_array($data122))
+	{
+	$current_spid_name=$row12['nm'];
+	}
+}
 ?>
-	<tr>	
-	<td align="left" style="valign:top"><? echo $row13['nm']; ?></td>
-	<td align="left" style="valign:top"><? echo $spid2;?></td>
-	<td align="left" style="valign:top"><? echo $spid_name;?></td>   
-	<td align="left" style="valign:top"><? echo $day;?></td>
+	<tr>
+	 <td align="left" style="valign:top"><?php  echo $cnm; ?></td>   	
+	<td align="left" style="valign:top"><?php  echo $row13['nm']; ?></td>
+	<td align="left" style="valign:top"><?php  echo $current_spid;?></td>
+	<td align="left" style="valign:top"><?php  echo $current_spid_name;?></td>
+	<td align="left" style="valign:top"><?php  echo $spid2;?></td>
+	<td align="left" style="valign:top"><?php  echo $spid_name;?></td>   
+	<td align="left" style="valign:top"><?php  echo $day;?></td>
 	</tr>	 
-<?
+<?php 
 }
 }
 ?>

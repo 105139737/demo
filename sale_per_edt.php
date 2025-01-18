@@ -1,4 +1,4 @@
-<?
+<?php 
 $reqlevel = 3;
 include("membersonly.inc.php");
 include "header.php";
@@ -17,7 +17,7 @@ while($row=mysqli_fetch_array($data))
 <html>
 <head>
 	<div class="wrapper row-offcanvas row-offcanvas-left">
-		<?
+		<?php 
 		include "left_bar.php";
 		?>
 <style type="text/css"> 
@@ -134,30 +134,30 @@ function isNumber(evt)
                 <!-- Main content -->
 <section class="content">
 <form method="post" action="sale_per_edts.php" id="form1" name="form1" onsubmit="return check1()">
-<input type="hidden" id="sl" name="sl" value="<?php echo $sl;?>">
+<input type="hidden" id="sl" name="sl" value="<?php  echo $sl;?>">
 
 <div class="box box-success">
 <table width="860px" class="table table-hover table-striped table-bordered">
 <tr>
 <td style="text-align:right; padding-top:15px;">ID:</td>
 <td>
-<input type="text" id="spid" name="spid" value="<?php echo $spid;?>" readonly onkeyup="this.value=this.value.toUpperCase();" class="form-control" placeholder="Please Enter ID">
+<input type="text" id="spid" name="spid" value="<?php  echo $spid;?>" readonly onkeyup="this.value=this.value.toUpperCase();" class="form-control" placeholder="Please Enter ID">
 </td>
 <td style="text-align:right; padding-top:15px;">Name :</td>
 <td>
-<input type="text" id="nm" name="nm" value="<?php echo $nam;?>" class="form-control" placeholder="Please Enter Name">
+<input type="text" id="nm" name="nm" value="<?php  echo $nam;?>" class="form-control" placeholder="Please Enter Name">
 </td>
 </tr>
 <tr>
 <td style="text-align:right; padding-top:15px;">Mobile No. :</td>
 <td>
-<input type="text" class="form-control" value="<?php echo $mob;?>" id="mob" name="mob" onkeypress="return isNumber(event)" maxlength="10" placeholder="Please Enter Mobile No.">
+<input type="text" class="form-control" value="<?php  echo $mob;?>" id="mob" name="mob" onkeypress="return isNumber(event)" maxlength="10" placeholder="Please Enter Mobile No.">
 </td>
 
 
 <td style="text-align:right; padding-top:15px;">Address:</td>
 <td colspan="3">
-<input type="text" class="form-control" id="addr" name="addr" value="<?php echo $addr;?>" placeholder="Please Enter Address">
+<input type="text" class="form-control" id="addr" name="addr" value="<?php  echo $addr;?>" placeholder="Please Enter Address">
 </td>
 </tr>
 <tr>
@@ -165,21 +165,21 @@ function isNumber(evt)
 <td >
 <select class="form-control" id="typ" name="typ">
 <option value="">----Select----</option>
-<option value="4" <?php if($typ=='4'){echo 'selected';}?>>Salesman</option>
-<option value="8" <?php if($typ=='8'){echo 'selected';}?>>Shop</option>
+<option value="4" <?php  if($typ=='4'){echo 'selected';}?>>Salesman</option>
+<option value="8" <?php  if($typ=='8'){echo 'selected';}?>>Shop</option>
 </select>
 </td>
 
 <td align="right" style="padding-top:15px;">Branch : </td>
 <td>
 <select name="brncd" class="form-control"  tabindex="1"   size="1" id="brncd" required>
-<?
+<?php 
 if($user_current_level<0)
 {
 $query="Select * from main_branch";
 ?>
 <option value="">---ALL---</option>
-<?
+<?php 
 }
 else
 {
@@ -192,8 +192,8 @@ $bsl=$R['sl'];
 $bnm=$R['bnm'];
 
 ?>
-<option value="<? echo $bsl;?>"<?php if($bsl==$brncd){echo 'selected';}?>><? echo $bnm;?></option>
-<?
+<option value="<?php  echo $bsl;?>"<?php  if($bsl==$brncd){echo 'selected';}?>><?php  echo $bnm;?></option>
+<?php 
 }
 ?>
 </select>
